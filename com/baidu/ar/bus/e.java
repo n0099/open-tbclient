@@ -1,8 +1,7 @@
 package com.baidu.ar.bus;
 
-import com.baidu.searchbox.ugc.model.UgcConstant;
 import java.lang.reflect.Method;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class e {
     final Method kI;
     final ThreadMode kJ;
@@ -19,7 +18,7 @@ public class e {
         if (this.kL == null) {
             StringBuilder sb = new StringBuilder(64);
             sb.append(this.kI.getDeclaringClass().getName());
-            sb.append(UgcConstant.TOPIC_PATTERN_TAG).append(this.kI.getName());
+            sb.append('#').append(this.kI.getName());
             sb.append('(').append(this.kK.getName());
             this.kL = sb.toString();
         }

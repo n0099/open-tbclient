@@ -4,7 +4,7 @@ import android.os.Bundle;
 import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
 import com.tencent.mm.opensdk.utils.Log;
 import com.tencent.mm.opensdk.utils.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class WXMiniProgramObject implements WXMediaMessage.IMediaObject {
     public static final int MINIPROGRAM_TYPE_PREVIEW = 2;
     public static final int MINIPROGRAM_TYPE_TEST = 1;

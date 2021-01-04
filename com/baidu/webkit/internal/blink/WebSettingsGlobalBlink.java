@@ -29,6 +29,7 @@ import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.WebSettings;
 import com.baidu.webkit.sdk.WebViewFactory;
 import com.heytap.mcssdk.mode.CommandMessage;
+import com.kwad.sdk.core.response.model.SdkConfigData;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -46,7 +47,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public class WebSettingsGlobalBlink implements INoProGuard {
     private static final String CLOUD_SETTING_URL = "https://browserkernel.baidu.com/config/t5config?cmd=1&";
     private static final String DEFAULT_MULTIPROCESS_MODELS = "TRT-AL00A,TRT-AL00,TRT-TL10A,TRT-TL10,SLA-AL00,SLA-TL10,DLI-AL10,DLI-TL20,SM-C5000";
@@ -145,7 +146,7 @@ public class WebSettingsGlobalBlink implements INoProGuard {
 
     public static void checkHttpDnsUpdate() {
         if (WebKitFactory.getNeedDownloadCloudResource() && getHttpDnsUpdateEnabled()) {
-            int i = 3600;
+            int i = SdkConfigData.DEFAULT_REQUEST_INTERVAL;
             String GetCloudSettingsValue = GetCloudSettingsValue("httpdns_check_interval");
             if (GetCloudSettingsValue != null && !GetCloudSettingsValue.isEmpty()) {
                 try {
@@ -1235,31 +1236,16 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         return true;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:11:0x0026 A[ORIG_RETURN, RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:15:0x002f A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public static String getSessionUploadUrl() {
-        String str;
-        Throwable th;
         try {
-            str = WebViewFactory.hasProvider() ? WebViewFactory.getProvider().getSettingsStatics().getSessionUploadUrl() : null;
-            try {
-                if (TextUtils.isEmpty(str)) {
-                    str = GetCloudSettingsValue("session_upload_url");
-                }
-            } catch (Throwable th2) {
-                th = th2;
-                Log.printStackTrace(th);
-                if (TextUtils.isEmpty(str)) {
-                }
+            r0 = WebViewFactory.hasProvider() ? WebViewFactory.getProvider().getSettingsStatics().getSessionUploadUrl() : null;
+            if (TextUtils.isEmpty(r0)) {
+                r0 = GetCloudSettingsValue("session_upload_url");
             }
-        } catch (Throwable th3) {
-            str = null;
-            th = th3;
+        } catch (Throwable th) {
+            Log.printStackTrace(th);
         }
-        return TextUtils.isEmpty(str) ? str : SESSION_UPLOAD_URL;
+        return !TextUtils.isEmpty(r0) ? r0 : SESSION_UPLOAD_URL;
     }
 
     public static String getSkeletonJsUrl() {

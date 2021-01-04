@@ -12,9 +12,9 @@ import com.baidu.live.tbadk.BaseActivity;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.BaseFragmentActivity;
-import com.baidu.live.tbadk.core.data.RequestResponseCode;
+import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class SelectImageHelper {
     public static final int REQUEST_WRITE_EXTERNAL_STORGE_AND_CAMERA_PERMISSON = 1;
     public static final String TMP_IMAGE_NAME = "camera.jpg";
@@ -32,7 +32,7 @@ public class SelectImageHelper {
                 if (CreateFile != null) {
                     Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
                     intent.putExtra("output", UtilHelper.getUriFromFile(CreateFile, intent, tbPageContext.getPageActivity()));
-                    tbPageContext.getPageActivity().startActivityForResult(intent, RequestResponseCode.REQUEST_CAMERA);
+                    tbPageContext.getPageActivity().startActivityForResult(intent, 12001);
                 } else if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
                     ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(a.h.sdk_error_sd_error));
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
@@ -69,7 +69,7 @@ public class SelectImageHelper {
                 if (z) {
                     Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
                     intent.putExtra("output", UtilHelper.getUriFromFile(file, intent, tbPageContext.getPageActivity()));
-                    tbPageContext.getPageActivity().startActivityForResult(intent, RequestResponseCode.REQUEST_CAMERA);
+                    tbPageContext.getPageActivity().startActivityForResult(intent, 12001);
                 }
             }
             if (!z) {
@@ -93,7 +93,7 @@ public class SelectImageHelper {
             Intent intent = new Intent();
             intent.setType("image/*");
             intent.setAction("android.intent.action.GET_CONTENT");
-            activity.startActivityForResult(intent, RequestResponseCode.REQUEST_ALBUM_IMAGE);
+            activity.startActivityForResult(intent, 12002);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
@@ -101,7 +101,7 @@ public class SelectImageHelper {
 
     public static int readPictureDegree(String str) {
         try {
-            switch (new ExifInterface(str).getAttributeInt(android.support.media.ExifInterface.TAG_ORIENTATION, 1)) {
+            switch (new ExifInterface(str).getAttributeInt("Orientation", 1)) {
                 case 3:
                     return 180;
                 case 4:
@@ -112,7 +112,7 @@ public class SelectImageHelper {
                 case 6:
                     return 90;
                 case 8:
-                    return 270;
+                    return SubsamplingScaleImageView.ORIENTATION_270;
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -121,22 +121,16 @@ public class SelectImageHelper {
     }
 
     private static Bitmap photoResult(int i) {
-        Exception e;
         try {
             int readPictureDegree = readPictureDegree(FileHelper.getFileDireciory(TMP_IMAGE_NAME));
             Bitmap subSampleBitmap = BitmapHelper.subSampleBitmap(TMP_IMAGE_NAME, i);
             if (readPictureDegree != 0 && subSampleBitmap != null) {
-                try {
-                    return BitmapHelper.rotateBitmapBydegree(subSampleBitmap, readPictureDegree);
-                } catch (Exception e2) {
-                    e = e2;
-                    BdLog.e(e.getMessage());
-                    return null;
-                }
+                return BitmapHelper.rotateBitmapBydegree(subSampleBitmap, readPictureDegree);
             }
             return subSampleBitmap;
-        } catch (Exception e3) {
-            e = e3;
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+            return null;
         }
     }
 

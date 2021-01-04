@@ -4,70 +4,70 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import com.baidu.ala.recorder.AlaLiveRecorder;
-import com.baidu.live.ar.j;
+import com.baidu.live.ar.k;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.tieba.ala.liveroom.views.AlaLiveView;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class e {
-    public com.baidu.tieba.ala.liveroom.p.d hpT;
-    public AlaLiveView hpU;
-    public AlaLiveRecorder hqk;
-    public View hql;
-    public FrameLayout hqm;
-    public ViewGroup hqn;
-    public com.baidu.tieba.ala.liveroom.master.a.d hqo;
-    public j hqp;
-    public AlaLiveRecorderPerfData hqq;
-    public com.baidu.live.tieba.e.b hqr;
-    public com.baidu.live.liveroom.middleware.a hqs;
+    public com.baidu.tieba.ala.liveroom.p.d hBP;
+    public AlaLiveView hBQ;
+    public AlaLiveRecorder hCg;
+    public View hCh;
+    public FrameLayout hCi;
+    public ViewGroup hCj;
+    public com.baidu.tieba.ala.liveroom.master.a.d hCk;
+    public k hCl;
+    public AlaLiveRecorderPerfData hCm;
+    public com.baidu.live.tieba.e.b hCn;
+    public com.baidu.live.liveroom.middleware.a hCo;
     private int liveType;
     public TbPageContext pageContext;
     public ViewGroup rootView;
 
-    public int ceG() {
+    public int bUl() {
         return this.liveType;
     }
 
-    public void wE(int i) {
+    public void wP(int i) {
         this.liveType = i;
-        if (this.hqo != null) {
-            this.hqo.xg(i);
+        if (this.hCk != null) {
+            this.hCk.xr(i);
         }
     }
 
     public void g(short s) {
-        if (this.hqo != null) {
-            this.hqo.g(s);
+        if (this.hCk != null) {
+            this.hCk.g(s);
         }
     }
 
-    public void Yj() {
-        if (this.hqo != null) {
-            this.hqo.Yj();
+    public void Zr() {
+        if (this.hCk != null) {
+            this.hCk.Zr();
         }
     }
 
-    public void bhU() {
-        if (this.hqo != null) {
-            this.hqo.bhU();
+    public void chw() {
+        if (this.hCk != null) {
+            this.hCk.chw();
         }
     }
 
-    public void ceH() {
-        if (this.hqo != null) {
-            this.hqo.ceH();
+    public void chx() {
+        if (this.hCk != null) {
+            this.hCk.chx();
         }
     }
 
-    public void ceI() {
-        if (this.hqo != null) {
-            this.hqo.ceI();
+    public void chy() {
+        if (this.hCk != null) {
+            this.hCk.chy();
         }
     }
 
-    public void ceJ() {
-        if (this.hqo != null) {
-            this.hqo.ceJ();
+    public void chz() {
+        if (this.hCk != null) {
+            this.hCk.chz();
         }
     }
 }

@@ -28,7 +28,7 @@ import java.util.List;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public abstract class UploadBean extends NetworkBean {
     public static final int COMET_BEAN = 1;
     private static final String TAG = UploadBean.class.getSimpleName();
@@ -40,7 +40,7 @@ public abstract class UploadBean extends NetworkBean {
     private String mTskKey;
     private Class<?> rspClass;
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes6.dex */
     public static class UploadFileModel {
         public String contentType;
         public String fileName;
@@ -205,7 +205,6 @@ public abstract class UploadBean extends NetworkBean {
     }
 
     private RestMultipartEntity generateMultipartEntity() throws Exception {
-        boolean z = false;
         RestMultipartEntity restMultipartEntity = new RestMultipartEntity();
         List<RestNameValuePair> requestParams = getRequestParams();
         if (requestParams != null) {
@@ -213,15 +212,15 @@ public abstract class UploadBean extends NetworkBean {
                 restMultipartEntity.addPart(restNameValuePair.getName(), restNameValuePair.getValue());
             }
         }
-        int i = 0;
-        while (i < this.files.size()) {
-            boolean z2 = i == this.files.size() + (-1) ? true : z;
+        boolean z = false;
+        for (int i = 0; i < this.files.size(); i++) {
+            if (i == this.files.size() - 1) {
+                z = true;
+            }
             UploadFileModel uploadFileModel = this.files.get(i);
             if (uploadFileModel != null && uploadFileModel.filedata != null) {
-                restMultipartEntity.addPart(uploadFileModel.name, uploadFileModel.fileName, new ByteArrayInputStream(uploadFileModel.filedata), uploadFileModel.contentType, z2);
+                restMultipartEntity.addPart(uploadFileModel.name, uploadFileModel.fileName, new ByteArrayInputStream(uploadFileModel.filedata), uploadFileModel.contentType, z);
             }
-            i++;
-            z = z2;
         }
         restMultipartEntity.setProgressListener(this.listener);
         return restMultipartEntity;

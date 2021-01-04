@@ -7,37 +7,37 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.write.a;
 /* loaded from: classes.dex */
 public class f extends h {
-    private a.C0890a nUe;
-    private Animation nUf;
-    private Animation nUg;
+    private Animation nXA;
+    private Animation nXB;
+    private a.C0872a nXz;
 
-    public f(Context context, a.C0890a c0890a) {
-        super(context, c0890a);
-        this.nUe = c0890a;
-        this.nUf = AnimationUtils.loadAnimation(this.mContext, R.anim.ubs_test_in_anim);
-        this.nUg = AnimationUtils.loadAnimation(this.mContext, R.anim.ubs_test_out_anim);
-        this.nUf.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.write.f.1
+    public f(Context context, a.C0872a c0872a) {
+        super(context, c0872a);
+        this.nXz = c0872a;
+        this.nXA = AnimationUtils.loadAnimation(this.mContext, R.anim.ubs_test_in_anim);
+        this.nXB = AnimationUtils.loadAnimation(this.mContext, R.anim.ubs_test_out_anim);
+        this.nXA.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.write.f.1
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                f.this.Tk();
+                f.this.Up();
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationRepeat(Animation animation) {
             }
         });
-        this.nUg.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.write.f.2
+        this.nXB.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.write.f.2
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                f.this.Tl();
+                f.this.Uq();
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -47,32 +47,32 @@ public class f extends h {
     }
 
     @Override // com.baidu.tieba.write.h
-    public void dYt() {
+    public void dXW() {
         if (this.mState == 4) {
             this.mState = 1;
-            if (this.nUn != null) {
-                this.nUn.MG(this.mState);
+            if (this.nXI != null) {
+                this.nXI.Mt(this.mState);
             }
             clearAnimation();
-            this.nUe.nSo.startAnimation(this.nUf);
+            this.nXz.nVJ.startAnimation(this.nXA);
         }
     }
 
     @Override // com.baidu.tieba.write.h
-    public void aDc() {
+    public void aEu() {
         if (this.mState == 2) {
             this.mState = 3;
-            if (this.nUn != null) {
-                this.nUn.MG(this.mState);
+            if (this.nXI != null) {
+                this.nXI.Mt(this.mState);
             }
             clearAnimation();
-            this.nUe.nSo.startAnimation(this.nUg);
+            this.nXz.nVJ.startAnimation(this.nXB);
         }
     }
 
     @Override // com.baidu.tieba.write.h
-    public void dYu() {
-        Tl();
+    public void dXX() {
+        Uq();
     }
 
     @Override // com.baidu.tieba.write.h
@@ -81,26 +81,26 @@ public class f extends h {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Tk() {
-        this.nUe.ehl.setClickable(true);
+    public void Up() {
+        this.nXz.eqn.setClickable(true);
         this.mState = 2;
-        if (this.nUn != null) {
-            this.nUn.MG(this.mState);
+        if (this.nXI != null) {
+            this.nXI.Mt(this.mState);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Tl() {
-        this.nUe.ehl.setClickable(false);
+    public void Uq() {
+        this.nXz.eqn.setClickable(false);
         this.mState = 4;
-        if (this.nUn != null) {
-            this.nUn.MG(this.mState);
+        if (this.nXI != null) {
+            this.nXI.Mt(this.mState);
         }
     }
 
     private void clearAnimation() {
-        this.nUf.cancel();
-        this.nUg.cancel();
-        this.nUe.nSo.clearAnimation();
+        this.nXA.cancel();
+        this.nXB.cancel();
+        this.nXz.nVJ.clearAnimation();
     }
 }

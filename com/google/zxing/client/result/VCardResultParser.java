@@ -11,7 +11,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class VCardResultParser extends ResultParser {
     private static final Pattern BEGIN_VCARD = Pattern.compile("BEGIN:VCARD", 2);
     private static final Pattern VCARD_LIKE_DATE = Pattern.compile("\\d{4}-?\\d{2}-?\\d{2}");
@@ -59,7 +59,7 @@ public final class VCardResultParser extends ResultParser {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: Code restructure failed: missing block: B:48:0x00d9, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:48:0x00d8, code lost:
         r0 = r6;
      */
     /*
@@ -70,7 +70,7 @@ public final class VCardResultParser extends ResultParser {
         ArrayList arrayList;
         int indexOf;
         String replaceAll;
-        boolean z3;
+        String[] split;
         int i = 0;
         int length = str.length();
         ArrayList arrayList2 = null;
@@ -85,17 +85,13 @@ public final class VCardResultParser extends ResultParser {
             int end = matcher.end(0);
             String group = matcher.group(1);
             ArrayList arrayList3 = null;
-            boolean z4 = false;
+            boolean z3 = false;
             String str3 = null;
             if (group == null) {
                 str2 = null;
                 arrayList = null;
             } else {
-                String[] split = SEMICOLON.split(group);
-                int length2 = split.length;
-                int i2 = 0;
-                while (i2 < length2) {
-                    String str4 = split[i2];
+                for (String str4 : SEMICOLON.split(group)) {
                     if (arrayList3 == null) {
                         arrayList3 = new ArrayList(1);
                     }
@@ -108,29 +104,23 @@ public final class VCardResultParser extends ResultParser {
                             z3 = true;
                         } else if ("CHARSET".equalsIgnoreCase(str5)) {
                             str3 = str6;
-                            z3 = z4;
                         }
-                        i2++;
-                        z4 = z3;
                     }
-                    z3 = z4;
-                    i2++;
-                    z4 = z3;
                 }
                 str2 = str3;
                 arrayList = arrayList3;
             }
-            int i3 = end;
+            int i2 = end;
             while (true) {
-                indexOf = str.indexOf(10, i3);
+                indexOf = str.indexOf(10, i2);
                 if (indexOf < 0) {
                     break;
                 } else if (indexOf < str.length() - 1 && (str.charAt(indexOf + 1) == ' ' || str.charAt(indexOf + 1) == '\t')) {
-                    i3 = indexOf + 2;
-                } else if (!z4 || ((indexOf <= 0 || str.charAt(indexOf - 1) != '=') && (indexOf < 2 || str.charAt(indexOf - 2) != '='))) {
+                    i2 = indexOf + 2;
+                } else if (!z3 || ((indexOf <= 0 || str.charAt(indexOf - 1) != '=') && (indexOf < 2 || str.charAt(indexOf - 2) != '='))) {
                     break;
                 } else {
-                    i3 = indexOf + 1;
+                    i2 = indexOf + 1;
                 }
             }
             if (indexOf > end) {
@@ -144,7 +134,7 @@ public final class VCardResultParser extends ResultParser {
                 if (z) {
                     substring = substring.trim();
                 }
-                if (z4) {
+                if (z3) {
                     replaceAll = decodeQuotedPrintable(substring, str2);
                     if (z2) {
                         replaceAll = UNESCAPED_SEMICOLONS.matcher(replaceAll).replaceAll("\n").trim();

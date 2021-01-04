@@ -3,7 +3,7 @@ package com.baidu.android.common.others.java;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class Patterns {
     public static final String GOOD_IRI_CHAR = "a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef";
     public static final String PARAM_BAIDU_CLOUD_VALUE_CHAR = "a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef\\;\\/\\:\\@\\#\\~\\-\\.\\+\\!\\*\\'\\(\\)\\,\\_\\%\\?\\=\\&";

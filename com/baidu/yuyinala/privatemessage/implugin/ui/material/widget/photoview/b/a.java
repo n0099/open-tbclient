@@ -1,9 +1,9 @@
 package com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public final class a {
-    private static b oUd = new c();
+    private static b paj = new c();
 
-    public static b eng() {
-        return oUd;
+    public static b eni() {
+        return paj;
     }
 }

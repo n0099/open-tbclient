@@ -4,7 +4,7 @@ import android.content.Context;
 import android.net.NetworkInfo;
 import android.net.Proxy;
 import com.baidu.platform.comjni.engine.NAEngine;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class k {
     /* JADX WARN: Removed duplicated region for block: B:31:0x0081  */
     /* JADX WARN: Removed duplicated region for block: B:54:0x00ee  */
@@ -12,7 +12,6 @@ public class k {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static void a(Context context) {
-        String str;
         int i = 80;
         boolean z = true;
         NetworkInfo activeNetworkInfo = NetworkUtil.getActiveNetworkInfo(context);
@@ -28,19 +27,16 @@ public class k {
                 if (extraInfo != null) {
                     String lowerCase2 = extraInfo.toLowerCase();
                     if (lowerCase2.startsWith("cmwap") || lowerCase2.startsWith("uniwap") || lowerCase2.startsWith("3gwap") || lowerCase2.startsWith("cuwap")) {
-                        str = "10.0.0.172";
+                        defaultHost = "10.0.0.172";
                     } else if (lowerCase2.startsWith("ctwap")) {
-                        str = "10.0.0.200";
+                        defaultHost = "10.0.0.200";
                     } else if (lowerCase2.startsWith("cmnet") || lowerCase2.startsWith("uninet") || lowerCase2.startsWith("ctnet") || lowerCase2.startsWith("3gnet")) {
                         z = false;
                         i = defaultPort;
-                        str = defaultHost;
                     } else {
                         z = false;
                         i = defaultPort;
-                        str = defaultHost;
                     }
-                    defaultHost = str;
                     defaultPort = i;
                 } else {
                     String defaultHost2 = Proxy.getDefaultHost();

@@ -9,31 +9,33 @@ import com.baidu.platform.comapi.wnplatform.p.g;
 import com.google.protobuf.micro.MessageMicro;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class e extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f3137a = 0;
-    private int b = 0;
+    private int f4669a = 0;
+
+    /* renamed from: b  reason: collision with root package name */
+    private int f4670b = 0;
     private int c = 1;
     private ArrayList<LatLng> d = new ArrayList<>();
     private com.baidu.g.a.d e = null;
 
     public String a() {
         StringBuffer stringBuffer = new StringBuffer();
-        g.a(this.f3137a, g.b.ZH, stringBuffer);
+        g.a(this.f4669a, g.b.ZH, stringBuffer);
         return stringBuffer.toString();
     }
 
     public String b() {
         StringBuffer stringBuffer = new StringBuffer();
-        g.b(this.b, g.b.ZH, stringBuffer);
+        g.b(this.f4670b, g.b.ZH, stringBuffer);
         return stringBuffer.toString();
     }
 
     public void c() {
-        this.f3137a = 0;
-        this.b = 0;
+        this.f4669a = 0;
+        this.f4670b = 0;
         if (this.d != null) {
             this.d.clear();
         }
@@ -43,13 +45,13 @@ public class e extends a {
         c();
         if (bundle != null) {
             this.c = i;
-            this.f3137a = bundle.getInt("totaldistance");
-            this.b = bundle.getInt("totaltime");
-            if (this.f3137a <= 0 && this.e != null) {
-                this.f3137a = b(this.e, com.baidu.platform.comapi.walknavi.b.a().b());
+            this.f4669a = bundle.getInt("totaldistance");
+            this.f4670b = bundle.getInt("totaltime");
+            if (this.f4669a <= 0 && this.e != null) {
+                this.f4669a = b(this.e, com.baidu.platform.comapi.walknavi.b.a().b());
             }
-            if (this.b <= 0 && this.e != null) {
-                this.b = a(this.e, com.baidu.platform.comapi.walknavi.b.a().b());
+            if (this.f4670b <= 0 && this.e != null) {
+                this.f4670b = a(this.e, com.baidu.platform.comapi.walknavi.b.a().b());
             }
             double[] doubleArray = bundle.getDoubleArray("ptShapeX");
             double[] doubleArray2 = bundle.getDoubleArray("ptShapeY");
@@ -91,7 +93,7 @@ public class e extends a {
     }
 
     public int e() {
-        return this.f3137a;
+        return this.f4669a;
     }
 
     public int a(com.baidu.g.a.d dVar, int i) {
@@ -101,13 +103,13 @@ public class e extends a {
             return 0;
         }
         d.b bVar = null;
-        if (i < dVar.vI()) {
+        if (i < dVar.uZ()) {
             bVar = dVar.ce(i);
         }
         if (bVar == null) {
             i2 = 0;
         } else {
-            Iterator<d.b.C0130b> it = bVar.vL().iterator();
+            Iterator<d.b.C0122b> it = bVar.vc().iterator();
             while (true) {
                 i2 = i3;
                 if (!it.hasNext()) {
@@ -116,9 +118,9 @@ public class e extends a {
                 i3 = it.next().getDuration() + i2;
             }
         }
-        for (com.baidu.g.a.b bVar2 : dVar.wq()) {
-            for (b.C0125b c0125b : bVar2.vH()) {
-                for (b.C0125b.a aVar : c0125b.vL()) {
+        for (com.baidu.g.a.b bVar2 : dVar.vH()) {
+            for (b.C0117b c0117b : bVar2.uY()) {
+                for (b.C0117b.a aVar : c0117b.vc()) {
                     i2 += aVar.getDuration();
                 }
             }
@@ -133,11 +135,11 @@ public class e extends a {
             return 0;
         }
         d.b bVar = null;
-        if (i < dVar.vI()) {
+        if (i < dVar.uZ()) {
             bVar = dVar.ce(i);
         }
         if (bVar != null) {
-            Iterator<d.b.C0130b> it = bVar.vL().iterator();
+            Iterator<d.b.C0122b> it = bVar.vc().iterator();
             while (true) {
                 i2 = i3;
                 if (!it.hasNext()) {
@@ -148,9 +150,9 @@ public class e extends a {
         } else {
             i2 = 0;
         }
-        for (com.baidu.g.a.b bVar2 : dVar.wq()) {
-            for (b.C0125b c0125b : bVar2.vH()) {
-                for (b.C0125b.a aVar : c0125b.vL()) {
+        for (com.baidu.g.a.b bVar2 : dVar.vH()) {
+            for (b.C0117b c0117b : bVar2.uY()) {
+                for (b.C0117b.a aVar : c0117b.vc()) {
                     i2 += aVar.getDistance();
                 }
             }

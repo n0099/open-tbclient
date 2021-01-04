@@ -16,7 +16,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes17.dex */
+/* loaded from: classes15.dex */
 public class FlutterWebView implements MethodChannel.MethodCallHandler, PlatformView {
     private static final String JS_CHANNEL_NAMES_FIELD = "javascriptChannelNames";
     private final FlutterWebViewClient flutterWebViewClient;

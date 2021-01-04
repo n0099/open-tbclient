@@ -1,7 +1,7 @@
 package com.baidu.tieba.livesdk.b;
 
 import java.security.MessageDigest;
-/* loaded from: classes4.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static int sha1_32(byte[] bArr) {
         try {

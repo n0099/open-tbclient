@@ -1,20 +1,20 @@
 package com.baidu.swan.apps.adaptation.implementation;
 
 import com.baidu.swan.apps.adaptation.a.am;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class u implements am {
     @Override // com.baidu.swan.apps.adaptation.a.am
     public String getSchemeHeader() {
-        return com.baidu.swan.config.c.c.aRm().getSchemeHeader();
+        return com.baidu.swan.config.c.c.aTH().getSchemeHeader();
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.am
     public String getHostName() {
-        return com.baidu.swan.config.c.c.aRm().getHostName();
+        return com.baidu.swan.config.c.c.aTH().getHostName();
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.am
-    public String akk() {
-        return com.baidu.swan.config.c.c.aRm().akk();
+    public String als() {
+        return com.baidu.swan.config.c.c.aTH().als();
     }
 }

@@ -1,10 +1,10 @@
 package io.reactivex.internal.schedulers;
 
 import io.reactivex.v;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public interface h {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(int i, v.c cVar);
     }

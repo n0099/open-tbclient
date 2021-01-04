@@ -2,7 +2,7 @@ package com.baidu.platform.comjni.map.score;
 
 import android.os.Bundle;
 import com.baidu.platform.comjni.JNIBaseApi;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class NAScoreControl extends JNIBaseApi {
     private native void nativeCancel(long j);
 

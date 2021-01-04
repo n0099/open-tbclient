@@ -1,34 +1,34 @@
 package com.baidu.tieba.NEGFeedBack;
 
 import android.content.Context;
-import android.support.v7.widget.AppCompatImageView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import androidx.appcompat.widget.AppCompatImageView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.at;
 import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
-/* loaded from: classes21.dex */
+/* loaded from: classes.dex */
 public class NEGFeedBackView extends AppCompatImageView {
-    private int VT;
-    private int VU;
-    private long aZz;
-    private int amN;
-    private int amO;
-    c fWs;
-    private View.OnClickListener fWt;
+    private int VV;
+    private int VW;
+    private int adG;
+    private int anr;
+    private int ans;
+    private long bbg;
+    c gfY;
+    private View.OnClickListener gfZ;
     private Context mContext;
-    private int mPaddingTop;
 
-    /* loaded from: classes21.dex */
+    /* loaded from: classes.dex */
     public interface a {
         void onCheckedChanged(at atVar, CompoundButton compoundButton, boolean z);
 
@@ -39,18 +39,18 @@ public class NEGFeedBackView extends AppCompatImageView {
 
     public NEGFeedBackView(TbPageContext tbPageContext) {
         super(tbPageContext.getPageActivity());
-        this.aZz = 0L;
-        this.amN = R.drawable.icon_pure_card_more22;
-        this.amO = R.color.CAM_X0111;
-        this.fWt = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.NEGFeedBackView.1
+        this.bbg = 0L;
+        this.anr = R.drawable.icon_pure_card_more22;
+        this.ans = R.color.CAM_X0111;
+        this.gfZ = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.NEGFeedBackView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                NEGFeedBackView.this.bLq();
+                NEGFeedBackView.this.bNI();
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - NEGFeedBackView.this.aZz > 500) {
+                if (currentTimeMillis - NEGFeedBackView.this.bbg > 500) {
                     NEGFeedBackView.this.O(view);
                 }
-                NEGFeedBackView.this.aZz = currentTimeMillis;
+                NEGFeedBackView.this.bbg = currentTimeMillis;
             }
         };
         this.mContext = tbPageContext.getPageActivity();
@@ -58,14 +58,14 @@ public class NEGFeedBackView extends AppCompatImageView {
     }
 
     private void l(TbPageContext tbPageContext) {
-        this.fWs = new c(tbPageContext, this);
-        setOnClickListener(this.fWt);
+        this.gfY = new c(tbPageContext, this);
+        setOnClickListener(this.gfZ);
         setScaleType(ImageView.ScaleType.CENTER_INSIDE);
         onChangeSkinType();
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
-        this.fWs.setUniqueId(bdUniqueId);
+        this.gfY.setUniqueId(bdUniqueId);
     }
 
     public void setDefaultLayout() {
@@ -73,27 +73,27 @@ public class NEGFeedBackView extends AppCompatImageView {
     }
 
     public void setLeftPadding(int i) {
-        this.VU = i;
-        setPadding(i, this.mPaddingTop, this.VT, 0);
+        this.VW = i;
+        setPadding(i, this.adG, this.VV, 0);
     }
 
     public void setTopPadding(int i) {
-        this.mPaddingTop = i;
-        setPadding(this.VU, i, this.VT, 0);
+        this.adG = i;
+        setPadding(this.VW, i, this.VV, 0);
     }
 
     public void setRightPadding(int i) {
-        this.VT = i;
-        setPadding(this.VU, this.mPaddingTop, i, 0);
+        this.VV = i;
+        setPadding(this.VW, this.adG, i, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void O(View view) {
-        this.fWs.O(view);
+        this.gfY.O(view);
     }
 
-    public void bLq() {
-        this.fWs.bLq();
+    public void bNI() {
+        this.gfY.bNI();
     }
 
     public void setCWRotateAnimation() {
@@ -105,39 +105,39 @@ public class NEGFeedBackView extends AppCompatImageView {
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.fWs.onDetachedFromWindow();
+        this.gfY.onDetachedFromWindow();
     }
 
     public void setData(at atVar) {
-        this.fWs.setData(atVar);
+        this.gfY.setData(atVar);
     }
 
     public void setFirstRowSingleColumn(boolean z) {
-        this.fWs.setFirstRowSingleColumn(z);
+        this.gfY.setFirstRowSingleColumn(z);
     }
 
     public void onChangeSkinType() {
-        setImageDrawable(WebPManager.a(this.amN, ap.getColor(this.amO), WebPManager.ResourceStateType.NORMAL_PRESS));
+        setImageDrawable(WebPManager.a(this.anr, ao.getColor(this.ans), WebPManager.ResourceStateType.NORMAL_PRESS));
     }
 
     public void setEventCallback(a aVar) {
-        this.fWs.setEventCallback(aVar);
+        this.gfY.setEventCallback(aVar);
     }
 
     public void setAutoProcess(boolean z) {
-        this.fWs.setAutoProcess(z);
+        this.gfY.setAutoProcess(z);
     }
 
     public void setHeadText(String str) {
-        this.fWs.setHeadText(str);
+        this.gfY.setHeadText(str);
     }
 
-    public void aJ(boolean z) {
-        this.fWs.aJ(z);
+    public void aI(boolean z) {
+        this.gfY.aI(z);
     }
 
     public void setDefaultReasonArray(String[] strArr) {
-        this.fWs.setDefaultReasonArray(strArr);
+        this.gfY.setDefaultReasonArray(strArr);
     }
 
     public void a(ViewGroup viewGroup, int i, int i2) {
@@ -171,8 +171,8 @@ public class NEGFeedBackView extends AppCompatImageView {
     }
 
     public void setWebPResId(int i, int i2) {
-        this.amN = i;
-        this.amO = i2;
-        setImageDrawable(WebPManager.a(this.amN, ap.getColor(this.amO), WebPManager.ResourceStateType.NORMAL_PRESS));
+        this.anr = i;
+        this.ans = i2;
+        setImageDrawable(WebPManager.a(this.anr, ao.getColor(this.ans), WebPManager.ResourceStateType.NORMAL_PRESS));
     }
 }

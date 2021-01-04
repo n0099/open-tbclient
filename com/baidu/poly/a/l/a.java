@@ -2,22 +2,22 @@ package com.baidu.poly.a.l;
 
 import android.text.TextUtils;
 import android.view.ViewGroup;
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 public class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.poly.a.l.a$a  reason: collision with other inner class name */
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     public static class RunnableC0319a implements Runnable {
-        final /* synthetic */ c cij;
+        final /* synthetic */ c cpl;
 
         RunnableC0319a(c cVar) {
-            this.cij = cVar;
+            this.cpl = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            a.a(this.cij);
+            a.a(this.cpl);
         }
     }
 

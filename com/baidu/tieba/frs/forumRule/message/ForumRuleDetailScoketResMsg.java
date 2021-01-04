@@ -1,10 +1,10 @@
 package com.baidu.tieba.frs.forumRule.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.frs.forumRule.c.b;
+import com.baidu.tieba.frs.forumRule.b.b;
 import com.squareup.wire.Wire;
 import tbclient.ForumRuleDetail.ForumRuleDetailResIdl;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class ForumRuleDetailScoketResMsg extends SocketResponsedMessage {
     private b mForumRuleDetailData;
 

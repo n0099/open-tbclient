@@ -1,25 +1,20 @@
 package com.baidu.live.t;
 
 import android.view.ViewGroup;
-import com.baidu.live.data.w;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
+import com.baidu.live.data.x;
+/* loaded from: classes11.dex */
 public interface a {
-    void Do();
+    void LE();
 
-    boolean Em();
+    void b(x xVar);
 
-    boolean N(JSONObject jSONObject);
+    void dU(int i);
 
-    boolean Qx();
+    void f(x xVar);
 
-    void a(ViewGroup viewGroup, w wVar);
+    void onDestory();
 
-    void a(w wVar);
+    void onKeyboardVisibilityChanged(boolean z);
 
-    void onDestroy();
-
-    void setCanVisible(boolean z);
-
-    void setIsHost(boolean z);
+    void p(ViewGroup viewGroup);
 }

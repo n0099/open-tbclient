@@ -1,18 +1,18 @@
 package com.baidu.live.talentshow.components.enter;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.live.sdk.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class LiveBCChatEnterView extends FrameLayout {
-    private ImageView bzi;
-    private FrameLayout bzj;
-    private ImageView bzk;
+    private ImageView bDV;
+    private FrameLayout bDW;
+    private ImageView bDX;
 
     public LiveBCChatEnterView(@NonNull Context context) {
         super(context);
@@ -31,28 +31,28 @@ public class LiveBCChatEnterView extends FrameLayout {
 
     private void init(Context context) {
         View inflate = View.inflate(context, a.g.talent_live_bc_audience_enter_view, this);
-        this.bzj = (FrameLayout) inflate.findViewById(a.f.ala_video_bb_layout);
-        this.bzi = (ImageView) inflate.findViewById(a.f.ala_video_bb_connect);
-        this.bzk = (ImageView) inflate.findViewById(a.f.video_bc_red_dot);
+        this.bDW = (FrameLayout) inflate.findViewById(a.f.ala_video_bb_layout);
+        this.bDV = (ImageView) inflate.findViewById(a.f.ala_video_bb_connect);
+        this.bDX = (ImageView) inflate.findViewById(a.f.video_bc_red_dot);
     }
 
     public void setEnterVisible(boolean z) {
-        if (this.bzj != null) {
-            this.bzj.setVisibility(z ? 0 : 8);
+        if (this.bDW != null) {
+            this.bDW.setVisibility(z ? 0 : 8);
         }
     }
 
     public void setRedDotVisible(boolean z) {
-        this.bzk.setVisibility(z ? 0 : 8);
+        this.bDX.setVisibility(z ? 0 : 8);
     }
 
     public ImageView getEnterImage() {
-        return this.bzi;
+        return this.bDV;
     }
 
     public void setEnterImageDrawable(int i) {
-        if (this.bzi != null) {
-            this.bzi.setImageResource(i);
+        if (this.bDV != null) {
+            this.bDV.setImageResource(i);
         }
     }
 }

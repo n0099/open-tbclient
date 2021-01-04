@@ -4,11 +4,11 @@ import android.text.TextUtils;
 import com.baidu.ar.npc.BaiduArView;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import java.util.HashMap;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class g implements com.baidu.platform.comapi.walknavi.d.a.b.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f3000a = true;
+    public static boolean f4469a = true;
     private com.baidu.platform.comapi.walknavi.d.b d;
     private com.baidu.platform.comapi.walknavi.d.a.d e;
     private boolean g;
@@ -21,10 +21,12 @@ public class g implements com.baidu.platform.comapi.walknavi.d.a.b.a {
     public String c = "";
     private boolean m = true;
     private boolean n = false;
-    public b b = new b();
+
+    /* renamed from: b  reason: collision with root package name */
+    public b f4470b = new b();
     private com.baidu.platform.comapi.walknavi.d.a.b f = new com.baidu.platform.comapi.walknavi.d.a.b(com.baidu.platform.comapi.wnplatform.p.b.a.a());
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public interface a {
         void a(b bVar);
     }
@@ -36,9 +38,9 @@ public class g implements com.baidu.platform.comapi.walknavi.d.a.b.a {
     public void a(String str) {
         com.baidu.platform.comapi.walknavi.b.a().K().b("walknavi_current_npc_token", str);
         this.c = str;
-        this.b.f3001a = str;
+        this.f4470b.f4471a = str;
         if (this.o != null) {
-            this.o.a(this.b);
+            this.o.a(this.f4470b);
         }
     }
 
@@ -66,7 +68,7 @@ public class g implements com.baidu.platform.comapi.walknavi.d.a.b.a {
     }
 
     private void a(long j, String str) {
-        if (f3000a) {
+        if (f4469a) {
             com.baidu.platform.comapi.wnplatform.d.a.a("NpcSDKManagerImp", str + "time:" + (System.currentTimeMillis() - j));
         } else {
             com.baidu.platform.comapi.wnplatform.d.a.a("NpcSDKManagerImp", str);
@@ -209,9 +211,9 @@ public class g implements com.baidu.platform.comapi.walknavi.d.a.b.a {
     public void a(String str, c cVar) {
         com.baidu.platform.comapi.wnplatform.d.a.a("NpcSDKManagerImp", "download start = ");
         this.n = true;
-        this.b.b = str;
+        this.f4470b.f4472b = str;
         if (this.o != null) {
-            this.o.a(this.b);
+            this.o.a(this.f4470b);
         }
         this.f.a(str, new h(this, cVar));
     }
@@ -226,8 +228,8 @@ public class g implements com.baidu.platform.comapi.walknavi.d.a.b.a {
         this.f.b();
         a(currentTimeMillis, "downloadCancel");
         this.n = false;
-        this.b.c = 0;
-        this.b.b = "";
+        this.f4470b.c = 0;
+        this.f4470b.f4472b = "";
     }
 
     public String c(String str) {
@@ -252,12 +254,14 @@ public class g implements com.baidu.platform.comapi.walknavi.d.a.b.a {
         this.o = aVar;
     }
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f3001a;
-        public String b;
+        public String f4471a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public String f4472b;
         public int c;
 
         public b() {

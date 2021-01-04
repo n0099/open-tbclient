@@ -1,11 +1,11 @@
 package com.baidu.platform.comapi.f;
 
 import android.content.Context;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f2864a = 621133959;
+    private static int f4239a = 621133959;
 
     public static boolean a(Context context) {
         return c(context);
@@ -20,6 +20,6 @@ public class a {
     }
 
     private static boolean c(Context context) {
-        return b(context) == f2864a;
+        return b(context) == f4239a;
     }
 }

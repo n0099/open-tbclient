@@ -21,7 +21,8 @@ import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.RequsetNetworkUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.h.a;
+import com.baidu.i.a;
+import com.kwad.sdk.collector.AppStatusRules;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -29,7 +30,7 @@ import java.util.Random;
 import java.util.TreeMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public final class IMConnection {
     public static final int ERROR_LOGIN_FAIL = 20;
     private static final int MAX_RETRY_TIMES = 10;
@@ -57,7 +58,7 @@ public final class IMConnection {
     private Runnable mReconnectRunnable = new Runnable() { // from class: com.baidu.android.imsdk.internal.IMConnection.2
         @Override // java.lang.Runnable
         public void run() {
-            if (!a.ayO) {
+            if (!a.aze) {
                 IMConnection.this.internalConnect(false);
             }
         }
@@ -65,7 +66,7 @@ public final class IMConnection {
     private Runnable mSocketTimeoutRunnable = new Runnable() { // from class: com.baidu.android.imsdk.internal.IMConnection.3
         @Override // java.lang.Runnable
         public void run() {
-            if (System.currentTimeMillis() - IMConnection.this.mLastReadWriteTime > 60000) {
+            if (System.currentTimeMillis() - IMConnection.this.mLastReadWriteTime > AppStatusRules.DEFAULT_GRANULARITY) {
                 LogUtils.i(IMConnection.TAG, " SOCKET_TIMEOUT-- Socket heartbeat timeout !! --");
                 IMConnection.this.disconnectedByPeer();
                 return;
@@ -118,7 +119,7 @@ public final class IMConnection {
     }
 
     private void connectImpl(final boolean z) {
-        if (!a.ayO) {
+        if (!a.aze) {
             if (this.mConnected.get() || this.mConnectting.get()) {
                 LogUtils.i(TAG, "Connect return. mConnected:" + this.mConnected.get() + " mConnectting:" + this.mConnectting.get());
             } else if (!AccountManager.isLogin(this.mContext)) {
@@ -136,7 +137,6 @@ public final class IMConnection {
                         Code decompiled incorrectly, please refer to instructions dump.
                     */
                     public void onGetSocketAddrResult(String str) {
-                        Exception e;
                         int i;
                         String str2;
                         int i2;
@@ -148,14 +148,14 @@ public final class IMConnection {
                         try {
                             lastIndexOf = str.lastIndexOf(":");
                             i = Integer.valueOf(str.substring(lastIndexOf + 1)).intValue();
-                        } catch (Exception e2) {
-                            e = e2;
+                        } catch (Exception e) {
+                            e = e;
                             i = -1;
                         }
                         try {
                             str3 = str.substring(0, lastIndexOf);
-                        } catch (Exception e3) {
-                            e = e3;
+                        } catch (Exception e2) {
+                            e = e2;
                             e.printStackTrace();
                             new IMTrack.CrashBuilder(IMConnection.this.mContext).exception(Log.getStackTraceString(e)).build();
                             if (TextUtils.isEmpty(str3)) {
@@ -188,7 +188,7 @@ public final class IMConnection {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     private final class ConnectTask implements Runnable {
         Integer mConnectTaskId;
         String mIp;
@@ -377,7 +377,7 @@ public final class IMConnection {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public class ReadThread extends Thread {
         ReadThread() {
             setName("IM-IMConnection-readThread");
@@ -403,7 +403,7 @@ public final class IMConnection {
                                 if (IMConnection.this.mSendMessageMap.size() != 0) {
                                     IMConnection.this.mLastReadWriteTime = System.currentTimeMillis();
                                     LogUtils.d(IMConnection.TAG, "SOCKET_TIMEOUT read ...");
-                                    IMConnection.this.mHandler.postDelayed(IMConnection.this.mSocketTimeoutRunnable, 60000L);
+                                    IMConnection.this.mHandler.postDelayed(IMConnection.this.mSocketTimeoutRunnable, AppStatusRules.DEFAULT_GRANULARITY);
                                 }
                             }
                         }
@@ -425,20 +425,22 @@ public final class IMConnection {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public class SendThread extends Thread {
         SendThread() {
             setName("IM-IMConnection-SendThread");
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:110:0x0056 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:117:0x0056 A[EXC_TOP_SPLITTER, SYNTHETIC] */
         /* JADX WARN: Removed duplicated region for block: B:128:0x0005 A[SYNTHETIC] */
+        /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:107:? -> B:101:0x028c). Please submit an issue!!! */
         @Override // java.lang.Thread, java.lang.Runnable
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public void run() {
             Message message;
+            Throwable th;
             while (!IMConnection.this.mClose) {
                 try {
                     try {
@@ -454,8 +456,8 @@ public final class IMConnection {
                                     if (message == null) {
                                         try {
                                             IMConnection.this.mMessageHandler.getMessageQueue().wait();
-                                        } catch (Throwable th) {
-                                            th = th;
+                                        } catch (Throwable th2) {
+                                            th = th2;
                                             try {
                                                 throw th;
                                                 break;
@@ -481,9 +483,9 @@ public final class IMConnection {
                                             IMConnection.this.mMessageHandler.getMessageQueue().wait();
                                             message = first;
                                         }
-                                    } catch (Throwable th2) {
+                                    } catch (Throwable th3) {
+                                        th = th3;
                                         message = first;
-                                        th = th2;
                                         throw th;
                                         break;
                                         break;
@@ -517,7 +519,7 @@ public final class IMConnection {
                                                 IMConnection.this.mHandler.removeCallbacks(IMConnection.this.mSocketTimeoutRunnable);
                                                 IMConnection.this.mLastReadWriteTime = System.currentTimeMillis();
                                                 LogUtils.d(IMConnection.TAG, "SOCKET_TIMEOUT send ...");
-                                                IMConnection.this.mHandler.postDelayed(IMConnection.this.mSocketTimeoutRunnable, 60000L);
+                                                IMConnection.this.mHandler.postDelayed(IMConnection.this.mSocketTimeoutRunnable, AppStatusRules.DEFAULT_GRANULARITY);
                                             }
                                         }
                                     }
@@ -545,8 +547,8 @@ public final class IMConnection {
                                     return;
                                 }
                             }
-                        } catch (Throwable th3) {
-                            th = th3;
+                        } catch (Throwable th4) {
+                            th = th4;
                             message = null;
                         }
                     }
@@ -581,7 +583,7 @@ public final class IMConnection {
     }
 
     public void disconnectedByPeer() {
-        if (!a.ayO) {
+        if (!a.aze) {
             LogUtils.i(TAG, "disconnectedByPeer, mStoped == " + this.mStoped);
             fatalAllMessage();
             if (!this.mStoped) {
@@ -605,7 +607,7 @@ public final class IMConnection {
     }
 
     private void destroy() {
-        if (!a.ayO) {
+        if (!a.aze) {
             LogUtils.i(TAG, "destroy");
             Utility.sendConnectionStateBroadCast(this.mContext, 2);
             this.mHandler.removeCallbacks(this.mSocketTimeoutRunnable);
@@ -628,7 +630,7 @@ public final class IMConnection {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     private class ConnectTimeOutTask implements Runnable {
         Integer mConnectTaskId;
         boolean mTaskStoped = false;
@@ -662,7 +664,7 @@ public final class IMConnection {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     private class MyHandler extends Handler {
         public MyHandler(Looper looper) {
             super(looper);

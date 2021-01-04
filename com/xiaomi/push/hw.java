@@ -1,5 +1,5 @@
 package com.xiaomi.push;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public enum hw {
     Invalid("INVALID"),
     BarClick("bar:click"),
@@ -48,14 +48,14 @@ public enum hw {
     
 
     /* renamed from: a  reason: collision with other field name */
-    public final String f477a;
+    public final String f555a;
 
     hw(String str) {
-        this.f477a = str;
+        this.f555a = str;
     }
 
     @Override // java.lang.Enum
     public String toString() {
-        return this.f477a;
+        return this.f555a;
     }
 }

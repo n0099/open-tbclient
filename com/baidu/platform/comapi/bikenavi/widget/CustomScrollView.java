@@ -15,14 +15,17 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.Scroller;
+import com.baidu.tieba.R;
 import java.lang.reflect.Field;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class CustomScrollView extends ScrollView {
     public static final Object TAG = new Object();
 
     /* renamed from: a  reason: collision with root package name */
-    private VelocityTracker f2843a;
-    private int b;
+    private VelocityTracker f4212a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private int f4213b;
     public int bottom;
     private int c;
     private b d;
@@ -39,7 +42,7 @@ public class CustomScrollView extends ScrollView {
     protected Field scrollerField;
     public int top;
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public interface b {
         void a(int i);
 
@@ -77,9 +80,9 @@ public class CustomScrollView extends ScrollView {
         this.top = com.baidu.platform.comapi.wnplatform.p.h.c(context) - com.baidu.platform.comapi.wnplatform.p.h.d(context);
         this.bottom = 0;
         this.c = 3;
-        com.baidu.platform.comapi.wnplatform.p.a.a.a((Activity) getContext(), 2130903047, this);
-        this.j = (LinearLayout) findViewById(2131165254);
-        this.l = (LinearLayout) findViewById(2131165253);
+        com.baidu.platform.comapi.wnplatform.p.a.a.a((Activity) getContext(), R.array.S_O_X001, this);
+        this.j = (LinearLayout) findViewById(R.dimen.abc_action_bar_subtitle_bottom_margin_material);
+        this.l = (LinearLayout) findViewById(R.dimen.abc_action_bar_stacked_tab_max_width);
         this.l.setMinimumHeight(this.top);
     }
 
@@ -110,15 +113,15 @@ public class CustomScrollView extends ScrollView {
     @Override // android.widget.ScrollView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         ViewConfiguration.get(getContext());
-        this.b = ViewConfiguration.getMaximumFlingVelocity();
+        this.f4213b = ViewConfiguration.getMaximumFlingVelocity();
         if ((this.k == null ? false : a(motionEvent, this.k)) && this.n == com.baidu.platform.comapi.wnplatform.o.b.BOTTOM) {
             return false;
         }
         a(motionEvent);
         switch (motionEvent.getAction()) {
             case 1:
-                VelocityTracker velocityTracker = this.f2843a;
-                velocityTracker.computeCurrentVelocity(1000, this.b);
+                VelocityTracker velocityTracker = this.f4212a;
+                velocityTracker.computeCurrentVelocity(1000, this.f4213b);
                 com.baidu.platform.comapi.wnplatform.o.b a2 = a((int) velocityTracker.getYVelocity(), getScrollY());
                 if (a2 != com.baidu.platform.comapi.wnplatform.o.b.NULL) {
                     updateStatus(a2, true);
@@ -162,10 +165,10 @@ public class CustomScrollView extends ScrollView {
     }
 
     private void a(MotionEvent motionEvent) {
-        if (this.f2843a == null) {
-            this.f2843a = VelocityTracker.obtain();
+        if (this.f4212a == null) {
+            this.f4212a = VelocityTracker.obtain();
         }
-        this.f2843a.addMovement(motionEvent);
+        this.f4212a.addMovement(motionEvent);
     }
 
     private boolean a(MotionEvent motionEvent, View view) {
@@ -232,7 +235,7 @@ public class CustomScrollView extends ScrollView {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public class c extends GestureDetector.SimpleOnGestureListener {
         c() {
         }
@@ -244,7 +247,7 @@ public class CustomScrollView extends ScrollView {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public class a extends GestureDetector.SimpleOnGestureListener {
         a() {
         }

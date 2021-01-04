@@ -5,18 +5,17 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomMessage;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.task.CustomMessageTask;
-import com.baidu.tieba.ala.d.h;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaSeriesGiftInitialize {
     static {
-        bPj();
+        bRJ();
     }
 
-    private static void bPj() {
+    private static void bRJ() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913239, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.ala.AlaSeriesGiftInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Context> customMessage) {
-                return new CustomResponsedMessage<>(2913239, new h(customMessage.getData()));
+                return new CustomResponsedMessage<>(2913239, new com.baidu.tieba.ala.d.h(customMessage.getData()));
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);

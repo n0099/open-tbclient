@@ -12,13 +12,15 @@ import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import com.baidu.webkit.internal.ETAG;
 import java.util.Locale;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public class c {
     private static String d;
 
     /* renamed from: a  reason: collision with root package name */
-    static String f4358a = null;
-    static String b = null;
+    static String f13689a = null;
+
+    /* renamed from: b  reason: collision with root package name */
+    static String f13690b = null;
     static String c = null;
     private static String e = null;
 
@@ -58,30 +60,30 @@ public class c {
     }
 
     public static String b(Context context) {
-        if (f4358a != null && f4358a.length() > 0) {
-            return f4358a;
+        if (f13689a != null && f13689a.length() > 0) {
+            return f13689a;
         }
         if (context == null) {
             return "";
         }
         try {
-            f4358a = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
-            return f4358a;
+            f13689a = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
+            return f13689a;
         } catch (Exception e2) {
             return "";
         }
     }
 
     public static String c(Context context) {
-        if (b != null && b.length() > 0) {
-            return b;
+        if (f13690b != null && f13690b.length() > 0) {
+            return f13690b;
         }
         if (context == null) {
             return "";
         }
         try {
-            b = ((TelephonyManager) context.getSystemService("phone")).getSimSerialNumber();
-            return b;
+            f13690b = ((TelephonyManager) context.getSystemService("phone")).getSimSerialNumber();
+            return f13690b;
         } catch (Exception e2) {
             return "";
         }

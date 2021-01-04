@@ -2,24 +2,24 @@ package com.baidu.swan.games.h.a;
 
 import com.baidu.swan.c.d;
 import java.io.File;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class b {
-    public static File awF() {
-        return com.baidu.swan.games.l.a.xI("aigames_debug_extension_core");
+    public static File axX() {
+        return com.baidu.swan.games.l.a.xH("aigames_debug_extension_core");
     }
 
-    public static void awG() {
-        File awF = awF();
-        if (awF.exists()) {
-            d.deleteFile(awF);
+    public static void axY() {
+        File axX = axX();
+        if (axX.exists()) {
+            d.deleteFile(axX);
         }
     }
 
-    public static File awH() {
-        File awF = awF();
-        if (!awF.exists()) {
-            awF.mkdirs();
+    public static File axZ() {
+        File axX = axX();
+        if (!axX.exists()) {
+            axX.mkdirs();
         }
-        return new File(awF, "debugExtensionCore.zip");
+        return new File(axX, "debugExtensionCore.zip");
     }
 }

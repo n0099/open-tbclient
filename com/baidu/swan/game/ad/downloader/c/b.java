@@ -1,19 +1,19 @@
 package com.baidu.swan.game.ad.downloader.c;
 
 import com.baidu.swan.game.ad.downloader.exception.DownloadException;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public interface b {
     void a(DownloadException downloadException);
 
-    void aSG();
+    void aVa();
 
-    void aSH();
+    void aVb();
 
-    void aSI();
-
-    void o(long j, long j2);
+    void aVc();
 
     void onStart();
 
-    void p(long j, long j2);
+    void r(long j, long j2);
+
+    void s(long j, long j2);
 }

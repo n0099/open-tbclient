@@ -2,10 +2,10 @@ package com.facebook.cache.disk;
 
 import java.io.IOException;
 import java.util.Collection;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface c {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         String getId();
 
@@ -14,28 +14,28 @@ public interface c {
         long getTimestamp();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void a(com.facebook.cache.common.h hVar, Object obj) throws IOException;
 
-        com.facebook.a.a aY(Object obj) throws IOException;
+        com.facebook.a.a aZ(Object obj) throws IOException;
 
-        boolean epm();
+        boolean etr();
     }
 
-    b B(String str, Object obj) throws IOException;
+    b F(String str, Object obj) throws IOException;
 
-    com.facebook.a.a C(String str, Object obj) throws IOException;
+    com.facebook.a.a G(String str, Object obj) throws IOException;
 
-    boolean D(String str, Object obj) throws IOException;
+    boolean H(String str, Object obj) throws IOException;
 
-    long YZ(String str) throws IOException;
+    long Zk(String str) throws IOException;
 
     long a(a aVar) throws IOException;
 
-    void epi();
+    void etn();
 
-    Collection<a> epj() throws IOException;
+    Collection<a> eto() throws IOException;
 
     boolean isExternal();
 }

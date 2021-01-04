@@ -1,5 +1,13 @@
 package com.airbnb.lottie;
-@Deprecated
-/* loaded from: classes7.dex */
-public interface a {
+
+import android.graphics.Typeface;
+/* loaded from: classes3.dex */
+public class a {
+    public Typeface aZ(String str) {
+        return null;
+    }
+
+    public String ba(String str) {
+        return null;
+    }
 }

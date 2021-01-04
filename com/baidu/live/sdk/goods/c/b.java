@@ -8,13 +8,13 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.sdk.goods.view.LiveGoodsDisplayItemView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class b extends BaseAdapter {
-    private List<com.baidu.live.sdk.goods.a.a> bep;
-    private a bwt;
+    private a bBe;
+    private List<com.baidu.live.sdk.goods.a.a> bgb;
     private boolean isHost;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void w(String str, boolean z);
 
@@ -22,31 +22,31 @@ public class b extends BaseAdapter {
     }
 
     public void a(a aVar) {
-        this.bwt = aVar;
+        this.bBe = aVar;
     }
 
-    public void c(boolean z, List<com.baidu.live.sdk.goods.a.a> list) {
+    public void d(boolean z, List<com.baidu.live.sdk.goods.a.a> list) {
         this.isHost = z;
-        if (this.bep == null) {
-            this.bep = new ArrayList();
+        if (this.bgb == null) {
+            this.bgb = new ArrayList();
         }
-        this.bep.clear();
-        this.bep.addAll(list);
+        this.bgb.clear();
+        this.bgb.addAll(list);
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.bep != null) {
-            return this.bep.size();
+        if (this.bgb != null) {
+            return this.bgb.size();
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.bep != null) {
-            return this.bep.get(i);
+        if (this.bgb != null) {
+            return this.bgb.get(i);
         }
         return null;
     }
@@ -58,45 +58,45 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0207b c0207b;
+        C0205b c0205b;
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(a.g.live_goods_display_list_item, viewGroup, false);
-            C0207b c0207b2 = new C0207b();
-            c0207b2.bww = (LiveGoodsDisplayItemView) view.findViewById(a.f.item_live_goods_display);
-            view.setTag(c0207b2);
-            c0207b = c0207b2;
+            C0205b c0205b2 = new C0205b();
+            c0205b2.bBh = (LiveGoodsDisplayItemView) view.findViewById(a.f.item_live_goods_display);
+            view.setTag(c0205b2);
+            c0205b = c0205b2;
         } else {
-            c0207b = (C0207b) view.getTag();
+            c0205b = (C0205b) view.getTag();
         }
         final Object item = getItem(i);
         if (item instanceof com.baidu.live.sdk.goods.a.a) {
-            c0207b.bww.setHost(this.isHost);
-            c0207b.bww.setData(i + 1, (com.baidu.live.sdk.goods.a.a) item);
+            c0205b.bBh.setHost(this.isHost);
+            c0205b.bBh.setData(i + 1, (com.baidu.live.sdk.goods.a.a) item);
             if (this.isHost) {
-                c0207b.bww.setCallback(new LiveGoodsDisplayItemView.a() { // from class: com.baidu.live.sdk.goods.c.b.1
+                c0205b.bBh.setCallback(new LiveGoodsDisplayItemView.a() { // from class: com.baidu.live.sdk.goods.c.b.1
                     @Override // com.baidu.live.sdk.goods.view.LiveGoodsDisplayItemView.a
-                    public void Ro() {
-                        if (b.this.bwt != null) {
-                            b.this.bwt.x(((com.baidu.live.sdk.goods.a.a) item).gid, ((com.baidu.live.sdk.goods.a.a) item).bvO);
+                    public void Sr() {
+                        if (b.this.bBe != null) {
+                            b.this.bBe.x(((com.baidu.live.sdk.goods.a.a) item).gid, ((com.baidu.live.sdk.goods.a.a) item).bAz);
                         }
                     }
                 });
             }
-            if (this.bwt != null) {
-                this.bwt.w(((com.baidu.live.sdk.goods.a.a) item).gid, ((com.baidu.live.sdk.goods.a.a) item).bvO);
+            if (this.bBe != null) {
+                this.bBe.w(((com.baidu.live.sdk.goods.a.a) item).gid, ((com.baidu.live.sdk.goods.a.a) item).bAz);
             }
         }
         return view;
     }
 
     /* renamed from: com.baidu.live.sdk.goods.c.b$b  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class C0207b {
-        private LiveGoodsDisplayItemView bww;
+    /* loaded from: classes11.dex */
+    public static class C0205b {
+        private LiveGoodsDisplayItemView bBh;
 
         public void recycle() {
-            if (this.bww != null) {
-                this.bww.release();
+            if (this.bBh != null) {
+                this.bBh.release();
             }
         }
     }

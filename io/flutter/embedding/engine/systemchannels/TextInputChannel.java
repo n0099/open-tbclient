@@ -1,5 +1,7 @@
 package io.flutter.embedding.engine.systemchannels;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import io.flutter.Log;
 import io.flutter.embedding.engine.dart.DartExecutor;
@@ -11,9 +13,10 @@ import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class TextInputChannel {
     private static final String TAG = "TextInputChannel";
+    @NonNull
     public final MethodChannel channel;
     private final MethodChannel.MethodCallHandler parsingMethodHandler = new MethodChannel.MethodCallHandler() { // from class: io.flutter.embedding.engine.systemchannels.TextInputChannel.1
         /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -24,7 +27,7 @@ public class TextInputChannel {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public void onMethodCall(MethodCall methodCall, MethodChannel.Result result) {
+        public void onMethodCall(@NonNull MethodCall methodCall, @NonNull MethodChannel.Result result) {
             char c = 0;
             if (TextInputChannel.this.textInputMethodHandler != null) {
                 String str = methodCall.method;
@@ -114,24 +117,25 @@ public class TextInputChannel {
             }
         }
     };
+    @Nullable
     private TextInputMethodHandler textInputMethodHandler;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     public interface TextInputMethodHandler {
         void clearClient();
 
         void hide();
 
-        void setClient(int i, Configuration configuration);
+        void setClient(int i, @NonNull Configuration configuration);
 
-        void setEditingState(TextEditState textEditState);
+        void setEditingState(@NonNull TextEditState textEditState);
 
         void setPlatformViewClient(int i);
 
         void show();
     }
 
-    public TextInputChannel(DartExecutor dartExecutor) {
+    public TextInputChannel(@NonNull DartExecutor dartExecutor) {
         this.channel = new MethodChannel(dartExecutor, "flutter/textinput", JSONMethodCodec.INSTANCE);
         this.channel.setMethodCallHandler(this.parsingMethodHandler);
     }
@@ -191,21 +195,25 @@ public class TextInputChannel {
         this.channel.invokeMethod("TextInputClient.performAction", Arrays.asList(Integer.valueOf(i), "TextInputAction.unspecified"));
     }
 
-    public void setTextInputMethodHandler(TextInputMethodHandler textInputMethodHandler) {
+    public void setTextInputMethodHandler(@Nullable TextInputMethodHandler textInputMethodHandler) {
         this.textInputMethodHandler = textInputMethodHandler;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     public static class Configuration {
+        @Nullable
         public final String actionLabel;
         public final boolean autocorrect;
         public final boolean enableSuggestions;
+        @Nullable
         public final Integer inputAction;
+        @NonNull
         public final InputType inputType;
         public final boolean obscureText;
+        @NonNull
         public final TextCapitalization textCapitalization;
 
-        public static Configuration fromJson(JSONObject jSONObject) throws JSONException, NoSuchFieldException {
+        public static Configuration fromJson(@NonNull JSONObject jSONObject) throws JSONException, NoSuchFieldException {
             String string = jSONObject.getString("inputAction");
             if (string == null) {
                 throw new JSONException("Configuration JSON missing 'inputAction' property.");
@@ -213,7 +221,8 @@ public class TextInputChannel {
             return new Configuration(jSONObject.optBoolean("obscureText"), jSONObject.optBoolean("autocorrect", true), jSONObject.optBoolean("enableSuggestions"), TextCapitalization.fromValue(jSONObject.getString("textCapitalization")), InputType.fromJson(jSONObject.getJSONObject("inputType")), inputActionFromTextInputAction(string), jSONObject.isNull("actionLabel") ? null : jSONObject.getString("actionLabel"));
         }
 
-        private static Integer inputActionFromTextInputAction(String str) {
+        @NonNull
+        private static Integer inputActionFromTextInputAction(@NonNull String str) {
             char c = 65535;
             switch (str.hashCode()) {
                 case -810971940:
@@ -295,7 +304,7 @@ public class TextInputChannel {
             }
         }
 
-        public Configuration(boolean z, boolean z2, boolean z3, TextCapitalization textCapitalization, InputType inputType, Integer num, String str) {
+        public Configuration(boolean z, boolean z2, boolean z3, @NonNull TextCapitalization textCapitalization, @NonNull InputType inputType, @Nullable Integer num, @Nullable String str) {
             this.obscureText = z;
             this.autocorrect = z2;
             this.enableSuggestions = z3;
@@ -306,24 +315,26 @@ public class TextInputChannel {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     public static class InputType {
         public final boolean isDecimal;
         public final boolean isSigned;
+        @NonNull
         public final TextInputType type;
 
-        public static InputType fromJson(JSONObject jSONObject) throws JSONException, NoSuchFieldException {
+        @NonNull
+        public static InputType fromJson(@NonNull JSONObject jSONObject) throws JSONException, NoSuchFieldException {
             return new InputType(TextInputType.fromValue(jSONObject.getString("name")), jSONObject.optBoolean("signed", false), jSONObject.optBoolean("decimal", false));
         }
 
-        public InputType(TextInputType textInputType, boolean z, boolean z2) {
+        public InputType(@NonNull TextInputType textInputType, boolean z, boolean z2) {
             this.type = textInputType;
             this.isSigned = z;
             this.isDecimal = z2;
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     public enum TextInputType {
         TEXT("TextInputType.text"),
         DATETIME("TextInputType.datetime"),
@@ -334,9 +345,10 @@ public class TextInputChannel {
         URL("TextInputType.url"),
         VISIBLE_PASSWORD("TextInputType.visiblePassword");
         
+        @NonNull
         private final String encodedName;
 
-        static TextInputType fromValue(String str) throws NoSuchFieldException {
+        static TextInputType fromValue(@NonNull String str) throws NoSuchFieldException {
             TextInputType[] values;
             for (TextInputType textInputType : values()) {
                 if (textInputType.encodedName.equals(str)) {
@@ -346,21 +358,22 @@ public class TextInputChannel {
             throw new NoSuchFieldException("No such TextInputType: " + str);
         }
 
-        TextInputType(String str) {
+        TextInputType(@NonNull String str) {
             this.encodedName = str;
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     public enum TextCapitalization {
         CHARACTERS("TextCapitalization.characters"),
         WORDS("TextCapitalization.words"),
         SENTENCES("TextCapitalization.sentences"),
         NONE("TextCapitalization.none");
         
+        @NonNull
         private final String encodedName;
 
-        static TextCapitalization fromValue(String str) throws NoSuchFieldException {
+        static TextCapitalization fromValue(@NonNull String str) throws NoSuchFieldException {
             TextCapitalization[] values;
             for (TextCapitalization textCapitalization : values()) {
                 if (textCapitalization.encodedName.equals(str)) {
@@ -370,22 +383,23 @@ public class TextInputChannel {
             throw new NoSuchFieldException("No such TextCapitalization: " + str);
         }
 
-        TextCapitalization(String str) {
+        TextCapitalization(@NonNull String str) {
             this.encodedName = str;
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     public static class TextEditState {
         public final int selectionEnd;
         public final int selectionStart;
+        @NonNull
         public final String text;
 
-        public static TextEditState fromJson(JSONObject jSONObject) throws JSONException {
+        public static TextEditState fromJson(@NonNull JSONObject jSONObject) throws JSONException {
             return new TextEditState(jSONObject.getString("text"), jSONObject.getInt("selectionBase"), jSONObject.getInt("selectionExtent"));
         }
 
-        public TextEditState(String str, int i, int i2) {
+        public TextEditState(@NonNull String str, int i, int i2) {
             this.text = str;
             this.selectionStart = i;
             this.selectionEnd = i2;

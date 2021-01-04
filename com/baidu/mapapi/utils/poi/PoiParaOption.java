@@ -1,12 +1,14 @@
 package com.baidu.mapapi.utils.poi;
 
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class PoiParaOption {
 
     /* renamed from: a  reason: collision with root package name */
-    String f2165a;
-    String b;
+    String f3071a;
+
+    /* renamed from: b  reason: collision with root package name */
+    String f3072b;
     LatLng c;
     int d;
 
@@ -20,7 +22,7 @@ public class PoiParaOption {
     }
 
     public String getKey() {
-        return this.b;
+        return this.f3072b;
     }
 
     public int getRadius() {
@@ -28,11 +30,11 @@ public class PoiParaOption {
     }
 
     public String getUid() {
-        return this.f2165a;
+        return this.f3071a;
     }
 
     public PoiParaOption key(String str) {
-        this.b = str;
+        this.f3072b = str;
         return this;
     }
 
@@ -42,7 +44,7 @@ public class PoiParaOption {
     }
 
     public PoiParaOption uid(String str) {
-        this.f2165a = str;
+        this.f3071a = str;
         return this;
     }
 }

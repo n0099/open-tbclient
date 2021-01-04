@@ -3,7 +3,7 @@ package com.googlecode.mp4parser.util;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.UUID;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class UUIDConverter {
     public static byte[] convert(UUID uuid) {
         long mostSignificantBits = uuid.getMostSignificantBits();

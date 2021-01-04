@@ -8,20 +8,20 @@ import com.baidu.live.adp.framework.listener.HttpMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.data.AlaLiveUserInfoData;
-import com.baidu.live.data.w;
+import com.baidu.live.data.x;
 import com.baidu.live.message.AlaGetLiveInfoHttpResponseMessage;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.ala.liveroom.p.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a extends BdBaseModel {
-    private w aFN;
-    private String brs;
-    private long huW;
-    private d.a hvg;
-    private boolean hyd;
-    private long hye;
+    private x aGe;
+    private String bvZ;
+    private long hGS;
+    private d.a hHc;
+    private boolean hKb;
+    private long hKc;
     private Handler mHandler = new Handler();
-    private HttpMessageListener hyf = new HttpMessageListener(1021007) { // from class: com.baidu.tieba.ala.liveroom.p.a.1
+    private HttpMessageListener hKd = new HttpMessageListener(1021007) { // from class: com.baidu.tieba.ala.liveroom.p.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -30,123 +30,124 @@ public class a extends BdBaseModel {
                     a.this.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), 1, null);
                     return;
                 }
-                w Iq = httpResponsedMessage instanceof AlaGetLiveInfoHttpResponseMessage ? ((AlaGetLiveInfoHttpResponseMessage) httpResponsedMessage).Iq() : null;
-                a.this.hye = System.currentTimeMillis();
-                if (Iq == null) {
-                    a.this.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), 1, Iq);
+                x HR = httpResponsedMessage instanceof AlaGetLiveInfoHttpResponseMessage ? ((AlaGetLiveInfoHttpResponseMessage) httpResponsedMessage).HR() : null;
+                a.this.hKc = System.currentTimeMillis();
+                if (HR == null) {
+                    a.this.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), 1, HR);
                     return;
                 }
-                if (a.this.aFN == null) {
-                    a.this.aFN = Iq;
-                } else if (a.this.aFN.mLiveInfo != null && Iq.mLiveInfo != null && a.this.aFN.mLiveInfo.live_id != Iq.mLiveInfo.live_id) {
-                    a.this.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), 1, a.this.aFN);
+                if (a.this.aGe == null) {
+                    a.this.aGe = HR;
+                } else if (a.this.aGe.mLiveInfo != null && HR.mLiveInfo != null && a.this.aGe.mLiveInfo.live_id != HR.mLiveInfo.live_id) {
+                    a.this.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), 1, a.this.aGe);
                     return;
                 }
-                if (a.this.aFN.mLiveInfo != null && Iq.mLiveInfo != null && a.this.aFN.mLiveInfo.user_id == Iq.mLiveInfo.user_id) {
-                    if (a.this.aFN.mLiveInfo.imEffect != null && Iq.mLiveInfo.imEffect == null) {
-                        Iq.mLiveInfo.imEffect = a.this.aFN.mLiveInfo.imEffect;
+                if (a.this.aGe.mLiveInfo != null && HR.mLiveInfo != null && a.this.aGe.mLiveInfo.user_id == HR.mLiveInfo.user_id) {
+                    if (a.this.aGe.mLiveInfo.imEffect != null && HR.mLiveInfo.imEffect == null) {
+                        HR.mLiveInfo.imEffect = a.this.aGe.mLiveInfo.imEffect;
                     }
-                    if (a.this.aFN.mLiveInfo.mLiveCloseData != null && Iq.mLiveInfo.mLiveCloseData == null) {
-                        Iq.mLiveInfo.mLiveCloseData = a.this.aFN.mLiveInfo.mLiveCloseData;
+                    if (a.this.aGe.mLiveInfo.mLiveCloseData != null && HR.mLiveInfo.mLiveCloseData == null) {
+                        HR.mLiveInfo.mLiveCloseData = a.this.aGe.mLiveInfo.mLiveCloseData;
                     }
-                    if (a.this.aFN.mLiveInfo.mAlaLiveSwitchData != null && Iq.mLiveInfo.mAlaLiveSwitchData == null) {
-                        Iq.mLiveInfo.mAlaLiveSwitchData = a.this.aFN.mLiveInfo.mAlaLiveSwitchData;
+                    if (a.this.aGe.mLiveInfo.mAlaLiveSwitchData != null && HR.mLiveInfo.mAlaLiveSwitchData == null) {
+                        HR.mLiveInfo.mAlaLiveSwitchData = a.this.aGe.mLiveInfo.mAlaLiveSwitchData;
                     }
                 }
-                a.this.aFN.mLiveInfo = Iq.mLiveInfo;
-                a.this.aFN.serverTime = Iq.serverTime;
-                a.this.aFN.aKN = Iq.aKN;
-                a.this.aFN.aJV = Iq.aJV;
-                a.this.aFN.aJW = Iq.aJW;
-                a.this.aFN.aKa = Iq.aKa;
-                a.this.aFN.aKC = Iq.aKC;
-                a.this.aFN.aKA = Iq.aKA;
-                a.this.aFN.aKw = Iq.aKw;
-                a.this.aFN.aKx = Iq.aKx;
-                a.this.aFN.aKy = Iq.aKy;
-                a.this.aFN.aKz = Iq.aKz;
-                a.this.aFN.countDown = Iq.countDown;
-                if (Iq.url != null) {
-                    a.this.aFN.url = Iq.url;
+                a.this.aGe.mLiveInfo = HR.mLiveInfo;
+                a.this.aGe.serverTime = HR.serverTime;
+                a.this.aGe.aLn = HR.aLn;
+                a.this.aGe.aKu = HR.aKu;
+                a.this.aGe.aKv = HR.aKv;
+                a.this.aGe.aKz = HR.aKz;
+                a.this.aGe.aLc = HR.aLc;
+                a.this.aGe.aLa = HR.aLa;
+                a.this.aGe.aKV = HR.aKV;
+                a.this.aGe.aKW = HR.aKW;
+                a.this.aGe.aKX = HR.aKX;
+                a.this.aGe.aKY = HR.aKY;
+                a.this.aGe.aKZ = HR.aKZ;
+                a.this.aGe.countDown = HR.countDown;
+                if (HR.url != null) {
+                    a.this.aGe.url = HR.url;
                 }
-                if (Iq.aKt != null) {
-                    a.this.aFN.aKt = Iq.aKt;
+                if (HR.aKS != null) {
+                    a.this.aGe.aKS = HR.aKS;
                 }
-                if (Iq.aKF != null && Iq.aKF.aPa != null && !Iq.aKF.aPa.isEmpty()) {
-                    a.this.aFN.aKF = Iq.aKF;
+                if (HR.aLf != null && HR.aLf.aPH != null && !HR.aLf.aPH.isEmpty()) {
+                    a.this.aGe.aLf = HR.aLf;
                 }
-                if (Iq.aKr != null) {
-                    if (Iq.aKr.userId == 0) {
-                        if (a.this.aFN.aKr == null) {
-                            a.this.aFN.aKr = new AlaLiveUserInfoData();
+                if (HR.aKQ != null) {
+                    if (HR.aKQ.userId == 0) {
+                        if (a.this.aGe.aKQ == null) {
+                            a.this.aGe.aKQ = new AlaLiveUserInfoData();
                         }
-                        a.this.aFN.aKr.throneUid = Iq.aKr.throneUid;
+                        a.this.aGe.aKQ.throneUid = HR.aKQ.throneUid;
                     } else {
-                        boolean z = Iq.aKr.isNewUser;
-                        if (a.this.aFN.aKr != null) {
-                            z = a.this.aFN.aKr.isNewUser;
+                        boolean z = HR.aKQ.isNewUser;
+                        if (a.this.aGe.aKQ != null) {
+                            z = a.this.aGe.aKQ.isNewUser;
                         }
-                        Iq.aKr.isNewUser = z;
-                        a.this.aFN.aKr = Iq.aKr;
-                        TbadkCoreApplication.getCurrentAccountObj().setNameShow(a.this.aFN.aKr.nickName);
+                        HR.aKQ.isNewUser = z;
+                        a.this.aGe.aKQ = HR.aKQ;
+                        TbadkCoreApplication.getCurrentAccountObj().setNameShow(a.this.aGe.aKQ.nickName);
                     }
                 }
-                if (Iq.aKu != null) {
-                    a.this.aFN.aKu = Iq.aKu;
+                if (HR.aKT != null) {
+                    a.this.aGe.aKT = HR.aKT;
                 }
-                if (Iq.aKA) {
-                    a.this.aFN.aKB = Iq.aKB;
+                if (HR.aLa) {
+                    a.this.aGe.aLb = HR.aLb;
                 }
-                a.this.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), 1, a.this.aFN);
-                a.this.P(a.this.aFN);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913082, a.this.aFN));
-                if (a.this.aFN != null) {
-                    com.baidu.live.im.b.d.NK().V(a.this.aFN.aKB);
+                a.this.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), 1, a.this.aGe);
+                a.this.P(a.this.aGe);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913082, a.this.aGe));
+                if (a.this.aGe != null) {
+                    com.baidu.live.im.b.d.Nk().V(a.this.aGe.aLb);
                 }
             }
         }
     };
-    private Runnable hyg = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.p.a.2
+    private Runnable hKe = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.p.a.2
         @Override // java.lang.Runnable
         public void run() {
-            a.this.cjg();
+            a.this.clS();
         }
     };
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void P(w wVar) {
-        if (wVar != null && this.hyd) {
-            this.mHandler.removeCallbacks(this.hyg);
-            this.mHandler.postDelayed(this.hyg, wVar.aKa);
+    public void P(x xVar) {
+        if (xVar != null && this.hKb) {
+            this.mHandler.removeCallbacks(this.hKe);
+            this.mHandler.postDelayed(this.hKe, xVar.aKz);
         }
     }
 
-    public void cjf() {
-        this.mHandler.removeCallbacks(this.hyg);
+    public void clR() {
+        this.mHandler.removeCallbacks(this.hKe);
     }
 
-    public void a(w wVar, String str, long j) {
-        this.aFN = wVar;
-        this.brs = str;
-        this.huW = j;
+    public void a(x xVar, String str, long j) {
+        this.aGe = xVar;
+        this.bvZ = str;
+        this.hGS = j;
         if (getUniqueId() == null) {
             setUniqueId(BdUniqueId.gen());
         }
-        registerListener(this.hyf);
-        this.hyd = true;
-        P(this.aFN);
+        registerListener(this.hKd);
+        this.hKb = true;
+        P(this.aGe);
     }
 
     public void stop() {
-        this.hyd = false;
-        MessageManager.getInstance().unRegisterListener(this.hyf);
-        cjf();
+        this.hKb = false;
+        MessageManager.getInstance().unRegisterListener(this.hKd);
+        clR();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cjg() {
-        if (this.aFN != null && this.aFN.mLiveInfo != null) {
-            a(this.aFN.mLiveInfo.live_id, this.brs, this.huW);
+    public void clS() {
+        if (this.aGe != null && this.aGe.mLiveInfo != null) {
+            a(this.aGe.mLiveInfo.live_id, this.bvZ, this.hGS);
         }
     }
 
@@ -171,13 +172,13 @@ public class a extends BdBaseModel {
     }
 
     public void a(d.a aVar) {
-        this.hvg = aVar;
+        this.hHc = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(int i, String str, int i2, Object obj) {
-        if (this.hvg != null) {
-            this.hvg.a(i, str, i2, obj);
+        if (this.hHc != null) {
+            this.hHc.a(i, str, i2, obj);
         }
     }
 }

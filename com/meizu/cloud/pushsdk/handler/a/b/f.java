@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class f implements Parcelable {
     public static final Parcelable.Creator<f> CREATOR = new Parcelable.Creator<f>() { // from class: com.meizu.cloud.pushsdk.handler.a.b.f.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -23,8 +23,10 @@ public class f implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4190a;
-    private String b;
+    private String f11620a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private String f11621b;
     private boolean c;
     private String d;
     private String e;
@@ -35,8 +37,8 @@ public class f implements Parcelable {
 
     protected f(Parcel parcel) {
         this.c = false;
-        this.f4190a = parcel.readString();
-        this.b = parcel.readString();
+        this.f11620a = parcel.readString();
+        this.f11621b = parcel.readString();
         this.c = parcel.readByte() != 0;
         this.d = parcel.readString();
         this.e = parcel.readString();
@@ -65,11 +67,11 @@ public class f implements Parcelable {
     }
 
     public String a() {
-        return this.f4190a;
+        return this.f11620a;
     }
 
     public void a(String str) {
-        this.f4190a = str;
+        this.f11620a = str;
     }
 
     public void a(boolean z) {
@@ -77,11 +79,11 @@ public class f implements Parcelable {
     }
 
     public String b() {
-        return this.b;
+        return this.f11621b;
     }
 
     public void b(String str) {
-        this.b = str;
+        this.f11621b = str;
     }
 
     public void c(String str) {
@@ -110,13 +112,13 @@ public class f implements Parcelable {
     }
 
     public String toString() {
-        return "Statics{taskId='" + this.f4190a + "', time='" + this.b + "', pushExtra=" + this.c + ", deviceId='" + this.d + "', seqId='" + this.e + "'}";
+        return "Statics{taskId='" + this.f11620a + "', time='" + this.f11621b + "', pushExtra=" + this.c + ", deviceId='" + this.d + "', seqId='" + this.e + "'}";
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.f4190a);
-        parcel.writeString(this.b);
+        parcel.writeString(this.f11620a);
+        parcel.writeString(this.f11621b);
         parcel.writeByte((byte) (this.c ? 1 : 0));
         parcel.writeString(this.d);
         parcel.writeString(this.e);

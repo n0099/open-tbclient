@@ -3,7 +3,7 @@ package com.baidu.tieba.ala.alaar.sticker.model;
 import android.text.TextUtils;
 import com.baidu.live.adp.lib.util.BdFileHelper;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class DuFileFaceItem extends FuFaceItem {
     @Override // com.baidu.tieba.ala.alaar.sticker.model.FuFaceItem
     public String getFilePath() {

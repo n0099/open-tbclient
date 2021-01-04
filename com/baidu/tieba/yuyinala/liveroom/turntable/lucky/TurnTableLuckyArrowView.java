@@ -4,10 +4,10 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
-/* loaded from: classes4.dex */
+import androidx.annotation.Nullable;
+/* loaded from: classes11.dex */
 public class TurnTableLuckyArrowView extends View {
     private Paint mPaint;
     private Path mPath;

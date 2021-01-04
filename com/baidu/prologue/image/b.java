@@ -1,7 +1,7 @@
 package com.baidu.prologue.image;
 
 import android.widget.ImageView;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public interface b<T extends ImageView> {
-    void a(String str, T t);
+    void b(String str, T t);
 }

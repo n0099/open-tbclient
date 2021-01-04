@@ -9,54 +9,54 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.tieba.g.a;
+import com.baidu.tieba.f.a;
 /* loaded from: classes.dex */
 public class b {
-    private com.baidu.tieba.g.b iXQ;
-    private boolean jov;
-    private Context mContext;
-    private BdUniqueId mPageId;
-    private VelocityTracker mVelocityTracker;
-    private boolean fGb = false;
-    private a.InterfaceC0756a irO = new a.InterfaceC0756a() { // from class: com.baidu.tieba.frs.gametab.b.1
-        @Override // com.baidu.tieba.g.a.InterfaceC0756a
+    private boolean fPE = false;
+    private a.InterfaceC0727a iEb = new a.InterfaceC0727a() { // from class: com.baidu.tieba.frs.gametab.b.1
+        @Override // com.baidu.tieba.f.a.InterfaceC0727a
         public void G(int i, int i2) {
-            if (ay(i2)) {
-                b.this.qn(true);
+            if (aA(i2)) {
+                b.this.qL(true);
             }
         }
 
-        @Override // com.baidu.tieba.g.a.InterfaceC0756a
+        @Override // com.baidu.tieba.f.a.InterfaceC0727a
         public void H(int i, int i2) {
-            if (ay(i2)) {
-                b.this.qn(false);
+            if (aA(i2)) {
+                b.this.qL(false);
             }
         }
 
-        @Override // com.baidu.tieba.g.a.InterfaceC0756a
-        public void ck(int i, int i2) {
+        @Override // com.baidu.tieba.f.a.InterfaceC0727a
+        public void cj(int i, int i2) {
         }
 
-        @Override // com.baidu.tieba.g.a.InterfaceC0756a
+        @Override // com.baidu.tieba.f.a.InterfaceC0727a
         public void I(int i, int i2) {
         }
 
-        private boolean ay(float f) {
+        private boolean aA(float f) {
             return Math.abs(f) >= 10.0f;
         }
     };
+    private boolean jAS;
+    private com.baidu.tieba.f.b jkd;
+    private Context mContext;
+    private BdUniqueId mPageId;
+    private VelocityTracker mVelocityTracker;
 
     public b(Context context, BdUniqueId bdUniqueId, boolean z) {
         this.mContext = context;
         this.mPageId = bdUniqueId;
-        this.jov = z;
-        if (this.jov) {
-            this.iXQ = new com.baidu.tieba.g.b(context);
-            this.iXQ.a(this.irO);
+        this.jAS = z;
+        if (this.jAS) {
+            this.jkd = new com.baidu.tieba.f.b(context);
+            this.jkd.a(this.iEb);
         }
     }
 
-    public void b(View view, MotionEvent motionEvent) {
+    public void i(View view, MotionEvent motionEvent) {
         if (this.mVelocityTracker == null) {
             this.mVelocityTracker = VelocityTracker.obtain();
         }
@@ -69,15 +69,15 @@ public class b {
             case 2:
                 this.mVelocityTracker.computeCurrentVelocity(1000);
                 if (Math.abs(this.mVelocityTracker.getXVelocity()) > Math.abs(this.mVelocityTracker.getYVelocity())) {
-                    this.jov = false;
+                    this.jAS = false;
                     break;
                 } else {
-                    this.jov = true;
+                    this.jAS = true;
                     break;
                 }
         }
-        if (this.jov && this.iXQ != null) {
-            this.iXQ.onTouchEvent(motionEvent);
+        if (this.jAS && this.jkd != null) {
+            this.jkd.onTouchEvent(motionEvent);
         }
     }
 
@@ -90,14 +90,14 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void qn(boolean z) {
-        this.fGb = z;
-        if (this.jov) {
-            J(!this.fGb, true);
+    public void qL(boolean z) {
+        this.fPE = z;
+        if (this.jAS) {
+            L(!this.fPE, true);
         }
     }
 
-    private void J(boolean z, boolean z2) {
+    private void L(boolean z, boolean z2) {
         if (z) {
             CustomMessage customMessage = new CustomMessage(CmdConfigCustom.CMD_GAME_FRS_SHOW_TAB);
             customMessage.setTag(this.mPageId);

@@ -10,14 +10,14 @@ import org.apache.http.HttpHost;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    AsyncHttpClient f2938a = new AsyncHttpClient();
+    AsyncHttpClient f4369a = new AsyncHttpClient();
 
     /* renamed from: com.baidu.platform.comapi.pano.a$a  reason: collision with other inner class name */
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public interface InterfaceC0293a<T> {
         void a(HttpClient.HttpStateError httpStateError);
 
@@ -26,6 +26,7 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public c a(String str) {
+        c cVar = null;
         if (str == null || str.equals("")) {
             return new c(PanoStateError.PANO_NOT_FOUND);
         }
@@ -40,7 +41,6 @@ public class a {
                 if (optJSONArray == null) {
                     return new c(PanoStateError.PANO_NOT_FOUND);
                 }
-                c cVar = null;
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i).optJSONObject("poiinfo");
                     if (optJSONObject2 != null) {
@@ -89,6 +89,6 @@ public class a {
             return;
         }
         a(builder, "token", authToken);
-        this.f2938a.get(a(builder), new b(this, interfaceC0293a));
+        this.f4369a.get(a(builder), new b(this, interfaceC0293a));
     }
 }

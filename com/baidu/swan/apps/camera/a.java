@@ -5,12 +5,12 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.os.Build;
-import android.support.v4.app.ActivityCompat;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.app.ActivityCompat;
 import com.baidu.ar.arplay.core.pixel.PixelReadParams;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
-import com.baidu.swan.apps.ap.ag;
+import com.baidu.swan.apps.ao.ag;
 import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.camera.view.CameraPreview;
 import com.baidu.swan.apps.v.f;
@@ -24,10 +24,10 @@ import java.util.Timer;
 import java.util.TimerTask;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private com.baidu.swan.apps.camera.b.b cGn;
+    private com.baidu.swan.apps.camera.b.b cLd;
     private Timer mTimer;
 
     private a() {
@@ -35,13 +35,13 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.camera.a$a  reason: collision with other inner class name */
-    /* loaded from: classes25.dex */
-    public static class C0415a {
-        private static final a cGq = new a();
+    /* loaded from: classes9.dex */
+    public static class C0407a {
+        private static final a cLg = new a();
     }
 
-    public static a amP() {
-        return C0415a.cGq;
+    public static a anZ() {
+        return C0407a.cLg;
     }
 
     public boolean a(byte[] bArr, String str, int i, int i2, boolean z) {
@@ -97,46 +97,46 @@ public class a {
     }
 
     public void a(int i, final com.baidu.swan.apps.camera.b.b bVar) {
-        this.cGn = bVar;
+        this.cLd = bVar;
         this.mTimer = new Timer();
         this.mTimer.schedule(new TimerTask() { // from class: com.baidu.swan.apps.camera.a.1
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
                 if (bVar != null) {
-                    bVar.amS();
+                    bVar.aoc();
                 }
-                a.this.amQ();
+                a.this.aoa();
             }
         }, i);
     }
 
-    public void amQ() {
-        this.cGn = null;
+    public void aoa() {
+        this.cLd = null;
         if (this.mTimer != null) {
             this.mTimer.cancel();
         }
     }
 
     public void cancelTimer() {
-        if (this.cGn != null) {
-            this.cGn.cancel();
+        if (this.cLd != null) {
+            this.cLd.cancel();
         }
-        amQ();
+        aoa();
     }
 
-    public void eL(boolean z) {
+    public void eU(boolean z) {
         if (z) {
             cancelTimer();
         }
     }
 
-    public void k(String str, String str2, boolean z) {
-        if (ag.uU("1.13.0")) {
+    public void m(String str, String str2, boolean z) {
+        if (ag.uT("1.13.0")) {
             HashMap hashMap = new HashMap();
             hashMap.put("wvID", str);
             hashMap.put("cameraId", str2);
             hashMap.put("eType", z ? BdStatsConstant.StatsType.ERROR : "stop");
-            f.aCp().b(new com.baidu.swan.apps.event.a.b(PixelReadParams.DEFAULT_FILTER_ID, hashMap));
+            f.aDG().b(new com.baidu.swan.apps.event.a.b(PixelReadParams.DEFAULT_FILTER_ID, hashMap));
             return;
         }
         JSONObject jSONObject = new JSONObject();
@@ -152,11 +152,11 @@ public class a {
         com.baidu.swan.apps.view.b.b.a.c(str, str2, PixelReadParams.DEFAULT_FILTER_ID, jSONObject.optString("eType"), jSONObject);
     }
 
-    public boolean co(Context context) {
+    public boolean cv(Context context) {
         return Build.VERSION.SDK_INT < 23 || ActivityCompat.checkSelfPermission(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE) == 0;
     }
 
-    public boolean cp(Context context) {
+    public boolean cw(Context context) {
         return Build.VERSION.SDK_INT < 23 || ActivityCompat.checkSelfPermission(context, PermissionRequest.RESOURCE_AUDIO_CAPTURE) == 0;
     }
 

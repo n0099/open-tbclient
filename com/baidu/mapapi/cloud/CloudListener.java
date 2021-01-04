@@ -1,5 +1,5 @@
 package com.baidu.mapapi.cloud;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public interface CloudListener {
     void onGetCloudRgcResult(CloudRgcResult cloudRgcResult, int i);
 

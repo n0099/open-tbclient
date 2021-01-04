@@ -1,7 +1,7 @@
 package com.baidu.swan.pms.c.a;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.swan.pms.a.g;
 import com.baidu.swan.pms.c.a.d.d;
 import com.baidu.swan.pms.c.a.d.f;
@@ -19,10 +19,10 @@ public class a {
         i a2 = com.baidu.swan.pms.c.a.a.a.a(aVar, gVar);
         if (list != null && !list.isEmpty()) {
             for (f<com.baidu.swan.pms.model.g> fVar : h.b(list, gVar)) {
-                a2.a(d.beg().i(fVar));
+                a2.a(d.bgC().i(fVar));
             }
         }
-        a2.bes();
+        a2.bgN();
     }
 
     public static void a(com.baidu.swan.pms.node.d.a aVar, g gVar) {

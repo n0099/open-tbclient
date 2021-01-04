@@ -1,8 +1,8 @@
 package com.coremedia.iso;
 
-import com.baidu.searchbox.account.contants.AccountConstants;
+import androidx.core.internal.view.SupportMenu;
 import java.nio.ByteBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class IsoTypeWriter {
     static final /* synthetic */ boolean $assertionsDisabled;
 
@@ -18,17 +18,17 @@ public final class IsoTypeWriter {
     }
 
     public static void writeUInt32(ByteBuffer byteBuffer, long j) {
-        if (!$assertionsDisabled && (j < 0 || j > AccountConstants.TYPE_MODIFY_EXT_FIELDS)) {
+        if (!$assertionsDisabled && (j < 0 || j > 4294967296L)) {
             throw new AssertionError("The given long is not in the range of uint32 (" + j + ")");
         }
         byteBuffer.putInt((int) j);
     }
 
     public static void writeUInt32BE(ByteBuffer byteBuffer, long j) {
-        if (!$assertionsDisabled && (j < 0 || j > AccountConstants.TYPE_MODIFY_EXT_FIELDS)) {
+        if (!$assertionsDisabled && (j < 0 || j > 4294967296L)) {
             throw new AssertionError("The given long is not in the range of uint32 (" + j + ")");
         }
-        writeUInt16BE(byteBuffer, ((int) j) & 65535);
+        writeUInt16BE(byteBuffer, ((int) j) & SupportMenu.USER_MASK);
         writeUInt16BE(byteBuffer, (int) ((j >> 16) & 65535));
     }
 
@@ -81,10 +81,12 @@ public final class IsoTypeWriter {
             throw new IllegalArgumentException("\"" + str + "\" language string isn't exactly 3 characters long!");
         }
         int i = 0;
-        for (int i2 = 0; i2 < 3; i2++) {
-            i += (str.getBytes()[i2] - 96) << ((2 - i2) * 5);
+        int i2 = 0;
+        while (i < 3) {
+            i++;
+            i2 = ((str.getBytes()[i] - 96) << ((2 - i) * 5)) + i2;
         }
-        writeUInt16(byteBuffer, i);
+        writeUInt16(byteBuffer, i2);
     }
 
     public static void writePascalUtfString(ByteBuffer byteBuffer, String str) {

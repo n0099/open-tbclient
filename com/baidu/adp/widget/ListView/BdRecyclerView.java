@@ -3,39 +3,39 @@ package com.baidu.adp.widget.ListView;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Canvas;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.adp.widget.ListView.e;
+import com.baidu.adp.widget.ListView.d;
 /* loaded from: classes.dex */
-public class BdRecyclerView extends RecyclerView implements s<BdRecyclerView> {
+public class BdRecyclerView extends RecyclerView implements p<BdRecyclerView> {
     private static final String LOG_TAG = BdRecyclerView.class.getSimpleName();
-    private BdListView.b WL;
-    private BdListView.a WM;
-    private BdListView.h WP;
-    private BdListView.e WQ;
-    private com.baidu.adp.base.h WS;
-    private a Xk;
-    private b Xl;
-    private h Xo;
-    private BdListView.d Xp;
-    private long Xq;
-    private boolean Xr;
-    private boolean Xs;
+    private BdListView.b WI;
+    private BdListView.a WJ;
+    private BdListView.h WM;
+    private BdListView.e WN;
+    private com.baidu.adp.base.i WP;
+    private a Xi;
+    private b Xj;
+    private BdRecyclerAdapter Xm;
+    private BdListView.d Xn;
+    private long Xo;
+    private boolean Xp;
+    private boolean Xq;
     private Runnable mDelayedRunnable;
-    private c mNextPage;
+    private com.baidu.adp.widget.ListView.b mNextPage;
     private View mNoDataView;
-    private t mPreLoadListView;
-    private c mPrePage;
+    private q mPreLoadListView;
+    private com.baidu.adp.widget.ListView.b mPrePage;
     private Runnable preLoadRunnable;
     private Runnable refreshRunnable;
 
@@ -51,44 +51,48 @@ public class BdRecyclerView extends RecyclerView implements s<BdRecyclerView> {
 
     public BdRecyclerView(Context context) {
         super(context);
-        this.WS = null;
-        this.Xk = null;
-        this.Xl = null;
-        this.WL = null;
-        this.WM = null;
-        this.WQ = null;
         this.WP = null;
-        this.Xp = null;
-        this.Xq = 100L;
+        this.Xi = null;
+        this.Xj = null;
+        this.WI = null;
+        this.WJ = null;
+        this.WN = null;
+        this.WM = null;
+        this.Xn = null;
+        this.Xo = 100L;
         this.mPrePage = null;
         this.mNextPage = null;
         this.mNoDataView = null;
-        this.Xr = true;
-        this.Xs = true;
+        this.Xp = true;
+        this.Xq = true;
         this.mDelayedRunnable = new Runnable() { // from class: com.baidu.adp.widget.ListView.BdRecyclerView.1
             @Override // java.lang.Runnable
             public void run() {
-                int i = 0;
-                int i2 = -1;
-                if (BdRecyclerView.this.Xp != null) {
+                int i;
+                int i2 = 0;
+                if (BdRecyclerView.this.Xn != null) {
                     int firstVisiblePosition = BdRecyclerView.this.getFirstVisiblePosition();
                     int lastVisiblePosition = BdRecyclerView.this.getLastVisiblePosition();
-                    if (BdRecyclerView.this.Xo == null || BdRecyclerView.this.Xo.getWrappedAdapter() == null || BdRecyclerView.this.Xo.getWrappedAdapter().getItemCount() <= 0) {
+                    if (BdRecyclerView.this.Xm == null || BdRecyclerView.this.Xm.getWrappedAdapter() == null || BdRecyclerView.this.Xm.getWrappedAdapter().getItemCount() <= 0) {
+                        i2 = -1;
                         i = -1;
                     } else {
-                        i2 = firstVisiblePosition - BdRecyclerView.this.Xo.getHeadersCount();
-                        if (i2 < 0) {
-                            i2 = 0;
+                        int headersCount = firstVisiblePosition - BdRecyclerView.this.Xm.getHeadersCount();
+                        if (headersCount < 0) {
+                            headersCount = 0;
                         }
-                        int headersCount = lastVisiblePosition - BdRecyclerView.this.Xo.getHeadersCount();
-                        if (headersCount >= BdRecyclerView.this.Xo.getWrappedAdapter().getItemCount()) {
-                            headersCount = BdRecyclerView.this.Xo.getWrappedAdapter().getItemCount() - 1;
+                        int headersCount2 = lastVisiblePosition - BdRecyclerView.this.Xm.getHeadersCount();
+                        if (headersCount2 >= BdRecyclerView.this.Xm.getWrappedAdapter().getItemCount()) {
+                            headersCount2 = BdRecyclerView.this.Xm.getWrappedAdapter().getItemCount() - 1;
                         }
-                        if (headersCount >= 0) {
+                        if (headersCount2 < 0) {
+                            i = headersCount;
+                        } else {
+                            i2 = headersCount2;
                             i = headersCount;
                         }
                     }
-                    BdRecyclerView.this.Xp.onScrollStop(i2, i);
+                    BdRecyclerView.this.Xn.onScrollStop(i, i2);
                 }
             }
         };
@@ -120,34 +124,34 @@ public class BdRecyclerView extends RecyclerView implements s<BdRecyclerView> {
         this.preLoadRunnable = new Runnable() { // from class: com.baidu.adp.widget.ListView.BdRecyclerView.3
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.adp.base.h H;
-                if (BdRecyclerView.this.WS != null) {
-                    H = BdRecyclerView.this.WS;
+                com.baidu.adp.base.i I;
+                if (BdRecyclerView.this.WP != null) {
+                    I = BdRecyclerView.this.WP;
                 } else {
-                    H = com.baidu.adp.base.i.H(BdRecyclerView.this.getContext());
+                    I = com.baidu.adp.base.j.I(BdRecyclerView.this.getContext());
                 }
-                if (H != null) {
-                    H.onPreLoad(BdRecyclerView.this.mPreLoadListView);
+                if (I != null) {
+                    I.onPreLoad(BdRecyclerView.this.mPreLoadListView);
                 }
             }
         };
-        this.mPreLoadListView = new t() { // from class: com.baidu.adp.widget.ListView.BdRecyclerView.4
-            @Override // com.baidu.adp.widget.ListView.t
-            public r getAdapter() {
-                return BdRecyclerView.this.Xo;
+        this.mPreLoadListView = new q() { // from class: com.baidu.adp.widget.ListView.BdRecyclerView.4
+            @Override // com.baidu.adp.widget.ListView.q
+            public o getAdapter() {
+                return BdRecyclerView.this.Xm;
             }
 
-            @Override // com.baidu.adp.widget.ListView.t
+            @Override // com.baidu.adp.widget.ListView.q
             public int getFirstVisiblePosition() {
                 return BdRecyclerView.this.getFirstVisiblePosition();
             }
 
-            @Override // com.baidu.adp.widget.ListView.t
+            @Override // com.baidu.adp.widget.ListView.q
             public int getLastVisiblePosition() {
                 return BdRecyclerView.this.getLastVisiblePosition();
             }
 
-            @Override // com.baidu.adp.widget.ListView.t
+            @Override // com.baidu.adp.widget.ListView.q
             public void cancelRefresh() {
                 BdRecyclerView.this.removeCallbacks(BdRecyclerView.this.refreshRunnable);
             }
@@ -157,44 +161,48 @@ public class BdRecyclerView extends RecyclerView implements s<BdRecyclerView> {
 
     public BdRecyclerView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.WS = null;
-        this.Xk = null;
-        this.Xl = null;
-        this.WL = null;
-        this.WM = null;
-        this.WQ = null;
         this.WP = null;
-        this.Xp = null;
-        this.Xq = 100L;
+        this.Xi = null;
+        this.Xj = null;
+        this.WI = null;
+        this.WJ = null;
+        this.WN = null;
+        this.WM = null;
+        this.Xn = null;
+        this.Xo = 100L;
         this.mPrePage = null;
         this.mNextPage = null;
         this.mNoDataView = null;
-        this.Xr = true;
-        this.Xs = true;
+        this.Xp = true;
+        this.Xq = true;
         this.mDelayedRunnable = new Runnable() { // from class: com.baidu.adp.widget.ListView.BdRecyclerView.1
             @Override // java.lang.Runnable
             public void run() {
-                int i = 0;
-                int i2 = -1;
-                if (BdRecyclerView.this.Xp != null) {
+                int i;
+                int i2 = 0;
+                if (BdRecyclerView.this.Xn != null) {
                     int firstVisiblePosition = BdRecyclerView.this.getFirstVisiblePosition();
                     int lastVisiblePosition = BdRecyclerView.this.getLastVisiblePosition();
-                    if (BdRecyclerView.this.Xo == null || BdRecyclerView.this.Xo.getWrappedAdapter() == null || BdRecyclerView.this.Xo.getWrappedAdapter().getItemCount() <= 0) {
+                    if (BdRecyclerView.this.Xm == null || BdRecyclerView.this.Xm.getWrappedAdapter() == null || BdRecyclerView.this.Xm.getWrappedAdapter().getItemCount() <= 0) {
+                        i2 = -1;
                         i = -1;
                     } else {
-                        i2 = firstVisiblePosition - BdRecyclerView.this.Xo.getHeadersCount();
-                        if (i2 < 0) {
-                            i2 = 0;
+                        int headersCount = firstVisiblePosition - BdRecyclerView.this.Xm.getHeadersCount();
+                        if (headersCount < 0) {
+                            headersCount = 0;
                         }
-                        int headersCount = lastVisiblePosition - BdRecyclerView.this.Xo.getHeadersCount();
-                        if (headersCount >= BdRecyclerView.this.Xo.getWrappedAdapter().getItemCount()) {
-                            headersCount = BdRecyclerView.this.Xo.getWrappedAdapter().getItemCount() - 1;
+                        int headersCount2 = lastVisiblePosition - BdRecyclerView.this.Xm.getHeadersCount();
+                        if (headersCount2 >= BdRecyclerView.this.Xm.getWrappedAdapter().getItemCount()) {
+                            headersCount2 = BdRecyclerView.this.Xm.getWrappedAdapter().getItemCount() - 1;
                         }
-                        if (headersCount >= 0) {
+                        if (headersCount2 < 0) {
+                            i = headersCount;
+                        } else {
+                            i2 = headersCount2;
                             i = headersCount;
                         }
                     }
-                    BdRecyclerView.this.Xp.onScrollStop(i2, i);
+                    BdRecyclerView.this.Xn.onScrollStop(i, i2);
                 }
             }
         };
@@ -226,34 +234,34 @@ public class BdRecyclerView extends RecyclerView implements s<BdRecyclerView> {
         this.preLoadRunnable = new Runnable() { // from class: com.baidu.adp.widget.ListView.BdRecyclerView.3
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.adp.base.h H;
-                if (BdRecyclerView.this.WS != null) {
-                    H = BdRecyclerView.this.WS;
+                com.baidu.adp.base.i I;
+                if (BdRecyclerView.this.WP != null) {
+                    I = BdRecyclerView.this.WP;
                 } else {
-                    H = com.baidu.adp.base.i.H(BdRecyclerView.this.getContext());
+                    I = com.baidu.adp.base.j.I(BdRecyclerView.this.getContext());
                 }
-                if (H != null) {
-                    H.onPreLoad(BdRecyclerView.this.mPreLoadListView);
+                if (I != null) {
+                    I.onPreLoad(BdRecyclerView.this.mPreLoadListView);
                 }
             }
         };
-        this.mPreLoadListView = new t() { // from class: com.baidu.adp.widget.ListView.BdRecyclerView.4
-            @Override // com.baidu.adp.widget.ListView.t
-            public r getAdapter() {
-                return BdRecyclerView.this.Xo;
+        this.mPreLoadListView = new q() { // from class: com.baidu.adp.widget.ListView.BdRecyclerView.4
+            @Override // com.baidu.adp.widget.ListView.q
+            public o getAdapter() {
+                return BdRecyclerView.this.Xm;
             }
 
-            @Override // com.baidu.adp.widget.ListView.t
+            @Override // com.baidu.adp.widget.ListView.q
             public int getFirstVisiblePosition() {
                 return BdRecyclerView.this.getFirstVisiblePosition();
             }
 
-            @Override // com.baidu.adp.widget.ListView.t
+            @Override // com.baidu.adp.widget.ListView.q
             public int getLastVisiblePosition() {
                 return BdRecyclerView.this.getLastVisiblePosition();
             }
 
-            @Override // com.baidu.adp.widget.ListView.t
+            @Override // com.baidu.adp.widget.ListView.q
             public void cancelRefresh() {
                 BdRecyclerView.this.removeCallbacks(BdRecyclerView.this.refreshRunnable);
             }
@@ -263,44 +271,48 @@ public class BdRecyclerView extends RecyclerView implements s<BdRecyclerView> {
 
     public BdRecyclerView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.WS = null;
-        this.Xk = null;
-        this.Xl = null;
-        this.WL = null;
-        this.WM = null;
-        this.WQ = null;
         this.WP = null;
-        this.Xp = null;
-        this.Xq = 100L;
+        this.Xi = null;
+        this.Xj = null;
+        this.WI = null;
+        this.WJ = null;
+        this.WN = null;
+        this.WM = null;
+        this.Xn = null;
+        this.Xo = 100L;
         this.mPrePage = null;
         this.mNextPage = null;
         this.mNoDataView = null;
-        this.Xr = true;
-        this.Xs = true;
+        this.Xp = true;
+        this.Xq = true;
         this.mDelayedRunnable = new Runnable() { // from class: com.baidu.adp.widget.ListView.BdRecyclerView.1
             @Override // java.lang.Runnable
             public void run() {
-                int i2 = 0;
-                int i22 = -1;
-                if (BdRecyclerView.this.Xp != null) {
+                int i2;
+                int i22 = 0;
+                if (BdRecyclerView.this.Xn != null) {
                     int firstVisiblePosition = BdRecyclerView.this.getFirstVisiblePosition();
                     int lastVisiblePosition = BdRecyclerView.this.getLastVisiblePosition();
-                    if (BdRecyclerView.this.Xo == null || BdRecyclerView.this.Xo.getWrappedAdapter() == null || BdRecyclerView.this.Xo.getWrappedAdapter().getItemCount() <= 0) {
+                    if (BdRecyclerView.this.Xm == null || BdRecyclerView.this.Xm.getWrappedAdapter() == null || BdRecyclerView.this.Xm.getWrappedAdapter().getItemCount() <= 0) {
+                        i22 = -1;
                         i2 = -1;
                     } else {
-                        i22 = firstVisiblePosition - BdRecyclerView.this.Xo.getHeadersCount();
-                        if (i22 < 0) {
-                            i22 = 0;
+                        int headersCount = firstVisiblePosition - BdRecyclerView.this.Xm.getHeadersCount();
+                        if (headersCount < 0) {
+                            headersCount = 0;
                         }
-                        int headersCount = lastVisiblePosition - BdRecyclerView.this.Xo.getHeadersCount();
-                        if (headersCount >= BdRecyclerView.this.Xo.getWrappedAdapter().getItemCount()) {
-                            headersCount = BdRecyclerView.this.Xo.getWrappedAdapter().getItemCount() - 1;
+                        int headersCount2 = lastVisiblePosition - BdRecyclerView.this.Xm.getHeadersCount();
+                        if (headersCount2 >= BdRecyclerView.this.Xm.getWrappedAdapter().getItemCount()) {
+                            headersCount2 = BdRecyclerView.this.Xm.getWrappedAdapter().getItemCount() - 1;
                         }
-                        if (headersCount >= 0) {
+                        if (headersCount2 < 0) {
+                            i2 = headersCount;
+                        } else {
+                            i22 = headersCount2;
                             i2 = headersCount;
                         }
                     }
-                    BdRecyclerView.this.Xp.onScrollStop(i22, i2);
+                    BdRecyclerView.this.Xn.onScrollStop(i2, i22);
                 }
             }
         };
@@ -332,34 +344,34 @@ public class BdRecyclerView extends RecyclerView implements s<BdRecyclerView> {
         this.preLoadRunnable = new Runnable() { // from class: com.baidu.adp.widget.ListView.BdRecyclerView.3
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.adp.base.h H;
-                if (BdRecyclerView.this.WS != null) {
-                    H = BdRecyclerView.this.WS;
+                com.baidu.adp.base.i I;
+                if (BdRecyclerView.this.WP != null) {
+                    I = BdRecyclerView.this.WP;
                 } else {
-                    H = com.baidu.adp.base.i.H(BdRecyclerView.this.getContext());
+                    I = com.baidu.adp.base.j.I(BdRecyclerView.this.getContext());
                 }
-                if (H != null) {
-                    H.onPreLoad(BdRecyclerView.this.mPreLoadListView);
+                if (I != null) {
+                    I.onPreLoad(BdRecyclerView.this.mPreLoadListView);
                 }
             }
         };
-        this.mPreLoadListView = new t() { // from class: com.baidu.adp.widget.ListView.BdRecyclerView.4
-            @Override // com.baidu.adp.widget.ListView.t
-            public r getAdapter() {
-                return BdRecyclerView.this.Xo;
+        this.mPreLoadListView = new q() { // from class: com.baidu.adp.widget.ListView.BdRecyclerView.4
+            @Override // com.baidu.adp.widget.ListView.q
+            public o getAdapter() {
+                return BdRecyclerView.this.Xm;
             }
 
-            @Override // com.baidu.adp.widget.ListView.t
+            @Override // com.baidu.adp.widget.ListView.q
             public int getFirstVisiblePosition() {
                 return BdRecyclerView.this.getFirstVisiblePosition();
             }
 
-            @Override // com.baidu.adp.widget.ListView.t
+            @Override // com.baidu.adp.widget.ListView.q
             public int getLastVisiblePosition() {
                 return BdRecyclerView.this.getLastVisiblePosition();
             }
 
-            @Override // com.baidu.adp.widget.ListView.t
+            @Override // com.baidu.adp.widget.ListView.q
             public void cancelRefresh() {
                 BdRecyclerView.this.removeCallbacks(BdRecyclerView.this.refreshRunnable);
             }
@@ -369,22 +381,22 @@ public class BdRecyclerView extends RecyclerView implements s<BdRecyclerView> {
 
     private void initial() {
         setFadingEdgeLength(0);
-        this.Xo = new h(getContext());
-        this.Xo.a(new e.a() { // from class: com.baidu.adp.widget.ListView.BdRecyclerView.5
-            @Override // com.baidu.adp.widget.ListView.e.a
+        this.Xm = new BdRecyclerAdapter(getContext());
+        this.Xm.a(new d.a() { // from class: com.baidu.adp.widget.ListView.BdRecyclerView.5
+            @Override // com.baidu.adp.widget.ListView.d.a
             public void onPreLoad() {
                 BdRecyclerView.this.removeCallbacks(BdRecyclerView.this.preLoadRunnable);
                 BdRecyclerView.this.postDelayed(BdRecyclerView.this.preLoadRunnable, 100L);
             }
         });
-        this.Xo.setOnItemClickListener(new a() { // from class: com.baidu.adp.widget.ListView.BdRecyclerView.6
+        this.Xm.setOnItemClickListener(new a() { // from class: com.baidu.adp.widget.ListView.BdRecyclerView.6
             @Override // com.baidu.adp.widget.ListView.BdRecyclerView.a
             public void a(ViewGroup viewGroup, View view, Object obj, int i, long j) {
                 int headerViewsCount = BdRecyclerView.this.getHeaderViewsCount();
                 if (i < headerViewsCount) {
                     if (BdRecyclerView.this.mPrePage == null || view != BdRecyclerView.this.mPrePage.getView()) {
-                        if (BdRecyclerView.this.WL != null) {
-                            BdRecyclerView.this.WL.onClick(view);
+                        if (BdRecyclerView.this.WI != null) {
+                            BdRecyclerView.this.WI.onClick(view);
                             return;
                         }
                         return;
@@ -393,47 +405,47 @@ public class BdRecyclerView extends RecyclerView implements s<BdRecyclerView> {
                     return;
                 }
                 int i2 = i - headerViewsCount;
-                RecyclerView.Adapter wrappedAdapter = BdRecyclerView.this.Xo.getWrappedAdapter();
+                RecyclerView.Adapter wrappedAdapter = BdRecyclerView.this.Xm.getWrappedAdapter();
                 if (wrappedAdapter == null || i2 >= wrappedAdapter.getItemCount()) {
                     if (BdRecyclerView.this.mNextPage == null || view != BdRecyclerView.this.mNextPage.getView()) {
-                        if (BdRecyclerView.this.WM != null) {
-                            BdRecyclerView.this.WM.onClick(view);
+                        if (BdRecyclerView.this.WJ != null) {
+                            BdRecyclerView.this.WJ.onClick(view);
                             return;
                         }
                         return;
                     }
                     BdRecyclerView.this.mNextPage.onClick();
-                } else if (BdRecyclerView.this.Xk != null) {
-                    BdRecyclerView.this.Xk.a(viewGroup, view, obj, i2, j);
+                } else if (BdRecyclerView.this.Xi != null) {
+                    BdRecyclerView.this.Xi.a(viewGroup, view, obj, i2, j);
                 }
             }
         });
-        this.Xo.setOnItemLongClickListener(new b() { // from class: com.baidu.adp.widget.ListView.BdRecyclerView.7
+        this.Xm.setOnItemLongClickListener(new b() { // from class: com.baidu.adp.widget.ListView.BdRecyclerView.7
             @Override // com.baidu.adp.widget.ListView.BdRecyclerView.b
             public boolean b(ViewGroup viewGroup, View view, Object obj, int i, long j) {
                 int headerViewsCount = i - BdRecyclerView.this.getHeaderViewsCount();
-                RecyclerView.Adapter wrappedAdapter = BdRecyclerView.this.Xo.getWrappedAdapter();
-                if (wrappedAdapter == null || headerViewsCount >= wrappedAdapter.getItemCount() || BdRecyclerView.this.Xl == null) {
+                RecyclerView.Adapter wrappedAdapter = BdRecyclerView.this.Xm.getWrappedAdapter();
+                if (wrappedAdapter == null || headerViewsCount >= wrappedAdapter.getItemCount() || BdRecyclerView.this.Xj == null) {
                     return false;
                 }
-                return BdRecyclerView.this.Xl.b(viewGroup, view, obj, headerViewsCount, j);
+                return BdRecyclerView.this.Xj.b(viewGroup, view, obj, headerViewsCount, j);
             }
         });
         addOnScrollListener(new RecyclerView.OnScrollListener() { // from class: com.baidu.adp.widget.ListView.BdRecyclerView.8
-            @Override // android.support.v7.widget.RecyclerView.OnScrollListener
+            @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
             public void onScrollStateChanged(RecyclerView recyclerView, int i) {
-                com.baidu.adp.base.h H;
-                if (BdRecyclerView.this.WS != null) {
-                    H = BdRecyclerView.this.WS;
+                com.baidu.adp.base.i I;
+                if (BdRecyclerView.this.WP != null) {
+                    I = BdRecyclerView.this.WP;
                 } else {
-                    H = com.baidu.adp.base.i.H(BdRecyclerView.this.getContext());
+                    I = com.baidu.adp.base.j.I(BdRecyclerView.this.getContext());
                 }
-                if (H != null) {
+                if (I != null) {
                     if (i == 2) {
                         BdRecyclerView.this.removeCallbacks(BdRecyclerView.this.refreshRunnable);
-                        H.setIsScroll(true);
-                    } else if (H.isScroll()) {
-                        H.setIsScroll(false);
+                        I.setIsScroll(true);
+                    } else if (I.isScroll()) {
+                        I.setIsScroll(false);
                         BdRecyclerView.this.removeCallbacks(BdRecyclerView.this.refreshRunnable);
                         BdRecyclerView.this.postDelayed(BdRecyclerView.this.refreshRunnable, 100L);
                     } else if (i == 0) {
@@ -443,75 +455,75 @@ public class BdRecyclerView extends RecyclerView implements s<BdRecyclerView> {
                 }
             }
 
-            @Override // android.support.v7.widget.RecyclerView.OnScrollListener
+            @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
             public void onScrolled(RecyclerView recyclerView, int i, int i2) {
                 super.onScrolled(recyclerView, i, i2);
                 boolean canScrollVertically = BdRecyclerView.this.canScrollVertically(1);
                 boolean canScrollVertically2 = BdRecyclerView.this.canScrollVertically(-1);
                 if (!canScrollVertically && canScrollVertically2 && Math.abs(i2) > 0) {
-                    if (BdRecyclerView.this.WQ != null) {
+                    if (BdRecyclerView.this.WN != null) {
                         recyclerView.post(new Runnable() { // from class: com.baidu.adp.widget.ListView.BdRecyclerView.8.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                if (BdRecyclerView.this.WQ != null) {
-                                    BdRecyclerView.this.WQ.onScrollToBottom();
+                                if (BdRecyclerView.this.WN != null) {
+                                    BdRecyclerView.this.WN.onScrollToBottom();
                                 }
                             }
                         });
                     }
-                } else if (!canScrollVertically2 && canScrollVertically && Math.abs(i2) > 0 && BdRecyclerView.this.WP != null) {
+                } else if (!canScrollVertically2 && canScrollVertically && Math.abs(i2) > 0 && BdRecyclerView.this.WM != null) {
                     recyclerView.post(new Runnable() { // from class: com.baidu.adp.widget.ListView.BdRecyclerView.8.2
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (BdRecyclerView.this.WP != null) {
-                                BdRecyclerView.this.WP.onScrollToTop();
+                            if (BdRecyclerView.this.WM != null) {
+                                BdRecyclerView.this.WM.onScrollToTop();
                             }
                         }
                     });
                 }
-                if (BdRecyclerView.this.Xp != null && BdRecyclerView.this.Xq > 0) {
+                if (BdRecyclerView.this.Xn != null && BdRecyclerView.this.Xo > 0) {
                     BdRecyclerView.this.getHandler().removeCallbacks(BdRecyclerView.this.mDelayedRunnable);
-                    BdRecyclerView.this.getHandler().postDelayed(BdRecyclerView.this.mDelayedRunnable, BdRecyclerView.this.Xq);
+                    BdRecyclerView.this.getHandler().postDelayed(BdRecyclerView.this.mDelayedRunnable, BdRecyclerView.this.Xo);
                 }
             }
         });
     }
 
-    @Override // android.support.v7.widget.RecyclerView
+    @Override // androidx.recyclerview.widget.RecyclerView
     public void setAdapter(RecyclerView.Adapter adapter) {
         super.setAdapter(null);
-        this.Xo.setAdapter(adapter);
-        super.setAdapter(this.Xo);
+        this.Xm.setAdapter(adapter);
+        super.setAdapter(this.Xm);
     }
 
     public RecyclerView.Adapter getWrappedAdapter() {
-        if (this.Xo != null) {
-            return this.Xo.getWrappedAdapter();
+        if (this.Xm != null) {
+            return this.Xm.getWrappedAdapter();
         }
         return null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.widget.ListView.s
+    @Override // com.baidu.adp.widget.ListView.p
     public BdRecyclerView getListView() {
         return this;
     }
 
-    public r getListAdapter() {
-        return (r) getAdapter();
+    public o getListAdapter() {
+        return (o) getAdapter();
     }
 
-    @Override // com.baidu.adp.widget.ListView.s
+    @Override // com.baidu.adp.widget.ListView.p
     public int getHeaderViewsCount() {
-        return this.Xo.getHeadersCount();
+        return this.Xm.getHeadersCount();
     }
 
-    @Override // com.baidu.adp.widget.ListView.s
+    @Override // com.baidu.adp.widget.ListView.p
     public int getFooterViewsCount() {
-        return this.Xo.getFootersCount();
+        return this.Xm.getFootersCount();
     }
 
-    @Override // com.baidu.adp.widget.ListView.s
+    @Override // com.baidu.adp.widget.ListView.p
     public int getContentViewsCount() {
         if (getWrappedAdapter() != null) {
             return getWrappedAdapter().getItemCount();
@@ -519,8 +531,8 @@ public class BdRecyclerView extends RecyclerView implements s<BdRecyclerView> {
         return 0;
     }
 
-    public void setScrollable(com.baidu.adp.base.h hVar) {
-        this.WS = hVar;
+    public void setScrollable(com.baidu.adp.base.i iVar) {
+        this.WP = iVar;
     }
 
     public void setSelection(int i) {
@@ -528,16 +540,16 @@ public class BdRecyclerView extends RecyclerView implements s<BdRecyclerView> {
     }
 
     public void setOnSrollToBottomListener(BdListView.e eVar) {
-        this.WQ = eVar;
+        this.WN = eVar;
     }
 
     public void setOnSrollToTopListener(BdListView.h hVar) {
-        this.WP = hVar;
+        this.WM = hVar;
     }
 
     public void setOnScrollStopDelayedListener(BdListView.d dVar, long j) {
-        this.Xp = dVar;
-        this.Xq = j;
+        this.Xn = dVar;
+        this.Xo = j;
     }
 
     public int getFirstVisiblePosition() {
@@ -556,7 +568,7 @@ public class BdRecyclerView extends RecyclerView implements s<BdRecyclerView> {
             StaggeredGridLayoutManager staggeredGridLayoutManager = (StaggeredGridLayoutManager) layoutManager;
             int[] iArr = new int[staggeredGridLayoutManager.getSpanCount()];
             staggeredGridLayoutManager.findFirstVisibleItemPositions(iArr);
-            i = d(iArr);
+            i = e(iArr);
         }
         return i;
     }
@@ -577,7 +589,7 @@ public class BdRecyclerView extends RecyclerView implements s<BdRecyclerView> {
             StaggeredGridLayoutManager staggeredGridLayoutManager = (StaggeredGridLayoutManager) layoutManager;
             int[] iArr = new int[staggeredGridLayoutManager.getSpanCount()];
             staggeredGridLayoutManager.findLastVisibleItemPositions(iArr);
-            i = e(iArr);
+            i = f(iArr);
         }
         return i;
     }
@@ -598,7 +610,7 @@ public class BdRecyclerView extends RecyclerView implements s<BdRecyclerView> {
             StaggeredGridLayoutManager staggeredGridLayoutManager = (StaggeredGridLayoutManager) layoutManager;
             int[] iArr = new int[staggeredGridLayoutManager.getSpanCount()];
             staggeredGridLayoutManager.findFirstCompletelyVisibleItemPositions(iArr);
-            i = d(iArr);
+            i = e(iArr);
         }
         return i;
     }
@@ -619,54 +631,54 @@ public class BdRecyclerView extends RecyclerView implements s<BdRecyclerView> {
             StaggeredGridLayoutManager staggeredGridLayoutManager = (StaggeredGridLayoutManager) layoutManager;
             int[] iArr = new int[staggeredGridLayoutManager.getSpanCount()];
             staggeredGridLayoutManager.findLastCompletelyVisibleItemPositions(iArr);
-            i = e(iArr);
+            i = f(iArr);
         }
         return i;
     }
 
-    @Override // com.baidu.adp.widget.ListView.s
+    @Override // com.baidu.adp.widget.ListView.p
     public boolean removeHeaderView(View view) {
-        if (this.Xo == null) {
+        if (this.Xm == null) {
             return false;
         }
-        return this.Xo.removeHeader(view);
+        return this.Xm.removeHeader(view);
     }
 
     public void addFooterView(View view) {
-        if (this.Xo != null) {
-            this.Xo.addFooterView(view);
+        if (this.Xm != null) {
+            this.Xm.addFooterView(view);
         }
     }
 
     public boolean removeFooterView(View view) {
-        if (this.Xo == null) {
+        if (this.Xm == null) {
             return false;
         }
-        return this.Xo.removeFooter(view);
+        return this.Xm.removeFooter(view);
     }
 
     public void addHeaderView(View view, Object obj, boolean z) {
-        this.Xo.a(view, obj, z, true, -1);
+        this.Xm.a(view, obj, z, true, -1);
     }
 
     public void addHeaderView(View view) {
-        this.Xo.addHeaderView(view, -1);
+        this.Xm.addHeaderView(view, -1);
     }
 
     public void addHeaderView(View view, int i) {
-        this.Xo.addHeaderView(view, i);
+        this.Xm.addHeaderView(view, i);
     }
 
     public void setHeaderView(View view) {
-        this.Xo.c(view, null, true, true, -1);
+        this.Xm.c(view, null, true, true, -1);
     }
 
     public void setHeaderView(View view, boolean z) {
-        this.Xo.c(view, null, true, z, -1);
+        this.Xm.c(view, null, true, z, -1);
     }
 
     public void setFooterView(View view) {
-        this.Xo.d(view, null, true, true, -1);
+        this.Xm.d(view, null, true, true, -1);
     }
 
     public void setNoData(String str) {
@@ -690,37 +702,37 @@ public class BdRecyclerView extends RecyclerView implements s<BdRecyclerView> {
         }
     }
 
-    public void setPrePage(c cVar) {
-        if (this.mPrePage == null || this.mPrePage != cVar) {
+    public void setPrePage(com.baidu.adp.widget.ListView.b bVar) {
+        if (this.mPrePage == null || this.mPrePage != bVar) {
             if (this.mPrePage != null) {
                 removeHeaderView(this.mPrePage.getView());
                 this.mPrePage = null;
             }
-            if (cVar != null) {
-                addHeaderView(cVar.getView());
-                this.mPrePage = cVar;
+            if (bVar != null) {
+                addHeaderView(bVar.getView());
+                this.mPrePage = bVar;
             }
         }
     }
 
-    public void setNextPage(c cVar) {
-        if (this.mNextPage == null || this.mNextPage != cVar) {
-            if (this.mNextPage != null && this.mNextPage != cVar) {
+    public void setNextPage(com.baidu.adp.widget.ListView.b bVar) {
+        if (this.mNextPage == null || this.mNextPage != bVar) {
+            if (this.mNextPage != null && this.mNextPage != bVar) {
                 removeFooterView(this.mNextPage.getView());
                 this.mNextPage = null;
             }
-            if (cVar != null) {
-                this.Xo.addFooterView(cVar.getView(), null, true, 0);
-                this.mNextPage = cVar;
+            if (bVar != null) {
+                this.Xm.addFooterView(bVar.getView(), null, true, 0);
+                this.mNextPage = bVar;
             }
         }
     }
 
-    public t getPreLoadHandle() {
+    public q getPreLoadHandle() {
         return this.mPreLoadListView;
     }
 
-    @Override // android.support.v7.widget.RecyclerView, android.view.ViewGroup, android.view.View
+    @Override // androidx.recyclerview.widget.RecyclerView, android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         try {
             super.onDetachedFromWindow();
@@ -748,92 +760,90 @@ public class BdRecyclerView extends RecyclerView implements s<BdRecyclerView> {
     }
 
     public void setOnItemClickListener(a aVar) {
-        this.Xk = aVar;
+        this.Xi = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void setOnItemLongClickListener(b bVar) {
-        this.Xl = bVar;
+        this.Xj = bVar;
     }
 
     public void setOnHeaderClickListener(BdListView.b bVar) {
-        this.WL = bVar;
+        this.WI = bVar;
     }
 
     public void setOnFooterClickListener(BdListView.a aVar) {
-        this.WM = aVar;
-    }
-
-    private int d(int[] iArr) {
-        int i = 0;
-        if (iArr != null) {
-            int i2 = iArr[0];
-            int length = iArr.length;
-            int i3 = 0;
-            i = i2;
-            while (i3 < length) {
-                int i4 = iArr[i3];
-                if (i4 >= i) {
-                    i4 = i;
-                }
-                i3++;
-                i = i4;
-            }
-        }
-        return i;
+        this.WJ = aVar;
     }
 
     private int e(int[] iArr) {
-        int i = 0;
-        if (iArr != null) {
-            int i2 = iArr[0];
-            int length = iArr.length;
-            int i3 = 0;
-            i = i2;
-            while (i3 < length) {
-                int i4 = iArr[i3];
-                if (i4 <= i) {
-                    i4 = i;
-                }
-                i3++;
-                i = i4;
+        if (iArr == null) {
+            return 0;
+        }
+        int i = iArr[0];
+        int length = iArr.length;
+        int i2 = 0;
+        while (i2 < length) {
+            int i3 = iArr[i2];
+            if (i3 >= i) {
+                i3 = i;
             }
+            i2++;
+            i = i3;
         }
         return i;
     }
 
-    @Override // android.support.v7.widget.RecyclerView, android.support.v4.view.NestedScrollingChild2
+    private int f(int[] iArr) {
+        if (iArr == null) {
+            return 0;
+        }
+        int i = iArr[0];
+        int length = iArr.length;
+        int i2 = 0;
+        while (i2 < length) {
+            int i3 = iArr[i2];
+            if (i3 <= i) {
+                i3 = i;
+            }
+            i2++;
+            i = i3;
+        }
+        return i;
+    }
+
+    @Override // androidx.recyclerview.widget.RecyclerView, androidx.core.view.NestedScrollingChild2
     public boolean dispatchNestedPreScroll(int i, int i2, int[] iArr, int[] iArr2, int i3) {
-        if (this.Xs || i3 == 0) {
+        if (this.Xq || i3 == 0) {
             return super.dispatchNestedPreScroll(i, i2, iArr, iArr2, i3);
         }
         return false;
     }
 
-    @Override // android.support.v7.widget.RecyclerView, android.support.v4.view.NestedScrollingChild2
+    @Override // androidx.recyclerview.widget.RecyclerView, androidx.core.view.NestedScrollingChild2
     public boolean dispatchNestedScroll(int i, int i2, int i3, int i4, int[] iArr, int i5) {
-        if (this.Xs || i5 == 0) {
+        if (this.Xq || i5 == 0) {
             return super.dispatchNestedScroll(i, i2, i3, i4, iArr, i5);
         }
         return false;
     }
 
     public void setCanFling(boolean z) {
-        this.Xs = z;
+        this.Xq = z;
     }
 
-    @Override // android.support.v7.widget.RecyclerView, android.view.View, android.view.ViewParent
+    @Override // androidx.recyclerview.widget.RecyclerView, android.view.View, android.view.ViewParent
     public void requestLayout() {
-        if (this.Xr) {
+        if (this.Xp) {
             super.requestLayout();
         }
     }
 
-    public void qT() {
-        this.Xr = false;
+    public void qv() {
+        this.Xp = false;
     }
 
-    public void qU() {
-        this.Xr = true;
+    public void qw() {
+        this.Xp = true;
     }
 }

@@ -5,16 +5,16 @@ import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.yuyinala.liveroom.introduce.f;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaModifyRoomIntroduceHttpResponseMessage extends JsonHttpResponsedMessage {
-    private f onn;
+    private f oqC;
 
     public AlaModifyRoomIntroduceHttpResponseMessage() {
         super(1031034);
     }
 
-    public f edJ() {
-        return this.onn;
+    public f eda() {
+        return this.oqC;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -22,11 +22,11 @@ public class AlaModifyRoomIntroduceHttpResponseMessage extends JsonHttpResponsed
         JSONObject jSONObject2;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && i == 1031034) {
-            this.onn = new f();
-            this.onn.onA = new f.a();
+            this.oqC = new f();
+            this.oqC.oqP = new f.a();
             if (jSONObject.has(BdStatsConstant.StatsType.ERROR) && (jSONObject2 = jSONObject.getJSONObject(BdStatsConstant.StatsType.ERROR)) != null) {
-                this.onn.onA.errno = jSONObject2.optInt(BaseJsonData.TAG_ERRNO);
-                this.onn.onA.usermsg = jSONObject2.optString("usermsg");
+                this.oqC.oqP.errno = jSONObject2.optInt(BaseJsonData.TAG_ERRNO);
+                this.oqC.oqP.usermsg = jSONObject2.optString("usermsg");
             }
         }
     }

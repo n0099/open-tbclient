@@ -2,10 +2,10 @@ package com.baidu.tieba.pb.chosen.net.zan;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.u;
+import com.baidu.tbadk.util.t;
 import tbclient.ExcZan.DataReq;
 import tbclient.ExcZan.ExcZanReqIdl;
-/* loaded from: classes23.dex */
+/* loaded from: classes8.dex */
 public class ChosenZanNetMessage extends NetMessage {
     private int action;
     private long excId;
@@ -43,7 +43,7 @@ public class ChosenZanNetMessage extends NetMessage {
         builder.excid = Long.valueOf(this.excId);
         builder.thread_id = Long.valueOf(this.threadId);
         builder.post_id = Long.valueOf(this.postId);
-        u.a(builder, true);
+        t.b(builder, true);
         ExcZanReqIdl.Builder builder2 = new ExcZanReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);

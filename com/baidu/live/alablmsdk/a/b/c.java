@@ -7,12 +7,12 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class c {
-    private static final c aBq = new c();
-    private long aBr;
-    private String aBt;
-    private d aBw;
+    private static final c aBH = new c();
+    private long aBI;
+    private String aBK;
+    private d aBN;
     private int mAudioChannel;
     private int mAudioFps;
     private int mAudioSample;
@@ -31,10 +31,10 @@ public class c {
     private String mVideoResolution;
     private String mCurProtocal = null;
     private int mChatStatus = 0;
-    private int aBs = 0;
-    private String aBu = null;
-    private boolean aBv = false;
-    private Runnable aBx = new Runnable() { // from class: com.baidu.live.alablmsdk.a.b.c.1
+    private int aBJ = 0;
+    private String aBL = null;
+    private boolean aBM = false;
+    private Runnable aBO = new Runnable() { // from class: com.baidu.live.alablmsdk.a.b.c.1
         @Override // java.lang.Runnable
         public void run() {
             c.this.onStreamBreak(1, "rtc stream interupt 10s");
@@ -44,8 +44,8 @@ public class c {
     private c() {
     }
 
-    public static c BY() {
-        return aBq;
+    public static c Bp() {
+        return aBH;
     }
 
     public void onErrorEvent(int i, String str) {
@@ -53,7 +53,7 @@ public class c {
         try {
             jSONObject.put(AlaRecorderLog.KEY_CURRENT_STAGE, 80);
             jSONObject.put("error_code", i);
-            jSONObject.put(AlaRecorderLog.KEY_ERROR_MSG, str);
+            jSONObject.put("error_msg", str);
             fillExtCommonData(jSONObject);
             logEvent(AlaRecorderLog.KEY_ID_2425, AlaRecorderLog.TYPE_ADKLIVECORE, "author_liveroom", AlaRecorderLog.VALUE_PUSH_STREAM, jSONObject);
         } catch (JSONException e) {
@@ -65,15 +65,15 @@ public class c {
         try {
             jSONObject.put(AlaRecorderLog.KEY_CURRENT_STAGE, 70);
             jSONObject.put("error_code", i);
-            jSONObject.put(AlaRecorderLog.KEY_ERROR_MSG, str);
+            jSONObject.put("error_msg", str);
             fillExtCommonData(jSONObject);
             logEvent(AlaRecorderLog.KEY_ID_2425, AlaRecorderLog.TYPE_ADKLIVECORE, "author_liveroom", AlaRecorderLog.VALUE_PUSH_STREAM, jSONObject);
         } catch (JSONException e) {
         }
     }
 
-    public void BZ() {
-        this.aBr = System.currentTimeMillis();
+    public void Bq() {
+        this.aBI = System.currentTimeMillis();
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(AlaRecorderLog.KEY_CURRENT_STAGE, 10);
@@ -86,22 +86,22 @@ public class c {
         this.mNetRetryTimes++;
     }
 
-    public void Ca() {
+    public void Br() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(AlaRecorderLog.KEY_CURRENT_STAGE, 20);
             jSONObject.put(AlaRecorderLog.KEY_RETRY_TIMES, this.mNetRetryTimes - 1);
             jSONObject.put(AlaRecorderLog.KEY_CHAT_STATUS, this.mChatStatus);
-            jSONObject.put(AlaRecorderLog.KEY_COST_TIME, (int) (System.currentTimeMillis() - this.aBr));
+            jSONObject.put(AlaRecorderLog.KEY_COST_TIME, (int) (System.currentTimeMillis() - this.aBI));
             fillExtCommonData(jSONObject);
             logEvent(AlaRecorderLog.KEY_ID_2425, AlaRecorderLog.TYPE_ADKLIVECORE, "author_liveroom", AlaRecorderLog.VALUE_PUSH_STREAM, jSONObject);
         } catch (JSONException e) {
         }
     }
 
-    public void Cb() {
-        if (this.aBr != 0) {
-            long currentTimeMillis = System.currentTimeMillis() - this.aBr;
+    public void Bs() {
+        if (this.aBI != 0) {
+            long currentTimeMillis = System.currentTimeMillis() - this.aBI;
             long currentTimeMillis2 = this.mLastNetBreakTimeMillis > 0 ? System.currentTimeMillis() - this.mLastNetBreakTimeMillis : 0L;
             JSONObject jSONObject = new JSONObject();
             try {
@@ -114,21 +114,21 @@ public class c {
                 logEvent(AlaRecorderLog.KEY_ID_2425, AlaRecorderLog.TYPE_ADKLIVECORE, "author_liveroom", AlaRecorderLog.VALUE_PUSH_STREAM, jSONObject);
             } catch (JSONException e) {
             }
-            this.aBr = 0L;
+            this.aBI = 0L;
             this.mLastNetBreakTimeMillis = 0L;
         }
-        com.baidu.live.alablmsdk.a.c.BS().removeCallbacks(this.aBx);
+        com.baidu.live.alablmsdk.a.c.Bj().removeCallbacks(this.aBO);
     }
 
-    public void dK(int i) {
+    public void dH(int i) {
         this.mLastNetBreakTimeMillis = System.currentTimeMillis();
-        com.baidu.live.alablmsdk.a.c.BS().removeCallbacks(this.aBx);
-        com.baidu.live.alablmsdk.a.c.BS().postDelayed(this.aBx, 10000L);
+        com.baidu.live.alablmsdk.a.c.Bj().removeCallbacks(this.aBO);
+        com.baidu.live.alablmsdk.a.c.Bj().postDelayed(this.aBO, 10000L);
         onErrorEvent(110000 + i, "rtcerror " + i);
     }
 
     public void pushEnd() {
-        com.baidu.live.alablmsdk.a.c.BS().removeCallbacks(this.aBx);
+        com.baidu.live.alablmsdk.a.c.Bj().removeCallbacks(this.aBO);
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(AlaRecorderLog.KEY_CURRENT_STAGE, 90);
@@ -216,11 +216,11 @@ public class c {
             this.mPushStreamUrl = str2;
             this.mPushResId = getResId(str2);
         }
-        com.baidu.live.alablmsdk.a.c.BS().removeCallbacks(this.aBx);
+        com.baidu.live.alablmsdk.a.c.Bj().removeCallbacks(this.aBO);
     }
 
-    public void bi(boolean z) {
-        this.aBv = z;
+    public void bf(boolean z) {
+        this.aBM = z;
     }
 
     public void d(int i, int i2, int i3, int i4, int i5, int i6) {
@@ -267,37 +267,37 @@ public class c {
         }
     }
 
-    public void fZ(String str) {
-        this.aBt = str;
+    public void fJ(String str) {
+        this.aBK = str;
     }
 
     public void setRtcRoomId(String str) {
         this.mRtcRoomId = str;
     }
 
-    public void bj(boolean z) {
+    public void bg(boolean z) {
         this.mChatStatus = z ? 1 : 0;
     }
 
-    public void dL(int i) {
-        this.aBs = i;
+    public void dI(int i) {
+        this.aBJ = i;
     }
 
     public void b(d dVar) {
-        this.aBw = dVar;
+        this.aBN = dVar;
     }
 
-    private void al(String str, String str2) {
-        this.aBu = str2;
+    private void ak(String str, String str2) {
+        this.aBL = str2;
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("rtc_room_id", this.mRtcRoomId);
-            jSONObject.put(AlaRecorderLog.KEY_RTC_SOURCE, this.aBt);
+            jSONObject.put(AlaRecorderLog.KEY_RTC_SOURCE, this.aBK);
             if (str2 == AlaRecorderLog.Value.CLOSE_ROOM_CLK || str2 == AlaRecorderLog.Value.HANGOFF_CLK) {
                 jSONObject.put(AlaRecorderLog.KEY_CHAT_STATUS, this.mChatStatus);
             }
             if (str2 == AlaRecorderLog.Value.JOIN_ROOM_REMOTE) {
-                jSONObject.put("is_invite", this.aBs);
+                jSONObject.put("is_invite", this.aBJ);
             }
             fillExtCommonData(jSONObject);
             logEvent(AlaRecorderLog.KEY_ID_2427, str, "author_liveroom", str2, jSONObject);
@@ -305,44 +305,44 @@ public class c {
         }
     }
 
-    public void Cc() {
-        al("click", AlaRecorderLog.Value.JOIN_CLK);
+    public void Bt() {
+        ak("click", AlaRecorderLog.Value.JOIN_CLK);
     }
 
-    public void Cd() {
-        al("click", AlaRecorderLog.Value.INVITE_USER_CLK);
+    public void Bu() {
+        ak("click", AlaRecorderLog.Value.INVITE_USER_CLK);
     }
 
-    public void Ce() {
-        al("click", AlaRecorderLog.Value.INVITE_CANCEL_CLK);
+    public void Bv() {
+        ak("click", AlaRecorderLog.Value.INVITE_CANCEL_CLK);
     }
 
-    public void Cf() {
-        al("notice", AlaRecorderLog.Value.USER_REJECT_REMOTE);
+    public void Bw() {
+        ak("notice", AlaRecorderLog.Value.USER_REJECT_REMOTE);
     }
 
-    public void Cg() {
-        al("notice", AlaRecorderLog.Value.INVITE_TIMEOUT_REMOTE);
+    public void Bx() {
+        ak("notice", AlaRecorderLog.Value.INVITE_TIMEOUT_REMOTE);
     }
 
-    public void Ch() {
-        al("notice", AlaRecorderLog.Value.JOIN_ROOM_REMOTE);
+    public void By() {
+        ak("notice", AlaRecorderLog.Value.JOIN_ROOM_REMOTE);
     }
 
-    public void Ci() {
-        al("click", AlaRecorderLog.Value.HANGOFF_CLK);
+    public void Bz() {
+        ak("click", AlaRecorderLog.Value.HANGOFF_CLK);
     }
 
-    public void Cj() {
-        al("click", AlaRecorderLog.Value.CLOSE_ROOM_CLK);
+    public void BA() {
+        ak("click", AlaRecorderLog.Value.CLOSE_ROOM_CLK);
     }
 
-    public void Ck() {
-        al("click", AlaRecorderLog.Value.KICKOFF_CLK);
+    public void BB() {
+        ak("click", AlaRecorderLog.Value.KICKOFF_CLK);
     }
 
     public void logEvent(String str, String str2, String str3, String str4, JSONObject jSONObject) {
-        if (this.aBw != null) {
+        if (this.aBN != null) {
             JSONObject jSONObject2 = new JSONObject();
             try {
                 jSONObject2.put("type", str2);
@@ -356,7 +356,7 @@ public class c {
             if (a.isDebug()) {
                 a.d("StructuredLog", " 结构化日志  id=" + str + " content=" + jSONObject2.toString() + " ext=" + jSONObject.toString());
             }
-            this.aBw.onLogReport(str, jSONObject2, jSONObject);
+            this.aBN.onLogReport(str, jSONObject2, jSONObject);
         }
     }
 
@@ -369,6 +369,6 @@ public class c {
     }
 
     public void release() {
-        this.aBw = null;
+        this.aBN = null;
     }
 }

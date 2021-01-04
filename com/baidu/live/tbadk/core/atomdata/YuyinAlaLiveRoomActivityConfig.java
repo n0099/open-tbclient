@@ -9,7 +9,7 @@ import com.baidu.live.tbadk.core.util.ListUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONArray;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class YuyinAlaLiveRoomActivityConfig extends IntentConfig {
     public static final String EXTRA_LIVE_ID = "live_id";
     public static final String EXTRA_ROOM_ID = "room_id";
@@ -81,6 +81,7 @@ public class YuyinAlaLiveRoomActivityConfig extends IntentConfig {
     public static final String LIVE_INFO = "live_info_core";
     public static final String LIVE_IS_HOST = "live_is_host";
     public static final String LIVE_SHOW_GITE_PANEL = "open_giftlist";
+    public static final String LIVE_SHOW_IM_PANEL = "open_msgpanel";
     public static final String SDK_AUDIO_ROOM_BG = "audio_bg";
     public static final String SDK_AUDIO_ROOM_CHAT_CAST_ID = "chat_mcast_id";
     public static final String SDK_AUDIO_ROOM_URL = "audioUrl";

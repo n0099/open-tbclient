@@ -4,7 +4,7 @@ import android.content.Context;
 import java.io.File;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class b implements d {
     private static Context sApplicationContext;
     private static b sInstance = null;

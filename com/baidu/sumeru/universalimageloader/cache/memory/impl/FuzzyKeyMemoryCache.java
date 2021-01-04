@@ -4,7 +4,7 @@ import com.baidu.sumeru.universalimageloader.cache.memory.MemoryCacheAware;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.Iterator;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public class FuzzyKeyMemoryCache<K, V> implements MemoryCacheAware<K, V> {
     private final MemoryCacheAware<K, V> cache;
     private final Comparator<K> keyComparator;

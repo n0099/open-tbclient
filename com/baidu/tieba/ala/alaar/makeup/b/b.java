@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.alaar.makeup.b;
 
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public interface b {
-    boolean du(JSONObject jSONObject);
+    boolean dD(JSONObject jSONObject);
 }

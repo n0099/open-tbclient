@@ -13,37 +13,37 @@ import com.baidu.mapapi.map.MarkerOptions;
 import com.baidu.mapapi.map.OverlayOptions;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class c {
     public static OverlayOptions a(com.baidu.swan.impl.map.item.c cVar, com.baidu.swan.impl.map.item.b bVar) {
         com.baidu.swan.apps.console.c.i("map", "createLabel start");
         if (bVar == null) {
             return null;
         }
-        com.baidu.swan.apps.w.a.a.d dVar = bVar.eiL;
-        if (dVar == null || dVar.dfO == null || dVar.dfk == null) {
+        com.baidu.swan.apps.w.a.a.d dVar = bVar.erP;
+        if (dVar == null || dVar.dkI == null || dVar.dke == null) {
             com.baidu.swan.apps.console.c.e("map", "marker data error");
             return null;
         }
         Paint paint = new Paint();
         paint.setAntiAlias(true);
         paint.setStyle(Paint.Style.FILL_AND_STROKE);
-        paint.setColor(dVar.dfO.color);
-        paint.setTextSize(dVar.dfO.dfS);
-        float f = dVar.dfO.dfT;
-        float f2 = dVar.dfO.dfQ;
+        paint.setColor(dVar.dkI.color);
+        paint.setTextSize(dVar.dkI.dkL);
+        float f = dVar.dkI.dkM;
+        float f2 = dVar.dkI.dkK;
         Paint paint2 = new Paint();
         paint2.setAntiAlias(true);
         paint2.setStyle(Paint.Style.FILL_AND_STROKE);
-        paint2.setColor(dVar.dfO.bgColor);
-        String str = dVar.dfO.content;
+        paint2.setColor(dVar.dkI.bgColor);
+        String str = dVar.dkI.content;
         float measureText = paint.measureText(str) + (2.0f * f);
         float f3 = (paint.getFontMetrics().bottom - paint.getFontMetrics().top) + (2.0f * f);
         if (f3 <= 0.0f || measureText <= 0.0f) {
             com.baidu.swan.apps.console.c.e("map", "label heigth or width is 0");
             return null;
         }
-        float f4 = dVar.dfO.dfR;
+        float f4 = dVar.dkI.borderWidth;
         Bitmap createBitmap = Bitmap.createBitmap((int) (measureText + f4 + 0.5d), (int) (f3 + f4 + 0.5d), Bitmap.Config.ARGB_8888);
         createBitmap.eraseColor(Color.argb(0, 0, 0, 0));
         Canvas canvas = new Canvas(createBitmap);
@@ -56,16 +56,16 @@ public class c {
         canvas.drawRoundRect(rectF, f2, f2, paint2);
         if (f4 > 0.0f) {
             paint2.setStyle(Paint.Style.STROKE);
-            paint2.setColor(dVar.dfO.borderColor);
+            paint2.setColor(dVar.dkI.borderColor);
             paint2.setStrokeWidth(f4);
             canvas.drawRoundRect(rectF, f2, f2, paint2);
         }
         canvas.drawText(str, (f4 / 2.0f) + f, f + (-paint.getFontMetrics().top) + (f4 / 2.0f), paint);
         ImageView imageView = new ImageView(AppRuntime.getAppContext());
         imageView.setLayoutParams(new ViewGroup.LayoutParams(createBitmap.getWidth(), createBitmap.getHeight()));
-        imageView.setPadding((int) dVar.dfO.x, (int) dVar.dfO.y, 0, 0);
+        imageView.setPadding((int) dVar.dkI.x, (int) dVar.dkI.y, 0, 0);
         imageView.setImageBitmap(createBitmap);
-        MarkerOptions zIndex = new MarkerOptions().position(new LatLng(dVar.dfk.latitude, dVar.dfk.longitude)).icon(BitmapDescriptorFactory.fromView(imageView)).anchor(0.0f, 0.0f).zIndex(66);
+        MarkerOptions zIndex = new MarkerOptions().position(new LatLng(dVar.dke.latitude, dVar.dke.longitude)).icon(BitmapDescriptorFactory.fromView(imageView)).anchor(0.0f, 0.0f).zIndex(66);
         com.baidu.swan.apps.console.c.i("map", "createLabel end");
         return zIndex;
     }

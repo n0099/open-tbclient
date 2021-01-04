@@ -5,7 +5,7 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.w;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class SingleDoFinally<T> extends w<T> {
     final io.reactivex.b.a onFinally;
     final aa<T> source;
@@ -15,7 +15,7 @@ public final class SingleDoFinally<T> extends w<T> {
         this.source.a(new DoFinallyObserver(yVar, this.onFinally));
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class DoFinallyObserver<T> extends AtomicInteger implements io.reactivex.disposables.b, y<T> {
         private static final long serialVersionUID = 4109457741734051389L;
         final y<? super T> actual;
@@ -63,7 +63,7 @@ public final class SingleDoFinally<T> extends w<T> {
                 try {
                     this.onFinally.run();
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.J(th);
+                    io.reactivex.exceptions.a.O(th);
                     io.reactivex.d.a.onError(th);
                 }
             }

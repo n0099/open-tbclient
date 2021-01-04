@@ -1,17 +1,17 @@
 package com.baidu.searchbox.player.layer;
 
 import android.content.Context;
-import android.support.annotation.IntRange;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.searchbox.player.BDVideoPlayer;
 import com.baidu.searchbox.player.annotation.PublicMethod;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class LayerContainer extends FrameLayout {
     private ArrayList<ILayer> mLayers;
     private FrameLayout.LayoutParams mLayoutParams;
@@ -41,8 +41,8 @@ public class LayerContainer extends FrameLayout {
         this.mPlayer = bDVideoPlayer;
     }
 
-    @PublicMethod
     @NonNull
+    @PublicMethod
     public BDVideoPlayer getBindPlayer() {
         return this.mPlayer;
     }

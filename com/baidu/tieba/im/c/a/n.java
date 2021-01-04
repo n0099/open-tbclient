@@ -4,23 +4,29 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.tieba.im.message.RequestOfficialBarMenuLocalMessage;
-import com.baidu.tieba.im.message.ResponseOfficialBarMenuLocalMessage;
-import com.baidu.tieba.im.message.ResponseOfficialBarMenuMessage;
-/* loaded from: classes26.dex */
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tieba.im.message.GroupsByUidLocalMessage;
+import com.baidu.tieba.im.message.ResponseGroupsByUidLocalMessage;
+/* loaded from: classes8.dex */
 public class n implements CustomMessageTask.CustomRunnable<Object> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-        if (customMessage == null || !(customMessage instanceof RequestOfficialBarMenuLocalMessage)) {
+        if (customMessage == null || !(customMessage instanceof GroupsByUidLocalMessage)) {
             return null;
         }
-        byte[] bArr = com.baidu.tbadk.core.c.a.brq().Bn("tb.official_bar_menu").get(ResponseOfficialBarMenuMessage.OFFICIAL_BAR_MENU_KEY_PRE + ((RequestOfficialBarMenuLocalMessage) customMessage).getForum_id());
-        ResponseOfficialBarMenuLocalMessage responseOfficialBarMenuLocalMessage = new ResponseOfficialBarMenuLocalMessage();
-        try {
-            responseOfficialBarMenuLocalMessage.decodeInBackGround(CmdConfigCustom.CMD_OFFICIAL_BAR_MENU_LOCAL, bArr);
-        } catch (Exception e) {
-            e.printStackTrace();
+        String str = "";
+        if (TbadkApplication.getCurrentAccountObj() != null) {
+            str = TbadkApplication.getCurrentAccountObj().getID();
         }
-        return responseOfficialBarMenuLocalMessage;
+        byte[] bArr = com.baidu.tbadk.core.c.a.btS().Bm("tb.im_entergroup").get("p_group_info" + str);
+        ResponseGroupsByUidLocalMessage responseGroupsByUidLocalMessage = new ResponseGroupsByUidLocalMessage();
+        if (bArr != null) {
+            try {
+                responseGroupsByUidLocalMessage.decodeInBackGround(CmdConfigCustom.CMD_REQUEST_GROUP_BY_UID_LOCAL, bArr);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return responseGroupsByUidLocalMessage;
     }
 }

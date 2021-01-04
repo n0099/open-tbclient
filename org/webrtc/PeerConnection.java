@@ -1,13 +1,13 @@
 package org.webrtc;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import org.webrtc.DataChannel;
 import org.webrtc.MediaStreamTrack;
 import org.webrtc.RtpTransceiver;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class PeerConnection {
     private final List<MediaStream> localStreams;
     private final long nativePeerConnection;
@@ -15,7 +15,7 @@ public class PeerConnection {
     private List<RtpSender> senders;
     private List<RtpTransceiver> transceivers;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public enum AdapterType {
         UNKNOWN,
         ETHERNET,
@@ -25,26 +25,26 @@ public class PeerConnection {
         LOOPBACK
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public enum BundlePolicy {
         BALANCED,
         MAXBUNDLE,
         MAXCOMPAT
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public enum CandidateNetworkPolicy {
         ALL,
         LOW_COST
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public enum ContinualGatheringPolicy {
         GATHER_ONCE,
         GATHER_CONTINUALLY
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public enum IceConnectionState {
         NEW,
         CHECKING,
@@ -60,7 +60,7 @@ public class PeerConnection {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public enum IceGatheringState {
         NEW,
         GATHERING,
@@ -72,7 +72,7 @@ public class PeerConnection {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public static class IceServer {
         public final String hostname;
         public final String password;
@@ -84,7 +84,7 @@ public class PeerConnection {
         public final List<String> urls;
         public final String username;
 
-        /* loaded from: classes12.dex */
+        /* loaded from: classes10.dex */
         public static class Builder {
             private String hostname;
             private String password;
@@ -198,14 +198,14 @@ public class PeerConnection {
             return new Builder(list);
         }
 
-        @CalledByNative("IceServer")
         @Nullable
+        @CalledByNative("IceServer")
         String getHostname() {
             return this.hostname;
         }
 
-        @CalledByNative("IceServer")
         @Nullable
+        @CalledByNative("IceServer")
         String getPassword() {
             return this.password;
         }
@@ -225,14 +225,14 @@ public class PeerConnection {
             return this.tlsEllipticCurves;
         }
 
-        @CalledByNative("IceServer")
         @Nullable
+        @CalledByNative("IceServer")
         List<String> getUrls() {
             return this.urls;
         }
 
-        @CalledByNative("IceServer")
         @Nullable
+        @CalledByNative("IceServer")
         String getUsername() {
             return this.username;
         }
@@ -242,7 +242,7 @@ public class PeerConnection {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public enum IceTransportsType {
         NONE,
         RELAY,
@@ -250,7 +250,7 @@ public class PeerConnection {
         ALL
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public static class IntervalRange {
         private final int max;
         private final int min;
@@ -271,13 +271,13 @@ public class PeerConnection {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public enum KeyType {
         RSA,
         ECDSA
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public interface Observer {
         @CalledByNative("Observer")
         void onAddStream(MediaStream mediaStream);
@@ -319,7 +319,7 @@ public class PeerConnection {
         void onTrack(RtpTransceiver rtpTransceiver);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public final /* synthetic */ class Observer_CC {
         @CalledByNative("Observer")
         public static void $default$onConnectionChange(Observer observer, PeerConnectionState peerConnectionState) {
@@ -330,7 +330,7 @@ public class PeerConnection {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public enum PeerConnectionState {
         NEW,
         CONNECTING,
@@ -345,7 +345,7 @@ public class PeerConnection {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public static class RTCConfiguration {
         @Nullable
         public RtcCertificatePem certificate;
@@ -430,14 +430,14 @@ public class PeerConnection {
             return this.candidateNetworkPolicy;
         }
 
-        @CalledByNative("RTCConfiguration")
         @Nullable
+        @CalledByNative("RTCConfiguration")
         RtcCertificatePem getCertificate() {
             return this.certificate;
         }
 
-        @CalledByNative("RTCConfiguration")
         @Nullable
+        @CalledByNative("RTCConfiguration")
         Boolean getCombinedAudioVideoBwe() {
             return this.combinedAudioVideoBwe;
         }
@@ -447,8 +447,8 @@ public class PeerConnection {
             return this.continualGatheringPolicy;
         }
 
-        @CalledByNative("RTCConfiguration")
         @Nullable
+        @CalledByNative("RTCConfiguration")
         CryptoOptions getCryptoOptions() {
             return this.cryptoOptions;
         }
@@ -473,8 +473,8 @@ public class PeerConnection {
             return this.enableDscp;
         }
 
-        @CalledByNative("RTCConfiguration")
         @Nullable
+        @CalledByNative("RTCConfiguration")
         Boolean getEnableDtlsSrtp() {
             return this.enableDtlsSrtp;
         }
@@ -494,20 +494,20 @@ public class PeerConnection {
             return this.iceCandidatePoolSize;
         }
 
-        @CalledByNative("RTCConfiguration")
         @Nullable
+        @CalledByNative("RTCConfiguration")
         Integer getIceCheckIntervalStrongConnectivity() {
             return this.iceCheckIntervalStrongConnectivityMs;
         }
 
-        @CalledByNative("RTCConfiguration")
         @Nullable
+        @CalledByNative("RTCConfiguration")
         Integer getIceCheckIntervalWeakConnectivity() {
             return this.iceCheckIntervalWeakConnectivityMs;
         }
 
-        @CalledByNative("RTCConfiguration")
         @Nullable
+        @CalledByNative("RTCConfiguration")
         Integer getIceCheckMinInterval() {
             return this.iceCheckMinInterval;
         }
@@ -517,8 +517,8 @@ public class PeerConnection {
             return this.iceConnectionReceivingTimeout;
         }
 
-        @CalledByNative("RTCConfiguration")
         @Nullable
+        @CalledByNative("RTCConfiguration")
         IntervalRange getIceRegatherIntervalRange() {
             return this.iceRegatherIntervalRange;
         }
@@ -533,14 +533,14 @@ public class PeerConnection {
             return this.iceTransportsType;
         }
 
-        @CalledByNative("RTCConfiguration")
         @Nullable
+        @CalledByNative("RTCConfiguration")
         Integer getIceUnwritableMinChecks() {
             return this.iceUnwritableMinChecks;
         }
 
-        @CalledByNative("RTCConfiguration")
         @Nullable
+        @CalledByNative("RTCConfiguration")
         Integer getIceUnwritableTimeout() {
             return this.iceUnwritableTimeMs;
         }
@@ -575,8 +575,8 @@ public class PeerConnection {
             return this.rtcpMuxPolicy;
         }
 
-        @CalledByNative("RTCConfiguration")
         @Nullable
+        @CalledByNative("RTCConfiguration")
         Integer getScreencastMinBitrate() {
             return this.screencastMinBitrate;
         }
@@ -586,8 +586,8 @@ public class PeerConnection {
             return this.sdpSemantics;
         }
 
-        @CalledByNative("RTCConfiguration")
         @Nullable
+        @CalledByNative("RTCConfiguration")
         Integer getStunCandidateKeepaliveInterval() {
             return this.stunCandidateKeepaliveIntervalMs;
         }
@@ -602,8 +602,8 @@ public class PeerConnection {
             return this.tcpCandidatePolicy;
         }
 
-        @CalledByNative("RTCConfiguration")
         @Nullable
+        @CalledByNative("RTCConfiguration")
         TurnCustomizer getTurnCustomizer() {
             return this.turnCustomizer;
         }
@@ -619,19 +619,19 @@ public class PeerConnection {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public enum RtcpMuxPolicy {
         NEGOTIATE,
         REQUIRE
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public enum SdpSemantics {
         PLAN_B,
         UNIFIED_PLAN
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public enum SignalingState {
         STABLE,
         HAVE_LOCAL_OFFER,
@@ -646,13 +646,13 @@ public class PeerConnection {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public enum TcpCandidatePolicy {
         ENABLED,
         DISABLED
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public enum TlsCertPolicy {
         TLS_CERT_POLICY_SECURE,
         TLS_CERT_POLICY_INSECURE_NO_CHECK

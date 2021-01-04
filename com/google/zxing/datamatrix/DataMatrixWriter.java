@@ -12,7 +12,7 @@ import com.google.zxing.datamatrix.encoder.SymbolInfo;
 import com.google.zxing.datamatrix.encoder.SymbolShapeHint;
 import com.google.zxing.qrcode.encoder.ByteMatrix;
 import java.util.Map;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class DataMatrixWriter implements Writer {
     @Override // com.google.zxing.Writer
     public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2) {
@@ -22,7 +22,7 @@ public final class DataMatrixWriter implements Writer {
     @Override // com.google.zxing.Writer
     public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2, Map<EncodeHintType, ?> map) {
         Dimension dimension;
-        Dimension dimension2 = null;
+        Dimension dimension2;
         if (str.isEmpty()) {
             throw new IllegalArgumentException("Found empty contents");
         }
@@ -39,16 +39,17 @@ public final class DataMatrixWriter implements Writer {
                 symbolShapeHint = symbolShapeHint2;
             }
             Dimension dimension3 = (Dimension) map.get(EncodeHintType.MIN_SIZE);
-            dimension = dimension3 != null ? dimension3 : null;
-            Dimension dimension4 = (Dimension) map.get(EncodeHintType.MAX_SIZE);
-            if (dimension4 != null) {
-                dimension2 = dimension4;
+            dimension2 = dimension3 != null ? dimension3 : null;
+            dimension = (Dimension) map.get(EncodeHintType.MAX_SIZE);
+            if (dimension == null) {
+                dimension = null;
             }
         } else {
             dimension = null;
+            dimension2 = null;
         }
-        String encodeHighLevel = HighLevelEncoder.encodeHighLevel(str, symbolShapeHint, dimension, dimension2);
-        SymbolInfo lookup = SymbolInfo.lookup(encodeHighLevel.length(), symbolShapeHint, dimension, dimension2, true);
+        String encodeHighLevel = HighLevelEncoder.encodeHighLevel(str, symbolShapeHint, dimension2, dimension);
+        SymbolInfo lookup = SymbolInfo.lookup(encodeHighLevel.length(), symbolShapeHint, dimension2, dimension, true);
         DefaultPlacement defaultPlacement = new DefaultPlacement(ErrorCorrection.encodeECC200(encodeHighLevel, lookup), lookup.getSymbolDataWidth(), lookup.getSymbolDataHeight());
         defaultPlacement.place();
         return encodeLowLevel(defaultPlacement, lookup);

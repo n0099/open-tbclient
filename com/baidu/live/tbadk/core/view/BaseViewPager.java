@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import com.baidu.live.tbadk.widget.TbViewPager;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class BaseViewPager extends TbViewPager implements GestureDetector.OnGestureListener {
     public static final int SCROLL_NEXT = 0;
     public static final int SCROLL_PRE = 1;
@@ -14,7 +14,7 @@ public class BaseViewPager extends TbViewPager implements GestureDetector.OnGest
     private OnScrollOutListener mOnScrollOutListener;
     private boolean scrollFiltter;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface OnScrollOutListener {
         void onScrollOut(int i);
     }
@@ -45,7 +45,7 @@ public class BaseViewPager extends TbViewPager implements GestureDetector.OnGest
         this.mOnScrollOutListener = onScrollOutListener;
     }
 
-    @Override // com.baidu.live.tbadk.widget.TbViewPager, android.support.v4.view.ViewPager, android.view.View
+    @Override // com.baidu.live.tbadk.widget.TbViewPager, androidx.viewpager.widget.ViewPager, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         if (this.mGestureDetector == null || getAdapter() == null || getAdapter().getCount() == 0 || (getCurrentItem() != 0 && getAdapter().getCount() != getCurrentItem() + 1)) {
             return super.onTouchEvent(motionEvent);

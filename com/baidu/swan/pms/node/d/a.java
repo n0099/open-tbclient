@@ -4,8 +4,8 @@ import com.baidu.swan.pms.model.i;
 import java.util.Collection;
 /* loaded from: classes6.dex */
 public class a {
-    public com.baidu.swan.pms.model.b enY;
-    public com.baidu.swan.pms.model.d eoL;
-    public com.baidu.swan.pms.model.d eoM;
-    public Collection<i> eoN;
+    public com.baidu.swan.pms.model.b exG;
+    public com.baidu.swan.pms.model.d eyv;
+    public com.baidu.swan.pms.model.d eyw;
+    public Collection<i> eyx;
 }

@@ -3,34 +3,34 @@ package com.baidu.live.talentshow.a;
 import android.app.Activity;
 import com.baidu.live.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.webkit.sdk.PermissionRequest;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class b {
-    private boolean bAX = true;
-    private PermissionJudgePolicy bAY;
+    private boolean bFK = true;
+    private PermissionJudgePolicy bFL;
     private Activity mActivity;
 
     public b(Activity activity) {
         this.mActivity = activity;
     }
 
-    public boolean TH() {
+    public boolean UM() {
         if (checkPermission()) {
             return true;
         }
-        if (this.bAX && this.bAY != null) {
-            this.bAY.startRequestPermission(this.mActivity, true, true);
+        if (this.bFK && this.bFL != null) {
+            this.bFL.startRequestPermission(this.mActivity, true, true);
         }
         return false;
     }
 
     private boolean checkPermission() {
-        if (this.bAY == null) {
-            this.bAY = new PermissionJudgePolicy();
-            this.bAY.clearRequestPermissionList();
-            this.bAY.appendRequestPermission(this.mActivity, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
-            this.bAY.appendRequestPermission(this.mActivity, PermissionRequest.RESOURCE_AUDIO_CAPTURE);
-            this.bAY.appendRequestPermission(this.mActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
+        if (this.bFL == null) {
+            this.bFL = new PermissionJudgePolicy();
+            this.bFL.clearRequestPermissionList();
+            this.bFL.appendRequestPermission(this.mActivity, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
+            this.bFL.appendRequestPermission(this.mActivity, PermissionRequest.RESOURCE_AUDIO_CAPTURE);
+            this.bFL.appendRequestPermission(this.mActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
         }
-        return this.bAY.checkPermissionListGranted(this.mActivity);
+        return this.bFL.checkPermissionListGranted(this.mActivity);
     }
 }

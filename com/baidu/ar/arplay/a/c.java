@@ -3,7 +3,7 @@ package com.baidu.ar.arplay.a;
 import android.content.Context;
 import android.view.OrientationEventListener;
 import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class c extends OrientationEventListener {
     private a dp;
     private a dq;
@@ -11,7 +11,7 @@ public class c extends OrientationEventListener {
     private int ds;
     private int dt;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes6.dex */
     public enum a {
         SCREEN_ORIENTATION_PORTRAIT,
         SCREEN_ORIENTATION_LANDSCAPE,

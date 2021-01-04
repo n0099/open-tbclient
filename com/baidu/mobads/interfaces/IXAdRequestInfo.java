@@ -1,5 +1,5 @@
 package com.baidu.mobads.interfaces;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public interface IXAdRequestInfo {
     public static final String AD_COUNT = "n";
     public static final String AD_LOCAL_PIC = "local_pic";

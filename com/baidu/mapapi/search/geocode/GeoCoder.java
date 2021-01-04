@@ -2,12 +2,14 @@ package com.baidu.mapapi.search.geocode;
 
 import com.baidu.mapapi.BMapManager;
 import com.baidu.mapapi.search.core.l;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class GeoCoder extends l {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.platform.core.b.d f2118a = new com.baidu.platform.core.b.a();
-    private boolean b;
+    private com.baidu.platform.core.b.d f2989a = new com.baidu.platform.core.b.a();
+
+    /* renamed from: b  reason: collision with root package name */
+    private boolean f2990b;
 
     private GeoCoder() {
     }
@@ -18,41 +20,41 @@ public class GeoCoder extends l {
     }
 
     public void destroy() {
-        if (this.b) {
+        if (this.f2990b) {
             return;
         }
-        this.b = true;
-        this.f2118a.a();
+        this.f2990b = true;
+        this.f2989a.a();
         BMapManager.destroy();
     }
 
     public boolean geocode(GeoCodeOption geoCodeOption) {
-        if (this.f2118a == null) {
+        if (this.f2989a == null) {
             throw new IllegalStateException("BDMapSDKException: GeoCoder is null, please call newInstance() first.");
         }
         if (geoCodeOption == null || geoCodeOption.mAddress == null || geoCodeOption.mCity == null) {
             throw new IllegalArgumentException("BDMapSDKException: option or address or city can not be null");
         }
-        return this.f2118a.a(geoCodeOption);
+        return this.f2989a.a(geoCodeOption);
     }
 
     public boolean reverseGeoCode(ReverseGeoCodeOption reverseGeoCodeOption) {
-        if (this.f2118a == null) {
+        if (this.f2989a == null) {
             throw new IllegalStateException("BDMapSDKException: GeoCoder is null, please call newInstance() first.");
         }
         if (reverseGeoCodeOption == null || reverseGeoCodeOption.getLocation() == null) {
             throw new IllegalArgumentException("BDMapSDKException: option or mLocation can not be null");
         }
-        return this.f2118a.a(reverseGeoCodeOption);
+        return this.f2989a.a(reverseGeoCodeOption);
     }
 
     public void setOnGetGeoCodeResultListener(OnGetGeoCoderResultListener onGetGeoCoderResultListener) {
-        if (this.f2118a == null) {
+        if (this.f2989a == null) {
             throw new IllegalStateException("BDMapSDKException: GeoCoder is null, please call newInstance() first.");
         }
         if (onGetGeoCoderResultListener == null) {
             throw new IllegalArgumentException("BDMapSDKException: listener can not be null");
         }
-        this.f2118a.a(onGetGeoCoderResultListener);
+        this.f2989a.a(onGetGeoCoderResultListener);
     }
 }

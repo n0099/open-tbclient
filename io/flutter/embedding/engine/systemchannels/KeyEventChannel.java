@@ -3,36 +3,40 @@ package io.flutter.embedding.engine.systemchannels;
 import android.os.Build;
 import android.view.InputDevice;
 import android.view.KeyEvent;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.ar.constants.HttpConstants;
 import io.flutter.embedding.engine.dart.DartExecutor;
 import io.flutter.plugin.common.BasicMessageChannel;
 import io.flutter.plugin.common.JSONMessageCodec;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class KeyEventChannel {
+    @NonNull
     public final BasicMessageChannel<Object> channel;
 
-    public KeyEventChannel(DartExecutor dartExecutor) {
+    public KeyEventChannel(@NonNull DartExecutor dartExecutor) {
         this.channel = new BasicMessageChannel<>(dartExecutor, "flutter/keyevent", JSONMessageCodec.INSTANCE);
     }
 
-    public void keyUp(FlutterKeyEvent flutterKeyEvent) {
+    public void keyUp(@NonNull FlutterKeyEvent flutterKeyEvent) {
         HashMap hashMap = new HashMap();
         hashMap.put("type", "keyup");
-        hashMap.put("keymap", "android");
+        hashMap.put("keymap", HttpConstants.OS_TYPE_VALUE);
         encodeKeyEvent(flutterKeyEvent, hashMap);
         this.channel.send(hashMap);
     }
 
-    public void keyDown(FlutterKeyEvent flutterKeyEvent) {
+    public void keyDown(@NonNull FlutterKeyEvent flutterKeyEvent) {
         HashMap hashMap = new HashMap();
         hashMap.put("type", "keydown");
-        hashMap.put("keymap", "android");
+        hashMap.put("keymap", HttpConstants.OS_TYPE_VALUE);
         encodeKeyEvent(flutterKeyEvent, hashMap);
         this.channel.send(hashMap);
     }
 
-    private void encodeKeyEvent(FlutterKeyEvent flutterKeyEvent, Map<String, Object> map) {
+    private void encodeKeyEvent(@NonNull FlutterKeyEvent flutterKeyEvent, @NonNull Map<String, Object> map) {
         map.put("flags", Integer.valueOf(flutterKeyEvent.flags));
         map.put("plainCodePoint", Integer.valueOf(flutterKeyEvent.plainCodePoint));
         map.put("codePoint", Integer.valueOf(flutterKeyEvent.codePoint));
@@ -49,9 +53,10 @@ public class KeyEventChannel {
         map.put("repeatCount", Integer.valueOf(flutterKeyEvent.repeatCount));
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     public static class FlutterKeyEvent {
         public final int codePoint;
+        @Nullable
         public final Character complexCharacter;
         public final int deviceId;
         public final int flags;
@@ -64,15 +69,15 @@ public class KeyEventChannel {
         public final int source;
         public final int vendorId;
 
-        public FlutterKeyEvent(KeyEvent keyEvent) {
+        public FlutterKeyEvent(@NonNull KeyEvent keyEvent) {
             this(keyEvent, null);
         }
 
-        public FlutterKeyEvent(KeyEvent keyEvent, Character ch) {
+        public FlutterKeyEvent(@NonNull KeyEvent keyEvent, @Nullable Character ch) {
             this(keyEvent.getDeviceId(), keyEvent.getFlags(), keyEvent.getUnicodeChar(0), keyEvent.getUnicodeChar(), keyEvent.getKeyCode(), ch, keyEvent.getScanCode(), keyEvent.getMetaState(), keyEvent.getSource(), keyEvent.getRepeatCount());
         }
 
-        public FlutterKeyEvent(int i, int i2, int i3, int i4, int i5, Character ch, int i6, int i7, int i8, int i9) {
+        public FlutterKeyEvent(int i, int i2, int i3, int i4, int i5, @Nullable Character ch, int i6, int i7, int i8, int i9) {
             this.deviceId = i;
             this.flags = i2;
             this.plainCodePoint = i3;

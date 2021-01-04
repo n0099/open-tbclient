@@ -7,20 +7,20 @@ import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.coreExtra.relationship.c;
 import com.baidu.tieba.R;
-/* loaded from: classes21.dex */
+/* loaded from: classes8.dex */
 public class AssortView extends View {
-    private a gdb;
+    private a gms;
     private Paint mPaint;
     private int mPosition;
 
-    /* loaded from: classes21.dex */
+    /* loaded from: classes8.dex */
     public interface a {
-        void FH(String str);
+        void FF(String str);
 
-        void bMO();
+        void bPg();
     }
 
     public AssortView(Context context) {
@@ -46,7 +46,7 @@ public class AssortView extends View {
     }
 
     public void setOnTouchListener(a aVar) {
-        this.gdb = aVar;
+        this.gms = aVar;
     }
 
     @Override // android.view.View
@@ -55,14 +55,14 @@ public class AssortView extends View {
         int height = getHeight();
         int width = getWidth();
         float f = (float) (width / 48.0d);
-        int length = height / c.fng.length;
-        int length2 = c.fng.length;
+        int length = height / c.fwQ.length;
+        int length2 = c.fwQ.length;
         for (int i = 0; i < length2; i++) {
             this.mPaint.setAntiAlias(true);
             this.mPaint.setTypeface(Typeface.DEFAULT_BOLD);
-            this.mPaint.setColor(ap.getColor(R.color.CAM_X0108));
+            this.mPaint.setColor(ao.getColor(R.color.CAM_X0108));
             this.mPaint.setTextSize(26.0f * f);
-            canvas.drawText(c.fng[i], (width / 2.0f) - (this.mPaint.measureText(c.fng[i]) / 2.0f), (length * i) + length, this.mPaint);
+            canvas.drawText(c.fwQ[i], (width / 2.0f) - (this.mPaint.measureText(c.fwQ[i]) / 2.0f), (length * i) + length, this.mPaint);
             this.mPaint.reset();
         }
     }
@@ -75,27 +75,27 @@ public class AssortView extends View {
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         super.onTouchEvent(motionEvent);
-        int y = (int) ((motionEvent.getY() / getHeight()) * c.fng.length);
-        if (y >= 0 && y < c.fng.length) {
+        int y = (int) ((motionEvent.getY() / getHeight()) * c.fwQ.length);
+        if (y >= 0 && y < c.fwQ.length) {
             switch (motionEvent.getAction()) {
                 case 0:
                     this.mPosition = y;
-                    if (this.gdb != null) {
-                        this.gdb.FH(c.fng[this.mPosition]);
+                    if (this.gms != null) {
+                        this.gms.FF(c.fwQ[this.mPosition]);
                         return true;
                     }
                     return true;
                 case 1:
-                    if (this.gdb != null) {
-                        this.gdb.bMO();
+                    if (this.gms != null) {
+                        this.gms.bPg();
                     }
                     this.mPosition = -1;
                     return true;
                 case 2:
                     if (this.mPosition != y) {
                         this.mPosition = y;
-                        if (this.gdb != null) {
-                            this.gdb.FH(c.fng[this.mPosition]);
+                        if (this.gms != null) {
+                            this.gms.FF(c.fwQ[this.mPosition]);
                             return true;
                         }
                         return true;
@@ -106,8 +106,8 @@ public class AssortView extends View {
             }
         }
         this.mPosition = -1;
-        if (this.gdb != null) {
-            this.gdb.bMO();
+        if (this.gms != null) {
+            this.gms.bPg();
             return true;
         }
         return true;

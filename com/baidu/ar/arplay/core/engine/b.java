@@ -2,7 +2,7 @@ package com.baidu.ar.arplay.core.engine;
 
 import com.baidu.ar.arplay.core.message.ARPMessage;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class b {
     private ARPMessage.MessageHandler fv;
     private boolean fw = false;

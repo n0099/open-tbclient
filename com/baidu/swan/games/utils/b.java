@@ -1,33 +1,33 @@
 package com.baidu.swan.games.utils;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.v8engine.JSExceptionType;
 import com.baidu.swan.games.binding.model.JSTypeMismatchException;
 import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static void a(com.baidu.swan.games.binding.model.c cVar, boolean z, Object obj) {
         com.baidu.swan.games.binding.model.a f = com.baidu.swan.games.binding.model.a.f(cVar);
         if (z) {
             f.onSuccess(obj);
         } else {
-            f.ac(obj);
+            f.ad(obj);
         }
     }
 
     public static void a(com.baidu.swan.games.f.b bVar, JSTypeMismatchException jSTypeMismatchException) {
-        bVar.throwJSException(JSExceptionType.TypeError, String.format("The \"%s\" argument must be %s. Received type %s", jSTypeMismatchException.name, mF(jSTypeMismatchException.requiredType), mF(jSTypeMismatchException.actualType)));
+        bVar.throwJSException(JSExceptionType.TypeError, String.format("The \"%s\" argument must be %s. Received type %s", jSTypeMismatchException.name, mN(jSTypeMismatchException.requiredType), mN(jSTypeMismatchException.actualType)));
     }
 
     public static String a(@NonNull String str, @NonNull JSTypeMismatchException jSTypeMismatchException) {
-        return String.format("%s:fail parameter error: parameter.%s should be %s instead of %s", str, jSTypeMismatchException.name, mF(jSTypeMismatchException.requiredType), mF(jSTypeMismatchException.actualType));
+        return String.format("%s:fail parameter error: parameter.%s should be %s instead of %s", str, jSTypeMismatchException.name, mN(jSTypeMismatchException.requiredType), mN(jSTypeMismatchException.actualType));
     }
 
-    public static String dr(@NonNull String str, @NonNull String str2) {
+    public static String dq(@NonNull String str, @NonNull String str2) {
         return String.format("%s: %s", str, str2);
     }
 
-    private static String mF(int i) {
+    private static String mN(int i) {
         switch (i) {
             case 1:
                 return "boolean";

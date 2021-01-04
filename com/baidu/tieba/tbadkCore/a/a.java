@@ -10,9 +10,9 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.task.b;
 /* loaded from: classes.dex */
 public class a {
-    private static int bGu = 1;
+    private static int bLh = 1;
 
-    public static com.baidu.tbadk.task.a b(int i, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
+    public static com.baidu.tbadk.task.a e(int i, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
         try {
             com.baidu.tbadk.task.a aVar = new com.baidu.tbadk.task.a(i, cls.newInstance());
             MessageManager.getInstance().registerTask(aVar);
@@ -26,7 +26,7 @@ public class a {
         }
     }
 
-    public static String bN(String str, int i) {
+    public static String bU(String str, int i) {
         return TbConfig.SERVER_ADDRESS + str + "?cmd=" + i;
     }
 
@@ -43,7 +43,7 @@ public class a {
         bVar.setResponsedClass(cls);
         bVar.setNeedCompress(z);
         bVar.a(dupLicateMode);
-        bVar.setRetry(bGu);
+        bVar.setRetry(bLh);
         MessageManager.getInstance().unRegisterTask(i);
         MessageManager.getInstance().registerTask(bVar);
         bVar.setNeedEncrypt(z2);
@@ -51,7 +51,7 @@ public class a {
     }
 
     public static TbHttpMessageTask a(int i, int i2, String str, Class<? extends HttpResponsedMessage> cls, boolean z, boolean z2, boolean z3, boolean z4) {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(i2, bN(str, i));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(i2, bU(str, i));
         tbHttpMessageTask.setIsNeedLogin(z);
         tbHttpMessageTask.setIsNeedTbs(z2);
         tbHttpMessageTask.setIsNeedAddCommenParam(z3);

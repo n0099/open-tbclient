@@ -1,25 +1,25 @@
 package com.baidu.tieba.enterForum.home;
 
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.enterForum.tabfeed.EnterForumTabFeedFragment;
 import java.util.List;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements com.baidu.tbadk.widget.tab.a {
+    private BaseFragment iIj;
     private boolean isPrimary;
-    private BaseFragment ivW;
     private FragmentManager mFragmentManager;
     private List<a> mFragments;
     private int mPrimaryPosition;
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public Fragment fragment;
-        public boolean ivX;
+        public boolean iIk;
         public String tabName;
         public String title;
     }
@@ -31,7 +31,7 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements c
         this.mFragments = list;
     }
 
-    @Override // android.support.v4.app.FragmentPagerAdapter
+    @Override // androidx.fragment.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
         if (this.mFragments == null || i < 0 || i >= this.mFragments.size() || this.mFragments.get(i) == null) {
             return null;
@@ -39,12 +39,12 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements c
         return this.mFragments.get(i).fragment;
     }
 
-    @Override // android.support.v4.app.FragmentPagerAdapter
+    @Override // androidx.fragment.app.FragmentPagerAdapter
     public long getItemId(int i) {
         return (this.mFragments == null || i < 0 || i >= this.mFragments.size() || this.mFragments.get(i) == null) ? super.getItemId(i) : this.mFragments.get(i).hashCode();
     }
 
-    @Override // android.support.v4.view.PagerAdapter
+    @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
         if (this.mFragments != null) {
             return this.mFragments.size();
@@ -52,12 +52,12 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements c
         return 0;
     }
 
-    @Override // android.support.v4.view.PagerAdapter
+    @Override // androidx.viewpager.widget.PagerAdapter
     public int getItemPosition(@NonNull Object obj) {
         return this.mFragmentManager.getFragments().contains(obj) ? -1 : -2;
     }
 
-    @Override // android.support.v4.view.PagerAdapter
+    @Override // androidx.viewpager.widget.PagerAdapter
     public CharSequence getPageTitle(int i) {
         if (this.mFragments == null || i < 0 || i >= this.mFragments.size() || this.mFragments.get(i) == null) {
             return null;
@@ -66,14 +66,14 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements c
     }
 
     @Override // com.baidu.tbadk.widget.tab.a
-    public boolean tF(int i) {
+    public boolean tQ(int i) {
         if (this.mFragments == null || i < 0 || i >= this.mFragments.size() || this.mFragments.get(i) == null || !(this.mFragments.get(i).fragment instanceof EnterForumTabFeedFragment)) {
             return false;
         }
-        return this.mFragments.get(i).ivX;
+        return this.mFragments.get(i).iIk;
     }
 
-    @Override // android.support.v4.app.FragmentPagerAdapter, android.support.v4.view.PagerAdapter
+    @Override // androidx.fragment.app.FragmentPagerAdapter, androidx.viewpager.widget.PagerAdapter
     public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
         super.setPrimaryItem(viewGroup, i, obj);
         if (this.isPrimary && this.mPrimaryPosition != i) {
@@ -84,7 +84,7 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements c
             if (obj instanceof BaseFragment) {
                 BaseFragment baseFragment = (BaseFragment) obj;
                 baseFragment.setPrimary(true);
-                this.ivW = baseFragment;
+                this.iIj = baseFragment;
             }
         }
     }
@@ -94,8 +94,8 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements c
     }
 
     public String getCurrentPageKey() {
-        if (this.ivW instanceof BaseFragment) {
-            return this.ivW.getCurrentPageKey();
+        if (this.iIj instanceof BaseFragment) {
+            return this.iIj.getCurrentPageKey();
         }
         return null;
     }

@@ -1,45 +1,64 @@
 package com.baidu.tieba.ala;
 
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.y;
-import java.util.ArrayList;
+import android.view.View;
+import com.baidu.live.sdk.a;
+import com.baidu.live.tbadk.TbPageContext;
 import java.util.List;
-/* loaded from: classes6.dex */
-public class c {
-    private static c gig;
-    private List<ar> fYD;
+/* loaded from: classes11.dex */
+public class c implements com.baidu.live.liveroom.d.e {
+    private int aMi = 1;
+    private List<com.baidu.live.liveroom.d.d> mDataList;
+    private TbPageContext mPageContext;
+    private View mRootView;
 
-    public static c bPr() {
-        if (gig == null) {
-            synchronized (c.class) {
-                if (gig == null) {
-                    gig = new c();
-                }
-            }
-        }
-        return gig;
+    public c(TbPageContext tbPageContext) {
+        this.mPageContext = tbPageContext;
     }
 
-    public void e(ar arVar) {
-        if (arVar != null) {
-            if (this.fYD == null) {
-                this.fYD = new ArrayList();
-            }
-            if (this.fYD != null) {
-                this.fYD.add(arVar);
+    @Override // com.baidu.live.liveroom.d.d
+    public View getPanelView() {
+        return this.mRootView;
+    }
+
+    @Override // com.baidu.live.liveroom.d.d
+    public String getTitle() {
+        if (this.mPageContext != null) {
+            return this.mPageContext.getString(a.h.ala_rank_list_sub_panel_title);
+        }
+        return null;
+    }
+
+    @Override // com.baidu.live.liveroom.d.d
+    public String Mh() {
+        if (this.aMi == 1) {
+            return com.baidu.live.af.a.SE().bwi.aNG;
+        }
+        return null;
+    }
+
+    @Override // com.baidu.live.liveroom.d.d
+    public short Mi() {
+        return (short) 5;
+    }
+
+    @Override // com.baidu.live.liveroom.d.d
+    public void enterBackground() {
+    }
+
+    @Override // com.baidu.live.liveroom.d.d
+    public void enterForeground() {
+    }
+
+    @Override // com.baidu.live.liveroom.d.d
+    public void onDestroy() {
+        if (this.mDataList != null) {
+            for (com.baidu.live.liveroom.d.d dVar : this.mDataList) {
+                dVar.onDestroy();
             }
         }
     }
 
-    public void bPs() {
-        if (y.getCount(this.fYD) != 0) {
-            for (ar arVar : this.fYD) {
-                if (arVar != null) {
-                    TiebaStatic.log(arVar);
-                }
-            }
-            this.fYD.clear();
-        }
+    @Override // com.baidu.live.liveroom.d.d
+    public void onChangeSkinType(int i) {
     }
 }

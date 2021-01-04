@@ -4,19 +4,19 @@ import android.content.Context;
 import android.util.AttributeSet;
 import com.baidu.live.adp.lib.util.BdFileHelper;
 import com.baidu.live.adp.lib.util.BdStringHelper;
+import com.baidu.live.lottie.LottieAnimationView;
+import com.baidu.live.lottie.e;
+import com.baidu.live.lottie.f;
+import com.baidu.live.lottie.j;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.live.tbadk.widget.lottie.TBLottieAnimationLoader;
 import com.baidu.n.a.a;
-import com.tb.airbnb.lottie.LottieAnimationView;
-import com.tb.airbnb.lottie.e;
-import com.tb.airbnb.lottie.f;
-import com.tb.airbnb.lottie.i;
 import java.io.File;
 import java.io.InputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class TBLottieAnimationView extends LottieAnimationView {
     private static final String DIR_ANIMATION = "animation";
     public static final String JSON_FILE = "data.json";
@@ -131,9 +131,9 @@ public class TBLottieAnimationView extends LottieAnimationView {
             cancelAnimation();
             InputStream animationInputStream = getAnimationInputStream(str, JSON_FILE);
             if (animationInputStream != null) {
-                f.i(animationInputStream, str).a(new i<e>() { // from class: com.baidu.live.tbadk.widget.lottie.TBLottieAnimationView.2
+                f.e(animationInputStream, str).a(new j<e>() { // from class: com.baidu.live.tbadk.widget.lottie.TBLottieAnimationView.2
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.tb.airbnb.lottie.i
+                    @Override // com.baidu.live.lottie.j
                     public void onResult(e eVar) {
                         if (eVar != null) {
                             TBLottieAnimationView.this.setComposition(eVar);
@@ -151,25 +151,25 @@ public class TBLottieAnimationView extends LottieAnimationView {
         return a.checkPermissionGranted(getContext(), "android.permission.WRITE_EXTERNAL_STORAGE");
     }
 
-    @Override // com.tb.airbnb.lottie.LottieAnimationView
+    @Override // com.baidu.live.lottie.LottieAnimationView
     public void playAnimation() {
         super.playAnimation();
         this.isSettingForPlay = true;
     }
 
-    @Override // com.tb.airbnb.lottie.LottieAnimationView
+    @Override // com.baidu.live.lottie.LottieAnimationView
     public void pauseAnimation() {
         super.pauseAnimation();
         this.isSettingForPlay = false;
     }
 
-    @Override // com.tb.airbnb.lottie.LottieAnimationView
+    @Override // com.baidu.live.lottie.LottieAnimationView
     public void cancelAnimation() {
         super.cancelAnimation();
         this.isSettingForPlay = false;
     }
 
-    @Override // com.tb.airbnb.lottie.LottieAnimationView
+    @Override // com.baidu.live.lottie.LottieAnimationView
     public void resumeAnimation() {
         super.resumeAnimation();
         this.isSettingForPlay = true;

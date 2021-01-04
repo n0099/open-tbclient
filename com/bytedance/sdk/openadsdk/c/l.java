@@ -1,0 +1,28 @@
+package com.bytedance.sdk.openadsdk.c;
+
+import android.content.Context;
+/* loaded from: classes4.dex */
+public class l extends n {
+    public l(Context context) {
+        super(context);
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.c.n
+    public String d() {
+        return "logstatsbatch";
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.c.n, com.bytedance.sdk.openadsdk.c.e
+    public int c() {
+        return this.f6543a.b("stats_serverbusy_retrycount", 0);
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.c.n, com.bytedance.sdk.openadsdk.c.e
+    public void a(int i) {
+        this.f6543a.a("stats_serverbusy_retrycount", i);
+    }
+
+    public static String e() {
+        return "CREATE TABLE IF NOT EXISTS logstatsbatch (_id INTEGER PRIMARY KEY AUTOINCREMENT,id TEXT UNIQUE,value TEXT ,gen_time TEXT , retry INTEGER default 0)";
+    }
+}

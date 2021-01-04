@@ -1,5 +1,5 @@
 package com.baidu.mobstat;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public interface da extends cu, cz {
     void a(String str);
 

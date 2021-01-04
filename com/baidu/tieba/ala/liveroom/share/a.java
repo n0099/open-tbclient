@@ -2,47 +2,47 @@ package com.baidu.tieba.ala.liveroom.share;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.TranslateAnimation;
+import androidx.annotation.NonNull;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.live.data.w;
+import com.baidu.live.data.x;
 import com.baidu.live.gift.n;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.data.ShareEntity;
 import com.baidu.tieba.ala.liveroom.share.AlaLandscapeShareView;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a extends Dialog {
-    private w aFN;
-    private b hBM;
-    private View hBN;
+    private x aGe;
+    private b hNN;
+    private View hNO;
     private Context mContext;
     private TbPageContext mPageContext;
 
-    public a(@NonNull Context context, TbPageContext tbPageContext, w wVar, b bVar) {
+    public a(@NonNull Context context, TbPageContext tbPageContext, x xVar, b bVar) {
         super(context);
         this.mContext = context;
-        this.hBM = bVar;
+        this.hNN = bVar;
         this.mPageContext = tbPageContext;
-        this.aFN = wVar;
+        this.aGe = xVar;
         initView();
     }
 
     private void initView() {
-        ShareEntity Q = Q(this.aFN);
-        if (Q != null) {
-            this.hBN = new AlaLandscapeShareView(this.mPageContext, Q, new AlaLandscapeShareView.a() { // from class: com.baidu.tieba.ala.liveroom.share.a.1
+        ShareEntity R = R(this.aGe);
+        if (R != null) {
+            this.hNO = new AlaLandscapeShareView(this.mPageContext, R, new AlaLandscapeShareView.a() { // from class: com.baidu.tieba.ala.liveroom.share.a.1
                 @Override // com.baidu.tieba.ala.liveroom.share.AlaLandscapeShareView.a
                 public void onClick(View view) {
-                    if (a.this.hBM != null) {
-                        a.this.hBM.dismiss();
+                    if (a.this.hNN != null) {
+                        a.this.hNN.dismiss();
                     }
                 }
             });
-            setContentView(this.hBN);
+            setContentView(this.hNO);
             int screenWidth = n.getScreenWidth(this.mContext);
             setCancelable(true);
             setCanceledOnTouchOutside(true);
@@ -55,32 +55,32 @@ public class a extends Dialog {
                 attributes.width = screenWidth;
                 window.setAttributes(attributes);
             }
-            JG();
+            Ji();
         }
     }
 
-    private void JG() {
+    private void Ji() {
         TranslateAnimation translateAnimation = new TranslateAnimation(0.0f, 0.0f, BdUtilHelper.dip2px(this.mContext, 200.0f), 0.0f);
         translateAnimation.setDuration(250L);
-        this.hBN.startAnimation(translateAnimation);
+        this.hNO.startAnimation(translateAnimation);
     }
 
-    private ShareEntity Q(w wVar) {
-        if (wVar == null) {
+    private ShareEntity R(x xVar) {
+        if (xVar == null) {
             return null;
         }
         ShareEntity shareEntity = new ShareEntity();
-        shareEntity.userId = wVar.aJV.userId;
-        shareEntity.userName = wVar.aJV.userName;
+        shareEntity.userId = xVar.aKu.userId;
+        shareEntity.userName = xVar.aKu.userName;
         shareEntity.title = StringUtils.isNull(shareEntity.userName) ? "" : shareEntity.userName + "的直播";
         shareEntity.content = "精彩直播正在进行，邀请你速来围观。";
-        String str = wVar.mLiveInfo.cover;
+        String str = xVar.mLiveInfo.cover;
         if (str != null && !str.contains(".jpg")) {
             str = str + ".jpg";
         }
         shareEntity.imageUrl = str;
-        shareEntity.linkUrl = wVar.mLiveInfo.share_url;
-        shareEntity.liveId = wVar.mLiveInfo != null ? wVar.mLiveInfo.live_id : 0L;
+        shareEntity.linkUrl = xVar.mLiveInfo.share_url;
+        shareEntity.liveId = xVar.mLiveInfo != null ? xVar.mLiveInfo.live_id : 0L;
         return shareEntity;
     }
 }

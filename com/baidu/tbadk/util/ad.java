@@ -1,73 +1,217 @@
 package com.baidu.tbadk.util;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TiebaIMConfig;
+import android.text.TextUtils;
+import android.util.Pair;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.live.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class ad {
-    private static final BdUniqueId fGo = BdUniqueId.gen();
-    private static final BdAsyncTaskParallel sBdAsyncTaskParallel = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, fGo);
+    public static TextView fPT;
 
-    public static <T> void a(ac<T> acVar, m<T> mVar) {
-        if (acVar != null) {
-            a aVar = new a(acVar, mVar);
-            aVar.setParallel(sBdAsyncTaskParallel);
-            aVar.setTag(fGo);
-            aVar.setPriority(4);
-            aVar.execute(new String[0]);
+    public static int getCharLength(char c) {
+        if (isCharacter(c)) {
+            return 1;
+        }
+        return 2;
+    }
+
+    public static boolean isCharacter(char c) {
+        return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || ((c >= '0' && c <= '9') || c == ' ');
+    }
+
+    public static int getTextLength(String str) {
+        int i = 0;
+        if (TextUtils.isEmpty(str)) {
+            return 0;
+        }
+        int i2 = 0;
+        while (true) {
+            int i3 = i;
+            if (i2 >= str.length()) {
+                return i3;
+            }
+            if (isCharacter(str.charAt(i2))) {
+                i = i3 + 1;
+            } else {
+                i = i3 + 2;
+            }
+            i2++;
         }
     }
 
-    public static <T> void b(ac<T> acVar, m<T> mVar) {
-        if (acVar != null) {
-            a aVar = new a(acVar, mVar);
-            aVar.setParallel(TiebaIMConfig.getParallel());
-            aVar.setTag(fGo);
-            aVar.setPriority(4);
-            aVar.execute(new String[0]);
+    public static int getTextLengthWithEmoji(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return 0;
         }
+        int codePointCount = str.codePointCount(0, str.length());
+        int i = 0;
+        for (int i2 = 1; i2 <= codePointCount; i2++) {
+            String substring = str.substring(str.offsetByCodePoints(0, i2 - 1), str.offsetByCodePoints(0, i2));
+            if (substring.length() >= 2) {
+                i += 2;
+            } else {
+                i += getTextLength(substring);
+            }
+        }
+        return i;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public static class a<T> extends BdAsyncTask<String, Object, T> {
-        private ac<T> fGp;
-        private m<T> fGq;
-
-        public a(ac<T> acVar, m<T> mVar) {
-            this.fGp = null;
-            this.fGq = null;
-            this.fGp = acVar;
-            this.fGq = mVar;
+    public static int getTextLengthAllOne(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return 0;
         }
+        int codePointCount = str.codePointCount(0, str.length());
+        int i = 0;
+        for (int i2 = 1; i2 <= codePointCount; i2++) {
+            if (str.substring(str.offsetByCodePoints(0, i2 - 1), str.offsetByCodePoints(0, i2)).length() >= 2) {
+            }
+            i++;
+        }
+        return i;
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public T doInBackground(String... strArr) {
-            try {
-                if (this.fGp == null) {
-                    return null;
+    public static String subStringWithAllOne(String str, int i) {
+        int codePointCount = str.codePointCount(0, str.length());
+        int i2 = 1;
+        String str2 = str;
+        while (i2 <= codePointCount) {
+            String substring = str.substring(0, str.offsetByCodePoints(0, i2));
+            if (getTextLengthAllOne(substring) > i) {
+                break;
+            }
+            i2++;
+            str2 = substring;
+        }
+        return str2;
+    }
+
+    public static String interceptString(String str, int i) {
+        if (StringUtils.isNull(str)) {
+            return "";
+        }
+        if (getTextLength(str) > i) {
+            return subString(str, 0, i - 2) + StringHelper.STRING_MORE;
+        }
+        return str;
+    }
+
+    public static String subString(String str, int i, int i2) {
+        int i3 = 0;
+        StringBuilder sb = new StringBuilder();
+        if (TextUtils.isEmpty(str) || i > i2) {
+            return sb.toString();
+        }
+        if (i >= 0 && i2 >= 0) {
+            int i4 = 0;
+            while (true) {
+                int i5 = i3;
+                if (i4 >= str.length()) {
+                    break;
                 }
-                return this.fGp.doInBackground();
-            } catch (Throwable th) {
-                BdLog.detailException(th);
-                return null;
+                char charAt = str.charAt(i4);
+                if (i5 >= i2) {
+                    if (i5 == i2) {
+                        if (d(sb.charAt(sb.length() - 1))) {
+                            return sb.append(charAt).toString();
+                        }
+                        return sb.toString();
+                    } else if (sb.length() > 2 && d(sb.charAt(sb.length() - 2))) {
+                        return sb.toString();
+                    } else {
+                        return sb.deleteCharAt(sb.length() - 1).toString();
+                    }
+                }
+                if (i5 >= i) {
+                    sb.append(charAt);
+                }
+                if (isCharacter(charAt)) {
+                    i3 = i5 + 1;
+                } else {
+                    i3 = i5 + 2;
+                }
+                i4++;
             }
         }
-
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(T t) {
-            if (this.fGq != null) {
-                this.fGq.onReturnDataInUI(t);
-            }
-        }
+        return sb.toString();
     }
 
-    public static void clearQueue() {
-        BdAsyncTask.removeAllTask(fGo);
+    public static boolean d(char c) {
+        return c >= 55296 && c <= 56319;
+    }
+
+    public static boolean isCharacterExceptCapital(char c) {
+        return (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9') || c == ' ';
+    }
+
+    public static String subString(String str, int i) {
+        int i2 = 0;
+        StringBuilder sb = new StringBuilder();
+        if (TextUtils.isEmpty(str)) {
+            return sb.toString();
+        }
+        if (i > 0) {
+            int i3 = 0;
+            while (true) {
+                int i4 = i2;
+                if (i3 >= str.length()) {
+                    break;
+                }
+                char charAt = str.charAt(i3);
+                if (i4 >= i) {
+                    if (i4 == i) {
+                        return sb.toString();
+                    }
+                    return sb.deleteCharAt(sb.length() - 1).toString();
+                }
+                if (i4 >= 0) {
+                    sb.append(charAt);
+                }
+                if (isCharacterExceptCapital(charAt)) {
+                    i2 = i4 + 1;
+                } else {
+                    i2 = i4 + 2;
+                }
+                i3++;
+            }
+        }
+        return sb.toString();
+    }
+
+    public static String subStringWithEmoji(String str, int i) {
+        int codePointCount = str.codePointCount(0, str.length());
+        int i2 = 1;
+        String str2 = str;
+        while (i2 <= codePointCount) {
+            String substring = str.substring(0, str.offsetByCodePoints(0, i2));
+            if (getTextLengthWithEmoji(substring) > i) {
+                break;
+            }
+            i2++;
+            str2 = substring;
+        }
+        return str2;
+    }
+
+    public static Pair<Integer, Integer> u(String str, int i, int i2) {
+        try {
+            if (fPT == null) {
+                fPT = new TextView(TbadkCoreApplication.getInst().getContext());
+            }
+            TextView textView = fPT;
+            if (textView.getLayoutParams() == null) {
+                textView.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
+            }
+            textView.setText(str);
+            textView.setTextSize(0, i);
+            textView.measure(View.MeasureSpec.makeMeasureSpec(i2, Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(0, 0));
+            return new Pair<>(Integer.valueOf(textView.getMeasuredHeight()), Integer.valueOf(textView.getLineCount()));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }

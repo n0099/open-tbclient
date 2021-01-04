@@ -7,40 +7,40 @@ import android.view.ViewGroup;
 import com.baidu.live.view.PriorityVerticalLinearLayout;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class DispatchedPvlLayout extends PriorityVerticalLinearLayout {
-    private boolean bQs;
-    private boolean bQt;
-    private a bQu;
+    private boolean bVC;
+    private boolean bVD;
+    private a bVE;
 
     public DispatchedPvlLayout(Context context) {
         super(context);
-        this.bQs = false;
-        this.bQt = false;
+        this.bVC = false;
+        this.bVD = false;
     }
 
     public DispatchedPvlLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bQs = false;
-        this.bQt = false;
+        this.bVC = false;
+        this.bVD = false;
     }
 
     public DispatchedPvlLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bQs = false;
-        this.bQt = false;
+        this.bVC = false;
+        this.bVD = false;
     }
 
     @Override // com.baidu.live.view.PriorityVerticalLinearLayout, android.view.ViewGroup
     public void addView(View view, int i, ViewGroup.LayoutParams layoutParams) {
-        if ((!this.bQs || !b.a(view, this.bQu)) && layoutParams != null) {
+        if ((!this.bVC || !b.a(view, this.bVE)) && layoutParams != null) {
             super.addView(view, i, layoutParams);
         }
     }
 
     @Override // android.view.ViewGroup, android.view.ViewManager
     public void removeView(View view) {
-        if (this.bQt || !this.bQs || !b.b(view, this.bQu)) {
+        if (this.bVD || !this.bVC || !b.b(view, this.bVE)) {
             super.removeView(view);
         }
     }
@@ -48,55 +48,55 @@ public class DispatchedPvlLayout extends PriorityVerticalLinearLayout {
     @Override // android.view.ViewGroup
     public void removeAllViews() {
         super.removeAllViews();
-        if (this.bQs && this.bQu != null) {
-            this.bQu.YI();
+        if (this.bVC && this.bVE != null) {
+            this.bVE.ZV();
         }
     }
 
     @Override // android.view.ViewGroup
     public int indexOfChild(View view) {
-        if (!this.bQt && this.bQs) {
-            if (this.bQu == null || !this.bQu.ai(view)) {
+        if (!this.bVD && this.bVC) {
+            if (this.bVE == null || !this.bVE.ai(view)) {
                 return super.indexOfChild(view);
             }
-            return this.bQu.indexOfChild(view);
+            return this.bVE.indexOfChild(view);
         }
         return super.indexOfChild(view);
     }
 
     public void setViewActionDispatched(boolean z) {
-        if (this.bQs != z) {
-            this.bQs = z;
+        if (this.bVC != z) {
+            this.bVC = z;
             if (z) {
-                YH();
+                ZU();
             }
         }
     }
 
-    private void YH() {
-        if (this.bQs && getChildCount() > 0 && this.bQu != null) {
+    private void ZU() {
+        if (this.bVC && getChildCount() > 0 && this.bVE != null) {
             LinkedList linkedList = new LinkedList();
             for (int i = 0; i < getChildCount(); i++) {
                 View childAt = getChildAt(i);
-                if (this.bQu.ai(childAt)) {
+                if (this.bVE.ai(childAt)) {
                     linkedList.add(childAt);
                 }
             }
             if (!linkedList.isEmpty()) {
-                this.bQt = true;
+                this.bVD = true;
                 Iterator it = linkedList.iterator();
                 while (it.hasNext()) {
                     View view = (View) it.next();
                     super.removeView(view);
-                    this.bQu.aj(view);
+                    this.bVE.aj(view);
                 }
-                this.bQt = false;
+                this.bVD = false;
             }
         }
     }
 
     public void setViewActionDispatchListener(a aVar) {
-        this.bQu = aVar;
-        YH();
+        this.bVE = aVar;
+        ZU();
     }
 }

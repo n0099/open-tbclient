@@ -4,8 +4,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-/* loaded from: classes22.dex */
-public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personCenter.c.g, com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.f>> {
+import com.baidu.tieba.card.holder.CardViewHolder;
+/* loaded from: classes2.dex */
+public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personCenter.c.g, CardViewHolder<com.baidu.tieba.personCenter.view.f>> {
     private TbPageContext mPageContext;
 
     public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -16,16 +17,16 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personCen
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aL */
-    public com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.f> c(ViewGroup viewGroup) {
-        return new com.baidu.tieba.card.a.a<>(new com.baidu.tieba.personCenter.view.f(this.mPageContext));
+    /* renamed from: aX */
+    public CardViewHolder<com.baidu.tieba.personCenter.view.f> e(ViewGroup viewGroup) {
+        return new CardViewHolder<>(new com.baidu.tieba.personCenter.view.f(this.mPageContext));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personCenter.c.g gVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.f> aVar) {
-        aVar.csN().a(gVar);
-        return aVar.getView();
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personCenter.c.g gVar, CardViewHolder<com.baidu.tieba.personCenter.view.f> cardViewHolder) {
+        cardViewHolder.cvG().a(gVar);
+        return cardViewHolder.getView();
     }
 }

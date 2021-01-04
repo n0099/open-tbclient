@@ -3,8 +3,8 @@ package com.baidu.tieba.tbadkCore;
 import com.baidu.adp.BdUniqueId;
 import tbclient.ActBtn;
 /* loaded from: classes.dex */
-public class q implements com.baidu.adp.widget.ListView.q {
-    public static final BdUniqueId nkx = BdUniqueId.gen();
+public class q implements com.baidu.adp.widget.ListView.n {
+    public static final BdUniqueId nqf = BdUniqueId.gen();
     public String text;
     public String url;
 
@@ -15,8 +15,8 @@ public class q implements com.baidu.adp.widget.ListView.q {
         }
     }
 
-    @Override // com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return nkx;
+        return nqf;
     }
 }

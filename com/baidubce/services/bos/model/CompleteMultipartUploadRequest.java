@@ -5,7 +5,7 @@ import com.baidubce.util.CheckUtils;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-/* loaded from: classes25.dex */
+/* loaded from: classes6.dex */
 public class CompleteMultipartUploadRequest extends GenericUploadRequest {
     private ObjectMetadata objectMetadata;
     private List<PartETag> partETags;

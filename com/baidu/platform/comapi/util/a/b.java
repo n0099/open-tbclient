@@ -5,12 +5,14 @@ import android.os.Environment;
 import android.text.TextUtils;
 import com.baidu.vi.VIContext;
 import java.io.File;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2946a;
-    private String b;
+    private String f4383a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private String f4384b;
     private String c;
     private String d;
     private String e;
@@ -18,17 +20,17 @@ public class b {
     private String g;
 
     public String a() {
-        if (TextUtils.isEmpty(this.f2946a)) {
+        if (TextUtils.isEmpty(this.f4383a)) {
             a(VIContext.getContext());
         }
-        return this.f2946a;
+        return this.f4383a;
     }
 
     public void a(Context context) {
-        this.f2946a = context.getFilesDir().getAbsolutePath();
+        this.f4383a = context.getFilesDir().getAbsolutePath();
         this.d = context.getCacheDir().getAbsolutePath();
         this.e = this.d;
-        this.b = Environment.getExternalStorageDirectory().getPath();
+        this.f4384b = Environment.getExternalStorageDirectory().getPath();
         this.c = Environment.getExternalStorageDirectory().getPath();
         File externalFilesDir = context.getExternalFilesDir(null);
         if (externalFilesDir != null) {
@@ -41,10 +43,10 @@ public class b {
     }
 
     public String b() {
-        if (TextUtils.isEmpty(this.b)) {
+        if (TextUtils.isEmpty(this.f4384b)) {
             a(VIContext.getContext());
         }
-        return this.b;
+        return this.f4384b;
     }
 
     public String c() {

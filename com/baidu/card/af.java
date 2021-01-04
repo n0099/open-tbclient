@@ -1,30 +1,30 @@
 package com.baidu.card;
 
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.card.a;
 import com.baidu.card.a.a;
-import com.baidu.card.b;
 import com.baidu.card.view.RichTextLayout;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.by;
+import com.baidu.tbadk.core.data.bz;
 import com.baidu.tieba.R;
-/* loaded from: classes21.dex */
-public class af extends i {
-    private com.baidu.tbadk.core.data.a agJ;
-    private RichTextLayout aib;
+/* loaded from: classes.dex */
+public class af extends h {
+    private com.baidu.tbadk.core.data.a ahi;
+    private RichTextLayout aiO;
     private String mFrom;
     private int mSkinType;
 
     public af(TbPageContext<?> tbPageContext) {
         super(tbPageContext.getPageActivity());
         this.mSkinType = 3;
-        this.aib = new RichTextLayout(tbPageContext.getPageActivity());
-        this.aib.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
+        this.aiO = new RichTextLayout(tbPageContext.getPageActivity());
+        this.aiO.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
     }
 
-    @Override // com.baidu.card.b
+    @Override // com.baidu.card.a
     public View getView() {
-        return this.aib;
+        return this.aiO;
     }
 
     public void setFrom(String str) {
@@ -34,36 +34,36 @@ public class af extends i {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.p
     /* renamed from: b */
-    public void H(com.baidu.tbadk.core.data.a aVar) {
-        this.agJ = aVar;
-        this.aib.setTransmit(tF().booleanValue());
-        this.aib.H(aVar);
-        this.aib.setJumpToPbListener(new View.OnClickListener() { // from class: com.baidu.card.af.1
+    public void D(com.baidu.tbadk.core.data.a aVar) {
+        this.ahi = aVar;
+        this.aiO.setTransmit(td().booleanValue());
+        this.aiO.D(aVar);
+        this.aiO.setJumpToPbListener(new View.OnClickListener() { // from class: com.baidu.card.af.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (af.this.agH != null) {
-                    af.this.agH.a(af.this.agJ);
+                if (af.this.ahg != null) {
+                    af.this.ahg.a(af.this.ahi);
                 }
             }
         });
-        this.aib.setFrom(this.mFrom);
+        this.aiO.setFrom(this.mFrom);
     }
 
     public void e(int i, int i2, int i3, int i4) {
-        this.aib.setPadding(i, i2, i3, i4);
+        this.aiO.setPadding(i, i2, i3, i4);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.card.b
-    public void tD() {
+    @Override // com.baidu.card.a
+    public void tb() {
         a(1, new a.b() { // from class: com.baidu.card.af.2
             @Override // com.baidu.card.a.a.b
-            public boolean a(a.C0097a c0097a) {
-                if (af.this.agJ != null && af.this.agJ.bmn() != null && !af.this.tF().booleanValue()) {
-                    by bmn = af.this.agJ.bmn();
-                    com.baidu.tieba.card.n.Jq(bmn.getId());
-                    com.baidu.tieba.card.n.a(af.this.aib.mTitle, bmn.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    com.baidu.tieba.card.n.a(af.this.aib.ahp, bmn.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+            public boolean a(a.C0090a c0090a) {
+                if (af.this.ahi != null && af.this.ahi.boO() != null && !af.this.td().booleanValue()) {
+                    bz boO = af.this.ahi.boO();
+                    com.baidu.tieba.card.m.Jo(boO.getId());
+                    com.baidu.tieba.card.m.a(af.this.aiO.mTitle, boO.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    com.baidu.tieba.card.m.a(af.this.aiO.aia, boO.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -72,17 +72,17 @@ public class af extends i {
 
     @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        if (this.mSkinType != i && tF().booleanValue()) {
-            com.baidu.tbadk.core.util.ap.setBackgroundColor(this.aib, R.color.CAM_X0206);
+        if (this.mSkinType != i && td().booleanValue()) {
+            com.baidu.tbadk.core.util.ao.setBackgroundColor(this.aiO, R.color.CAM_X0206);
         }
         this.mSkinType = i;
     }
 
-    public void a(b.a aVar) {
-        this.agH = aVar;
+    public void a(a.InterfaceC0089a interfaceC0089a) {
+        this.ahg = interfaceC0089a;
     }
 
     public void setNeedFrsTabName(boolean z) {
-        this.aib.setNeedFrsTabName(z);
+        this.aiO.setNeedFrsTabName(z);
     }
 }

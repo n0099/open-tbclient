@@ -1,13 +1,13 @@
 package com.baidu.swan.apps.core.container.view;
 
 import android.content.Context;
-import android.support.annotation.Keep;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
+import androidx.annotation.Keep;
 import com.baidu.swan.apps.a;
 @Keep
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class SwanAppSelectPopView extends LinearLayout implements View.OnClickListener {
     public static final int SELECTION_PADDING = 22;
     public static final int SELECTION_TOP_DUR = 3000;
@@ -22,7 +22,7 @@ public class SwanAppSelectPopView extends LinearLayout implements View.OnClickLi
     private View mSearchView;
     private String mSelection;
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void doSelectionCopy(String str);
 

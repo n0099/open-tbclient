@@ -11,45 +11,45 @@ import org.apache.http.cookie.ClientCookie;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class b extends com.baidu.lcp.sdk.b.a {
-    private a aAk;
+    private a aAA;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public interface a {
-        void fK(String str);
+        void fu(String str);
 
         void onFailure(int i, String str);
     }
 
     public b(Context context, a aVar) {
         this.context = context;
-        this.aAk = aVar;
+        this.aAA = aVar;
     }
 
-    @Override // com.baidu.lcp.sdk.b.c.InterfaceC0167c
+    @Override // com.baidu.lcp.sdk.b.c.InterfaceC0159c
     public void onSuccess(byte[] bArr) {
         JSONObject jSONObject;
         try {
             JSONObject jSONObject2 = new JSONObject(new String(bArr));
             com.baidu.lcp.sdk.d.d.d("GetTokenRequest", "onSuccess :" + jSONObject2.toString());
             int optInt = jSONObject2.optInt("error_code", -1);
-            String optString = jSONObject2.optString(AlaRecorderLog.KEY_ERROR_MSG, "");
+            String optString = jSONObject2.optString("error_msg", "");
             if (optInt == 0) {
                 e.j(this.context, jSONObject2.optBoolean("bddns_enable", false));
                 String optString2 = jSONObject2.optString("token");
                 JSONArray jSONArray = jSONObject2.getJSONArray(WebSocketRequest.PARAM_KEY_PROTOCOLS);
                 if (TextUtils.isEmpty(optString2) || jSONArray == null || jSONArray.length() < 1) {
-                    this.aAk.onFailure(10002, "token or protocol is empty");
+                    this.aAA.onFailure(10002, "token or protocol is empty");
                     return;
                 }
                 e.l(this.context, jSONArray.length());
                 for (int i = 0; i < jSONArray.length(); i++) {
                     JSONObject jSONObject3 = (JSONObject) jSONArray.get(i);
-                    e.d(this.context, jSONObject3.optString(AlaRecorderLog.KEY_CONTENT_EXT_PROTOCOL) + ":" + jSONObject3.optString("domain") + ":" + jSONObject3.optString(ClientCookie.PORT_ATTR), i);
+                    e.e(this.context, jSONObject3.optString(AlaRecorderLog.KEY_CONTENT_EXT_PROTOCOL) + ":" + jSONObject3.optString("domain") + ":" + jSONObject3.optString(ClientCookie.PORT_ATTR), i);
                 }
                 e.o(this.context, jSONObject2.optInt("ipv6_strategy", 3));
-                this.aAk.fK(optString2);
+                this.aAA.fu(optString2);
                 e.D(this.context, optString2);
                 try {
                     String optString3 = jSONObject2.optString("client_log_config", "");
@@ -71,27 +71,27 @@ public class b extends com.baidu.lcp.sdk.b.a {
                     return;
                 }
             }
-            this.aAk.onFailure(optInt, optString);
+            this.aAA.onFailure(optInt, optString);
         } catch (JSONException e2) {
-            this.aAk.onFailure(10001, "parse response exception ：" + e2);
+            this.aAA.onFailure(10001, "parse response exception ：" + e2);
         }
     }
 
-    @Override // com.baidu.lcp.sdk.b.c.InterfaceC0167c
+    @Override // com.baidu.lcp.sdk.b.c.InterfaceC0159c
     public void onFailure(int i, String str) {
-        this.aAk.onFailure(i, str);
+        this.aAA.onFailure(i, str);
     }
 
     @Override // com.baidu.lcp.sdk.b.c.a
     public String getHost() {
-        int aK = com.baidu.lcp.sdk.d.b.aK(this.context);
-        if (aK == 1) {
+        int aJ = com.baidu.lcp.sdk.d.b.aJ(this.context);
+        if (aJ == 1) {
             return "http://rd-im-server.bcc-szth.baidu.com:8089/rest/5.0/generate_lcm_token";
         }
-        if (aK == 2) {
+        if (aJ == 2) {
             return "http://bjyz-migrate-big-mem-xyq-02.epc.baidu.com:8911/rest/5.0/generate_lcm_token";
         }
-        return com.baidu.lcp.sdk.d.b.aJ(this.context) ? "http://rd-im-server.bcc-szth.baidu.com:8089/rest/5.0/generate_lcm_token" : "https://pim.baidu.com/rest/5.0/generate_lcm_token";
+        return com.baidu.lcp.sdk.d.b.aI(this.context) ? "http://rd-im-server.bcc-szth.baidu.com:8089/rest/5.0/generate_lcm_token" : "https://pim.baidu.com/rest/5.0/generate_lcm_token";
     }
 
     @Override // com.baidu.lcp.sdk.b.c.a

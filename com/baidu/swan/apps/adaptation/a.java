@@ -1,21 +1,21 @@
 package com.baidu.swan.apps.adaptation;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.swan.apps.adaptation.a.i;
 import com.baidu.swan.bdprivate.a.u;
-/* loaded from: classes20.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private i cAt;
+    private i cFj;
 
     @NonNull
-    public i aiF() {
-        if (this.cAt == null) {
-            this.cAt = aiG();
+    public i ajN() {
+        if (this.cFj == null) {
+            this.cFj = ajO();
         }
-        return this.cAt;
+        return this.cFj;
     }
 
-    public i aiG() {
+    public i ajO() {
         return new u();
     }
 }

@@ -1,6 +1,6 @@
 package com.baidu.swan.pms.utils;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import java.io.Closeable;
 /* loaded from: classes6.dex */
 public class c {

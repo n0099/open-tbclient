@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes13.dex */
+/* loaded from: classes8.dex */
 public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>>, HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>>> {
     boolean useCache;
 
@@ -27,10 +27,9 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
     /* renamed from: a */
     public HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>> doInBackground(Collection<String>... collectionArr) {
         Collection<String> collection;
-        String sb;
         String str;
-        StringBuilder sb2;
-        l<String> a2 = BdCacheService.lZ().a("dnsproxy", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 2);
+        StringBuilder sb;
+        l<String> a2 = BdCacheService.lx().a("dnsproxy", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 2);
         if (this.useCache) {
             String str2 = a2.get("dnsproxycachedata");
             if (str2 != null) {
@@ -58,33 +57,32 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
             e.printStackTrace();
         }
         if (collectionArr != null && collectionArr.length == 1 && (collection = collectionArr[0]) != null) {
-            String ctK = new a().ctK();
-            StringBuilder sb3 = new StringBuilder();
+            String cwB = new a().cwB();
+            StringBuilder sb2 = new StringBuilder();
             for (String str3 : collection) {
-                if (sb3.length() > 0) {
-                    sb3.append(",");
+                if (sb2.length() > 0) {
+                    sb2.append(",");
                 }
-                sb3.append(str3);
+                sb2.append(str3);
             }
-            String str4 = "http://" + ctK + "/domains/resolve?domains=" + ((Object) sb3) + "&t=" + System.currentTimeMillis();
+            String str4 = "http://" + cwB + "/domains/resolve?domains=" + ((Object) sb2) + "&t=" + System.currentTimeMillis();
             com.baidu.adp.lib.network.http.e eVar = new com.baidu.adp.lib.network.http.e();
             com.baidu.adp.lib.network.http.c cVar = new com.baidu.adp.lib.network.http.c(eVar);
-            eVar.mx().setUrl(str4);
+            eVar.lV().setUrl(str4);
             cVar.d(-1, -1, -1);
-            byte[] bArr = eVar.my().retBytes;
-            StringBuilder sb4 = null;
+            String str5 = null;
+            byte[] bArr = eVar.lW().retBytes;
+            StringBuilder sb3 = null;
             if (bArr != null) {
                 try {
-                    String str5 = new String(bArr, "UTF-8");
-                    sb = null;
-                    str = str5;
+                    str = new String(bArr, "UTF-8");
                 } catch (Throwable th) {
                     str = null;
-                    sb = th.getMessage();
+                    str5 = th.getMessage();
                 }
                 DnsProxyResponseData dnsProxyResponseData2 = (DnsProxyResponseData) DnsProxyResponseData.objectWithJsonStr(str, DnsProxyResponseData.class);
                 if (dnsProxyResponseData2 != null && dnsProxyResponseData2.getErrno() == 0) {
-                    StringBuilder sb5 = new StringBuilder();
+                    StringBuilder sb4 = new StringBuilder();
                     List<HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>>> data2 = dnsProxyResponseData2.getData();
                     HashSet hashSet = new HashSet();
                     HashMap hashMap3 = new HashMap(data2.size());
@@ -96,70 +94,70 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
                     for (Map.Entry entry3 : hashMap3.entrySet()) {
                         List<DnsProxyResponseData.DnsProxyIpData> list = (List) entry3.getValue();
                         if (list != null && list.size() > 0) {
-                            StringBuilder sb6 = new StringBuilder();
+                            StringBuilder sb5 = new StringBuilder();
                             for (DnsProxyResponseData.DnsProxyIpData dnsProxyIpData : list) {
                                 if (dnsProxyIpData != null) {
                                     hashSet.add(dnsProxyIpData.getIp());
-                                    if (sb6.length() > 0) {
-                                        sb6.append(",");
+                                    if (sb5.length() > 0) {
+                                        sb5.append(",");
                                     }
-                                    sb6.append(dnsProxyIpData.getIp());
+                                    sb5.append(dnsProxyIpData.getIp());
                                 }
                             }
-                            if (sb6.length() > 0) {
-                                sb6.insert(0, ":");
-                                sb6.insert(0, (String) entry3.getKey());
-                                if (sb5.length() > 0) {
-                                    sb5.append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
+                            if (sb5.length() > 0) {
+                                sb5.insert(0, ":");
+                                sb5.insert(0, (String) entry3.getKey());
+                                if (sb4.length() > 0) {
+                                    sb4.append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
                                 }
-                                sb5.append((CharSequence) sb6);
+                                sb4.append((CharSequence) sb5);
                             }
                         }
                     }
-                    b.ctM().g(hashSet);
+                    b.cwD().g(hashSet);
                     publishProgress(hashMap3);
                     a2.setForever("dnsproxycachedata", str);
-                    sb2 = sb5;
+                    sb = sb4;
                 } else if (dnsProxyResponseData2 == null) {
-                    sb = "parser response error return null";
-                    sb2 = null;
+                    str5 = "parser response error return null";
+                    sb = null;
                 } else {
-                    sb = dnsProxyResponseData2.getErrno() + " " + dnsProxyResponseData2.getErrmsg();
-                    sb2 = null;
+                    str5 = dnsProxyResponseData2.getErrno() + " " + dnsProxyResponseData2.getErrmsg();
+                    sb = null;
                 }
-                sb4 = sb2;
-            } else if (eVar.mA() != null) {
-                sb = eVar.mA().exception;
+                sb3 = sb;
+            } else if (eVar.lY() != null) {
+                str5 = eVar.lY().exception;
             } else {
-                StringBuilder sb7 = new StringBuilder();
-                List<com.baidu.adp.lib.network.http.d> mz = eVar.mz();
-                if (mz != null) {
-                    for (com.baidu.adp.lib.network.http.d dVar : mz) {
+                StringBuilder sb6 = new StringBuilder();
+                List<com.baidu.adp.lib.network.http.d> lX = eVar.lX();
+                if (lX != null) {
+                    for (com.baidu.adp.lib.network.http.d dVar : lX) {
                         if (dVar != null && !TextUtils.isEmpty(dVar.exception)) {
-                            if (sb7.length() > 0) {
-                                sb7.append(",");
+                            if (sb6.length() > 0) {
+                                sb6.append(",");
                             }
-                            sb7.append(dVar.exception);
+                            sb6.append(dVar.exception);
                         }
                     }
                 }
-                if (sb7.length() <= 0) {
-                    sb = "http get data is null";
+                if (sb6.length() <= 0) {
+                    str5 = "http get data is null";
                 } else {
-                    sb = sb7.toString();
+                    str5 = sb6.toString();
                 }
             }
-            if (TextUtils.isEmpty(sb)) {
+            if (TextUtils.isEmpty(str5)) {
                 com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
                 statsItem.append("workflow", "dnsproxy_get");
                 statsItem.append("issuc", true);
-                statsItem.append("comment", sb4 == null ? "" : sb4.toString());
+                statsItem.append("comment", sb3 == null ? "" : sb3.toString());
                 BdStatisticsManager.getInstance().debug("dnsproxy", statsItem);
             } else {
                 com.baidu.adp.lib.stats.a statsItem2 = BdStatisticsManager.getInstance().getStatsItem("dbg");
                 statsItem2.append("workflow", "dnsproxy_get");
                 statsItem2.append("issuc", false);
-                statsItem2.append("comment", sb);
+                statsItem2.append("comment", str5);
                 BdStatisticsManager.getInstance().debug("dnsproxy", statsItem2);
             }
         }

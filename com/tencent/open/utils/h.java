@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import com.tencent.connect.common.Constants;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -14,7 +15,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.security.MessageDigest;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public class h {
     public static String a(Context context, String str) {
         try {
@@ -73,33 +74,26 @@ public class h {
     }
 
     public static String b(Context context, String str) {
-        String str2;
-        Exception e;
         com.tencent.open.a.f.a("openSDK_LOG.SystemUtils", "OpenUi, getSignValidString");
+        String str2 = "";
         try {
             String packageName = context.getPackageName();
             Signature[] signatureArr = context.getPackageManager().getPackageInfo(packageName, 64).signatures;
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            MessageDigest messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
             messageDigest.update(signatureArr[0].toByteArray());
             String a2 = j.a(messageDigest.digest());
             messageDigest.reset();
             com.tencent.open.a.f.a("openSDK_LOG.SystemUtils", "-->sign: " + a2);
             messageDigest.update(j.i(packageName + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + a2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str + ""));
             str2 = j.a(messageDigest.digest());
-            try {
-                messageDigest.reset();
-                com.tencent.open.a.f.a("openSDK_LOG.SystemUtils", "-->signEncryped: " + str2);
-            } catch (Exception e2) {
-                e = e2;
-                e.printStackTrace();
-                com.tencent.open.a.f.b("openSDK_LOG.SystemUtils", "OpenUi, getSignValidString error", e);
-                return str2;
-            }
-        } catch (Exception e3) {
-            str2 = "";
-            e = e3;
+            messageDigest.reset();
+            com.tencent.open.a.f.a("openSDK_LOG.SystemUtils", "-->signEncryped: " + str2);
+            return str2;
+        } catch (Exception e) {
+            e.printStackTrace();
+            com.tencent.open.a.f.b("openSDK_LOG.SystemUtils", "OpenUi, getSignValidString error", e);
+            return str2;
         }
-        return str2;
     }
 
     public static boolean a(Context context, Intent intent) {
@@ -119,27 +113,15 @@ public class h {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [362=4] */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:53:0x00e2 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:60:0x0052 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:66:0x00d4 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:70:0x00cf A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Type inference failed for: r3v11 */
-    /* JADX WARN: Type inference failed for: r3v17 */
-    /* JADX WARN: Type inference failed for: r3v19 */
-    /* JADX WARN: Type inference failed for: r3v2, types: [java.io.File] */
-    /* JADX WARN: Type inference failed for: r3v5 */
-    /* JADX WARN: Type inference failed for: r3v6 */
-    /* JADX WARN: Type inference failed for: r3v8, types: [java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r3v9 */
+    /* JADX WARN: Removed duplicated region for block: B:69:0x00d6 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:71:0x00d1 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     @SuppressLint({"SdCardPath"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static boolean a(String str, String str2, int i) {
-        IOException iOException;
-        FileOutputStream fileOutputStream = null;
-        boolean z = false;
+        FileOutputStream fileOutputStream;
+        InputStream inputStream;
         com.tencent.open.a.f.c("openSDK_LOG.SystemUtils", "-->extractSecureLib, libName: " + str);
         Context a2 = e.a();
         if (a2 == null) {
@@ -147,98 +129,102 @@ public class h {
             return false;
         }
         SharedPreferences sharedPreferences = a2.getSharedPreferences("secure_lib", 0);
-        ?? file = new File(a2.getFilesDir(), str2);
+        File file = new File(a2.getFilesDir(), str2);
         if (file.exists()) {
             int i2 = sharedPreferences.getInt("version", 0);
             com.tencent.open.a.f.c("openSDK_LOG.SystemUtils", "-->extractSecureLib, libVersion: " + i + " | oldVersion: " + i2);
-            iOException = i2;
             if (i == i2) {
                 return true;
             }
         } else {
             File parentFile = file.getParentFile();
-            iOException = file;
-            if (parentFile != null) {
-                iOException = file;
-                if (parentFile.mkdirs()) {
-                    try {
-                        file.createNewFile();
-                        iOException = file;
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                        iOException = e;
-                    }
+            if (parentFile != null && parentFile.mkdirs()) {
+                try {
+                    file.createNewFile();
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
             }
         }
         try {
+            inputStream = a2.getAssets().open(str);
             try {
-                iOException = a2.getAssets().open(str);
+                fileOutputStream = a2.openFileOutput(str2, 0);
                 try {
-                    fileOutputStream = a2.openFileOutput(str2, 0);
-                    a(iOException, fileOutputStream);
-                    SharedPreferences.Editor edit = sharedPreferences.edit();
-                    edit.putInt("version", i);
-                    edit.commit();
-                    if (iOException != 0) {
-                        try {
-                            iOException.close();
-                        } catch (IOException e2) {
-                        }
-                    }
-                    if (fileOutputStream != null) {
-                        try {
-                            fileOutputStream.close();
-                        } catch (IOException e3) {
-                        }
-                    }
-                    z = true;
-                } catch (Exception e4) {
-                    e = e4;
-                    com.tencent.open.a.f.b("openSDK_LOG.SystemUtils", "-->extractSecureLib, when copy lib execption.", e);
-                    if (iOException != null) {
-                        try {
-                            iOException.close();
-                        } catch (IOException e5) {
-                        }
-                    }
-                    if (fileOutputStream != null) {
-                        try {
-                            fileOutputStream.close();
-                        } catch (IOException e6) {
-                        }
-                    }
-                    return z;
-                }
-            } catch (Throwable th) {
-                th = th;
-                if (iOException != 0) {
                     try {
-                        iOException.close();
-                    } catch (IOException e7) {
+                        a(inputStream, fileOutputStream);
+                        SharedPreferences.Editor edit = sharedPreferences.edit();
+                        edit.putInt("version", i);
+                        edit.commit();
+                        if (inputStream != null) {
+                            try {
+                                inputStream.close();
+                            } catch (IOException e2) {
+                            }
+                        }
+                        if (fileOutputStream != null) {
+                            try {
+                                fileOutputStream.close();
+                            } catch (IOException e3) {
+                            }
+                        }
+                        return true;
+                    } catch (Exception e4) {
+                        e = e4;
+                        com.tencent.open.a.f.b("openSDK_LOG.SystemUtils", "-->extractSecureLib, when copy lib execption.", e);
+                        if (inputStream != null) {
+                            try {
+                                inputStream.close();
+                            } catch (IOException e5) {
+                            }
+                        }
+                        if (fileOutputStream != null) {
+                            try {
+                                fileOutputStream.close();
+                                return false;
+                            } catch (IOException e6) {
+                                return false;
+                            }
+                        }
+                        return false;
                     }
+                } catch (Throwable th) {
+                    th = th;
+                    if (inputStream != null) {
+                        try {
+                            inputStream.close();
+                        } catch (IOException e7) {
+                        }
+                    }
+                    if (fileOutputStream != null) {
+                        try {
+                            fileOutputStream.close();
+                        } catch (IOException e8) {
+                        }
+                    }
+                    throw th;
+                }
+            } catch (Exception e9) {
+                e = e9;
+                fileOutputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
+                fileOutputStream = null;
+                if (inputStream != null) {
                 }
                 if (fileOutputStream != null) {
-                    try {
-                        fileOutputStream.close();
-                    } catch (IOException e8) {
-                    }
                 }
                 throw th;
             }
-        } catch (Exception e9) {
-            e = e9;
-            iOException = null;
-        } catch (Throwable th2) {
-            th = th2;
-            iOException = 0;
-            if (iOException != 0) {
-            }
-            if (fileOutputStream != null) {
-            }
-            throw th;
+        } catch (Exception e10) {
+            e = e10;
+            fileOutputStream = null;
+            inputStream = null;
+        } catch (Throwable th3) {
+            th = th3;
+            fileOutputStream = null;
+            inputStream = null;
         }
-        return z;
     }
 
     private static long a(InputStream inputStream, OutputStream outputStream) throws IOException {
@@ -258,13 +244,13 @@ public class h {
 
     public static int a(String str) {
         if ("shareToQQ".equals(str)) {
-            return Constants.REQUEST_QQ_SHARE;
+            return 10103;
         }
         if ("shareToQzone".equals(str)) {
-            return Constants.REQUEST_QZONE_SHARE;
+            return 10104;
         }
         if ("addToQQFavorites".equals(str)) {
-            return Constants.REQUEST_QQ_FAVORITES;
+            return 10105;
         }
         if ("sendToMyComputer".equals(str)) {
             return Constants.REQUEST_SEND_TO_MY_COMPUTER;
@@ -276,7 +262,7 @@ public class h {
             return Constants.REQUEST_LOGIN;
         }
         if ("action_request".equals(str)) {
-            return Constants.REQUEST_API;
+            return 10100;
         }
         return -1;
     }

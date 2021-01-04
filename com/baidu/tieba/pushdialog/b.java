@@ -2,18 +2,17 @@ package com.baidu.tieba.pushdialog;
 
 import android.content.ComponentName;
 import android.content.pm.PackageManager;
-import android.support.media.ExifInterface;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-/* loaded from: classes21.dex */
+/* loaded from: classes8.dex */
 public class b {
-    public static boolean dDT() {
+    public static boolean dDI() {
         String systemProperty = UtilHelper.getSystemProperty("ro.miui.ui.version.name");
-        return !StringUtils.isNull(systemProperty) && com.baidu.adp.lib.f.b.toInt(systemProperty.replace(ExifInterface.GPS_MEASUREMENT_INTERRUPTED, ""), 0) >= 9;
+        return !StringUtils.isNull(systemProperty) && com.baidu.adp.lib.f.b.toInt(systemProperty.replace("V", ""), 0) >= 9;
     }
 
-    public static boolean dDU() {
+    public static boolean dDJ() {
         PackageManager packageManager = TbadkCoreApplication.getInst().getPackageManager();
         try {
             if (packageManager.getActivityInfo(new ComponentName("com.vivo.permissionmanager", "com.vivo.permissionmanager.activity.ScreenLockedActionControlActivity"), 0) != null) {

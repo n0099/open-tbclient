@@ -1,38 +1,38 @@
 package com.baidu.tieba.yuyinala.adapter;
 
-import android.support.v4.view.PagerAdapter;
 import android.view.View;
+import androidx.viewpager.widget.PagerAdapter;
 import com.baidu.live.liveroom.d.d;
 import com.baidu.tieba.yuyinala.AlaRankListActivity;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaRankListFragmentAdapter extends PagerAdapter {
-    private ArrayList<d> giT;
-    private AlaRankListActivity oib;
+    private ArrayList<d> gtq;
+    private AlaRankListActivity ojJ;
 
     public AlaRankListFragmentAdapter(AlaRankListActivity alaRankListActivity, String str) {
-        this.oib = alaRankListActivity;
-        Wg(str);
+        this.ojJ = alaRankListActivity;
+        VG(str);
     }
 
-    private void Wg(String str) {
-        this.giT = new ArrayList<>();
-        this.giT.add(new com.baidu.tieba.yuyinala.b.a(this.oib, str));
+    private void VG(String str) {
+        this.gtq = new ArrayList<>();
+        this.gtq.add(new com.baidu.tieba.yuyinala.b.a(this.ojJ, str));
     }
 
-    @Override // android.support.v4.view.PagerAdapter
+    @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        if (this.giT != null) {
-            return this.giT.size();
+        if (this.gtq != null) {
+            return this.gtq.size();
         }
         return 0;
     }
 
     public ArrayList<d> getDataList() {
-        return this.giT;
+        return this.gtq;
     }
 
-    @Override // android.support.v4.view.PagerAdapter
+    @Override // androidx.viewpager.widget.PagerAdapter
     public boolean isViewFromObject(View view, Object obj) {
         return view == obj;
     }

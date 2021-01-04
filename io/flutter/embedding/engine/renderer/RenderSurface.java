@@ -1,9 +1,13 @@
 package io.flutter.embedding.engine.renderer;
-/* loaded from: classes9.dex */
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+/* loaded from: classes6.dex */
 public interface RenderSurface {
-    void attachToRenderer(FlutterRenderer flutterRenderer);
+    void attachToRenderer(@NonNull FlutterRenderer flutterRenderer);
 
     void detachFromRenderer();
 
+    @Nullable
     FlutterRenderer getAttachedRenderer();
 }

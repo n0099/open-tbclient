@@ -6,34 +6,34 @@ import android.view.MotionEvent;
 import android.widget.FrameLayout;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class VideoContainerLayout extends FrameLayout {
-    private int iVm;
+    private int jhy;
     private int mMaxHeight;
-    private int maf;
-    private int mag;
+    private int mft;
+    private int mfu;
 
     public VideoContainerLayout(Context context) {
         super(context);
-        this.mag = l.getEquipmentWidth(context) / 10;
+        this.mfu = l.getEquipmentWidth(context) / 10;
     }
 
     public VideoContainerLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mag = l.getEquipmentWidth(context) / 10;
+        this.mfu = l.getEquipmentWidth(context) / 10;
     }
 
     public VideoContainerLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mag = l.getEquipmentWidth(context) / 10;
+        this.mfu = l.getEquipmentWidth(context) / 10;
     }
 
     public void setMinHeight(int i) {
-        this.maf = i;
+        this.mft = i;
     }
 
     public int getMinHeight() {
-        return this.maf;
+        return this.mft;
     }
 
     public void setMaxHeight(int i) {
@@ -45,16 +45,16 @@ public class VideoContainerLayout extends FrameLayout {
     }
 
     public void setOriginHeight(int i) {
-        this.iVm = i;
+        this.jhy = i;
     }
 
     public int getOriginHeight() {
-        return this.iVm;
+        return this.jhy;
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (motionEvent != null && motionEvent.getAction() == 0 && motionEvent.getX() > this.mag && (getContext() instanceof BaseFragmentActivity) && ((BaseFragmentActivity) getContext()).isSwipeBackEnabled()) {
+        if (motionEvent != null && motionEvent.getAction() == 0 && motionEvent.getX() > this.mfu && (getContext() instanceof BaseFragmentActivity) && ((BaseFragmentActivity) getContext()).isSwipeBackEnabled()) {
             ((BaseFragmentActivity) getContext()).disableSwipeJustOnce();
         }
         return super.onInterceptTouchEvent(motionEvent);

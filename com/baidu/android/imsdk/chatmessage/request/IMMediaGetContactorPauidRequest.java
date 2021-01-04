@@ -3,7 +3,6 @@ package com.baidu.android.imsdk.chatmessage.request;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Pair;
-import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.chatmessage.IMediaGetContactorPauidListener;
 import com.baidu.android.imsdk.internal.Constants;
@@ -15,7 +14,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class IMMediaGetContactorPauidRequest extends IMMediaBaseHttpRequest {
     private static final String TAG = "IMMediaGetContactorPauidRequest";
     private long mContacter;
@@ -92,23 +91,22 @@ public class IMMediaGetContactorPauidRequest extends IMMediaBaseHttpRequest {
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     public void onSuccess(int i, byte[] bArr) {
-        String str;
         int i2;
+        String str;
         long j;
         int i3 = -1;
         String str2 = new String(bArr);
         LogUtils.d(TAG, "onSuccess resultContent = " + str2);
         try {
             JSONObject jSONObject = new JSONObject(str2);
-            int optInt = jSONObject.optInt("error_code", 0);
-            str = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG);
+            i2 = jSONObject.optInt("error_code", 0);
+            str = jSONObject.optString("error_msg");
             j = jSONObject.optLong("pa_uid", -1L);
             i3 = jSONObject.optInt("is_buser", -1);
-            i2 = optInt;
         } catch (JSONException e) {
             LogUtils.e(TAG, "IMMediaSetSessionReadRequest JSONException", e);
-            str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
             i2 = 1010;
+            str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
             j = -1;
         }
         IMediaGetContactorPauidListener iMediaGetContactorPauidListener = (IMediaGetContactorPauidListener) ListenerManager.getInstance().removeListener(this.mKey);

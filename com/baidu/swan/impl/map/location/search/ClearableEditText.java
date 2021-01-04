@@ -3,15 +3,15 @@ package com.baidu.swan.impl.map.location.search;
 import android.content.Context;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
-import android.support.v7.widget.AppCompatEditText;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-import com.baidu.swan.apps.ap.ah;
+import androidx.appcompat.widget.AppCompatEditText;
+import com.baidu.swan.apps.ao.ah;
 import com.baidu.tieba.R;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class ClearableEditText extends AppCompatEditText {
-    private static final int ekm = ah.M(10.0f);
-    private Drawable ekl;
+    private static final int etr = ah.O(10.0f);
+    private Drawable etq;
 
     public ClearableEditText(Context context) {
         super(context);
@@ -29,7 +29,7 @@ public class ClearableEditText extends AppCompatEditText {
     }
 
     private void init() {
-        this.ekl = getResources().getDrawable(R.drawable.aiapps_location_search_del);
+        this.etq = getResources().getDrawable(R.drawable.aiapps_location_search_del);
     }
 
     @Override // android.widget.TextView
@@ -49,7 +49,7 @@ public class ClearableEditText extends AppCompatEditText {
         switch (motionEvent.getAction()) {
             case 1:
                 Drawable drawable = getCompoundDrawables()[2];
-                if (drawable != null && motionEvent.getX() <= (getWidth() - getPaddingRight()) + ekm && motionEvent.getX() >= ((getWidth() - getPaddingRight()) - drawable.getBounds().width()) - ekm) {
+                if (drawable != null && motionEvent.getX() <= (getWidth() - getPaddingRight()) + etr && motionEvent.getX() >= ((getWidth() - getPaddingRight()) - drawable.getBounds().width()) - etr) {
                     setText("");
                     break;
                 }
@@ -59,6 +59,6 @@ public class ClearableEditText extends AppCompatEditText {
     }
 
     private void setClearIconVisible(boolean z) {
-        setCompoundDrawablesWithIntrinsicBounds(getCompoundDrawables()[0], getCompoundDrawables()[1], z ? this.ekl : null, getCompoundDrawables()[3]);
+        setCompoundDrawablesWithIntrinsicBounds(getCompoundDrawables()[0], getCompoundDrawables()[1], z ? this.etq : null, getCompoundDrawables()[3]);
     }
 }

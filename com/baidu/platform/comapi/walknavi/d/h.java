@@ -2,17 +2,19 @@ package com.baidu.platform.comapi.walknavi.d;
 
 import com.baidu.platform.comapi.walknavi.d.g;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class h implements com.baidu.platform.comapi.walknavi.d.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f3002a;
-    final /* synthetic */ g b;
+    final /* synthetic */ c f4473a;
+
+    /* renamed from: b  reason: collision with root package name */
+    final /* synthetic */ g f4474b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(g gVar, c cVar) {
-        this.b = gVar;
-        this.f3002a = cVar;
+        this.f4474b = gVar;
+        this.f4473a = cVar;
     }
 
     @Override // com.baidu.platform.comapi.walknavi.d.a.a
@@ -25,26 +27,26 @@ public class h implements com.baidu.platform.comapi.walknavi.d.a.a {
         g.a aVar2;
         com.baidu.platform.comapi.wnplatform.d.a.a("NpcSDKManagerImp", "download onProgress = " + i);
         if (i == 100) {
-            this.b.n = false;
-            this.b.b.c = 0;
-            this.b.b.b = "";
+            this.f4474b.n = false;
+            this.f4474b.f4470b.c = 0;
+            this.f4474b.f4470b.f4472b = "";
         }
-        aVar = this.b.o;
+        aVar = this.f4474b.o;
         if (aVar != null) {
-            this.b.b.c = i;
-            aVar2 = this.b.o;
-            aVar2.a(this.b.b);
+            this.f4474b.f4470b.c = i;
+            aVar2 = this.f4474b.o;
+            aVar2.a(this.f4474b.f4470b);
         }
     }
 
     @Override // com.baidu.platform.comapi.walknavi.d.a.a
     public void a(int i, String str) {
-        com.baidu.platform.comapi.wnplatform.d.a.a("NpcSDKManagerImp", "download onResponse = " + this.f3002a);
-        this.b.n = false;
-        this.b.b.c = 0;
-        this.b.b.b = "";
-        if (this.f3002a != null) {
-            this.f3002a.a(i, str);
+        com.baidu.platform.comapi.wnplatform.d.a.a("NpcSDKManagerImp", "download onResponse = " + this.f4473a);
+        this.f4474b.n = false;
+        this.f4474b.f4470b.c = 0;
+        this.f4474b.f4470b.f4472b = "";
+        if (this.f4473a != null) {
+            this.f4473a.a(i, str);
         }
     }
 }

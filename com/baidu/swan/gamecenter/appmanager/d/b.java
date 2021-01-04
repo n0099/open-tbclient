@@ -7,20 +7,20 @@ import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.swan.apps.statistic.a.f;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes16.dex */
+/* loaded from: classes3.dex */
 public class b extends f {
     public String packageName;
 
     @Override // com.baidu.swan.apps.statistic.a.f, com.baidu.swan.apps.statistic.a.e
     public JSONObject toJSONObject() {
-        this.dFB = com.baidu.swan.apps.swancore.b.lb(TextUtils.equals(this.mFrom, "swangame") ? 1 : 0);
-        this.dFD = SwanAppNetworkUtils.aFi().type;
-        if (this.dFz == null) {
-            this.dFz = new JSONObject();
+        this.dOf = com.baidu.swan.apps.swancore.b.lg(TextUtils.equals(this.mFrom, "swangame") ? 1 : 0);
+        this.dOh = SwanAppNetworkUtils.aGC().type;
+        if (this.dOd == null) {
+            this.dOd = new JSONObject();
         }
         try {
-            this.dFz.put("host", com.baidu.swan.apps.t.a.azM().getHostName());
-            this.dFz.put("package", this.packageName);
+            this.dOd.put("host", com.baidu.swan.apps.t.a.aBd().getHostName());
+            this.dOd.put("package", this.packageName);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -38,18 +38,18 @@ public class b extends f {
             this.mFrom = aVar.mFrom;
             this.mAppId = aVar.mAppId;
             this.mSource = aVar.mSource;
-            this.dFE = aVar.dFE;
-            this.dFG = aVar.dFG;
+            this.dOi = aVar.dOi;
+            this.dOk = aVar.dOk;
             this.mScheme = aVar.mScheme;
-            this.dFJ = aVar.dFJ;
-            this.dyF = aVar.dyF;
+            this.dOn = aVar.dOn;
+            this.dHk = aVar.dHk;
             this.mAppVersion = aVar.mAppVersion;
-            this.dFC = aVar.dFC;
+            this.dOg = aVar.dOg;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static String wI(String str) {
+    public static String wH(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

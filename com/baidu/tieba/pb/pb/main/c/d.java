@@ -5,15 +5,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.card.b;
+import com.baidu.card.a;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
-import com.baidu.tieba.card.ab;
-/* loaded from: classes22.dex */
+import com.baidu.tieba.card.aa;
+/* loaded from: classes2.dex */
 public class d extends a {
-    public TextView fcb;
+    public TextView flK;
     private LinearLayout mRootView;
 
     public d(TbPageContext tbPageContext, int i) {
@@ -22,33 +22,33 @@ public class d extends a {
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public View getView() {
-        this.mRootView = (LinearLayout) this.eNx.getPageActivity().getLayoutInflater().inflate(R.layout.delete_original_thread_view, (ViewGroup) null);
-        this.fcb = (TextView) this.mRootView.findViewById(R.id.text);
+        this.mRootView = (LinearLayout) this.eXu.getPageActivity().getLayoutInflater().inflate(R.layout.delete_original_thread_view, (ViewGroup) null);
+        this.flK = (TextView) this.mRootView.findViewById(R.id.text);
         return this.mRootView;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public void g(OriginalThreadInfo originalThreadInfo) {
-        this.fcb.setText(new SpannableString(originalThreadInfo.title));
-        ap.setViewTextColor(this.fcb, R.color.CAM_X0105);
+        this.flK.setText(new SpannableString(originalThreadInfo.title));
+        ao.setViewTextColor(this.flK, R.color.CAM_X0105);
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
-    public void a(ab abVar) {
-        super.a(abVar);
+    public void a(aa aaVar) {
+        super.a(aaVar);
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
-    public void a(b.a aVar) {
-        super.a(aVar);
+    public void a(a.InterfaceC0089a interfaceC0089a) {
+        super.a(interfaceC0089a);
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            ap.setBackgroundColor(this.mRootView, R.color.CAM_X0204);
-            ap.setViewTextColor(this.fcb, R.color.CAM_X0105);
+            ao.setBackgroundColor(this.mRootView, R.color.CAM_X0204);
+            ao.setViewTextColor(this.flK, R.color.CAM_X0105);
         }
     }
 }

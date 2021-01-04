@@ -1,13 +1,15 @@
 package com.baidu.mapapi.walknavi.model;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class a {
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f2182a;
-        private String b;
+        private String f3102a;
+
+        /* renamed from: b  reason: collision with root package name */
+        private String f3103b;
         private String c;
         private String d;
         private String e;
@@ -16,19 +18,19 @@ public class a {
         private String h;
 
         public String a() {
-            return this.f2182a;
+            return this.f3102a;
         }
 
         public void a(String str) {
-            this.f2182a = str;
+            this.f3102a = str;
         }
 
         public String b() {
-            return this.b;
+            return this.f3103b;
         }
 
         public void b(String str) {
-            this.b = str;
+            this.f3103b = str;
         }
 
         public String c() {
@@ -80,16 +82,18 @@ public class a {
         }
 
         public String toString() {
-            return "TopGuideLayoutID{guideLayoutID='" + this.f2182a + "', guideLayotBgResource='" + this.b + "', guideIconID='" + this.c + "', guideGpsWeakLayoutID='" + this.d + "', guideGpsWeakID='" + this.e + "', guideGpsHintID='" + this.f + "', guideRemainTextID='" + this.g + "', guideTextID='" + this.h + "'}";
+            return "TopGuideLayoutID{guideLayoutID='" + this.f3102a + "', guideLayotBgResource='" + this.f3103b + "', guideIconID='" + this.c + "', guideGpsWeakLayoutID='" + this.d + "', guideGpsWeakID='" + this.e + "', guideGpsHintID='" + this.f + "', guideRemainTextID='" + this.g + "', guideTextID='" + this.h + "'}";
         }
     }
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f2181a;
-        private String b;
+        private String f3100a;
+
+        /* renamed from: b  reason: collision with root package name */
+        private String f3101b;
         private String c;
         private String d;
         private String e;
@@ -97,19 +101,19 @@ public class a {
         private String g;
 
         public String a() {
-            return this.f2181a;
+            return this.f3100a;
         }
 
         public void a(String str) {
-            this.f2181a = str;
+            this.f3100a = str;
         }
 
         public String b() {
-            return this.b;
+            return this.f3101b;
         }
 
         public void b(String str) {
-            this.b = str;
+            this.f3101b = str;
         }
 
         public String c() {
@@ -153,35 +157,37 @@ public class a {
         }
 
         public String toString() {
-            return "CalorieLayoutID{calorieLayoutID='" + this.f2181a + "', calorieConsumeID='" + this.b + "', calorieConsumeIconID='" + this.c + "', calorieConsumeTimesID='" + this.d + "', calorieLayoutBtnID='" + this.e + "', calorieConsumeNumberID='" + this.f + "', calorieUnitID='" + this.g + "'}";
+            return "CalorieLayoutID{calorieLayoutID='" + this.f3100a + "', calorieConsumeID='" + this.f3101b + "', calorieConsumeIconID='" + this.c + "', calorieConsumeTimesID='" + this.d + "', calorieLayoutBtnID='" + this.e + "', calorieConsumeNumberID='" + this.f + "', calorieUnitID='" + this.g + "'}";
         }
     }
 
     /* renamed from: com.baidu.mapapi.walknavi.model.a$a  reason: collision with other inner class name */
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public static class C0259a {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f2180a;
-        private String b;
+        private String f3098a;
+
+        /* renamed from: b  reason: collision with root package name */
+        private String f3099b;
         private String c;
         private String d;
         private String e;
 
         public String a() {
-            return this.f2180a;
+            return this.f3098a;
         }
 
         public void a(String str) {
-            this.f2180a = str;
+            this.f3098a = str;
         }
 
         public String b() {
-            return this.b;
+            return this.f3099b;
         }
 
         public void b(String str) {
-            this.b = str;
+            this.f3099b = str;
         }
 
         public String c() {

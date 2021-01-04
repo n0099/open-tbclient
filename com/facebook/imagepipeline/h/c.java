@@ -13,9 +13,9 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.lang.reflect.Method;
 import javax.annotation.Nullable;
-/* loaded from: classes15.dex */
+/* loaded from: classes5.dex */
 public class c extends b {
-    private static Method pow;
+    private static Method pDW;
 
     @Override // com.facebook.imagepipeline.h.b, com.facebook.imagepipeline.h.e
     public /* bridge */ /* synthetic */ com.facebook.common.references.a a(com.facebook.imagepipeline.f.e eVar, Bitmap.Config config, @Nullable Rect rect) {
@@ -28,8 +28,8 @@ public class c extends b {
     }
 
     @Override // com.facebook.imagepipeline.h.b
-    public /* bridge */ /* synthetic */ com.facebook.common.references.a ak(Bitmap bitmap) {
-        return super.ak(bitmap);
+    public /* bridge */ /* synthetic */ com.facebook.common.references.a ai(Bitmap bitmap) {
+        return super.ai(bitmap);
     }
 
     @Override // com.facebook.imagepipeline.h.b
@@ -39,75 +39,72 @@ public class c extends b {
 
     @Override // com.facebook.imagepipeline.h.b
     protected Bitmap a(com.facebook.common.references.a<PooledByteBuffer> aVar, int i, BitmapFactory.Options options) {
-        return a(aVar, i, b(aVar, i) ? null : pou, options);
+        return a(aVar, i, b(aVar, i) ? null : pDU, options);
     }
 
     private static MemoryFile a(com.facebook.common.references.a<PooledByteBuffer> aVar, int i, @Nullable byte[] bArr) throws IOException {
         OutputStream outputStream;
+        com.facebook.common.f.a aVar2;
         h hVar;
-        com.facebook.common.f.a aVar2 = null;
         MemoryFile memoryFile = new MemoryFile(null, (bArr == null ? 0 : bArr.length) + i);
         memoryFile.allowPurging(false);
         try {
-            h hVar2 = new h(aVar.get());
+            hVar = new h(aVar.get());
             try {
-                com.facebook.common.f.a aVar3 = new com.facebook.common.f.a(hVar2, i);
+                aVar2 = new com.facebook.common.f.a(hVar, i);
                 try {
                     outputStream = memoryFile.getOutputStream();
                 } catch (Throwable th) {
                     th = th;
                     outputStream = null;
-                    aVar2 = aVar3;
-                    hVar = hVar2;
                 }
                 try {
-                    com.facebook.common.internal.a.copy(aVar3, outputStream);
+                    com.facebook.common.internal.a.copy(aVar2, outputStream);
                     if (bArr != null) {
                         memoryFile.writeBytes(bArr, 0, i, bArr.length);
                     }
                     com.facebook.common.references.a.c(aVar);
-                    com.facebook.common.internal.b.r(hVar2);
-                    com.facebook.common.internal.b.r(aVar3);
+                    com.facebook.common.internal.b.u(hVar);
+                    com.facebook.common.internal.b.u(aVar2);
                     com.facebook.common.internal.b.close(outputStream, true);
                     return memoryFile;
                 } catch (Throwable th2) {
                     th = th2;
-                    aVar2 = aVar3;
-                    hVar = hVar2;
                     com.facebook.common.references.a.c(aVar);
-                    com.facebook.common.internal.b.r(hVar);
-                    com.facebook.common.internal.b.r(aVar2);
+                    com.facebook.common.internal.b.u(hVar);
+                    com.facebook.common.internal.b.u(aVar2);
                     com.facebook.common.internal.b.close(outputStream, true);
                     throw th;
                 }
             } catch (Throwable th3) {
                 th = th3;
                 outputStream = null;
-                hVar = hVar2;
+                aVar2 = null;
             }
         } catch (Throwable th4) {
             th = th4;
             outputStream = null;
+            aVar2 = null;
             hVar = null;
         }
     }
 
-    private synchronized Method ewu() {
-        if (pow == null) {
+    private synchronized Method eAb() {
+        if (pDW == null) {
             try {
-                pow = MemoryFile.class.getDeclaredMethod("getFileDescriptor", new Class[0]);
+                pDW = MemoryFile.class.getDeclaredMethod("getFileDescriptor", new Class[0]);
             } catch (Exception e) {
-                throw l.v(e);
+                throw l.t(e);
             }
         }
-        return pow;
+        return pDW;
     }
 
     private FileDescriptor a(MemoryFile memoryFile) {
         try {
-            return (FileDescriptor) ewu().invoke(memoryFile, new Object[0]);
+            return (FileDescriptor) eAb().invoke(memoryFile, new Object[0]);
         } catch (Exception e) {
-            throw l.v(e);
+            throw l.t(e);
         }
     }
 
@@ -116,9 +113,9 @@ public class c extends b {
         try {
             try {
                 memoryFile = a(aVar, i, bArr);
-                return (Bitmap) g.checkNotNull(com.facebook.common.g.c.pcL.a(a(memoryFile), null, options), "BitmapFactory returned null");
+                return (Bitmap) g.checkNotNull(com.facebook.common.g.c.ptR.decodeFileDescriptor(a(memoryFile), null, options), "BitmapFactory returned null");
             } catch (IOException e) {
-                throw l.v(e);
+                throw l.t(e);
             }
         } finally {
             if (memoryFile != null) {

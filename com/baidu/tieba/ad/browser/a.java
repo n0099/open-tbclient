@@ -1,78 +1,152 @@
 package com.baidu.tieba.ad.browser;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
-import com.baidu.adp.lib.util.j;
-import com.baidu.android.ext.manage.PopItemMethodConstant;
+import android.os.Bundle;
+import android.webkit.CookieManager;
+import android.webkit.CookieSyncManager;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.plugin.proxy.ContentProviderProxy;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tbadk.core.hybrid.l;
-import com.baidu.tbadk.core.hybrid.n;
-import com.baidu.tbadk.core.hybrid.o;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes21.dex */
-class a extends n {
-    /* JADX INFO: Access modifiers changed from: protected */
-    public a(l lVar) {
-        super(lVar);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.hybrid.n
-    public String blw() {
-        return "TBHY_COMMON_Utils";
-    }
-
-    @o(bsz = false, value = PopItemMethodConstant.showToast)
-    private void showToast(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            BdToast.b(getContext(), jSONObject.optString("message")).brB();
+import com.baidu.tbadk.core.a.a;
+import com.baidu.tbadk.core.a.d;
+import com.baidu.tbadk.core.atomData.AdWebViewActivityConfig;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.util.at;
+import com.baidu.webkit.internal.ETAG;
+/* loaded from: classes.dex */
+public class a {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static String parseWebViewUrl(String str, String str2) {
+        String str3;
+        if (!str.startsWith("http://") && !str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX)) {
+            str = "http://".concat(str);
         }
+        if (str.contains("?")) {
+            str3 = "&st_type=" + str2;
+        } else {
+            str3 = "?st_type=" + str2;
+        }
+        return str.concat(str3);
     }
 
-    @o(bsz = false, value = "showNetStatus")
-    private JSONObject showNetStatus() {
-        JSONObject jSONObject = new JSONObject();
-        int i = 0;
-        String str = "NotReachable";
-        if (j.isWifiNet()) {
-            i = 1;
-            str = "WIFI";
-        } else if (j.is2GNet()) {
-            i = 3;
-            str = "2G";
-        } else if (j.is3GNet()) {
-            i = 4;
-            str = "3G";
-        } else if (j.is4GNet()) {
-            i = 5;
-            str = "4G";
-        }
+    public static void f(Context context, String str, String str2, Bundle bundle) {
+        a(context, str2, str, true, true, true, bundle);
+    }
+
+    public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, Bundle bundle) {
+        bnT();
         try {
-            jSONObject.put("netStatus", i);
-            jSONObject.put("netDesc", str);
-        } catch (JSONException e) {
+            if (!StringUtils.isNull(str2)) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AdWebViewActivityConfig(context, str, str2, z, z2, z3, bundle)));
+            }
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
-        return jSONObject;
     }
 
-    @o(bsz = false, value = "showDeviceInfo")
-    private JSONObject showDeviceInfo() {
-        JSONObject jSONObject = new JSONObject();
-        String cuid = TbadkCoreApplication.getInst().getCuid();
-        String str = Build.VERSION.RELEASE;
-        String str2 = Build.MODEL;
-        String str3 = String.valueOf(com.baidu.adp.lib.util.l.getEquipmentWidth(getContext())) + "," + String.valueOf(com.baidu.adp.lib.util.l.getEquipmentHeight(getContext()));
-        String versionName = TbadkCoreApplication.getInst().getVersionName();
+    public static void startExternWebActivity(Context context, String str) {
+        String appendVersionCode = appendVersionCode(appendCuidParam(str));
         try {
-            jSONObject.put("systemName", "android");
-            jSONObject.put("systemVersion", str);
-            jSONObject.put("model", str2);
-            jSONObject.put("cuid", cuid);
-            jSONObject.put("resolution", str3);
-            jSONObject.put("appVersion", versionName);
-        } catch (JSONException e) {
+            Intent intent = new Intent("android.intent.action.VIEW");
+            intent.setData(Uri.parse(appendVersionCode));
+            if (!(context instanceof Activity)) {
+                intent.addFlags(268435456);
+            }
+            context.startActivity(intent);
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
-        return jSONObject;
+    }
+
+    public static String appendCuidParam(String str) {
+        if (!at.isEmpty(str) && str.indexOf("cuid=") <= -1) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(str);
+            if (str.indexOf("?") > 0) {
+                sb.append(ETAG.ITEM_SEPARATOR);
+            } else {
+                sb.append("?");
+            }
+            if (!UtilHelper.isNativeAdURL(str)) {
+                sb.append("cuid=");
+                sb.append(TbadkCoreApplication.getInst().getCuid());
+                sb.append("&cuid_galaxy2=");
+                sb.append(TbadkCoreApplication.getInst().getCuidGalaxy2());
+                sb.append("&c3_aid=");
+                sb.append(TbadkCoreApplication.getInst().getCuidGalaxy3());
+                sb.append("&cuid_gid=");
+                sb.append(TbadkCoreApplication.getInst().getCuidGid());
+            }
+            sb.append("&timestamp=");
+            sb.append(System.currentTimeMillis());
+            return sb.toString();
+        }
+        return str;
+    }
+
+    public static String appendVersionCode(String str) {
+        return (at.isEmpty(str) || str.indexOf("_client_version=") <= -1) ? str + "&_client_version=" + TbConfig.getVersion() : str;
+    }
+
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:17:0x00c4 -> B:33:0x001c). Please submit an issue!!! */
+    public static void initCookie(Context context) {
+        CookieManager cookieManager;
+        a.b AB = com.baidu.tbadk.core.a.a.bov().AB(TbadkCoreApplication.getCurrentBduss());
+        try {
+            CookieSyncManager.createInstance(TbadkCoreApplication.getInst());
+            cookieManager = CookieManager.getInstance();
+        } catch (Throwable th) {
+            BdLog.e(th);
+            cookieManager = null;
+        }
+        if (cookieManager != null) {
+            if (AB != null) {
+                cookieManager.setAcceptCookie(true);
+                cookieManager.setCookie("baidu.com", "CUID=" + TbadkCoreApplication.getInst().getCuid() + "; domain=.baidu.com; cuid_galaxy2=" + TbadkCoreApplication.getInst().getCuidGalaxy2() + "; c3_aid=" + TbadkCoreApplication.getInst().getCuidGalaxy3() + "; cuid_gid=" + TbadkCoreApplication.getInst().getCuidGid() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
+                String c = d.c(TbadkCoreApplication.getCurrentAccountInfo());
+                StringBuilder sb = new StringBuilder();
+                if (!StringUtils.isNull(c)) {
+                    sb.append("STOKEN=").append(c).append("; domain=.tieba.baidu.com;");
+                    cookieManager.setCookie("tieba.baidu.com", sb.toString());
+                }
+            } else {
+                try {
+                    if (Build.VERSION.SDK_INT >= 21) {
+                        cookieManager.removeAllCookies(null);
+                        CookieManager.getInstance().flush();
+                    } else {
+                        cookieManager.removeAllCookie();
+                        CookieSyncManager.createInstance(context);
+                        CookieSyncManager.getInstance().sync();
+                    }
+                } catch (Exception e) {
+                    BdLog.e(e);
+                }
+            }
+            try {
+                if (Build.VERSION.SDK_INT >= 21) {
+                    CookieManager.getInstance().flush();
+                } else {
+                    CookieSyncManager.getInstance().sync();
+                }
+            } catch (Exception e2) {
+                BdLog.e(e2);
+            }
+        }
+    }
+
+    private static void bnT() {
+        new ai("open_webview", true).start();
     }
 }

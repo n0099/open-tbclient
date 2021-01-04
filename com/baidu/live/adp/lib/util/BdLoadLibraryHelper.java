@@ -20,7 +20,7 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class BdLoadLibraryHelper {
     private static BdLoadLibraryHelper mInstance = null;
 
@@ -176,86 +176,86 @@ public class BdLoadLibraryHelper {
     /* JADX INFO: Access modifiers changed from: private */
     public boolean loadFromApk(String str, String str2, StringBuilder sb) {
         ZipInputStream zipInputStream;
+        Throwable th;
         ByteArrayOutputStream byteArrayOutputStream;
+        ByteArrayOutputStream byteArrayOutputStream2;
         ZipInputStream zipInputStream2 = null;
-        ByteArrayOutputStream byteArrayOutputStream2 = null;
-        zipInputStream2 = null;
-        zipInputStream2 = null;
         boolean z = false;
         ArrayList arrayList = new ArrayList();
         arrayList.add("lib" + File.separator + "x86" + File.separator + "lib" + str2 + PluginInstallerService.APK_LIB_SUFFIX);
         arrayList.add("lib" + File.separator + IDevices.ABI_MIPS + File.separator + "lib" + str2 + PluginInstallerService.APK_LIB_SUFFIX);
         arrayList.add("lib" + File.separator + "armeabi" + File.separator + "lib" + str2 + PluginInstallerService.APK_LIB_SUFFIX);
         File file = new File(str);
-        try {
-            if (file.exists()) {
+        if (file.exists()) {
+            try {
                 try {
                     zipInputStream = new ZipInputStream(new FileInputStream(file));
                 } catch (IOException e) {
                     e = e;
                 }
-                try {
-                    byte[] bArr = new byte[1024];
-                    while (true) {
-                        ZipEntry nextEntry = zipInputStream.getNextEntry();
-                        if (nextEntry == null) {
-                            break;
-                        } else if (arrayList.contains(nextEntry.getName())) {
-                            try {
-                                byteArrayOutputStream = new ByteArrayOutputStream();
-                                while (true) {
-                                    try {
-                                        int read = zipInputStream.read(bArr);
-                                        if (read == -1) {
-                                            break;
-                                        }
-                                        byteArrayOutputStream.write(bArr, 0, read);
-                                    } catch (Exception e2) {
-                                        BdCloseHelper.close((OutputStream) byteArrayOutputStream);
-                                    } catch (Throwable th) {
-                                        byteArrayOutputStream2 = byteArrayOutputStream;
-                                        th = th;
-                                        BdCloseHelper.close((OutputStream) byteArrayOutputStream2);
-                                        throw th;
+            } catch (Throwable th2) {
+                th = th2;
+            }
+            try {
+                byte[] bArr = new byte[1024];
+                while (true) {
+                    ZipEntry nextEntry = zipInputStream.getNextEntry();
+                    if (nextEntry == null) {
+                        break;
+                    } else if (arrayList.contains(nextEntry.getName())) {
+                        try {
+                            byteArrayOutputStream2 = new ByteArrayOutputStream();
+                            while (true) {
+                                try {
+                                    int read = zipInputStream.read(bArr);
+                                    if (read == -1) {
+                                        break;
                                     }
-                                }
-                                byteArrayOutputStream.flush();
-                                String newLibFile = getNewLibFile(str2);
-                                createLibFile(newLibFile, byteArrayOutputStream.toByteArray(), sb);
-                                if (loadSoLibrary(newLibFile, sb)) {
-                                    sb.append("-Succ5-");
-                                    z = true;
+                                    byteArrayOutputStream2.write(bArr, 0, read);
+                                } catch (Exception e2) {
+                                    BdCloseHelper.close((OutputStream) byteArrayOutputStream2);
+                                } catch (Throwable th3) {
+                                    th = th3;
+                                    byteArrayOutputStream = byteArrayOutputStream2;
                                     BdCloseHelper.close((OutputStream) byteArrayOutputStream);
-                                    break;
+                                    throw th;
                                 }
-                                BdCloseHelper.close((OutputStream) byteArrayOutputStream);
-                            } catch (Exception e3) {
-                                byteArrayOutputStream = null;
-                            } catch (Throwable th2) {
-                                th = th2;
                             }
+                            byteArrayOutputStream2.flush();
+                            String newLibFile = getNewLibFile(str2);
+                            createLibFile(newLibFile, byteArrayOutputStream2.toByteArray(), sb);
+                            if (loadSoLibrary(newLibFile, sb)) {
+                                sb.append("-Succ5-");
+                                z = true;
+                                BdCloseHelper.close((OutputStream) byteArrayOutputStream2);
+                                break;
+                            }
+                            BdCloseHelper.close((OutputStream) byteArrayOutputStream2);
+                        } catch (Exception e3) {
+                            byteArrayOutputStream2 = null;
+                        } catch (Throwable th4) {
+                            th = th4;
+                            byteArrayOutputStream = null;
                         }
                     }
-                    BdCloseHelper.close((InputStream) zipInputStream);
-                } catch (IOException e4) {
-                    e = e4;
-                    zipInputStream2 = zipInputStream;
-                    sb.append("-Error5:");
-                    sb.append(e.getClass().getName() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + e.getMessage());
-                    sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
-                    BdCloseHelper.close((InputStream) zipInputStream2);
-                    return z;
-                } catch (Throwable th3) {
-                    th = th3;
-                    zipInputStream2 = zipInputStream;
-                    BdCloseHelper.close((InputStream) zipInputStream2);
-                    throw th;
                 }
+                BdCloseHelper.close((InputStream) zipInputStream);
+            } catch (IOException e4) {
+                e = e4;
+                zipInputStream2 = zipInputStream;
+                sb.append("-Error5:");
+                sb.append(e.getClass().getName() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + e.getMessage());
+                sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+                BdCloseHelper.close((InputStream) zipInputStream2);
+                return z;
+            } catch (Throwable th5) {
+                th = th5;
+                zipInputStream2 = zipInputStream;
+                BdCloseHelper.close((InputStream) zipInputStream2);
+                throw th;
             }
-            return z;
-        } catch (Throwable th4) {
-            th = th4;
         }
+        return z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -290,7 +290,7 @@ public class BdLoadLibraryHelper {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     private class LoadApkTask extends BdAsyncTask<Object, Object, Object> {
         BdLoadLibraryHelperCallback mCallback;
         String mLibName;

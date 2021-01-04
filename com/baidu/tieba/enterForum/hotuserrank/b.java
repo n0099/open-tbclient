@@ -7,75 +7,76 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tieba.R;
-import com.baidu.tieba.enterForum.hotuserrank.c;
-/* loaded from: classes22.dex */
+import com.baidu.tieba.enterForum.hotuserrank.RankListViewController;
+import com.baidu.tieba.enterForum.hotuserrank.a.c;
+/* loaded from: classes2.dex */
 public class b {
-    private TbPageContext eNx;
-    private c.a ixs;
-    private TextView ixt;
-    private TextView ixu;
-    private String ixv;
-    private int ixw;
+    private TbPageContext eXu;
+    private RankListViewController.RankListViewHolder iJF;
+    private TextView iJG;
+    private TextView iJH;
+    private String iJI;
+    private int iJJ;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.hotuserrank.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (TextUtils.isEmpty(b.this.ixv)) {
-                b.this.eNx.showToast(R.string.load_error_retry);
+            if (TextUtils.isEmpty(b.this.iJI)) {
+                b.this.eXu.showToast(R.string.load_error_retry);
                 return;
             }
-            bf.bua().b(b.this.eNx, new String[]{b.this.ixv});
-            if (b.this.ixw != 0) {
-                if (b.this.ixw != 2) {
-                    if (b.this.ixw == 1) {
-                        ar arVar = new ar("c13669");
-                        arVar.al("obj_locate", 2);
-                        TiebaStatic.log(arVar);
+            be.bwu().b(b.this.eXu, new String[]{b.this.iJI});
+            if (b.this.iJJ != 0) {
+                if (b.this.iJJ != 2) {
+                    if (b.this.iJJ == 1) {
+                        aq aqVar = new aq("c13669");
+                        aqVar.an("obj_locate", 2);
+                        TiebaStatic.log(aqVar);
                         return;
                     }
                     return;
                 }
-                ar arVar2 = new ar("c13658");
-                arVar2.w("uid", TbadkCoreApplication.getCurrentAccountId());
-                arVar2.al("obj_locate", 2);
-                TiebaStatic.log(arVar2);
+                aq aqVar2 = new aq("c13658");
+                aqVar2.w("uid", TbadkCoreApplication.getCurrentAccountId());
+                aqVar2.an("obj_locate", 2);
+                TiebaStatic.log(aqVar2);
             }
         }
     };
     private View mRootView;
 
     public b(TbPageContext tbPageContext, View view) {
-        this.eNx = tbPageContext;
+        this.eXu = tbPageContext;
         this.mRootView = view;
-        this.ixs = new c.a(view.findViewById(R.id.user_view));
-        this.ixs.yS(1);
-        this.ixt = (TextView) view.findViewById(R.id.get_influence);
-        this.ixu = (TextView) view.findViewById(R.id.rank_num);
-        this.ixu.setTextSize(0, l.getDimens(this.eNx.getPageActivity(), R.dimen.tbfontsize46));
-        this.ixt.setOnClickListener(this.mOnClickListener);
+        this.iJF = new RankListViewController.RankListViewHolder(view.findViewById(R.id.user_view));
+        this.iJF.zf(1);
+        this.iJG = (TextView) view.findViewById(R.id.get_influence);
+        this.iJH = (TextView) view.findViewById(R.id.rank_num);
+        this.iJH.setTextSize(0, l.getDimens(this.eXu.getPageActivity(), R.dimen.tbfontsize46));
+        this.iJG.setOnClickListener(this.mOnClickListener);
     }
 
-    public void b(com.baidu.tieba.enterForum.hotuserrank.a.c cVar) {
-        if (cVar != null && cVar.ixW != null && cVar.ixW.ixS != null && !cVar.ixW.ixS.isMask && TbadkCoreApplication.isLogin()) {
+    public void b(c cVar) {
+        if (cVar != null && cVar.iKj != null && cVar.iKj.iKf != null && !cVar.iKj.iKf.isMask && TbadkCoreApplication.isLogin()) {
             this.mRootView.setVisibility(0);
-            this.ixs.a(cVar.ixW);
-            this.ixs.cwi();
-            this.ixv = cVar.ixX;
+            this.iJF.a(cVar.iKj);
+            this.iJF.czb();
+            this.iJI = cVar.iKk;
             return;
         }
         this.mRootView.setVisibility(8);
     }
 
     public void onChangeSkinType(int i) {
-        this.ixs.onChangeSkinType(i);
-        ap.setBackgroundColor(this.ixs.itemView, R.color.CAM_X0207);
-        ap.setViewTextColor(this.ixt, R.color.CAM_X0302);
+        this.iJF.onChangeSkinType(i);
+        ao.setBackgroundColor(this.iJF.itemView, R.color.CAM_X0207);
+        ao.setViewTextColor(this.iJG, R.color.CAM_X0302);
     }
 
-    public void yR(int i) {
-        this.ixw = i;
+    public void ze(int i) {
+        this.iJJ = i;
     }
 }

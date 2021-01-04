@@ -3,31 +3,31 @@ package com.baidu.swan.apps.process.messaging.client;
 import android.os.Bundle;
 import android.os.Message;
 import android.os.RemoteException;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.swan.apps.process.SwanAppProcessInfo;
 import com.baidu.swan.apps.process.messaging.a;
 import com.baidu.swan.apps.process.messaging.c;
 import com.baidu.swan.apps.runtime.d;
 import java.util.ArrayDeque;
 import java.util.Deque;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class b implements a.b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final Deque<Message> drq = new ArrayDeque();
+    private final Deque<Message> dwp = new ArrayDeque();
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
-    public void aHH() {
-        a aHO = a.aHO();
-        while (aHO.aHS() && !this.drq.isEmpty()) {
-            Message peek = this.drq.peek();
+    public void aJa() {
+        a aJh = a.aJh();
+        while (aJh.aJl() && !this.dwp.isEmpty()) {
+            Message peek = this.dwp.peek();
             if (peek == null || B(peek)) {
-                this.drq.poll();
+                this.dwp.poll();
             }
         }
     }
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
-    public void sb(String str) {
+    public void rU(String str) {
     }
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
@@ -36,28 +36,28 @@ public class b implements a.b {
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
     public void a(@NonNull c cVar) {
-        Message aHI = cVar.aHI();
-        aHI.arg1 = SwanAppProcessInfo.current().index;
-        if (d.aJQ().aId() && (aHI.obj instanceof Bundle)) {
-            Bundle bundle = (Bundle) aHI.obj;
+        Message aJb = cVar.aJb();
+        aJb.arg1 = SwanAppProcessInfo.current().index;
+        if (d.aMg().aJw() && (aJb.obj instanceof Bundle)) {
+            Bundle bundle = (Bundle) aJb.obj;
             if (!bundle.containsKey("ai_apps_id")) {
-                bundle.putString("ai_apps_id", d.aJQ().getAppId());
+                bundle.putString("ai_apps_id", d.aMg().getAppId());
             }
         }
-        if (!B(aHI) && cVar.isSticky()) {
-            this.drq.offer(aHI);
-            a.aHO().aHQ();
+        if (!B(aJb) && cVar.isSticky()) {
+            this.dwp.offer(aJb);
+            a.aJh().aJj();
         }
     }
 
     private boolean B(Message message) {
-        a aHO = a.aHO();
-        if (message != null && aHO.aHS()) {
+        a aJh = a.aJh();
+        if (message != null && aJh.aJl()) {
             try {
-                aHO.aHP().send(message);
+                aJh.aJi().send(message);
                 return true;
             } catch (RemoteException e) {
-                aHO.aHT();
+                aJh.aJm();
                 if (DEBUG) {
                     e.printStackTrace();
                 }

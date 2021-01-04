@@ -1,9 +1,9 @@
 package com.baidu.searchbox.player.helper;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.player.BDVideoPlayer;
 import com.baidu.searchbox.player.annotation.PublicMethod;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class ProgressHelper extends AbsHandlerTask {
     private BDVideoPlayer mPlayer;
 

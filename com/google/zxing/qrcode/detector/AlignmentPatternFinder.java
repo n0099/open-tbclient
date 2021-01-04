@@ -5,7 +5,7 @@ import com.google.zxing.ResultPointCallback;
 import com.google.zxing.common.BitMatrix;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 final class AlignmentPatternFinder {
     private final int height;
     private final BitMatrix image;
@@ -47,12 +47,12 @@ final class AlignmentPatternFinder {
                 i7++;
             }
             int i8 = 0;
-            for (int i9 = i7; i9 < i3; i9++) {
-                if (this.image.get(i9, i6)) {
+            while (i7 < i3) {
+                if (this.image.get(i7, i6)) {
                     if (i8 == 1) {
                         iArr[1] = iArr[1] + 1;
                     } else if (i8 == 2) {
-                        if (!foundPatternCross(iArr) || (handlePossibleCenter2 = handlePossibleCenter(iArr, i6, i9)) == null) {
+                        if (!foundPatternCross(iArr) || (handlePossibleCenter2 = handlePossibleCenter(iArr, i6, i7)) == null) {
                             iArr[0] = iArr[2];
                             iArr[1] = 1;
                             iArr[2] = 0;
@@ -70,6 +70,7 @@ final class AlignmentPatternFinder {
                     }
                     iArr[i8] = iArr[i8] + 1;
                 }
+                i7++;
             }
             if (foundPatternCross(iArr) && (handlePossibleCenter = handlePossibleCenter(iArr, i6, i3)) != null) {
                 return handlePossibleCenter;

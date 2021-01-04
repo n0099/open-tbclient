@@ -1,5 +1,5 @@
 package com.alibaba.fastjson.serializer;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public enum SerializerFeature {
     QuoteFieldNames,
     UseSingleQuotes,
@@ -60,15 +60,12 @@ public enum SerializerFeature {
     }
 
     public static int of(SerializerFeature[] serializerFeatureArr) {
+        if (serializerFeatureArr == null) {
+            return 0;
+        }
         int i = 0;
-        if (serializerFeatureArr != null) {
-            int length = serializerFeatureArr.length;
-            int i2 = 0;
-            while (i2 < length) {
-                int i3 = serializerFeatureArr[i2].mask | i;
-                i2++;
-                i = i3;
-            }
+        for (SerializerFeature serializerFeature : serializerFeatureArr) {
+            i |= serializerFeature.mask;
         }
         return i;
     }

@@ -7,16 +7,16 @@ import io.reactivex.e;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class CompletableMergeIterable extends a {
-    final Iterable<? extends e> pFe;
+    final Iterable<? extends e> qgG;
 
     @Override // io.reactivex.a
     public void b(c cVar) {
         io.reactivex.disposables.a aVar = new io.reactivex.disposables.a();
         cVar.onSubscribe(aVar);
         try {
-            Iterator it = (Iterator) io.reactivex.internal.functions.a.m(this.pFe.iterator(), "The source iterator returned is null");
+            Iterator it = (Iterator) io.reactivex.internal.functions.a.m(this.qgG.iterator(), "The source iterator returned is null");
             AtomicInteger atomicInteger = new AtomicInteger(1);
             MergeCompletableObserver mergeCompletableObserver = new MergeCompletableObserver(cVar, aVar, atomicInteger);
             while (!aVar.isDisposed()) {
@@ -32,7 +32,7 @@ public final class CompletableMergeIterable extends a {
                                     return;
                                 }
                             } catch (Throwable th) {
-                                io.reactivex.exceptions.a.J(th);
+                                io.reactivex.exceptions.a.O(th);
                                 aVar.dispose();
                                 mergeCompletableObserver.onError(th);
                                 return;
@@ -45,19 +45,19 @@ public final class CompletableMergeIterable extends a {
                         return;
                     }
                 } catch (Throwable th2) {
-                    io.reactivex.exceptions.a.J(th2);
+                    io.reactivex.exceptions.a.O(th2);
                     aVar.dispose();
                     mergeCompletableObserver.onError(th2);
                     return;
                 }
             }
         } catch (Throwable th3) {
-            io.reactivex.exceptions.a.J(th3);
+            io.reactivex.exceptions.a.O(th3);
             cVar.onError(th3);
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class MergeCompletableObserver extends AtomicBoolean implements c {
         private static final long serialVersionUID = -7730517613164279224L;
         final c actual;

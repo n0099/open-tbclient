@@ -1,19 +1,43 @@
 package com.baidu.swan.games.view.recommend.popview;
 
-import com.baidu.swan.apps.storage.c.h;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-/* loaded from: classes25.dex */
-public class c {
-    public static void putString(String str, String str2) {
-        h.aNr().putString(str, str2);
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.StateListDrawable;
+import android.util.StateSet;
+import android.view.View;
+/* loaded from: classes9.dex */
+public class c extends StateListDrawable {
+    private a eqy;
+    private View mView = null;
+
+    /* loaded from: classes9.dex */
+    public interface a {
+        void bc(View view);
+
+        void bd(View view);
     }
 
-    public static String getString(String str) {
-        return h.aNr().getString(str, null);
+    public c() {
+        addState(new int[]{16842919}, new ColorDrawable(0));
+        addState(new int[0], new ColorDrawable(0));
     }
 
-    public static String getCurrentDate() {
-        return new SimpleDateFormat("yyyy年MM月dd日").format(new Date(System.currentTimeMillis()));
+    public void setView(View view) {
+        this.mView = view;
+    }
+
+    public void a(a aVar) {
+        this.eqy = aVar;
+    }
+
+    @Override // android.graphics.drawable.StateListDrawable, android.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
+    protected boolean onStateChange(int[] iArr) {
+        if (this.mView != null && this.eqy != null) {
+            if (StateSet.stateSetMatches(new int[]{16842919}, iArr)) {
+                this.eqy.bc(this.mView);
+            } else {
+                this.eqy.bd(this.mView);
+            }
+        }
+        return super.onStateChange(iArr);
     }
 }

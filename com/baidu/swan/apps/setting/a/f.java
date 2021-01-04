@@ -9,7 +9,7 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class f extends aa {
     public f(j jVar) {
         super(jVar, "/swanAPI/getUserInfo");
@@ -34,25 +34,25 @@ public class f extends aa {
             com.baidu.swan.games.v.c.g(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(201, "empty cb").toString());
             return false;
         }
-        Activity aJO = context instanceof Activity ? (Activity) context : eVar.aJO();
-        if (aJO == null) {
+        Activity aMe = context instanceof Activity ? (Activity) context : eVar.aMe();
+        if (aMe == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
             com.baidu.swan.games.v.c.g(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity").toString());
             return false;
         }
-        final String rP = com.baidu.swan.apps.ac.g.b.rP(optParamsAsJo.optString("__plugin__", null));
-        com.baidu.swan.apps.a.b aKh = eVar.aKh();
-        final boolean bR = com.baidu.swan.apps.setting.oauth.c.bR(optParamsAsJo);
-        if (aKh.isLogin(context) || !bR) {
-            a(bR, callbackHandler, optString, aJO, rP, "snsapi_userinfo");
+        final String rI = com.baidu.swan.apps.ac.g.b.rI(optParamsAsJo.optString("__plugin__", null));
+        com.baidu.swan.apps.a.b aMx = eVar.aMx();
+        final boolean bZ = com.baidu.swan.apps.setting.oauth.c.bZ(optParamsAsJo);
+        if (aMx.isLogin(context) || !bZ) {
+            a(bZ, callbackHandler, optString, aMe, rI, "snsapi_userinfo");
         } else {
-            final Activity activity = aJO;
-            aKh.a(aJO, null, new com.baidu.swan.apps.a.a() { // from class: com.baidu.swan.apps.setting.a.f.1
+            final Activity activity = aMe;
+            aMx.a(aMe, null, new com.baidu.swan.apps.a.a() { // from class: com.baidu.swan.apps.setting.a.f.1
                 @Override // com.baidu.swan.apps.a.a
                 public void onResult(int i) {
                     switch (i) {
                         case 0:
-                            f.this.a(bR, callbackHandler, optString, activity, rP, "snsapi_userinfo");
+                            f.this.a(bZ, callbackHandler, optString, activity, rI, "snsapi_userinfo");
                             return;
                         default:
                             callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in").toString());
@@ -67,16 +67,16 @@ public class f extends aa {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z, final CallbackHandler callbackHandler, final String str, Activity activity, String str2, String str3) {
-        com.baidu.swan.apps.setting.b.a.a(activity, str3, str2, z, new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.b.a>() { // from class: com.baidu.swan.apps.setting.a.f.2
+        com.baidu.swan.apps.setting.b.a.a(activity, str3, str2, z, new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.b.a>() { // from class: com.baidu.swan.apps.setting.a.f.2
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.swan.apps.ap.e.b
+            @Override // com.baidu.swan.apps.ao.e.b
             /* renamed from: a */
-            public void M(com.baidu.swan.apps.setting.b.a aVar) {
+            public void L(com.baidu.swan.apps.setting.b.a aVar) {
                 com.baidu.swan.apps.console.c.d("OpenData", "onOpenDataCallback:: ", aVar);
-                if (!aVar.aMo()) {
+                if (!aVar.aOE()) {
                     com.baidu.swan.apps.setting.oauth.c.a(aVar, callbackHandler, str);
                 } else {
-                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(aVar.dDz, 0).toString());
+                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(aVar.dMd, 0).toString());
                 }
             }
         });

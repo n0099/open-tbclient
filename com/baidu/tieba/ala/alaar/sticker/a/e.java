@@ -2,18 +2,17 @@ package com.baidu.tieba.ala.alaar.sticker.a;
 
 import android.text.TextUtils;
 import com.baidu.live.adp.lib.util.Md5;
-import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import com.baidu.tieba.ala.alaar.sticker.download.exception.DownloadException;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class e {
-    private static File aFJ = i.getPrivateCaptureRootChildDir("duFilter");
-    private static List<String> gkF = Collections.synchronizedList(new ArrayList());
+    private static File cacheFile = i.getPrivateCaptureRootChildDir("duFilter");
+    private static List<String> gve = Collections.synchronizedList(new ArrayList());
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void onCompleted(String str);
 
@@ -24,38 +23,38 @@ public class e {
         void onStarted();
     }
 
-    public static String Gp(String str) {
-        File Gr;
-        if (TextUtils.isEmpty(str) || (Gr = Gr(Md5.toMd5(str))) == null || !Gr.exists()) {
+    public static String Go(String str) {
+        File Gq;
+        if (TextUtils.isEmpty(str) || (Gq = Gq(Md5.toMd5(str))) == null || !Gq.exists()) {
             return null;
         }
-        return Gr.getAbsolutePath();
+        return Gq.getAbsolutePath();
     }
 
-    public static boolean Gq(String str) {
-        return !TextUtils.isEmpty(Gp(str));
+    public static boolean Gp(String str) {
+        return !TextUtils.isEmpty(Go(str));
     }
 
-    public static boolean cL(String str) {
+    public static boolean cE(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return com.baidu.tieba.ala.alaar.sticker.download.b.bQx().isRunning(str);
+        return com.baidu.tieba.ala.alaar.sticker.download.b.bSW().isRunning(str);
     }
 
     public static void a(final String str, final a aVar) {
         if (!TextUtils.isEmpty(str)) {
-            String Gp = Gp(str);
-            if (!TextUtils.isEmpty(Gp)) {
+            String Go = Go(str);
+            if (!TextUtils.isEmpty(Go)) {
                 if (aVar != null) {
-                    aVar.onCompleted(Gp);
+                    aVar.onCompleted(Go);
                     return;
                 }
                 return;
             }
             final String md5 = Md5.toMd5(str);
-            gkF.add(str);
-            com.baidu.tieba.ala.alaar.sticker.download.b.bQx().a(str, aFJ, md5 + ".tmp", new com.baidu.tieba.ala.alaar.sticker.download.a.a() { // from class: com.baidu.tieba.ala.alaar.sticker.a.e.1
+            gve.add(str);
+            com.baidu.tieba.ala.alaar.sticker.download.b.bSW().a(str, cacheFile, md5 + ".tmp", new com.baidu.tieba.ala.alaar.sticker.download.a.a() { // from class: com.baidu.tieba.ala.alaar.sticker.a.e.1
                 @Override // com.baidu.tieba.ala.alaar.sticker.download.a.a
                 public void onStarted() {
                     super.onStarted();
@@ -85,12 +84,12 @@ public class e {
                 @Override // com.baidu.tieba.ala.alaar.sticker.download.a.a
                 public void onCompleted(String str2) {
                     super.onCompleted(str2);
-                    e.gkF.remove(str);
+                    e.gve.remove(str);
                     if (!TextUtils.isEmpty(str2) && a.this != null) {
                         File file = new File(str2);
-                        File Gr = e.Gr(md5);
-                        if (file.exists() && file.renameTo(Gr) && Gr != null) {
-                            a.this.onCompleted(Gr.getAbsolutePath());
+                        File Gq = e.Gq(md5);
+                        if (file.exists() && file.renameTo(Gq) && Gq != null) {
+                            a.this.onCompleted(Gq.getAbsolutePath());
                             return;
                         }
                     }
@@ -110,7 +109,7 @@ public class e {
                 @Override // com.baidu.tieba.ala.alaar.sticker.download.a.a
                 public void a(DownloadException downloadException) {
                     int i;
-                    e.gkF.remove(str);
+                    e.gve.remove(str);
                     super.a(downloadException);
                     if (a.this != null) {
                         String str2 = null;
@@ -128,10 +127,10 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static File Gr(String str) {
+    public static File Gq(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return new File(aFJ, str + ComboPraiseProvider.RES_NAME_PRAISE_NUMBER_SUFFIX);
+        return new File(cacheFile, str + ".png");
     }
 }

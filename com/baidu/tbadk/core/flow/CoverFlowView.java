@@ -4,173 +4,173 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
+import androidx.viewpager.widget.ViewPager;
 import com.baidu.adp.widget.IndicatorView;
 import com.baidu.adp.widget.SwipeBackLayout;
 import com.baidu.tbadk.core.flow.a.a;
 import com.baidu.tbadk.core.flow.a.d;
 import com.baidu.tbadk.core.flow.a.e;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.widget.viewpager.ListViewPager;
 import java.util.List;
 /* loaded from: classes.dex */
 public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends FrameLayout {
-    private boolean ePA;
-    private boolean ePB;
-    private d<T> ePC;
-    private long ePF;
-    private CoverFlowAdapter<T> ePH;
-    private CoverFlowView<T>.a ePI;
-    private CoverFlowView<T>.c ePJ;
-    private CoverFlowView<T>.b ePK;
-    private ListViewPager ePt;
-    private IndicatorView ePu;
-    private com.baidu.tbadk.core.flow.a.c ePv;
-    private com.baidu.tbadk.core.flow.a ePx;
-    private boolean ePz;
+    private boolean eZA;
+    private d<T> eZB;
+    private long eZE;
+    private CoverFlowAdapter<T> eZG;
+    private CoverFlowView<T>.a eZH;
+    private CoverFlowView<T>.c eZI;
+    private CoverFlowView<T>.b eZJ;
+    private ListViewPager eZs;
+    private IndicatorView eZt;
+    private com.baidu.tbadk.core.flow.a.c eZu;
+    private com.baidu.tbadk.core.flow.a eZw;
+    private boolean eZy;
+    private boolean eZz;
     private View mCustomView;
 
     public CoverFlowView(Context context) {
         super(context);
         this.mCustomView = null;
-        this.ePI = new a();
-        this.ePz = false;
-        this.ePA = true;
-        this.ePB = true;
-        this.ePJ = new c();
-        this.ePK = new b();
-        this.ePF = 5000L;
+        this.eZH = new a();
+        this.eZy = false;
+        this.eZz = true;
+        this.eZA = true;
+        this.eZI = new c();
+        this.eZJ = new b();
+        this.eZE = 5000L;
         init(context);
     }
 
     public CoverFlowView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mCustomView = null;
-        this.ePI = new a();
-        this.ePz = false;
-        this.ePA = true;
-        this.ePB = true;
-        this.ePJ = new c();
-        this.ePK = new b();
-        this.ePF = 5000L;
+        this.eZH = new a();
+        this.eZy = false;
+        this.eZz = true;
+        this.eZA = true;
+        this.eZI = new c();
+        this.eZJ = new b();
+        this.eZE = 5000L;
         init(context);
     }
 
     public CoverFlowView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mCustomView = null;
-        this.ePI = new a();
-        this.ePz = false;
-        this.ePA = true;
-        this.ePB = true;
-        this.ePJ = new c();
-        this.ePK = new b();
-        this.ePF = 5000L;
+        this.eZH = new a();
+        this.eZy = false;
+        this.eZz = true;
+        this.eZA = true;
+        this.eZI = new c();
+        this.eZJ = new b();
+        this.eZE = 5000L;
         init(context);
     }
 
     public void setCallback(d<T> dVar) {
-        this.ePC = dVar;
+        this.eZB = dVar;
     }
 
     private void init(Context context) {
-        eB(context);
-        eC(context);
+        eU(context);
+        eV(context);
         setCoverFlowFactory(new com.baidu.tbadk.core.flow.a.b());
-        addView(this.ePt);
-        addView(this.ePu);
-        this.ePH = new CoverFlowAdapter<>(context);
-        this.ePH.setOnClickListener(this.ePJ);
-        this.ePt.setAdapter(this.ePH);
-        this.ePt.setOnPageChangeListener(this.ePK);
+        addView(this.eZs);
+        addView(this.eZt);
+        this.eZG = new CoverFlowAdapter<>(context);
+        this.eZG.setOnClickListener(this.eZI);
+        this.eZs.setAdapter(this.eZG);
+        this.eZs.setOnPageChangeListener(this.eZJ);
     }
 
-    private void eB(Context context) {
-        this.ePt = new ListViewPager(context);
+    private void eU(Context context) {
+        this.eZs = new ListViewPager(context);
     }
 
-    private void eC(Context context) {
-        this.ePu = new IndicatorView(context);
-        this.ePu.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
+    private void eV(Context context) {
+        this.eZt = new IndicatorView(context);
+        this.eZt.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
     }
 
-    public T pG(int i) {
-        if (this.ePH == null) {
+    public T pQ(int i) {
+        if (this.eZG == null) {
             return null;
         }
-        return this.ePH.pG(i);
+        return this.eZG.pQ(i);
     }
 
     public void setData(List<T> list) {
         if (list != null && !list.isEmpty()) {
-            this.ePH.a(list, this.ePx);
+            this.eZG.a(list, this.eZw);
             int size = list.size();
             if (size > 1) {
-                this.ePu.setVisibility(0);
-                this.ePu.setCount(size);
-                this.ePt.setCurrentItem(1, false);
-                this.ePu.setPosition(0.0f);
-                if (this.ePB) {
-                    bsg();
+                this.eZt.setVisibility(0);
+                this.eZt.setCount(size);
+                this.eZs.setCurrentItem(1, false);
+                this.eZt.setPosition(0.0f);
+                if (this.eZA) {
+                    buI();
                     return;
                 }
                 return;
             }
-            this.ePu.setVisibility(8);
-            this.ePu.setCount(size);
-            this.ePt.setCurrentItem(1, false);
-            this.ePu.setPosition(0.0f);
-            bsh();
+            this.eZt.setVisibility(8);
+            this.eZt.setCount(size);
+            this.eZs.setCurrentItem(1, false);
+            this.eZt.setPosition(0.0f);
+            buJ();
         }
     }
 
     public void setCoverFlowFactory(com.baidu.tbadk.core.flow.a aVar) {
         if (aVar != null) {
-            this.ePx = aVar;
-            this.ePv = aVar.uj();
-            this.ePv.g(this.ePu);
-            aVar.ui().b(this.ePt);
-            this.mCustomView = aVar.bsf();
+            this.eZw = aVar;
+            this.eZu = aVar.tI();
+            this.eZu.g(this.eZt);
+            aVar.tH().b(this.eZs);
+            this.mCustomView = aVar.buH();
             if (this.mCustomView != null) {
                 removeAllViews();
-                addView(this.ePt);
+                addView(this.eZs);
                 addView(this.mCustomView);
-                addView(this.ePu);
+                addView(this.eZt);
             }
         }
     }
 
-    public void bsg() {
-        bsi();
+    public void buI() {
+        buK();
     }
 
-    public void bsh() {
-        this.ePI.removeMessages(1);
+    public void buJ() {
+        this.eZH.removeMessages(1);
     }
 
-    public void bsi() {
-        this.ePI.removeMessages(1);
-        this.ePI.sendEmptyMessageDelayed(1, this.ePF);
+    public void buK() {
+        this.eZH.removeMessages(1);
+        this.eZH.sendEmptyMessageDelayed(1, this.eZE);
     }
 
-    public void uh() {
-        if (!this.ePI.hasMessages(1)) {
-            bsg();
+    public void tG() {
+        if (!this.eZH.hasMessages(1)) {
+            buI();
         }
     }
 
     public void setIndicatorVisible(int i) {
-        if (this.ePu != null) {
-            this.ePu.setVisibility(i);
+        if (this.eZt != null) {
+            this.eZt.setVisibility(i);
         }
     }
 
     public void setMarqueenTime(long j) {
-        this.ePF = j;
-        bsi();
+        this.eZE = j;
+        buK();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -185,7 +185,7 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
             super.handleMessage(message);
             switch (message.what) {
                 case 1:
-                    CoverFlowView.this.bsj();
+                    CoverFlowView.this.buL();
                     return;
                 default:
                     return;
@@ -194,34 +194,34 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bsj() {
+    public void buL() {
         int count;
-        if (this.ePt != null && this.ePH != null && (count = this.ePH.getCount()) > 1) {
-            int currentItem = this.ePt.getCurrentItem();
+        if (this.eZs != null && this.eZG != null && (count = this.eZG.getCount()) > 1) {
+            int currentItem = this.eZs.getCurrentItem();
             int i = count - 2;
             if (currentItem < 1) {
-                this.ePt.setCurrentItem(i, false);
+                this.eZs.setCurrentItem(i, false);
             } else if (currentItem > i) {
-                this.ePt.setCurrentItem(1, false);
+                this.eZs.setCurrentItem(1, false);
             } else {
-                this.ePt.setCurrentItem(currentItem + 1);
+                this.eZs.setCurrentItem(currentItem + 1);
             }
-            this.ePt.invalidate();
+            this.eZs.invalidate();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bsk() {
+    public boolean buM() {
         int count;
-        if (this.ePH != null && (count = this.ePH.getCount()) > 1) {
-            int currentItem = this.ePt.getCurrentItem();
+        if (this.eZG != null && (count = this.eZG.getCount()) > 1) {
+            int currentItem = this.eZs.getCurrentItem();
             int i = count - 2;
             if (currentItem < 1) {
-                this.ePt.setCurrentItem(i, false);
-                this.ePt.invalidate();
+                this.eZs.setCurrentItem(i, false);
+                this.eZs.invalidate();
             } else if (currentItem > i) {
-                this.ePt.setCurrentItem(1, false);
-                this.ePt.invalidate();
+                this.eZs.setCurrentItem(1, false);
+                this.eZs.invalidate();
             }
             return true;
         }
@@ -236,20 +236,20 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
 
         /* JADX DEBUG: Multi-variable search result rejected for r0v26, resolved type: com.baidu.tbadk.core.flow.a.d */
         /* JADX WARN: Multi-variable type inference failed */
-        @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrolled(int i, float f, int i2) {
-            if (CoverFlowView.this.ePu != null && CoverFlowView.this.ePH != null) {
-                if (CoverFlowView.this.ePH.getCount() == 1 && i == 0 && CoverFlowView.this.ePC != null) {
-                    CoverFlowView.this.ePC.a(1, CoverFlowView.this.ePH.pG(i));
+            if (CoverFlowView.this.eZt != null && CoverFlowView.this.eZG != null) {
+                if (CoverFlowView.this.eZG.getCount() == 1 && i == 0 && CoverFlowView.this.eZB != null) {
+                    CoverFlowView.this.eZB.a(1, CoverFlowView.this.eZG.pQ(i));
                 }
-                if (CoverFlowView.this.ePu.getVisibility() == 0 && !CoverFlowView.this.ePz) {
-                    int count = CoverFlowView.this.ePH.getCount();
+                if (CoverFlowView.this.eZt.getVisibility() == 0 && !CoverFlowView.this.eZy) {
+                    int count = CoverFlowView.this.eZG.getCount();
                     if (i == 0) {
-                        CoverFlowView.this.ePu.setPosition((count - 3) + f);
+                        CoverFlowView.this.eZt.setPosition((count - 3) + f);
                     } else if (i == count - 1) {
-                        CoverFlowView.this.ePu.setPosition(f);
+                        CoverFlowView.this.eZt.setPosition(f);
                     } else {
-                        CoverFlowView.this.ePu.setPosition((i - 1) + f);
+                        CoverFlowView.this.eZt.setPosition((i - 1) + f);
                     }
                 }
             }
@@ -257,35 +257,35 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
 
         /* JADX DEBUG: Multi-variable search result rejected for r0v10, resolved type: com.baidu.tbadk.core.flow.a.d */
         /* JADX WARN: Multi-variable type inference failed */
-        @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
-            if (CoverFlowView.this.ePH != null) {
-                int count = CoverFlowView.this.ePH.getCount();
+            if (CoverFlowView.this.eZG != null) {
+                int count = CoverFlowView.this.eZG.getCount();
                 if (i >= 0 && i < count) {
-                    if (CoverFlowView.this.ePz) {
+                    if (CoverFlowView.this.eZy) {
                         CoverFlowView.this.setIndicatorSelected(i);
                     }
-                    if (CoverFlowView.this.ePC != null) {
-                        CoverFlowView.this.ePC.a(i, CoverFlowView.this.ePH.pG(i));
+                    if (CoverFlowView.this.eZB != null) {
+                        CoverFlowView.this.eZB.a(i, CoverFlowView.this.eZG.pQ(i));
                     }
                 }
             }
         }
 
-        @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrollStateChanged(int i) {
-            if (CoverFlowView.this.ePt != null && CoverFlowView.this.ePH != null) {
+            if (CoverFlowView.this.eZs != null && CoverFlowView.this.eZG != null) {
                 switch (i) {
                     case 0:
-                        if (CoverFlowView.this.ePB) {
-                            CoverFlowView.this.bsl();
+                        if (CoverFlowView.this.eZA) {
+                            CoverFlowView.this.buN();
                             return;
                         }
                         return;
                     case 1:
-                        if (!CoverFlowView.this.ePA) {
-                            CoverFlowView.this.bsh();
-                            CoverFlowView.this.bsk();
+                        if (!CoverFlowView.this.eZz) {
+                            CoverFlowView.this.buJ();
+                            CoverFlowView.this.buM();
                             return;
                         }
                         return;
@@ -298,20 +298,20 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setIndicatorSelected(int i) {
-        int count = this.ePH.getCount();
+        int count = this.eZG.getCount();
         if (i == 0) {
-            this.ePu.setPosition(0.0f);
+            this.eZt.setPosition(0.0f);
         } else if (i == count - 1) {
-            this.ePu.setPosition(i);
+            this.eZt.setPosition(i);
         } else {
-            this.ePu.setPosition(i - 1);
+            this.eZt.setPosition(i - 1);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bsl() {
-        if (bsk()) {
-            bsi();
+    public void buN() {
+        if (buM()) {
+            buK();
         }
     }
 
@@ -324,58 +324,58 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             int intValue;
-            com.baidu.tbadk.core.flow.a.a pG;
-            if (CoverFlowView.this.ePC != null && (view.getTag() instanceof Integer) && (pG = CoverFlowView.this.ePH.pG((intValue = ((Integer) view.getTag()).intValue()))) != null) {
-                CoverFlowView.this.ePC.e(intValue, pG.bmN());
+            com.baidu.tbadk.core.flow.a.a pQ;
+            if (CoverFlowView.this.eZB != null && (view.getTag() instanceof Integer) && (pQ = CoverFlowView.this.eZG.pQ((intValue = ((Integer) view.getTag()).intValue()))) != null) {
+                CoverFlowView.this.eZB.e(intValue, pQ.bpm());
             }
         }
     }
 
     public void onChangeSkinType() {
-        this.ePH.onChangeSkinType();
-        if (this.ePu != null && this.ePv != null) {
-            this.ePu.setDrawable(ap.getDrawable(this.ePv.bsm()));
-            this.ePu.setSelector(ap.getDrawable(this.ePv.bsn()));
+        this.eZG.onChangeSkinType();
+        if (this.eZt != null && this.eZu != null) {
+            this.eZt.setDrawable(ao.getDrawable(this.eZu.buO()));
+            this.eZt.setSelector(ao.getDrawable(this.eZu.buP()));
         }
     }
 
     public void setSwipeControlInterface(SwipeBackLayout.c cVar) {
-        if (this.ePt != null) {
-            this.ePt.setSwipeControlInterface(cVar);
+        if (this.eZs != null) {
+            this.eZs.setSwipeControlInterface(cVar);
         }
     }
 
     public void setDisableParentEvent(boolean z) {
-        if (this.ePt != null) {
-            this.ePt.setDisableParentEvent(z);
+        if (this.eZs != null) {
+            this.eZs.setDisableParentEvent(z);
         }
     }
 
     public void setIndicatorNoOffet(boolean z) {
-        this.ePz = z;
+        this.eZy = z;
     }
 
     public void setPageMargin(int i) {
-        if (this.ePt != null) {
-            this.ePt.setPageMargin(i);
+        if (this.eZs != null) {
+            this.eZs.setPageMargin(i);
         }
     }
 
     public void a(e eVar) {
-        if (eVar != null && this.ePt != null) {
-            eVar.b(this.ePt);
+        if (eVar != null && this.eZs != null) {
+            eVar.b(this.eZs);
         }
     }
 
     public void setIsAutoPlayDragging(boolean z) {
-        this.ePA = z;
+        this.eZz = z;
     }
 
     private boolean getAutoPlayPlayDragging() {
-        return this.ePA;
+        return this.eZz;
     }
 
     public void setAutoPlay(boolean z) {
-        this.ePB = z;
+        this.eZA = z;
     }
 }

@@ -4,7 +4,7 @@ import com.baidu.adp.framework.a.d;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes8.dex */
 public final class WriteActivityStaticAutoGenerateUrlCollectorImpl implements d {
     @Override // com.baidu.adp.framework.a.d
     public Map<String, ArrayList<String>> getConfigRouterMap() {
@@ -12,7 +12,6 @@ public final class WriteActivityStaticAutoGenerateUrlCollectorImpl implements d 
         ArrayList arrayList = new ArrayList();
         arrayList.add("WriteActivityConfig");
         arrayList.add("TransmitPostEditActivityConfig");
-        arrayList.add("WriteVideoActivityConfig");
         arrayList.add("VcodeActivityConfig");
         arrayList.add("AlbumActivityConfig");
         arrayList.add("NewVcodeActivityConfig");
@@ -23,7 +22,6 @@ public final class WriteActivityStaticAutoGenerateUrlCollectorImpl implements d 
         arrayList.add("TransmitForumActivityConfig");
         arrayList.add("SelectForumActivityConfig");
         arrayList.add("HotTopicChangeActivityConfig");
-        arrayList.add("WriteUrlActivityConfig");
         arrayList.add("AccountAccessActivityConfig");
         arrayList.add("AddLinkActivityConfig");
         hashMap.put("com.baidu.tieba.write.write.WriteActivityStatic", arrayList);

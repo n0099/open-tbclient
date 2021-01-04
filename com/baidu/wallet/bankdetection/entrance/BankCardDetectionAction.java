@@ -6,7 +6,7 @@ import com.baidu.wallet.bankdetection.BankcardDetectionController;
 import com.baidu.wallet.router.RouterAction;
 import com.baidu.wallet.router.RouterCallback;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class BankCardDetectionAction implements RouterAction {
     public void invoke(Context context, HashMap hashMap, final RouterCallback routerCallback) {
         BankcardDetectionController.getInstance().gotoDetctionCard(context, new BankcardDetectionController.IDetectionListener() { // from class: com.baidu.wallet.bankdetection.entrance.BankCardDetectionAction.1

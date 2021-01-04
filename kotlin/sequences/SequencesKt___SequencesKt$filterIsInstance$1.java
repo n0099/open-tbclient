@@ -3,7 +3,7 @@ package kotlin.sequences;
 import kotlin.jvm.internal.Lambda;
 import kotlin.jvm.internal.p;
 @kotlin.e
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class SequencesKt___SequencesKt$filterIsInstance$1 extends Lambda implements kotlin.jvm.a.b<Object, Boolean> {
     public static final SequencesKt___SequencesKt$filterIsInstance$1 INSTANCE = new SequencesKt___SequencesKt$filterIsInstance$1();
 
@@ -22,7 +22,7 @@ public final class SequencesKt___SequencesKt$filterIsInstance$1 extends Lambda i
     @Override // kotlin.jvm.a.b
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
     public final Boolean invoke2(Object obj) {
-        p.cc(3, "R");
+        p.ce(3, "R");
         return obj instanceof Object;
     }
 }

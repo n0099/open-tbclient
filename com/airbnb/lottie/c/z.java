@@ -5,10 +5,10 @@ import android.util.JsonReader;
 import com.airbnb.lottie.model.content.PolystarShape;
 import java.io.IOException;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class z {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static PolystarShape t(JsonReader jsonReader, com.airbnb.lottie.e eVar) throws IOException {
+    public static PolystarShape t(JsonReader jsonReader, com.airbnb.lottie.d dVar) throws IOException {
         com.airbnb.lottie.model.a.b bVar = null;
         com.airbnb.lottie.model.a.b bVar2 = null;
         com.airbnb.lottie.model.a.b bVar3 = null;
@@ -85,25 +85,25 @@ public class z {
                     type = PolystarShape.Type.forValue(jsonReader.nextInt());
                     break;
                 case 2:
-                    bVar6 = d.a(jsonReader, eVar, false);
+                    bVar6 = d.a(jsonReader, dVar, false);
                     break;
                 case 3:
-                    mVar = a.b(jsonReader, eVar);
+                    mVar = a.b(jsonReader, dVar);
                     break;
                 case 4:
-                    bVar5 = d.a(jsonReader, eVar, false);
+                    bVar5 = d.a(jsonReader, dVar, false);
                     break;
                 case 5:
-                    bVar4 = d.f(jsonReader, eVar);
+                    bVar4 = d.f(jsonReader, dVar);
                     break;
                 case 6:
-                    bVar3 = d.a(jsonReader, eVar, false);
+                    bVar3 = d.a(jsonReader, dVar, false);
                     break;
                 case 7:
-                    bVar2 = d.f(jsonReader, eVar);
+                    bVar2 = d.f(jsonReader, dVar);
                     break;
                 case '\b':
-                    bVar = d.a(jsonReader, eVar, false);
+                    bVar = d.a(jsonReader, dVar, false);
                     break;
                 default:
                     jsonReader.skipValue();

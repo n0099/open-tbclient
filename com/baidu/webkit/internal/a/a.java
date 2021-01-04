@@ -7,12 +7,10 @@ import android.os.Build;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public final class a {
     public static int a(Activity activity) {
         int i;
-        NoSuchFieldException e;
-        IllegalAccessException e2;
         if (Build.VERSION.SDK_INT != 26 || activity.getApplicationInfo().targetSdkVersion <= 26 || !c(activity) || !b(activity)) {
             return -1;
         }
@@ -27,23 +25,23 @@ public final class a {
                 try {
                     declaredField2.setInt(obj, -1);
                     return i;
-                } catch (IllegalAccessException e3) {
-                    e2 = e3;
-                    e2.printStackTrace();
+                } catch (IllegalAccessException e) {
+                    e = e;
+                    e.printStackTrace();
                     return i;
-                } catch (NoSuchFieldException e4) {
-                    e = e4;
+                } catch (NoSuchFieldException e2) {
+                    e = e2;
                     e.printStackTrace();
                     return i;
                 }
             }
             return i;
-        } catch (IllegalAccessException e5) {
+        } catch (IllegalAccessException e3) {
+            e = e3;
             i = -1;
-            e2 = e5;
-        } catch (NoSuchFieldException e6) {
+        } catch (NoSuchFieldException e4) {
+            e = e4;
             i = -1;
-            e = e6;
         }
     }
 

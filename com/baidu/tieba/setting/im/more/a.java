@@ -8,142 +8,142 @@ import tbclient.SimpleUser;
 public class a {
     private int bazhuShowInside;
     private int bazhuShowOutside;
-    private int fsO;
-    private int fsR;
-    private int mTs;
-    private int mTt;
-    private boolean mTu;
-    private int mTv;
-    private SimpleUser mTw;
-    private int mTx;
+    private int fCt;
+    private int fCw;
+    private int mYQ;
+    private int mYR;
+    private boolean mYS;
+    private int mYT;
+    private SimpleUser mYU;
+    private int mYV;
 
-    public boolean dHN() {
-        com.baidu.tbadk.core.sharedPref.b bsO = com.baidu.tbadk.core.sharedPref.b.bsO();
+    public boolean dHD() {
+        com.baidu.tbadk.core.sharedPref.b bvq = com.baidu.tbadk.core.sharedPref.b.bvq();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        this.mTs = bsO.getInt("post" + currentAccount, 0);
-        this.mTt = bsO.getInt("like" + currentAccount, 0);
-        this.fsO = bsO.getInt(TbEnum.ParamKey.GROUP + currentAccount, 0);
-        this.fsR = bsO.getInt("live" + currentAccount, 0);
-        this.mTv = bsO.getInt("reply" + currentAccount, 1);
-        this.bazhuShowInside = bsO.getInt(PrivacyMarkActivityConfig.BAZHU_SHOW_INSIDE + currentAccount, 0);
-        this.bazhuShowOutside = bsO.getInt(PrivacyMarkActivityConfig.BAZHU_SHOW_OUTSIDE + currentAccount, 0);
-        this.mTu = TbadkCoreApplication.getInst().getLocationShared();
-        return (this.mTs == 0 && this.mTt == 0 && this.fsO == 0 && this.fsR == 0 && this.mTv == 1 && this.bazhuShowInside == 0 && this.bazhuShowOutside == 0) ? false : true;
+        this.mYQ = bvq.getInt("post" + currentAccount, 0);
+        this.mYR = bvq.getInt("like" + currentAccount, 0);
+        this.fCt = bvq.getInt(TbEnum.ParamKey.GROUP + currentAccount, 0);
+        this.fCw = bvq.getInt("live" + currentAccount, 0);
+        this.mYT = bvq.getInt("reply" + currentAccount, 1);
+        this.bazhuShowInside = bvq.getInt(PrivacyMarkActivityConfig.BAZHU_SHOW_INSIDE + currentAccount, 0);
+        this.bazhuShowOutside = bvq.getInt(PrivacyMarkActivityConfig.BAZHU_SHOW_OUTSIDE + currentAccount, 0);
+        this.mYS = TbadkCoreApplication.getInst().getLocationShared();
+        return (this.mYQ == 0 && this.mYR == 0 && this.fCt == 0 && this.fCw == 0 && this.mYT == 1 && this.bazhuShowInside == 0 && this.bazhuShowOutside == 0) ? false : true;
     }
 
     public void b(a aVar) {
         if (aVar != null) {
-            this.mTs = aVar.mTs;
-            this.mTt = aVar.mTt;
-            this.fsO = aVar.fsO;
-            this.mTu = aVar.mTu;
-            this.fsR = aVar.fsR;
-            this.mTx = aVar.mTx;
-            this.mTv = aVar.mTv;
+            this.mYQ = aVar.mYQ;
+            this.mYR = aVar.mYR;
+            this.fCt = aVar.fCt;
+            this.mYS = aVar.mYS;
+            this.fCw = aVar.fCw;
+            this.mYV = aVar.mYV;
+            this.mYT = aVar.mYT;
             this.bazhuShowOutside = aVar.bazhuShowOutside;
             this.bazhuShowInside = aVar.bazhuShowInside;
         }
     }
 
-    public int dHO() {
-        return this.mTs;
+    public int dHE() {
+        return this.mYQ;
     }
 
-    public void bJ(String str, int i) {
-        com.baidu.tbadk.core.sharedPref.b.bsO().putInt(str + TbadkCoreApplication.getCurrentAccount(), i);
+    public void bQ(String str, int i) {
+        com.baidu.tbadk.core.sharedPref.b.bvq().putInt(str + TbadkCoreApplication.getCurrentAccount(), i);
     }
 
-    public void dHP() {
+    public void dHF() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        com.baidu.tbadk.core.sharedPref.b bsO = com.baidu.tbadk.core.sharedPref.b.bsO();
-        bsO.putInt("post" + currentAccount, this.mTs);
-        bsO.putInt("like" + currentAccount, this.mTt);
-        bsO.putInt(TbEnum.ParamKey.GROUP + currentAccount, this.fsO);
-        bsO.putInt("live" + currentAccount, this.fsR);
-        bsO.putInt("reply" + currentAccount, this.mTv);
-        bsO.putInt(PrivacyMarkActivityConfig.BAZHU_SHOW_INSIDE + currentAccount, this.bazhuShowInside);
-        bsO.putInt(PrivacyMarkActivityConfig.BAZHU_SHOW_OUTSIDE + currentAccount, this.bazhuShowOutside);
-        TbadkCoreApplication.getInst().setLocationShared(this.mTu);
+        com.baidu.tbadk.core.sharedPref.b bvq = com.baidu.tbadk.core.sharedPref.b.bvq();
+        bvq.putInt("post" + currentAccount, this.mYQ);
+        bvq.putInt("like" + currentAccount, this.mYR);
+        bvq.putInt(TbEnum.ParamKey.GROUP + currentAccount, this.fCt);
+        bvq.putInt("live" + currentAccount, this.fCw);
+        bvq.putInt("reply" + currentAccount, this.mYT);
+        bvq.putInt(PrivacyMarkActivityConfig.BAZHU_SHOW_INSIDE + currentAccount, this.bazhuShowInside);
+        bvq.putInt(PrivacyMarkActivityConfig.BAZHU_SHOW_OUTSIDE + currentAccount, this.bazhuShowOutside);
+        TbadkCoreApplication.getInst().setLocationShared(this.mYS);
     }
 
-    public void JM(int i) {
-        this.mTs = i;
+    public void JG(int i) {
+        this.mYQ = i;
     }
 
-    public int dHQ() {
-        return this.mTt;
+    public int dHG() {
+        return this.mYR;
     }
 
-    public void JN(int i) {
+    public void JH(int i) {
         if (i <= 3 && i >= 1) {
-            this.mTt = i;
+            this.mYR = i;
         }
     }
 
-    public int dHR() {
-        return this.fsR;
+    public int dHH() {
+        return this.fCw;
     }
 
-    public void JO(int i) {
+    public void JI(int i) {
         if (i <= 3 && i >= 1) {
-            this.fsR = i;
+            this.fCw = i;
         }
     }
 
-    public int dHS() {
-        return this.fsO;
+    public int dHI() {
+        return this.fCt;
     }
 
-    public void JP(int i) {
+    public void JJ(int i) {
         if (i <= 3 && i >= 1) {
-            this.fsO = i;
+            this.fCt = i;
         }
     }
 
-    public boolean dHT() {
-        return this.mTu;
+    public boolean dHJ() {
+        return this.mYS;
     }
 
-    public void JQ(int i) {
+    public void JK(int i) {
         switch (i) {
             case 1:
-                this.mTu = true;
+                this.mYS = true;
                 return;
             default:
-                this.mTu = false;
+                this.mYS = false;
                 return;
         }
     }
 
-    public SimpleUser bMl() {
-        return this.mTw;
+    public SimpleUser bOD() {
+        return this.mYU;
     }
 
     public void b(SimpleUser simpleUser) {
-        this.mTw = simpleUser;
+        this.mYU = simpleUser;
     }
 
-    public void JR(int i) {
-        this.mTx = i;
+    public void JL(int i) {
+        this.mYV = i;
     }
 
-    public void JS(int i) {
+    public void JM(int i) {
         if (i == 0) {
-            this.mTv = 1;
+            this.mYT = 1;
         } else {
-            this.mTv = i;
+            this.mYT = i;
         }
     }
 
-    public int dHU() {
-        return this.mTv;
+    public int dHK() {
+        return this.mYT;
     }
 
-    public void JT(int i) {
+    public void JN(int i) {
         this.bazhuShowInside = i;
     }
 
-    public void JU(int i) {
+    public void JO(int i) {
         this.bazhuShowOutside = i;
     }
 

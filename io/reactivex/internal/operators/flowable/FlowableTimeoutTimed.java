@@ -10,35 +10,35 @@ import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class FlowableTimeoutTimed<T> extends io.reactivex.internal.operators.flowable.a<T, T> {
-    final org.a.b<? extends T> pFC;
+    final org.a.b<? extends T> qhe;
     final v scheduler;
     final long timeout;
     final TimeUnit unit;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void onTimeout(long j);
     }
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        if (this.pFC == null) {
-            TimeoutSubscriber timeoutSubscriber = new TimeoutSubscriber(cVar, this.timeout, this.unit, this.scheduler.eCW());
+        if (this.qhe == null) {
+            TimeoutSubscriber timeoutSubscriber = new TimeoutSubscriber(cVar, this.timeout, this.unit, this.scheduler.eLe());
             cVar.onSubscribe(timeoutSubscriber);
             timeoutSubscriber.startTimeout(0L);
-            this.pFi.a((j) timeoutSubscriber);
+            this.qgK.a((j) timeoutSubscriber);
             return;
         }
-        TimeoutFallbackSubscriber timeoutFallbackSubscriber = new TimeoutFallbackSubscriber(cVar, this.timeout, this.unit, this.scheduler.eCW(), this.pFC);
+        TimeoutFallbackSubscriber timeoutFallbackSubscriber = new TimeoutFallbackSubscriber(cVar, this.timeout, this.unit, this.scheduler.eLe(), this.qhe);
         cVar.onSubscribe(timeoutFallbackSubscriber);
         timeoutFallbackSubscriber.startTimeout(0L);
-        this.pFi.a((j) timeoutFallbackSubscriber);
+        this.qgK.a((j) timeoutFallbackSubscriber);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class TimeoutSubscriber<T> extends AtomicLong implements b, j<T>, d {
         private static final long serialVersionUID = 3764492702657003550L;
         final org.a.c<? super T> actual;
@@ -117,23 +117,23 @@ public final class FlowableTimeoutTimed<T> extends io.reactivex.internal.operato
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static final class c implements Runnable {
         final long idx;
-        final b pFZ;
+        final b qhB;
 
         c(long j, b bVar) {
             this.idx = j;
-            this.pFZ = bVar;
+            this.qhB = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.pFZ.onTimeout(this.idx);
+            this.qhB.onTimeout(this.idx);
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class TimeoutFallbackSubscriber<T> extends SubscriptionArbiter implements b, j<T> {
         private static final long serialVersionUID = 3764492702657003550L;
         final org.a.c<? super T> actual;
@@ -218,20 +218,20 @@ public final class FlowableTimeoutTimed<T> extends io.reactivex.internal.operato
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class a<T> implements j<T> {
         final org.a.c<? super T> actual;
-        final SubscriptionArbiter pFY;
+        final SubscriptionArbiter qhA;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public a(org.a.c<? super T> cVar, SubscriptionArbiter subscriptionArbiter) {
             this.actual = cVar;
-            this.pFY = subscriptionArbiter;
+            this.qhA = subscriptionArbiter;
         }
 
         @Override // io.reactivex.j, org.a.c
         public void onSubscribe(d dVar) {
-            this.pFY.setSubscription(dVar);
+            this.qhA.setSubscription(dVar);
         }
 
         @Override // org.a.c

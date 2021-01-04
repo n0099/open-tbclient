@@ -6,62 +6,64 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 public class EncryptUtils {
     public static final String ENCRYPT_MD5 = "MD5";
     public static final int FILE_STREAM_BUFFER_SIZE = 8192;
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [55=6, 57=5, 58=4] */
     public static String encrypt(String str, File file, boolean z) {
-        FileInputStream fileInputStream;
         Throwable th;
+        FileInputStream fileInputStream;
+        FileInputStream fileInputStream2;
         String str2 = null;
         try {
             MessageDigest messageDigest = MessageDigest.getInstance(str);
             messageDigest.reset();
-            fileInputStream = new FileInputStream(file);
+            fileInputStream2 = new FileInputStream(file);
             try {
                 byte[] bArr = new byte[8192];
                 while (true) {
-                    int read = fileInputStream.read(bArr);
+                    int read = fileInputStream2.read(bArr);
                     if (read <= 0) {
                         break;
                     }
                     messageDigest.update(bArr, 0, read);
                 }
                 str2 = toHexString(messageDigest.digest(), "", z);
-                if (fileInputStream != null) {
+                if (fileInputStream2 != null) {
                     try {
-                        fileInputStream.close();
+                        fileInputStream2.close();
                     } catch (IOException e) {
                     }
                 }
             } catch (FileNotFoundException e2) {
-                if (fileInputStream != null) {
+                if (fileInputStream2 != null) {
                     try {
-                        fileInputStream.close();
+                        fileInputStream2.close();
                     } catch (IOException e3) {
                     }
                 }
                 return str2;
             } catch (IOException e4) {
-                if (fileInputStream != null) {
+                if (fileInputStream2 != null) {
                     try {
-                        fileInputStream.close();
+                        fileInputStream2.close();
                     } catch (IOException e5) {
                     }
                 }
                 return str2;
             } catch (NoSuchAlgorithmException e6) {
-                if (fileInputStream != null) {
+                if (fileInputStream2 != null) {
                     try {
-                        fileInputStream.close();
+                        fileInputStream2.close();
                     } catch (IOException e7) {
                     }
                 }
                 return str2;
             } catch (Throwable th2) {
                 th = th2;
+                fileInputStream = fileInputStream2;
                 if (fileInputStream != null) {
                     try {
                         fileInputStream.close();
@@ -71,22 +73,22 @@ public class EncryptUtils {
                 throw th;
             }
         } catch (FileNotFoundException e9) {
-            fileInputStream = null;
+            fileInputStream2 = null;
         } catch (IOException e10) {
-            fileInputStream = null;
+            fileInputStream2 = null;
         } catch (NoSuchAlgorithmException e11) {
-            fileInputStream = null;
+            fileInputStream2 = null;
         } catch (Throwable th3) {
-            fileInputStream = null;
             th = th3;
+            fileInputStream = null;
         }
         return str2;
     }
 
     private static String toHexString(byte[] bArr, String str, boolean z) {
         StringBuilder sb = new StringBuilder();
-        for (byte b : bArr) {
-            String hexString = Integer.toHexString(b & 255);
+        for (byte b2 : bArr) {
+            String hexString = Integer.toHexString(b2 & 255);
             if (z) {
                 hexString = hexString.toUpperCase();
             }

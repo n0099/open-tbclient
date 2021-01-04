@@ -11,22 +11,22 @@ import com.baidu.live.tbadk.pay.channel.interfaces.IChannelPayController;
 import com.baidu.live.tbadk.util.PageDialogHelper;
 import com.baidu.tieba.ala.live.c.a;
 import com.baidu.tieba.ala.live.c.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a implements IChannelPayController {
-    private BaseActivity bQN;
+    private BaseActivity bWu;
     private PayConfig mCurPayConfig;
     private com.baidu.tieba.ala.live.c.a mPayController;
 
     public a(PayChannelData payChannelData) {
-        this.bQN = payChannelData.getBaseActivity();
+        this.bWu = payChannelData.getBaseActivity();
         Log.d(IChannelPayController.TAG, "-->mPayController  构造函数");
-        this.mPayController = c.c(this.bQN);
-        this.mPayController.a(new a.InterfaceC0671a() { // from class: com.baidu.tieba.ala.live.a.1
-            @Override // com.baidu.tieba.ala.live.c.a.InterfaceC0671a
+        this.mPayController = c.c(this.bWu);
+        this.mPayController.a(new a.InterfaceC0663a() { // from class: com.baidu.tieba.ala.live.a.1
+            @Override // com.baidu.tieba.ala.live.c.a.InterfaceC0663a
             public void HM(String str) {
             }
 
-            @Override // com.baidu.tieba.ala.live.c.a.InterfaceC0671a
+            @Override // com.baidu.tieba.ala.live.c.a.InterfaceC0663a
             public void a(boolean z, Intent intent) {
                 Intent intent2 = new Intent();
                 int intExtra = intent.getIntExtra("result_code", -1);
@@ -74,7 +74,7 @@ public class a implements IChannelPayController {
 
     @Override // com.baidu.live.tbadk.pay.channel.interfaces.IChannelPayController
     public void release() {
-        this.bQN = null;
+        this.bWu = null;
         this.mPayController = null;
     }
 }

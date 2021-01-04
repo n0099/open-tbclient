@@ -1,12 +1,12 @@
 package com.google.zxing.datamatrix.encoder;
 
-import android.support.v7.widget.ActivityChooserView;
+import androidx.appcompat.widget.ActivityChooserView;
 import com.alibaba.fastjson.asm.Opcodes;
 import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
 import com.baidu.mapapi.UIMsg;
 import com.google.zxing.Dimension;
 import java.util.Arrays;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class HighLevelEncoder {
     static final int ASCII_ENCODATION = 0;
     static final int BASE256_ENCODATION = 5;
@@ -228,10 +228,16 @@ public final class HighLevelEncoder {
 
     private static int getMinimumCount(byte[] bArr) {
         int i = 0;
-        for (int i2 = 0; i2 < 6; i2++) {
-            i += bArr[i2];
+        int i2 = 0;
+        while (true) {
+            int i3 = i;
+            if (i2 < 6) {
+                i2++;
+                i = bArr[i2] + i3;
+            } else {
+                return i3;
+            }
         }
-        return i;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

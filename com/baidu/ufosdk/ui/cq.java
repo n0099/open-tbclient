@@ -1,15 +1,15 @@
 package com.baidu.ufosdk.ui;
 
 import android.view.View;
-/* loaded from: classes22.dex */
+/* loaded from: classes8.dex */
 final class cq implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ cg f3814a;
+    final /* synthetic */ cg f5785a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cq(cg cgVar) {
-        this.f3814a = cgVar;
+        this.f5785a = cgVar;
     }
 
     @Override // android.view.View.OnClickListener

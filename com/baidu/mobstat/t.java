@@ -3,11 +3,10 @@ package com.baidu.mobstat;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
-import android.support.media.ExifInterface;
-import android.support.v7.widget.ActivityChooserView;
+import androidx.appcompat.widget.ActivityChooserView;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public enum t {
     SERVICE(1) { // from class: com.baidu.mobstat.t.1
         @Override // com.baidu.mobstat.t
@@ -30,8 +29,8 @@ public enum t {
                 Context applicationContext = context.getApplicationContext();
                 a a2 = u.a(context);
                 ac acVar = new ac();
-                acVar.f2521a = false;
-                acVar.b = "M";
+                acVar.f3678a = false;
+                acVar.f3679b = "M";
                 acVar.c = false;
                 a2.a(applicationContext, acVar.a());
             }
@@ -44,8 +43,8 @@ public enum t {
                 Context applicationContext = context.getApplicationContext();
                 a a2 = u.a(context);
                 ac acVar = new ac();
-                acVar.f2521a = false;
-                acVar.b = "R";
+                acVar.f3678a = false;
+                acVar.f3679b = "R";
                 acVar.c = false;
                 a2.a(applicationContext, acVar.a());
             }
@@ -58,8 +57,8 @@ public enum t {
                 Context applicationContext = context.getApplicationContext();
                 a a2 = u.a(context);
                 ac acVar = new ac();
-                acVar.f2521a = false;
-                acVar.b = ExifInterface.LONGITUDE_EAST;
+                acVar.f3678a = false;
+                acVar.f3679b = "E";
                 acVar.c = false;
                 a2.a(applicationContext, acVar.a());
             }

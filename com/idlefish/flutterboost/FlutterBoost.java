@@ -14,7 +14,7 @@ import com.baidu.adp.plugin.util.Util;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.switchs.FlutterCrabReportEnableSwitch;
 import com.baidu.tbadk.switchs.FlutterCrashRepairEnableSwitch;
-import com.baidu.tieba.u.a;
+import com.baidu.tieba.t.a;
 import com.idlefish.flutterboost.interfaces.IContainerManager;
 import com.idlefish.flutterboost.interfaces.INativeRouter;
 import dalvik.system.PathClassLoader;
@@ -31,7 +31,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes19.dex */
+/* loaded from: classes7.dex */
 public class FlutterBoost {
     private static boolean sInit;
     static FlutterBoost sInstance = null;
@@ -44,7 +44,7 @@ public class FlutterBoost {
     private boolean mEnterActivityCreate = false;
     private long FlutterPostFrameCallTime = 0;
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes7.dex */
     public interface BoostLifecycleListener {
         void beforeCreateEngine();
 
@@ -175,7 +175,7 @@ public class FlutterBoost {
         }
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes7.dex */
     public static class ConfigBuilder {
         private BoostLifecycleListener lifecycleListener;
         private Application mApp;
@@ -277,27 +277,28 @@ public class FlutterBoost {
     }
 
     private FlutterEngine createEngine() {
+        boolean z;
         List list;
-        boolean z = false;
         if (FlutterCrabReportEnableSwitch.isOn()) {
             a.getInstance().setFlutterPath("createEngine1");
         }
         if (this.mEngine == null) {
             synchronized (com.baidu.adp.plugin.util.a.mLock) {
-                PluginSetting findPluginSetting = c.qx().findPluginSetting("com.baidu.tieba.pluginFlutter");
+                PluginSetting findPluginSetting = c.pZ().findPluginSetting("com.baidu.tieba.pluginFlutter");
                 try {
                     if (FlutterCrashRepairEnableSwitch.isOn() && findPluginSetting != null && findPluginSetting.apkPath != null) {
                         Object pathList = com.baidu.adp.plugin.util.a.getPathList((PathClassLoader) TbadkCoreApplication.getInst().getClassLoader());
-                        Object E = com.baidu.adp.plugin.util.a.E(pathList);
-                        if (E instanceof File[]) {
-                            File[] fileArr = (File[]) E;
+                        Object A = com.baidu.adp.plugin.util.a.A(pathList);
+                        if (A instanceof File[]) {
+                            File[] fileArr = (File[]) A;
+                            z = false;
                             for (int i = 0; i < fileArr.length; i++) {
                                 if (fileArr[i] != null && fileArr[i].getPath().contains("pluginFlutter")) {
                                     z = true;
                                 }
                             }
-                        } else if (E instanceof List) {
-                            List list2 = (List) E;
+                        } else if (A instanceof List) {
+                            List list2 = (List) A;
                             int i2 = 0;
                             boolean z2 = false;
                             while (i2 < list2.size()) {
@@ -306,17 +307,19 @@ public class FlutterBoost {
                                 z2 = z3;
                             }
                             z = z2;
+                        } else {
+                            z = false;
                         }
                         if (!z) {
                             String replace = findPluginSetting.apkPath.replace(".apk", "/lib");
-                            if (E instanceof File[]) {
-                                list = com.baidu.adp.plugin.util.a.f(E, new File(replace));
-                            } else if (E instanceof List) {
-                                List list3 = (List) E;
+                            if (A instanceof File[]) {
+                                list = com.baidu.adp.plugin.util.a.f(A, new File(replace));
+                            } else if (A instanceof List) {
+                                List list3 = (List) A;
                                 list3.add(0, new File(replace));
                                 list = list3;
                             } else {
-                                list = E;
+                                list = A;
                             }
                             com.baidu.adp.plugin.util.a.setField(pathList, pathList.getClass(), "nativeLibraryDirectories", list);
                             if (Build.VERSION.SDK_INT > 25 || (Build.VERSION.SDK_INT == 25 && Util.isPreview())) {

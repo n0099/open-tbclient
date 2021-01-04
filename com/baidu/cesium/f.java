@@ -20,13 +20,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 import java.util.Random;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public class f {
-    private c anS;
+    private c aot;
     private Context l;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes4.dex */
     public static class a {
         static boolean a(String str, int i) {
             if (Build.VERSION.SDK_INT >= 21) {
@@ -43,15 +43,15 @@ public class f {
 
     public f(Context context, c cVar) {
         this.l = context;
-        this.anS = cVar;
+        this.aot = cVar;
     }
 
     private e Y(Context context) {
         String str;
         e eVar;
         e eVar2 = null;
-        List<b> O = this.anS.O(context);
-        if (O != null) {
+        List<b> b2 = this.aot.b(context);
+        if (b2 != null) {
             File filesDir = context.getFilesDir();
             if (com.baidu.fsg.face.base.b.c.g.equals(filesDir.getName())) {
                 str = com.baidu.fsg.face.base.b.c.g;
@@ -59,11 +59,11 @@ public class f {
                 Log.e("CuidV266Manager", "fetal error:: app files dir name is unexpectedly :: " + filesDir.getAbsolutePath());
                 str = filesDir.getName();
             }
-            for (b bVar : O) {
+            for (b bVar : b2) {
                 if (!bVar.d) {
-                    File file = new File(new File(bVar.adT.dataDir, str), "libcuid.so");
+                    File file = new File(new File(bVar.aeJ.dataDir, str), "libcuid.so");
                     if (file.exists()) {
-                        eVar = e.du(com.baidu.cesium.f.c.a(file));
+                        eVar = e.dn(com.baidu.cesium.f.c.a(file));
                         if (eVar != null) {
                             return eVar;
                         }
@@ -204,7 +204,7 @@ public class f {
         }
     }
 
-    private e dx(String str) {
+    private e dq(String str) {
         String str2 = "";
         String str3 = "";
         File file = new File(Environment.getExternalStorageDirectory(), "baidu/.cuid");
@@ -265,15 +265,15 @@ public class f {
         return "0";
     }
 
-    private e uA() {
+    private e tZ() {
         File file = new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig/.cuid2");
         if (file.exists()) {
-            return e.du(com.baidu.cesium.f.c.a(file));
+            return e.dn(com.baidu.cesium.f.c.a(file));
         }
         return null;
     }
 
-    private e uB() {
+    private e ua() {
         return e.R(d("com.baidu.deviceid"), d("bd_setting_i"));
     }
 
@@ -281,12 +281,12 @@ public class f {
         File file = new File(this.l.getFilesDir(), "libcuid.so");
         String c = eVar.c();
         if (file.exists()) {
-            e du = e.du(com.baidu.cesium.f.c.a(file));
-            if (du != null) {
-                if (du.e()) {
-                    b(du.c());
+            e dn = e.dn(com.baidu.cesium.f.c.a(file));
+            if (dn != null) {
+                if (dn.e()) {
+                    b(dn.c());
                 }
-            } else if (du == null) {
+            } else if (dn == null) {
                 b(c);
             }
         } else {
@@ -298,12 +298,12 @@ public class f {
             if (TextUtils.isEmpty(d)) {
                 a("com.baidu.deviceid.v2", c);
             } else {
-                e du2 = e.du(d);
-                if (du2 != null) {
-                    if (du2.e()) {
-                        a("com.baidu.deviceid.v2", du2.c());
+                e dn2 = e.dn(d);
+                if (dn2 != null) {
+                    if (dn2.e()) {
+                        a("com.baidu.deviceid.v2", dn2.c());
                     }
-                } else if (du2 == null) {
+                } else if (dn2 == null) {
                     a("com.baidu.deviceid.v2", c);
                 }
             }
@@ -311,12 +311,12 @@ public class f {
         boolean c2 = c("android.permission.WRITE_EXTERNAL_STORAGE");
         if (c2) {
             if (new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig/.cuid2").exists()) {
-                e uA = uA();
-                if (uA != null) {
-                    if (uA.e()) {
-                        e(uA.c());
+                e tZ = tZ();
+                if (tZ != null) {
+                    if (tZ.e()) {
+                        e(tZ.c());
                     }
-                } else if (uA == null) {
+                } else if (tZ == null) {
                     e(c);
                 }
             } else {
@@ -332,37 +332,37 @@ public class f {
             }
         }
         if (c2 && new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig/.cuid").exists()) {
-            e dx = dx(f(""));
-            if (dx == null) {
-                if (dx == null) {
+            e dq = dq(f(""));
+            if (dq == null) {
+                if (dq == null) {
                 }
-            } else if (dx.e()) {
-                b(dx.e, dx.d);
+            } else if (dq.e()) {
+                b(dq.e, dq.d);
             }
         }
     }
 
-    public e dw(String str) {
+    public e dp(String str) {
         e Y = 0 == 0 ? Y(this.l) : null;
         if (Y == null) {
-            Y = e.du(d("com.baidu.deviceid.v2"));
+            Y = e.dn(d("com.baidu.deviceid.v2"));
         }
         boolean c = c("android.permission.READ_EXTERNAL_STORAGE");
-        e uA = (Y == null && c) ? uA() : Y;
-        if (uA == null) {
-            uA = uB();
+        e tZ = (Y == null && c) ? tZ() : Y;
+        if (tZ == null) {
+            tZ = ua();
         }
         boolean z = false;
-        if (uA == null && c) {
+        if (tZ == null && c) {
             z = true;
-            uA = dx(f(""));
+            tZ = dq(f(""));
         }
         if (!z) {
             f("");
         }
-        if (uA != null) {
-            uA.e();
+        if (tZ != null) {
+            tZ.e();
         }
-        return uA;
+        return tZ;
     }
 }

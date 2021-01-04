@@ -1,164 +1,69 @@
 package com.baidu.swan.menu;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
-import android.app.Activity;
-import android.content.Context;
-import android.graphics.drawable.ColorDrawable;
-import android.support.annotation.Nullable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
-import android.widget.FrameLayout;
-import com.baidu.swan.menu.g;
+import android.util.SparseArray;
+import com.baidu.swan.menu.f;
 import java.util.ArrayList;
 import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes14.dex */
-public class j extends PopupWindow implements View.OnClickListener {
-    private FrameLayout ajk;
-    private View dli;
-    private View dlk;
-    private BaseMenuView ema;
-    private MainMenuView emb;
-    private boolean emc;
-    private a emd;
-    private int eme;
-    private Context mContext;
-    private boolean mImmersionEnabled;
+/* loaded from: classes5.dex */
+public class j {
+    private static SparseArray<h> evN = new SparseArray<>();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public j(Context context, View view, @Nullable a aVar) {
-        super(context);
-        this.emc = true;
-        this.mImmersionEnabled = true;
-        this.eme = 0;
-        this.mContext = context;
-        this.dli = view;
-        this.emd = aVar;
-        setClippingEnabled(false);
-        setFocusable(true);
-        setOutsideTouchable(true);
-        setBackgroundDrawable(new ColorDrawable(0));
-        setWidth(-1);
-        setHeight(-1);
-        initViews();
-    }
-
-    private void initViews() {
-        this.ajk = (FrameLayout) LayoutInflater.from(this.mContext).inflate(g.e.aiapp_menu_layout, (ViewGroup) null);
-        this.dlk = this.ajk.findViewById(g.d.mask);
-        this.emb = (MainMenuView) this.ajk.findViewById(g.d.aiapp_menu_body);
-        this.dlk.setOnClickListener(this);
-        this.emb.setClickListener(this);
-        this.ajk.measure(0, 0);
-        setContentView(this.ajk);
-    }
-
-    private void showView() {
-        if (!isShowing()) {
-            aEw();
-            this.emb.reset();
-            this.ema = this.emb;
-            if (this.mImmersionEnabled) {
-                setFocusable(false);
-            }
-            Activity activity = (Activity) this.mContext;
-            if (activity != null && !activity.isFinishing() && !activity.isDestroyed()) {
-                showAtLocation(this.dli, 81, 0, 0);
-                if (this.mImmersionEnabled) {
-                    getContentView().setSystemUiVisibility(this.eme | 1024 | 4096);
-                    setFocusable(true);
-                    update();
-                }
-                final View contentView = this.emb.getContentView();
-                if (contentView.getHeight() == 0) {
-                    contentView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.swan.menu.j.1
-                        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-                        public void onGlobalLayout() {
-                            j.this.emb.mU(contentView.getHeight());
-                            j.this.aEx();
-                            contentView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                        }
-                    });
-                } else {
-                    aEx();
-                }
-            }
-        }
-    }
-
-    public void aEw() {
-        if (this.emd != null) {
-            this.emd.a(this.emb);
-        }
-    }
-
-    public void b(List<List<i>> list, View view, boolean z, int i) {
-        this.emb.a(list, view, z, i);
-        showView();
-    }
-
-    @Override // com.baidu.swan.menu.PopupWindow
-    public void dismiss() {
-        fZ(true);
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        int id = view.getId();
-        if (id == g.d.cancel || id == g.d.mask) {
-            fZ(true);
-        }
-    }
-
-    public void fZ(boolean z) {
-        if (!z) {
-            super.dismiss();
-        } else if (isShowing()) {
-            ObjectAnimator ba = c.ba(this.dlk);
-            ObjectAnimator c = c.c(this.ema);
-            AnimatorSet animatorSet = new AnimatorSet();
-            animatorSet.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.swan.menu.j.2
-                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-                public void onAnimationEnd(Animator animator) {
-                    Context context = j.this.mContext;
-                    if (!(context instanceof Activity) || !((Activity) context).isFinishing()) {
-                        j.super.dismiss();
-                        if (j.this.ema != j.this.emb) {
-                            j.this.ema.setVisibility(8);
-                        }
-                    }
-                }
-            });
-            animatorSet.playTogether(ba, c);
-            animatorSet.start();
-        }
+    static {
+        evN.put(5, new h(5, f.C0558f.aiapp_menu_text_night_mode, f.c.aiapp_menu_item_nightmode, true));
+        evN.put(35, new h(35, f.C0558f.aiapp_menu_add_launcher, f.c.aiapp_menu_item_ai_apps_add_to_launcher_selector, true));
+        evN.put(39, new h(39, f.C0558f.aiapp_menu_restart, f.c.aiapp_menu_item_restart_selector, true));
+        evN.put(4, new h(4, f.C0558f.aiapp_menu_text_share, f.c.aiapp_menu_item_share_arrow_selector, true));
+        evN.put(37, new h(37, f.C0558f.aiapp_menu_authority_management, f.c.aiapp_menu_item_ai_apps_authority_management_selector, true));
+        evN.put(38, new h(38, f.C0558f.aiapp_menu_text_favorite, f.c.aiapp_menu_item_add_fav_selector, true));
+        evN.put(42, new h(42, f.C0558f.aiapp_menu_game_restart, f.c.aiapp_menu_item_restart_selector, true));
+        evN.put(49, new h(49, f.C0558f.swan_app_menu_setting, f.c.swan_app_menu_item_setting_selector, true));
+        evN.put(50, new h(50, f.C0558f.swanapp_menu_font_setting, f.c.swan_app_menu_item_font_setting_selector, true));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void bcP() {
-        this.emb.bcP();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void aEx() {
-        this.dlk.setAlpha(0.0f);
-        this.emb.setTranslationY(this.emb.getHeight());
-        ObjectAnimator a2 = c.a(this.dlk, this.emb);
-        ObjectAnimator b = c.b(this.emb);
+    public static List<h> nm(int i) {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(a2);
-        arrayList.add(b);
-        AnimatorSet animatorSet = new AnimatorSet();
-        animatorSet.playTogether(arrayList);
-        animatorSet.start();
+        switch (i) {
+            case 0:
+                arrayList.add(h.e(evN.get(38)));
+                arrayList.add(h.e(evN.get(5)));
+                arrayList.add(h.e(evN.get(4)));
+                arrayList.add(h.e(evN.get(35)));
+                arrayList.add(h.e(evN.get(42)));
+                break;
+            case 12:
+            case 15:
+                arrayList.add(h.e(evN.get(38)));
+                arrayList.add(h.e(evN.get(4)));
+                arrayList.add(h.e(evN.get(39)));
+                arrayList.add(h.e(evN.get(35)));
+                arrayList.add(h.e(evN.get(5)));
+                arrayList.add(h.e(evN.get(49)));
+                arrayList.add(h.e(evN.get(50)));
+                break;
+            case 13:
+                arrayList.add(h.e(evN.get(35)));
+                arrayList.add(h.e(evN.get(37)));
+                break;
+            case 16:
+                arrayList.add(h.e(evN.get(5)));
+                break;
+            case 17:
+            case 18:
+                arrayList.add(h.e(evN.get(38)));
+                arrayList.add(h.e(evN.get(4)));
+                arrayList.add(h.e(evN.get(39)));
+                arrayList.add(h.e(evN.get(35)));
+                arrayList.add(h.e(evN.get(5)));
+                arrayList.add(h.e(evN.get(49)));
+                arrayList.add(h.e(evN.get(50)));
+                break;
+        }
+        return arrayList;
     }
 
-    public void mY(int i) {
-        this.eme = i;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static h nn(int i) {
+        return h.e(evN.get(i));
     }
 }

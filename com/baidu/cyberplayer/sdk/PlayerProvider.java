@@ -8,7 +8,7 @@ import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import java.io.FileDescriptor;
 import java.util.Map;
 @Keep
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public abstract class PlayerProvider {
     public abstract void changeProxyDynamic(String str, boolean z);
 

@@ -4,20 +4,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.im.chat.e;
+import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
-public class MsgMidViewItemAdapter extends e<f> {
+public class MsgMidViewItemAdapter extends MsgCommonItemAdapter<d> {
     public MsgMidViewItemAdapter(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.e, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<f> aVar) {
-        super.a(i, view, viewGroup, chatMessage, (e.a) aVar);
-        aVar.cTM().setData(chatMessage);
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<d> msgViewHolder) {
+        super.a(i, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) msgViewHolder);
+        msgViewHolder.cWy().setData(chatMessage);
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;
@@ -26,17 +26,17 @@ public class MsgMidViewItemAdapter extends e<f> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bT */
-    public e.a<f> c(ViewGroup viewGroup) {
-        f fVar = new f(this.mPageContext);
-        return new a(fVar.getConvertView(), fVar);
+    /* renamed from: ci */
+    public MsgCommonItemAdapter.MsgViewHolder<d> e(ViewGroup viewGroup) {
+        d dVar = new d(this.mPageContext);
+        return new a(dVar.getConvertView(), dVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class a extends e.a<f> {
-        public a(View view, f fVar) {
-            super(view, fVar);
+    public class a extends MsgCommonItemAdapter.MsgViewHolder<d> {
+        public a(View view, d dVar) {
+            super(view, dVar);
         }
     }
 }

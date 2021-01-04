@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class UbcStatisticManager {
     private static final long FLOW_LOOP_DURATION = 60000;
     public static volatile UbcStatisticManager mInstance = new UbcStatisticManager();
@@ -65,7 +65,7 @@ public class UbcStatisticManager {
                 }
             }
             UbcStatisticManager.this.mHandler.removeCallbacks(UbcStatisticManager.this.mFlowLoopRunnable);
-            UbcStatisticManager.this.mHandler.postDelayed(UbcStatisticManager.this.mFlowLoopRunnable, UbcStatisticManager.FLOW_LOOP_DURATION);
+            UbcStatisticManager.this.mHandler.postDelayed(UbcStatisticManager.this.mFlowLoopRunnable, 60000L);
         }
     };
 
@@ -78,6 +78,7 @@ public class UbcStatisticManager {
 
     public void setUbcManager(IUbcManager iUbcManager) {
         this.mUbcManager = iUbcManager;
+        UbcAudioFlowStatisticManager.getInstance().setUbcManager(iUbcManager);
     }
 
     public void updateLiveRoom(String str, String str2, String str3, String str4) {
@@ -91,7 +92,7 @@ public class UbcStatisticManager {
         this.mEntry = str4;
         this.mIsMix = z;
         this.mHandler.removeCallbacks(this.mFlowLoopRunnable);
-        this.mHandler.postDelayed(this.mFlowLoopRunnable, FLOW_LOOP_DURATION);
+        this.mHandler.postDelayed(this.mFlowLoopRunnable, 60000L);
     }
 
     public void clear() {
@@ -579,7 +580,7 @@ public class UbcStatisticManager {
             }
         }
         this.mHandler.removeCallbacks(this.mFlowLoopRunnable);
-        this.mHandler.postDelayed(this.mFlowLoopRunnable, FLOW_LOOP_DURATION);
+        this.mHandler.postDelayed(this.mFlowLoopRunnable, 60000L);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -684,7 +685,7 @@ public class UbcStatisticManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public static class FlowData {
         public Object flow;
         public JSONObject formattedValue;
@@ -696,7 +697,7 @@ public class UbcStatisticManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public static class SlotData {
         public String category;
         public JSONObject option;

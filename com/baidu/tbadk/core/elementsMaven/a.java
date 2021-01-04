@@ -8,21 +8,20 @@ import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.StateListDrawable;
 import android.view.View;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.searchbox.ui.animview.praise.element.eruption.strategy.IEruptionStrategyGroup;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import java.util.Arrays;
 /* loaded from: classes.dex */
 public class a {
     public static int getColor(int i) {
-        return ap.getColor(i);
+        return ao.getColor(i);
     }
 
-    public static int pe(int i) {
+    public static int pp(int i) {
         return TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(i);
     }
 
-    public static float pf(int i) {
+    public static float pq(int i) {
         return com.baidu.adp.lib.f.b.toFloat(getString(i), 0.0f);
     }
 
@@ -34,49 +33,49 @@ public class a {
         return TbadkCoreApplication.getInst().getResources().getStringArray(i);
     }
 
-    public static Typeface Bv(String str) {
+    public static Typeface Bu(String str) {
         return "bold".equals(str) ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT;
     }
 
-    public static ColorStateList pg(int i) {
-        return ap.createColorStateList(i);
+    public static ColorStateList pr(int i) {
+        return ao.qd(i);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static b bk(View view) {
+    public static b bt(View view) {
         Drawable background = view.getBackground();
-        return background instanceof b ? (b) background : b.brR();
+        return background instanceof b ? (b) background : b.but();
     }
 
-    private static b e(Drawable drawable) {
-        return drawable instanceof b ? (b) drawable : b.brR();
+    private static b j(Drawable drawable) {
+        return drawable instanceof b ? (b) drawable : b.but();
     }
 
     public static Drawable a(Drawable drawable, int i) {
-        return ((b) e(drawable).clone()).pr(getColor(i));
+        return ((b) j(drawable).clone()).pB(getColor(i));
     }
 
     public static Drawable a(Drawable drawable, int[] iArr) {
-        return ((b) e(drawable).clone()).j(i(iArr));
+        return ((b) j(drawable).clone()).k(j(iArr));
     }
 
     public static Drawable b(Drawable drawable, int i) {
-        return ((b) e(drawable).clone()).pk(i);
+        return ((b) j(drawable).clone()).pv(i);
     }
 
     public static Drawable c(Drawable drawable, int i) {
-        return ((b) e(drawable).clone()).y(E(getString(i).split(",")));
+        return ((b) j(drawable).clone()).x(L(getString(i).split(",")));
     }
 
     public static Drawable a(View view, Drawable drawable, String[] strArr) {
         String[] split = strArr[2].split(",");
-        return ((b) e(drawable).clone()).pl(Bx(strArr[0])).pm(Bw(strArr[1])).po(Bw(split[0])).pp(Bw(split[1])).bl(view);
+        return ((b) j(drawable).clone()).pw(Bw(strArr[0])).px(Bv(strArr[1])).py(Bv(split[0])).pz(Bv(split[1])).bu(view);
     }
 
-    public static float[] ph(int i) {
+    public static float[] ps(int i) {
         String[] stringArray = getStringArray(i);
         String[] split = stringArray[2].split(",");
-        float[] fArr = {Bx(stringArray[0]), Bw(stringArray[1]), Bw(split[0]), Bw(split[1])};
+        float[] fArr = {Bw(stringArray[0]), Bv(stringArray[1]), Bv(split[0]), Bv(split[1])};
         if (fArr[1] == 0.0f) {
             fArr[1] = 0.01f;
         }
@@ -86,33 +85,33 @@ public class a {
     public static Drawable a(Drawable drawable, String[] strArr) {
         String[] split = strArr[0].split(",");
         String[] split2 = strArr[1].split(",");
-        return ((b) e(drawable).clone()).j(G(split)).z(F(split2)).By(strArr[2]);
+        return ((b) j(drawable).clone()).k(N(split)).y(M(split2)).Bx(strArr[2]);
     }
 
-    public static Drawable a(Drawable drawable, int i, int i2) {
-        b e = e(drawable);
-        e.release();
-        GradientDrawable brW = e.brW();
-        brW.setColor(getColor(i));
-        GradientDrawable brW2 = e.brW();
-        brW2.setColor(getColor(i2));
+    public static Drawable b(Drawable drawable, int i, int i2) {
+        b j = j(drawable);
+        j.release();
+        GradientDrawable buy = j.buy();
+        buy.setColor(getColor(i));
+        GradientDrawable buy2 = j.buy();
+        buy2.setColor(getColor(i2));
         StateListDrawable stateListDrawable = new StateListDrawable();
-        stateListDrawable.addState(new int[]{16842910, 16842919}, brW2);
-        stateListDrawable.addState(new int[]{16842910, 16842908}, brW2);
-        stateListDrawable.addState(new int[0], brW);
+        stateListDrawable.addState(new int[]{16842910, 16842919}, buy2);
+        stateListDrawable.addState(new int[]{16842910, 16842908}, buy2);
+        stateListDrawable.addState(new int[0], buy);
         return stateListDrawable;
     }
 
     public static Drawable d(Drawable drawable, int i) {
-        return ((b) e(drawable).clone()).pq(getColor(i));
+        return ((b) j(drawable).clone()).pA(getColor(i));
     }
 
     public static Drawable e(Drawable drawable, int i) {
-        return ((b) e(drawable).clone()).aa(pe(i));
+        return ((b) j(drawable).clone()).ac(pp(i));
     }
 
     public static Drawable f(Drawable drawable, int i) {
-        return ((b) e(drawable).clone()).ab(pf(i));
+        return ((b) j(drawable).clone()).ad(pq(i));
     }
 
     public static float[] m(float f) {
@@ -121,7 +120,7 @@ public class a {
         return fArr;
     }
 
-    public static float[] aH(int i) {
+    public static float[] aI(int i) {
         Application app = BdBaseApplication.getInst().getApp();
         if (app == null) {
             return m(0.0f);
@@ -130,25 +129,25 @@ public class a {
         int min = Math.min(split.length, 4);
         float[] fArr = new float[8];
         for (int i2 = 0; i2 < min; i2++) {
-            float cp = cp(split[i2]);
-            fArr[i2 * 2] = cp;
-            fArr[(i2 * 2) + 1] = cp;
+            float ci = ci(split[i2]);
+            fArr[i2 * 2] = ci;
+            fArr[(i2 * 2) + 1] = ci;
         }
         return fArr;
     }
 
-    private static float[] E(String[] strArr) {
+    private static float[] L(String[] strArr) {
         int min = Math.min(strArr.length, 4);
         float[] fArr = new float[8];
         for (int i = 0; i < min; i++) {
-            float cp = cp(strArr[i]);
-            fArr[i * 2] = cp;
-            fArr[(i * 2) + 1] = cp;
+            float ci = ci(strArr[i]);
+            fArr[i * 2] = ci;
+            fArr[(i * 2) + 1] = ci;
         }
         return fArr;
     }
 
-    private static float[] F(String[] strArr) {
+    private static float[] M(String[] strArr) {
         int min = Math.min(strArr.length, 4);
         float[] fArr = new float[min];
         for (int i = 0; i < min; i++) {
@@ -157,7 +156,7 @@ public class a {
         return fArr;
     }
 
-    private static int[] i(int[] iArr) {
+    private static int[] j(int[] iArr) {
         int length = iArr.length;
         for (int i = 0; i < length; i++) {
             iArr[i] = getColor(iArr[i]);
@@ -165,28 +164,28 @@ public class a {
         return iArr;
     }
 
-    private static int[] G(String[] strArr) {
+    private static int[] N(String[] strArr) {
         int length = strArr.length;
         int[] iArr = new int[length];
         for (int i = 0; i < length; i++) {
-            iArr[i] = Bx(strArr[i]);
+            iArr[i] = Bw(strArr[i]);
         }
         return iArr;
     }
 
-    private static float cp(String str) {
-        return str.endsWith(IEruptionStrategyGroup.STRATEGY_MODIFIER_H) ? Float.parseFloat(str.substring(0, str.length() - 1)) : Bw(str);
+    private static float ci(String str) {
+        return str.endsWith("H") ? Float.parseFloat(str.substring(0, str.length() - 1)) : Bv(str);
+    }
+
+    private static int Bv(String str) {
+        return pp(dN("tbds" + str, "dimen"));
     }
 
     private static int Bw(String str) {
-        return pe(dO("tbds" + str, "dimen"));
+        return getColor(dN(str, "color"));
     }
 
-    private static int Bx(String str) {
-        return getColor(dO(str, "color"));
-    }
-
-    private static int dO(String str, String str2) {
+    private static int dN(String str, String str2) {
         return TbadkCoreApplication.getInst().getResources().getIdentifier(str, str2, TbadkCoreApplication.getInst().getPackageName());
     }
 }

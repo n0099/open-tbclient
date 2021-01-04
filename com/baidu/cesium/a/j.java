@@ -1,5 +1,5 @@
 package com.baidu.cesium.a;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 class j {
     private final byte[] h;
     private final int[] i;
@@ -32,7 +32,7 @@ class j {
         this.i[3] = this.k - (-1640531535);
     }
 
-    private void g(byte[] bArr, int i) {
+    private void f(byte[] bArr, int i) {
         int i2 = this.i[0];
         int i3 = this.i[1];
         int i4 = this.i[2];
@@ -70,12 +70,12 @@ class j {
         if (this.m > 0) {
             int i4 = 16 - this.m;
             System.arraycopy(bArr, i, this.j, this.m, i4);
-            g(this.j, 0);
+            f(this.j, 0);
             i += i4;
         }
         int i5 = i3 - 16;
         while (i <= i5) {
-            g(bArr, i);
+            f(bArr, i);
             i += 16;
         }
         if (i < i3) {
@@ -86,21 +86,20 @@ class j {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public long b() {
-        int rotateLeft = (this.l > 16 ? Integer.rotateLeft(this.i[0], 1) + Integer.rotateLeft(this.i[1], 7) + Integer.rotateLeft(this.i[2], 12) + Integer.rotateLeft(this.i[3], 18) : this.i[2] + 374761393) + this.l;
+        int rotateLeft = this.l + (this.l > 16 ? Integer.rotateLeft(this.i[0], 1) + Integer.rotateLeft(this.i[1], 7) + Integer.rotateLeft(this.i[2], 12) + Integer.rotateLeft(this.i[3], 18) : this.i[2] + 374761393);
         int i = this.m - 4;
-        int i2 = rotateLeft;
-        int i3 = 0;
-        while (i3 <= i) {
-            i2 = Integer.rotateLeft(i2 + (a(this.j, i3) * (-1028477379)), 17) * 668265263;
-            i3 += 4;
+        int i2 = 0;
+        while (i2 <= i) {
+            rotateLeft = Integer.rotateLeft(rotateLeft + (a(this.j, i2) * (-1028477379)), 17) * 668265263;
+            i2 += 4;
         }
-        int i4 = i2;
-        while (i3 < this.m) {
-            i4 = Integer.rotateLeft(((this.j[i3] & 255) * 374761393) + i4, 11) * (-1640531535);
-            i3++;
+        int i3 = rotateLeft;
+        while (i2 < this.m) {
+            i3 = (-1640531535) * Integer.rotateLeft(((this.j[i2] & 255) * 374761393) + i3, 11);
+            i2++;
         }
-        int i5 = ((i4 >>> 15) ^ i4) * (-2048144777);
-        int i6 = (i5 ^ (i5 >>> 13)) * (-1028477379);
-        return (i6 ^ (i6 >>> 16)) & 4294967295L;
+        int i4 = ((i3 >>> 15) ^ i3) * (-2048144777);
+        int i5 = (i4 ^ (i4 >>> 13)) * (-1028477379);
+        return (i5 ^ (i5 >>> 16)) & 4294967295L;
     }
 }

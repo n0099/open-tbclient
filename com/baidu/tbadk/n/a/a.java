@@ -2,35 +2,35 @@ package com.baidu.tbadk.n.a;
 
 import android.os.Build;
 import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.at;
 /* loaded from: classes.dex */
 public class a {
-    private c fDA;
-    private String fDB;
+    private c fNf;
+    private String fNg;
 
     public a(String str) {
-        this.fDB = str;
+        this.fNg = str;
     }
 
-    public void bFv() {
+    public void bHQ() {
         if (Build.VERSION.SDK_INT >= 16) {
-            if (this.fDA == null) {
-                this.fDA = new c();
+            if (this.fNf == null) {
+                this.fNf = new c();
             }
-            this.fDA.start();
+            this.fNf.start();
         }
     }
 
-    public void bFw() {
-        if (this.fDA != null && Build.VERSION.SDK_INT >= 16) {
-            this.fDA.stop();
-            aw(this.fDB, this.fDA.getFps());
+    public void bHR() {
+        if (this.fNf != null && Build.VERSION.SDK_INT >= 16) {
+            this.fNf.stop();
+            ay(this.fNg, this.fNf.getFps());
         }
     }
 
-    private void aw(String str, int i) {
+    private void ay(String str, int i) {
         int intValue;
-        if (!au.isEmpty(str) && i > 0 && !TbSingleton.getInstance().isAnimFpsComputed(str) && (intValue = TbSingleton.getInstance().getAnimAvgFpsCount(str).intValue()) < 5) {
+        if (!at.isEmpty(str) && i > 0 && !TbSingleton.getInstance().isAnimFpsComputed(str) && (intValue = TbSingleton.getInstance().getAnimAvgFpsCount(str).intValue()) < 5) {
             int i2 = intValue + 1;
             int intValue2 = TbSingleton.getInstance().getAnimAvgFps(str).intValue();
             if (intValue2 > 0) {

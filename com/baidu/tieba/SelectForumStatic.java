@@ -8,16 +8,16 @@ import com.baidu.tbadk.core.atomData.SelectForumConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.attention.AttentionResMsg;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class SelectForumStatic {
     public static String Tag = "tag";
 
     static {
         TbadkCoreApplication.getInst().RegisterIntent(SelectForumConfig.class, SelectForumActivity.class);
-        bLF();
+        bNX();
     }
 
-    private static void bLF() {
+    private static void bNX() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SELECT_FORUM_ATTENTION, TbConfig.SERVER_ADDRESS + Config.FORUM_LIKE_ADDRESS);
         tbHttpMessageTask.setResponsedClass(AttentionResMsg.class);
         tbHttpMessageTask.setIsNeedTbs(true);

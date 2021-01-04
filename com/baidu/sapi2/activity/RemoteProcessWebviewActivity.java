@@ -28,7 +28,7 @@ import com.baidu.sapi2.utils.g;
 import com.baidu.sapi2.views.ViewUtility;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class RemoteProcessWebviewActivity extends Activity implements View.OnClickListener {
     public static final String EXTRA_EXTERNAL_TITLE = "external_title";
     public static final String EXTRA_EXTERNAL_URL = "external_url";
@@ -37,8 +37,10 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
     private static final String h = ":pass";
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f3398a;
-    private boolean b;
+    private boolean f5134a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private boolean f5135b;
     protected View bottomBackView;
     private String c;
     private String d;
@@ -93,15 +95,15 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
     }
 
     private void b() {
-        this.f3398a = getIntent().getBooleanExtra(EXTRA_IS_DARK_MODE, false);
-        this.b = getIntent().getBooleanExtra(EXTRA_SHOW_BOTTOM_BACK, false);
+        this.f5134a = getIntent().getBooleanExtra(EXTRA_IS_DARK_MODE, false);
+        this.f5135b = getIntent().getBooleanExtra(EXTRA_SHOW_BOTTOM_BACK, false);
         this.c = getIntent().getStringExtra(EXTRA_EXTERNAL_TITLE);
         this.d = getIntent().getStringExtra(EXTRA_EXTERNAL_URL);
     }
 
     private void c() {
         ViewStub viewStub;
-        if (this.f3398a) {
+        if (this.f5134a) {
             setTheme(a.h.SDKDarkTheme);
         }
         this.e = (WebView) findViewById(a.e.webview);
@@ -112,7 +114,7 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
         this.dividerLine = findViewById(a.e.title_divider_line);
         this.mTitleBgLayout = (RelativeLayout) findViewById(a.e.sapi_title_bg_layout);
         this.mTitle.setText(this.c);
-        if (this.b) {
+        if (this.f5135b) {
             if (this.bottomBackView == null && (viewStub = (ViewStub) findViewById(a.e.stub_bottom_back)) != null) {
                 this.bottomBackView = viewStub.inflate();
                 this.mBottomBackBtnIv = (ImageView) findViewById(a.e.sapi_bottom_back);
@@ -123,7 +125,7 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
             }
             this.mLeftBtnIv.setVisibility(8);
         }
-        if (this.f3398a) {
+        if (this.f5134a) {
             this.mTitleBgLayout.setBackgroundColor(getResources().getColor(a.b.sapi_sdk_dark_mode_title_color));
             this.mLeftBtnIv.setImageResource(a.d.sapi_sdk_btn_back_dark_mode);
             this.mTitle.setTextColor(getResources().getColor(a.b.sapi_sdk_dark_mode_edit_text_color));
@@ -215,12 +217,12 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
     }
 
     private void a(boolean z) {
-        int i = a.C0164a.sapi_sdk_slide_right_in;
-        int i2 = a.C0164a.sapi_sdk_slide_right_out;
+        int i = a.C0156a.sapi_sdk_slide_right_in;
+        int i2 = a.C0156a.sapi_sdk_slide_right_out;
         if (z) {
-            overridePendingTransition(i, a.C0164a.sapi_sdk_slide_left_out);
+            overridePendingTransition(i, a.C0156a.sapi_sdk_slide_left_out);
         } else {
-            overridePendingTransition(a.C0164a.sapi_sdk_slide_left_in, i2);
+            overridePendingTransition(a.C0156a.sapi_sdk_slide_left_in, i2);
         }
     }
 }

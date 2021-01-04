@@ -3,9 +3,9 @@ package kotlin.coroutines.experimental;
 import kotlin.coroutines.experimental.d;
 import kotlin.jvm.internal.p;
 @kotlin.e
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class e implements d {
-    public static final e pKr = new e();
+    public static final e qlU = new e();
 
     private e() {
     }

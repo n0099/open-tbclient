@@ -25,7 +25,7 @@ import okhttp3.internal.Util;
 import okhttp3.internal.tls.CertificateChainCleaner;
 import okhttp3.internal.tls.TrustRootIndex;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class AndroidPlatform extends Platform {
     private static final int MAX_LOG_LENGTH = 4000;
     private final CloseGuard closeGuard = CloseGuard.get();
@@ -246,7 +246,7 @@ public class AndroidPlatform extends Platform {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     static final class AndroidCertificateChainCleaner extends CertificateChainCleaner {
         private final Method checkServerTrusted;
         private final Object x509TrustManagerExtensions;
@@ -278,7 +278,7 @@ public class AndroidPlatform extends Platform {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     static final class CloseGuard {
         private final Method getMethod;
         private final Method openMethod;
@@ -317,21 +317,22 @@ public class AndroidPlatform extends Platform {
         static CloseGuard get() {
             Method method;
             Method method2;
-            Method method3 = null;
+            Method method3;
             try {
                 Class<?> cls = Class.forName("dalvik.system.CloseGuard");
-                method2 = cls.getMethod("get", new Class[0]);
-                method = cls.getMethod("open", String.class);
-                method3 = cls.getMethod("warnIfOpen", new Class[0]);
+                method3 = cls.getMethod("get", new Class[0]);
+                method2 = cls.getMethod("open", String.class);
+                method = cls.getMethod("warnIfOpen", new Class[0]);
             } catch (Exception e) {
                 method = null;
                 method2 = null;
+                method3 = null;
             }
-            return new CloseGuard(method2, method, method3);
+            return new CloseGuard(method3, method2, method);
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     static final class AndroidTrustRootIndex implements TrustRootIndex {
         private final Method findByIssuerAndSignatureMethod;
         private final X509TrustManager trustManager;

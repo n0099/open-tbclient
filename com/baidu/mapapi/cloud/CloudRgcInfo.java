@@ -5,7 +5,7 @@ import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.http.HttpClient;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class CloudRgcInfo {
     public int geoTableId;
     public String location;

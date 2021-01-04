@@ -1,6 +1,6 @@
 package okhttp3.internal.http;
 
-import android.support.v7.widget.ActivityChooserView;
+import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.searchbox.http.response.ResponseException;
 import com.baidubce.http.Headers;
 import java.io.FileNotFoundException;
@@ -30,7 +30,7 @@ import okhttp3.internal.connection.RouteException;
 import okhttp3.internal.connection.StreamAllocation;
 import okhttp3.internal.http2.ConnectionShutdownException;
 import org.apache.http.client.methods.HttpHead;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public final class RetryAndFollowUpInterceptor implements Interceptor {
     private static final int MAX_FOLLOW_UPS = 20;
     private Object callStackTrace;
@@ -68,85 +68,81 @@ public final class RetryAndFollowUpInterceptor implements Interceptor {
     public Response intercept(Interceptor.Chain chain) throws IOException {
         Response proceed;
         Request followUpRequest;
-        StreamAllocation streamAllocation;
         Request request = chain.request();
         RealInterceptorChain realInterceptorChain = (RealInterceptorChain) chain;
         Call call = realInterceptorChain.call();
         EventListener eventListener = realInterceptorChain.eventListener();
-        StreamAllocation streamAllocation2 = new StreamAllocation(this.client.connectionPool(), createAddress(request.url()), call, eventListener, this.callStackTrace);
-        this.streamAllocation = streamAllocation2;
-        int i = 0;
-        StreamAllocation streamAllocation3 = streamAllocation2;
-        Request request2 = request;
+        StreamAllocation streamAllocation = new StreamAllocation(this.client.connectionPool(), createAddress(request.url()), call, eventListener, this.callStackTrace);
+        this.streamAllocation = streamAllocation;
         Response response = null;
+        int i = 0;
+        Request request2 = request;
         while (!this.canceled) {
             try {
                 try {
-                    proceed = realInterceptorChain.proceed(request2, streamAllocation3, null, null);
+                    proceed = realInterceptorChain.proceed(request2, streamAllocation, null, null);
                     if (response != null) {
                         proceed = proceed.newBuilder().priorResponse(response.newBuilder().body(null).build()).build();
                     }
                     try {
-                        followUpRequest = followUpRequest(proceed, streamAllocation3.route());
+                        followUpRequest = followUpRequest(proceed, streamAllocation.route());
                     } catch (IOException e) {
-                        streamAllocation3.release();
+                        streamAllocation.release();
                         throw e;
                     }
-                } catch (IOException e2) {
-                    if (!recover(e2, streamAllocation3, !(e2 instanceof ConnectionShutdownException), request2)) {
-                        throw e2;
-                    }
-                } catch (RouteException e3) {
-                    if (!recover(e3.getLastConnectException(), streamAllocation3, false, request2)) {
-                        throw e3.getFirstConnectException();
-                    }
+                } catch (Throwable th) {
+                    streamAllocation.streamFailed(null);
+                    streamAllocation.release();
+                    throw th;
                 }
-                if (followUpRequest == null) {
-                    streamAllocation3.release();
-                    return proceed;
+            } catch (IOException e2) {
+                if (!recover(e2, streamAllocation, !(e2 instanceof ConnectionShutdownException), request2)) {
+                    throw e2;
                 }
-                Util.closeQuietly(proceed.body());
-                int i2 = i + 1;
-                if (i2 > 20) {
-                    streamAllocation3.release();
-                    throw new ProtocolException("Too many follow-up requests: " + i2);
-                } else if (followUpRequest.body() instanceof UnrepeatableRequestBody) {
-                    streamAllocation3.release();
-                    throw new HttpRetryException("Cannot retry streamed HTTP body", proceed.code());
-                } else {
-                    if (!sameConnection(proceed, followUpRequest.url())) {
-                        streamAllocation3.release();
-                        streamAllocation = new StreamAllocation(this.client.connectionPool(), createAddress(followUpRequest.url()), call, eventListener, this.callStackTrace);
-                        this.streamAllocation = streamAllocation;
-                    } else if (streamAllocation3.codec() != null) {
-                        throw new IllegalStateException("Closing the body of " + proceed + " didn't close its backing stream. Bad interceptor?");
-                    } else {
-                        streamAllocation = streamAllocation3;
-                    }
-                    i = i2;
-                    streamAllocation3 = streamAllocation;
-                    request2 = followUpRequest;
-                    response = proceed;
+            } catch (RouteException e3) {
+                if (!recover(e3.getLastConnectException(), streamAllocation, false, request2)) {
+                    throw e3.getFirstConnectException();
                 }
-            } catch (Throwable th) {
-                streamAllocation3.streamFailed(null);
-                streamAllocation3.release();
-                throw th;
+            }
+            if (followUpRequest == null) {
+                streamAllocation.release();
+                return proceed;
+            }
+            Util.closeQuietly(proceed.body());
+            int i2 = i + 1;
+            if (i2 > 20) {
+                streamAllocation.release();
+                throw new ProtocolException("Too many follow-up requests: " + i2);
+            } else if (followUpRequest.body() instanceof UnrepeatableRequestBody) {
+                streamAllocation.release();
+                throw new HttpRetryException("Cannot retry streamed HTTP body", proceed.code());
+            } else {
+                if (!sameConnection(proceed, followUpRequest.url())) {
+                    streamAllocation.release();
+                    streamAllocation = new StreamAllocation(this.client.connectionPool(), createAddress(followUpRequest.url()), call, eventListener, this.callStackTrace);
+                    this.streamAllocation = streamAllocation;
+                } else if (streamAllocation.codec() != null) {
+                    throw new IllegalStateException("Closing the body of " + proceed + " didn't close its backing stream. Bad interceptor?");
+                }
+                response = proceed;
+                i = i2;
+                request2 = followUpRequest;
             }
         }
-        streamAllocation3.release();
+        streamAllocation.release();
         throw new IOException(ResponseException.CANCELED);
     }
 
     private Address createAddress(HttpUrl httpUrl) {
+        CertificatePinner certificatePinner;
         HostnameVerifier hostnameVerifier;
         SSLSocketFactory sSLSocketFactory;
-        CertificatePinner certificatePinner = null;
         if (httpUrl.isHttps()) {
             sSLSocketFactory = this.client.sslSocketFactory();
             hostnameVerifier = this.client.hostnameVerifier();
             certificatePinner = this.client.certificatePinner();
         } else {
+            certificatePinner = null;
             hostnameVerifier = null;
             sSLSocketFactory = null;
         }

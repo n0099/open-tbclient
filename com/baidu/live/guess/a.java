@@ -1,18 +1,18 @@
 package com.baidu.live.guess;
 
 import android.app.Activity;
-import com.baidu.live.data.w;
-/* loaded from: classes4.dex */
+import com.baidu.live.data.x;
+/* loaded from: classes11.dex */
 public interface a {
-    void Mg();
+    void LE();
 
-    void b(w wVar);
+    void b(x xVar);
 
-    void e(w wVar);
+    void eW(int i);
 
-    void eY(int i);
+    void f(x xVar);
 
     void onDestroy();
 
-    void q(Activity activity);
+    void p(Activity activity);
 }

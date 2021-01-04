@@ -1,6 +1,5 @@
 package com.baidu.tieba.message;
 
-import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -33,7 +32,7 @@ public class ResponseReportUserInfoMessage extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         if (getStatusCode() == 200 && jSONObject != null) {
             this.errorCode = jSONObject.optInt("error_code");
-            this.errorMsg = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG);
+            this.errorMsg = jSONObject.optString("error_msg");
             this.timeInterval = jSONObject.optInt("time_interval", 0);
         }
     }

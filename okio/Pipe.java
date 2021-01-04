@@ -1,7 +1,8 @@
 package okio;
 
+import com.baidu.live.tbadk.log.LogConfig;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class Pipe {
     final long maxBufferSize;
     boolean sinkClosed;
@@ -25,7 +26,7 @@ public final class Pipe {
         return this.sink;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     final class PipeSink implements Sink {
         final Timeout timeout = new Timeout();
 
@@ -36,7 +37,7 @@ public final class Pipe {
         public void write(Buffer buffer, long j) throws IOException {
             synchronized (Pipe.this.buffer) {
                 if (Pipe.this.sinkClosed) {
-                    throw new IllegalStateException("closed");
+                    throw new IllegalStateException(LogConfig.TYPE_CLOSED);
                 }
                 while (j > 0) {
                     if (Pipe.this.sourceClosed) {
@@ -59,7 +60,7 @@ public final class Pipe {
         public void flush() throws IOException {
             synchronized (Pipe.this.buffer) {
                 if (Pipe.this.sinkClosed) {
-                    throw new IllegalStateException("closed");
+                    throw new IllegalStateException(LogConfig.TYPE_CLOSED);
                 }
                 if (Pipe.this.sourceClosed && Pipe.this.buffer.size() > 0) {
                     throw new IOException("source is closed");
@@ -86,7 +87,7 @@ public final class Pipe {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     final class PipeSource implements Source {
         final Timeout timeout = new Timeout();
 
@@ -98,7 +99,7 @@ public final class Pipe {
             long read;
             synchronized (Pipe.this.buffer) {
                 if (Pipe.this.sourceClosed) {
-                    throw new IllegalStateException("closed");
+                    throw new IllegalStateException(LogConfig.TYPE_CLOSED);
                 }
                 while (true) {
                     if (Pipe.this.buffer.size() == 0) {

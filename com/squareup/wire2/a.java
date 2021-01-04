@@ -9,22 +9,22 @@ import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
     private ProtoAdapter<Object> adapter;
     private final Field messageField;
     public final String name;
-    public final WireField.Label pAh;
-    private final String pAi;
-    private final String pAj;
-    public final boolean pAk;
-    private final Field pAl;
-    private final Method pAm;
-    private ProtoAdapter<?> pAn;
-    private ProtoAdapter<?> pAo;
+    public final WireField.Label pSV;
+    private final String pSW;
+    private final String pSX;
+    public final boolean pSY;
+    private final Field pSZ;
+    private final Method pTa;
+    private ProtoAdapter<?> pTb;
+    private ProtoAdapter<?> pTc;
     public final int tag;
 
-    private static Field i(Class<?> cls, String str) {
+    private static Field j(Class<?> cls, String str) {
         try {
             return cls.getField(str);
         } catch (NoSuchFieldException e) {
@@ -42,40 +42,40 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(WireField wireField, Field field, Class<B> cls) {
-        this.pAh = wireField.eAR();
+        this.pSV = wireField.eEL();
         this.name = field.getName();
         this.tag = wireField.tag();
-        this.pAi = wireField.eAP();
-        this.pAj = wireField.eAQ();
-        this.pAk = wireField.eAS();
+        this.pSW = wireField.eEJ();
+        this.pSX = wireField.eEK();
+        this.pSY = wireField.eEM();
         this.messageField = field;
-        this.pAl = i(cls, this.name);
-        this.pAm = a(cls, this.name, field.getType());
+        this.pSZ = j(cls, this.name);
+        this.pTa = a(cls, this.name, field.getType());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean eAF() {
-        return !this.pAi.isEmpty();
+    public boolean eEz() {
+        return !this.pSW.isEmpty();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ProtoAdapter<?> eAG() {
-        ProtoAdapter<?> protoAdapter = this.pAn;
+    public ProtoAdapter<?> eEA() {
+        ProtoAdapter<?> protoAdapter = this.pTb;
         if (protoAdapter != null) {
             return protoAdapter;
         }
-        ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.pAj);
-        this.pAn = protoAdapter2;
+        ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.pSX);
+        this.pTb = protoAdapter2;
         return protoAdapter2;
     }
 
-    ProtoAdapter<?> eAH() {
-        ProtoAdapter<?> protoAdapter = this.pAo;
+    ProtoAdapter<?> eEB() {
+        ProtoAdapter<?> protoAdapter = this.pTc;
         if (protoAdapter != null) {
             return protoAdapter;
         }
-        ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.pAi);
-        this.pAo = protoAdapter2;
+        ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.pSW);
+        this.pTc = protoAdapter2;
         return protoAdapter2;
     }
 
@@ -83,12 +83,12 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
     public ProtoAdapter<Object> adapter() {
         ProtoAdapter<Object> protoAdapter = this.adapter;
         if (protoAdapter == null) {
-            if (eAF()) {
-                ProtoAdapter<Object> newMapAdapter = ProtoAdapter.newMapAdapter(eAH(), eAG());
+            if (eEz()) {
+                ProtoAdapter<Object> newMapAdapter = ProtoAdapter.newMapAdapter(eEB(), eEA());
                 this.adapter = newMapAdapter;
                 return newMapAdapter;
             }
-            ProtoAdapter<?> withLabel = eAG().withLabel(this.pAh);
+            ProtoAdapter<?> withLabel = eEA().withLabel(this.pSV);
             this.adapter = withLabel;
             return withLabel;
         }
@@ -96,23 +96,23 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(B b, Object obj) {
-        if (this.pAh.isRepeated()) {
-            ((List) a((a<M, B>) b)).add(obj);
-        } else if (!this.pAi.isEmpty()) {
-            ((Map) a((a<M, B>) b)).putAll((Map) obj);
+    public void a(B b2, Object obj) {
+        if (this.pSV.isRepeated()) {
+            ((List) a((a<M, B>) b2)).add(obj);
+        } else if (!this.pSW.isEmpty()) {
+            ((Map) a((a<M, B>) b2)).putAll((Map) obj);
         } else {
-            b(b, obj);
+            b(b2, obj);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void b(B b, Object obj) {
+    public void b(B b2, Object obj) {
         try {
-            if (this.pAh.isOneOf()) {
-                this.pAm.invoke(b, obj);
+            if (this.pSV.isOneOf()) {
+                this.pTa.invoke(b2, obj);
             } else {
-                this.pAl.set(b, obj);
+                this.pSZ.set(b2, obj);
             }
         } catch (IllegalAccessException | InvocationTargetException e) {
             throw new AssertionError(e);
@@ -129,9 +129,9 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Object a(B b) {
+    public Object a(B b2) {
         try {
-            return this.pAl.get(b);
+            return this.pSZ.get(b2);
         } catch (IllegalAccessException e) {
             throw new AssertionError(e);
         }

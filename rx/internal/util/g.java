@@ -6,11 +6,11 @@ import rx.internal.operators.NotificationLite;
 import rx.internal.util.a.ae;
 import rx.internal.util.a.q;
 import rx.k;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public class g implements k {
     public static final int SIZE;
-    public volatile Object pUq;
     private Queue<Object> queue;
+    public volatile Object qvQ;
     private final int size;
 
     static {
@@ -29,12 +29,12 @@ public class g implements k {
         SIZE = i;
     }
 
-    public static g eGf() {
-        return ae.eGo() ? new g(false, SIZE) : new g();
+    public static g eOn() {
+        return ae.eOw() ? new g(false, SIZE) : new g();
     }
 
-    public static g eGg() {
-        return ae.eGo() ? new g(true, SIZE) : new g();
+    public static g eOo() {
+        return ae.eOw() ? new g(true, SIZE) : new g();
     }
 
     private g(Queue<Object> queue, int i) {
@@ -60,15 +60,16 @@ public class g implements k {
     }
 
     public void onNext(Object obj) throws MissingBackpressureException {
-        boolean z = true;
-        boolean z2 = false;
+        boolean z;
+        boolean z2;
         synchronized (this) {
             Queue<Object> queue = this.queue;
-            if (queue == null) {
+            if (queue != null) {
+                z = queue.offer(NotificationLite.next(obj)) ? false : true;
+                z2 = false;
+            } else {
+                z = false;
                 z2 = true;
-                z = false;
-            } else if (queue.offer(NotificationLite.next(obj))) {
-                z = false;
             }
         }
         if (z2) {
@@ -80,8 +81,8 @@ public class g implements k {
     }
 
     public void onCompleted() {
-        if (this.pUq == null) {
-            this.pUq = NotificationLite.eFG();
+        if (this.qvQ == null) {
+            this.qvQ = NotificationLite.eNO();
         }
     }
 
@@ -96,9 +97,9 @@ public class g implements k {
             Queue<Object> queue = this.queue;
             if (queue != null) {
                 Object poll = queue.poll();
-                obj = this.pUq;
+                obj = this.qvQ;
                 if (poll == null && obj != null && queue.peek() == null) {
-                    this.pUq = null;
+                    this.qvQ = null;
                 } else {
                     obj = poll;
                 }
@@ -115,7 +116,7 @@ public class g implements k {
                 obj = null;
             } else {
                 Object peek = queue.peek();
-                obj = this.pUq;
+                obj = this.qvQ;
                 if (peek != null || obj == null || queue.peek() != null) {
                     obj = peek;
                 }
@@ -124,8 +125,8 @@ public class g implements k {
         return obj;
     }
 
-    public boolean bX(Object obj) {
-        return NotificationLite.bX(obj);
+    public boolean bZ(Object obj) {
+        return NotificationLite.bZ(obj);
     }
 
     public Object getValue(Object obj) {

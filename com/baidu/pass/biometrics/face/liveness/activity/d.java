@@ -6,16 +6,18 @@ import android.graphics.Color;
 import android.widget.TextView;
 import com.baidu.pass.biometrics.face.liveness.view.XfordView;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes12.dex */
+/* loaded from: classes7.dex */
 public class d implements ValueAnimator.AnimatorUpdateListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private IntEvaluator f2735a = new IntEvaluator();
-    final /* synthetic */ LivenessRecogActivity b;
+    private IntEvaluator f4045a = new IntEvaluator();
+
+    /* renamed from: b  reason: collision with root package name */
+    final /* synthetic */ LivenessRecogActivity f4046b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(LivenessRecogActivity livenessRecogActivity) {
-        this.b = livenessRecogActivity;
+        this.f4046b = livenessRecogActivity;
     }
 
     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -25,16 +27,16 @@ public class d implements ValueAnimator.AnimatorUpdateListener {
         XfordView xfordView2;
         XfordView xfordView3;
         float intValue = ((Integer) valueAnimator.getAnimatedValue()).intValue() / 100.0f;
-        int intValue2 = this.f2735a.evaluate(intValue, (Integer) 255, (Integer) 51).intValue();
-        textView = this.b.x;
+        int intValue2 = this.f4045a.evaluate(intValue, (Integer) 255, (Integer) 51).intValue();
+        textView = this.f4046b.x;
         textView.setTextColor(Color.rgb(intValue2, intValue2, intValue2));
-        int intValue3 = this.f2735a.evaluate(intValue, (Integer) 0, (Integer) 255).intValue();
-        int intValue4 = this.f2735a.evaluate(intValue, (Integer) 66, (Integer) 255).intValue();
-        xfordView = this.b.E;
+        int intValue3 = this.f4045a.evaluate(intValue, (Integer) 0, (Integer) 255).intValue();
+        int intValue4 = this.f4045a.evaluate(intValue, (Integer) 66, (Integer) 255).intValue();
+        xfordView = this.f4046b.E;
         if (xfordView != null) {
-            xfordView2 = this.b.E;
+            xfordView2 = this.f4046b.E;
             xfordView2.setBgPaintColor(Color.argb(intValue4, intValue3, intValue3, intValue3));
-            xfordView3 = this.b.E;
+            xfordView3 = this.f4046b.E;
             xfordView3.postInvalidate();
         }
     }

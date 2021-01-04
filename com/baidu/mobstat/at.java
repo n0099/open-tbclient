@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Handler;
 import android.os.HandlerThread;
-import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
@@ -14,6 +13,7 @@ import android.webkit.WebView;
 import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.ScrollView;
+import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.mobstat.MtjConfig;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -25,13 +25,15 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class at {
     private static final at u = new at();
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f2549a;
-    private WeakReference<Activity> b;
+    private Context f3725a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private WeakReference<Activity> f3726b;
     private Handler c;
     private long g;
     private long h;
@@ -54,7 +56,7 @@ public class at {
     private ViewTreeObserver.OnScrollChangedListener w = new ViewTreeObserver.OnScrollChangedListener() { // from class: com.baidu.mobstat.at.11
         @Override // android.view.ViewTreeObserver.OnScrollChangedListener
         public void onScrollChanged() {
-            at.this.a(at.this.b);
+            at.this.a(at.this.f3726b);
         }
     };
     private Runnable x = null;
@@ -62,7 +64,7 @@ public class at {
     private float z = 0.0f;
     private Object A = new Object();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     public interface a {
         void a(ao aoVar);
 
@@ -118,8 +120,8 @@ public class at {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Activity activity, long j) {
-        this.f2549a = activity.getApplicationContext();
-        this.b = new WeakReference<>(activity);
+        this.f3725a = activity.getApplicationContext();
+        this.f3726b = new WeakReference<>(activity);
         this.g = j;
         String e = bj.e(activity);
         if (bj.a(e, this.j)) {
@@ -207,7 +209,7 @@ public class at {
                 @Override // java.lang.Runnable
                 public void run() {
                     Activity activity;
-                    if (at.this.b != null && (activity = (Activity) at.this.b.get()) != null) {
+                    if (at.this.f3726b != null && (activity = (Activity) at.this.f3726b.get()) != null) {
                         String e = bj.e(activity);
                         if (!TextUtils.isEmpty(at.this.k) && at.this.k.equals(e)) {
                             at.this.c();
@@ -399,7 +401,7 @@ public class at {
         }
         a(this.e);
         if (this.d) {
-            a(this.b, j);
+            a(this.f3726b, j);
             this.d = false;
         }
         a(this.s, j);
@@ -480,15 +482,15 @@ public class at {
                     String e = bj.e(activity);
                     String f = bj.f(activity);
                     ArrayList<Integer> a2 = a(activity, view);
-                    int a3 = ah.a(this.f2549a, a2.get(0).intValue());
-                    int a4 = ah.a(this.f2549a, a2.get(1).intValue());
-                    ArrayList<Integer> b = bj.b(activity, view);
-                    int a5 = ah.a(this.f2549a, b.get(0).intValue());
-                    int a6 = ah.a(this.f2549a, b.get(1).intValue());
+                    int a3 = ah.a(this.f3725a, a2.get(0).intValue());
+                    int a4 = ah.a(this.f3725a, a2.get(1).intValue());
+                    ArrayList<Integer> b2 = bj.b(activity, view);
+                    int a5 = ah.a(this.f3725a, b2.get(0).intValue());
+                    int a6 = ah.a(this.f3725a, b2.get(1).intValue());
                     int i = a5 > a3 ? a5 : a3;
                     int i2 = a6 > a4 ? a6 : a4;
                     if (i != 0 && i2 != 0) {
-                        a(this.f2549a, new ao(e, f, this.l, j2 - j, j, a5, a6, i, i2, str, this.n, this.o));
+                        a(this.f3725a, new ao(e, f, this.l, j2 - j, j, a5, a6, i, i2, str, this.n, this.o));
                     }
                 }
             }
@@ -575,7 +577,10 @@ public class at {
             if (apVar2 == null) {
                 ArrayList<ap> arrayList2 = arrayList == null ? new ArrayList<>() : arrayList;
                 arrayList2.add(apVar);
-                hashMap.put(weakReference == null ? new WeakReference<>(view) : weakReference, arrayList2);
+                if (weakReference == null) {
+                    weakReference = new WeakReference<>(view);
+                }
+                hashMap.put(weakReference, arrayList2);
                 return;
             }
             apVar2.a(c);
@@ -610,11 +615,11 @@ public class at {
             @Override // java.util.Comparator
             /* renamed from: a */
             public int compare(ap apVar, ap apVar2) {
-                long b = apVar.b() - apVar2.b();
-                if (b > 0) {
+                long b2 = apVar.b() - apVar2.b();
+                if (b2 > 0) {
                     return 1;
                 }
-                if (b < 0) {
+                if (b2 < 0) {
                     return -1;
                 }
                 return 0;
@@ -623,7 +628,7 @@ public class at {
         if (this.v != null) {
             this.v.a(arrayList);
         }
-        aw.a().a(this.f2549a, arrayList);
+        aw.a().a(this.f3725a, arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -714,9 +719,9 @@ public class at {
             String f = aqVar.f();
             if (!TextUtils.isEmpty(d) && !TextUtils.isEmpty(f)) {
                 WeakReference<View> weakReference = null;
-                LinkedHashMap<WeakReference<View>, HashMap<String, ArrayList<aq>>> b = b(hashMap, view);
-                if (b != null && b.size() > 0) {
-                    Iterator<Map.Entry<WeakReference<View>, HashMap<String, ArrayList<aq>>>> it = b.entrySet().iterator();
+                LinkedHashMap<WeakReference<View>, HashMap<String, ArrayList<aq>>> b2 = b(hashMap, view);
+                if (b2 != null && b2.size() > 0) {
+                    Iterator<Map.Entry<WeakReference<View>, HashMap<String, ArrayList<aq>>>> it = b2.entrySet().iterator();
                     if (it.hasNext()) {
                         Map.Entry<WeakReference<View>, HashMap<String, ArrayList<aq>>> next = it.next();
                         hashMap2 = next.getValue();
@@ -785,20 +790,20 @@ public class at {
 
     private boolean a(aq aqVar, aq aqVar2) {
         String a2 = aqVar2.a();
-        String b = aqVar2.b();
+        String b2 = aqVar2.b();
         JSONArray c = aqVar2.c();
         String d = aqVar2.d();
         String e = aqVar2.e();
         String f = aqVar2.f();
         boolean g = aqVar2.g();
         String a3 = aqVar.a();
-        String b2 = aqVar.b();
+        String b3 = aqVar.b();
         JSONArray c2 = aqVar.c();
         String d2 = aqVar.d();
         String e2 = aqVar.e();
         String f2 = aqVar.f();
         boolean g2 = aqVar.g();
-        if (!a(a3, a2) || !a(b2, b) || !a(c2, c) || !a(d2, d) || !a(e2, e) || !a(f2, f) || g2 != g) {
+        if (!a(a3, a2) || !a(b3, b2) || !a(c2, c) || !a(d2, d) || !a(e2, e) || !a(f2, f) || g2 != g) {
             return false;
         }
         return true;
@@ -865,15 +870,15 @@ public class at {
         if (this.v != null) {
             this.v.b(arrayList);
         }
-        aw.a().b(this.f2549a, arrayList);
+        aw.a().b(this.f3725a, arrayList);
     }
 
     private ArrayList<aq> h(HashMap<String, ArrayList<aq>> hashMap) {
         ArrayList<aq> arrayList = new ArrayList<>();
         for (Map.Entry<String, ArrayList<aq>> entry : hashMap.entrySet()) {
-            aq b = b(entry.getValue());
-            if (b != null) {
-                arrayList.add(b);
+            aq b2 = b(entry.getValue());
+            if (b2 != null) {
+                arrayList.add(b2);
             }
         }
         return arrayList;
@@ -881,6 +886,7 @@ public class at {
 
     private aq b(ArrayList<aq> arrayList) {
         long j;
+        aq aqVar;
         if (arrayList == null || arrayList.size() == 0) {
             return null;
         }
@@ -888,8 +894,8 @@ public class at {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator
             /* renamed from: a */
-            public int compare(aq aqVar, aq aqVar2) {
-                long i = aqVar.i() - aqVar2.i();
+            public int compare(aq aqVar2, aq aqVar3) {
+                long i = aqVar2.i() - aqVar3.i();
                 if (i > 0) {
                     return 1;
                 }
@@ -902,9 +908,9 @@ public class at {
         StringBuilder sb = new StringBuilder();
         StringBuilder sb2 = new StringBuilder();
         Iterator<aq> it = arrayList.iterator();
-        int i = 0;
         long j2 = 0;
-        aq aqVar = null;
+        aq aqVar2 = null;
+        int i = 0;
         while (it.hasNext()) {
             aq next = it.next();
             long i2 = next.i();
@@ -915,6 +921,7 @@ public class at {
                     aqVar = next;
                 } else {
                     j = j2;
+                    aqVar = aqVar2;
                 }
                 long j3 = i2 - j;
                 if (j3 < 0) {
@@ -931,16 +938,17 @@ public class at {
                     sb.append("|" + j3);
                 }
                 j2 = j;
+                aqVar2 = aqVar;
                 i = next.h() + i;
             }
         }
-        if (aqVar != null) {
-            aqVar.a(sb2.toString());
-            aqVar.b(sb.toString());
-            aqVar.a(i);
-            return aqVar;
+        if (aqVar2 != null) {
+            aqVar2.a(sb2.toString());
+            aqVar2.b(sb.toString());
+            aqVar2.a(i);
+            return aqVar2;
         }
-        return aqVar;
+        return aqVar2;
     }
 
     private void a(WeakReference<Activity> weakReference, long j) {
@@ -999,7 +1007,8 @@ public class at {
     /* JADX WARN: Removed duplicated region for block: B:17:0x003f  */
     /* JADX WARN: Removed duplicated region for block: B:19:0x0042  */
     /* JADX WARN: Removed duplicated region for block: B:22:0x0047  */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x00a9  */
+    /* JADX WARN: Removed duplicated region for block: B:47:0x00a8  */
+    /* JADX WARN: Removed duplicated region for block: B:52:0x00ae  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -1007,6 +1016,7 @@ public class at {
         int i;
         int i2;
         int i3;
+        int i4;
         ArrayList<Integer> arrayList = new ArrayList<>();
         if (view == null || activity == null) {
             arrayList.add(0);
@@ -1022,65 +1032,64 @@ public class at {
                     this.A.wait(5000L);
                 } catch (Exception e) {
                 }
-                i3 = (int) (this.y * this.z);
+                i2 = (int) (this.y * this.z);
             }
-            i2 = 0;
+            i3 = 0;
         } else if (view instanceof ScrollView) {
             ScrollView scrollView = (ScrollView) view;
             if (scrollView.getChildCount() > 0) {
-                i2 = scrollView.getChildAt(0).getWidth();
-                i3 = scrollView.getChildAt(0).getHeight();
+                i3 = scrollView.getChildAt(0).getWidth();
+                i4 = scrollView.getChildAt(0).getHeight();
+            } else {
+                i4 = 0;
+                i3 = 0;
             }
-            i3 = 0;
-            i2 = 0;
+            i2 = i4;
         } else if (view instanceof ListView) {
-            i3 = bj.a((ListView) view);
-            i2 = 0;
-        } else if (view instanceof GridView) {
-            i3 = bj.a((GridView) view);
-            i2 = 0;
-        } else {
-            if (bj.q(view)) {
-                try {
-                    RecyclerView recyclerView = (RecyclerView) view;
-                    i = recyclerView.computeHorizontalScrollRange();
-                    try {
-                        i2 = i;
-                        i3 = recyclerView.computeVerticalScrollRange();
-                    } catch (Exception e2) {
-                        i2 = i;
-                        i3 = 0;
-                        if (i2 == 0) {
-                        }
-                        if (i3 == 0) {
-                        }
-                        if (i2 <= 0) {
-                        }
-                        if (i3 > 0) {
-                        }
-                        arrayList.add(Integer.valueOf(i2));
-                        arrayList.add(Integer.valueOf(r1));
-                        return arrayList;
-                    }
-                } catch (Exception e3) {
-                    i = 0;
-                }
-            }
+            i2 = bj.a((ListView) view);
             i3 = 0;
+        } else if (view instanceof GridView) {
+            i2 = bj.a((GridView) view);
+            i3 = 0;
+        } else if (bj.q(view)) {
+            try {
+                RecyclerView recyclerView = (RecyclerView) view;
+                i = recyclerView.computeHorizontalScrollRange();
+                try {
+                    i2 = recyclerView.computeVerticalScrollRange();
+                    i3 = i;
+                } catch (Exception e2) {
+                    i2 = 0;
+                    i3 = i;
+                    if (i3 == 0) {
+                    }
+                    if (i2 != 0) {
+                    }
+                    if (i3 <= 0) {
+                    }
+                    if (r0 > 0) {
+                    }
+                    arrayList.add(Integer.valueOf(i3));
+                    arrayList.add(Integer.valueOf(r1));
+                    return arrayList;
+                }
+            } catch (Exception e3) {
+                i = 0;
+            }
+        } else {
             i2 = 0;
-        }
-        if (i2 == 0) {
-            i2 = width;
+            i3 = 0;
         }
         if (i3 == 0) {
-            i3 = height;
+            i3 = width;
         }
-        if (i2 <= 0) {
-            i2 = 0;
+        int i5 = i2 != 0 ? height : i2;
+        if (i3 <= 0) {
+            i3 = 0;
         }
-        int i4 = i3 > 0 ? i3 : 0;
-        arrayList.add(Integer.valueOf(i2));
-        arrayList.add(Integer.valueOf(i4));
+        int i6 = i5 > 0 ? i5 : 0;
+        arrayList.add(Integer.valueOf(i3));
+        arrayList.add(Integer.valueOf(i6));
         return arrayList;
     }
 }

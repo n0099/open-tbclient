@@ -5,9 +5,9 @@ import android.media.MediaDescription;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcel;
-import android.support.annotation.RequiresApi;
+import androidx.annotation.RequiresApi;
 @RequiresApi(21)
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 class MediaDescriptionCompatApi21 {
     public static String getMediaId(Object obj) {
         return ((MediaDescription) obj).getMediaId();
@@ -45,7 +45,7 @@ class MediaDescriptionCompatApi21 {
         return MediaDescription.CREATOR.createFromParcel(parcel);
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     static class Builder {
         public static Object newInstance() {
             return new MediaDescription.Builder();
@@ -82,5 +82,11 @@ class MediaDescriptionCompatApi21 {
         public static Object build(Object obj) {
             return ((MediaDescription.Builder) obj).build();
         }
+
+        private Builder() {
+        }
+    }
+
+    private MediaDescriptionCompatApi21() {
     }
 }

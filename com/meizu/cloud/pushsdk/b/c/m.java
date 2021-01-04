@@ -9,12 +9,14 @@ import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
 import java.util.regex.Pattern;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f4110a = new byte[0];
-    public static final String[] b = new String[0];
+    public static final byte[] f11479a = new byte[0];
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final String[] f11480b = new String[0];
     public static final Charset c = Charset.forName("UTF-8");
     public static final TimeZone d = TimeZone.getTimeZone("GMT");
     private static final Pattern e = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");

@@ -11,17 +11,17 @@ import com.baidu.card.p;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tieba.R;
 import tbclient.SmartApp;
-/* loaded from: classes21.dex */
+/* loaded from: classes.dex */
 public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClickListener, p<com.baidu.tbadk.core.data.a> {
-    private View.OnClickListener akt;
-    private HeadImageView eYM;
-    private TextView fdZ;
-    private SmartApp fea;
+    private View.OnClickListener akV;
+    private HeadImageView fio;
+    private TextView fnI;
+    private SmartApp fnJ;
     private TextView mTitleView;
 
     public ThreadSmartAppLayout(Context context) {
@@ -35,37 +35,37 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
     public ThreadSmartAppLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         LayoutInflater.from(context).inflate(R.layout.thread_smart_app_layout, (ViewGroup) this, true);
-        this.eYM = (HeadImageView) findViewById(R.id.iv_thread_smart_app_head);
-        this.eYM.setIsRound(true);
-        this.eYM.setPlaceHolder(1);
+        this.fio = (HeadImageView) findViewById(R.id.iv_thread_smart_app_head);
+        this.fio.setIsRound(true);
+        this.fio.setPlaceHolder(1);
         this.mTitleView = (TextView) findViewById(R.id.tv_thread_smart_app_title);
-        this.fdZ = (TextView) findViewById(R.id.tv_thread_smart_app_abstract);
+        this.fnI = (TextView) findViewById(R.id.tv_thread_smart_app_abstract);
         setOnClickListener(this);
         onChangeSkinType();
     }
 
     public void onChangeSkinType() {
-        ap.setBackgroundResource(this, R.drawable.applets_cell_bg);
-        ap.setViewTextColor(this.mTitleView, R.color.CAM_X0105);
-        ap.setViewTextColor(this.fdZ, R.color.CAM_X0107);
+        ao.setBackgroundResource(this, R.drawable.applets_cell_bg);
+        ao.setViewTextColor(this.mTitleView, R.color.CAM_X0105);
+        ao.setViewTextColor(this.fnI, R.color.CAM_X0107);
     }
 
     public void setAfterClickListener(View.OnClickListener onClickListener) {
-        this.akt = onClickListener;
+        this.akV = onClickListener;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.fea != null) {
-            if (!com.baidu.tieba.aiapps.a.b(this.fea.id, this.fea.link, "1191003900000000", this.fea.is_game)) {
-                if (!au.isEmpty(this.fea.h5_url)) {
-                    bf.bua().b(X(getContext()), new String[]{this.fea.h5_url});
+        if (this.fnJ != null) {
+            if (!com.baidu.tieba.aiapps.a.b(this.fnJ.id, this.fnJ.link, "1191003900000000", this.fnJ.is_game)) {
+                if (!at.isEmpty(this.fnJ.h5_url)) {
+                    be.bwu().b(X(getContext()), new String[]{this.fnJ.h5_url});
                 } else {
                     return;
                 }
             }
-            if (this.akt != null) {
-                this.akt.onClick(view);
+            if (this.akV != null) {
+                this.akV.onClick(view);
             }
         }
     }
@@ -83,24 +83,24 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.p
     /* renamed from: b */
-    public void H(com.baidu.tbadk.core.data.a aVar) {
-        if (aVar == null || aVar.bmn() == null || aVar.bmn().bpE() == null) {
+    public void D(com.baidu.tbadk.core.data.a aVar) {
+        if (aVar == null || aVar.boO() == null || aVar.boO().bsf() == null) {
             setVisibility(8);
             return;
         }
-        this.fea = aVar.bmn().bpE();
-        if (!au.isEmpty(this.fea.avatar)) {
-            this.eYM.startLoad(this.fea.avatar, 10, false, false);
+        this.fnJ = aVar.boO().bsf();
+        if (!at.isEmpty(this.fnJ.avatar)) {
+            this.fio.startLoad(this.fnJ.avatar, 10, false, false);
         }
-        if (!au.isEmpty(this.fea.name)) {
-            this.mTitleView.setText(this.fea.name + " " + getContext().getResources().getString(R.string.smart_app_suffix));
+        if (!at.isEmpty(this.fnJ.name)) {
+            this.mTitleView.setText(this.fnJ.name + " " + getContext().getResources().getString(R.string.smart_app_suffix));
         } else {
             this.mTitleView.setText(getContext().getResources().getString(R.string.intelligent_smart_app));
         }
-        if (!au.isEmpty(this.fea._abstract)) {
-            this.fdZ.setText(this.fea._abstract);
+        if (!at.isEmpty(this.fnJ._abstract)) {
+            this.fnI.setText(this.fnJ._abstract);
         } else {
-            this.fdZ.setText(getContext().getResources().getString(R.string.smart_app_default_abstract));
+            this.fnI.setText(getContext().getResources().getString(R.string.smart_app_default_abstract));
         }
         setVisibility(0);
     }

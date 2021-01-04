@@ -1,13 +1,13 @@
 package com.baidu.tieba.recapp.download.http;
-/* loaded from: classes26.dex */
+/* loaded from: classes8.dex */
 public abstract class a {
-    private static a mIM = null;
+    private static a mNU = null;
 
     public abstract void a(g gVar);
 
-    public abstract String bL(String str);
+    public abstract String bF(String str);
 
-    public static final a dFt() {
-        return mIM;
+    public static final a dFi() {
+        return mNU;
     }
 }

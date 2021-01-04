@@ -2,7 +2,7 @@ package com.example.videopalyerplugin;
 
 import android.content.Context;
 import android.os.Build;
-import com.baidu.tbadk.util.ai;
+import com.baidu.tbadk.util.ah;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.MethodCall;
@@ -28,9 +28,9 @@ public class VideopalyerpluginPlugin implements FlutterPlugin, MethodChannel.Met
             result.success("Android " + Build.VERSION.RELEASE);
         } else if (!methodCall.method.equals("create")) {
             if (methodCall.method.equals("checkNeedAutoPlay")) {
-                result.success(Boolean.valueOf(ai.sW(((Integer) methodCall.argument("sourceType")).intValue())));
+                result.success(Boolean.valueOf(ah.th(((Integer) methodCall.argument("sourceType")).intValue())));
             } else if (methodCall.method.equals("isLocalSettingCanAutoPlay")) {
-                result.success(Boolean.valueOf(ai.bGV()));
+                result.success(Boolean.valueOf(ah.bJo()));
             } else {
                 result.notImplemented();
             }

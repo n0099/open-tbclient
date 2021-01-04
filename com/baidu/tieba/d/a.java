@@ -1,41 +1,371 @@
 package com.baidu.tieba.d;
 
-import android.content.Intent;
-import android.net.Uri;
+import android.app.Activity;
+import android.app.Application;
+import android.os.Process;
+import android.text.TextUtils;
+import android.view.MotionEvent;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.NetWorkChangedMessage;
+import com.baidu.adp.lib.util.j;
+import com.baidu.adp.plugin.Plugin;
+import com.baidu.adp.plugin.PluginCenter;
+import com.baidu.adp.plugin.b.b;
+import com.baidu.adp.plugin.packageManager.PluginPackageManager;
+import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
+import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSettings;
+import com.baidu.adp.plugin.packageManager.pluginSettings.c;
+import com.baidu.adp.plugin.proxy.ContentProviderProxy;
+import com.baidu.crabsdk.CrabSDK;
+import com.baidu.crabsdk.OnAnrCrashListener;
+import com.baidu.crabsdk.OnCrashExceedListener;
+import com.baidu.live.adp.framework.MessageConfig;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.R;
-/* loaded from: classes21.dex */
-public class a {
-    public static void a(Intent intent, final TbPageContext tbPageContext, final int i) {
-        Uri uri;
-        if (intent != null && TbadkCoreApplication.isLogin() && (uri = (Uri) intent.getParcelableExtra(IntentConfig.KEY_URI)) != null) {
-            String queryParameter = uri.getQueryParameter("portrait");
-            if (TbadkCoreApplication.getCurrentPortrait() != null && queryParameter != null && !TbadkCoreApplication.getCurrentPortrait().contains(queryParameter)) {
-                com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-                aVar.oT(1);
-                aVar.Bq(tbPageContext.getString(R.string.account_not_the_same_as_pc));
-                aVar.a(R.string.change_account, new a.b() { // from class: com.baidu.tieba.d.a.1
-                    @Override // com.baidu.tbadk.core.dialog.a.b
-                    public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                        aVar2.dismiss();
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(TbPageContext.this.getPageActivity(), true, i)));
-                    }
-                });
-                aVar.b(R.string.not_change_account, new a.b() { // from class: com.baidu.tieba.d.a.2
-                    @Override // com.baidu.tbadk.core.dialog.a.b
-                    public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                        aVar2.dismiss();
-                    }
-                });
-                aVar.b(tbPageContext).brv();
+import com.baidu.tbadk.switchs.CrabSdkSwitch;
+import com.baidu.tbadk.switchs.NativeCrashHandler;
+import com.baidu.tieba.t.a;
+import com.xiaomi.mipush.sdk.Constants;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+/* loaded from: classes8.dex */
+public class a implements a.InterfaceC0850a {
+    private String iCL;
+    private String iCM;
+    private String iCN;
+    private boolean iCI = false;
+    private boolean iCJ = false;
+    private boolean iCK = false;
+    private CustomMessageListener mAccountChangeListener = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.d.a.1
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
+                a.this.cws();
             }
+        }
+    };
+    private CustomMessageListener mSyncFinishListener = new CustomMessageListener(CmdConfigCustom.CMD_SYNC_FINISH) { // from class: com.baidu.tieba.d.a.2
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001371) {
+                CrabSdkSwitch.isOn();
+            }
+        }
+    };
+    private CustomMessageListener PQ = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.d.a.3
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
+                a.this.cwt();
+            }
+        }
+    };
+
+    @Override // com.baidu.tieba.t.a.InterfaceC0850a
+    public void initSdk(Application application) {
+        MessageManager.getInstance().registerListener(this.mSyncFinishListener);
+        MessageManager.getInstance().registerListener(this.mAccountChangeListener);
+        MessageManager.getInstance().registerListener(this.PQ);
+        if (!this.iCI) {
+            g(application);
+        }
+    }
+
+    private boolean g(Application application) {
+        try {
+            CrabSDK.setConstantSameCrashExceedLimit(3);
+            CrabSDK.setOnCrashExceedListener(new OnCrashExceedListener() { // from class: com.baidu.tieba.d.a.4
+                @Override // com.baidu.crabsdk.OnCrashExceedListener
+                public void onCrashExceedCallback() {
+                }
+            });
+            boolean isDebugMode = BdBaseApplication.getInst().isDebugMode();
+            String version = TbConfig.getVersion();
+            if (!TextUtils.isEmpty(version)) {
+                CrabSDK.setAppVersionName(version);
+            }
+            if (isDebugMode) {
+                CrabSDK.init(application, "ef986e35b4f9ccc5");
+            } else {
+                CrabSDK.init(application, "b14ed41a92769403");
+            }
+            this.iCI = true;
+            cws();
+            n(null);
+            cwt();
+            CrabSDK.setChannel(TbConfig.getCurrentFrom());
+            CrabSDK.setEnableLog(isDebugMode);
+            if (isDebugMode) {
+                CrabSDK.enableBlockCatch(-1);
+                CrabSDK.setBlockThreshold(2000);
+                CrabSDK.setUploadCrashOnlyWifi(false);
+                CrabSDK.setSendPrivacyInformation(true);
+                CrabSDK.setUploadLimitOfSameCrashInOneday(-1);
+                CrabSDK.setUploadLimitOfCrashInOneday(-1);
+                CrabSDK.setUploadLimitOfAnrInOneday(-1);
+                CrabSDK.setUrlRecordLimit(10);
+            } else {
+                if (cwn()) {
+                    CrabSDK.disableBlockCatch();
+                } else if (cwp()) {
+                    CrabSDK.disableBlockCatch();
+                } else {
+                    CrabSDK.disableBlockCatch();
+                }
+                CrabSDK.setUploadCrashOnlyWifi(false);
+                CrabSDK.setSendPrivacyInformation(true);
+                CrabSDK.setUploadLimitOfSameCrashInOneday(10);
+                CrabSDK.setUploadLimitOfCrashInOneday(30);
+                CrabSDK.setUploadLimitOfAnrInOneday(10);
+                CrabSDK.setBehaviorRecordLimit(5);
+            }
+            if (NativeCrashHandler.isOn()) {
+                CrabSDK.openNativeCrashHandlerWithSysCatched();
+            } else {
+                ArrayList arrayList = new ArrayList();
+                arrayList.add("libflutter.so");
+                arrayList.add("libapp.so");
+                CrabSDK.openNativeCrashHandler(arrayList);
+            }
+            CrabSDK.setOnAnrCrashListener(new OnAnrCrashListener() { // from class: com.baidu.tieba.d.a.5
+                @Override // com.baidu.crabsdk.OnAnrCrashListener
+                public void onAnrStarted(Map map) {
+                    a.this.cws();
+                    a.this.n(null);
+                }
+
+                @Override // com.baidu.crabsdk.OnAnrCrashListener
+                public void onCrashStarted(Thread thread, Throwable th) {
+                    a.this.cws();
+                    a.this.n(th);
+                }
+
+                @Override // com.baidu.crabsdk.OnAnrCrashListener
+                public void onNativeCrashStarted(String str) {
+                    a.this.cws();
+                    a.this.n(null);
+                }
+            });
+            cwq();
+            cwr();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            this.iCI = false;
+            return false;
+        }
+    }
+
+    private boolean cwn() {
+        return TbConfig.getVersionType() == 2;
+    }
+
+    private boolean cwo() {
+        return TbConfig.getVersionType() == 1;
+    }
+
+    private boolean cwp() {
+        return TbConfig.getVersionType() == 3;
+    }
+
+    private void cwq() {
+        if (this.iCI && this.iCJ) {
+            CrabSDK.disableBlockCatch();
+        }
+    }
+
+    private void cwr() {
+        if (this.iCI && this.iCK) {
+            CrabSDK.closeAnrHandler();
+        }
+    }
+
+    public void cws() {
+        eL(TbadkCoreApplication.getInst().getCuidGalaxy2(), TbadkCoreApplication.getCurrentAccount());
+    }
+
+    public void eL(String str, String str2) {
+        if (this.iCI) {
+            CrabSDK.setUid(str);
+            CrabSDK.setUserName(str2);
+        }
+    }
+
+    public void cwt() {
+        if (this.iCI) {
+            if (j.isWifiNet()) {
+                CrabSDK.setCollectScreenshot(true);
+            } else {
+                CrabSDK.setCollectScreenshot(false);
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void n(Throwable th) {
+        if (this.iCI) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("version_type", cwu());
+            hashMap.put("version", TbConfig.getVersion());
+            hashMap.put("sub_version", TbConfig.getSubVersion());
+            hashMap.put("plugin_info", o(th));
+            hashMap.put("lastFlutterPage", this.iCL);
+            hashMap.put("openFlutterPage", this.iCM);
+            hashMap.put("flutterPath", this.iCN);
+            hashMap.put("customTime", String.valueOf(System.currentTimeMillis()));
+            hashMap.put("isBackground", String.valueOf(TbadkCoreApplication.getInst().isInBackground()));
+            hashMap.put("pid", String.valueOf(Process.myPid()));
+            CrabSDK.setUsersCustomKV(hashMap);
+        }
+    }
+
+    @Override // com.baidu.tieba.t.a.InterfaceC0850a
+    public void setLastFlutterPage(String str) {
+        this.iCL = str;
+    }
+
+    @Override // com.baidu.tieba.t.a.InterfaceC0850a
+    public void setOpenFlutterPage(String str) {
+        this.iCM = str;
+    }
+
+    @Override // com.baidu.tieba.t.a.InterfaceC0850a
+    public void setFlutterPath(String str) {
+        this.iCN = str;
+    }
+
+    private String o(Throwable th) {
+        String str;
+        StringBuilder sb = new StringBuilder();
+        try {
+            if (PluginCenter.getInstance() != null && PluginCenter.getInstance().getAllPlugins() != null) {
+                Iterator<Plugin> it = PluginCenter.getInstance().getAllPlugins().iterator();
+                while (it.hasNext()) {
+                    Plugin next = it.next();
+                    if (next != null) {
+                        PluginSetting cw = PluginPackageManager.px().cw(next.getPackageName());
+                        sb.append(next.getPackageName());
+                        sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+                        sb.append(next.getCurrentPluginMode());
+                        sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+                        if (cw != null) {
+                            sb.append(new File(cw.apkPath).exists());
+                            sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+                            sb.append(next.getVersionCode());
+                            sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+                            sb.append(cw.tempVersionCode);
+                            sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+                            if (cw.enable) {
+                                sb.append("true");
+                            } else {
+                                sb.append("false");
+                            }
+                        } else {
+                            sb.append("null");
+                        }
+                        sb.append(",");
+                    }
+                }
+            }
+        } catch (Exception e) {
+        }
+        if (th == null) {
+            return "--pluginInfo-" + sb.toString();
+        }
+        boolean z = false;
+        StringBuilder sb2 = new StringBuilder();
+        try {
+            if (th.getMessage() == null || (!th.getMessage().contains("java.lang.ClassNotFoundException") && !th.getMessage().contains("java.lang.NoClassDefFoundError"))) {
+                str = "";
+            } else {
+                z = true;
+                PluginSettings pW = c.pZ().pW();
+                if (pW != null) {
+                    sb2.append(pW.getContainerVersion());
+                    sb2.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+                    sb2.append(pW.getForbiddenFeatures());
+                    sb2.append("#");
+                    for (PluginSetting pluginSetting : pW.getPlugins().values()) {
+                        if (pluginSetting != null) {
+                            sb2.append(pluginSetting.packageName);
+                            sb2.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+                            sb2.append(pluginSetting.versionCode);
+                            sb2.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+                            sb2.append(pluginSetting.tempVersionCode);
+                            sb2.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+                            sb2.append(pluginSetting.enable);
+                            sb2.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+                            sb2.append(pluginSetting.forbidden);
+                            sb2.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+                            sb2.append(pluginSetting.installStatus);
+                            sb2.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+                            sb2.append(new File(pluginSetting.apkPath).exists());
+                            sb2.append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
+                        }
+                    }
+                } else {
+                    sb2.append("pluginSettings_is_null");
+                }
+                str = b.pk().toString();
+            }
+        } catch (Exception e2) {
+            str = "";
+        }
+        String str2 = th.getMessage() + "--pluginInfo-" + sb.toString() + "\n--activityStack--" + com.baidu.adp.base.b.kC().kD();
+        return z ? str2 + "\n--PluginSettings--" + sb2.toString() + "\n--PluginTrace--" + str : str2;
+    }
+
+    private String cwu() {
+        if (BdBaseApplication.getInst().isDebugMode()) {
+            return "DebugBuild";
+        }
+        if (cwp()) {
+            return "ReleasedBuild";
+        }
+        if (cwn()) {
+            return "GrayBuild";
+        }
+        if (!cwo()) {
+            return "DefaultBuild";
+        }
+        return "DailyBuild";
+    }
+
+    @Override // com.baidu.tieba.t.a.InterfaceC0850a
+    public void onPause(Activity activity) {
+        if (this.iCI && activity != null) {
+            CrabSDK.onPause(activity);
+        }
+    }
+
+    @Override // com.baidu.tieba.t.a.InterfaceC0850a
+    public void onResume(Activity activity) {
+        if (this.iCI && activity != null) {
+            CrabSDK.onResume(activity);
+        }
+    }
+
+    @Override // com.baidu.tieba.t.a.InterfaceC0850a
+    public void behaviorRecordEvent(MotionEvent motionEvent, Activity activity) {
+        if (this.iCI && activity != null && motionEvent != null) {
+            CrabSDK.behaviorRecordEvent(motionEvent, activity);
+        }
+    }
+
+    @Override // com.baidu.tieba.t.a.InterfaceC0850a
+    public void uploadException(Exception exc) {
+        if (this.iCI && exc != null) {
+            CrabSDK.uploadException(exc);
         }
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.android.imsdk.chatmessage;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class MsgRecord {
     private long msgId;
     private long msgTime;

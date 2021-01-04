@@ -1,11 +1,11 @@
 package com.baidu.pass.biometrics.face.liveness;
 
 import com.baidu.pass.biometrics.base.PassBiometricOperation;
-/* loaded from: classes12.dex */
+/* loaded from: classes7.dex */
 public class PassFaceOperation implements PassBiometricOperation {
     public OperationType operationType = OperationType.RECOGNIZE;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes7.dex */
     public enum OperationType {
         RECOGNIZE("RECOGNIZE");
         

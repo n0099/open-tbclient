@@ -20,7 +20,7 @@ import org.apache.http.cookie.SM;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes21.dex */
+/* loaded from: classes.dex */
 public class VideoPasterRequestData extends HttpMessage {
     private static String _ANDROID_ID = "";
     private static final TbHttpMessageTask task = new TbHttpMessageTask(CmdConfigHttp.CMD_VIDEO_PASTER_AD_REQUEST, TbConfig.SERVER_ADDRESS + "tiebaads/ads");
@@ -29,28 +29,28 @@ public class VideoPasterRequestData extends HttpMessage {
         super(CmdConfigHttp.CMD_VIDEO_PASTER_AD_REQUEST);
         addCommonParams();
         addHeader(SM.COOKIE, CookieManager.getInstance().getCookie("tieba.baidu.com"));
-        addParam("pid", aVar.rA());
+        addParam("pid", aVar.rc());
         addParam("ac", "1");
         String ext = getExt(aVar);
         if (!StringUtils.isNull(ext)) {
             addParam("ext", ext);
         }
         addParam("is_https", 1);
-        addParam("flr", String.valueOf(aVar.rp()));
+        addParam("flr", String.valueOf(aVar.qR()));
         addParam("sw", String.valueOf(aVar.width()));
         addParam(IXAdRequestInfo.SCREEN_HEIGHT, String.valueOf(aVar.height()));
         addParam("apna", TbadkCoreApplication.getInst().getPackageName());
-        addParam("fc", String.valueOf(aVar.rp()));
-        addParam("ft", aVar.rn());
+        addParam("fc", String.valueOf(aVar.qR()));
+        addParam("ft", aVar.qP());
         addParam(Config.EXCEPTION_CRASH_TYPE, "2");
     }
 
     private static String getExt(com.baidu.afd.videopaster.a aVar) {
-        if (aVar == null || aVar.rq() == null || aVar.rq().isEmpty()) {
+        if (aVar == null || aVar.qS() == null || aVar.qS().isEmpty()) {
             return null;
         }
         JSONArray jSONArray = new JSONArray();
-        for (Map.Entry<String, String> entry : aVar.rq().entrySet()) {
+        for (Map.Entry<String, String> entry : aVar.qS().entrySet()) {
             jSONArray.put(create(entry.getKey(), entry.getValue()));
         }
         return jSONArray.toString();

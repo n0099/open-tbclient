@@ -9,7 +9,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class KVCacheUtils {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [62=4] */
     /* JADX WARN: Type inference failed for: r4v11, types: [T, java.lang.String] */
@@ -23,6 +23,7 @@ public class KVCacheUtils {
             cursor = null;
         }
         if (cursor == null) {
+            BdCloseHelper.close(cursor);
             return null;
         }
         while (cursor.moveToNext()) {
@@ -37,6 +38,7 @@ public class KVCacheUtils {
                 th = th2;
                 try {
                     BdLog.e(th);
+                    BdCloseHelper.close(cursor);
                     Collections.sort(linkedList, new CacheElementComparator());
                     return linkedList;
                 } finally {
@@ -44,7 +46,6 @@ public class KVCacheUtils {
                 }
             }
         }
-        BdCloseHelper.close(cursor);
         Collections.sort(linkedList, new CacheElementComparator());
         return linkedList;
     }
@@ -61,6 +62,7 @@ public class KVCacheUtils {
             cursor = null;
         }
         if (cursor == null) {
+            BdCloseHelper.close(cursor);
             return null;
         }
         while (cursor.moveToNext()) {
@@ -75,6 +77,7 @@ public class KVCacheUtils {
                 th = th2;
                 try {
                     BdLog.e(th);
+                    BdCloseHelper.close(cursor);
                     Collections.sort(linkedList, new CacheElementComparator());
                     return linkedList;
                 } finally {
@@ -82,7 +85,6 @@ public class KVCacheUtils {
                 }
             }
         }
-        BdCloseHelper.close(cursor);
         Collections.sort(linkedList, new CacheElementComparator());
         return linkedList;
     }
@@ -99,7 +101,7 @@ public class KVCacheUtils {
         return null;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     private static class CacheElementComparator implements Comparator<BdKVCache.CacheElement<?>> {
         private CacheElementComparator() {
         }

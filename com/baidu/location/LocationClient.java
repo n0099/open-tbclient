@@ -20,10 +20,11 @@ import com.baidu.ar.auth.FeatureCodes;
 import com.baidu.location.b.d;
 import com.baidu.location.b.n;
 import com.baidu.location.e.l;
+import com.kwai.video.player.PlayerPostEvent;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public final class LocationClient implements d.a {
     public static final int CONNECT_HOT_SPOT_FALSE = 0;
     public static final int CONNECT_HOT_SPOT_TRUE = 1;
@@ -44,8 +45,10 @@ public final class LocationClient implements d.a {
     private String v;
 
     /* renamed from: a  reason: collision with root package name */
-    private long f1858a = 0;
-    private String b = null;
+    private long f2571a = 0;
+
+    /* renamed from: b  reason: collision with root package name */
+    private String f2572b = null;
     private boolean e = false;
     private Messenger g = null;
     private ArrayList<BDLocationListener> j = null;
@@ -74,20 +77,20 @@ public final class LocationClient implements d.a {
     private final Messenger i = new Messenger(this.h);
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public static class a extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        private final WeakReference<LocationClient> f1859a;
+        private final WeakReference<LocationClient> f2573a;
 
         a(Looper looper, LocationClient locationClient) {
             super(looper);
-            this.f1859a = new WeakReference<>(locationClient);
+            this.f2573a = new WeakReference<>(locationClient);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            LocationClient locationClient = this.f1859a.get();
+            LocationClient locationClient = this.f2573a.get();
             if (locationClient == null) {
                 return;
             }
@@ -175,7 +178,7 @@ public final class LocationClient implements d.a {
                 case 701:
                     locationClient.a((BDLocation) message.obj);
                     return;
-                case 703:
+                case PlayerPostEvent.MEDIA_INFO_NETWORK_BANDWIDTH /* 703 */:
                     try {
                         Bundle data4 = message.getData();
                         int i4 = data4.getInt("id", 0);
@@ -208,7 +211,7 @@ public final class LocationClient implements d.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public class b implements Runnable {
         private b() {
         }
@@ -274,8 +277,8 @@ public final class LocationClient implements d.a {
             return;
         }
         this.A = false;
-        this.b = this.f.getPackageName();
-        this.u = this.b + "_bdls_v2.9";
+        this.f2572b = this.f.getPackageName();
+        this.u = this.f2572b + "_bdls_v2.9";
         Intent intent = new Intent(this.f, f.class);
         try {
             intent.putExtra("debug_dev", this.B);
@@ -493,7 +496,7 @@ public final class LocationClient implements d.a {
             return null;
         }
         Bundle bundle = new Bundle();
-        bundle.putString("packName", this.b);
+        bundle.putString("packName", this.f2572b);
         bundle.putString("prodName", this.c.prodName);
         bundle.putString("coorType", this.c.coorType);
         bundle.putString("addrType", this.c.addrType);
@@ -504,7 +507,7 @@ public final class LocationClient implements d.a {
         bundle.putInt("timeOut", this.c.timeOut);
         bundle.putInt("priority", this.c.priority);
         bundle.putBoolean("map", this.y.booleanValue());
-        bundle.putBoolean(com.baidu.sapi2.utils.enums.a.f3557a, this.z.booleanValue());
+        bundle.putBoolean(com.baidu.sapi2.utils.enums.a.f5410a, this.z.booleanValue());
         bundle.putBoolean("needDirect", this.c.mIsNeedDeviceDirect);
         bundle.putBoolean("isneedaptag", this.c.isNeedAptag);
         bundle.putBoolean("isneedpoiregion", this.c.isNeedPoiRegion);
@@ -517,8 +520,8 @@ public final class LocationClient implements d.a {
         bundle.putInt("autoNotifyMinDistance", this.c.getAutoNotifyMinDistance());
         bundle.putFloat("autoNotifyLocSensitivity", this.c.b());
         bundle.putInt("wifitimeout", this.c.wifiCacheTimeOut);
-        bundle.putInt("wfnum", com.baidu.location.b.a.a().b);
-        bundle.putBoolean("ischeckper", com.baidu.location.b.a.a().f1865a);
+        bundle.putInt("wfnum", com.baidu.location.b.a.a().f2581b);
+        bundle.putBoolean("ischeckper", com.baidu.location.b.a.a().f2580a);
         bundle.putFloat("wfsm", (float) com.baidu.location.b.a.a().c);
         bundle.putDouble("gnmcrm", com.baidu.location.b.a.a().f);
         bundle.putInt("gnmcon", com.baidu.location.b.a.a().g);
@@ -558,7 +561,7 @@ public final class LocationClient implements d.a {
             try {
                 obtain.replyTo = this.i;
                 this.g.send(obtain);
-                this.f1858a = System.currentTimeMillis();
+                this.f2571a = System.currentTimeMillis();
                 this.m = true;
             } catch (Exception e) {
                 e.printStackTrace();
@@ -631,7 +634,7 @@ public final class LocationClient implements d.a {
         Bundle bundle = new Bundle();
         bundle.putInt("id", i);
         bundle.putParcelable(ActionJsonData.TAG_NOTIFICATION, notification);
-        Message obtainMessage = this.h.obtainMessage(703);
+        Message obtainMessage = this.h.obtainMessage(PlayerPostEvent.MEDIA_INFO_NETWORK_BANDWIDTH);
         obtainMessage.setData(bundle);
         obtainMessage.sendToTarget();
     }
@@ -713,7 +716,7 @@ public final class LocationClient implements d.a {
         if ((this.j == null || this.j.size() < 1) && (this.k == null || this.k.size() < 1)) {
             return 2;
         }
-        if (System.currentTimeMillis() - this.f1858a < 1000) {
+        if (System.currentTimeMillis() - this.f2571a < 1000) {
             return 6;
         }
         this.n = true;

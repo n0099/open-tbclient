@@ -1,10 +1,12 @@
 package com.bun.miitmdid.utils;
 
 import android.util.Log;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class a {
-    private static a oZg;
-    private int b = -1;
+    private static a pgt;
+
+    /* renamed from: b  reason: collision with root package name */
+    private int f6063b = -1;
 
     private a() {
     }
@@ -22,7 +24,7 @@ public class a {
     }
 
     public static void a(boolean z) {
-        eow().b = z ? 1 : 0;
+        eoL().f6063b = z ? 1 : 0;
     }
 
     public static void b(String str, String str2) {
@@ -38,17 +40,17 @@ public class a {
     }
 
     public static boolean b() {
-        return eow().b == 1;
+        return eoL().f6063b == 1;
     }
 
-    public static a eow() {
-        if (oZg == null) {
+    public static a eoL() {
+        if (pgt == null) {
             synchronized (a.class) {
-                if (oZg == null) {
-                    oZg = new a();
+                if (pgt == null) {
+                    pgt = new a();
                 }
             }
         }
-        return oZg;
+        return pgt;
     }
 }

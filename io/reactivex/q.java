@@ -1,10 +1,10 @@
 package io.reactivex;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public abstract class q<T> implements t<T> {
     protected abstract void a(u<? super T> uVar);
 
-    public static int eCS() {
-        return g.eCS();
+    public static int eLa() {
+        return g.eLa();
     }
 
     @Override // io.reactivex.t
@@ -17,7 +17,7 @@ public abstract class q<T> implements t<T> {
         } catch (NullPointerException e) {
             throw e;
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.J(th);
+            io.reactivex.exceptions.a.O(th);
             io.reactivex.d.a.onError(th);
             NullPointerException nullPointerException = new NullPointerException("Actually not, but can't throw other exceptions due to RS");
             nullPointerException.initCause(th);

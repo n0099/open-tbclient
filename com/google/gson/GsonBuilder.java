@@ -32,7 +32,7 @@ public final class GsonBuilder {
     private int timeStyle;
 
     public GsonBuilder() {
-        this.excluder = Excluder.ptN;
+        this.excluder = Excluder.pKN;
         this.longSerializationPolicy = LongSerializationPolicy.DEFAULT;
         this.fieldNamingPolicy = FieldNamingPolicy.IDENTITY;
         this.instanceCreators = new HashMap();
@@ -51,7 +51,7 @@ public final class GsonBuilder {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public GsonBuilder(Gson gson) {
-        this.excluder = Excluder.ptN;
+        this.excluder = Excluder.pKN;
         this.longSerializationPolicy = LongSerializationPolicy.DEFAULT;
         this.fieldNamingPolicy = FieldNamingPolicy.IDENTITY;
         this.instanceCreators = new HashMap();
@@ -85,12 +85,12 @@ public final class GsonBuilder {
     }
 
     public GsonBuilder setVersion(double d) {
-        this.excluder = this.excluder.Q(d);
+        this.excluder = this.excluder.P(d);
         return this;
     }
 
     public GsonBuilder excludeFieldsWithModifiers(int... iArr) {
-        this.excluder = this.excluder.v(iArr);
+        this.excluder = this.excluder.t(iArr);
         return this;
     }
 
@@ -100,7 +100,7 @@ public final class GsonBuilder {
     }
 
     public GsonBuilder excludeFieldsWithoutExposeAnnotation() {
-        this.excluder = this.excluder.eyj();
+        this.excluder = this.excluder.eBV();
         return this;
     }
 
@@ -115,7 +115,7 @@ public final class GsonBuilder {
     }
 
     public GsonBuilder disableInnerClassSerialization() {
-        this.excluder = this.excluder.eyi();
+        this.excluder = this.excluder.eBU();
         return this;
     }
 
@@ -190,10 +190,10 @@ public final class GsonBuilder {
             this.instanceCreators.put(type, (InstanceCreator) obj);
         }
         if ((obj instanceof JsonSerializer) || (obj instanceof JsonDeserializer)) {
-            this.factories.add(TreeTypeAdapter.a(com.google.gson.b.a.k(type), obj));
+            this.factories.add(TreeTypeAdapter.a(com.google.gson.b.a.r(type), obj));
         }
         if (obj instanceof TypeAdapter) {
-            this.factories.add(TypeAdapters.a(com.google.gson.b.a.k(type), (TypeAdapter) obj));
+            this.factories.add(TypeAdapters.a(com.google.gson.b.a.r(type), (TypeAdapter) obj));
         }
         return this;
     }
@@ -206,7 +206,7 @@ public final class GsonBuilder {
     public GsonBuilder registerTypeHierarchyAdapter(Class<?> cls, Object obj) {
         a.checkArgument((obj instanceof JsonSerializer) || (obj instanceof JsonDeserializer) || (obj instanceof TypeAdapter));
         if ((obj instanceof JsonDeserializer) || (obj instanceof JsonSerializer)) {
-            this.hierarchyFactories.add(TreeTypeAdapter.a(cls, obj));
+            this.hierarchyFactories.add(TreeTypeAdapter.b(cls, obj));
         }
         if (obj instanceof TypeAdapter) {
             this.factories.add(TypeAdapters.b(cls, (TypeAdapter) obj));

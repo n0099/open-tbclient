@@ -1,53 +1,53 @@
 package com.baidu.tieba.post;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentPagerAdapter;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentPagerAdapter;
 import com.baidu.tbadk.core.atomData.PersonPostActivityConfig;
-/* loaded from: classes24.dex */
+/* loaded from: classes8.dex */
 public class PersonPostAdapter extends FragmentPagerAdapter {
-    private int[] gMW;
-    private PersonThreadFragment mBL;
-    private PersonReplyFragment mBM;
+    private int[] gYG;
+    private PersonThreadFragment mHc;
+    private PersonReplyFragment mHd;
 
     public PersonPostAdapter(PersonPostActivity personPostActivity) {
         super(personPostActivity.getSupportFragmentManager());
         Bundle bundle = new Bundle();
         bundle.putString("key_uid", personPostActivity.getUid());
         bundle.putString(PersonPostActivityConfig.KEY_PORTRAIT_URL, personPostActivity.getPortraitUrl());
-        bundle.putString("key_empty_view_text", personPostActivity.dCO());
-        this.mBM = new PersonReplyFragment();
-        this.mBM.setArguments(bundle);
-        this.mBM.a(personPostActivity);
-        this.mBL = new PersonThreadFragment();
-        this.mBL.setArguments(bundle);
-        this.mBL.a((d) personPostActivity);
-        this.mBL.a((b) personPostActivity);
-        this.gMW = new int[]{0, 1};
+        bundle.putString("key_empty_view_text", personPostActivity.dCD());
+        this.mHd = new PersonReplyFragment();
+        this.mHd.setArguments(bundle);
+        this.mHd.a(personPostActivity);
+        this.mHc = new PersonThreadFragment();
+        this.mHc.setArguments(bundle);
+        this.mHc.a((d) personPostActivity);
+        this.mHc.a((b) personPostActivity);
+        this.gYG = new int[]{0, 1};
     }
 
-    public PersonThreadFragment dCP() {
-        return this.mBL;
+    public PersonThreadFragment dCE() {
+        return this.mHc;
     }
 
-    @Override // android.support.v4.app.FragmentPagerAdapter
+    @Override // androidx.fragment.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
         switch (i) {
             case 0:
-                return this.mBL;
+                return this.mHc;
             case 1:
-                return this.mBM;
+                return this.mHd;
             default:
                 return null;
         }
     }
 
-    @Override // android.support.v4.view.PagerAdapter
+    @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
         return 2;
     }
 
-    public int EF(int i) {
-        return this.gMW[i];
+    public int Ey(int i) {
+        return this.gYG[i];
     }
 }

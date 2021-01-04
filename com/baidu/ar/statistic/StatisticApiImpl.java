@@ -8,7 +8,7 @@ import java.lang.Thread;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public final class StatisticApiImpl implements g, l.a {
     private HandlerThread wW;
     private c wX;

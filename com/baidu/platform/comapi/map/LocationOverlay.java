@@ -8,7 +8,7 @@ import com.baidu.platform.comjni.tools.ParcelItem;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class LocationOverlay extends InnerOverlay {
     private AppBaseMap c;
 

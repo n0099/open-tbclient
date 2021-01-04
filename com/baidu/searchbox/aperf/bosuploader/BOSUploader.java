@@ -2,6 +2,7 @@ package com.baidu.searchbox.aperf.bosuploader;
 
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.util.io.Closeables;
 import com.baidu.e.b.a;
 import com.baidu.searchbox.config.AppConfig;
@@ -23,7 +24,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import org.json.JSONException;
-/* loaded from: classes16.dex */
+/* loaded from: classes5.dex */
 public class BOSUploader {
     private static final String OS_ANDROID = "android";
     private static final long PART_SIZE = 5242880;
@@ -46,7 +47,7 @@ public class BOSUploader {
     private BOSUploader() {
     }
 
-    private BosClient createBosClient(STSInfo sTSInfo) {
+    private BosClient createBosClient(@NonNull STSInfo sTSInfo) {
         if (TextUtils.isEmpty(sTSInfo.ak) || TextUtils.isEmpty(sTSInfo.sk) || TextUtils.isEmpty(sTSInfo.token)) {
             return null;
         }
@@ -56,12 +57,12 @@ public class BOSUploader {
         return new BosClient(bosClientConfiguration);
     }
 
-    public BOSResponseEntity uploadFileSync(String str, String str2, File file, UploadUrlListener uploadUrlListener) {
+    public BOSResponseEntity uploadFileSync(@NonNull String str, @NonNull String str2, @NonNull File file, @NonNull UploadUrlListener uploadUrlListener) {
         UploadUrlProvider.getInstance().setUploadUrlListener(uploadUrlListener);
         return uploadFileSync(str, str2, file);
     }
 
-    public BOSResponseEntity uploadFileSync(String str, String str2, File file) {
+    public BOSResponseEntity uploadFileSync(@NonNull String str, @NonNull String str2, @NonNull File file) {
         BOSResponseEntity uploadFileSyncPart = uploadFileSyncPart(STSManager.getCurrentStsInfo(str), str, str2, file);
         if (!uploadFileSyncPart.isSuccess() && uploadFileSyncPart.getErrorCode() != 0 && STSManager.checkRetry(str)) {
             return uploadFileSyncPart(STSManager.retryGetStsInfo(str), str, str2, file);
@@ -78,7 +79,7 @@ public class BOSUploader {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private BOSResponseEntity uploadFileSyncPart(STSInfo sTSInfo, String str, String str2, File file) {
+    private BOSResponseEntity uploadFileSyncPart(STSInfo sTSInfo, @NonNull String str, @NonNull String str2, @NonNull File file) {
         FileInputStream fileInputStream;
         UploadPartResponse uploadPart;
         try {
@@ -186,7 +187,7 @@ public class BOSUploader {
         }
     }
 
-    public String createObjectKey(String str, String str2) {
-        return a.uN().getAppName() + "/android/" + str + "/" + str2;
+    public String createObjectKey(@NonNull String str, @NonNull String str2) {
+        return a.um().getAppName() + "/android/" + str + "/" + str2;
     }
 }

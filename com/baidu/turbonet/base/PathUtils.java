@@ -9,89 +9,89 @@ import android.os.SystemClock;
 import com.baidu.turbonet.base.annotations.CalledByNative;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public abstract class PathUtils {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private static final AtomicBoolean oBs;
-    private static AsyncTask<Void, Void, String[]> oBt;
-    private static Context oBu;
+    private static final AtomicBoolean oIZ;
+    private static AsyncTask<Void, Void, String[]> oJa;
+    private static Context oJb;
     private static String sDataDirectorySuffix;
 
     static {
         $assertionsDisabled = !PathUtils.class.desiredAssertionStatus();
-        oBs = new AtomicBoolean();
+        oIZ = new AtomicBoolean();
     }
 
     private PathUtils() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static class a {
-        private static final String[] oBv = PathUtils.egQ();
+        private static final String[] DIRECTORY_PATHS = PathUtils.ehv();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static String[] egQ() {
+    public static String[] ehv() {
         try {
-            if (oBt.cancel(false)) {
+            if (oJa.cancel(false)) {
                 StrictMode.ThreadPolicy allowThreadDiskReads = StrictMode.allowThreadDiskReads();
                 StrictMode.allowThreadDiskWrites();
                 try {
-                    return egR();
+                    return setPrivateDataDirectorySuffixInternal();
                 } finally {
                     StrictMode.setThreadPolicy(allowThreadDiskReads);
                 }
             }
-            return oBt.get();
+            return oJa.get();
         } catch (InterruptedException | ExecutionException e) {
             return null;
         }
     }
 
-    private static String[] egR() {
+    private static String[] setPrivateDataDirectorySuffixInternal() {
         String[] strArr = new String[4];
-        strArr[0] = oBu.getDir(sDataDirectorySuffix, 0).getPath();
-        strArr[1] = oBu.getDir("textures", 0).getPath();
-        strArr[2] = oBu.getDatabasePath("foo").getParent();
-        if (oBu.getCacheDir() != null) {
-            strArr[3] = oBu.getCacheDir().getPath();
+        strArr[0] = oJb.getDir(sDataDirectorySuffix, 0).getPath();
+        strArr[1] = oJb.getDir("textures", 0).getPath();
+        strArr[2] = oJb.getDatabasePath("foo").getParent();
+        if (oJb.getCacheDir() != null) {
+            strArr[3] = oJb.getCacheDir().getPath();
         }
         return strArr;
     }
 
-    private static String Ob(int i) {
-        return a.oBv[i];
+    private static String getDirectoryPath(int i) {
+        return a.DIRECTORY_PATHS[i];
     }
 
     @CalledByNative
     public static String getDataDirectory(Context context) {
-        if ($assertionsDisabled || oBt != null) {
-            return Ob(0);
+        if ($assertionsDisabled || oJa != null) {
+            return getDirectoryPath(0);
         }
         throw new AssertionError("setDataDirectorySuffix must be called first.");
     }
 
     @CalledByNative
     public static String getDatabaseDirectory(Context context) {
-        if ($assertionsDisabled || oBt != null) {
-            return Ob(2);
+        if ($assertionsDisabled || oJa != null) {
+            return getDirectoryPath(2);
         }
         throw new AssertionError("setDataDirectorySuffix must be called first.");
     }
 
     @CalledByNative
     public static String getCacheDirectory(Context context) {
-        if ($assertionsDisabled || oBt != null) {
-            return Ob(3);
+        if ($assertionsDisabled || oJa != null) {
+            return getDirectoryPath(3);
         }
         throw new AssertionError("setDataDirectorySuffix must be called first.");
     }
 
     @CalledByNative
     public static String getThumbnailCacheDirectory(Context context) {
-        if ($assertionsDisabled || oBt != null) {
-            return Ob(1);
+        if ($assertionsDisabled || oJa != null) {
+            return getDirectoryPath(1);
         }
         throw new AssertionError("setDataDirectorySuffix must be called first.");
     }

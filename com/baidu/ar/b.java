@@ -24,12 +24,14 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class b {
     private com.baidu.ar.filter.a B;
     private c.a C;
     private g D;
-    private Looper b;
+
+    /* renamed from: b  reason: collision with root package name */
+    private Looper f1483b;
     private a c;
     private DefaultParams d;
     private com.baidu.ar.mdl.b e;
@@ -55,7 +57,7 @@ public class b {
     private boolean A = true;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes6.dex */
     public class a extends Handler {
         public a(Looper looper) {
             super(looper);
@@ -70,8 +72,8 @@ public class b {
                         b.this.a(cVar.mClassName, cVar.H, cVar.I, cVar.G, cVar.J, cVar.K);
                         break;
                     case 1002:
-                        C0081b c0081b = (C0081b) message.obj;
-                        b.this.a(c0081b.mClassName, c0081b.G);
+                        C0073b c0073b = (C0073b) message.obj;
+                        b.this.a(c0073b.mClassName, c0073b.G);
                         break;
                     case 1003:
                         d dVar = (d) message.obj;
@@ -87,19 +89,19 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.ar.b$b  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public class C0081b {
+    /* loaded from: classes6.dex */
+    public class C0073b {
         HashMap<String, Object> G;
         String mClassName;
 
-        C0081b(String str, HashMap<String, Object> hashMap) {
+        C0073b(String str, HashMap<String, Object> hashMap) {
             this.mClassName = str;
             this.G = hashMap;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes6.dex */
     public class c {
         HashMap<String, Object> G;
         List<String> H;
@@ -132,7 +134,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes6.dex */
     public class d {
         String J;
         com.baidu.ar.d.e K;
@@ -152,7 +154,7 @@ public class b {
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(Context context, Looper looper, DefaultParams defaultParams, com.baidu.ar.a.b bVar, com.baidu.ar.filter.a aVar) {
         this.mContext = context;
-        this.b = looper;
+        this.f1483b = looper;
         this.c = new a(looper);
         this.d = defaultParams;
         setMdlModelPath(this.d.getMdlAlgoModelPath());
@@ -257,25 +259,22 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(HashMap<String, Object> hashMap) {
-        String str;
-        boolean z = true;
+        boolean z = false;
         int a2 = com.baidu.ar.arplay.c.c.a(hashMap.get("id"), -1);
         boolean z2 = com.baidu.ar.arplay.c.c.a(hashMap.get("open"), -1) == 1;
         com.baidu.ar.h.b.c("AbilityManager", "operateAbilityById id = " + a2 + " && open = " + z2);
+        String str = null;
         if (a2 == 5001) {
-            z = z2;
             str = "ability_gesture";
-        } else if (a2 == 5011) {
             z = z2;
+        } else if (a2 == 5011) {
             str = "ability_image_segmentation";
+            z = z2;
         } else if (a2 == 3005) {
             str = "ability_logo_recognition";
-        } else if (a2 == 3006) {
-            str = null;
-            z = false;
-        } else {
+            z = true;
+        } else if (a2 != 3006) {
             z = z2;
-            str = null;
         }
         if (str != null) {
             if (z) {
@@ -372,7 +371,7 @@ public class b {
             return null;
         }
         this.l.put(str, cVar);
-        cVar.a(this.mContext, this.b);
+        cVar.a(this.mContext, this.f1483b);
         cVar.a(this.h, this.g, this.B);
         cVar.a(this.f);
         cVar.a(this.i);
@@ -570,7 +569,7 @@ public class b {
         this.g = cVar;
         this.g.d(this.u);
         l();
-        this.h = new com.baidu.ar.d.g(cVar, this.b);
+        this.h = new com.baidu.ar.d.g(cVar, this.f1483b);
         this.i = com.baidu.ar.a.a();
         try {
             if (this.i != null) {
@@ -649,7 +648,7 @@ public class b {
             com.baidu.ar.h.b.b("AbilityManager", "adjustAbility abilityType = " + str + " not start!!!");
             return false;
         } else if (this.c != null) {
-            this.c.sendMessage(this.c.obtainMessage(1002, new C0081b(this.j.get(str), hashMap)));
+            this.c.sendMessage(this.c.obtainMessage(1002, new C0073b(this.j.get(str), hashMap)));
             return true;
         } else {
             return false;
@@ -853,7 +852,7 @@ public class b {
             this.v = null;
         }
         this.mContext = null;
-        this.b = null;
+        this.f1483b = null;
         this.d = null;
         this.e = null;
         this.B = null;

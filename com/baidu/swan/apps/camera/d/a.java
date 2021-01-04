@@ -4,11 +4,11 @@ import android.text.TextUtils;
 import com.baidu.ar.arplay.core.pixel.PixelReadParams;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class a extends com.baidu.swan.apps.component.b.b {
-    private String cGH;
+    private String cLx;
+    private String cLy;
     public String cameraId;
-    private String devicePosition;
 
     public a(String str) {
         super(PixelReadParams.DEFAULT_FILTER_ID, "cameraId");
@@ -22,37 +22,37 @@ public class a extends com.baidu.swan.apps.component.b.b {
     @Override // com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         super.parseFromJson(jSONObject);
-        this.devicePosition = jSONObject.optString("devicePosition", "back");
-        this.cGH = jSONObject.optString("flash", "auto");
+        this.cLx = jSONObject.optString("devicePosition", "back");
+        this.cLy = jSONObject.optString("flash", "auto");
         this.cameraId = jSONObject.optString("cameraId");
     }
 
     public boolean isFrontCamera() {
-        return TextUtils.equals(this.devicePosition, "front");
+        return TextUtils.equals(this.cLx, "front");
     }
 
-    public String amT() {
-        return C0416a.mF(this.cGH);
+    public String aod() {
+        return C0408a.my(this.cLy);
     }
 
     public int getWidth() {
-        if (this.cIZ == null) {
+        if (this.cNS == null) {
             return 0;
         }
-        return this.cIZ.getWidth();
+        return this.cNS.getWidth();
     }
 
     public int getHeight() {
-        if (this.cIZ == null) {
+        if (this.cNS == null) {
             return 0;
         }
-        return this.cIZ.getHeight();
+        return this.cNS.getHeight();
     }
 
     /* renamed from: com.baidu.swan.apps.camera.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes25.dex */
-    private static class C0416a {
-        static String mF(String str) {
+    /* loaded from: classes9.dex */
+    private static class C0408a {
+        static String my(String str) {
             char c = 65535;
             switch (str.hashCode()) {
                 case 3551:

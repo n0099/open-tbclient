@@ -3,23 +3,25 @@ package com.baidu.mobstat;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 class ae extends bn {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2523a = "baidu_mtj_sdk_record";
-    private static ae b = new ae();
+    private static final String f3682a = "baidu_mtj_sdk_record";
+
+    /* renamed from: b  reason: collision with root package name */
+    private static ae f3683b = new ae();
 
     private ae() {
     }
 
     public static ae a() {
-        return b;
+        return f3683b;
     }
 
     @Override // com.baidu.mobstat.bn
     public SharedPreferences a(Context context) {
-        return Build.VERSION.SDK_INT >= 11 ? context.getSharedPreferences(f2523a, 4) : context.getSharedPreferences(f2523a, 0);
+        return Build.VERSION.SDK_INT >= 11 ? context.getSharedPreferences(f3682a, 4) : context.getSharedPreferences(f3682a, 0);
     }
 
     public void a(Context context, long j) {

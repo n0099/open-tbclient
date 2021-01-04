@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.logging.Logger;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class AbstractManifestWriter implements ManifestWriter {
     private static final Logger LOG = Logger.getLogger(AbstractManifestWriter.class.getName());
     protected long[] audioFragmentsDurations;
@@ -26,30 +26,20 @@ public abstract class AbstractManifestWriter implements ManifestWriter {
 
     @Override // com.googlecode.mp4parser.authoring.adaptivestreaming.ManifestWriter
     public long[] calculateFragmentDurations(Track track, Movie movie) {
+        long[] sampleDurations;
         long[] sampleNumbers = this.intersectionFinder.sampleNumbers(track);
         long[] jArr = new long[sampleNumbers.length];
-        long[] sampleDurations = track.getSampleDurations();
-        int length = sampleDurations.length;
-        int i = 1;
-        int i2 = 0;
-        int i3 = 0;
-        while (i3 < length) {
-            long j = sampleDurations[i3];
-            int i4 = i + 1;
-            int i5 = i;
-            int i6 = i2;
-            int i7 = i5;
-            while (i7 < i4) {
-                if (i6 != sampleNumbers.length - 1 && i7 == sampleNumbers[i6 + 1]) {
-                    i6++;
+        int i = 0;
+        int i2 = 1;
+        for (long j : track.getSampleDurations()) {
+            int i3 = i2 + 1;
+            while (i2 < i3) {
+                if (i != sampleNumbers.length - 1 && i2 == sampleNumbers[i + 1]) {
+                    i++;
                 }
-                jArr[i6] = jArr[i6] + j;
-                i7++;
+                jArr[i] = jArr[i] + j;
+                i2++;
             }
-            i3++;
-            int i8 = i7;
-            i2 = i6;
-            i = i8;
         }
         return jArr;
     }

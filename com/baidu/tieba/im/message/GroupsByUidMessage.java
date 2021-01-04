@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.QueryGroupsByUid.DataReq;
 import protobuf.QueryGroupsByUid.QueryGroupsByUidReqIdl;
-/* loaded from: classes26.dex */
+/* loaded from: classes8.dex */
 public class GroupsByUidMessage extends TbSocketMessage {
     private long friendUid;
     private int height;

@@ -4,38 +4,38 @@ import android.view.View;
 import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.tbadk.BaseActivity;
 import com.baidu.tieba.ala.guardclub.model.e;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class h {
-    private com.baidu.tieba.ala.guardclub.view.d gPb;
-    private e.a gPd = new e.a() { // from class: com.baidu.tieba.ala.guardclub.h.1
+    private com.baidu.tieba.ala.guardclub.view.d haO;
+    private e.a haQ = new e.a() { // from class: com.baidu.tieba.ala.guardclub.h.1
     };
-    private BdUniqueId brR = BdUniqueId.gen();
-    private com.baidu.tieba.ala.guardclub.model.e gPc = new com.baidu.tieba.ala.guardclub.model.e(this.brR, this.gPd);
+    private BdUniqueId bwz = BdUniqueId.gen();
+    private com.baidu.tieba.ala.guardclub.model.e haP = new com.baidu.tieba.ala.guardclub.model.e(this.bwz, this.haQ);
 
     public h(BaseActivity baseActivity, String str, BdUniqueId bdUniqueId) {
-        this.gPb = new com.baidu.tieba.ala.guardclub.view.d(baseActivity, bdUniqueId);
-        this.gPb.setOtherParams(str);
-        this.gPc.a(this.gPb);
-        this.gPb.f(this.gPc);
+        this.haO = new com.baidu.tieba.ala.guardclub.view.d(baseActivity, bdUniqueId);
+        this.haO.setOtherParams(str);
+        this.haP.a(this.haO);
+        this.haO.f(this.haP);
     }
 
     public View getView() {
-        return this.gPb.getView();
+        return this.haO.getView();
     }
 
     public void notifyDataSetInvalidated() {
-        if (this.gPb != null) {
-            this.gPb.notifyDataSetInvalidated();
+        if (this.haO != null) {
+            this.haO.notifyDataSetInvalidated();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void baD() {
-        if (this.gPc != null) {
-            this.gPc.onDestory();
+    public void onPageDestroy() {
+        if (this.haP != null) {
+            this.haP.onDestory();
         }
-        if (this.gPb != null) {
-            this.gPb.bWj();
+        if (this.haO != null) {
+            this.haO.bYO();
         }
     }
 }

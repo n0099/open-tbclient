@@ -1,5 +1,5 @@
 package com.baidu.sumeru.universalimageloader.core.assist;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public enum LoadedFrom {
     NETWORK,
     DISC_CACHE,

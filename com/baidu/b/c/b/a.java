@@ -1,7 +1,7 @@
 package com.baidu.b.c.b;
 
 import java.nio.ByteBuffer;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 final class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(ByteBuffer byteBuffer, ByteBuffer byteBuffer2, ByteBuffer byteBuffer3, int i) {

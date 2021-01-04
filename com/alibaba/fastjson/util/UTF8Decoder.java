@@ -6,7 +6,7 @@ import java.nio.CharBuffer;
 import java.nio.charset.Charset;
 import java.nio.charset.CharsetDecoder;
 import java.nio.charset.CoderResult;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class UTF8Decoder extends CharsetDecoder {
     private static final Charset charset = Charset.forName("UTF-8");
 
@@ -42,10 +42,10 @@ public class UTF8Decoder extends CharsetDecoder {
     public static CoderResult malformedN(ByteBuffer byteBuffer, int i) {
         switch (i) {
             case 1:
-                byte b = byteBuffer.get();
-                if ((b >> 2) == -2) {
+                byte b2 = byteBuffer.get();
+                if ((b2 >> 2) == -2) {
                     return byteBuffer.remaining() < 4 ? CoderResult.UNDERFLOW : lookupN(byteBuffer, 5);
-                } else if ((b >> 1) == -2) {
+                } else if ((b2 >> 1) == -2) {
                     if (byteBuffer.remaining() < 5) {
                         return CoderResult.UNDERFLOW;
                     }
@@ -56,9 +56,9 @@ public class UTF8Decoder extends CharsetDecoder {
             case 2:
                 return CoderResult.malformedForLength(1);
             case 3:
-                byte b2 = byteBuffer.get();
                 byte b3 = byteBuffer.get();
-                return CoderResult.malformedForLength(((b2 == -32 && (b3 & 224) == 128) || isNotContinuation(b3)) ? 1 : 2);
+                byte b4 = byteBuffer.get();
+                return CoderResult.malformedForLength(((b3 == -32 && (b4 & 224) == 128) || isNotContinuation(b4)) ? 1 : 2);
             case 4:
                 int i2 = byteBuffer.get() & 255;
                 int i3 = byteBuffer.get() & 255;
@@ -95,46 +95,46 @@ public class UTF8Decoder extends CharsetDecoder {
             position++;
         }
         while (position < limit) {
-            byte b = array[position];
-            if (b >= 0) {
+            byte b2 = array[position];
+            if (b2 >= 0) {
                 if (arrayOffset >= arrayOffset2) {
                     return xflow(byteBuffer, position, limit, charBuffer, arrayOffset, 1);
                 }
                 i = arrayOffset + 1;
-                array2[arrayOffset] = (char) b;
+                array2[arrayOffset] = (char) b2;
                 position++;
-            } else if ((b >> 5) == -2) {
+            } else if ((b2 >> 5) == -2) {
                 if (limit - position < 2 || arrayOffset >= arrayOffset2) {
                     return xflow(byteBuffer, position, limit, charBuffer, arrayOffset, 2);
                 }
-                byte b2 = array[position + 1];
-                if (isMalformed2(b, b2)) {
+                byte b3 = array[position + 1];
+                if (isMalformed2(b2, b3)) {
                     return malformed(byteBuffer, position, charBuffer, arrayOffset, 2);
                 }
                 i = arrayOffset + 1;
-                array2[arrayOffset] = (char) (((b << 6) ^ b2) ^ 3968);
+                array2[arrayOffset] = (char) (((b2 << 6) ^ b3) ^ 3968);
                 position += 2;
-            } else if ((b >> 4) == -2) {
+            } else if ((b2 >> 4) == -2) {
                 if (limit - position < 3 || arrayOffset >= arrayOffset2) {
                     return xflow(byteBuffer, position, limit, charBuffer, arrayOffset, 3);
                 }
-                byte b3 = array[position + 1];
-                byte b4 = array[position + 2];
-                if (isMalformed3(b, b3, b4)) {
+                byte b4 = array[position + 1];
+                byte b5 = array[position + 2];
+                if (isMalformed3(b2, b4, b5)) {
                     return malformed(byteBuffer, position, charBuffer, arrayOffset, 3);
                 }
                 i = arrayOffset + 1;
-                array2[arrayOffset] = (char) ((((b << 12) ^ (b3 << 6)) ^ b4) ^ 8064);
+                array2[arrayOffset] = (char) ((((b2 << 12) ^ (b4 << 6)) ^ b5) ^ 8064);
                 position += 3;
-            } else if ((b >> 3) == -2) {
+            } else if ((b2 >> 3) == -2) {
                 if (limit - position < 4 || arrayOffset2 - arrayOffset < 2) {
                     return xflow(byteBuffer, position, limit, charBuffer, arrayOffset, 4);
                 }
-                byte b5 = array[position + 1];
-                byte b6 = array[position + 2];
-                byte b7 = array[position + 3];
-                int i2 = ((b & 7) << 18) | ((b5 & 63) << 12) | ((b6 & 63) << 6) | (b7 & 63);
-                if (isMalformed4(b5, b6, b7) || !Surrogate.neededFor(i2)) {
+                byte b6 = array[position + 1];
+                byte b7 = array[position + 2];
+                byte b8 = array[position + 3];
+                int i2 = ((b2 & 7) << 18) | ((b6 & 63) << 12) | ((b7 & 63) << 6) | (b8 & 63);
+                if (isMalformed4(b6, b7, b8) || !Surrogate.neededFor(i2)) {
                     return malformed(byteBuffer, position, charBuffer, arrayOffset, 4);
                 }
                 int i3 = arrayOffset + 1;
@@ -161,7 +161,7 @@ public class UTF8Decoder extends CharsetDecoder {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static class Surrogate {
         static final /* synthetic */ boolean $assertionsDisabled;
         public static final int UCS4_MAX = 1114111;

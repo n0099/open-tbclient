@@ -26,7 +26,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public class AddressManageActivity extends SlideActiviy {
     private static final String ADDRESS_MANAGE_ACTIVITY = "AddressManageActivity";
     private static final String CREATE_EXTRA = "create_extra";
@@ -332,8 +332,8 @@ public class AddressManageActivity extends SlideActiviy {
                         JSONObject jSONObject = new JSONObject();
                         try {
                             jSONObject.put(BaseJsonData.TAG_ERRNO, 0);
-                            jSONObject.put("name", aVar.f2766a);
-                            jSONObject.put("phone", aVar.b);
+                            jSONObject.put("name", aVar.f4102a);
+                            jSONObject.put("phone", aVar.f4103b);
                         } catch (Exception e) {
                             Log.e(e);
                         }
@@ -342,27 +342,44 @@ public class AddressManageActivity extends SlideActiviy {
                 });
             }
 
+            /* JADX WARN: Removed duplicated region for block: B:17:0x004a  */
+            /* JADX WARN: Removed duplicated region for block: B:19:0x005b  */
             @Override // com.baidu.sapi2.SapiJsCallBacks.AddressManageCallback
+            /*
+                Code decompiled incorrectly, please refer to instructions dump.
+            */
             public void onSelectedAddress(String str) {
-                boolean z;
-                boolean z2 = false;
+                JSONException e;
+                boolean z = false;
                 try {
                     JSONObject jSONObject = new JSONObject(str);
                     Iterator<String> keys = jSONObject.keys();
+                    boolean z2 = false;
                     while (keys.hasNext()) {
-                        String next = keys.next();
-                        if (TextUtils.equals(AddressManageActivity.KEY_QUIT_ADDRESS_MODULE, next)) {
-                            z2 = true;
-                        } else {
-                            AddressManageActivity.this.addressManageResult.map.put(next, jSONObject.optString(next));
+                        try {
+                            String next = keys.next();
+                            if (TextUtils.equals(AddressManageActivity.KEY_QUIT_ADDRESS_MODULE, next)) {
+                                z2 = true;
+                            } else {
+                                AddressManageActivity.this.addressManageResult.map.put(next, jSONObject.optString(next));
+                            }
+                        } catch (JSONException e2) {
+                            e = e2;
+                            z = z2;
+                            Log.e(e);
+                            AddressManageActivity.this.addressManageResult.setResultCode(-205);
+                            if (AddressManageActivity.this.addressManageCallback != null) {
+                            }
+                            if (z) {
+                            }
+                            EcommerceRouter.getInstance().release();
+                            AddressManageActivity.this.finish();
                         }
                     }
                     AddressManageActivity.this.addressManageResult.setResultCode(0);
                     z = z2;
-                } catch (JSONException e) {
-                    z = z2;
-                    Log.e(e);
-                    AddressManageActivity.this.addressManageResult.setResultCode(-205);
+                } catch (JSONException e3) {
+                    e = e3;
                 }
                 if (AddressManageActivity.this.addressManageCallback != null) {
                     AddressManageActivity.this.addressManageCallback.onFinish(AddressManageActivity.this.addressManageResult);

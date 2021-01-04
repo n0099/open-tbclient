@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tieba.interestlabel.b.b;
 import com.squareup.wire.Wire;
 import tbclient.GetTagList.GetTagListResIdl;
-/* loaded from: classes23.dex */
+/* loaded from: classes8.dex */
 public class ResponseSocketGetLabelMessage extends SocketResponsedMessage {
     public ResponseSocketGetLabelMessage() {
         super(CmdConfigSocket.CMD_GET_INTEREST_LABEL_LIST);

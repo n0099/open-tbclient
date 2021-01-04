@@ -6,7 +6,7 @@ import com.baidu.ala.AlaCmdConfigHttp;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class AlaMGetLiveStatusHttpResponseMessage extends HttpResponsedMessage {
     private List<Long> mClosedIds;
     private long mInterval;

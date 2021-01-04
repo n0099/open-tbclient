@@ -4,14 +4,14 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.game.strategy.data.LabelDataList;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class d extends com.baidu.tieba.frs.game.strategy.view.a {
-    private int hrj = 0;
-    private LabelDataList jkD;
+    private int hDf = 0;
+    private LabelDataList jxc;
     private final int mContentHeight;
     private Context mContext;
 
@@ -21,68 +21,68 @@ public class d extends com.baidu.tieba.frs.game.strategy.view.a {
     }
 
     @Override // com.baidu.tieba.frs.game.strategy.view.a
-    public int cHu() {
+    public int cKu() {
         return this.mContentHeight;
     }
 
     @Override // com.baidu.tieba.frs.game.strategy.view.a
     public View c(int i, View view, ViewGroup viewGroup) {
-        TextView cHw;
+        TextView cKw;
         if (view instanceof TextView) {
-            cHw = (TextView) view;
+            cKw = (TextView) view;
         } else {
-            cHw = cHw();
+            cKw = cKw();
         }
-        com.baidu.tieba.frs.game.strategy.data.a aVar = (com.baidu.tieba.frs.game.strategy.data.a) y.getItem(this.jkD, i);
+        com.baidu.tieba.frs.game.strategy.data.a aVar = (com.baidu.tieba.frs.game.strategy.data.a) x.getItem(this.jxc, i);
         if (aVar != null) {
-            cHw.setText(aVar.labelName);
+            cKw.setText(aVar.labelName);
         }
-        c(cHw, this.hrj == i);
-        return cHw;
+        c(cKw, this.hDf == i);
+        return cKw;
     }
 
     @Override // com.baidu.tieba.frs.game.strategy.view.a
-    public int cHv() {
-        return y.getCount(this.jkD);
+    public int cKv() {
+        return x.getCount(this.jxc);
     }
 
     @Override // com.baidu.tieba.frs.game.strategy.view.a
-    public Object AT(int i) {
-        return y.getItem(this.jkD, i);
+    public Object Bf(int i) {
+        return x.getItem(this.jxc, i);
     }
 
     @Override // com.baidu.tieba.frs.game.strategy.view.a
-    public long AU(int i) {
+    public long Bg(int i) {
         return i;
     }
 
     public void a(LabelDataList labelDataList) {
-        this.jkD = labelDataList;
+        this.jxc = labelDataList;
         notifyDataSetChanged();
     }
 
-    private TextView cHw() {
+    private TextView cKw() {
         TextView textView = new TextView(this.mContext);
         textView.setTextSize(0, this.mContext.getResources().getDimensionPixelSize(R.dimen.fontsize26));
         textView.setGravity(17);
-        textView.setHeight(cHu());
+        textView.setHeight(cKu());
         return textView;
     }
 
     public void c(TextView textView, boolean z) {
         if (z) {
-            ap.setViewTextColor(textView, (int) R.color.CAM_X0302);
-            ap.setBackgroundResource(textView, R.drawable.shape_frs_game_label_item_bg_s);
+            ao.setViewTextColor(textView, R.color.CAM_X0302);
+            ao.setBackgroundResource(textView, R.drawable.shape_frs_game_label_item_bg_s);
             return;
         }
-        ap.setViewTextColor(textView, (int) R.color.CAM_X0106);
-        ap.setBackgroundResource(textView, R.drawable.shape_frs_game_label_item_bg_n);
+        ao.setViewTextColor(textView, R.color.CAM_X0106);
+        ao.setBackgroundResource(textView, R.drawable.shape_frs_game_label_item_bg_n);
     }
 
     @Override // com.baidu.tieba.frs.game.strategy.view.a
-    public void AV(int i) {
-        this.hrj = i;
-        this.jkD.setSelectedIndex(i);
+    public void Bh(int i) {
+        this.hDf = i;
+        this.jxc.setSelectedIndex(i);
         notifyDataSetChanged();
     }
 }

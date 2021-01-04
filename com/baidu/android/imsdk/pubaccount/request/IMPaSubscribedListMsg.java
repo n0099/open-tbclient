@@ -15,7 +15,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class IMPaSubscribedListMsg extends Message {
     private Context mContext;
 
@@ -44,64 +44,65 @@ public class IMPaSubscribedListMsg extends Message {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:0x0001 */
     @Override // com.baidu.android.imsdk.request.Message
     public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
-        List<PaInfo> list;
         Exception e;
-        List<PaInfo> list2 = null;
-        list2 = null;
-        list2 = null;
-        try {
-        } catch (Exception e2) {
-            list = list2;
-            e = e2;
-        }
+        List<PaInfo> list;
         if (i == 0) {
-            JSONArray optJSONArray = jSONObject.optJSONArray("pa_info_list");
-            if (optJSONArray == null) {
-                list = null;
-            } else {
-                list = new ArrayList<>();
-                int i2 = 0;
-                while (i2 < optJSONArray.length()) {
-                    try {
-                        JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
-                        long optLong = jSONObject2.optLong("pa_uid");
-                        String optString = jSONObject2.optString("pa_nickname");
-                        String optString2 = jSONObject2.optString("pa_avatar");
-                        boolean optBoolean = jSONObject2.optBoolean("is_accept_msg");
-                        String optString3 = jSONObject2.optString("pa_url");
-                        PaInfo paInfo = new PaInfo();
-                        paInfo.setPaId(optLong);
-                        paInfo.setNickName(optString);
-                        paInfo.setAvatar(optString2);
-                        paInfo.setAcceptPush(optBoolean);
-                        paInfo.setUrl(optString3);
-                        paInfo.setDetail(jSONObject2.optString("detail_description"));
-                        paInfo.setTPL(jSONObject2.optLong("tpl", -1L));
-                        paInfo.setStatus(jSONObject2.optInt("status"));
-                        list.add(paInfo);
-                        i2++;
-                    } catch (Exception e3) {
-                        e = e3;
-                        LogUtils.e(LogUtils.TAG, "handleMessageResult:", e);
-                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                        super.handleMessageResult(context, jSONObject, i, str);
-                        PaManagerImpl.getInstance(context).onQueryScribedPaListResult(getListenerKey(), i, str, list);
+            try {
+                JSONArray optJSONArray = jSONObject.optJSONArray("pa_info_list");
+                if (optJSONArray == null) {
+                    list = null;
+                } else {
+                    list = new ArrayList<>();
+                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                        try {
+                            JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
+                            long optLong = jSONObject2.optLong("pa_uid");
+                            String optString = jSONObject2.optString("pa_nickname");
+                            String optString2 = jSONObject2.optString("pa_avatar");
+                            boolean optBoolean = jSONObject2.optBoolean("is_accept_msg");
+                            String optString3 = jSONObject2.optString("pa_url");
+                            PaInfo paInfo = new PaInfo();
+                            paInfo.setPaId(optLong);
+                            paInfo.setNickName(optString);
+                            paInfo.setAvatar(optString2);
+                            paInfo.setAcceptPush(optBoolean);
+                            paInfo.setUrl(optString3);
+                            paInfo.setDetail(jSONObject2.optString("detail_description"));
+                            paInfo.setTPL(jSONObject2.optLong("tpl", -1L));
+                            paInfo.setStatus(jSONObject2.optInt("status"));
+                            list.add(paInfo);
+                        } catch (Exception e2) {
+                            e = e2;
+                            LogUtils.e(LogUtils.TAG, "handleMessageResult:", e);
+                            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                            super.handleMessageResult(context, jSONObject, i, str);
+                            PaManagerImpl.getInstance(context).onQueryScribedPaListResult(getListenerKey(), i, str, list);
+                        }
                     }
+                    localSyncSubscribedPaList(context, list);
                 }
-                localSyncSubscribedPaList(context, list);
-                list2 = i2;
+            } catch (Exception e3) {
+                e = e3;
+                list = null;
             }
         } else if (1001 != i) {
             list = null;
-            super.handleMessageResult(context, jSONObject, i, str);
-            PaManagerImpl.getInstance(context).onQueryScribedPaListResult(getListenerKey(), i, str, list);
         } else {
-            i = 0;
-            str = "query from local db";
-            list = PaInfoDBManager.getInstance(context).querySubscribedPaList();
+            try {
+                str = "query from local db";
+                list = PaInfoDBManager.getInstance(context).querySubscribedPaList();
+                i = 0;
+            } catch (Exception e4) {
+                e = e4;
+                list = null;
+                i = 0;
+                LogUtils.e(LogUtils.TAG, "handleMessageResult:", e);
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                super.handleMessageResult(context, jSONObject, i, str);
+                PaManagerImpl.getInstance(context).onQueryScribedPaListResult(getListenerKey(), i, str, list);
+            }
         }
         super.handleMessageResult(context, jSONObject, i, str);
         PaManagerImpl.getInstance(context).onQueryScribedPaListResult(getListenerKey(), i, str, list);

@@ -1,19 +1,22 @@
 package com.baidu.live.data;
 
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class bj {
-    public JSONObject aQv;
-    public JSONObject aQw;
+    public int aRg;
+    public int aRh;
+    public int aRi;
+    public String aRj;
 
-    public bj(JSONObject jSONObject) {
-        parseData(jSONObject);
-    }
-
-    private void parseData(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.aQv = jSONObject.optJSONObject("bubble_effect");
-            this.aQw = jSONObject.optJSONObject("nickname_effect");
+    public static bj E(JSONObject jSONObject) {
+        if (jSONObject == null) {
+            return null;
         }
+        bj bjVar = new bj();
+        bjVar.aRg = jSONObject.optInt("supernatant_time") * 1000;
+        bjVar.aRh = jSONObject.optInt("suoernatant_shownum");
+        bjVar.aRi = jSONObject.optInt("pop_window_time") * 1000;
+        bjVar.aRj = jSONObject.optString("guide_follow_text");
+        return bjVar;
     }
 }

@@ -1,15 +1,16 @@
 package com.baidu.swan.games.m.a;
 
 import android.util.Base64;
-/* loaded from: classes25.dex */
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
+/* loaded from: classes9.dex */
 public class d implements com.baidu.swan.games.m.b.d {
     @Override // com.baidu.swan.games.m.b.d
-    public byte[] h(String str, byte[] bArr) {
+    public byte[] j(String str, byte[] bArr) {
         if (str != null && bArr != null) {
             char c = 65535;
             switch (str.hashCode()) {
                 case 76158:
-                    if (str.equals("MD5")) {
+                    if (str.equals(EncryptUtils.ENCRYPT_MD5)) {
                         c = 0;
                         break;
                     }

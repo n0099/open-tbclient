@@ -23,8 +23,6 @@ import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.searchbox.ugc.model.PublishType;
-import com.baidu.searchbox.ui.animview.praise.guide.ControlShowManager;
 import com.baidu.ufosdk.R;
 import com.baidu.ufosdk.UfoSDK;
 import com.tencent.connect.common.Constants;
@@ -34,13 +32,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes22.dex */
+/* loaded from: classes8.dex */
 public class FeedbackListActivity extends Activity {
     private static com.baidu.ufosdk.a.b x;
 
     /* renamed from: a  reason: collision with root package name */
-    private RelativeLayout f3741a;
-    private LinearLayout b;
+    private RelativeLayout f5698a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private LinearLayout f5699b;
     private LinearLayout c;
     private TextView d;
     private List e;
@@ -113,18 +113,18 @@ public class FeedbackListActivity extends Activity {
             long ceil = (long) Math.ceil(((float) (currentTimeMillis / 60)) / 1000.0f);
             long ceil2 = (long) Math.ceil(((float) ((currentTimeMillis / 60) / 60)) / 1000.0f);
             if (((long) Math.ceil(((float) (((currentTimeMillis / 24) / 60) / 60)) / 1000.0f)) - 1 > 0) {
-                stringBuffer.append(new SimpleDateFormat(ControlShowManager.DAY_TIME_FORMAT).format(Long.valueOf(Long.parseLong(str))));
+                stringBuffer.append(new SimpleDateFormat("yyyy-MM-dd").format(Long.valueOf(Long.parseLong(str))));
             } else if (ceil2 > 1) {
                 if (ceil2 < 5) {
-                    stringBuffer.append((ceil2 - 1) + com.baidu.ufosdk.f.s.a(PublishType.TYPE_VIDEO_SHARE));
+                    stringBuffer.append((ceil2 - 1) + com.baidu.ufosdk.f.s.a("9"));
                 } else if (ceil2 >= 5) {
                     stringBuffer.append(new SimpleDateFormat("HH:mm").format(Long.valueOf(Long.parseLong(str))));
                 }
             } else if (ceil >= 0) {
                 if (ceil > 3) {
-                    stringBuffer.append(ceil + com.baidu.ufosdk.f.s.a("14"));
+                    stringBuffer.append(ceil + com.baidu.ufosdk.f.s.a(Constants.VIA_REPORT_TYPE_MAKE_FRIEND));
                 } else {
-                    stringBuffer.append(com.baidu.ufosdk.f.s.a("11"));
+                    stringBuffer.append(com.baidu.ufosdk.f.s.a(Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE));
                 }
             }
         } catch (Exception e) {
@@ -183,10 +183,10 @@ public class FeedbackListActivity extends Activity {
         this.y = Executors.newSingleThreadExecutor();
         this.p = com.baidu.ufosdk.f.i.a(getApplicationContext(), 10.0f);
         this.e = new ArrayList();
-        this.f3741a = new RelativeLayout(this);
-        this.f3741a.setFitsSystemWindows(true);
-        this.f3741a.setId(2132344836);
-        this.f3741a.setBackgroundColor(com.baidu.ufosdk.b.A);
+        this.f5698a = new RelativeLayout(this);
+        this.f5698a.setFitsSystemWindows(true);
+        this.f5698a.setId(2132344836);
+        this.f5698a.setBackgroundColor(com.baidu.ufosdk.b.A);
         RelativeLayout relativeLayout = new RelativeLayout(this);
         relativeLayout.setId(2132344837);
         relativeLayout.setBackgroundColor(com.baidu.ufosdk.b.A);
@@ -219,7 +219,7 @@ public class FeedbackListActivity extends Activity {
         relativeLayout.addView(linearLayout2, layoutParams3);
         TextView textView2 = new TextView(this);
         textView2.setId(2132344834);
-        textView2.setText(com.baidu.ufosdk.f.s.a("17"));
+        textView2.setText(com.baidu.ufosdk.f.s.a(Constants.VIA_REPORT_TYPE_START_GROUP));
         textView2.setTextSize(com.baidu.ufosdk.b.W);
         textView2.setGravity(17);
         textView2.setTextColor(com.baidu.ufosdk.b.r);
@@ -235,7 +235,7 @@ public class FeedbackListActivity extends Activity {
         view.setBackgroundColor(-3355444);
         RelativeLayout.LayoutParams layoutParams5 = new RelativeLayout.LayoutParams(-1, 1);
         layoutParams5.addRule(3, relativeLayout.getId());
-        this.f3741a.addView(view, layoutParams5);
+        this.f5698a.addView(view, layoutParams5);
         this.t = new ListView(this);
         this.t.setSelector(new ColorDrawable(0));
         this.t.setCacheColorHint(-1);
@@ -248,17 +248,17 @@ public class FeedbackListActivity extends Activity {
         RelativeLayout.LayoutParams layoutParams7 = new RelativeLayout.LayoutParams(-1, -1);
         layoutParams7.addRule(3, view.getId());
         layoutParams7.addRule(2, linearLayout.getId());
-        this.f3741a.addView(this.c, layoutParams7);
+        this.f5698a.addView(this.c, layoutParams7);
         this.s = new TextView(this);
         this.s.setText(com.baidu.ufosdk.f.s.a("20"));
         this.s.setTextColor(-10066330);
         this.s.setTextSize(com.baidu.ufosdk.b.X);
         RelativeLayout.LayoutParams layoutParams8 = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams8.addRule(13);
-        this.f3741a.addView(this.s, layoutParams8);
+        this.f5698a.addView(this.s, layoutParams8);
         this.s.setVisibility(8);
-        this.b = new LinearLayout(this);
-        this.b.setOrientation(1);
+        this.f5699b = new LinearLayout(this);
+        this.f5699b.setOrientation(1);
         ImageView imageView = new ImageView(this);
         LinearLayout.LayoutParams layoutParams9 = new LinearLayout.LayoutParams(com.baidu.ufosdk.f.i.a(getApplicationContext(), 115.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 85.0f));
         try {
@@ -266,14 +266,14 @@ public class FeedbackListActivity extends Activity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        this.b.addView(imageView, layoutParams9);
+        this.f5699b.addView(imageView, layoutParams9);
         this.d = new TextView(this);
         this.d.setTextColor(com.baidu.ufosdk.b.x);
         this.d.setPadding(com.baidu.ufosdk.f.i.a(getApplicationContext(), 10.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 18.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 10.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 11.0f));
         this.d.setTextSize(com.baidu.ufosdk.b.O);
         LinearLayout.LayoutParams layoutParams10 = new LinearLayout.LayoutParams(-2, -2);
         com.baidu.ufosdk.f.i.a(getApplicationContext(), this.d);
-        this.b.addView(this.d, layoutParams10);
+        this.f5699b.addView(this.d, layoutParams10);
         this.q = new Button(this);
         this.q.setText(com.baidu.ufosdk.f.s.a(Constants.VIA_REPORT_TYPE_DATALINE));
         this.q.setTextSize(com.baidu.ufosdk.b.P);
@@ -285,25 +285,25 @@ public class FeedbackListActivity extends Activity {
         }
         LinearLayout.LayoutParams layoutParams11 = new LinearLayout.LayoutParams(com.baidu.ufosdk.f.i.a(getApplicationContext(), 122.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 40.0f));
         layoutParams11.setMargins(0, com.baidu.ufosdk.f.i.a(getApplicationContext(), 15.0f), 0, 0);
-        this.b.addView(this.q, layoutParams11);
+        this.f5699b.addView(this.q, layoutParams11);
         RelativeLayout.LayoutParams layoutParams12 = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams12.addRule(13);
-        this.f3741a.addView(this.b, layoutParams12);
-        this.b.setGravity(17);
-        this.b.setVisibility(8);
+        this.f5698a.addView(this.f5699b, layoutParams12);
+        this.f5699b.setGravity(17);
+        this.f5699b.setVisibility(8);
         RelativeLayout.LayoutParams layoutParams13 = new RelativeLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(getApplicationContext(), 50.0f));
         layoutParams13.addRule(10);
-        this.f3741a.addView(relativeLayout, layoutParams13);
-        setContentView(this.f3741a, new ViewGroup.LayoutParams(-1, -1));
+        this.f5698a.addView(relativeLayout, layoutParams13);
+        setContentView(this.f5698a, new ViewGroup.LayoutParams(-1, -1));
         this.v = com.baidu.ufosdk.f.i.b(this, com.baidu.ufosdk.f.s.a(Constants.VIA_REPORT_TYPE_JOININ_GROUP));
         RelativeLayout.LayoutParams layoutParams14 = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams14.addRule(13);
-        this.f3741a.addView(this.v, layoutParams14);
+        this.f5698a.addView(this.v, layoutParams14);
         this.w = com.baidu.ufosdk.f.i.b(this, com.baidu.ufosdk.f.s.a("4"));
         RelativeLayout.LayoutParams layoutParams15 = new RelativeLayout.LayoutParams(com.baidu.ufosdk.f.i.a(getApplicationContext(), 114.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 39.0f));
         layoutParams15.addRule(13);
         this.w.setVisibility(8);
-        this.f3741a.addView(this.w, layoutParams15);
+        this.f5698a.addView(this.w, layoutParams15);
         linearLayout2.setOnClickListener(new dk(this));
         this.q.setOnClickListener(new dl(this));
         this.u = new du(this, this);
@@ -358,7 +358,7 @@ public class FeedbackListActivity extends Activity {
             com.baidu.ufosdk.b.ac.onResumeCallback();
         }
         this.s.setText(com.baidu.ufosdk.f.s.a("20"));
-        ((TextView) findViewById(2132344834)).setText((CharSequence) com.baidu.ufosdk.b.ab.get("17"));
+        ((TextView) findViewById(2132344834)).setText((CharSequence) com.baidu.ufosdk.b.ab.get(Constants.VIA_REPORT_TYPE_START_GROUP));
         this.q.setText(com.baidu.ufosdk.f.s.a(Constants.VIA_REPORT_TYPE_DATALINE));
         com.baidu.ufosdk.f.i.a((RelativeLayout) this.v, com.baidu.ufosdk.f.s.a(Constants.VIA_REPORT_TYPE_JOININ_GROUP));
         com.baidu.ufosdk.f.i.a((RelativeLayout) this.w, com.baidu.ufosdk.f.s.a("4"));

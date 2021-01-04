@@ -1,20 +1,20 @@
 package com.baidu.tieba.ala.liveroom.v;
 
-import com.baidu.live.data.ak;
-/* loaded from: classes4.dex */
+import com.baidu.live.data.am;
+/* loaded from: classes11.dex */
 public class b {
-    private static volatile b hCn;
-    public ak brJ = new ak();
+    private static volatile b hOo;
+    public am bwr = new am();
 
-    public static b ckB() {
-        if (hCn == null) {
+    public static b cnp() {
+        if (hOo == null) {
             synchronized (b.class) {
-                if (hCn == null) {
-                    hCn = new b();
+                if (hOo == null) {
+                    hOo = new b();
                 }
             }
         }
-        return hCn;
+        return hOo;
     }
 
     private b() {

@@ -22,7 +22,7 @@ public final class Base64 {
     }
 
     public static byte[] decode(byte[] bArr) {
-        int i = 0;
+        int i;
         int length = ((bArr.length + 3) / 4) * 3;
         if (bArr.length > 0 && bArr[bArr.length - 1] == 61) {
             length--;
@@ -33,25 +33,26 @@ public final class Base64 {
         byte[] bArr2 = new byte[length];
         int i2 = 0;
         int i3 = 0;
-        for (byte b : bArr) {
-            byte b2 = codes[b & 255];
+        int i4 = 0;
+        int i5 = 0;
+        while (i2 < bArr.length) {
+            byte b2 = codes[bArr[i2] & 255];
             if (b2 >= 0) {
-                int i4 = i2 << 6;
-                int i5 = i3 + 6;
-                int i6 = i4 | b2;
+                i5 += 6;
+                i4 = (i4 << 6) | b2;
                 if (i5 >= 8) {
-                    int i7 = i5 - 8;
-                    bArr2[i] = (byte) ((i6 >> i7) & 255);
-                    i++;
-                    i2 = i6;
-                    i3 = i7;
-                } else {
-                    i3 = i5;
-                    i2 = i6;
+                    i5 -= 8;
+                    i = i3 + 1;
+                    bArr2[i3] = (byte) ((i4 >> i5) & 255);
+                    i2++;
+                    i3 = i;
                 }
             }
+            i = i3;
+            i2++;
+            i3 = i;
         }
-        if (i != bArr2.length) {
+        if (i3 != bArr2.length) {
             throw new RuntimeException("miscalculated data length!");
         }
         return bArr2;

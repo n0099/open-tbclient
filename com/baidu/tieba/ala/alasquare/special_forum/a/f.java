@@ -3,17 +3,17 @@ package com.baidu.tieba.ala.alasquare.special_forum.a;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ala.alasquare.special_forum.subtab.a.i;
-import com.baidu.tieba.ala.alasquare.special_forum.subtab.a.j;
-/* loaded from: classes6.dex */
-public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.subtablist.b.b, j> {
-    private i gxt;
-    private com.baidu.tieba.ala.alasquare.subtablist.c.i gxu;
+import com.baidu.tieba.ala.alasquare.special_forum.subtab.view.SpecialLiveDoubleViewHolder;
+import com.baidu.tieba.ala.alasquare.subtablist.view.g;
+/* loaded from: classes10.dex */
+public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.subtablist.b.b, SpecialLiveDoubleViewHolder> {
+    private com.baidu.tieba.ala.alasquare.special_forum.subtab.view.d gIw;
+    private g gIx;
     private int mFrom;
     private TbPageContext<?> mPageContext;
 
     public f(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.subtablist.b.b.gzy);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.subtablist.b.b.gKB);
         this.mPageContext = tbPageContext;
     }
 
@@ -24,27 +24,27 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: Y */
-    public j c(ViewGroup viewGroup) {
-        this.gxt = new i(this.mPageContext, viewGroup);
-        if (this.gxu != null) {
-            this.gxt.d(this.gxu);
+    /* renamed from: ak */
+    public SpecialLiveDoubleViewHolder e(ViewGroup viewGroup) {
+        this.gIw = new com.baidu.tieba.ala.alasquare.special_forum.subtab.view.d(this.mPageContext, viewGroup);
+        if (this.gIx != null) {
+            this.gIw.d(this.gIx);
         }
-        return new j(this.gxt);
+        return new SpecialLiveDoubleViewHolder(this.gIw);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.subtablist.b.b bVar, j jVar) {
-        jVar.gxt.a(bVar, this.mFrom);
-        return jVar.getView();
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.subtablist.b.b bVar, SpecialLiveDoubleViewHolder specialLiveDoubleViewHolder) {
+        specialLiveDoubleViewHolder.gIw.a(bVar, this.mFrom);
+        return specialLiveDoubleViewHolder.getView();
     }
 
-    public void b(com.baidu.tieba.ala.alasquare.subtablist.c.i iVar) {
-        this.gxu = iVar;
-        if (this.gxt != null) {
-            this.gxt.d(this.gxu);
+    public void b(g gVar) {
+        this.gIx = gVar;
+        if (this.gIw != null) {
+            this.gIw.d(this.gIx);
         }
     }
 }

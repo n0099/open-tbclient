@@ -1,14 +1,14 @@
 package com.baidu.pass.http;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class b implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PassHttpClient f2793a;
+    final /* synthetic */ PassHttpClient f4137a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(PassHttpClient passHttpClient) {
-        this.f2793a = passHttpClient;
+        this.f4137a = passHttpClient;
     }
 
     @Override // java.lang.Runnable
@@ -18,13 +18,13 @@ public class b implements Runnable {
         d dVar3;
         d dVar4;
         try {
-            dVar = this.f2793a.c;
+            dVar = this.f4137a.c;
             if (dVar != null) {
-                dVar2 = this.f2793a.c;
+                dVar2 = this.f4137a.c;
                 if (dVar2.a() != null) {
-                    dVar3 = this.f2793a.c;
+                    dVar3 = this.f4137a.c;
                     dVar3.a().disconnect();
-                    dVar4 = this.f2793a.c;
+                    dVar4 = this.f4137a.c;
                     dVar4.b();
                 }
             }

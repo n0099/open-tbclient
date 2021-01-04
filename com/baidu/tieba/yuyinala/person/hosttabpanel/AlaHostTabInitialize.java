@@ -4,7 +4,7 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.yuyinala.person.hosttabpanel.message.AlaNewHostTabHttpResponseMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaHostTabInitialize {
     static {
         registerTask();

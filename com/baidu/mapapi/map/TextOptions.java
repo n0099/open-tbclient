@@ -2,9 +2,9 @@ package com.baidu.mapapi.map;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.v4.view.ViewCompat;
+import androidx.core.view.ViewCompat;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public final class TextOptions extends OverlayOptions {
     public static final int ALIGN_BOTTOM = 16;
     public static final int ALIGN_CENTER_HORIZONTAL = 4;
@@ -14,7 +14,7 @@ public final class TextOptions extends OverlayOptions {
     public static final int ALIGN_TOP = 8;
 
     /* renamed from: a  reason: collision with root package name */
-    int f2049a;
+    int f2880a;
     Bundle c;
     private String d;
     private LatLng e;
@@ -25,17 +25,19 @@ public final class TextOptions extends OverlayOptions {
     private int h = 12;
     private int j = 4;
     private int k = 32;
-    boolean b = true;
+
+    /* renamed from: b  reason: collision with root package name */
+    boolean f2881b = true;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.mapapi.map.OverlayOptions
     public Overlay a() {
         Text text = new Text();
-        text.B = this.b;
-        text.A = this.f2049a;
+        text.B = this.f2881b;
+        text.A = this.f2880a;
         text.C = this.c;
-        text.f2048a = this.d;
-        text.b = this.e;
+        text.f2878a = this.d;
+        text.f2879b = this.e;
         text.c = this.f;
         text.d = this.g;
         text.e = this.h;
@@ -113,11 +115,11 @@ public final class TextOptions extends OverlayOptions {
     }
 
     public int getZIndex() {
-        return this.f2049a;
+        return this.f2880a;
     }
 
     public boolean isVisible() {
-        return this.b;
+        return this.f2881b;
     }
 
     public TextOptions position(LatLng latLng) {
@@ -147,12 +149,12 @@ public final class TextOptions extends OverlayOptions {
     }
 
     public TextOptions visible(boolean z) {
-        this.b = z;
+        this.f2881b = z;
         return this;
     }
 
     public TextOptions zIndex(int i) {
-        this.f2049a = i;
+        this.f2880a = i;
         return this;
     }
 }

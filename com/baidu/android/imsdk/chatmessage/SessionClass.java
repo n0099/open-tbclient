@@ -1,5 +1,5 @@
 package com.baidu.android.imsdk.chatmessage;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class SessionClass {
     private String avatarurl;
     private int show;

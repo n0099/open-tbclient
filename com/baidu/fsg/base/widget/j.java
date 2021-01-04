@@ -2,24 +2,24 @@ package com.baidu.fsg.base.widget;
 
 import android.os.Handler;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class j implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SafeKeyBoardUtil f1558a;
+    final /* synthetic */ SafeKeyBoardUtil f2094a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(SafeKeyBoardUtil safeKeyBoardUtil) {
-        this.f1558a = safeKeyBoardUtil;
+        this.f2094a = safeKeyBoardUtil;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         SafeScrollView safeScrollView;
-        if (this.f1558a.mPopupWindow != null && this.f1558a.mPopupWindow.isShowing()) {
-            safeScrollView = this.f1558a.e;
+        if (this.f2094a.mPopupWindow != null && this.f2094a.mPopupWindow.isShowing()) {
+            safeScrollView = this.f2094a.e;
             if (safeScrollView.hasWindowFocus()) {
-                this.f1558a.a();
+                this.f2094a.a();
                 return;
             }
         }

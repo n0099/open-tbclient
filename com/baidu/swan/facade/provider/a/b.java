@@ -17,30 +17,32 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static byte[] a(byte[] bArr, String str, int i) {
-        PublicKey vJ;
-        if (bArr == null || bArr.length == 0 || TextUtils.isEmpty(str) || i <= 0 || (vJ = vJ(str)) == null) {
+        PublicKey vI;
+        if (bArr == null || bArr.length == 0 || TextUtils.isEmpty(str) || i <= 0 || (vI = vI(str)) == null) {
             return null;
         }
-        return a(bArr, vJ, i);
+        return a(bArr, vI, i);
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x0067 */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:59:0x0050 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Type inference failed for: r2v0, types: [int] */
+    /* JADX WARN: Removed duplicated region for block: B:60:0x0050 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r2v1, types: [java.io.ByteArrayOutputStream] */
+    /* JADX WARN: Type inference failed for: r2v12 */
     /* JADX WARN: Type inference failed for: r2v2 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private static byte[] a(byte[] bArr, Key key, int i) {
+        int length;
+        Throwable th;
+        ?? r2;
         ByteArrayOutputStream byteArrayOutputStream;
         byte[] doFinal;
         byte[] bArr2 = null;
-        if (bArr != null && (r2 = bArr.length) != 0 && key != null) {
+        if (bArr != null && (length = bArr.length) != 0 && key != null) {
             try {
                 if (i > 0) {
                     try {
@@ -48,13 +50,13 @@ public class b {
                         cipher.init(1, key);
                         byteArrayOutputStream = new ByteArrayOutputStream();
                         try {
-                            int length = bArr.length;
+                            int length2 = bArr.length;
                             int i2 = 0;
-                            while (length - i2 > 0) {
-                                if (length - i2 > i) {
+                            while (length2 - i2 > 0) {
+                                if (length2 - i2 > i) {
                                     doFinal = cipher.doFinal(bArr, i2, i);
                                 } else {
-                                    doFinal = cipher.doFinal(bArr, i2, length - i2);
+                                    doFinal = cipher.doFinal(bArr, i2, length2 - i2);
                                 }
                                 byteArrayOutputStream.write(doFinal, 0, doFinal.length);
                                 i2 += i;
@@ -118,12 +120,12 @@ public class b {
                     } catch (NoSuchPaddingException e12) {
                         e = e12;
                         byteArrayOutputStream = null;
-                    } catch (Throwable th) {
-                        ?? length2 = 0;
-                        th = th;
-                        if (length2 != 0) {
+                    } catch (Throwable th2) {
+                        th = th2;
+                        r2 = 0;
+                        if (r2 != 0) {
                             try {
-                                length2.close();
+                                r2.close();
                             } catch (IOException e13) {
                                 e13.printStackTrace();
                             }
@@ -131,14 +133,15 @@ public class b {
                         throw th;
                     }
                 }
-            } catch (Throwable th2) {
-                th = th2;
+            } catch (Throwable th3) {
+                th = th3;
+                r2 = length;
             }
         }
         return bArr2;
     }
 
-    private static PublicKey vJ(String str) {
+    private static PublicKey vI(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

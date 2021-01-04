@@ -3,7 +3,7 @@ package com.baidu.swan.apps.camera.d;
 import com.baidu.ar.arplay.core.pixel.PixelReadParams;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class b extends com.baidu.swan.apps.component.b.b {
     public String cameraId;
 

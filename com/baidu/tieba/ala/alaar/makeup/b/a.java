@@ -3,12 +3,12 @@ package com.baidu.tieba.ala.alaar.makeup.b;
 import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public abstract class a implements b {
     public boolean parse(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
-                return du(new JSONObject(str));
+                return dD(new JSONObject(str));
             } catch (JSONException e) {
                 e.printStackTrace();
             }

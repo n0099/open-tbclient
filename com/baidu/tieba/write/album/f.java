@@ -1,7 +1,7 @@
 package com.baidu.tieba.write.album;
 
 import com.baidu.tbadk.img.ImageFileInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes8.dex */
 public interface f {
     boolean h(ImageFileInfo imageFileInfo);
 }

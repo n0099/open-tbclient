@@ -12,7 +12,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class BitmapUtils {
     public static Bitmap cropBitmapLeft(Bitmap bitmap, int i, boolean z) {
         Bitmap createBitmap = Bitmap.createBitmap(bitmap, 0, 0, i, bitmap.getHeight());
@@ -47,14 +47,19 @@ public class BitmapUtils {
     }
 
     public static Bitmap scaleCover(Bitmap bitmap, int i, int i2, boolean z) {
+        int i3;
+        int i4;
         if (i > 0) {
             if ((i2 > 0 || bitmap != null) && !bitmap.isRecycled()) {
-                if ((bitmap.getWidth() > bitmap.getHeight()) == (i > i2)) {
-                    i2 = i;
-                    i = i2;
+                if ((bitmap.getWidth() > bitmap.getHeight()) != (i > i2)) {
+                    i3 = i;
+                    i4 = i2;
+                } else {
+                    i3 = i2;
+                    i4 = i;
                 }
-                if (i2 != bitmap.getWidth() || i != bitmap.getHeight()) {
-                    return scaleImage(bitmap, i2, i, z);
+                if (i4 != bitmap.getWidth() || i3 != bitmap.getHeight()) {
+                    return scaleImage(bitmap, i4, i3, z);
                 }
                 return bitmap;
             }
@@ -138,26 +143,23 @@ public class BitmapUtils {
         return BitmapFactory.decodeStream(fileInputStream);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:38:0x004c A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public static String bitmapToBase64(Bitmap bitmap, Bitmap.CompressFormat compressFormat, int i) {
-        ByteArrayOutputStream byteArrayOutputStream;
         Throwable th;
-        String str = null;
+        ByteArrayOutputStream byteArrayOutputStream;
+        String encodeToString;
+        ByteArrayOutputStream byteArrayOutputStream2 = null;
         if (bitmap == null || bitmap.isRecycled()) {
             return "";
         }
-        if (bitmap != null) {
-            try {
-                byteArrayOutputStream = new ByteArrayOutputStream();
+        try {
+            if (bitmap != null) {
                 try {
+                    byteArrayOutputStream = new ByteArrayOutputStream();
                     try {
                         bitmap.compress(compressFormat, i, byteArrayOutputStream);
                         byteArrayOutputStream.flush();
                         byteArrayOutputStream.close();
-                        str = Base64.encodeToString(byteArrayOutputStream.toByteArray(), 2);
+                        encodeToString = Base64.encodeToString(byteArrayOutputStream.toByteArray(), 2);
                     } catch (IOException e) {
                         e = e;
                         e.printStackTrace();
@@ -173,42 +175,38 @@ public class BitmapUtils {
                         }
                         return null;
                     }
+                } catch (IOException e3) {
+                    e = e3;
+                    byteArrayOutputStream = null;
                 } catch (Throwable th2) {
                     th = th2;
-                    if (byteArrayOutputStream != null) {
+                    if (0 != 0) {
                         try {
-                            byteArrayOutputStream.flush();
-                            byteArrayOutputStream.close();
-                        } catch (IOException e3) {
-                            e3.printStackTrace();
+                            byteArrayOutputStream2.flush();
+                            byteArrayOutputStream2.close();
+                        } catch (IOException e4) {
+                            e4.printStackTrace();
                         }
                     }
                     throw th;
                 }
-            } catch (IOException e4) {
-                e = e4;
+            } else {
                 byteArrayOutputStream = null;
-            } catch (Throwable th3) {
-                byteArrayOutputStream = null;
-                th = th3;
-                if (byteArrayOutputStream != null) {
+                encodeToString = null;
+            }
+            if (byteArrayOutputStream != null) {
+                try {
+                    byteArrayOutputStream.flush();
+                    byteArrayOutputStream.close();
+                } catch (IOException e5) {
+                    e5.printStackTrace();
+                    return encodeToString;
                 }
-                throw th;
             }
-        } else {
-            byteArrayOutputStream = null;
+            return encodeToString;
+        } catch (Throwable th3) {
+            th = th3;
         }
-        if (byteArrayOutputStream != null) {
-            try {
-                byteArrayOutputStream.flush();
-                byteArrayOutputStream.close();
-                return str;
-            } catch (IOException e5) {
-                e5.printStackTrace();
-                return str;
-            }
-        }
-        return str;
     }
 
     public static Bitmap base64ToBitmap(String str) {

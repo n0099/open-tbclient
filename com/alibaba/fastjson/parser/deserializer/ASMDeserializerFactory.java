@@ -19,6 +19,7 @@ import com.alibaba.fastjson.util.FieldInfo;
 import com.alibaba.fastjson.util.JavaBeanInfo;
 import com.alibaba.fastjson.util.TypeUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import java.lang.reflect.Constructor;
@@ -41,7 +42,7 @@ import java.util.Map;
 import java.util.TreeSet;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class ASMDeserializerFactory implements Opcodes {
     static final String DefaultJSONParser = ASMUtils.type(DefaultJSONParser.class);
     static final String JSONLexerBase = ASMUtils.type(JSONLexerBase.class);
@@ -1043,9 +1044,9 @@ public class ASMDeserializerFactory implements Opcodes {
         methodVisitor.visitVarInsn(25, context.var(fieldInfo.name + "_asm"));
         methodVisitor.visitVarInsn(25, context.var("list_item_value"));
         if (cls.isInterface()) {
-            methodVisitor.visitMethodInsn(185, ASMUtils.type(cls), "add", "(Ljava/lang/Object;)Z");
+            methodVisitor.visitMethodInsn(185, ASMUtils.type(cls), IMTrack.DbBuilder.ACTION_ADD, "(Ljava/lang/Object;)Z");
         } else {
-            methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, ASMUtils.type(cls), "add", "(Ljava/lang/Object;)Z");
+            methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, ASMUtils.type(cls), IMTrack.DbBuilder.ACTION_ADD, "(Ljava/lang/Object;)Z");
         }
         methodVisitor.visitInsn(87);
         methodVisitor.visitJumpInsn(167, label2);
@@ -1096,9 +1097,9 @@ public class ASMDeserializerFactory implements Opcodes {
         methodVisitor.visitVarInsn(25, context.var(fieldInfo.name + "_asm"));
         methodVisitor.visitVarInsn(25, context.var("list_item_value"));
         if (cls.isInterface()) {
-            methodVisitor.visitMethodInsn(185, ASMUtils.type(cls), "add", "(Ljava/lang/Object;)Z");
+            methodVisitor.visitMethodInsn(185, ASMUtils.type(cls), IMTrack.DbBuilder.ACTION_ADD, "(Ljava/lang/Object;)Z");
         } else {
-            methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, ASMUtils.type(cls), "add", "(Ljava/lang/Object;)Z");
+            methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, ASMUtils.type(cls), IMTrack.DbBuilder.ACTION_ADD, "(Ljava/lang/Object;)Z");
         }
         methodVisitor.visitInsn(87);
         methodVisitor.visitVarInsn(25, 1);
@@ -1357,7 +1358,7 @@ public class ASMDeserializerFactory implements Opcodes {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static class Context {
         static final int fieldName = 3;
         static final int parser = 1;

@@ -1,9 +1,9 @@
 package com.baidu.swan.apps.api.module.network;
 
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-import com.baidu.swan.apps.ap.ab;
+import com.baidu.swan.apps.ao.ab;
 import com.baidu.swan.apps.runtime.d;
 import com.facebook.common.internal.i;
 import java.util.List;
@@ -12,23 +12,23 @@ import okhttp3.Headers;
 import okhttp3.HttpUrl;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class c {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected static final Set<String> cEY = i.N("localhost", "127.0.0.1");
+    protected static final Set<String> cJO = i.R("localhost", "127.0.0.1");
 
-    public static String lP(String str) {
+    public static String lI(String str) {
         return str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + System.currentTimeMillis();
     }
 
-    public static HttpUrl lQ(String str) {
+    public static HttpUrl lJ(String str) {
         HttpUrl parse = HttpUrl.parse(str);
-        if (d.aJQ().aJO() == null) {
+        if (d.aMg().aMe() == null) {
             if (a(parse)) {
                 return parse;
             }
             return null;
-        } else if (com.baidu.swan.apps.ad.a.a.aHk() || a(parse)) {
+        } else if (com.baidu.swan.apps.ad.a.a.aID() || a(parse)) {
             return parse;
         } else {
             return null;
@@ -36,12 +36,12 @@ public class c {
     }
 
     public static boolean a(@Nullable HttpUrl httpUrl) {
-        boolean aKY = com.baidu.swan.apps.ag.a.b.aKY();
-        if (!com.baidu.swan.apps.t.a.azd().aiV()) {
-            aKY = false;
+        boolean aNo = com.baidu.swan.apps.af.a.b.aNo();
+        if (!com.baidu.swan.apps.t.a.aAu().akd()) {
+            aNo = false;
         }
         if (httpUrl != null) {
-            return (!aKY || HttpUrl.defaultPort(httpUrl.scheme()) == httpUrl.port()) && !cEY.contains(httpUrl.host().toLowerCase());
+            return (!aNo || HttpUrl.defaultPort(httpUrl.scheme()) == httpUrl.port()) && !cJO.contains(httpUrl.host().toLowerCase());
         }
         return false;
     }
@@ -69,7 +69,7 @@ public class c {
         return jSONObject;
     }
 
-    public static JSONObject lR(String str) {
+    public static JSONObject lK(String str) {
         JSONObject jSONObject = new JSONObject();
         try {
             if (!TextUtils.isEmpty(str)) {
@@ -83,7 +83,7 @@ public class c {
         return jSONObject;
     }
 
-    public static String amq() {
-        return ab.aPh();
+    public static String anA() {
+        return ab.aRy();
     }
 }

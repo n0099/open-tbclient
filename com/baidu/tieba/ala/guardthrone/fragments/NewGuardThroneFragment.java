@@ -2,103 +2,103 @@ package com.baidu.tieba.ala.guardthrone.fragments;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
+import androidx.annotation.Nullable;
 import com.baidu.live.tbadk.core.BaseFragment;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.tieba.ala.guardthrone.view.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class NewGuardThroneFragment extends BaseFragment {
-    private String aOt;
-    private String brl;
-    private a gSM;
-    private a gSN;
+    private String aPa;
+    private String bvS;
+    private a heA;
+    private a hez;
     private boolean mIsHost;
     private String mLiveId;
     private RelativeLayout mRootView;
     private int mTabId;
 
-    @Override // com.baidu.live.tbadk.core.BaseFragment, android.support.v4.app.Fragment
+    @Override // com.baidu.live.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         Bundle arguments = getArguments();
         if (bundle != null) {
             this.mLiveId = bundle.getString("live_id");
-            this.brl = bundle.getString("anchor_id");
-            this.aOt = bundle.getString(LogConfig.LOG_GIFT_ID);
+            this.bvS = bundle.getString("anchor_id");
+            this.aPa = bundle.getString(LogConfig.LOG_GIFT_ID);
             this.mTabId = bundle.getInt("tab_id");
             this.mIsHost = bundle.getBoolean("is_host");
             return;
         }
         this.mLiveId = arguments.getString("live_id");
-        this.brl = arguments.getString("anchor_id");
-        this.aOt = arguments.getString(LogConfig.LOG_GIFT_ID);
+        this.bvS = arguments.getString("anchor_id");
+        this.aPa = arguments.getString(LogConfig.LOG_GIFT_ID);
         this.mTabId = arguments.getInt("tab_id");
         this.mIsHost = arguments.getBoolean("is_host");
     }
 
-    @Override // android.support.v4.app.Fragment
+    @Override // androidx.fragment.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         this.mRootView = new RelativeLayout(getPageContext().getPageActivity());
-        this.gSM = new a(getPageContext(), false, this.mIsHost);
-        this.gSM.d(this.mLiveId, this.brl, this.aOt, this.mTabId);
-        this.gSN = new a(getPageContext(), true, this.mIsHost);
-        this.gSN.d(this.mLiveId, this.brl, this.aOt, this.mTabId);
+        this.hez = new a(getPageContext(), false, this.mIsHost);
+        this.hez.i(this.mLiveId, this.bvS, this.aPa, this.mTabId);
+        this.heA = new a(getPageContext(), true, this.mIsHost);
+        this.heA.i(this.mLiveId, this.bvS, this.aPa, this.mTabId);
         if (UtilHelper.getRealScreenOrientation(getPageContext().getPageActivity()) == 2) {
-            this.gSN.getRootView().setVisibility(0);
-            this.gSM.getRootView().setVisibility(8);
+            this.heA.getRootView().setVisibility(0);
+            this.hez.getRootView().setVisibility(8);
         } else {
-            this.gSN.getRootView().setVisibility(8);
-            this.gSM.getRootView().setVisibility(0);
+            this.heA.getRootView().setVisibility(8);
+            this.hez.getRootView().setVisibility(0);
         }
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
         layoutParams.addRule(12);
-        this.mRootView.addView(this.gSM.getRootView(), layoutParams);
-        this.mRootView.addView(this.gSN.getRootView(), layoutParams);
+        this.mRootView.addView(this.hez.getRootView(), layoutParams);
+        this.mRootView.addView(this.heA.getRootView(), layoutParams);
         return this.mRootView;
     }
 
-    @Override // android.support.v4.app.Fragment, android.content.ComponentCallbacks
+    @Override // androidx.fragment.app.Fragment, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        if (this.gSM != null && this.gSN != null) {
+        if (this.hez != null && this.heA != null) {
             if (configuration.orientation == 2) {
-                this.gSN.getRootView().setVisibility(0);
-                this.gSM.getRootView().setVisibility(8);
+                this.heA.getRootView().setVisibility(0);
+                this.hez.getRootView().setVisibility(8);
             } else {
-                this.gSN.getRootView().setVisibility(8);
-                this.gSM.getRootView().setVisibility(0);
+                this.heA.getRootView().setVisibility(8);
+                this.hez.getRootView().setVisibility(0);
             }
-            this.gSM.blq();
-            this.gSN.blq();
+            this.hez.bnO();
+            this.heA.bnO();
         }
     }
 
-    @Override // android.support.v4.app.Fragment
+    @Override // androidx.fragment.app.Fragment
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
         bundle.putString("live_id", this.mLiveId);
-        bundle.putString("anchor_id", this.brl);
-        bundle.putString(LogConfig.LOG_GIFT_ID, this.aOt);
+        bundle.putString("anchor_id", this.bvS);
+        bundle.putString(LogConfig.LOG_GIFT_ID, this.aPa);
         bundle.putInt("tab_id", this.mTabId);
         bundle.putBoolean("is_host", this.mIsHost);
     }
 
-    @Override // com.baidu.live.tbadk.core.BaseFragment, android.support.v4.app.Fragment
+    @Override // com.baidu.live.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.gSM != null) {
-            this.gSM.bXi();
-            this.gSM.onDestroy();
+        if (this.hez != null) {
+            this.hez.bZN();
+            this.hez.onDestroy();
         }
-        if (this.gSN != null) {
-            this.gSN.bXi();
-            this.gSN.onDestroy();
+        if (this.heA != null) {
+            this.heA.bZN();
+            this.heA.onDestroy();
         }
     }
 }

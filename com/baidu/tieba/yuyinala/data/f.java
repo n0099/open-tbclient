@@ -2,21 +2,21 @@ package com.baidu.tieba.yuyinala.data;
 
 import com.baidu.live.tbadk.log.LogConfig;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class f {
     private long amount;
-    private int gIq;
+    private int gUc;
 
     public void parserJson(JSONObject jSONObject) {
-        this.gIq = jSONObject.optInt("loot_result");
+        this.gUc = jSONObject.optInt("loot_result");
         this.amount = jSONObject.optLong(LogConfig.LOG_AMOUNT);
     }
 
-    public boolean bUM() {
-        return this.gIq == 1;
+    public boolean bXq() {
+        return this.gUc == 1;
     }
 
-    public long bUN() {
+    public long bXr() {
         return this.amount;
     }
 }

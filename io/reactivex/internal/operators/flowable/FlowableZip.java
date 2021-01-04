@@ -13,11 +13,11 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class FlowableZip<T, R> extends g<R> {
     final int bufferSize;
     final boolean delayError;
-    final Iterable<? extends org.a.b<? extends T>> pFj;
+    final Iterable<? extends org.a.b<? extends T>> qgL;
     final org.a.b<? extends T>[] sources;
     final h<? super Object[], ? extends R> zipper;
 
@@ -25,27 +25,24 @@ public final class FlowableZip<T, R> extends g<R> {
     public void a(org.a.c<? super R> cVar) {
         int length;
         org.a.b<? extends T>[] bVarArr;
-        org.a.b<? extends T>[] bVarArr2;
-        org.a.b<? extends T>[] bVarArr3 = this.sources;
-        if (bVarArr3 == null) {
+        org.a.b<? extends T>[] bVarArr2 = this.sources;
+        if (bVarArr2 == null) {
             int i = 0;
-            org.a.b<? extends T>[] bVarArr4 = new org.a.b[8];
-            for (org.a.b<? extends T> bVar : this.pFj) {
-                if (i == bVarArr4.length) {
-                    bVarArr2 = new org.a.b[(i >> 2) + i];
-                    System.arraycopy(bVarArr4, 0, bVarArr2, 0, i);
-                } else {
-                    bVarArr2 = bVarArr4;
+            org.a.b<? extends T>[] bVarArr3 = new org.a.b[8];
+            for (org.a.b<? extends T> bVar : this.qgL) {
+                if (i == bVarArr3.length) {
+                    org.a.b<? extends T>[] bVarArr4 = new org.a.b[(i >> 2) + i];
+                    System.arraycopy(bVarArr3, 0, bVarArr4, 0, i);
+                    bVarArr3 = bVarArr4;
                 }
-                bVarArr2[i] = bVar;
+                bVarArr3[i] = bVar;
                 i++;
-                bVarArr4 = bVarArr2;
             }
-            bVarArr = bVarArr4;
             length = i;
-        } else {
-            length = bVarArr3.length;
             bVarArr = bVarArr3;
+        } else {
+            length = bVarArr2.length;
+            bVarArr = bVarArr2;
         }
         if (length == 0) {
             EmptySubscription.complete(cVar);
@@ -56,7 +53,7 @@ public final class FlowableZip<T, R> extends g<R> {
         zipCoordinator.subscribe(bVarArr, length);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class ZipCoordinator<T, R> extends AtomicInteger implements d {
         private static final long serialVersionUID = -2434867452883857743L;
         final org.a.c<? super R> actual;
@@ -136,127 +133,127 @@ public final class FlowableZip<T, R> extends g<R> {
         /* JADX WARN: Code restructure failed: missing block: B:127:?, code lost:
             return;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:128:?, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:129:?, code lost:
             return;
          */
         /* JADX WARN: Code restructure failed: missing block: B:130:?, code lost:
             return;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:45:0x00a4, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:45:0x00a3, code lost:
             if (r12 != r6) goto L112;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:47:0x00a8, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:47:0x00a7, code lost:
             if (r14.cancelled != false) goto L110;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:49:0x00ac, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:49:0x00ab, code lost:
             if (r14.delayErrors != false) goto L75;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:51:0x00b4, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:51:0x00b3, code lost:
             if (r14.errors.get() == null) goto L75;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:52:0x00b6, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:52:0x00b5, code lost:
             cancelAll();
             r5.onError(r14.errors.terminate());
          */
-        /* JADX WARN: Code restructure failed: missing block: B:57:0x00f9, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:57:0x00f8, code lost:
             r3 = 0;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:58:0x00fb, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:58:0x00fa, code lost:
             if (r3 >= r9) goto L109;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:59:0x00fd, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:59:0x00fc, code lost:
             r0 = r8[r3];
          */
-        /* JADX WARN: Code restructure failed: missing block: B:60:0x0101, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:60:0x0100, code lost:
             if (r10[r3] != null) goto L108;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:61:0x0103, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:61:0x0102, code lost:
             r4 = r0.done;
             r0 = r0.queue;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:62:0x0107, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:62:0x0106, code lost:
             if (r0 == null) goto L100;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:63:0x0109, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:63:0x0108, code lost:
             r2 = r0.poll();
          */
-        /* JADX WARN: Code restructure failed: missing block: B:64:0x010e, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:64:0x010d, code lost:
             if (r2 != null) goto L99;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:65:0x0110, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:65:0x010f, code lost:
             r0 = true;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:66:0x0111, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:66:0x0110, code lost:
             if (r4 == false) goto L94;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:67:0x0113, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:67:0x0112, code lost:
             if (r0 == false) goto L94;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:68:0x0115, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:68:0x0114, code lost:
             cancelAll();
          */
-        /* JADX WARN: Code restructure failed: missing block: B:69:0x0120, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:69:0x011f, code lost:
             if (r14.errors.get() == null) goto L92;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:70:0x0122, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:70:0x0121, code lost:
             r5.onError(r14.errors.terminate());
          */
-        /* JADX WARN: Code restructure failed: missing block: B:72:0x012d, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:72:0x012c, code lost:
             r0 = move-exception;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:73:0x012e, code lost:
-            io.reactivex.exceptions.a.J(r0);
+        /* JADX WARN: Code restructure failed: missing block: B:73:0x012d, code lost:
+            io.reactivex.exceptions.a.O(r0);
             r14.errors.addThrowable(r0);
          */
-        /* JADX WARN: Code restructure failed: missing block: B:74:0x0138, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:74:0x0137, code lost:
             if (r14.delayErrors == false) goto L104;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:75:0x013a, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:75:0x0139, code lost:
             cancelAll();
             r5.onError(r14.errors.terminate());
          */
-        /* JADX WARN: Code restructure failed: missing block: B:76:0x0148, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:76:0x0147, code lost:
             r2 = null;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:77:0x014b, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:77:0x014a, code lost:
             r0 = false;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:78:0x014d, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:78:0x014c, code lost:
             r5.onComplete();
          */
-        /* JADX WARN: Code restructure failed: missing block: B:79:0x0152, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:79:0x0151, code lost:
             if (r0 != false) goto L98;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:80:0x0154, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:80:0x0153, code lost:
             r10[r3] = r2;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:81:0x0156, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:81:0x0155, code lost:
             r3 = r3 + 1;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:83:0x015e, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:83:0x015d, code lost:
             if (r6 == 0) goto L121;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:84:0x0160, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:84:0x015f, code lost:
             r2 = r8.length;
             r0 = 0;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:85:0x0162, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:85:0x0161, code lost:
             if (r0 >= r2) goto L117;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:86:0x0164, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:86:0x0163, code lost:
             r8[r0].request(r6);
             r0 = r0 + 1;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:88:0x0173, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:88:0x0172, code lost:
             if (r12 == Long.MAX_VALUE) goto L121;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:89:0x0175, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:89:0x0174, code lost:
             r14.requested.addAndGet(-r6);
          */
-        /* JADX WARN: Code restructure failed: missing block: B:90:0x017b, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:90:0x017a, code lost:
             r0 = addAndGet(-r1);
          */
-        /* JADX WARN: Code restructure failed: missing block: B:91:0x0180, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:91:0x017f, code lost:
             if (r0 == 0) goto L124;
          */
         /*
@@ -307,7 +304,7 @@ public final class FlowableZip<T, R> extends g<R> {
                                             z = true;
                                         }
                                     } catch (Throwable th) {
-                                        io.reactivex.exceptions.a.J(th);
+                                        io.reactivex.exceptions.a.O(th);
                                         this.errors.addThrowable(th);
                                         if (!this.delayErrors) {
                                             cancelAll();
@@ -326,7 +323,7 @@ public final class FlowableZip<T, R> extends g<R> {
                                 j2 = 1 + j3;
                                 Arrays.fill(objArr, (Object) null);
                             } catch (Throwable th2) {
-                                io.reactivex.exceptions.a.J(th2);
+                                io.reactivex.exceptions.a.O(th2);
                                 cancelAll();
                                 this.errors.addThrowable(th2);
                                 cVar.onError(this.errors.terminate());
@@ -342,7 +339,7 @@ public final class FlowableZip<T, R> extends g<R> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static final class ZipSubscriber<T, R> extends AtomicReference<d> implements j<T>, d {
         private static final long serialVersionUID = -4627193790118206028L;
         volatile boolean done;

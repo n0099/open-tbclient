@@ -1,11 +1,11 @@
 package com.baidu.searchbox.player.kernel;
 
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.view.TextureView;
 import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.CyberVideoView;
 import com.baidu.cyberplayer.sdk.ICyberVideoView;
@@ -15,7 +15,7 @@ import com.baidu.searchbox.player.constants.PlayerStatus;
 import com.baidu.searchbox.player.utils.BdVideoLog;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class CyberVideoKernel extends AbsVideoKernel {
     private static final String TAG = "CyberVideoKernel";
     private CyberVideoView mVideoView = new CyberVideoView(BDPlayerConfig.getAppContext(), 1);
@@ -37,8 +37,8 @@ public class CyberVideoKernel extends AbsVideoKernel {
         this.mVideoView.setOnVideoSizeChangedListener(iKernelPlayer);
     }
 
-    @PublicMethod(version = "11.24.0.0")
     @Nullable
+    @PublicMethod(version = "11.24.0.0")
     public TextureView getRenderView() {
         if (this.mVideoView.getRenderView() instanceof TextureView) {
             return (TextureView) this.mVideoView.getRenderView();
@@ -81,8 +81,8 @@ public class CyberVideoKernel extends AbsVideoKernel {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    @PublicMethod
     @NonNull
+    @PublicMethod
     public View getBVideoView() {
         return this.mVideoView;
     }

@@ -4,15 +4,15 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
-import android.support.annotation.NonNull;
 import android.util.Base64;
 import android.view.View;
-import com.baidu.swan.apps.ap.ah;
+import androidx.annotation.NonNull;
+import com.baidu.swan.apps.ao.ah;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class c extends a {
-    private int cHC;
-    private int cHD;
+    private int cMr;
+    private int cMs;
     private int mHeight;
     private int mWidth;
 
@@ -20,43 +20,44 @@ public class c extends a {
         super(str);
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.cHC = ah.M((float) jSONObject.optDouble("x"));
-            this.cHD = ah.M((float) jSONObject.optDouble("y"));
-            this.mWidth = ah.M((float) jSONObject.optDouble("width"));
-            this.mHeight = ah.M((float) jSONObject.optDouble("height"));
+            this.cMr = ah.O((float) jSONObject.optDouble("x"));
+            this.cMs = ah.O((float) jSONObject.optDouble("y"));
+            this.mWidth = ah.O((float) jSONObject.optDouble("width"));
+            this.mHeight = ah.O((float) jSONObject.optDouble("height"));
         } catch (Exception e) {
             com.baidu.swan.apps.console.c.e("canvasGetImageData", "CanvasGetImageData meets json exception", e);
         }
     }
 
-    public JSONObject au(@NonNull View view) {
+    public JSONObject aw(@NonNull View view) {
         int i;
-        int i2 = 0;
+        int i2;
         int measuredWidth = view.getMeasuredWidth();
         int measuredHeight = view.getMeasuredHeight();
         String str = "";
         if (measuredWidth <= 0 || measuredHeight <= 0) {
             com.baidu.swan.apps.console.c.d("canvasGetImageData", "canvas size is invalid.");
             i = 0;
+            i2 = 0;
         } else {
-            this.cHC = (this.cHC < 0 || this.cHC >= measuredWidth) ? 0 : this.cHC;
-            this.cHD = (this.cHD < 0 || this.cHD >= measuredHeight) ? 0 : this.cHD;
-            this.mWidth = (this.mWidth <= 0 || this.cHC + this.mWidth > measuredWidth) ? measuredWidth - this.cHC : this.mWidth;
-            this.mHeight = (this.mHeight <= 0 || this.cHD + this.mHeight > measuredHeight) ? measuredHeight - this.cHD : this.mHeight;
+            this.cMr = (this.cMr < 0 || this.cMr >= measuredWidth) ? 0 : this.cMr;
+            this.cMs = (this.cMs < 0 || this.cMs >= measuredHeight) ? 0 : this.cMs;
+            this.mWidth = (this.mWidth <= 0 || this.cMr + this.mWidth > measuredWidth) ? measuredWidth - this.cMr : this.mWidth;
+            this.mHeight = (this.mHeight <= 0 || this.cMs + this.mHeight > measuredHeight) ? measuredHeight - this.cMs : this.mHeight;
             Bitmap createBitmap = Bitmap.createBitmap(this.mWidth, this.mHeight, Bitmap.Config.ARGB_4444);
             Canvas canvas = new Canvas(createBitmap);
             canvas.drawARGB(0, 0, 0, 0);
-            canvas.translate(-this.cHC, -this.cHD);
+            canvas.translate(-this.cMr, -this.cMs);
             view.draw(canvas);
-            Bitmap i3 = i(createBitmap);
-            str = Base64.encodeToString(j(i3), 2);
-            i = i3.getWidth();
-            i2 = i3.getHeight();
+            Bitmap j = j(createBitmap);
+            str = Base64.encodeToString(k(j), 2);
+            i2 = j.getWidth();
+            i = j.getHeight();
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("width", i);
-            jSONObject.put("height", i2);
+            jSONObject.put("width", i2);
+            jSONObject.put("height", i);
             jSONObject.put("data", str);
         } catch (Exception e) {
             com.baidu.swan.apps.console.c.e("canvasGetImageData", "CanvasGetImageData meets json exception", e);
@@ -65,14 +66,14 @@ public class c extends a {
     }
 
     @NonNull
-    private Bitmap i(@NonNull Bitmap bitmap) {
-        float density = 1.0f / ah.getDensity(com.baidu.swan.apps.t.a.aza());
+    private Bitmap j(@NonNull Bitmap bitmap) {
+        float density = 1.0f / ah.getDensity(com.baidu.swan.apps.t.a.aAr());
         Matrix matrix = new Matrix();
         matrix.postScale(density, density);
         return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
     }
 
-    private byte[] j(@NonNull Bitmap bitmap) {
+    private byte[] k(@NonNull Bitmap bitmap) {
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
         int[] iArr = new int[width * height];

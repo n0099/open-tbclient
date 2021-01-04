@@ -1,24 +1,24 @@
 package com.google.gson.internal;
 /* loaded from: classes5.dex */
 public final class c {
-    private static final int ptZ = eyl();
+    private static final int pKZ = eBX();
 
-    private static int eyl() {
-        return ZC(System.getProperty("java.version"));
+    private static int eBX() {
+        return ZM(System.getProperty("java.version"));
     }
 
-    static int ZC(String str) {
-        int ZD = ZD(str);
-        if (ZD == -1) {
-            ZD = ZE(str);
+    static int ZM(String str) {
+        int ZN = ZN(str);
+        if (ZN == -1) {
+            ZN = ZO(str);
         }
-        if (ZD == -1) {
+        if (ZN == -1) {
             return 6;
         }
-        return ZD;
+        return ZN;
     }
 
-    private static int ZD(String str) {
+    private static int ZN(String str) {
         try {
             String[] split = str.split("[._]");
             int parseInt = Integer.parseInt(split[0]);
@@ -31,7 +31,7 @@ public final class c {
         }
     }
 
-    private static int ZE(String str) {
+    private static int ZO(String str) {
         try {
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < str.length(); i++) {
@@ -47,11 +47,11 @@ public final class c {
         }
     }
 
-    public static int eym() {
-        return ptZ;
+    public static int eBY() {
+        return pKZ;
     }
 
-    public static boolean eyn() {
-        return ptZ >= 9;
+    public static boolean eBZ() {
+        return pKZ >= 9;
     }
 }

@@ -1,18 +1,18 @@
 package com.baidu.tieba.ala.liveroom.views;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tieba.view.fresco.SimpleDraweeView;
 import com.facebook.drawee.drawable.p;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaLiveRoomCoverLayout extends FrameLayout {
-    public SimpleDraweeView hFk;
+    public SimpleDraweeView hRk;
 
     public AlaLiveRoomCoverLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -21,7 +21,7 @@ public class AlaLiveRoomCoverLayout extends FrameLayout {
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(a.g.ala_liveroom_cover_layout, (ViewGroup) this, true);
-        this.hFk = (SimpleDraweeView) findViewById(a.f.ala_liveroom_background_img);
-        this.hFk.getHierarchy().a(a.e.bg_live_cover_default, p.b.pgz);
+        this.hRk = (SimpleDraweeView) findViewById(a.f.ala_liveroom_background_img);
+        this.hRk.getHierarchy().a(a.e.bg_live_cover_default, p.b.pxH);
     }
 }

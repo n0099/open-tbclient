@@ -292,48 +292,23 @@ public class f extends SQLiteOpenHelper {
     }
 
     private LinkedList<String> aa(SQLiteDatabase sQLiteDatabase) {
-        Cursor cursor;
-        Throwable th;
-        Exception exc;
-        Cursor cursor2 = null;
+        Cursor cursor = null;
         LinkedList<String> linkedList = new LinkedList<>();
         if (sQLiteDatabase != null) {
             try {
-                cursor2 = sQLiteDatabase.rawQuery("select * from sqlite_master where type='table'", null);
-                if (cursor2 != null) {
-                    while (cursor2.moveToNext()) {
-                        try {
-                            linkedList.add(cursor2.getString(cursor2.getColumnIndex("name")));
-                        } catch (Exception e) {
-                            cursor = cursor2;
-                            exc = e;
-                            try {
-                                TiebaStatic.printDBExceptionLog(exc, "ImDatabaseHelper.getAllTable", new Object[0]);
-                                exc.printStackTrace();
-                                com.baidu.adp.lib.util.n.close(cursor);
-                                return linkedList;
-                            } catch (Throwable th2) {
-                                th = th2;
-                                com.baidu.adp.lib.util.n.close(cursor);
-                                throw th;
-                            }
-                        } catch (Throwable th3) {
-                            cursor = cursor2;
-                            th = th3;
-                            com.baidu.adp.lib.util.n.close(cursor);
-                            throw th;
-                        }
+                cursor = sQLiteDatabase.rawQuery("select * from sqlite_master where type='table'", null);
+                if (cursor != null) {
+                    while (cursor.moveToNext()) {
+                        linkedList.add(cursor.getString(cursor.getColumnIndex("name")));
                     }
                 }
-            } catch (Exception e2) {
-                cursor = null;
-                exc = e2;
-            } catch (Throwable th4) {
-                cursor = null;
-                th = th4;
+            } catch (Exception e) {
+                TiebaStatic.printDBExceptionLog(e, "ImDatabaseHelper.getAllTable", new Object[0]);
+                e.printStackTrace();
+            } finally {
+                com.baidu.adp.lib.util.n.close(cursor);
             }
         }
-        com.baidu.adp.lib.util.n.close(cursor2);
         return linkedList;
     }
 
@@ -378,12 +353,12 @@ public class f extends SQLiteOpenHelper {
                 sQLiteDatabase.setTransactionSuccessful();
                 try {
                     sQLiteDatabase.beginTransaction();
-                    g.kqB.put(TbadkCoreApplication.getCurrentAccount() + ".db", sQLiteDatabase);
-                    k.cWf();
+                    g.kBq.put(TbadkCoreApplication.getCurrentAccount() + ".db", sQLiteDatabase);
+                    k.cXB();
                     sQLiteDatabase.setTransactionSuccessful();
                 } finally {
                     sQLiteDatabase.endTransaction();
-                    g.kqB.remove(TbadkCoreApplication.getCurrentAccount() + ".db");
+                    g.kBq.remove(TbadkCoreApplication.getCurrentAccount() + ".db");
                 }
             } finally {
                 sQLiteDatabase.endTransaction();

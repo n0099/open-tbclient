@@ -2,20 +2,20 @@ package com.baidu.swan.apps.ab;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.swan.apps.SwanAppBaseActivity;
 import com.baidu.swan.apps.ab.c;
 import java.util.ArrayList;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static String TAG = "RequestPermissionHelper";
 
     public static void a(@NonNull String str, @NonNull String[] strArr, @NonNull int i, @NonNull Context context, @NonNull b bVar) {
         if (context == null || !(context instanceof Activity)) {
-            bVar.af(2, "context should be activity ref");
+            bVar.ah(2, "context should be activity ref");
         } else if (com.baidu.swan.uuid.b.c.hasPermission(context, str)) {
-            bVar.kU("permission has already granted");
+            bVar.kN("permission has already granted");
         } else {
             a(context, strArr, i, bVar);
         }
@@ -31,13 +31,13 @@ public class a {
         if (arrayList.size() > 0) {
             a(context, (String[]) arrayList.toArray(new String[0]), i, bVar);
         } else {
-            bVar.kU("permission has already granted");
+            bVar.kN("permission has already granted");
         }
     }
 
     public static void a(Context context, String[] strArr, final int i, @NonNull final b bVar) {
         if (context == null || !(context instanceof SwanAppBaseActivity)) {
-            bVar.af(2, "method should be called after setActivityRef");
+            bVar.ah(2, "method should be called after setActivityRef");
             if (DEBUG) {
                 throw new IllegalStateException("this method should be called after setActivityRef");
             }
@@ -49,18 +49,18 @@ public class a {
                 if (i2 != i) {
                     b bVar2 = bVar;
                     b bVar3 = bVar;
-                    bVar2.af(2, "request permission fail");
+                    bVar2.ah(2, "request permission fail");
                     return;
                 }
                 for (int i3 : iArr) {
                     if (i3 == -1) {
                         b bVar4 = bVar;
                         b bVar5 = bVar;
-                        bVar4.af(1, "user denied");
+                        bVar4.ah(1, "user denied");
                         return;
                     }
                 }
-                bVar.kU("permission granted successful");
+                bVar.kN("permission granted successful");
             }
         });
     }

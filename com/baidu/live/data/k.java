@@ -1,35 +1,24 @@
 package com.baidu.live.data;
 
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class k {
-    private String aJj;
-    private String text;
+    public int id = 0;
+    public String name;
+    public int number;
 
-    public static k s(JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return null;
+    public void parser(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            this.number = jSONObject.optInt("num");
+            this.name = jSONObject.optString("name");
         }
-        k kVar = new k();
-        kVar.text = jSONObject.optString("text");
-        kVar.aJj = jSONObject.optString(BigdayActivityConfig.JUMP_URL);
-        return kVar;
     }
 
-    public String Fk() {
-        return this.aJj;
+    public int getNumber() {
+        return this.number;
     }
 
-    public String getText() {
-        return this.text;
-    }
-
-    public void gC(String str) {
-        this.aJj = str;
-    }
-
-    public void setText(String str) {
-        this.text = str;
+    public String getName() {
+        return this.name;
     }
 }

@@ -4,12 +4,14 @@ import com.baidu.ala.recorder.video.DynamicBitRateConfig;
 import com.baidu.platform.comapi.UIMsg;
 import com.baidu.tbadk.TbConfig;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class AlaLiveVideoConfig {
     public static final int HW_ENCODER = 1;
     private static final int PREVIEW_HEIGHT = 1280;
     private static final int PREVIEW_WIDTH = 720;
     public static final int SW_ENCODER = 2;
+    public static final int VIDEO_CODEC_H264 = 7;
+    public static final int VIDEO_CODEC_H265 = 12;
     private DynamicBitRateConfig mCurrentConfig;
     private int mEncoderType;
     private DynamicBitRateConfig mHardConfig;
@@ -24,7 +26,14 @@ public class AlaLiveVideoConfig {
     private float mRsetHwEncoderThreshold;
     private DynamicBitRateConfig mRtcConfig;
     private DynamicBitRateConfig mSoftConfig;
+    private int mVideoCodecId;
+    private VideoEncoderConfig mVideoEncoderConfig;
     private int mVideoGOP;
+
+    /* loaded from: classes15.dex */
+    public static class VideoEncoderConfig {
+        public String x264Param;
+    }
 
     public AlaLiveVideoConfig(AlaLiveVideoConfig alaLiveVideoConfig) {
         this.mPreviewWidth = PREVIEW_WIDTH;
@@ -33,6 +42,7 @@ public class AlaLiveVideoConfig {
         this.mOutputHeight = TbConfig.HEAD_IMG_SIZE;
         this.mVideoGOP = 2;
         this.mEncoderType = 1;
+        this.mVideoCodecId = 7;
         this.mIsLandscape = false;
         this.mIsSupportFaceStyle = true;
         this.mIsSupportDynamicBitrate = true;
@@ -62,6 +72,8 @@ public class AlaLiveVideoConfig {
         this.mCurrentConfig = alaLiveVideoConfig.mCurrentConfig.deepCopy();
         this.mIsSupportResetHWEncoder = alaLiveVideoConfig.mIsSupportResetHWEncoder;
         this.mRsetHwEncoderThreshold = alaLiveVideoConfig.mRsetHwEncoderThreshold;
+        this.mVideoCodecId = alaLiveVideoConfig.mVideoCodecId;
+        this.mVideoEncoderConfig = alaLiveVideoConfig.mVideoEncoderConfig;
     }
 
     public AlaLiveVideoConfig(List<DynamicBitRateConfig.DynamicBitRateItem> list, List<DynamicBitRateConfig.DynamicBitRateItem> list2, double d, double d2, int i, boolean z, boolean z2, int i2, int i3) {
@@ -71,6 +83,7 @@ public class AlaLiveVideoConfig {
         this.mOutputHeight = TbConfig.HEAD_IMG_SIZE;
         this.mVideoGOP = 2;
         this.mEncoderType = 1;
+        this.mVideoCodecId = 7;
         this.mIsLandscape = false;
         this.mIsSupportFaceStyle = true;
         this.mIsSupportDynamicBitrate = true;
@@ -103,6 +116,7 @@ public class AlaLiveVideoConfig {
         this.mOutputHeight = TbConfig.HEAD_IMG_SIZE;
         this.mVideoGOP = 2;
         this.mEncoderType = 1;
+        this.mVideoCodecId = 7;
         this.mIsLandscape = false;
         this.mIsSupportFaceStyle = true;
         this.mIsSupportDynamicBitrate = true;
@@ -276,6 +290,22 @@ public class AlaLiveVideoConfig {
         return this.mRsetHwEncoderThreshold;
     }
 
+    public int getVideoCodecId() {
+        return this.mVideoCodecId;
+    }
+
+    public void setVideoCodecId(int i) {
+        this.mVideoCodecId = i;
+    }
+
+    public VideoEncoderConfig getVideoEncoderConfig() {
+        return this.mVideoEncoderConfig;
+    }
+
+    public void setVideoEncoderConfig(VideoEncoderConfig videoEncoderConfig) {
+        this.mVideoEncoderConfig = videoEncoderConfig;
+    }
+
     public static boolean isUpdateBitrate(AlaLiveVideoConfig alaLiveVideoConfig, AlaLiveVideoConfig alaLiveVideoConfig2) {
         int currentBitRate = (alaLiveVideoConfig == null || alaLiveVideoConfig.getCurrentBitRateConfig() == null) ? 0 : alaLiveVideoConfig.getCurrentBitRateConfig().getCurrentBitRate();
         int currentBitRate2 = (alaLiveVideoConfig2 == null || alaLiveVideoConfig2.getCurrentBitRateConfig() == null) ? 0 : alaLiveVideoConfig2.getCurrentBitRateConfig().getCurrentBitRate();
@@ -289,8 +319,8 @@ public class AlaLiveVideoConfig {
                 if (alaLiveVideoConfig.getCurrentBitRateConfig() != null) {
                     currentBitRate = alaLiveVideoConfig.getCurrentBitRateConfig().getCurrentBitRate();
                     int currentBitRate2 = (alaLiveVideoConfig2 != null || alaLiveVideoConfig2.getCurrentBitRateConfig() == null) ? 0 : alaLiveVideoConfig2.getCurrentBitRateConfig().getCurrentBitRate();
-                    if (alaLiveVideoConfig == null && alaLiveVideoConfig2 != null && alaLiveVideoConfig.getVideoWidth() == alaLiveVideoConfig2.getVideoWidth() && alaLiveVideoConfig.getVideoHeight() == alaLiveVideoConfig2.getVideoHeight() && alaLiveVideoConfig.getPreviewWidth() == alaLiveVideoConfig2.getPreviewWidth() && alaLiveVideoConfig.getPreviewHeight() == alaLiveVideoConfig2.getPreviewHeight()) {
-                        return alaLiveVideoConfig.isLandscape() == alaLiveVideoConfig2.isLandscape() && currentBitRate == currentBitRate2 && currentBitRate != 0 && currentBitRate2 != 0;
+                    if (alaLiveVideoConfig == null && alaLiveVideoConfig2 != null && alaLiveVideoConfig.getVideoWidth() == alaLiveVideoConfig2.getVideoWidth() && alaLiveVideoConfig.getVideoHeight() == alaLiveVideoConfig2.getVideoHeight() && alaLiveVideoConfig.getPreviewWidth() == alaLiveVideoConfig2.getPreviewWidth() && alaLiveVideoConfig.getPreviewHeight() == alaLiveVideoConfig2.getPreviewHeight() && alaLiveVideoConfig.isLandscape() == alaLiveVideoConfig2.isLandscape()) {
+                        return alaLiveVideoConfig.getVideoCodecId() == alaLiveVideoConfig2.getVideoCodecId() && currentBitRate == currentBitRate2 && currentBitRate != 0 && currentBitRate2 != 0;
                     }
                     return false;
                 }
@@ -307,7 +337,7 @@ public class AlaLiveVideoConfig {
 
     public StringBuilder getInfo() {
         StringBuilder sb = new StringBuilder();
-        sb.append(toString()).append('\n').append("mPreviewWidth:").append(this.mPreviewWidth).append(", mPreviewHeight:").append(this.mPreviewHeight).append('\n').append("mOutputWidth:").append(this.mOutputWidth).append(", mOutputHeight:").append(this.mOutputHeight).append('\n').append("mVideoGOP:").append(this.mVideoGOP).append('\n').append("mEncoderType:").append(this.mEncoderType).append('\n').append("mIsLandscape:").append(this.mIsLandscape).append('\n').append("mIsSupportFaceStyle:").append(this.mIsSupportFaceStyle).append('\n').append("mIsSupportDynamicBitrate:").append(this.mIsSupportDynamicBitrate).append('\n');
+        sb.append(toString()).append('\n').append("mPreviewWidth:").append(this.mPreviewWidth).append(", mPreviewHeight:").append(this.mPreviewHeight).append('\n').append("mOutputWidth:").append(this.mOutputWidth).append(", mOutputHeight:").append(this.mOutputHeight).append('\n').append("mVideoGOP:").append(this.mVideoGOP).append('\n').append("mEncoderType:").append(this.mEncoderType).append('\n').append("mIsLandscape:").append(this.mIsLandscape).append('\n').append("mIsSupportFaceStyle:").append(this.mIsSupportFaceStyle).append('\n').append("mIsSupportDynamicBitrate:").append(this.mIsSupportDynamicBitrate).append('\n').append("mVideoCodecId:").append(this.mVideoCodecId).append('\n');
         return sb;
     }
 }

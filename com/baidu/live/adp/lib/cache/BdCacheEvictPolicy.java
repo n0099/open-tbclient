@@ -1,8 +1,8 @@
 package com.baidu.live.adp.lib.cache;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public interface BdCacheEvictPolicy {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface EvictOnCountSupport extends BdCacheEvictPolicy {
         void finishEvict();
 
@@ -11,7 +11,7 @@ public interface BdCacheEvictPolicy {
         void startEvict();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface EvictOnInsertSupport extends BdCacheEvictPolicy {
         void finishInit();
 

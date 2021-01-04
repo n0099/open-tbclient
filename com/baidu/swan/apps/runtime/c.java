@@ -4,12 +4,12 @@ import android.os.Bundle;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.extcore.cores.SwanAppCores;
 import com.baidu.swan.apps.process.SwanAppProcessInfo;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class c extends d {
-    public final e dxQ = new e(this, "");
+    public final e dGv = new e(this, "");
 
     @Override // com.baidu.swan.apps.runtime.h
-    public SwanAppProcessInfo aIb() {
+    public SwanAppProcessInfo aJu() {
         return SwanAppProcessInfo.current();
     }
 
@@ -19,37 +19,37 @@ public class c extends d {
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public boolean aId() {
+    public boolean aJw() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public boolean aIc() {
+    public boolean aJv() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public SwanAppCores aIe() {
+    public SwanAppCores aJx() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public int aie() {
+    public int ajk() {
         return -1;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public com.baidu.swan.apps.process.messaging.client.a aJL() {
+    public com.baidu.swan.apps.process.messaging.client.a aMb() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public e aJM() {
-        return this.dxQ;
+    public e aMc() {
+        return this.dGv;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public String y(String... strArr) {
+    public String F(String... strArr) {
         return "";
     }
 
@@ -58,7 +58,7 @@ public class c extends d {
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public void aJN() {
+    public void aMd() {
     }
 
     @Override // com.baidu.swan.apps.runtime.h
@@ -70,12 +70,12 @@ public class c extends d {
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public SwanAppActivity aJO() {
+    public SwanAppActivity aMe() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.runtime.d
-    protected com.baidu.swan.pms.c.f aJP() {
+    protected com.baidu.swan.pms.c.f aMf() {
         return null;
     }
 }

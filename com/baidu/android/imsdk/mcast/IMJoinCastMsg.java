@@ -3,19 +3,16 @@ package com.baidu.android.imsdk.mcast;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
-import com.baidu.android.imsdk.conversation.ConversationStudioManImpl;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.internal.Heartbeat;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.request.Message;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.h.a;
 import com.baidu.sapi2.SapiContext;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class IMJoinCastMsg extends Message {
     private static final String TAG = "IMJoinCastMsg";
     private Context mContext;
@@ -64,104 +61,161 @@ public class IMJoinCastMsg extends Message {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:42:0x0143  */
+    /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
+        jadx.core.utils.exceptions.JadxRuntimeException: Unreachable block: B:44:0x0148
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.checkForUnreachableBlocks(BlockProcessor.java:81)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:47)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
+        */
     @Override // com.baidu.android.imsdk.request.Message
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
-        Exception e;
-        String str2;
-        int i2;
-        long j;
-        long j2 = -1;
-        if (i != 0) {
-            j = -1;
-            str2 = str;
-            i2 = i;
-        } else {
-            try {
-                if (jSONObject.has("msg")) {
-                    jSONObject.getString("msg");
-                }
-                if (jSONObject.has("mcast_id")) {
-                    long j3 = jSONObject.getLong("mcast_id");
-                    try {
-                        LogUtils.d("fxf", " cast id is" + j3);
-                        j2 = j3;
-                        str2 = str;
-                        i2 = i;
-                    } catch (Exception e2) {
-                        e = e2;
-                        j2 = j3;
-                        str2 = str;
-                        i2 = i;
-                        LogUtils.e(TAG, "handle IMQuitCastMsg exception :", e);
-                        j = j2;
-                        super.handleMessageResult(context, jSONObject, i2, str2);
-                        LogUtils.d(TAG, "errorCode:" + i2 + "  strMsg" + str2);
-                        ConversationStudioManImpl conversationStudioManImpl = ConversationStudioManImpl.getInstance(this.mContext);
-                        String listenerKey = getListenerKey();
-                        if (j <= 0) {
-                        }
-                        conversationStudioManImpl.onJoinCastResult(listenerKey, i2, str2, j);
-                    }
-                } else {
-                    str2 = Constants.ERROR_MSG_SERVER_INTERNAL_ERROR;
-                    i2 = 1015;
-                }
-                try {
-                    if (jSONObject.has("ping_interval")) {
-                        int optInt = jSONObject.optInt("ping_interval", 60000);
-                        if (optInt > 0) {
-                            Heartbeat.ALARM_TIMEOUT = optInt * 1000;
-                            if (a.ayO) {
-                                ConversationStudioManImpl.mCastHeartBeatTime = optInt * 1000;
-                            }
-                        } else {
-                            Heartbeat.ALARM_TIMEOUT = 30000;
-                        }
-                    } else {
-                        Heartbeat.ALARM_TIMEOUT = 60000;
-                    }
-                    ConversationStudioManImpl.getInstance(this.mContext);
-                    ConversationStudioManImpl.resetHeartBeat(Heartbeat.ALARM_TIMEOUT);
-                    if (jSONObject.has("ack_enable")) {
-                        if (jSONObject.optInt("ack_enable", 0) == 1) {
-                            ConversationStudioManImpl.getInstance(this.mContext).addAckCastId(j2);
-                            LogUtils.d(TAG, "join 后添加ack cast信息：" + j2);
-                        } else {
-                            ConversationStudioManImpl.getInstance(this.mContext).removeAckCastId(j2);
-                            LogUtils.d(TAG, "join后 删除ack cast信息" + j2);
-                        }
-                    }
-                    LogUtils.d(TAG, " obj=" + jSONObject.toString());
-                    j = j2;
-                } catch (Exception e3) {
-                    e = e3;
-                    LogUtils.e(TAG, "handle IMQuitCastMsg exception :", e);
-                    j = j2;
-                    super.handleMessageResult(context, jSONObject, i2, str2);
-                    LogUtils.d(TAG, "errorCode:" + i2 + "  strMsg" + str2);
-                    ConversationStudioManImpl conversationStudioManImpl2 = ConversationStudioManImpl.getInstance(this.mContext);
-                    String listenerKey2 = getListenerKey();
-                    if (j <= 0) {
-                    }
-                    conversationStudioManImpl2.onJoinCastResult(listenerKey2, i2, str2, j);
-                }
-            } catch (Exception e4) {
-                e = e4;
-                str2 = str;
-                i2 = i;
-            }
-        }
-        super.handleMessageResult(context, jSONObject, i2, str2);
-        LogUtils.d(TAG, "errorCode:" + i2 + "  strMsg" + str2);
-        ConversationStudioManImpl conversationStudioManImpl22 = ConversationStudioManImpl.getInstance(this.mContext);
-        String listenerKey22 = getListenerKey();
-        if (j <= 0) {
-            j = this.mToUser;
-        }
-        conversationStudioManImpl22.onJoinCastResult(listenerKey22, i2, str2, j);
+    public void handleMessageResult(android.content.Context r9, org.json.JSONObject r10, int r11, java.lang.String r12) {
+        /*
+            r8 = this;
+            r0 = -1
+            if (r11 != 0) goto L14b
+            java.lang.String r2 = "msg"
+            boolean r2 = r10.has(r2)     // Catch: java.lang.Exception -> L144
+            if (r2 == 0) goto L13
+            java.lang.String r2 = "msg"
+            r10.getString(r2)     // Catch: java.lang.Exception -> L144
+        L13:
+            java.lang.String r2 = "mcast_id"
+            boolean r2 = r10.has(r2)     // Catch: java.lang.Exception -> L144
+            if (r2 == 0) goto Lfc
+            java.lang.String r2 = "mcast_id"
+            long r0 = r10.getLong(r2)     // Catch: java.lang.Exception -> L144
+            java.lang.String r2 = "fxf"
+            java.lang.StringBuilder r3 = new java.lang.StringBuilder     // Catch: java.lang.Exception -> L144
+            r3.<init>()     // Catch: java.lang.Exception -> L144
+            java.lang.String r4 = " cast id is"
+            java.lang.StringBuilder r3 = r3.append(r4)     // Catch: java.lang.Exception -> L144
+            java.lang.StringBuilder r3 = r3.append(r0)     // Catch: java.lang.Exception -> L144
+            java.lang.String r3 = r3.toString()     // Catch: java.lang.Exception -> L144
+            com.baidu.android.imsdk.utils.LogUtils.d(r2, r3)     // Catch: java.lang.Exception -> L144
+            r3 = r12
+            r2 = r11
+        L3f:
+            java.lang.String r4 = "ping_interval"
+            boolean r4 = r10.has(r4)     // Catch: java.lang.Exception -> L109
+            if (r4 == 0) goto L115
+            java.lang.String r4 = "ping_interval"
+            r5 = 60000(0xea60, float:8.4078E-41)
+            int r4 = r10.optInt(r4, r5)     // Catch: java.lang.Exception -> L109
+            if (r4 <= 0) goto L103
+            int r5 = r4 * 1000
+            com.baidu.android.imsdk.internal.Heartbeat.ALARM_TIMEOUT = r5     // Catch: java.lang.Exception -> L109
+            boolean r5 = com.baidu.i.a.aze     // Catch: java.lang.Exception -> L109
+            if (r5 == 0) goto L60
+            int r4 = r4 * 1000
+            com.baidu.android.imsdk.conversation.ConversationStudioManImpl.mCastHeartBeatTime = r4     // Catch: java.lang.Exception -> L109
+        L60:
+            android.content.Context r4 = r8.mContext     // Catch: java.lang.Exception -> L109
+            com.baidu.android.imsdk.conversation.ConversationStudioManImpl.getInstance(r4)     // Catch: java.lang.Exception -> L109
+            int r4 = com.baidu.android.imsdk.internal.Heartbeat.ALARM_TIMEOUT     // Catch: java.lang.Exception -> L109
+            com.baidu.android.imsdk.conversation.ConversationStudioManImpl.resetHeartBeat(r4)     // Catch: java.lang.Exception -> L109
+            java.lang.String r4 = "ack_enable"
+            boolean r4 = r10.has(r4)     // Catch: java.lang.Exception -> L109
+            if (r4 == 0) goto La1
+            java.lang.String r4 = "ack_enable"
+            r5 = 0
+            int r4 = r10.optInt(r4, r5)     // Catch: java.lang.Exception -> L109
+            r5 = 1
+            if (r4 != r5) goto L11c
+            android.content.Context r4 = r8.mContext     // Catch: java.lang.Exception -> L109
+            com.baidu.android.imsdk.conversation.ConversationStudioManImpl r4 = com.baidu.android.imsdk.conversation.ConversationStudioManImpl.getInstance(r4)     // Catch: java.lang.Exception -> L109
+            r4.addAckCastId(r0)     // Catch: java.lang.Exception -> L109
+            java.lang.String r4 = "IMJoinCastMsg"
+            java.lang.StringBuilder r5 = new java.lang.StringBuilder     // Catch: java.lang.Exception -> L109
+            r5.<init>()     // Catch: java.lang.Exception -> L109
+            java.lang.String r6 = "join 后添加ack cast信息："
+            java.lang.StringBuilder r5 = r5.append(r6)     // Catch: java.lang.Exception -> L109
+            java.lang.StringBuilder r5 = r5.append(r0)     // Catch: java.lang.Exception -> L109
+            java.lang.String r5 = r5.toString()     // Catch: java.lang.Exception -> L109
+            com.baidu.android.imsdk.utils.LogUtils.d(r4, r5)     // Catch: java.lang.Exception -> L109
+        La1:
+            java.lang.String r4 = "IMJoinCastMsg"
+            java.lang.StringBuilder r5 = new java.lang.StringBuilder     // Catch: java.lang.Exception -> L109
+            r5.<init>()     // Catch: java.lang.Exception -> L109
+            java.lang.String r6 = " obj="
+            java.lang.StringBuilder r5 = r5.append(r6)     // Catch: java.lang.Exception -> L109
+            java.lang.String r6 = r10.toString()     // Catch: java.lang.Exception -> L109
+            java.lang.StringBuilder r5 = r5.append(r6)     // Catch: java.lang.Exception -> L109
+            java.lang.String r5 = r5.toString()     // Catch: java.lang.Exception -> L109
+            com.baidu.android.imsdk.utils.LogUtils.d(r4, r5)     // Catch: java.lang.Exception -> L109
+            r4 = r0
+        Lc0:
+            super.handleMessageResult(r9, r10, r2, r3)
+            java.lang.String r0 = "IMJoinCastMsg"
+            java.lang.StringBuilder r1 = new java.lang.StringBuilder
+            r1.<init>()
+            java.lang.String r6 = "errorCode:"
+            java.lang.StringBuilder r1 = r1.append(r6)
+            java.lang.StringBuilder r1 = r1.append(r2)
+            java.lang.String r6 = "  strMsg"
+            java.lang.StringBuilder r1 = r1.append(r6)
+            java.lang.StringBuilder r1 = r1.append(r3)
+            java.lang.String r1 = r1.toString()
+            com.baidu.android.imsdk.utils.LogUtils.d(r0, r1)
+            android.content.Context r0 = r8.mContext
+            com.baidu.android.imsdk.conversation.ConversationStudioManImpl r0 = com.baidu.android.imsdk.conversation.ConversationStudioManImpl.getInstance(r0)
+            java.lang.String r1 = r8.getListenerKey()
+            r6 = 0
+            int r6 = (r4 > r6 ? 1 : (r4 == r6 ? 0 : -1))
+            if (r6 <= 0) goto L141
+        Lf8:
+            r0.onJoinCastResult(r1, r2, r3, r4)
+            return
+        Lfc:
+            r2 = 1015(0x3f7, float:1.422E-42)
+            java.lang.String r3 = "Server error!"
+            goto L3f
+        L103:
+            r4 = 30000(0x7530, float:4.2039E-41)
+            com.baidu.android.imsdk.internal.Heartbeat.ALARM_TIMEOUT = r4     // Catch: java.lang.Exception -> L109
+            goto L60
+        L109:
+            r4 = move-exception
+        L10a:
+            java.lang.String r5 = "IMJoinCastMsg"
+            java.lang.String r6 = "handle IMQuitCastMsg exception :"
+            com.baidu.android.imsdk.utils.LogUtils.e(r5, r6, r4)
+            r4 = r0
+            goto Lc0
+        L115:
+            r4 = 60000(0xea60, float:8.4078E-41)
+            com.baidu.android.imsdk.internal.Heartbeat.ALARM_TIMEOUT = r4     // Catch: java.lang.Exception -> L109
+            goto L60
+        L11c:
+            android.content.Context r4 = r8.mContext     // Catch: java.lang.Exception -> L109
+            com.baidu.android.imsdk.conversation.ConversationStudioManImpl r4 = com.baidu.android.imsdk.conversation.ConversationStudioManImpl.getInstance(r4)     // Catch: java.lang.Exception -> L109
+            r4.removeAckCastId(r0)     // Catch: java.lang.Exception -> L109
+            java.lang.String r4 = "IMJoinCastMsg"
+            java.lang.StringBuilder r5 = new java.lang.StringBuilder     // Catch: java.lang.Exception -> L109
+            r5.<init>()     // Catch: java.lang.Exception -> L109
+            java.lang.String r6 = "join后 删除ack cast信息"
+            java.lang.StringBuilder r5 = r5.append(r6)     // Catch: java.lang.Exception -> L109
+            java.lang.StringBuilder r5 = r5.append(r0)     // Catch: java.lang.Exception -> L109
+            java.lang.String r5 = r5.toString()     // Catch: java.lang.Exception -> L109
+            com.baidu.android.imsdk.utils.LogUtils.d(r4, r5)     // Catch: java.lang.Exception -> L109
+            goto La1
+        L141:
+            long r4 = r8.mToUser
+            goto Lf8
+        L144:
+            r4 = move-exception
+            r3 = r12
+            r2 = r11
+            goto L10a
+        L148:
+            r4 = move-exception
+            r3 = r12
+            goto L10a
+        L14b:
+            r4 = r0
+            r3 = r12
+            r2 = r11
+            goto Lc0
+        */
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.android.imsdk.mcast.IMJoinCastMsg.handleMessageResult(android.content.Context, org.json.JSONObject, int, java.lang.String):void");
     }
 }

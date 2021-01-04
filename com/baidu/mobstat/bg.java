@@ -11,20 +11,22 @@ import java.io.FileOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URLEncoder;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class bg {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile boolean f2584a;
-    private static volatile boolean b;
+    private static volatile boolean f3787a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private static volatile boolean f3788b;
     private static volatile boolean c;
 
     private static boolean a(int i) {
         switch (i) {
             case 0:
-                return f2584a;
+                return f3787a;
             case 1:
-                return b;
+                return f3788b;
             case 2:
                 return c;
             default:
@@ -35,10 +37,10 @@ public class bg {
     private static void a(int i, boolean z) {
         switch (i) {
             case 0:
-                f2584a = z;
+                f3787a = z;
                 return;
             case 1:
-                b = z;
+                f3788b = z;
                 return;
             case 2:
                 c = z;
@@ -48,12 +50,11 @@ public class bg {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:55:0x0139 A[Catch: all -> 0x011e, TRY_ENTER, TRY_LEAVE, TryCatch #5 {, blocks: (B:4:0x0005, B:10:0x0011, B:13:0x001d, B:16:0x0029, B:17:0x0044, B:19:0x004e, B:20:0x0069, B:55:0x0139, B:45:0x0119, B:24:0x0076, B:25:0x007a, B:28:0x0081, B:29:0x0090, B:32:0x00a4, B:33:0x00ca, B:35:0x00d4, B:38:0x00fe, B:40:0x0103, B:41:0x0110, B:43:0x0114, B:50:0x0121, B:57:0x013e), top: B:80:0x0005 }] */
+    /* JADX WARN: Removed duplicated region for block: B:54:0x0138 A[Catch: all -> 0x011e, TRY_ENTER, TRY_LEAVE, TryCatch #5 {, blocks: (B:4:0x0005, B:10:0x0011, B:13:0x001d, B:16:0x0029, B:17:0x0044, B:19:0x004e, B:20:0x0069, B:54:0x0138, B:44:0x0119, B:24:0x0076, B:27:0x0081, B:28:0x0090, B:31:0x00a4, B:32:0x00ca, B:34:0x00d4, B:37:0x00fe, B:39:0x0103, B:40:0x0110, B:42:0x0114, B:49:0x0121, B:56:0x013d), top: B:77:0x0005 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static synchronized boolean a(Context context, String str, int i, boolean z) {
-        HttpURLConnection httpURLConnection;
         boolean z2 = true;
         synchronized (bg.class) {
             if (!a(i)) {
@@ -74,70 +75,63 @@ public class bg {
                         if (TextUtils.isEmpty(b2)) {
                             z2 = false;
                         } else {
+                            HttpURLConnection httpURLConnection = null;
                             try {
-                                HttpURLConnection d = bo.d(context, a2);
-                                try {
-                                    d.connect();
-                                    long j = 0;
-                                    if (i == 1) {
+                                httpURLConnection = bo.d(context, a2);
+                                httpURLConnection.connect();
+                                long j = 0;
+                                if (i == 1) {
+                                    try {
+                                        j = Long.valueOf(httpURLConnection.getHeaderField("X-INTERVAL")).longValue();
+                                    } catch (Exception e) {
+                                    }
+                                }
+                                int responseCode = httpURLConnection.getResponseCode();
+                                int contentLength = httpURLConnection.getContentLength();
+                                if (bd.c().b() && z) {
+                                    bd.c().a("contentLength:" + contentLength + " fileName:" + b2);
+                                }
+                                if (bh.c().b()) {
+                                    bh.c().a("contentLength:" + contentLength + " fileName:" + b2);
+                                }
+                                if (responseCode == 200) {
+                                    switch (i) {
+                                        case 1:
+                                            bq.a().a(context, System.currentTimeMillis());
+                                            bq.a().b(context, j);
+                                            break;
+                                        case 2:
+                                            bq.a().c(context, System.currentTimeMillis());
+                                            break;
+                                    }
+                                    if (contentLength > 0) {
+                                        FileOutputStream openFileOutput = context.openFileOutput(b2, 0);
+                                        boolean a3 = bu.a(httpURLConnection.getInputStream(), openFileOutput);
                                         try {
-                                            j = Long.valueOf(d.getHeaderField("X-INTERVAL")).longValue();
-                                        } catch (Exception e) {
-                                        }
-                                    }
-                                    int responseCode = d.getResponseCode();
-                                    int contentLength = d.getContentLength();
-                                    if (bd.c().b() && z) {
-                                        bd.c().a("contentLength:" + contentLength + " fileName:" + b2);
-                                    }
-                                    if (bh.c().b()) {
-                                        bh.c().a("contentLength:" + contentLength + " fileName:" + b2);
-                                    }
-                                    if (responseCode == 200) {
-                                        switch (i) {
-                                            case 1:
-                                                bq.a().a(context, System.currentTimeMillis());
-                                                bq.a().b(context, j);
-                                                break;
-                                            case 2:
-                                                bq.a().c(context, System.currentTimeMillis());
-                                                break;
-                                        }
-                                        if (contentLength > 0) {
-                                            FileOutputStream openFileOutput = context.openFileOutput(b2, 0);
-                                            boolean a3 = bu.a(d.getInputStream(), openFileOutput);
-                                            try {
-                                                bu.a(openFileOutput);
-                                            } catch (Exception e2) {
-                                                z2 = a3;
-                                                httpURLConnection = d;
-                                                if (httpURLConnection != null) {
-                                                }
-                                                return z2;
-                                            }
-                                        }
-                                        try {
-                                            a(i, true);
-                                        } catch (Exception e3) {
-                                            httpURLConnection = d;
+                                            bu.a(openFileOutput);
+                                        } catch (Exception e2) {
+                                            z2 = a3;
                                             if (httpURLConnection != null) {
                                                 httpURLConnection.disconnect();
                                             }
                                             return z2;
                                         }
-                                    } else {
-                                        z2 = false;
                                     }
-                                    if (d != null) {
-                                        d.disconnect();
+                                    try {
+                                        a(i, true);
+                                    } catch (Exception e3) {
+                                        if (httpURLConnection != null) {
+                                        }
+                                        return z2;
                                     }
-                                } catch (Exception e4) {
+                                } else {
                                     z2 = false;
-                                    httpURLConnection = d;
                                 }
-                            } catch (Exception e5) {
+                                if (httpURLConnection != null) {
+                                    httpURLConnection.disconnect();
+                                }
+                            } catch (Exception e4) {
                                 z2 = false;
-                                httpURLConnection = null;
                             }
                         }
                     }

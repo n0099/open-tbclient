@@ -7,38 +7,38 @@ import android.text.style.BackgroundColorSpan;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.x;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class c {
     private int bgColor;
-    private String enb;
-    private int jAl;
-    private ArrayList<String> nTA;
-    private int nTB;
-    private int nTC;
-    private int nTD = -1;
-    private boolean nTE = false;
-    private boolean nTF = false;
+    private String ewK;
+    private int jMK;
+    private ArrayList<String> nWV;
+    private int nWW;
+    private int nWX;
+    private int nWY = -1;
+    private boolean nWZ = false;
+    private boolean nXa = false;
 
-    public SpannableStringBuilder c(Editable editable) {
-        if (editable == null || StringUtils.isNull(editable.toString()) || y.isEmpty(this.nTA)) {
+    public SpannableStringBuilder d(Editable editable) {
+        if (editable == null || StringUtils.isNull(editable.toString()) || x.isEmpty(this.nWV)) {
             return null;
         }
         String obj = editable.toString();
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(obj);
-        boolean z = this.nTD >= 0;
-        this.nTD = -1;
-        Iterator<String> it = this.nTA.iterator();
+        boolean z = this.nWY >= 0;
+        this.nWY = -1;
+        Iterator<String> it = this.nWV.iterator();
         while (it.hasNext()) {
             String next = it.next();
             if (!StringUtils.isNull(next)) {
                 a(spannableStringBuilder, obj, next);
             }
         }
-        if (this.nTD >= 0 || z) {
+        if (this.nWY >= 0 || z) {
             ImageSpan[] imageSpanArr = (ImageSpan[]) editable.getSpans(0, obj.length(), ImageSpan.class);
             if (imageSpanArr != null) {
                 for (ImageSpan imageSpan : imageSpanArr) {
@@ -56,19 +56,19 @@ public class c {
         if (spannableStringBuilder == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
-        if (this.jAl != 0 || this.bgColor != 0) {
+        if (this.jMK != 0 || this.bgColor != 0) {
             int indexOf = str.indexOf(str2);
             int length = str2.length();
             if (indexOf >= 0) {
-                if (this.nTD == -1) {
-                    this.nTD = indexOf + length;
-                } else if (indexOf + length < this.nTD) {
-                    this.nTD = indexOf + length;
+                if (this.nWY == -1) {
+                    this.nWY = indexOf + length;
+                } else if (indexOf + length < this.nWY) {
+                    this.nWY = indexOf + length;
                 }
             }
             while (indexOf >= 0) {
-                if (this.jAl != 0) {
-                    spannableStringBuilder.setSpan(new ForegroundColorSpan(this.jAl), indexOf, indexOf + length, 33);
+                if (this.jMK != 0) {
+                    spannableStringBuilder.setSpan(new ForegroundColorSpan(this.jMK), indexOf, indexOf + length, 33);
                 }
                 if (this.bgColor != 0) {
                     spannableStringBuilder.setSpan(new BackgroundColorSpan(this.bgColor), indexOf, indexOf + length, 33);
@@ -79,57 +79,57 @@ public class c {
     }
 
     public void onChangeSkinType() {
-        if (this.nTB != 0) {
-            this.jAl = ap.getColor(this.nTB);
+        if (this.nWW != 0) {
+            this.jMK = ao.getColor(this.nWW);
         }
-        if (this.nTC != 0) {
-            this.bgColor = ap.getColor(this.nTC);
+        if (this.nWX != 0) {
+            this.bgColor = ao.getColor(this.nWX);
         }
     }
 
-    public void bn(ArrayList<String> arrayList) {
-        this.nTA = arrayList;
+    public void bm(ArrayList<String> arrayList) {
+        this.nWV = arrayList;
     }
 
-    public ArrayList<String> dYn() {
-        return this.nTA;
+    public ArrayList<String> dXQ() {
+        return this.nWV;
     }
 
-    public void MB(int i) {
-        this.nTB = i;
-        this.jAl = ap.getColor(this.nTB);
+    public void Mo(int i) {
+        this.nWW = i;
+        this.jMK = ao.getColor(this.nWW);
     }
 
-    public void MC(int i) {
-        this.nTC = i;
-        this.bgColor = ap.getColor(this.nTC);
+    public void Mp(int i) {
+        this.nWX = i;
+        this.bgColor = ao.getColor(this.nWX);
     }
 
-    public int dYo() {
-        return this.nTD;
+    public int dXR() {
+        return this.nWY;
     }
 
     public void zb(boolean z) {
-        this.nTE = z;
+        this.nWZ = z;
     }
 
-    public boolean dYp() {
-        return this.nTE;
+    public boolean dXS() {
+        return this.nWZ;
     }
 
     public void zc(boolean z) {
-        this.nTF = z;
+        this.nXa = z;
     }
 
-    public boolean dYq() {
-        return this.nTF;
+    public boolean dXT() {
+        return this.nXa;
     }
 
-    public void VA(String str) {
-        this.enb = str;
+    public void Vf(String str) {
+        this.ewK = str;
     }
 
-    public String dYr() {
-        return this.enb;
+    public String dXU() {
+        return this.ewK;
     }
 }

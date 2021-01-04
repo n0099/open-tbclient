@@ -1,19 +1,19 @@
 package com.baidu.swan.games.view;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
 import java.util.ArrayList;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class d {
-    private FrameLayout ajk;
-    private boolean efI;
-    private ArrayList<a> efH = new ArrayList<>();
-    private boolean efJ = false;
+    private FrameLayout ajW;
+    private boolean eoK;
+    private ArrayList<a> eoJ = new ArrayList<>();
+    private boolean eoL = false;
 
     public d(@NonNull FrameLayout frameLayout) {
-        this.ajk = frameLayout;
+        this.ajW = frameLayout;
     }
 
     public boolean a(View view, com.baidu.swan.apps.model.a.a.a aVar) {
@@ -22,112 +22,112 @@ public class d {
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(aVar.getWidth(), aVar.getHeight());
         layoutParams.leftMargin = aVar.getLeft();
-        layoutParams.topMargin = aVar.getTop();
-        this.ajk.addView(view, layoutParams);
+        layoutParams.topMargin = aVar.aFZ();
+        this.ajW.addView(view, layoutParams);
         return true;
     }
 
     public boolean removeView(View view) {
-        if (!aO(view)) {
+        if (!aX(view)) {
             return false;
         }
-        this.ajk.removeView(view);
+        this.ajW.removeView(view);
         return true;
     }
 
     public boolean b(View view, com.baidu.swan.apps.model.a.a.a aVar) {
-        if (!aO(view)) {
+        if (!aX(view)) {
             return false;
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(aVar.getWidth(), aVar.getHeight());
         layoutParams.leftMargin = aVar.getLeft();
-        layoutParams.topMargin = aVar.getTop();
-        this.ajk.updateViewLayout(view, layoutParams);
+        layoutParams.topMargin = aVar.aFZ();
+        this.ajW.updateViewLayout(view, layoutParams);
         return true;
     }
 
     public boolean isLandScape() {
-        return this.efI;
+        return this.eoK;
     }
 
-    public void hX(boolean z) {
-        this.efI = z;
+    public void ip(boolean z) {
+        this.eoK = z;
     }
 
-    public boolean aO(View view) {
-        return view != null && view.getParent() == this.ajk && this.ajk.indexOfChild(view) >= 0;
+    public boolean aX(View view) {
+        return view != null && view.getParent() == this.ajW && this.ajW.indexOfChild(view) >= 0;
     }
 
     public Context getContext() {
-        return this.ajk.getContext();
+        return this.ajW.getContext();
     }
 
-    public FrameLayout baz() {
-        return this.ajk;
+    public FrameLayout bcS() {
+        return this.ajW;
     }
 
-    public boolean baA() {
-        return this.efJ;
+    public boolean bcT() {
+        return this.eoL;
     }
 
-    public void hY(boolean z) {
-        this.efJ = z;
+    public void iq(boolean z) {
+        this.eoL = z;
     }
 
     public synchronized void a(a aVar) {
         if (aVar != null) {
-            if (!this.efH.contains(aVar)) {
-                this.efH.add(aVar);
+            if (!this.eoJ.contains(aVar)) {
+                this.eoJ.add(aVar);
             }
         }
     }
 
     public synchronized void b(a aVar) {
         if (aVar != null) {
-            this.efH.remove(aVar);
+            this.eoJ.remove(aVar);
         }
     }
 
-    private synchronized a[] baB() {
+    private synchronized a[] bcU() {
         a[] aVarArr;
-        if (this.efH.isEmpty()) {
+        if (this.eoJ.isEmpty()) {
             aVarArr = null;
         } else {
-            aVarArr = new a[this.efH.size()];
-            this.efH.toArray(aVarArr);
+            aVarArr = new a[this.eoJ.size()];
+            this.eoJ.toArray(aVarArr);
         }
         return aVarArr;
     }
 
-    private synchronized void baC() {
-        this.efH.clear();
+    private synchronized void bcV() {
+        this.eoJ.clear();
     }
 
-    public void ayr() {
-        a[] baB = baB();
-        if (baB != null) {
-            for (a aVar : baB) {
-                aVar.aUi();
+    public void azI() {
+        a[] bcU = bcU();
+        if (bcU != null) {
+            for (a aVar : bcU) {
+                aVar.aWC();
             }
         }
     }
 
-    public void ayq() {
-        a[] baB = baB();
-        if (baB != null) {
-            for (a aVar : baB) {
-                aVar.aUj();
+    public void azH() {
+        a[] bcU = bcU();
+        if (bcU != null) {
+            for (a aVar : bcU) {
+                aVar.aWD();
             }
         }
     }
 
-    public void baD() {
-        a[] baB = baB();
-        if (baB != null) {
-            for (a aVar : baB) {
-                aVar.onViewDestroy();
+    public void onPageDestroy() {
+        a[] bcU = bcU();
+        if (bcU != null) {
+            for (a aVar : bcU) {
+                aVar.aWE();
             }
         }
-        baC();
+        bcV();
     }
 }

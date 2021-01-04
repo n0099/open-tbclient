@@ -1,16 +1,16 @@
 package com.baidu.tieba.yuyinala.liveroom.messages;
 
-import com.baidu.live.data.aq;
+import com.baidu.live.data.as;
 import com.baidu.live.tbadk.core.util.httpnet.HttpRequest;
 import com.baidu.live.tbadk.coreextra.data.AlaLiveSwitchData;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaUpdateLiveTbResponseMessage extends JsonHttpResponsedMessage {
-    private aq hxS;
+    private as hJQ;
 
-    public aq cja() {
-        return this.hxS;
+    public as clM() {
+        return this.hJQ;
     }
 
     public AlaUpdateLiveTbResponseMessage() {
@@ -26,10 +26,10 @@ public class AlaUpdateLiveTbResponseMessage extends JsonHttpResponsedMessage {
             if (optJSONObject2 != null && (optJSONObject = optJSONObject2.optJSONObject("live_info")) != null) {
                 AlaLiveSwitchData.liveActivityType = optJSONObject.optString(HttpRequest.SDK_LIVE_LIVE_ACTIVITY_TYPE);
             }
-            this.hxS = new aq();
-            this.hxS.parseJson(jSONObject);
-            setError(this.hxS.mErrorCode);
-            setErrorString(this.hxS.mErrorMsg);
+            this.hJQ = new as();
+            this.hJQ.parseJson(jSONObject);
+            setError(this.hJQ.mErrorCode);
+            setErrorString(this.hJQ.mErrorMsg);
         }
     }
 }

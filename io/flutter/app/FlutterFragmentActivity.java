@@ -9,7 +9,7 @@ import io.flutter.app.FlutterActivityDelegate;
 import io.flutter.plugin.common.PluginRegistry;
 import io.flutter.view.FlutterNativeView;
 import io.flutter.view.FlutterView;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class FlutterFragmentActivity extends FragmentActivity implements FlutterActivityDelegate.ViewFactory, PluginRegistry, FlutterView.Provider {
     private final FlutterActivityDelegate delegate = new FlutterActivityDelegate(this, this);
     private final FlutterActivityEvents eventDelegate = this.delegate;
@@ -51,70 +51,92 @@ public class FlutterFragmentActivity extends FragmentActivity implements Flutter
         return this.pluginRegistry.registrarFor(str);
     }
 
-    protected void onCreate(Bundle bundle) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.eventDelegate.onCreate(bundle);
     }
 
-    protected void onDestroy() {
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onDestroy() {
         this.eventDelegate.onDestroy();
         super.onDestroy();
     }
 
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onBackPressed() {
         if (!this.eventDelegate.onBackPressed()) {
             super.onBackPressed();
         }
     }
 
-    protected void onStart() {
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onStart() {
         super.onStart();
         this.eventDelegate.onStart();
     }
 
-    protected void onStop() {
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onStop() {
         this.eventDelegate.onStop();
         super.onStop();
     }
 
-    protected void onPause() {
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onPause() {
         super.onPause();
         this.eventDelegate.onPause();
     }
 
-    protected void onPostResume() {
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onPostResume() {
         super.onPostResume();
         this.eventDelegate.onPostResume();
     }
 
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, androidx.core.app.ActivityCompat.OnRequestPermissionsResultCallback
     public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         super.onRequestPermissionsResult(i, strArr, iArr);
         this.eventDelegate.onRequestPermissionsResult(i, strArr, iArr);
     }
 
-    protected void onActivityResult(int i, int i2, Intent intent) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onActivityResult(int i, int i2, Intent intent) {
         if (!this.eventDelegate.onActivityResult(i, i2, intent)) {
             super.onActivityResult(i, i2, intent);
         }
     }
 
-    protected void onNewIntent(Intent intent) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         this.eventDelegate.onNewIntent(intent);
     }
 
+    @Override // android.app.Activity
     public void onUserLeaveHint() {
         this.eventDelegate.onUserLeaveHint();
     }
 
+    @Override // android.app.Activity, android.content.ComponentCallbacks2
     public void onTrimMemory(int i) {
         this.eventDelegate.onTrimMemory(i);
     }
 
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
     public void onLowMemory() {
         this.eventDelegate.onLowMemory();
     }
 
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
         this.eventDelegate.onConfigurationChanged(configuration);

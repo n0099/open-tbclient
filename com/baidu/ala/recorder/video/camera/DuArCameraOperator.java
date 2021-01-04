@@ -32,7 +32,6 @@ import com.baidu.ala.recorder.video.listener.ImageFilter;
 import com.baidu.ala.recorder.video.listener.TextureViewListener;
 import com.baidu.ar.DuMixInput;
 import com.baidu.ar.DuMixOutput;
-import com.baidu.live.adp.widget.VerticalTranslateLayout;
 import com.baidu.minivideo.arface.b;
 import com.baidu.minivideo.arface.bean.BeautyType;
 import com.baidu.minivideo.arface.c;
@@ -44,7 +43,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
 @TargetApi(16)
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class DuArCameraOperator implements IFaceUnityOperator, ICameraOperator {
     private static final int AR_OUTPUT_FPS = 15;
     private static final String EFFECT_NONE = "none";
@@ -118,7 +117,7 @@ public class DuArCameraOperator implements IFaceUnityOperator, ICameraOperator {
         }
     };
 
-    static /* synthetic */ int access$310(DuArCameraOperator duArCameraOperator) {
+    static /* synthetic */ int access$210(DuArCameraOperator duArCameraOperator) {
         int i = duArCameraOperator.mSetFilterNum;
         duArCameraOperator.mSetFilterNum = i - 1;
         return i;
@@ -313,9 +312,9 @@ public class DuArCameraOperator implements IFaceUnityOperator, ICameraOperator {
     private void initARConfig() {
         if (!isSetupConfig) {
             isSetupConfig = true;
-            if (b.abY() != null) {
-                b.abY();
-                FILTER_DEFAULT = c.acf();
+            if (b.adM() != null) {
+                b.adM();
+                FILTER_DEFAULT = c.adT();
             }
         }
     }
@@ -328,7 +327,6 @@ public class DuArCameraOperator implements IFaceUnityOperator, ICameraOperator {
                 this.mARProcessor = new ARProcessor(this.mActivityReference.get().getApplicationContext(), new SurfaceTexture.OnFrameAvailableListener() { // from class: com.baidu.ala.recorder.video.camera.DuArCameraOperator.2
                     @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
                     public void onFrameAvailable(SurfaceTexture surfaceTexture) {
-                        DuArCameraOperator.this.d(" ar->onFrameAvailable surfaceTexture = " + surfaceTexture);
                         DuArCameraOperator.this.frameAvailable();
                         if (DuArCameraOperator.this.mARProcessor != null && DuArCameraOperator.this.mSetFilterNum > 0) {
                             if (!TextUtils.isEmpty(DuArCameraOperator.this.mFilterName)) {
@@ -342,14 +340,15 @@ public class DuArCameraOperator implements IFaceUnityOperator, ICameraOperator {
                                 DuArCameraOperator.this.mARProcessor.setBeautyValues(convertParams);
                             }
                             DuArCameraOperator.this.hasProcessFirstFrame = true;
-                            DuArCameraOperator.access$310(DuArCameraOperator.this);
+                            DuArCameraOperator.access$210(DuArCameraOperator.this);
                         }
                     }
                 });
-                this.mARProcessor.setOutputFPS(15);
                 if (this.mConfig != null) {
+                    this.mARProcessor.setOutputFPS(this.mConfig.getVideoFPS());
                     this.mARProcessor.setLandscape(this.mConfig.isLandscape());
                 } else {
+                    this.mARProcessor.setOutputFPS(15);
                     this.mARProcessor.setLandscape(isLandscape());
                 }
                 this.mARProcessor.setCallback(new ARProcessor.CallbackAdapter() { // from class: com.baidu.ala.recorder.video.camera.DuArCameraOperator.3
@@ -362,12 +361,12 @@ public class DuArCameraOperator implements IFaceUnityOperator, ICameraOperator {
                             DuArCameraOperator.this.setBeautyJsonPath(DuArCameraOperator.this.mFaceFilePath);
                         }
                         if (DuArCameraOperator.this.mARProcessor != null) {
-                            com.baidu.minivideo.arface.bean.b acb = b.acb();
-                            if (DuArCameraOperator.this.isDebug() && acb != null) {
+                            com.baidu.minivideo.arface.bean.b adP = b.adP();
+                            if (DuArCameraOperator.this.isDebug() && adP != null) {
                                 Log.d("ArUpdate", "onSetup setQulaityParm ------------ ");
                             }
                             try {
-                                DuArCameraOperator.this.mARProcessor.setQulaityParm(acb);
+                                DuArCameraOperator.this.mARProcessor.setQulaityParm(adP);
                             } catch (NullPointerException e) {
                             }
                         }
@@ -718,7 +717,7 @@ public class DuArCameraOperator implements IFaceUnityOperator, ICameraOperator {
             } else if (nextElement == BeautyType.eyebrowDistance) {
                 addParams(jSONObject, "browLength", beautyParams.get(nextElement));
             } else if (nextElement == BeautyType.downCount) {
-                addParams(jSONObject, VerticalTranslateLayout.BOTTOM, beautyParams.get(nextElement));
+                addParams(jSONObject, "bottom", beautyParams.get(nextElement));
             } else if (nextElement == BeautyType.jawAngleWidth) {
                 addParams(jSONObject, "mandi", beautyParams.get(nextElement));
             } else if (nextElement == BeautyType.eyeAngle) {

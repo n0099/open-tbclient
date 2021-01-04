@@ -1,9 +1,13 @@
 package com.baidu.tieba.l;
-/* loaded from: classes.dex */
-public interface l {
-    e Pt(String str);
+/* loaded from: classes8.dex */
+public class l implements k {
+    @Override // com.baidu.tieba.l.k
+    public h aL(String str, String str2, String str3) {
+        return new i(str, str2, str3);
+    }
 
-    i aI(String str, String str2, String str3);
-
-    h djc();
+    @Override // com.baidu.tieba.l.k
+    public g diP() {
+        return com.baidu.tieba.post.j.dCP();
+    }
 }

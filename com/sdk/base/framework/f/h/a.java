@@ -7,12 +7,14 @@ import android.os.Build;
 import java.net.InetAddress;
 import java.net.URL;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f4270a = a.class.getName();
-    private static final Boolean b = Boolean.valueOf(com.sdk.base.framework.c.f.b);
+    private static final String f13143a = a.class.getName();
+
+    /* renamed from: b  reason: collision with root package name */
+    private static final Boolean f13144b = Boolean.valueOf(com.sdk.base.framework.c.f.f13118b);
 
     public static c a(Context context, ArrayList<String> arrayList, boolean z) {
         c cVar;
@@ -27,19 +29,19 @@ public class a {
                 NetworkInfo.State state = connectivityManager.getNetworkInfo(2).getState();
                 NetworkInfo.State state2 = connectivityManager.getNetworkInfo(0).getState();
                 if (state.compareTo(NetworkInfo.State.CONNECTED) == 0 || state2.compareTo(NetworkInfo.State.CONNECTED) == 0) {
-                    return c.b;
+                    return c.f13146b;
                 }
             }
             activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         } catch (Throwable th) {
-            com.sdk.base.framework.a.a.c.b(f4270a, th.getMessage(), b);
+            com.sdk.base.framework.a.a.c.b(f13143a, th.getMessage(), f13144b);
         }
         if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
             String typeName = activeNetworkInfo.getTypeName();
             if ("MOBILE".equalsIgnoreCase(typeName)) {
-                cVar = c.b;
+                cVar = c.f13146b;
             } else if ("WIFI".equalsIgnoreCase(typeName)) {
-                cVar = c.f4271a;
+                cVar = c.f13145a;
             }
             return cVar;
         }
@@ -48,6 +50,7 @@ public class a {
     }
 
     private static ArrayList<Integer> a(ArrayList<String> arrayList) {
+        Throwable th;
         ArrayList<Integer> arrayList2 = null;
         if (arrayList == null) {
             return null;
@@ -59,18 +62,18 @@ public class a {
                     try {
                         byte[] address = InetAddress.getByName(new URL(arrayList.get(i)).getHost()).getAddress();
                         arrayList3.add(Integer.valueOf((address[0] & 255) | ((address[3] & 255) << 24) | ((address[2] & 255) << 16) | ((address[1] & 255) << 8)));
-                    } catch (Throwable th) {
+                    } catch (Throwable th2) {
+                        th = th2;
                         arrayList2 = arrayList3;
-                        th = th;
-                        com.sdk.base.framework.a.a.c.b(f4270a, th.getMessage(), b);
+                        com.sdk.base.framework.a.a.c.b(f13143a, th.getMessage(), f13144b);
                         return arrayList2;
                     }
                 }
                 return arrayList3;
             }
             return null;
-        } catch (Throwable th2) {
-            th = th2;
+        } catch (Throwable th3) {
+            th = th3;
         }
     }
 
@@ -87,13 +90,13 @@ public class a {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:16:0x0033  */
+    /* JADX WARN: Removed duplicated region for block: B:16:0x0032  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private static boolean a(Context context, ArrayList<String> arrayList) {
-        boolean z;
         Throwable th;
+        boolean z;
         ConnectivityManager connectivityManager;
         if (arrayList == null || arrayList.size() <= 0) {
             return false;
@@ -101,11 +104,11 @@ public class a {
         try {
             connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
         } catch (Throwable th2) {
-            z = false;
             th = th2;
+            z = false;
         }
         if (connectivityManager == null) {
-            com.sdk.base.framework.a.a.c.a(f4270a, "ConnectivityManager 为null", b);
+            com.sdk.base.framework.a.a.c.a(f13143a, "ConnectivityManager 为null", f13144b);
             return false;
         }
         NetworkInfo.State state = connectivityManager.getNetworkInfo(0).getState();
@@ -127,7 +130,7 @@ public class a {
                 } catch (Throwable th3) {
                     th = th3;
                     z = z2;
-                    com.sdk.base.framework.a.a.c.b(f4270a, th.getMessage(), b);
+                    com.sdk.base.framework.a.a.c.b(f13143a, th.getMessage(), f13144b);
                     boolean z3 = com.sdk.base.framework.c.f.f;
                     if (!z) {
                     }

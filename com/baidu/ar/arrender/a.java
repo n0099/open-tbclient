@@ -10,7 +10,7 @@ import com.baidu.ar.bean.ARConfig;
 import com.baidu.ar.constants.ARConfigKey;
 import com.baidu.ar.constants.HttpConstants;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class a {
     private String gC;
     private String gD;
@@ -40,7 +40,7 @@ public class a {
         hashMap.put("os_version", String.valueOf(Build.VERSION.SDK_INT));
         hashMap.put("device_id", this.gC);
         hashMap.put(ARConfigKey.EXTRA_INFO, ARConfig.getARExtraInfo());
-        hashMap.put(HttpConstants.HTTP_OS_TYPE, "android");
+        hashMap.put(HttpConstants.HTTP_OS_TYPE, HttpConstants.OS_TYPE_VALUE);
         hashMap.put(HttpConstants.DEVICE_TYPE, Build.BRAND);
         hashMap.put("channel", this.gD);
         ARPScriptEnvironment.getInstance().setSharedEnvironmentKV(TableDefine.DB_TABLE_USERINFO, hashMap);

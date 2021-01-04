@@ -1,80 +1,80 @@
 package com.baidu.tieba.enterForum.tabfeed.b;
 
-import com.baidu.adp.widget.ListView.q;
-import com.baidu.tbadk.core.data.bl;
-import com.baidu.tbadk.core.data.bs;
-import com.baidu.tbadk.core.data.by;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.adp.widget.ListView.n;
+import com.baidu.tbadk.core.data.bm;
+import com.baidu.tbadk.core.data.bt;
+import com.baidu.tbadk.core.data.bz;
+import com.baidu.tbadk.core.util.x;
 import java.util.ArrayList;
 import tbclient.GeneralResource;
 import tbclient.Tabfeedlist.DataRes;
 import tbclient.ThreadInfo;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class a {
-    private ArrayList<q> iBt;
-    private ArrayList<bs> iBu;
-    private bl iBv;
-    private c iBw;
-    private boolean iBx;
+    private ArrayList<n> iNF;
+    private ArrayList<bt> iNG;
+    private bm iNH;
+    private c iNI;
+    private boolean iNJ;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
-            this.iBt = new ArrayList<>(y.getCount(dataRes.thread_list));
+            this.iNF = new ArrayList<>(x.getCount(dataRes.thread_list));
             for (ThreadInfo threadInfo : dataRes.thread_list) {
-                by byVar = new by();
-                byVar.a(threadInfo);
-                byVar.bor();
-                this.iBt.add(byVar);
+                bz bzVar = new bz();
+                bzVar.a(threadInfo);
+                bzVar.bqS();
+                this.iNF.add(bzVar);
             }
-            this.iBu = new ArrayList<>();
-            if (!y.isEmpty(dataRes.resource_list)) {
+            this.iNG = new ArrayList<>();
+            if (!x.isEmpty(dataRes.resource_list)) {
                 for (GeneralResource generalResource : dataRes.resource_list) {
-                    bs bsVar = new bs();
-                    bsVar.a(generalResource);
-                    this.iBu.add(bsVar);
+                    bt btVar = new bt();
+                    btVar.a(generalResource);
+                    this.iNG.add(btVar);
                 }
             }
-            this.iBv = new bl();
-            this.iBv.bm(dataRes.recommend_forum_info);
+            this.iNH = new bm();
+            this.iNH.bt(dataRes.recommend_forum_info);
             if (dataRes.hot_userrank_entry != null) {
-                this.iBw = new c();
-                this.iBw.hot_user = dataRes.hot_userrank_entry.hot_user;
-                this.iBw.module_name = dataRes.hot_userrank_entry.module_name;
-                this.iBw.module_icon = dataRes.hot_userrank_entry.module_icon;
+                this.iNI = new c();
+                this.iNI.hot_user = dataRes.hot_userrank_entry.hot_user;
+                this.iNI.module_name = dataRes.hot_userrank_entry.module_name;
+                this.iNI.module_icon = dataRes.hot_userrank_entry.module_icon;
             }
-            this.iBx = dataRes.is_new_url.intValue() == 1;
+            this.iNJ = dataRes.is_new_url.intValue() == 1;
         }
     }
 
-    public ArrayList<q> cwN() {
-        return this.iBt;
+    public ArrayList<n> czG() {
+        return this.iNF;
     }
 
-    public ArrayList<bs> cwO() {
-        return this.iBu;
+    public ArrayList<bt> czH() {
+        return this.iNG;
     }
 
-    public bl cwP() {
-        return this.iBv;
+    public bm czI() {
+        return this.iNH;
     }
 
-    public c cwQ() {
-        return this.iBw;
+    public c czJ() {
+        return this.iNI;
     }
 
-    public boolean cwR() {
-        return this.iBx;
+    public boolean czK() {
+        return this.iNJ;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: cwS */
+    /* renamed from: czL */
     public a clone() {
         a aVar = new a();
-        aVar.iBt = this.iBt;
-        aVar.iBu = this.iBu;
-        aVar.iBv = this.iBv;
-        aVar.iBw = this.iBw;
-        aVar.iBx = this.iBx;
+        aVar.iNF = this.iNF;
+        aVar.iNG = this.iNG;
+        aVar.iNH = this.iNH;
+        aVar.iNI = this.iNI;
+        aVar.iNJ = this.iNJ;
         return aVar;
     }
 }

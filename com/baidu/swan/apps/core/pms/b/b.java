@@ -1,15 +1,15 @@
 package com.baidu.swan.apps.core.pms.b;
 
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.swan.apps.ap.v;
+import androidx.annotation.NonNull;
+import com.baidu.swan.apps.ao.v;
 import com.baidu.swan.apps.runtime.i;
 import com.baidu.swan.apps.runtime.j;
 import com.baidu.swan.pms.c.f;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public final class b extends com.baidu.swan.apps.core.pms.b.a implements f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -39,47 +39,47 @@ public final class b extends com.baidu.swan.apps.core.pms.b.a implements f {
         }
         String jSONObject2 = jSONObject == null ? "" : jSONObject.toString();
         final a aVar2 = new a(aVar);
-        com.baidu.swan.apps.process.b.b cb = com.baidu.swan.apps.process.b.c.rV("pms_http_with_ipc").cb("pms_http_with_ipc_key_action", str);
+        com.baidu.swan.apps.process.b.b ca = com.baidu.swan.apps.process.b.c.rO("pms_http_with_ipc").ca("pms_http_with_ipc_key_action", str);
         if (TextUtils.isEmpty(str2)) {
             str2 = "";
         }
-        com.baidu.swan.apps.process.b.b cb2 = cb.cb("pms_http_with_ipc_key_url", str2);
+        com.baidu.swan.apps.process.b.b ca2 = ca.ca("pms_http_with_ipc_key_url", str2);
         if (TextUtils.isEmpty(jSONObject2)) {
             jSONObject2 = "";
         }
-        com.baidu.swan.apps.process.b.b t = cb2.cb("pms_http_with_ipc_keyjson_body", jSONObject2).d("pms_http_with_ipc_key_url_param_map", z(map)).d("pms_http_with_ipc_key_header_param_map", z(map2)).gw(true).u(aVar2).t(new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.process.b.b>() { // from class: com.baidu.swan.apps.core.pms.b.b.1
+        com.baidu.swan.apps.process.b.b t = ca2.ca("pms_http_with_ipc_keyjson_body", jSONObject2).d("pms_http_with_ipc_key_url_param_map", A(map)).d("pms_http_with_ipc_key_header_param_map", A(map2)).gF(true).u(aVar2).t(new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.process.b.b>() { // from class: com.baidu.swan.apps.core.pms.b.b.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.swan.apps.ap.e.b
+            @Override // com.baidu.swan.apps.ao.e.b
             /* renamed from: a */
-            public void M(com.baidu.swan.apps.process.b.b bVar) {
+            public void L(com.baidu.swan.apps.process.b.b bVar) {
                 aVar2.onFail(bVar.getException());
             }
         });
         if (DEBUG) {
             D("ipcHttp", "session=" + t);
         }
-        t.cG(cTa);
+        t.cH(cXX);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes25.dex */
-    public class a implements com.baidu.swan.apps.ap.e.b<i.a>, f.a {
-        final f.a cSV;
-        final boolean cSW;
+    /* loaded from: classes9.dex */
+    public class a implements com.baidu.swan.apps.ao.e.b<i.a>, f.a {
+        final f.a cXS;
+        final boolean cXT;
         boolean finished = false;
 
         public a(f.a aVar) {
-            this.cSV = aVar;
-            this.cSW = aVar != null;
+            this.cXS = aVar;
+            this.cXT = aVar != null;
             if (b.DEBUG) {
                 b.this.D("IpcHttpCallbackWrapper", "wrappedCallback=" + aVar);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.swan.apps.ap.e.b
+        @Override // com.baidu.swan.apps.ao.e.b
         /* renamed from: b */
-        public void M(i.a aVar) {
+        public void L(i.a aVar) {
             synchronized (this) {
                 boolean valid = valid();
                 if (b.DEBUG) {
@@ -113,7 +113,7 @@ public final class b extends com.baidu.swan.apps.core.pms.b.a implements f {
                             b(aVar.getString("pms_http_with_ipc_key_url"), aVar.getString("pms_http_with_ipc_key_response"), v.parseString(aVar.getString("pms_http_with_ipc_key_stat_record")));
                             break;
                         case 1:
-                            onSuccess(aVar.getString("pms_http_with_ipc_key_response"), aVar.getInt("pms_http_with_ipc_key_status_code"));
+                            S(aVar.getString("pms_http_with_ipc_key_response"), aVar.getInt("pms_http_with_ipc_key_status_code"));
                             break;
                         case 2:
                             onFail(new Exception(aVar.getString("pms_http_with_ipc_key_error")));
@@ -131,13 +131,13 @@ public final class b extends com.baidu.swan.apps.core.pms.b.a implements f {
                     b.this.D("IpcHttpCallbackWrapper#onStatRecord", "valid=" + valid + " url=" + str + " statRecord=" + jSONObject);
                 }
                 if (valid) {
-                    this.cSV.b(str, str2, jSONObject);
+                    this.cXS.b(str, str2, jSONObject);
                 }
             }
         }
 
         @Override // com.baidu.swan.pms.c.f.a
-        public void onSuccess(String str, int i) {
+        public void S(String str, int i) {
             synchronized (this) {
                 boolean valid = valid();
                 if (b.DEBUG) {
@@ -145,7 +145,7 @@ public final class b extends com.baidu.swan.apps.core.pms.b.a implements f {
                 }
                 if (valid) {
                     finish();
-                    this.cSV.onSuccess(str, i);
+                    this.cXS.S(str, i);
                 }
             }
         }
@@ -159,7 +159,7 @@ public final class b extends com.baidu.swan.apps.core.pms.b.a implements f {
                 }
                 if (valid) {
                     finish();
-                    f.a aVar = this.cSV;
+                    f.a aVar = this.cXS;
                     if (exc == null) {
                         exc = new Exception("onFail");
                     }
@@ -174,7 +174,7 @@ public final class b extends com.baidu.swan.apps.core.pms.b.a implements f {
 
         synchronized boolean valid() {
             boolean z;
-            if (this.cSW) {
+            if (this.cXT) {
                 z = this.finished ? false : true;
             }
             return z;

@@ -1,7 +1,7 @@
 package com.baidu.searchbox.cloudcontrol.data;
 
 import com.baidu.searchbox.cloudcontrol.processor.ICloudControlProcessor;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class RuleResult {
     public ICloudControlProcessor mProcessor;
     public String mServiceName;

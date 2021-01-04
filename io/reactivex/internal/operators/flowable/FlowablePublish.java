@@ -13,16 +13,16 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class FlowablePublish<T> extends io.reactivex.a.a<T> {
     final int bufferSize;
     final AtomicReference<PublishSubscriber<T>> current;
-    final org.a.b<T> pFE;
-    final g<T> pFi;
+    final g<T> qgK;
+    final org.a.b<T> qhg;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.pFE.subscribe(cVar);
+        this.qhg.subscribe(cVar);
     }
 
     @Override // io.reactivex.a.a
@@ -43,15 +43,15 @@ public final class FlowablePublish<T> extends io.reactivex.a.a<T> {
         try {
             gVar.accept(publishSubscriber);
             if (z) {
-                this.pFi.a((j) publishSubscriber);
+                this.qgK.a((j) publishSubscriber);
             }
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.J(th);
-            throw ExceptionHelper.L(th);
+            io.reactivex.exceptions.a.O(th);
+            throw ExceptionHelper.Q(th);
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class PublishSubscriber<T> extends AtomicInteger implements io.reactivex.disposables.b, j<T> {
         static final InnerSubscriber[] EMPTY = new InnerSubscriber[0];
         static final InnerSubscriber[] TERMINATED = new InnerSubscriber[0];
@@ -221,20 +221,19 @@ public final class FlowablePublish<T> extends io.reactivex.a.a<T> {
 
         void dispatch() {
             T t;
-            Object obj;
             T t2;
             if (getAndIncrement() == 0) {
                 int i = 1;
                 while (true) {
-                    Object obj2 = this.terminalEvent;
+                    Object obj = this.terminalEvent;
                     f<T> fVar = this.queue;
                     boolean z = fVar == null || fVar.isEmpty();
-                    if (!checkTerminated(obj2, z)) {
+                    if (!checkTerminated(obj, z)) {
                         if (!z) {
                             InnerSubscriber[] innerSubscriberArr = this.subscribers.get();
                             int length = innerSubscriberArr.length;
-                            int i2 = 0;
                             long j = Long.MAX_VALUE;
+                            int i2 = 0;
                             for (InnerSubscriber innerSubscriber : innerSubscriberArr) {
                                 long j2 = innerSubscriber.get();
                                 if (j2 >= 0) {
@@ -244,17 +243,17 @@ public final class FlowablePublish<T> extends io.reactivex.a.a<T> {
                                 }
                             }
                             if (length == i2) {
-                                Object obj3 = this.terminalEvent;
+                                Object obj2 = this.terminalEvent;
                                 try {
                                     t = fVar.poll();
                                 } catch (Throwable th) {
-                                    io.reactivex.exceptions.a.J(th);
+                                    io.reactivex.exceptions.a.O(th);
                                     this.s.get().cancel();
-                                    obj3 = NotificationLite.error(th);
-                                    this.terminalEvent = obj3;
+                                    obj2 = NotificationLite.error(th);
+                                    this.terminalEvent = obj2;
                                     t = null;
                                 }
-                                if (!checkTerminated(obj3, t == null)) {
+                                if (!checkTerminated(obj2, t == null)) {
                                     if (this.sourceMode != 1) {
                                         this.s.get().request(1L);
                                     }
@@ -264,19 +263,18 @@ public final class FlowablePublish<T> extends io.reactivex.a.a<T> {
                             } else {
                                 int i3 = 0;
                                 while (i3 < j) {
+                                    Object obj3 = this.terminalEvent;
                                     try {
-                                        obj = this.terminalEvent;
                                         t2 = fVar.poll();
                                     } catch (Throwable th2) {
-                                        io.reactivex.exceptions.a.J(th2);
+                                        io.reactivex.exceptions.a.O(th2);
                                         this.s.get().cancel();
-                                        Object error = NotificationLite.error(th2);
-                                        this.terminalEvent = error;
-                                        obj = error;
+                                        obj3 = NotificationLite.error(th2);
+                                        this.terminalEvent = obj3;
                                         t2 = null;
                                     }
                                     z = t2 == null;
-                                    if (!checkTerminated(obj, z)) {
+                                    if (!checkTerminated(obj3, z)) {
                                         if (z) {
                                             break;
                                         }
@@ -313,7 +311,7 @@ public final class FlowablePublish<T> extends io.reactivex.a.a<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static final class InnerSubscriber<T> extends AtomicLong implements d {
         private static final long serialVersionUID = -4453897557930727610L;
         final org.a.c<? super T> child;

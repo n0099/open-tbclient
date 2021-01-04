@@ -6,12 +6,14 @@ import com.baidu.mapapi.model.LatLng;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public final class Circle extends Overlay {
 
     /* renamed from: a  reason: collision with root package name */
-    LatLng f2003a;
-    int b;
+    LatLng f2801a;
+
+    /* renamed from: b  reason: collision with root package name */
+    int f2802b;
     int c;
     Stroke d;
     boolean e;
@@ -33,9 +35,9 @@ public final class Circle extends Overlay {
 
     private void c(List<HoleOptions> list, Bundle bundle) {
         Bundle bundle2 = new Bundle();
-        boolean b = Overlay.b(list, bundle2);
-        bundle.putInt("has_holes", b ? 1 : 0);
-        if (b) {
+        boolean b2 = Overlay.b(list, bundle2);
+        bundle.putInt("has_holes", b2 ? 1 : 0);
+        if (b2) {
             bundle.putBundle("holes", bundle2);
         }
     }
@@ -44,7 +46,7 @@ public final class Circle extends Overlay {
     @Override // com.baidu.mapapi.map.Overlay
     public Bundle a(Bundle bundle) {
         super.a(bundle);
-        GeoPoint ll2mc = CoordUtil.ll2mc(this.f2003a);
+        GeoPoint ll2mc = CoordUtil.ll2mc(this.f2801a);
         bundle.putDouble("location_x", ll2mc.getLongitudeE6());
         bundle.putDouble("location_y", ll2mc.getLatitudeE6());
         if (this.e) {
@@ -55,8 +57,8 @@ public final class Circle extends Overlay {
         } else {
             bundle.putInt("has_dotted_stroke", 0);
         }
-        bundle.putInt("radius", CoordUtil.getMCDistanceByOneLatLngAndRadius(this.f2003a, this.c));
-        Overlay.a(this.b, bundle);
+        bundle.putInt("radius", CoordUtil.getMCDistanceByOneLatLngAndRadius(this.f2801a, this.c));
+        Overlay.a(this.f2802b, bundle);
         if (this.d == null) {
             bundle.putInt("has_stroke", 0);
         } else {
@@ -76,7 +78,7 @@ public final class Circle extends Overlay {
     }
 
     public LatLng getCenter() {
-        return this.f2003a;
+        return this.f2801a;
     }
 
     public int getDottedStrokeType() {
@@ -84,7 +86,7 @@ public final class Circle extends Overlay {
     }
 
     public int getFillColor() {
-        return this.b;
+        return this.f2802b;
     }
 
     public HoleOptions getHoleOption() {
@@ -111,7 +113,7 @@ public final class Circle extends Overlay {
         if (latLng == null) {
             throw new IllegalArgumentException("BDMapSDKException: circle center can not be null");
         }
-        this.f2003a = latLng;
+        this.f2801a = latLng;
         this.listener.b(this);
     }
 
@@ -126,7 +128,7 @@ public final class Circle extends Overlay {
     }
 
     public void setFillColor(int i) {
-        this.b = i;
+        this.f2802b = i;
         this.listener.b(this);
     }
 

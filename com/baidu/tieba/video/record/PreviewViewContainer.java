@@ -8,50 +8,50 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import com.baidu.tieba.R;
-/* loaded from: classes23.dex */
+/* loaded from: classes8.dex */
 public class PreviewViewContainer extends FrameLayout {
-    private b nIe;
-    private View nIl;
+    private View nLC;
+    private b nLv;
 
     public PreviewViewContainer(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.nIl = null;
+        this.nLC = null;
     }
 
     public PreviewViewContainer(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.nIl = null;
+        this.nLC = null;
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.nIe != null) {
-            this.nIe.handleTouchEvent(motionEvent);
+        if (this.nLv != null) {
+            this.nLv.handleTouchEvent(motionEvent);
         }
         return super.onInterceptTouchEvent(motionEvent);
     }
 
     public void setZoomHelper(b bVar) {
         if (bVar != null) {
-            this.nIe = bVar;
+            this.nLv = bVar;
         }
     }
 
-    public void dWg() {
+    public void dVI() {
         setFaceFailIdentifyLayoutVisiable(true);
     }
 
-    public void dWh() {
+    public void dVJ() {
         setFaceFailIdentifyLayoutVisiable(false);
     }
 
     private void setFaceFailIdentifyLayoutVisiable(boolean z) {
-        if (this.nIl == null) {
-            this.nIl = LayoutInflater.from(getContext()).inflate(R.layout.camera_face_fail_identify, (ViewGroup) null);
+        if (this.nLC == null) {
+            this.nLC = LayoutInflater.from(getContext()).inflate(R.layout.camera_face_fail_identify, (ViewGroup) null);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 17;
-            addView(this.nIl, layoutParams);
+            addView(this.nLC, layoutParams);
         }
-        this.nIl.setVisibility(z ? 0 : 8);
+        this.nLC.setVisibility(z ? 0 : 8);
     }
 }

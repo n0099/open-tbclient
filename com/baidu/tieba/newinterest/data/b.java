@@ -1,5 +1,5 @@
 package com.baidu.tieba.newinterest.data;
-/* loaded from: classes23.dex */
+/* loaded from: classes8.dex */
 public class b {
     private int icon;
     private int id;

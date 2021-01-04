@@ -6,13 +6,13 @@ import com.xiaomi.push.gq;
 import com.xiaomi.push.gu;
 import java.util.ArrayList;
 import org.xmlpull.v1.XmlPullParser;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class e implements gp {
     public static gg a(XmlPullParser xmlPullParser) {
+        ArrayList arrayList;
         String str;
         String[] strArr;
         String[] strArr2;
-        ArrayList arrayList = null;
         if (xmlPullParser.getEventType() != 2) {
             return null;
         }
@@ -25,8 +25,10 @@ public class e implements gp {
                 strArr2[i] = xmlPullParser.getAttributeName(i);
                 strArr[i] = gu.b(xmlPullParser.getAttributeValue(i));
             }
+            arrayList = null;
             str = null;
         } else {
+            arrayList = null;
             str = null;
             strArr = null;
             strArr2 = null;

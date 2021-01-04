@@ -1,135 +1,274 @@
 package com.baidu.tieba.ala.livecard.a;
 
-import android.view.LayoutInflater;
+import android.text.TextUtils;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.BdUniqueId;
+import android.widget.LinearLayout;
+import androidx.viewpager.widget.ViewPager;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.widget.IndicatorView;
+import com.baidu.adp.widget.SwipeBackLayout;
+import com.baidu.ala.view.ForbidParentSwipeBackRelativeLayout;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
+import com.baidu.tbadk.ala.AlaLiveInfoListCoreData;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.by;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout;
-import com.baidu.tbadk.core.view.ThreadUserInfoLayout;
+import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
+import com.baidu.tbadk.core.data.bz;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.R;
-import com.baidu.tieba.card.ala.AlaVideoContainer;
-import com.baidu.tieba.card.n;
-/* loaded from: classes6.dex */
-public class d implements View.OnClickListener {
-    private by ahA;
-    private final View.OnClickListener akI = new View.OnClickListener() { // from class: com.baidu.tieba.ala.livecard.a.d.1
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            if (d.this.hbQ != null) {
-                d.this.hbQ.d(view, d.this.ahA);
-            }
-        }
-    };
-    public RelativeLayout hbL;
-    public ThreadUserInfoLayout hbM;
-    public ThreadCommentAndPraiseInfoLayout hbN;
-    public View hbO;
-    public AlaVideoContainer hbP;
-    private com.baidu.tieba.ala.livecard.vc.c hbQ;
-    public View mDivider;
+import com.baidu.tieba.ala.livecard.adapters.FrsAlaStageLiveViewItemAdapter;
+import com.baidu.tieba.ala.livecard.vc.FrsAlaStageLiveViewPager;
+import com.baidu.tieba.card.y;
+import com.baidu.tieba.tbadkCore.h;
+import java.util.ArrayList;
+/* loaded from: classes10.dex */
+public class d extends com.baidu.tieba.card.b<h> implements y {
+    private int bMx;
+    private View dividerLine;
+    public int eQR;
+    private IndicatorView frg;
+    private boolean frl;
+    private int frn;
+    private ForbidParentSwipeBackRelativeLayout hnT;
+    private boolean hnW;
+    private FrsAlaStageLiveViewPager hon;
+    private FrsAlaStageLiveViewItemAdapter hoo;
+    private LinearLayout hop;
+    private View hoq;
+    private h hor;
+    private com.baidu.tieba.ala.livecard.vc.a hos;
+    private com.baidu.tieba.ala.livecard.vc.b hou;
+    private com.baidu.tieba.ala.livecard.vc.c hov;
     private String mForumName;
-    public TextView mTextTitle;
-    private View rootView;
+    ViewPager.OnPageChangeListener mOnPageChangeListener;
 
-    public d(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.rootView = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.frs_ala_stage_live_item, (ViewGroup) null);
-        this.hbL = (RelativeLayout) this.rootView.findViewById(R.id.layout_root);
-        this.hbM = (ThreadUserInfoLayout) this.rootView.findViewById(R.id.card_frs_ala_video_user_info_layout);
-        this.hbM.setFrom(3);
-        this.mTextTitle = (TextView) this.rootView.findViewById(R.id.text_title);
-        this.hbP = (AlaVideoContainer) this.rootView.findViewById(R.id.ala_video_container);
-        this.hbO = this.rootView.findViewById(R.id.divider_below_reply_number_layout);
-        this.hbN = (ThreadCommentAndPraiseInfoLayout) this.rootView.findViewById(R.id.text_bottom);
-        this.mDivider = this.rootView.findViewById(R.id.divider_line);
-        this.hbL.setOnClickListener(this);
-        this.hbN.setOnClickListener(this);
-        this.hbN.getCommentContainer().setOnClickListener(this);
-        this.hbP.setOnVideoClickListener(this);
-    }
-
-    public View getRootView() {
-        return this.rootView;
-    }
-
-    public void refreshView() {
-        if (this.ahA != null && this.ahA.boP() != null) {
-            k(this.ahA, this.mForumName);
-        }
-    }
-
-    public void k(by byVar, String str) {
-        if (byVar != null && byVar.boP() != null) {
-            this.ahA = byVar;
-            this.mForumName = str;
-            this.hbL.setVisibility(0);
-            this.hbM.setData(byVar);
-            if (this.hbM.getHeaderImg() != null) {
-                this.hbM.getHeaderImg().setData(byVar);
+    public d(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
+        this.bMx = 1;
+        this.frl = false;
+        this.frn = 5;
+        this.hnW = true;
+        this.mOnPageChangeListener = new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.ala.livecard.a.d.2
+            @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+            public void onPageScrolled(int i, float f, int i2) {
             }
-            this.hbM.setUserAfterClickListener(this.akI);
-            byVar.z(false, true);
-            this.mTextTitle.setText(byVar.bpz());
-            this.hbP.getController().a(byVar, str, "", false);
-            this.hbP.getController().startPlayAnimation();
-            this.hbN.setReplyTimeVisible(false);
-            this.hbN.setNeedAddReplyIcon(true);
-            this.hbN.setIsBarViewVisible(false);
-            this.hbN.setCommentNumEnable(false);
-            this.hbN.setOnClickListener(this);
-            this.hbN.setLiveShareEnable(false);
-            this.hbN.setShareVisible(true);
-            this.hbN.setShowPraiseNum(true);
-            this.hbN.setNeedAddPraiseIcon(true);
-            this.hbN.setFrom(2);
-            if (this.hbN.setData(byVar)) {
-                this.hbO.setVisibility(8);
+
+            @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+            public void onPageSelected(int i) {
+                d.this.bMx = i;
+                if (d.this.hou != null) {
+                    int rG = d.this.hou.rG(i + 1);
+                    d.this.bMx = rG;
+                    if (d.this.frg != null) {
+                        d.this.frg.setPosition(d.this.hou.rH(rG));
+                    }
+                }
+            }
+
+            @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+            public void onPageScrollStateChanged(int i) {
+                int count;
+                if (i != 1 && i == 0 && (count = d.this.hoo.getCount()) >= 2) {
+                    int currentItem = d.this.hon.getCurrentItem();
+                    int i2 = count - 2;
+                    if (currentItem < 1) {
+                        d.this.hon.setCurrentItem(i2, false);
+                    } else if (currentItem > i2) {
+                        d.this.hon.setCurrentItem(1, false);
+                    }
+                }
+            }
+        };
+        this.hov = new com.baidu.tieba.ala.livecard.vc.c() { // from class: com.baidu.tieba.ala.livecard.a.d.3
+            @Override // com.baidu.tieba.ala.livecard.vc.c
+            public void c(View view, bz bzVar) {
+                d.this.e(view, bzVar);
+                d.this.X(bzVar);
+                d.this.a(d.this.mTbPageContext, bzVar);
+            }
+
+            @Override // com.baidu.tieba.ala.livecard.vc.c
+            public void d(View view, bz bzVar) {
+                d.this.e(view, bzVar);
+            }
+        };
+        this.hnT = (ForbidParentSwipeBackRelativeLayout) getView().findViewById(R.id.layout_root);
+        this.dividerLine = getView().findViewById(R.id.divider_line);
+        this.hoq = getView().findViewById(R.id.divider_pager_and_indicator);
+        this.hon = (FrsAlaStageLiveViewPager) getView().findViewById(R.id.frs_stage_live_listview);
+        this.hop = (LinearLayout) getView().findViewById(R.id.frs_stage_indicator_parent);
+        this.frg = (IndicatorView) getView().findViewById(R.id.frs_stage_indicator);
+        this.hos = new com.baidu.tieba.ala.livecard.vc.a(tbPageContext, this.hnT);
+        this.hos.setUniqueId(getTag());
+        this.hon.setBackgroundResource(R.drawable.transparent_bg);
+        this.hon.setOnPageChangeListener(this.mOnPageChangeListener);
+        this.hoo = new FrsAlaStageLiveViewItemAdapter(this.mTbPageContext, getTag());
+        this.hon.setAdapter(this.hoo);
+        if (this.mTbPageContext.getOrignalPage() instanceof BaseActivity) {
+            this.hnW = ((BaseActivity) this.mTbPageContext.getOrignalPage()).isSwipeBackEnabled();
+        } else if (this.mTbPageContext.getOrignalPage() instanceof BaseFragmentActivity) {
+            this.hnW = ((BaseFragmentActivity) this.mTbPageContext.getOrignalPage()).isSwipeBackEnabled();
+        }
+        this.hnT.setSwipeControlInterface(new SwipeBackLayout.c() { // from class: com.baidu.tieba.ala.livecard.a.d.1
+            @Override // com.baidu.adp.widget.SwipeBackLayout.c
+            public void disableSwipeBack() {
+                if (d.this.hor != null && !x.isEmpty(d.this.hor.npj) && d.this.hor.npj.size() > 1) {
+                    if (d.this.mTbPageContext.getOrignalPage() instanceof BaseActivity) {
+                        ((BaseActivity) d.this.mTbPageContext.getOrignalPage()).setSwipeBackEnabled(false);
+                    } else if (d.this.mTbPageContext.getOrignalPage() instanceof BaseFragmentActivity) {
+                        ((BaseFragmentActivity) d.this.mTbPageContext.getOrignalPage()).setSwipeBackEnabled(false);
+                    }
+                }
+            }
+
+            @Override // com.baidu.adp.widget.SwipeBackLayout.c
+            public void enableSwipeBack() {
+                if (d.this.mTbPageContext.getOrignalPage() instanceof BaseActivity) {
+                    ((BaseActivity) d.this.mTbPageContext.getOrignalPage()).setSwipeBackEnabled(d.this.hnW);
+                } else if (d.this.mTbPageContext.getOrignalPage() instanceof BaseFragmentActivity) {
+                    ((BaseFragmentActivity) d.this.mTbPageContext.getOrignalPage()).setSwipeBackEnabled(d.this.hnW);
+                }
+            }
+        });
+    }
+
+    @Override // com.baidu.tieba.card.b
+    public int getLayout() {
+        return R.layout.frs_ala_stage_live_layout;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.card.b
+    public void a(h hVar) {
+        if (hVar != null && hVar.npj != null) {
+            this.hor = hVar;
+            setVisibility(0);
+            if (this.hou == null) {
+                this.hou = new com.baidu.tieba.ala.livecard.vc.b(hVar.npj, this.frl, this.frn);
+                this.hou.rJ(2);
+                this.hou.rI(6);
+                this.hou.rK(1);
+            }
+            this.hou.cC(hVar.npj);
+            this.hoo.setForumName(this.mForumName);
+            this.hoo.a(this.hou.bza(), this.hov);
+            this.hon.setCurrentItem(this.hou.byZ(), false);
+            if (hVar.npj.size() >= 2) {
+                this.hop.setVisibility(0);
+                if (this.frg.getCount() != this.hou.byY()) {
+                    this.frg.setCount(this.hou.byY());
+                    this.bMx = this.hou.byZ();
+                }
+                this.frg.setPosition(this.hou.rH(this.bMx));
             } else {
-                this.hbO.setVisibility(0);
+                this.hop.setVisibility(8);
             }
-            W(byVar);
+            if (hVar.npj.size() > 0) {
+                this.hos.l(hVar.npj.get(0), "ala_frs_stage_live_feed_back_type");
+            }
+            cbI();
+            onChangeSkinType(getTbPageContext(), TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public void o(BdUniqueId bdUniqueId) {
-        if (bdUniqueId != null && this.hbN != null && this.hbM != null) {
-            this.hbM.setPageUniqueId(bdUniqueId);
+    private void cbI() {
+        int rH;
+        if (this.hor != null && x.isEmpty(this.hor.npj) && (rH = this.hou.rH(this.bMx)) < this.hor.npj.size() && rH >= 0) {
+            CustomMessage customMessage = new CustomMessage(CmdConfigCustom.CMD_FRS_LIVE_CARD_SHOW);
+            if (this.hor.npj != null && this.hor.npj.get(rH) != null) {
+                this.hor.npj.get(rH).eQR = this.eQR;
+            }
+            customMessage.setData(this.hor.npj.get(rH));
+            MessageManager.getInstance().sendMessage(customMessage);
+            if (this.hor.npj.get(rH) != null) {
+                TiebaStatic.log(new aq("c12804").dX("tid", this.hor.npj.get(rH).getId()));
+            }
         }
     }
 
-    private void W(by byVar) {
-        this.hbN.onChangeSkinType();
-        this.hbM.onChangeSkinType();
-        this.hbP.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        this.hbL.setBackgroundDrawable(ap.pT(R.color.CAM_X0205));
-        ap.setBackgroundColor(this.mDivider, R.color.CAM_X0204);
-        if (byVar != null && n.Jr(byVar.getId())) {
-            ap.setViewTextColor(this.mTextTitle, (int) R.color.CAM_X0109);
-        } else {
-            ap.setViewTextColor(this.mTextTitle, (int) R.color.CAM_X0105);
+    /* JADX INFO: Access modifiers changed from: private */
+    public void X(bz bzVar) {
+        if (bzVar.brJ() != null && bzVar.brJ().user_info != null && bzVar.brJ().user_info.is_official == 2) {
+            TiebaStatic.log(new aq("c12805").dX("tid", bzVar.getId()));
         }
     }
 
-    public void a(com.baidu.tieba.ala.livecard.vc.c cVar) {
-        this.hbQ = cVar;
+    /* JADX INFO: Access modifiers changed from: private */
+    public void e(View view, bz bzVar) {
+        CustomMessage customMessage = null;
+        if (view.getId() == R.id.layout_root) {
+            customMessage = new CustomMessage(CmdConfigCustom.CMD_FRS_LIVE_CARD_CLICK);
+        } else if (view.getId() == R.id.card_home_page_normal_thread_user_name || view.getId() == R.id.card_home_page_normal_thread_user_header) {
+            customMessage = new CustomMessage(CmdConfigCustom.CMD_FRS_LIVE_USER_CLICK);
+        } else if (view.getId() == R.id.video_container) {
+            customMessage = new CustomMessage(CmdConfigCustom.CMD_FRS_LIVE_VIDEO_CLICK);
+        }
+        if (customMessage != null && this.mTbPageContext != null) {
+            customMessage.setData(bzVar);
+            MessageManager.getInstance().sendMessage(customMessage);
+        }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.hbL || view == this.hbN.getCommentContainer()) {
-            if (this.ahA != null) {
-                n.Jq(this.ahA.getId());
-            }
-            if (this.hbQ != null) {
-                this.hbQ.c(view, this.ahA);
-            }
-        } else if (view.getId() == R.id.video_container && this.hbQ != null) {
-            this.hbQ.c(view, this.ahA);
+    }
+
+    @Override // com.baidu.tieba.card.y
+    public void setForumName(String str) {
+        this.mForumName = str;
+    }
+
+    @Override // com.baidu.tieba.card.y
+    public void wt(int i) {
+    }
+
+    @Override // com.baidu.tieba.card.b
+    public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
+        if (this.mSkinType != i) {
+            ao.setBackgroundResource(this.hnT, R.drawable.addresslist_item_bg);
+            ao.setBackgroundColor(this.dividerLine, R.color.CAM_X0204);
+            ao.setBackgroundColor(this.hoq, R.color.CAM_X0204);
+            this.mSkinType = i;
         }
+        this.hos.onChangeSkinType();
+    }
+
+    public void a(TbPageContext<?> tbPageContext, bz bzVar) {
+        if (tbPageContext != null && bzVar != null && bzVar.brq() != null && bzVar.brJ() != null) {
+            boolean z = false;
+            String str = "";
+            if (TbadkCoreApplication.getCurrentAccount() != null) {
+                String userId = bzVar.brq().getUserId();
+                str = TbadkCoreApplication.getCurrentAccount();
+                z = TextUtils.equals(userId, str);
+            }
+            AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
+            alaLiveInfoCoreData.fillWithInfoData(bzVar.brJ());
+            if (bzVar.brJ() != null && bzVar.brJ().user_info != null) {
+                alaLiveInfoCoreData.userName = bzVar.brJ().user_info.user_name;
+            }
+            AlaLiveInfoListCoreData alaLiveInfoListCoreData = new AlaLiveInfoListCoreData();
+            alaLiveInfoListCoreData.mLiveInfoList = new ArrayList();
+            if (this.hor != null && !x.isEmpty(this.hor.npj)) {
+                for (bz bzVar2 : this.hor.npj) {
+                    alaLiveInfoListCoreData.mLiveInfoList.add(V(bzVar2));
+                }
+            }
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(tbPageContext.getPageActivity(), alaLiveInfoCoreData, alaLiveInfoListCoreData, "frs_five_floor_recommend", str, z, null, null, this.mForumName)));
+        }
+    }
+
+    private AlaLiveInfoCoreData V(bz bzVar) {
+        AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
+        alaLiveInfoCoreData.fillWithInfoData(bzVar.brJ());
+        alaLiveInfoCoreData.userName = bzVar.brq().getUserName();
+        return alaLiveInfoCoreData;
     }
 }

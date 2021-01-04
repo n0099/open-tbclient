@@ -3,18 +3,18 @@ package com.baidu.tieba.flutter.view;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.view.ViewCompat;
 import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.ViewCompat;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.base.g;
+import com.baidu.adp.base.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.widget.ContinuousAnimationView;
 import com.idlefish.flutterboost.containers.BoostFlutterActivity;
 import com.idlefish.flutterboost.containers.FlutterFragment;
@@ -22,7 +22,7 @@ import com.idlefish.flutterboost.containers.ViewSplashScreen;
 import io.flutter.embedding.android.SplashScreen;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes25.dex */
+/* loaded from: classes12.dex */
 public class TbFlutterFragment extends FlutterFragment {
     private ContinuousAnimationView loadingView;
     private TbFlutterFragmentLifeCircleInterface mLifeCycleListener;
@@ -39,7 +39,7 @@ public class TbFlutterFragment extends FlutterFragment {
         }
     };
 
-    @Override // com.idlefish.flutterboost.containers.FlutterFragment, android.support.v4.app.Fragment
+    @Override // com.idlefish.flutterboost.containers.FlutterFragment, androidx.fragment.app.Fragment
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         MessageManager.getInstance().registerListener(this.skinTypeChangeListener);
@@ -51,8 +51,8 @@ public class TbFlutterFragment extends FlutterFragment {
         FrameLayout frameLayout = new FrameLayout(getActivity());
         frameLayout.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
         this.loadingView = new ContinuousAnimationView(getActivity());
-        Resources resources = g.li().getResources();
-        ap.a(this.loadingView, resources.getIdentifier("lottie_full_screen_refresh", "raw", BdBaseApplication.getInst().getPackageName()));
+        Resources resources = h.kE().getResources();
+        ao.a(this.loadingView, resources.getIdentifier("lottie_full_screen_refresh", "raw", BdBaseApplication.getInst().getPackageName()));
         this.loadingView.setSpeed(1.2f);
         this.loadingView.setLayoutParams(new FrameLayout.LayoutParams(resources.getDimensionPixelSize(resources.getIdentifier("tbds290", "dimen", BdBaseApplication.getInst().getPackageName())), resources.getDimensionPixelSize(resources.getIdentifier("tbds304", "dimen", BdBaseApplication.getInst().getPackageName())), 17));
         int identifier = resources.getIdentifier("cp_bg_line_c", "color", BdBaseApplication.getInst().getPackageName());
@@ -60,13 +60,13 @@ public class TbFlutterFragment extends FlutterFragment {
         if (identifier == 0) {
             frameLayout.setBackgroundColor(i);
         } else {
-            frameLayout.setBackgroundColor(ap.getColor(identifier));
+            frameLayout.setBackgroundColor(ao.getColor(identifier));
         }
         frameLayout.addView(this.loadingView);
         return new ViewSplashScreen(frameLayout);
     }
 
-    @Override // com.idlefish.flutterboost.containers.FlutterFragment, com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
+    @Override // com.idlefish.flutterboost.containers.FlutterFragment, com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void setUserVisibleHint(boolean z) {
         this.flutterStartTime = System.currentTimeMillis();
         if (this.loadingView != null) {
@@ -79,19 +79,19 @@ public class TbFlutterFragment extends FlutterFragment {
         super.setUserVisibleHint(z);
     }
 
-    @Override // com.idlefish.flutterboost.containers.FlutterFragment, com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
+    @Override // com.idlefish.flutterboost.containers.FlutterFragment, com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onResume() {
         this.flutterStartTime = System.currentTimeMillis();
         super.onResume();
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
         this.creatTime = System.currentTimeMillis() - this.beginTime;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         this.beginTime = System.currentTimeMillis();
         super.onCreate(bundle);

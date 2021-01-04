@@ -3,11 +3,12 @@ package com.baidu.live.tbadk.core.util;
 import android.content.pm.PackageInfo;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.Md5;
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.security.MessageDigest;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class TbMd5 {
     private static final char[] HEX_DIGITS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
@@ -43,18 +44,23 @@ public class TbMd5 {
     public static String getAPKHexMD5(byte[] bArr) {
         int i = 0;
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            MessageDigest messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
             messageDigest.update(bArr);
             byte[] digest = messageDigest.digest();
             char[] cArr = new char[32];
-            for (int i2 = 0; i2 < 16; i2++) {
-                byte b = digest[i2];
-                int i3 = i + 1;
-                cArr[i] = HEX_DIGITS[(b >>> 4) & 15];
+            int i2 = 0;
+            while (true) {
+                int i3 = i;
+                if (i3 >= 16) {
+                    return new String(cArr);
+                }
+                byte b2 = digest[i3];
+                int i4 = i2 + 1;
+                cArr[i2] = HEX_DIGITS[(b2 >>> 4) & 15];
+                i2 = i4 + 1;
+                cArr[i4] = HEX_DIGITS[b2 & 15];
                 i = i3 + 1;
-                cArr[i3] = HEX_DIGITS[b & 15];
             }
-            return new String(cArr);
         } catch (Exception e) {
             e.printStackTrace();
             return null;

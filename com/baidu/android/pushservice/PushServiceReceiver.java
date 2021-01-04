@@ -17,25 +17,24 @@ import com.baidu.android.pushservice.message.PublicMsg;
 import com.baidu.android.util.io.ActionJsonData;
 import java.net.URISyntaxException;
 @SuppressLint({"NewApi"})
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class PushServiceReceiver extends BroadcastReceiver {
     private static Intent a(Context context, String str) {
         Intent intent;
-        Exception e;
         try {
             intent = new Intent();
             try {
                 intent.setAction("android.intent.action.VIEW");
                 intent.setData(Uri.parse(str));
                 intent.setFlags(268435456);
-            } catch (Exception e2) {
-                e = e2;
+            } catch (Exception e) {
+                e = e;
                 new b.c(context).a(Log.getStackTraceString(e)).a();
                 return intent;
             }
-        } catch (Exception e3) {
+        } catch (Exception e2) {
+            e = e2;
             intent = null;
-            e = e3;
         }
         return intent;
     }
@@ -51,9 +50,9 @@ public class PushServiceReceiver extends BroadcastReceiver {
                     intent = Intent.parseUri(publicMsg.mPkgContent, 1);
                     intent.setPackage(context.getPackageName());
                 } catch (URISyntaxException e) {
-                    Intent b = b(context, publicMsg);
+                    Intent b2 = b(context, publicMsg);
                     new b.c(context).a(Log.getStackTraceString(e)).a();
-                    intent = b;
+                    intent = b2;
                 }
             }
             if (intent != null) {
@@ -85,20 +84,19 @@ public class PushServiceReceiver extends BroadcastReceiver {
 
     private static Intent b(Context context, PublicMsg publicMsg) {
         Intent intent;
-        Exception e;
         try {
             intent = new Intent();
             try {
                 intent.setClassName(context.getPackageName(), publicMsg.getLauncherActivityName(context, context.getPackageName()));
                 intent.setFlags(268435456);
-            } catch (Exception e2) {
-                e = e2;
+            } catch (Exception e) {
+                e = e;
                 new b.c(context).a(Log.getStackTraceString(e)).a();
                 return intent;
             }
-        } catch (Exception e3) {
+        } catch (Exception e2) {
+            e = e2;
             intent = null;
-            e = e3;
         }
         return intent;
     }

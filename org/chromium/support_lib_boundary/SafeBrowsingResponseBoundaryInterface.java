@@ -1,5 +1,5 @@
 package org.chromium.support_lib_boundary;
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 public interface SafeBrowsingResponseBoundaryInterface {
     void backToSafety(boolean z);
 

@@ -1,7 +1,7 @@
 package com.baidu.android.imsdk.retrieve.util;
 
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -10,21 +10,13 @@ import java.io.IOException;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class FileZipUtil {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [62=4] */
-    /* JADX WARN: Removed duplicated region for block: B:85:0x00a5 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:89:0x00a0 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public static void zip(File file, List<ZipSrc> list) throws IOException {
         ZipOutputStream zipOutputStream;
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2;
-        FileInputStream fileInputStream3 = null;
-        fileInputStream3 = null;
-        ZipOutputStream zipOutputStream2 = null;
         if (file == null || !file.exists() || list == null || list.size() == 0) {
             return;
         }
@@ -32,14 +24,14 @@ public class FileZipUtil {
             byte[] bArr = new byte[4096];
             zipOutputStream = new ZipOutputStream(new FileOutputStream(file));
             try {
-                try {
-                    zipOutputStream.setComment(file.getName());
-                    fileInputStream = null;
-                    for (ZipSrc zipSrc : list) {
+                zipOutputStream.setComment(file.getName());
+                fileInputStream = null;
+                for (ZipSrc zipSrc : list) {
+                    try {
                         try {
                             File file2 = zipSrc.mFile;
                             if (file2.canRead() && file2.isFile()) {
-                                fileInputStream3 = new FileInputStream(file2);
+                                FileInputStream fileInputStream3 = new FileInputStream(file2);
                                 try {
                                     zipOutputStream.putNextEntry(new ZipEntry(zipSrc.mOutName));
                                     while (true) {
@@ -54,46 +46,42 @@ public class FileZipUtil {
                                 } catch (FileNotFoundException e) {
                                     e = e;
                                     fileInputStream = fileInputStream3;
-                                    zipOutputStream2 = zipOutputStream;
-                                    try {
-                                        e.printStackTrace();
-                                        if (fileInputStream != null) {
-                                            try {
-                                                fileInputStream.close();
-                                            } catch (IOException e2) {
-                                                e2.printStackTrace();
-                                            }
+                                    e.printStackTrace();
+                                    if (fileInputStream != null) {
+                                        try {
+                                            fileInputStream.close();
+                                        } catch (IOException e2) {
+                                            e2.printStackTrace();
                                         }
-                                        if (zipOutputStream2 != null) {
-                                            try {
-                                                zipOutputStream2.close();
-                                                return;
-                                            } catch (IOException e3) {
-                                                e3.printStackTrace();
-                                                return;
-                                            }
-                                        }
-                                        return;
-                                    } catch (Throwable th) {
-                                        th = th;
-                                        zipOutputStream = zipOutputStream2;
-                                        fileInputStream3 = fileInputStream;
-                                        if (fileInputStream3 != null) {
-                                            try {
-                                                fileInputStream3.close();
-                                            } catch (IOException e4) {
-                                                e4.printStackTrace();
-                                            }
-                                        }
-                                        if (zipOutputStream != null) {
-                                            try {
-                                                zipOutputStream.close();
-                                            } catch (IOException e5) {
-                                                e5.printStackTrace();
-                                            }
-                                        }
-                                        throw th;
                                     }
+                                    if (zipOutputStream != null) {
+                                        try {
+                                            zipOutputStream.close();
+                                            return;
+                                        } catch (IOException e3) {
+                                            e3.printStackTrace();
+                                            return;
+                                        }
+                                    }
+                                    return;
+                                } catch (Throwable th) {
+                                    th = th;
+                                    fileInputStream = fileInputStream3;
+                                    if (fileInputStream != null) {
+                                        try {
+                                            fileInputStream.close();
+                                        } catch (IOException e4) {
+                                            e4.printStackTrace();
+                                        }
+                                    }
+                                    if (zipOutputStream != null) {
+                                        try {
+                                            zipOutputStream.close();
+                                        } catch (IOException e5) {
+                                            e5.printStackTrace();
+                                        }
+                                    }
+                                    throw th;
                                 }
                             } else {
                                 fileInputStream2 = fileInputStream;
@@ -101,50 +89,45 @@ public class FileZipUtil {
                             fileInputStream = fileInputStream2;
                         } catch (FileNotFoundException e6) {
                             e = e6;
-                            zipOutputStream2 = zipOutputStream;
-                        } catch (Throwable th2) {
-                            th = th2;
-                            fileInputStream3 = fileInputStream;
-                            if (fileInputStream3 != null) {
-                            }
-                            if (zipOutputStream != null) {
-                            }
-                            throw th;
                         }
+                    } catch (Throwable th2) {
+                        th = th2;
                     }
-                    zipOutputStream.flush();
-                    if (fileInputStream != null) {
-                        try {
-                            fileInputStream.close();
-                        } catch (IOException e7) {
-                            e7.printStackTrace();
-                        }
-                    }
-                    if (zipOutputStream != null) {
-                        try {
-                            zipOutputStream.close();
-                        } catch (IOException e8) {
-                            e8.printStackTrace();
-                        }
-                    }
-                } catch (FileNotFoundException e9) {
-                    e = e9;
-                    fileInputStream = null;
-                    zipOutputStream2 = zipOutputStream;
                 }
+                zipOutputStream.flush();
+                if (fileInputStream != null) {
+                    try {
+                        fileInputStream.close();
+                    } catch (IOException e7) {
+                        e7.printStackTrace();
+                    }
+                }
+                if (zipOutputStream != null) {
+                    try {
+                        zipOutputStream.close();
+                    } catch (IOException e8) {
+                        e8.printStackTrace();
+                    }
+                }
+            } catch (FileNotFoundException e9) {
+                e = e9;
+                fileInputStream = null;
             } catch (Throwable th3) {
                 th = th3;
+                fileInputStream = null;
             }
         } catch (FileNotFoundException e10) {
             e = e10;
+            zipOutputStream = null;
             fileInputStream = null;
         } catch (Throwable th4) {
             th = th4;
             zipOutputStream = null;
+            fileInputStream = null;
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public static final class ZipSrc {
         public boolean mDelete;
         @NonNull

@@ -1,8 +1,8 @@
 package com.google.zxing.qrcode.decoder;
 
-import android.support.v7.widget.ActivityChooserView;
+import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.cyberplayer.sdk.rtc.RTCConst;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 final class FormatInformation {
     private final byte dataMask;
     private final ErrorCorrectionLevel errorCorrectionLevel;
@@ -27,37 +27,34 @@ final class FormatInformation {
 
     private static FormatInformation doDecodeFormatInformation(int i, int i2) {
         int i3;
-        int i4;
-        int i5 = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+        int i4 = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         int[][] iArr = FORMAT_INFO_DECODE_LOOKUP;
         int length = iArr.length;
+        int i5 = 0;
         int i6 = 0;
-        int i7 = 0;
-        while (i6 < length) {
-            int[] iArr2 = iArr[i6];
-            int i8 = iArr2[0];
-            if (i8 == i || i8 == i2) {
+        while (i5 < length) {
+            int[] iArr2 = iArr[i5];
+            int i7 = iArr2[0];
+            if (i7 == i || i7 == i2) {
                 return new FormatInformation(iArr2[1]);
             }
-            int numBitsDiffering = numBitsDiffering(i, i8);
-            if (numBitsDiffering < i5) {
+            int numBitsDiffering = numBitsDiffering(i, i7);
+            if (numBitsDiffering < i4) {
                 i3 = iArr2[1];
             } else {
-                numBitsDiffering = i5;
-                i3 = i7;
+                i3 = i6;
+                numBitsDiffering = i4;
             }
-            if (i == i2 || (i4 = numBitsDiffering(i2, i8)) >= numBitsDiffering) {
+            if (i == i2 || (i4 = numBitsDiffering(i2, i7)) >= numBitsDiffering) {
                 i4 = numBitsDiffering;
             } else {
                 i3 = iArr2[1];
             }
-            i6++;
-            int i9 = i3;
-            i5 = i4;
-            i7 = i9;
+            i5++;
+            i6 = i3;
         }
-        if (i5 <= 3) {
-            return new FormatInformation(i7);
+        if (i4 <= 3) {
+            return new FormatInformation(i6);
         }
         return null;
     }

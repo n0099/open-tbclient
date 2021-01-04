@@ -1,5 +1,5 @@
 package com.baidu.searchbox.http;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public class ConnectNetworkType {
     @Deprecated
     public static final int APACH_HTTP_TYPE = 0;

@@ -3,7 +3,7 @@ package org.apache.http.client;
 import org.apache.http.auth.AuthScope;
 import org.apache.http.auth.Credentials;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes6.dex */
 public interface CredentialsProvider {
     void clear();
 

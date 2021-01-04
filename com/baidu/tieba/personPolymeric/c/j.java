@@ -2,13 +2,13 @@ package com.baidu.tieba.personPolymeric.c;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.card.data.BaseCardInfo;
-/* loaded from: classes24.dex */
+/* loaded from: classes8.dex */
 public class j extends BaseCardInfo {
-    public static final BdUniqueId mrZ = BdUniqueId.gen();
-    public boolean ioc;
+    public static final BdUniqueId mxn = BdUniqueId.gen();
+    public boolean iAw;
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return mrZ;
+        return mxn;
     }
 }

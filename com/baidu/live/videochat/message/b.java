@@ -1,16 +1,16 @@
 package com.baidu.live.videochat.message;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class b extends HttpMessage {
-    private boolean bMF;
+    private boolean bRs;
 
     public b(boolean z) {
         super(1021180);
-        this.bMF = z;
+        this.bRs = z;
     }
 
-    public boolean XP() {
-        return this.bMF;
+    public boolean YW() {
+        return this.bRs;
     }
 }

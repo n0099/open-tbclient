@@ -20,81 +20,84 @@ import java.util.Iterator;
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 class dh {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f4624a = "/MiPushLog";
+    private static String f14234a = "/MiPushLog";
 
     /* renamed from: a  reason: collision with other field name */
-    private int f203a;
+    private int f281a;
 
     /* renamed from: a  reason: collision with other field name */
-    private boolean f206a;
+    private boolean f284a;
 
     /* renamed from: b  reason: collision with other field name */
-    private String f207b;
+    private String f285b;
     private String c;
     @SuppressLint({"SimpleDateFormat"})
 
     /* renamed from: a  reason: collision with other field name */
-    private final SimpleDateFormat f204a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    private int b = 2097152;
+    private final SimpleDateFormat f282a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+    /* renamed from: b  reason: collision with root package name */
+    private int f14235b = 2097152;
 
     /* renamed from: a  reason: collision with other field name */
-    private ArrayList<File> f205a = new ArrayList<>();
+    private ArrayList<File> f283a = new ArrayList<>();
 
     private void a(BufferedReader bufferedReader, BufferedWriter bufferedWriter, Pattern pattern) {
         int i;
-        boolean z;
         char[] cArr = new char[4096];
         int read = bufferedReader.read(cArr);
-        boolean z2 = false;
-        while (read != -1 && !z2) {
+        boolean z = false;
+        while (read != -1 && !z) {
             String str = new String(cArr, 0, read);
             Matcher matcher = pattern.matcher(str);
             int i2 = 0;
             int i3 = 0;
             while (i2 < read && matcher.find(i2)) {
                 i = matcher.start();
-                String substring = str.substring(i, this.f207b.length() + i);
-                if (this.f206a) {
+                String substring = str.substring(i, this.f285b.length() + i);
+                if (this.f284a) {
                     if (substring.compareTo(this.c) > 0) {
                         z = true;
                         break;
                     }
-                } else if (substring.compareTo(this.f207b) >= 0) {
-                    this.f206a = true;
+                } else if (substring.compareTo(this.f285b) >= 0) {
+                    this.f284a = true;
                     i3 = i;
                 }
                 int indexOf = str.indexOf(10, i);
-                i2 = indexOf != -1 ? i + indexOf : i + this.f207b.length();
+                i2 = indexOf != -1 ? i + indexOf : i + this.f285b.length();
             }
             i = read;
-            z = z2;
-            if (this.f206a) {
+            if (this.f284a) {
                 int i4 = i - i3;
-                this.f203a += i4;
+                this.f281a += i4;
                 if (z) {
                     bufferedWriter.write(cArr, i3, i4);
                     return;
                 }
                 bufferedWriter.write(cArr, i3, i4);
-                if (this.f203a > this.b) {
+                if (this.f281a > this.f14235b) {
                     return;
                 }
             }
-            z2 = z;
             read = bufferedReader.read(cArr);
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:41:0x0086 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:36:0x011d */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x0125 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:45:0x0086 */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r3v17, types: [java.lang.String] */
+    /* JADX WARN: Type inference failed for: r3v22, types: [java.lang.String] */
     private void a(File file) {
         BufferedWriter bufferedWriter;
-        BufferedReader bufferedReader = null;
+        BufferedReader bufferedReader;
+        BufferedReader bufferedReader2;
+        BufferedReader bufferedReader3 = null;
         Pattern compile = Pattern.compile("\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}");
         try {
             try {
@@ -103,85 +106,99 @@ class dh {
                     StringBuilder sb = new StringBuilder();
                     sb.append("model :").append(Build.MODEL);
                     sb.append("; os :").append(Build.VERSION.INCREMENTAL);
-                    sb.append("; uid :").append(com.xiaomi.push.service.be.m552a());
+                    sb.append("; uid :").append(com.xiaomi.push.service.be.m578a());
                     sb.append("; lng :").append(Locale.getDefault().toString());
                     sb.append("; sdk :").append(39);
                     sb.append("; andver :").append(Build.VERSION.SDK_INT);
                     sb.append("\n");
                     bufferedWriter.write(sb.toString());
-                    this.f203a = 0;
-                    Iterator<File> it = this.f205a.iterator();
-                    BufferedReader bufferedReader2 = "\n";
+                    this.f281a = 0;
+                    Iterator<File> it = this.f283a.iterator();
+                    bufferedReader2 = "\n";
                     while (true) {
                         try {
-                            bufferedReader2 = bufferedReader;
+                            bufferedReader2 = bufferedReader3;
                             if (!it.hasNext()) {
                                 bufferedWriter.write(cz.a().c());
                                 y.a(bufferedWriter);
                                 y.a(bufferedReader2);
                                 return;
                             }
-                            bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(it.next())));
-                            a(bufferedReader, bufferedWriter, compile);
-                            bufferedReader.close();
-                            bufferedReader2 = bufferedReader2;
-                        } catch (FileNotFoundException e) {
-                            e = e;
-                            bufferedReader = bufferedReader2;
-                            com.xiaomi.channel.commonutils.logger.b.c("LOG: filter error = " + e.getMessage());
-                            y.a(bufferedWriter);
-                            y.a(bufferedReader);
-                            return;
-                        } catch (IOException e2) {
-                            e = e2;
-                            bufferedReader = bufferedReader2;
-                            com.xiaomi.channel.commonutils.logger.b.c("LOG: filter error = " + e.getMessage());
-                            y.a(bufferedWriter);
-                            y.a(bufferedReader);
-                            return;
-                        } catch (Throwable th) {
-                            th = th;
-                            bufferedReader = bufferedReader2;
-                            y.a(bufferedWriter);
-                            y.a(bufferedReader);
-                            throw th;
+                            bufferedReader3 = new BufferedReader(new InputStreamReader(new FileInputStream(it.next())));
+                            try {
+                                a(bufferedReader3, bufferedWriter, compile);
+                                bufferedReader3.close();
+                                bufferedReader2 = bufferedReader2;
+                            } catch (FileNotFoundException e) {
+                                e = e;
+                                bufferedReader2 = bufferedReader3;
+                                com.xiaomi.channel.commonutils.logger.b.c("LOG: filter error = " + e.getMessage());
+                                y.a(bufferedWriter);
+                                y.a(bufferedReader2);
+                                return;
+                            } catch (IOException e2) {
+                                e = e2;
+                                bufferedReader2 = bufferedReader3;
+                                com.xiaomi.channel.commonutils.logger.b.c("LOG: filter error = " + e.getMessage());
+                                y.a(bufferedWriter);
+                                y.a(bufferedReader2);
+                                return;
+                            } catch (Throwable th) {
+                                th = th;
+                                bufferedReader = bufferedReader3;
+                                y.a(bufferedWriter);
+                                y.a(bufferedReader);
+                                throw th;
+                            }
+                        } catch (FileNotFoundException e3) {
+                            e = e3;
+                        } catch (IOException e4) {
+                            e = e4;
                         }
                     }
-                } catch (FileNotFoundException e3) {
-                    e = e3;
-                } catch (IOException e4) {
-                    e = e4;
+                } catch (FileNotFoundException e5) {
+                    e = e5;
+                    bufferedReader2 = null;
+                } catch (IOException e6) {
+                    e = e6;
+                    bufferedReader2 = null;
+                } catch (Throwable th2) {
+                    th = th2;
+                    bufferedReader = null;
                 }
-            } catch (Throwable th2) {
-                th = th2;
+            } catch (Throwable th3) {
+                th = th3;
             }
-        } catch (FileNotFoundException e5) {
-            e = e5;
+        } catch (FileNotFoundException e7) {
+            e = e7;
             bufferedWriter = null;
-        } catch (IOException e6) {
-            e = e6;
+            bufferedReader2 = null;
+        } catch (IOException e8) {
+            e = e8;
             bufferedWriter = null;
-        } catch (Throwable th3) {
-            th = th3;
+            bufferedReader2 = null;
+        } catch (Throwable th4) {
+            th = th4;
             bufferedWriter = null;
+            bufferedReader = null;
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    dh m219a(File file) {
+    dh m245a(File file) {
         if (file.exists()) {
-            this.f205a.add(file);
+            this.f283a.add(file);
         }
         return this;
     }
 
     dh a(Date date, Date date2) {
         if (date.after(date2)) {
-            this.f207b = this.f204a.format(date2);
-            this.c = this.f204a.format(date);
+            this.f285b = this.f282a.format(date2);
+            this.c = this.f282a.format(date);
         } else {
-            this.f207b = this.f204a.format(date);
-            this.c = this.f204a.format(date2);
+            this.f285b = this.f282a.format(date);
+            this.c = this.f282a.format(date2);
         }
         return this;
     }
@@ -191,12 +208,12 @@ class dh {
         File file2;
         if ("com.xiaomi.xmsf".equalsIgnoreCase(context.getPackageName())) {
             file2 = context.getFilesDir();
-            m219a(new File(file2, "xmsf.log.1"));
-            m219a(new File(file2, "xmsf.log"));
+            m245a(new File(file2, "xmsf.log.1"));
+            m245a(new File(file2, "xmsf.log"));
         } else {
-            file2 = new File(context.getExternalFilesDir(null) + f4624a);
-            m219a(new File(file2, "log0.txt"));
-            m219a(new File(file2, "log1.txt"));
+            file2 = new File(context.getExternalFilesDir(null) + f14234a);
+            m245a(new File(file2, "log0.txt"));
+            m245a(new File(file2, "log1.txt"));
         }
         if (file2.isDirectory()) {
             File file3 = new File(file, date.getTime() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + date2.getTime() + ".zip");
@@ -225,7 +242,7 @@ class dh {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(int i) {
         if (i != 0) {
-            this.b = i;
+            this.f14235b = i;
         }
     }
 }

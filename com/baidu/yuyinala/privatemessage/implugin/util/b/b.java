@@ -1,62 +1,44 @@
 package com.baidu.yuyinala.privatemessage.implugin.util.b;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.os.AsyncTask;
-import android.os.Looper;
-import android.preference.PreferenceManager;
-/* loaded from: classes4.dex */
-public class b {
-    public static String B(Context context, String str, String str2) {
-        return PreferenceManager.getDefaultSharedPreferences(context).getString(str, str2);
+import android.graphics.Rect;
+import android.view.View;
+import android.view.ViewTreeObserver;
+/* loaded from: classes11.dex */
+public class b implements ViewTreeObserver.OnGlobalLayoutListener {
+    private int cOr = 0;
+    private View mView;
+    private final Rect pbI;
+    private final int pbJ;
+    private c pbK;
+
+    public b(View view, c cVar) {
+        this.mView = view;
+        a.hJ(this.mView.getContext().getApplicationContext());
+        this.pbI = new Rect();
+        this.pbJ = (int) d.bB(60.0f);
+        this.pbK = cVar;
     }
 
-    public static void C(Context context, String str, String str2) {
-        commitEditor(PreferenceManager.getDefaultSharedPreferences(context).edit().putString(str, str2));
+    @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+    public void onGlobalLayout() {
+        if (this.mView != null) {
+            eoa();
+        }
     }
 
-    public static boolean i(Context context, String str, boolean z) {
-        return PreferenceManager.getDefaultSharedPreferences(context).getBoolean(str, z);
-    }
-
-    public static void j(Context context, String str, boolean z) {
-        commitEditor(PreferenceManager.getDefaultSharedPreferences(context).edit().putBoolean(str, z));
-    }
-
-    public static void i(Context context, String str, int i) {
-        commitEditor(PreferenceManager.getDefaultSharedPreferences(context).edit().putInt(str, i));
-    }
-
-    public static int j(Context context, String str, int i) {
-        return PreferenceManager.getDefaultSharedPreferences(context).getInt(str, i);
-    }
-
-    public static void e(Context context, String str, long j) {
-        commitEditor(PreferenceManager.getDefaultSharedPreferences(context).edit().putLong(str, j));
-    }
-
-    public static long f(Context context, String str, long j) {
-        return PreferenceManager.getDefaultSharedPreferences(context).getLong(str, j);
-    }
-
-    public static void g(Context context, String str, long j) {
-        commitEditor(PreferenceManager.getDefaultSharedPreferences(context).edit().putLong(str, j));
-    }
-
-    public static long h(Context context, String str, long j) {
-        return PreferenceManager.getDefaultSharedPreferences(context).getLong(str, j);
-    }
-
-    public static void commitEditor(final SharedPreferences.Editor editor) {
-        if (Looper.myLooper() == Looper.getMainLooper()) {
-            AsyncTask.SERIAL_EXECUTOR.execute(new Runnable() { // from class: com.baidu.yuyinala.privatemessage.implugin.util.b.b.1
-                @Override // java.lang.Runnable
-                public void run() {
-                    editor.commit();
-                }
-            });
-        } else {
-            editor.commit();
+    private void eoa() {
+        this.mView.getRootView().getWindowVisibleDisplayFrame(this.pbI);
+        int i = a.enY().heightPixels - this.pbI.bottom;
+        if (this.cOr != i && i > this.pbJ) {
+            this.cOr = i;
+            if (this.pbK != null) {
+                this.pbK.a(true, this.cOr, this.pbI.width(), this.pbI.bottom);
+            }
+        } else if (this.cOr != 0 && i <= this.pbJ) {
+            this.cOr = 0;
+            if (this.pbK != null) {
+                this.pbK.a(false, this.cOr, this.pbI.width(), this.pbI.bottom);
+            }
         }
     }
 }

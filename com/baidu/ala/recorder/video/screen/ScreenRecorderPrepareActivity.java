@@ -6,8 +6,8 @@ import android.content.Intent;
 import android.media.projection.MediaProjection;
 import android.media.projection.MediaProjectionManager;
 import android.os.Bundle;
-import com.baidu.live.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes9.dex */
+import com.baidu.ala.tbadk.core.TbadkCoreApplicationProxy;
+/* loaded from: classes15.dex */
 public class ScreenRecorderPrepareActivity extends Activity {
     private static final int REQUEST_CODE = 1;
     private MediaProjectionManager mMediaProjectionManager;
@@ -18,7 +18,7 @@ public class ScreenRecorderPrepareActivity extends Activity {
         super.onCreate(bundle);
         requestWindowFeature(1);
         getWindow().setFlags(1024, 1024);
-        this.mMediaProjectionManager = (MediaProjectionManager) TbadkCoreApplication.getInst().getContext().getSystemService("media_projection");
+        this.mMediaProjectionManager = (MediaProjectionManager) TbadkCoreApplicationProxy.getInst().getAppContext().getSystemService("media_projection");
         startActivityForResult(this.mMediaProjectionManager.createScreenCaptureIntent(), 1);
     }
 

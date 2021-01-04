@@ -8,7 +8,7 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public final class h {
     public static String a(com.baidu.ubs.analytics.b bVar) {
         JSONObject jSONObject = new JSONObject();

@@ -1,20 +1,20 @@
 package com.baidu.b.c.a;
 
 import javax.crypto.ShortBufferException;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 final class h implements i {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1260a;
+    private int f1598a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(int i) {
-        this.f1260a = i;
+        this.f1598a = i;
     }
 
     @Override // com.baidu.b.c.a.i
     public int a(int i) {
-        return this.f1260a - (i % this.f1260a);
+        return this.f1598a - (i % this.f1598a);
     }
 
     @Override // com.baidu.b.c.a.i
@@ -25,9 +25,9 @@ final class h implements i {
         if (i + i2 > bArr.length) {
             throw new ShortBufferException("Buffer too small to hold padding");
         }
-        byte b = (byte) (i2 & 255);
+        byte b2 = (byte) (i2 & 255);
         for (int i3 = 0; i3 < i2; i3++) {
-            bArr[i3 + i] = b;
+            bArr[i3 + i] = b2;
         }
     }
 
@@ -39,7 +39,7 @@ final class h implements i {
         }
         int i4 = bArr[(i + i2) - 1];
         int i5 = i4 & 255;
-        if (i5 < 1 || i5 > this.f1260a || (i3 = (i + i2) - (i4 & 255)) < i) {
+        if (i5 < 1 || i5 > this.f1598a || (i3 = (i + i2) - (i4 & 255)) < i) {
             return -1;
         }
         for (int i6 = 0; i6 < (i4 & 255); i6++) {

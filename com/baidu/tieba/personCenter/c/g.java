@@ -1,29 +1,28 @@
 package com.baidu.tieba.personCenter.c;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import java.util.List;
-/* loaded from: classes22.dex */
-public class g extends BaseCardInfo implements q {
-    public static BdUniqueId mkq = BdUniqueId.gen();
-    public List<a> erW;
+/* loaded from: classes2.dex */
+public class g extends BaseCardInfo implements com.baidu.adp.widget.ListView.n {
+    public static BdUniqueId mpz = BdUniqueId.gen();
+    public List<a> eBG;
     public UserData mUserData;
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes2.dex */
     public static class a {
-        public int mkr;
+        public int mpA;
         public String text;
         public int type;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return mkq;
+        return mpz;
     }
 
     public void fx(List<a> list) {
-        this.erW = list;
+        this.eBG = list;
     }
 }

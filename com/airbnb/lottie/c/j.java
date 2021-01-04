@@ -4,15 +4,15 @@ import android.util.JsonReader;
 import java.io.IOException;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class j {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static com.airbnb.lottie.model.d n(JsonReader jsonReader, com.airbnb.lottie.e eVar) throws IOException {
-        String str = null;
-        double d = 0.0d;
+    public static com.airbnb.lottie.model.d n(JsonReader jsonReader, com.airbnb.lottie.d dVar) throws IOException {
         ArrayList arrayList = new ArrayList();
         jsonReader.beginObject();
+        String str = null;
         String str2 = null;
+        double d = 0.0d;
         double d2 = 0.0d;
         char c = 0;
         while (jsonReader.hasNext()) {
@@ -78,7 +78,7 @@ public class j {
                         if ("shapes".equals(jsonReader.nextName())) {
                             jsonReader.beginArray();
                             while (jsonReader.hasNext()) {
-                                arrayList.add((com.airbnb.lottie.model.content.j) g.m(jsonReader, eVar));
+                                arrayList.add((com.airbnb.lottie.model.content.j) g.m(jsonReader, dVar));
                             }
                             jsonReader.endArray();
                         } else {

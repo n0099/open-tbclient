@@ -19,7 +19,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class d {
     private static int a(Context context) {
         if (MzSystemUtils.isMeizu(context)) {
@@ -98,7 +98,7 @@ public class d {
 
     public static void a(Context context, boolean z, String str, String str2, String str3, String str4, String str5, String str6) {
         HashMap hashMap = new HashMap();
-        hashMap.put(h.f1497a, str5);
+        hashMap.put(h.f1996a, str5);
         hashMap.put(Config.FEED_LIST_PART, str3);
         hashMap.put(AppIconSetting.DEFAULT_LARGE_ICON, str2);
         if (TextUtils.isEmpty(str6)) {
@@ -127,13 +127,14 @@ public class d {
 
     private static boolean a(Context context, Map<String, String> map) {
         String str;
-        String str2 = null;
+        String str2;
         List<ResolveInfo> queryIntentServices = context.getPackageManager().queryIntentServices(new Intent(PushConstants.MZ_PUSH_TRACKER_SERVICE_ACTION), 0);
         if (queryIntentServices != null) {
             Iterator<ResolveInfo> it = queryIntentServices.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     str = null;
+                    str2 = null;
                     break;
                 }
                 ResolveInfo next = it.next();
@@ -151,6 +152,7 @@ public class d {
             }
         } else {
             str = null;
+            str2 = null;
         }
         com.meizu.cloud.a.a.i("UxIPUtils", "current process packageName " + str);
         if (!TextUtils.isEmpty(str2)) {

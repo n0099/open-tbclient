@@ -1,13 +1,13 @@
 package com.baidu.webkit.sdk.system;
 
 import android.os.Build;
-import android.support.annotation.Nullable;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
+import androidx.annotation.Nullable;
 import com.baidu.webkit.sdk.ServiceWorkerClient;
 import com.baidu.webkit.sdk.ServiceWorkerController;
 import com.baidu.webkit.sdk.ServiceWorkerWebSettings;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public class ServiceWorkerControllerImpl extends ServiceWorkerController {
     private ServiceWorkerClient mClient;
 

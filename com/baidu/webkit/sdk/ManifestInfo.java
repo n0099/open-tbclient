@@ -1,5 +1,5 @@
 package com.baidu.webkit.sdk;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public final class ManifestInfo {
     public int mBgColor;
     public int mDisplay;
@@ -11,7 +11,7 @@ public final class ManifestInfo {
     public String mStartUrl;
     public int mThemeColor;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public static final class IconInfo {
         public int mHeight1;
         public int mHeight2;
@@ -63,9 +63,8 @@ public final class ManifestInfo {
                         break;
                 }
             }
-            int i9 = iArr2[i5] + i6;
             i5++;
-            i6 = i9;
+            i6 = iArr2[i5] + i6;
         }
     }
 }

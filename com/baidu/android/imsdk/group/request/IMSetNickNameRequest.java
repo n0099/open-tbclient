@@ -3,7 +3,6 @@ package com.baidu.android.imsdk.group.request;
 import android.content.Context;
 import android.util.Log;
 import android.util.Pair;
-import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.group.BIMValueCallBack;
 import com.baidu.android.imsdk.group.db.GroupInfoDAOImpl;
@@ -16,7 +15,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class IMSetNickNameRequest extends GroupBaseHttpRequest {
     private static final String TAG = IMSetNickNameRequest.class.getSimpleName();
     private long mAppid;
@@ -25,7 +24,7 @@ public class IMSetNickNameRequest extends GroupBaseHttpRequest {
     private String mKey;
     private String mNickName;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     class Mytask extends TaskManager.Task {
         public Mytask(String str, String str2) {
             super(str, str2);
@@ -38,23 +37,21 @@ public class IMSetNickNameRequest extends GroupBaseHttpRequest {
             IMListener removeListener;
             int i2;
             String optString;
-            int i3;
             try {
                 JSONObject jSONObject = new JSONObject(this.mJson);
                 i2 = jSONObject.getInt("error_code");
-                optString = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG, "");
+                optString = jSONObject.optString("error_msg", "");
             } catch (JSONException e) {
                 LogUtils.e(LogUtils.TAG, "IMSetNickNameRequest JSONException", e);
-                new IMTrack.CrashBuilder(IMSetNickNameRequest.this.mContext).exception(Log.getStackTraceString(e)).build();
                 i = 1010;
+                new IMTrack.CrashBuilder(IMSetNickNameRequest.this.mContext).exception(Log.getStackTraceString(e)).build();
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
             }
             if (i2 == 0) {
-                i3 = GroupInfoDAOImpl.updateMemberNickName(IMSetNickNameRequest.this.mContext, IMSetNickNameRequest.this.mGroupId, String.valueOf(IMSetNickNameRequest.this.mBuid), IMSetNickNameRequest.this.mNickName);
-                if (i3 < 0) {
-                    LogUtils.d(IMSetNickNameRequest.TAG, "updateMemberNickName error " + i3);
+                i = GroupInfoDAOImpl.updateMemberNickName(IMSetNickNameRequest.this.mContext, IMSetNickNameRequest.this.mGroupId, String.valueOf(IMSetNickNameRequest.this.mBuid), IMSetNickNameRequest.this.mNickName);
+                if (i < 0) {
+                    LogUtils.d(IMSetNickNameRequest.TAG, "updateMemberNickName error " + i);
                     optString = "update local db error";
-                    i = i3;
                     str = optString;
                     removeListener = ListenerManager.getInstance().removeListener(IMSetNickNameRequest.this.mKey);
                     if (removeListener == null && (removeListener instanceof BIMValueCallBack)) {
@@ -62,10 +59,9 @@ public class IMSetNickNameRequest extends GroupBaseHttpRequest {
                         return;
                     }
                 }
-                LogUtils.d(IMSetNickNameRequest.TAG, "updateMemberNickName successful " + i3);
+                LogUtils.d(IMSetNickNameRequest.TAG, "updateMemberNickName successful " + i);
             }
-            i3 = i2;
-            i = i3;
+            i = i2;
             str = optString;
             removeListener = ListenerManager.getInstance().removeListener(IMSetNickNameRequest.this.mKey);
             if (removeListener == null) {

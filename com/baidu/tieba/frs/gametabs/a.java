@@ -12,27 +12,27 @@ import com.baidu.tbadk.core.hybrid.n;
 import com.baidu.tbadk.core.hybrid.o;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.R;
 import org.json.JSONObject;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class a extends n {
-    private l eQK;
-    private String fFV;
+    private String fPy;
+    private l faJ;
 
     public a(l lVar, String str) {
         super(lVar);
-        this.eQK = lVar;
-        this.fFV = str;
+        this.faJ = lVar;
+        this.fPy = str;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.hybrid.n
-    public String blw() {
+    public String bnV() {
         return "TBHY_COMMON_DOWNLOAD_GAME";
     }
 
-    @o(bsz = false, value = "downloadGame")
+    @o(bvb = false, value = "downloadGame")
     private void downloadGame(JSONObject jSONObject) {
         if (jSONObject != null) {
             String optString = jSONObject.optString("packageName");
@@ -40,15 +40,15 @@ public class a extends n {
             String optString3 = jSONObject.optString("imageUrl");
             if (!StringUtils.isNull(optString)) {
                 if (!j.isNetWorkAvailable()) {
-                    UtilHelper.showToast(getContext(), (int) R.string.neterror);
+                    UtilHelper.showToast(getContext(), R.string.neterror);
                     return;
                 }
                 if (StringUtils.isNull(optString2)) {
                     Lp(optString);
                 } else {
-                    com.baidu.tieba.recapp.download.e.dFm().a(optString, optString2, optString, 0, com.baidu.tieba.recapp.download.e.RY(optString).intValue(), null, true, false, true, optString3, null, null);
+                    com.baidu.tieba.recapp.download.e.dFb().a(optString, optString2, optString, 0, com.baidu.tieba.recapp.download.e.RE(optString).intValue(), null, true, false, true, optString3, null, null);
                 }
-                TiebaStatic.log(new ar("c12775").dY("fid", StringUtils.isNull(this.fFV) ? "" : this.fFV));
+                TiebaStatic.log(new aq("c12775").dX("fid", StringUtils.isNull(this.fPy) ? "" : this.fPy));
             }
         }
     }
@@ -56,10 +56,10 @@ public class a extends n {
     private void Lp(String str) {
         Intent intent = new Intent("android.intent.action.VIEW", Uri.parse("market://details?id=" + str));
         try {
-            if (!(this.eQK.getContext() instanceof Activity)) {
+            if (!(this.faJ.getContext() instanceof Activity)) {
                 intent.addFlags(268435456);
             }
-            this.eQK.getContext().startActivity(intent);
+            this.faJ.getContext().startActivity(intent);
         } catch (ActivityNotFoundException e) {
             BdLog.e(e.getMessage());
         }

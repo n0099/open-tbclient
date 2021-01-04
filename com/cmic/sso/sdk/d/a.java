@@ -1,5 +1,6 @@
 package com.cmic.sso.sdk.d;
 
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.tbadk.util.AdExtParam;
 import com.cmic.sso.sdk.c.b.g;
 import com.heytap.mcssdk.mode.CommandMessage;
@@ -8,14 +9,16 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class a extends g {
-    public static CopyOnWriteArrayList<Throwable> oZX = new CopyOnWriteArrayList<>();
+    public static CopyOnWriteArrayList<Throwable> prm = new CopyOnWriteArrayList<>();
     private String A;
     private String B;
     private String C;
-    private JSONArray oZW;
-    private String b = null;
+    private JSONArray prl;
+
+    /* renamed from: b  reason: collision with root package name */
+    private String f8019b = null;
     private String c = null;
     private String d = null;
     private String e = null;
@@ -41,7 +44,7 @@ public class a extends g {
     private String z = null;
 
     public void a(String str) {
-        this.b = str;
+        this.f8019b = str;
     }
 
     public void b(String str) {
@@ -94,7 +97,7 @@ public class a extends g {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(JSONArray jSONArray) {
-        this.oZW = jSONArray;
+        this.prl = jSONArray;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -162,7 +165,7 @@ public class a extends g {
         this.B = str;
     }
 
-    public void Ya(String str) {
+    public void XJ(String str) {
         this.C = str;
     }
 
@@ -170,12 +173,12 @@ public class a extends g {
     public JSONObject b() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("appid", this.b);
+            jSONObject.put("appid", this.f8019b);
             jSONObject.put("traceId", this.c);
             jSONObject.put("appName", this.d);
             jSONObject.put("appVersion", this.e);
             jSONObject.put(CommandMessage.SDK_VERSION, this.f);
-            jSONObject.put("clientType", "android");
+            jSONObject.put("clientType", HttpConstants.OS_TYPE_VALUE);
             jSONObject.put("timeOut", this.g);
             jSONObject.put("requestTime", this.h);
             jSONObject.put("responseTime", this.i);
@@ -185,7 +188,7 @@ public class a extends g {
             jSONObject.put("interfaceCode", this.m);
             jSONObject.put("interfaceElasped", this.n);
             jSONObject.put("loginType", this.o);
-            jSONObject.put("exceptionStackTrace", this.oZW);
+            jSONObject.put("exceptionStackTrace", this.prl);
             jSONObject.put("operatorType", this.q);
             jSONObject.put("networkType", this.r);
             jSONObject.put("networkClass", this.s);

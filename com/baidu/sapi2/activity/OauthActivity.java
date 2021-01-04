@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.l.a.a;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.sapi2.CoreViewRouter;
@@ -33,7 +34,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class OauthActivity extends BaseActivity {
     private static final String A = "extra_calling_app_id";
     private static final String B = "extra_oauth_result_json";
@@ -280,7 +281,7 @@ public class OauthActivity extends BaseActivity {
             public void onSuccess(SsoHashResult ssoHashResult) {
                 String str;
                 HashMap hashMap = new HashMap();
-                hashMap.put("client", "android");
+                hashMap.put("client", HttpConstants.OS_TYPE_VALUE);
                 hashMap.put("clientfrom", "native");
                 hashMap.put("suppcheck", "1");
                 if (OauthActivity.this.x == 0) {

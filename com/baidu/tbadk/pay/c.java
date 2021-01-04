@@ -10,22 +10,22 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PayWalletActivityConfig;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class c {
-    private static c fBK = null;
+    private static c fLq = null;
 
     private c() {
     }
 
-    public static synchronized c bFc() {
+    public static synchronized c bHv() {
         c cVar;
         synchronized (c.class) {
-            if (fBK == null) {
-                fBK = new c();
+            if (fLq == null) {
+                fLq = new c();
             }
-            cVar = fBK;
+            cVar = fLq;
         }
         return cVar;
     }
@@ -44,9 +44,19 @@ public class c {
         }
     }
 
+    public boolean bHw() {
+        try {
+            Class.forName("com.baidu.wallet.home.WalletNewHomeActivity");
+            return true;
+        } catch (ClassNotFoundException e) {
+            BdLog.e(e);
+            return false;
+        }
+    }
+
     public void a(String str, TbPageContext<?> tbPageContext) {
         if (tbPageContext != null) {
-            bf.bua().b(tbPageContext, new String[]{str});
+            be.bwu().b(tbPageContext, new String[]{str});
         }
     }
 

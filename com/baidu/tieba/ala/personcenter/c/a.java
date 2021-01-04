@@ -1,18 +1,18 @@
 package com.baidu.tieba.ala.personcenter.c;
 
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class a extends com.baidu.tbadk.core.data.n {
-    private String hNm;
+    private String hZI;
 
     @Override // com.baidu.tbadk.core.data.n
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.hNm = jSONObject.optString("qq", "");
+            this.hZI = jSONObject.optString("qq", "");
         }
     }
 
-    public String cmO() {
-        return this.hNm;
+    public String cpG() {
+        return this.hZI;
     }
 }

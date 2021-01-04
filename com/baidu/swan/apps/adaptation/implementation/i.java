@@ -7,7 +7,7 @@ import java.io.File;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class i implements com.baidu.swan.apps.adaptation.a.w {
     @Override // com.baidu.swan.apps.adaptation.a.w
     public void a(Bitmap bitmap, HashMap<String, String> hashMap, File[] fileArr, w.a aVar) {
@@ -25,7 +25,7 @@ public class i implements com.baidu.swan.apps.adaptation.a.w {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.w
-    public void e(Context context, String str, String str2, String str3) {
+    public void f(Context context, String str, String str2, String str3) {
     }
 
     private void a(w.a aVar) {

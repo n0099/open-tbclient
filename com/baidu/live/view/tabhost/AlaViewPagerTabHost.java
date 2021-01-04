@@ -6,12 +6,12 @@ import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.graphics.Shader;
-import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.viewpager.widget.ViewPager;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
@@ -19,18 +19,18 @@ import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.live.tbadk.core.util.SkinManager;
 import com.baidu.live.tbadk.widget.CustomViewPager;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaViewPagerTabHost extends LinearLayout implements ViewPager.OnPageChangeListener {
-    private List<com.baidu.live.view.tabhost.a> aHA;
-    private View.OnClickListener aHE;
-    private FrameLayout aHl;
-    private LinearLayout aHm;
-    private CustomViewPager aHn;
-    private final int bQB;
-    private final int bQC;
-    private AlaViewPagerAdapter bQD;
-    private a bQE;
-    private b bQF;
+    private FrameLayout aHD;
+    private LinearLayout aHE;
+    private CustomViewPager aHF;
+    private List<com.baidu.live.view.tabhost.a> aHS;
+    private View.OnClickListener aHW;
+    private final int bWi;
+    private final int bWj;
+    private AlaViewPagerAdapter bWk;
+    private a bWl;
+    private b bWm;
     private float mCurrentPositionOffset;
     private int mCurrentTabIndex;
     private int mDividerColor;
@@ -42,20 +42,20 @@ public class AlaViewPagerTabHost extends LinearLayout implements ViewPager.OnPag
     private int mSelectorColor;
     private int mSkinType;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void a(int i, com.baidu.live.view.tabhost.a aVar);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface b {
         void onPageSelected(int i);
     }
 
     public AlaViewPagerTabHost(Context context) {
         super(context);
-        this.bQB = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds60);
-        this.bQC = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds22);
+        this.bWi = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds60);
+        this.bWj = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds22);
         this.mIndicatorHeight = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), a.d.sdk_ds4);
         this.mIndicatorWidth = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), a.d.sdk_ds64);
         this.mDividerHeight = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), a.d.sdk_ds1);
@@ -65,14 +65,14 @@ public class AlaViewPagerTabHost extends LinearLayout implements ViewPager.OnPag
         this.mIsClicked = false;
         this.mSelectorColor = TbadkCoreApplication.getInst().getResources().getColor(a.c.sdk_cp_cont_b);
         this.mDividerColor = TbadkCoreApplication.getInst().getResources().getColor(a.c.sdk_cp_bg_line_c);
-        this.aHE = new View.OnClickListener() { // from class: com.baidu.live.view.tabhost.AlaViewPagerTabHost.1
+        this.aHW = new View.OnClickListener() { // from class: com.baidu.live.view.tabhost.AlaViewPagerTabHost.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                int indexOfChild = AlaViewPagerTabHost.this.aHm.indexOfChild(view);
+                int indexOfChild = AlaViewPagerTabHost.this.aHE.indexOfChild(view);
                 if (indexOfChild >= 0) {
                     AlaViewPagerTabHost.this.mIsClicked = true;
-                    if (AlaViewPagerTabHost.this.aHn != null) {
-                        AlaViewPagerTabHost.this.aHn.setCurrentItem(indexOfChild);
+                    if (AlaViewPagerTabHost.this.aHF != null) {
+                        AlaViewPagerTabHost.this.aHF.setCurrentItem(indexOfChild);
                     }
                 }
             }
@@ -82,8 +82,8 @@ public class AlaViewPagerTabHost extends LinearLayout implements ViewPager.OnPag
 
     public AlaViewPagerTabHost(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bQB = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds60);
-        this.bQC = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds22);
+        this.bWi = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds60);
+        this.bWj = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds22);
         this.mIndicatorHeight = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), a.d.sdk_ds4);
         this.mIndicatorWidth = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), a.d.sdk_ds64);
         this.mDividerHeight = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), a.d.sdk_ds1);
@@ -93,14 +93,14 @@ public class AlaViewPagerTabHost extends LinearLayout implements ViewPager.OnPag
         this.mIsClicked = false;
         this.mSelectorColor = TbadkCoreApplication.getInst().getResources().getColor(a.c.sdk_cp_cont_b);
         this.mDividerColor = TbadkCoreApplication.getInst().getResources().getColor(a.c.sdk_cp_bg_line_c);
-        this.aHE = new View.OnClickListener() { // from class: com.baidu.live.view.tabhost.AlaViewPagerTabHost.1
+        this.aHW = new View.OnClickListener() { // from class: com.baidu.live.view.tabhost.AlaViewPagerTabHost.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                int indexOfChild = AlaViewPagerTabHost.this.aHm.indexOfChild(view);
+                int indexOfChild = AlaViewPagerTabHost.this.aHE.indexOfChild(view);
                 if (indexOfChild >= 0) {
                     AlaViewPagerTabHost.this.mIsClicked = true;
-                    if (AlaViewPagerTabHost.this.aHn != null) {
-                        AlaViewPagerTabHost.this.aHn.setCurrentItem(indexOfChild);
+                    if (AlaViewPagerTabHost.this.aHF != null) {
+                        AlaViewPagerTabHost.this.aHF.setCurrentItem(indexOfChild);
                     }
                 }
             }
@@ -110,33 +110,33 @@ public class AlaViewPagerTabHost extends LinearLayout implements ViewPager.OnPag
 
     private void init() {
         setOrientation(1);
-        this.aHl = new FrameLayout(getContext());
-        addView(this.aHl, new LinearLayout.LayoutParams(-1, -2));
-        this.aHm = new LinearLayout(getContext());
+        this.aHD = new FrameLayout(getContext());
+        addView(this.aHD, new LinearLayout.LayoutParams(-1, -2));
+        this.aHE = new LinearLayout(getContext());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
         layoutParams.gravity = 17;
         layoutParams.setMargins(getResources().getDimensionPixelOffset(a.d.sdk_ds34), 0, getResources().getDimensionPixelOffset(a.d.sdk_ds34), 0);
-        this.aHl.addView(this.aHm, layoutParams);
-        this.aHn = new CustomViewPager(getContext());
-        this.aHn.setOnPageChangeListener(this);
-        addView(this.aHn);
-        this.bQD = new AlaViewPagerAdapter();
-        this.aHn.setAdapter(this.bQD);
+        this.aHD.addView(this.aHE, layoutParams);
+        this.aHF = new CustomViewPager(getContext());
+        this.aHF.setOnPageChangeListener(this);
+        addView(this.aHF);
+        this.bWk = new AlaViewPagerAdapter();
+        this.aHF.setAdapter(this.bWk);
         this.mRectPaint = new Paint();
         this.mRectPaint.setAntiAlias(true);
         this.mRectPaint.setStyle(Paint.Style.FILL);
     }
 
     public void setData(List<com.baidu.live.view.tabhost.a> list) {
-        this.aHA = list;
+        this.aHS = list;
         x(list);
-        this.bQD.setData(list);
-        this.aHn.setCurrentItem(0);
+        this.bWk.setData(list);
+        this.aHF.setCurrentItem(0);
     }
 
     public void setCurrentIndex(int i) {
-        if (this.aHn != null) {
-            this.aHn.setCurrentItem(i);
+        if (this.aHF != null) {
+            this.aHF.setCurrentItem(i);
         }
         updateTabStyles();
     }
@@ -146,13 +146,13 @@ public class AlaViewPagerTabHost extends LinearLayout implements ViewPager.OnPag
             TextView textView = new TextView(getContext());
             textView.setTextSize(0, getContext().getResources().getDimensionPixelSize(a.d.sdk_fontsize32));
             textView.setText(aVar.getTitle());
-            textView.setPadding(0, this.bQC, 0, this.bQC);
+            textView.setPadding(0, this.bWj, 0, this.bWj);
             textView.setGravity(17);
-            textView.setOnClickListener(this.aHE);
+            textView.setOnClickListener(this.aHW);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
             layoutParams.weight = 1.0f;
             a(textView, false, this.mSkinType);
-            this.aHm.addView(textView, layoutParams);
+            this.aHE.addView(textView, layoutParams);
         }
     }
 
@@ -167,10 +167,10 @@ public class AlaViewPagerTabHost extends LinearLayout implements ViewPager.OnPag
     }
 
     private void updateTabStyles() {
-        int childCount = this.aHm.getChildCount();
+        int childCount = this.aHE.getChildCount();
         int i = 0;
         while (i < childCount) {
-            View childAt = this.aHm.getChildAt(i);
+            View childAt = this.aHE.getChildAt(i);
             if (childAt instanceof TextView) {
                 a((TextView) childAt, i == this.mCurrentTabIndex, this.mSkinType);
             }
@@ -181,15 +181,15 @@ public class AlaViewPagerTabHost extends LinearLayout implements ViewPager.OnPag
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
-        if (!isInEditMode() && this.aHm.getChildCount() != 0) {
-            int height = this.aHm.getHeight();
+        if (!isInEditMode() && this.aHE.getChildCount() != 0) {
+            int height = this.aHE.getHeight();
             this.mRectPaint.setColor(this.mSelectorColor);
-            View childAt = this.aHm.getChildAt(this.mCurrentTabIndex);
-            float paddingLeft = childAt.getPaddingLeft() + this.aHm.getLeft() + childAt.getLeft() + ((((childAt.getWidth() - childAt.getPaddingLeft()) - childAt.getPaddingRight()) - this.mIndicatorWidth) / 2);
+            View childAt = this.aHE.getChildAt(this.mCurrentTabIndex);
+            float paddingLeft = childAt.getPaddingLeft() + this.aHE.getLeft() + childAt.getLeft() + ((((childAt.getWidth() - childAt.getPaddingLeft()) - childAt.getPaddingRight()) - this.mIndicatorWidth) / 2);
             float f = paddingLeft + this.mIndicatorWidth;
-            if (this.mCurrentPositionOffset > 0.0f && this.mCurrentTabIndex < this.aHm.getChildCount() - 1) {
-                View childAt2 = this.aHm.getChildAt(this.mCurrentTabIndex + 1);
-                float paddingLeft2 = childAt2.getPaddingLeft() + childAt2.getLeft() + this.aHm.getLeft() + ((((childAt2.getWidth() - childAt2.getPaddingRight()) - childAt2.getPaddingLeft()) - this.mIndicatorWidth) / 2);
+            if (this.mCurrentPositionOffset > 0.0f && this.mCurrentTabIndex < this.aHE.getChildCount() - 1) {
+                View childAt2 = this.aHE.getChildAt(this.mCurrentTabIndex + 1);
+                float paddingLeft2 = childAt2.getPaddingLeft() + childAt2.getLeft() + this.aHE.getLeft() + ((((childAt2.getWidth() - childAt2.getPaddingRight()) - childAt2.getPaddingLeft()) - this.mIndicatorWidth) / 2);
                 paddingLeft = (paddingLeft * (1.0f - this.mCurrentPositionOffset)) + (paddingLeft2 * this.mCurrentPositionOffset);
                 f = (this.mCurrentPositionOffset * (this.mIndicatorWidth + paddingLeft2)) + ((1.0f - this.mCurrentPositionOffset) * f);
             }
@@ -198,51 +198,51 @@ public class AlaViewPagerTabHost extends LinearLayout implements ViewPager.OnPag
             canvas.drawRoundRect(rectF, rectF.height(), rectF.height(), this.mRectPaint);
             this.mRectPaint.setShader(null);
             this.mRectPaint.setColor(this.mDividerColor);
-            canvas.drawRect(0.0f, height - this.mDividerHeight, this.aHl.getWidth(), height, this.mRectPaint);
+            canvas.drawRect(0.0f, height - this.mDividerHeight, this.aHD.getWidth(), height, this.mRectPaint);
         }
     }
 
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
     public void onPageScrolled(int i, float f, int i2) {
-        if (this.aHm.getChildCount() != 0 && !this.mIsClicked) {
+        if (this.aHE.getChildCount() != 0 && !this.mIsClicked) {
             this.mCurrentTabIndex = i;
             this.mCurrentPositionOffset = f;
             updateTabStyles();
             invalidate();
-            if (this.bQE != null) {
-                this.bQE.a(this.mCurrentTabIndex, (com.baidu.live.view.tabhost.a) ListUtils.getItem(this.aHA, this.mCurrentTabIndex));
+            if (this.bWl != null) {
+                this.bWl.a(this.mCurrentTabIndex, (com.baidu.live.view.tabhost.a) ListUtils.getItem(this.aHS, this.mCurrentTabIndex));
             }
         }
     }
 
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
         if (this.mIsClicked) {
             this.mCurrentTabIndex = i;
             updateTabStyles();
             invalidate();
-            if (this.bQE != null) {
-                this.bQE.a(this.mCurrentTabIndex, (com.baidu.live.view.tabhost.a) ListUtils.getItem(this.aHA, this.mCurrentTabIndex));
+            if (this.bWl != null) {
+                this.bWl.a(this.mCurrentTabIndex, (com.baidu.live.view.tabhost.a) ListUtils.getItem(this.aHS, this.mCurrentTabIndex));
             }
         }
-        if (this.bQF != null) {
-            this.bQF.onPageSelected(i);
+        if (this.bWm != null) {
+            this.bWm.onPageSelected(i);
         }
     }
 
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
     public void onPageScrollStateChanged(int i) {
-        if (this.aHm.getChildCount() != 0 && this.aHn != null && i == 0) {
+        if (this.aHE.getChildCount() != 0 && this.aHF != null && i == 0) {
             this.mCurrentPositionOffset = 0.0f;
             this.mIsClicked = false;
         }
     }
 
     public void setOnPageChangeListener(a aVar) {
-        this.bQE = aVar;
+        this.bWl = aVar;
     }
 
     public void setPageSelectedListener(b bVar) {
-        this.bQF = bVar;
+        this.bWm = bVar;
     }
 }

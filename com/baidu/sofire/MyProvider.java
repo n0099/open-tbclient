@@ -8,7 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.sofire.i.h;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class MyProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public boolean onCreate() {
@@ -35,10 +35,10 @@ public class MyProvider extends ContentProvider {
                     return com.baidu.sofire.mutiprocess.b.a(str, bundle);
                 } else {
                     if ("getRemoteZid".equals(str)) {
-                        String b = h.b(getContext());
+                        String b2 = h.b(getContext());
                         Bundle bundle3 = new Bundle();
-                        if (!TextUtils.isEmpty(b)) {
-                            bundle3.putString("_zid", b);
+                        if (!TextUtils.isEmpty(b2)) {
+                            bundle3.putString("_zid", b2);
                         }
                         return bundle3;
                     }

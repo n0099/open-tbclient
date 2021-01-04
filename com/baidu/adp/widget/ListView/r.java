@@ -1,9 +1,5 @@
 package com.baidu.adp.widget.ListView;
 /* loaded from: classes.dex */
-public interface r<T> {
-    int getCount();
-
-    T getItem(int i);
-
-    void notifyDataSetChanged();
+public interface r<T> extends o<T> {
+    int getPositionByType(int i, int i2);
 }

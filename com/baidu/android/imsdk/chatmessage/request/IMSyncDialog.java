@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class IMSyncDialog extends Message {
     public static final String TAG = IMDelMsg.class.getSimpleName();
     private Context mContext;
@@ -69,8 +69,8 @@ public class IMSyncDialog extends Message {
                 }
                 Type type = new Type();
                 type.t = 0L;
-                long j3 = -1;
                 int i2 = 0;
+                long j3 = -1;
                 while (i2 < length) {
                     try {
                         ChatMsg parserMessage = MessageParser.parserMessage(context, jSONArray.getJSONObject(i2).getJSONObject(TableDefine.SessionColumns.COLUMN_LAST_MSG), type, false);

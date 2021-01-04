@@ -1,9 +1,9 @@
 package com.baidu.tbadk.g;
 /* loaded from: classes.dex */
 public interface a {
-    void Aq(String str);
+    void Ao(String str);
 
-    void blp();
+    void onAdDismiss();
 
     void v(boolean z, boolean z2);
 

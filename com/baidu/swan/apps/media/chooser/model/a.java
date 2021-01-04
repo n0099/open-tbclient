@@ -1,59 +1,59 @@
 package com.baidu.swan.apps.media.chooser.model;
 
 import java.util.ArrayList;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class a implements Comparable<Object> {
-    private String CL;
-    private String diV;
-    public ArrayList<MediaModel> diW;
+    private String Cz;
+    private String dnS;
+    public ArrayList<MediaModel> dnT;
     private long lastModified;
 
-    public String iN() {
-        return this.CL;
+    public String il() {
+        return this.Cz;
     }
 
-    public void qE(String str) {
-        this.CL = str;
+    public void qy(String str) {
+        this.Cz = str;
     }
 
-    public String aDy() {
-        return this.diV;
+    public String aER() {
+        return this.dnS;
     }
 
-    public void qF(String str) {
-        this.diV = str;
+    public void qz(String str) {
+        this.dnS = str;
     }
 
     public long getLastModified() {
         return this.lastModified;
     }
 
-    public void co(long j) {
+    public void cp(long j) {
         this.lastModified = j;
     }
 
-    public int aDz() {
-        return this.diW.size();
+    public int aES() {
+        return this.dnT.size();
     }
 
-    public ArrayList<MediaModel> aDt() {
-        return this.diW;
+    public ArrayList<MediaModel> aEL() {
+        return this.dnT;
     }
 
     public void h(MediaModel mediaModel) {
-        if (this.diW == null) {
-            this.diW = new ArrayList<>();
+        if (this.dnT == null) {
+            this.dnT = new ArrayList<>();
         }
-        this.diW.add(mediaModel);
+        this.dnT.add(mediaModel);
     }
 
     public String toString() {
-        return "MediaDir [firstImgPath=, dirName=" + this.CL + ", imageCount=" + aDz() + "]";
+        return "MediaDir [firstImgPath=, dirName=" + this.Cz + ", imageCount=" + aES() + "]";
     }
 
     public boolean equals(Object obj) {
         if (obj instanceof a) {
-            return this.CL.equals(((a) obj).CL);
+            return this.Cz.equals(((a) obj).Cz);
         }
         return false;
     }

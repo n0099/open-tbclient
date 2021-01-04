@@ -1,10 +1,10 @@
 package com.baidu.swan.games.y.b;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.cyberplayer.sdk.rtc.RTCConst;
-import com.baidu.swan.apps.ap.ae;
+import com.baidu.swan.apps.ao.ae;
 import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.core.pms.PMSDownloadType;
 import com.baidu.swan.apps.core.pms.c;
@@ -15,13 +15,13 @@ import com.baidu.swan.pms.a.c;
 import com.baidu.swan.pms.model.g;
 import java.io.File;
 import java.util.Set;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class a extends j {
     private static final boolean DEBUG = b.DEBUG;
-    private String cTl;
-    private b.a eeY;
-    private String eeZ;
-    private c<g> efa = new com.baidu.swan.pms.a.b<g>() { // from class: com.baidu.swan.games.y.b.a.1
+    private String cYi;
+    private b.a enZ;
+    private String eoa;
+    private c<g> eob = new com.baidu.swan.pms.a.b<g>() { // from class: com.baidu.swan.games.y.b.a.1
         @Override // com.baidu.swan.pms.a.e
         @NonNull
         public Bundle a(@NonNull Bundle bundle, Set<String> set) {
@@ -32,7 +32,7 @@ public class a extends j {
         @Override // com.baidu.swan.pms.a.c
         /* renamed from: e */
         public String U(g gVar) {
-            return com.baidu.swan.apps.core.pms.f.b.nV(a.this.cTl);
+            return com.baidu.swan.apps.core.pms.f.b.nO(a.this.cYi);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -53,8 +53,8 @@ public class a extends j {
             if (a.DEBUG) {
                 Log.e("SwanGameSubPkgDownload", "onDownloadError: " + aVar.toString());
             }
-            a.this.iH(RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL3);
-            com.baidu.swan.apps.core.pms.c.asJ().a(gVar, PMSDownloadType.ALONE_SUB, new com.baidu.swan.apps.am.a().cU(12L).cV(aVar.errorNo).uA("分包下载失败").uC(aVar.toString()));
+            a.this.iC(RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL3);
+            com.baidu.swan.apps.core.pms.c.aua().a(gVar, PMSDownloadType.ALONE_SUB, new com.baidu.swan.apps.al.a().cV(12L).cW(aVar.errorNo).ux("分包下载失败").uz(aVar.toString()));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -65,7 +65,7 @@ public class a extends j {
             if (a.DEBUG) {
                 Log.i("SwanGameSubPkgDownload", "onDownloadProgress: " + gVar.size + ":" + gVar.currentSize);
             }
-            a.this.q(gVar.currentSize, gVar.size);
+            a.this.t(gVar.currentSize, gVar.size);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -83,9 +83,9 @@ public class a extends j {
 
     public a(String str, String str2, String str3, b.a aVar) {
         this.mAppId = str;
-        this.eeZ = str3;
-        this.eeY = aVar;
-        this.cTl = a.c.bT(str, str2).getPath();
+        this.eoa = str3;
+        this.enZ = aVar;
+        this.cYi = a.c.bS(str, str2).getPath();
     }
 
     @Override // com.baidu.swan.pms.a.g
@@ -94,82 +94,82 @@ public class a extends j {
         if (DEBUG) {
             Log.e("SwanGameSubPkgDownload", "onFetchError: " + aVar.toString());
         }
-        iH(RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL3);
+        iC(RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL3);
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public void apQ() {
-        super.apQ();
+    public void arc() {
+        super.arc();
         if (DEBUG) {
             Log.i("SwanGameSubPkgDownload", "onNoPackage");
         }
-        iH(RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL2);
+        iC(RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL2);
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public c<g> asO() {
-        return this.efa;
+    public c<g> auf() {
+        return this.eob;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void h(g gVar) {
-        if (!ae.e(new File(gVar.filePath), gVar.sign)) {
+        if (!ae.f(new File(gVar.filePath), gVar.sign)) {
             if (DEBUG) {
                 Log.e("SwanGameSubPkgDownload", "onDownloadFinish: 签名校验失败");
             }
-            iH(RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL4);
-            com.baidu.swan.apps.core.pms.c.asJ().a(gVar, PMSDownloadType.ALONE_SUB, new com.baidu.swan.apps.am.a().cU(12L).cV(2300L).uA("分包签名校验"));
-        } else if (com.baidu.swan.apps.core.pms.f.b.h(new File(gVar.filePath), new File(this.cTl, this.eeZ))) {
+            iC(RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL4);
+            com.baidu.swan.apps.core.pms.c.aua().a(gVar, PMSDownloadType.ALONE_SUB, new com.baidu.swan.apps.al.a().cV(12L).cW(2300L).ux("分包签名校验"));
+        } else if (com.baidu.swan.apps.core.pms.f.b.h(new File(gVar.filePath), new File(this.cYi, this.eoa))) {
             if (DEBUG) {
                 Log.i("SwanGameSubPkgDownload", "onDownloadFinish: 解压成功");
             }
-            ath();
+            auy();
             gVar.appId = this.mAppId;
-            com.baidu.swan.pms.database.a.bdF().c(gVar);
-            com.baidu.swan.apps.core.pms.c.asJ().a(gVar, PMSDownloadType.ALONE_SUB);
+            com.baidu.swan.pms.database.a.bgb().c(gVar);
+            com.baidu.swan.apps.core.pms.c.aua().a(gVar, PMSDownloadType.ALONE_SUB);
         } else {
             if (DEBUG) {
                 Log.e("SwanGameSubPkgDownload", "onDownloadFinish: 解压失败");
             }
-            iH(RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL5);
-            com.baidu.swan.apps.core.pms.c.asJ().a(gVar, PMSDownloadType.ALONE_SUB, new com.baidu.swan.apps.am.a().cU(12L).cV(2320L).uA("分包解压失败"));
+            iC(RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL5);
+            com.baidu.swan.apps.core.pms.c.aua().a(gVar, PMSDownloadType.ALONE_SUB, new com.baidu.swan.apps.al.a().cV(12L).cW(2320L).ux("分包解压失败"));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void i(g gVar) {
-        com.baidu.swan.apps.core.pms.c.asJ().a(gVar, new c.b() { // from class: com.baidu.swan.games.y.b.a.2
+        com.baidu.swan.apps.core.pms.c.aua().a(gVar, new c.b() { // from class: com.baidu.swan.games.y.b.a.2
             @Override // com.baidu.swan.apps.core.pms.c.b
             public void a(PMSDownloadType pMSDownloadType) {
-                a.this.ath();
+                a.this.auy();
             }
 
             @Override // com.baidu.swan.apps.core.pms.c.b
-            public void a(PMSDownloadType pMSDownloadType, com.baidu.swan.apps.am.a aVar) {
-                a.this.iH(RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL3);
+            public void a(PMSDownloadType pMSDownloadType, com.baidu.swan.apps.al.a aVar) {
+                a.this.iC(RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL3);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void iH(int i) {
-        if (this.eeY != null) {
-            this.eeY.hQ(i);
+    public void iC(int i) {
+        if (this.enZ != null) {
+            this.enZ.hK(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ath() {
-        if (this.eeY != null) {
-            this.eeY.aZM();
+    public void auy() {
+        if (this.enZ != null) {
+            this.enZ.bcg();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void q(long j, long j2) {
-        if (this.eeY != null) {
+    public void t(long j, long j2) {
+        if (this.enZ != null) {
             if (j2 <= 0 || j > j2) {
-                iH(2114);
+                iC(2114);
                 return;
             }
             int floor = (int) Math.floor((j * 100.0d) / j2);
@@ -177,7 +177,7 @@ public class a extends j {
                 if (DEBUG) {
                     Log.i("SwanGameSubPkgDownload", "callbackProgress: " + floor);
                 }
-                this.eeY.e(floor, j, j2);
+                this.enZ.f(floor, j, j2);
             }
         }
     }

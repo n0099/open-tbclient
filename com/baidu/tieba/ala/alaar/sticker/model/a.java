@@ -1,6 +1,6 @@
 package com.baidu.tieba.ala.alaar.sticker.model;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a {
-    public String gkR;
+    public String gvp;
     public String mUrl;
 }

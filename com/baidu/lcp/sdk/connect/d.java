@@ -10,12 +10,10 @@ import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
 import java.util.concurrent.TimeoutException;
 import javax.net.ssl.SSLHandshakeException;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public abstract class d {
-    protected e azz = null;
+    protected e azP = null;
     protected Context context;
-
-    public abstract InputStream Ar() throws Exception;
 
     public abstract void a(b bVar) throws IOException;
 
@@ -25,11 +23,13 @@ public abstract class d {
 
     public abstract e y(String str, int i) throws KeyManagementException, CertificateException, KeyStoreException, NoSuchAlgorithmException, IOException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, TimeoutException, SSLHandshakeException, AssertionError;
 
+    public abstract InputStream zF() throws Exception;
+
     public d(Context context) {
         this.context = context;
     }
 
-    public e As() {
-        return this.azz;
+    public e zG() {
+        return this.azP;
     }
 }

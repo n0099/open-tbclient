@@ -7,21 +7,21 @@ import io.reactivex.j;
 import java.util.Collection;
 import java.util.concurrent.Callable;
 import org.a.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class FlowableToList<T, U extends Collection<? super T>> extends a<T, U> {
-    final Callable<U> pGa;
+    final Callable<U> qhC;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super U> cVar) {
         try {
-            this.pFi.a((j) new ToListSubscriber(cVar, (Collection) io.reactivex.internal.functions.a.m(this.pGa.call(), "The collectionSupplier returned a null collection. Null values are generally not allowed in 2.x operators and sources.")));
+            this.qgK.a((j) new ToListSubscriber(cVar, (Collection) io.reactivex.internal.functions.a.m(this.qhC.call(), "The collectionSupplier returned a null collection. Null values are generally not allowed in 2.x operators and sources.")));
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.J(th);
+            io.reactivex.exceptions.a.O(th);
             EmptySubscription.error(th, cVar);
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class ToListSubscriber<T, U extends Collection<? super T>> extends DeferredScalarSubscription<U> implements j<T>, d {
         private static final long serialVersionUID = -8134157938864266736L;
         d s;

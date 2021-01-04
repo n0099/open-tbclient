@@ -1,7 +1,7 @@
 package com.coremedia.iso;
 
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class Hex {
     private static final char[] DIGITS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
@@ -11,9 +11,9 @@ public class Hex {
 
     public static String encodeHex(byte[] bArr, int i) {
         int i2;
-        int i3 = 0;
         int length = bArr.length;
         char[] cArr = new char[(i > 0 ? length / i : 0) + (length << 1)];
+        int i3 = 0;
         for (int i4 = 0; i4 < length; i4++) {
             if (i <= 0 || i4 % i != 0 || i3 <= 0) {
                 i2 = i3;

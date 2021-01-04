@@ -4,17 +4,17 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.swan.apps.ap.ak;
+import com.baidu.swan.apps.ao.ak;
 import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.runtime.d;
 import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.view.SwanAppActionBar;
-import com.baidu.swan.menu.h;
+import com.baidu.swan.menu.g;
 import com.baidu.swan.pms.model.PMSAppInfo;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class a {
     private static boolean DEBUG = b.DEBUG;
 
@@ -29,12 +29,12 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void b(Context context, final SwanAppActionBar swanAppActionBar, String str) {
-        final JSONObject V = com.baidu.swan.apps.t.a.azK().V(context, str);
-        if (V != null && swanAppActionBar != null) {
+        final JSONObject ab = com.baidu.swan.apps.t.a.aBb().ab(context, str);
+        if (ab != null && swanAppActionBar != null) {
             d.getMainHandler().post(new Runnable() { // from class: com.baidu.swan.apps.x.a.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.a(swanAppActionBar, a.bk(V));
+                    a.a(swanAppActionBar, a.bs(ab));
                 }
             });
         }
@@ -49,21 +49,21 @@ public class a {
         }
     }
 
-    public static void a(final Context context, final h hVar, final String str) {
+    public static void a(final Context context, final g gVar, final String str) {
         ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.swan.apps.x.a.3
             @Override // java.lang.Runnable
             public void run() {
-                a.b(context, hVar, str);
+                a.b(context, gVar, str);
             }
         }, "getMenuToolRefreshTips", 1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void b(Context context, final h hVar, String str) {
-        JSONObject V = com.baidu.swan.apps.t.a.azK().V(context, str);
-        if (V != null && hVar != null) {
-            bk(V);
-            final JSONArray optJSONArray = V.optJSONArray("un_read_list");
+    public static void b(Context context, final g gVar, String str) {
+        JSONObject ab = com.baidu.swan.apps.t.a.aBb().ab(context, str);
+        if (ab != null && gVar != null) {
+            bs(ab);
+            final JSONArray optJSONArray = ab.optJSONArray("un_read_list");
             d.getMainHandler().post(new Runnable() { // from class: com.baidu.swan.apps.x.a.4
                 @Override // java.lang.Runnable
                 public void run() {
@@ -72,34 +72,34 @@ public class a {
                         for (int i = 0; i < length; i++) {
                             JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                             if (optJSONObject != null) {
-                                hVar.cE(optJSONObject);
-                                a.bl(optJSONObject);
+                                gVar.cM(optJSONObject);
+                                a.bt(optJSONObject);
                             }
                         }
-                        hVar.bcP();
+                        gVar.bfi();
                     }
                 }
             });
         }
     }
 
-    public static boolean ga(boolean z) {
-        if (e.aJV() == null) {
+    public static boolean gj(boolean z) {
+        if (e.aMl() == null) {
             return false;
         }
-        e aJV = e.aJV();
-        PMSAppInfo aBu = e.aJV().aJY().aBu();
-        if (aJV.aKn() || aBu == null || TextUtils.isEmpty(aBu.paNumber)) {
+        e aMl = e.aMl();
+        PMSAppInfo aCL = e.aMl().aMo().aCL();
+        if (aMl.aMD() || aCL == null || TextUtils.isEmpty(aCL.paNumber)) {
             return false;
         }
         if (z) {
             return true;
         }
-        return aJV.aKm().b("key_unread_counts_message", (Integer) 0).intValue() <= 0;
+        return aMl.aMC().c("key_unread_counts_message", 0).intValue() <= 0;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static int bk(JSONObject jSONObject) {
+    public static int bs(JSONObject jSONObject) {
         if (jSONObject == null) {
             return 0;
         }
@@ -115,7 +115,7 @@ public class a {
             if (optInt == 7) {
                 i += optJSONObject.optInt("pa_unread_sums");
             }
-            if (ak.aPz() && (optInt == 27 || optInt == 17)) {
+            if (ak.aRQ() && (optInt == 27 || optInt == 17)) {
                 i += optJSONObject.optInt("pa_unread_sums");
             }
         }
@@ -128,20 +128,20 @@ public class a {
                 }
             }
         }
-        if (e.aJV() != null) {
-            e.aJV().aKm().a("key_unread_counts_message", Integer.valueOf(i));
+        if (e.aMl() != null) {
+            e.aMl().aMC().b("key_unread_counts_message", Integer.valueOf(i));
             return i;
         }
         return i;
     }
 
-    public static void aEy() {
-        if (e.aJV() != null) {
-            e.aJV().aKm().a("key_unread_counts_message", (Integer) 0);
+    public static void aFR() {
+        if (e.aMl() != null) {
+            e.aMl().aMC().b("key_unread_counts_message", (Integer) 0);
         }
     }
 
-    public static void bl(JSONObject jSONObject) {
+    public static void bt(JSONObject jSONObject) {
         if (jSONObject != null && Long.valueOf(jSONObject.optLong("pa_unread_sums")).longValue() > 0) {
             String str = "";
             switch (jSONObject.optInt("pa_type")) {
@@ -159,7 +159,7 @@ public class a {
                     break;
             }
             if (!TextUtils.isEmpty(str)) {
-                com.baidu.swan.apps.menu.a.S(str, "1", "show");
+                com.baidu.swan.apps.menu.a.V(str, "1", "show");
             }
         }
     }

@@ -1,11 +1,15 @@
 package com.baidu.live.w;
-/* loaded from: classes4.dex */
+
+import com.baidu.live.data.x;
+/* loaded from: classes11.dex */
 public interface a {
-    void ir(String str);
+    void Bf();
 
-    void pause();
+    void a(x xVar);
 
-    void release();
+    void b(x xVar, String str);
 
-    void resume();
+    void id(String str);
+
+    void onDestroy();
 }

@@ -1,12 +1,12 @@
 package com.baidu.swan.apps.canvas.a.a;
 
 import org.json.JSONArray;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 class ak implements Cloneable {
-    i cHM;
-    int cHY;
-    int cHZ;
-    int mOffsetY;
+    i cMC;
+    int cMO;
+    int cMP;
+    int cMQ;
 
     public ak() {
     }
@@ -17,16 +17,16 @@ class ak implements Cloneable {
     }
 
     public boolean isValid() {
-        return this.cHM != null && this.cHM.isValid();
+        return this.cMC != null && this.cMC.isValid();
     }
 
     public void z(JSONArray jSONArray) {
         try {
             if (jSONArray.length() > 3) {
-                this.cHY = com.baidu.swan.apps.ap.ah.M((float) jSONArray.optDouble(0));
-                this.mOffsetY = com.baidu.swan.apps.ap.ah.M((float) jSONArray.optDouble(1));
-                this.cHZ = jSONArray.optInt(2);
-                this.cHM = new i(jSONArray.optJSONArray(3));
+                this.cMO = com.baidu.swan.apps.ao.ah.O((float) jSONArray.optDouble(0));
+                this.cMP = com.baidu.swan.apps.ao.ah.O((float) jSONArray.optDouble(1));
+                this.cMQ = jSONArray.optInt(2);
+                this.cMC = new i(jSONArray.optJSONArray(3));
             }
         } catch (Exception e) {
             if (com.baidu.swan.apps.b.DEBUG) {

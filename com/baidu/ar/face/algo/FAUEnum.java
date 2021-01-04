@@ -1,5 +1,5 @@
 package com.baidu.ar.face.algo;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class FAUEnum {
     public static final int IMG_FMT_BGR888 = 2;
     public static final int IMG_FMT_BGRX8888 = 0;

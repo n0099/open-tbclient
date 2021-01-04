@@ -2,18 +2,18 @@ package com.baidu.tieba.mainentrance;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import tbclient.HotForum.HotSearch;
-/* loaded from: classes24.dex */
+/* loaded from: classes8.dex */
 public class HotSearchInfoData extends OrmObject {
     public static final int DIRECT_SEARCH_TYPE = 2;
     public static final int FORUM_TYPE = 0;
     public static final int TOPIC_TYPE = 1;
-    private String iut;
+    private String iGG;
     private long mId;
     private String mName;
     private long mType;
 
-    public String cuS() {
-        return this.iut;
+    public String cxL() {
+        return this.iGG;
     }
 
     public long getType() {
@@ -30,15 +30,15 @@ public class HotSearchInfoData extends OrmObject {
 
     public void a(HotSearch hotSearch) {
         if (hotSearch != null && hotSearch.search_value != null) {
-            this.iut = hotSearch.search_title;
+            this.iGG = hotSearch.search_title;
             this.mId = hotSearch.search_value.id.longValue();
             this.mName = hotSearch.search_value.name;
             this.mType = hotSearch.search_value.type.longValue();
         }
     }
 
-    public void OD(String str) {
-        this.iut = str;
+    public void Ol(String str) {
+        this.iGG = str;
     }
 
     public void setType(long j) {

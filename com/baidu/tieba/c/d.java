@@ -1,81 +1,71 @@
 package com.baidu.tieba.c;
 
-import com.baidu.tieba.c.b;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import com.baidu.adp.lib.util.l;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.view.MessageRedDotView;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.R;
 /* loaded from: classes.dex */
-public final class d extends b<d> {
-    private e ibn;
-    private float ibo;
-    private boolean ibp;
+public class d {
+    private RelativeLayout iCd;
+    private ImageView iCe;
+    private MessageRedDotView iCf;
+    private Context mContext;
+    private View mRootView;
 
-    public <K> d(K k, c<K> cVar) {
-        super(k, cVar);
-        this.ibn = null;
-        this.ibo = Float.MAX_VALUE;
-        this.ibp = false;
+    public d(Context context) {
+        this.mContext = context;
+        this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.widget_message_entrance, (ViewGroup) null);
+        this.iCd = (RelativeLayout) this.mRootView.findViewById(R.id.message_view_layout);
+        this.iCe = (ImageView) this.mRootView.findViewById(R.id.img_message);
+        this.iCf = (MessageRedDotView) this.mRootView.findViewById(R.id.img_red_tip);
+        this.iCf.setShadowEnabled(false);
     }
 
-    public d a(e eVar) {
-        this.ibn = eVar;
-        return this;
+    public View getView() {
+        return this.mRootView;
     }
 
-    @Override // com.baidu.tieba.c.b
-    public void start() {
-        cqx();
-        this.ibn.B(cqv());
-        super.start();
+    public ImageView cwc() {
+        return this.iCe;
     }
 
-    private void cqx() {
-        if (this.ibn == null) {
-            throw new UnsupportedOperationException("Incomplete SpringAnimation: Either final position or a spring force needs to be set.");
+    public MessageRedDotView cwd() {
+        return this.iCf;
+    }
+
+    public void z(boolean z, int i) {
+        if (z) {
+            this.iCf.refresh(i);
+            this.iCf.setVisibility(0);
+            return;
         }
-        double cqy = this.ibn.cqy();
-        if (cqy > this.ibh) {
-            throw new UnsupportedOperationException("Final position of the spring cannot be greater than the max value.");
-        }
-        if (cqy < this.ibi) {
-            throw new UnsupportedOperationException("Final position of the spring cannot be less than the min value.");
+        this.iCf.setVisibility(8);
+    }
+
+    public void onChangeSkinType(int i) {
+        this.iCf.onChangeSkinType();
+        this.iCe.setImageDrawable(WebPManager.a(R.drawable.icon_pure_topbar_information40, ao.getColor(R.color.CAM_X0106), WebPManager.ResourceStateType.NORMAL_PRESS));
+    }
+
+    public void setVisibility(int i) {
+        if (this.mRootView != null) {
+            this.mRootView.setVisibility(i);
         }
     }
 
-    @Override // com.baidu.tieba.c.b
-    boolean fU(long j) {
-        if (this.ibp) {
-            if (this.ibo != Float.MAX_VALUE) {
-                this.ibn.aC(this.ibo);
-                this.ibo = Float.MAX_VALUE;
-            }
-            this.mValue = this.ibn.cqy();
-            this.ibd = 0.0f;
-            this.ibp = false;
-            return true;
+    public void a(NavigationBar.ControlAlign controlAlign, boolean z) {
+        if (!z && controlAlign == NavigationBar.ControlAlign.HORIZONTAL_RIGHT) {
+            ((RelativeLayout.LayoutParams) this.iCe.getLayoutParams()).rightMargin = -l.getDimens(this.mContext, R.dimen.tbds10);
+            ((RelativeLayout.LayoutParams) this.iCf.getLayoutParams()).rightMargin = -l.getDimens(this.mContext, R.dimen.tbds10);
+            this.iCd.getLayoutParams().width = l.getDimens(this.mContext, R.dimen.ds88);
         }
-        if (this.ibo != Float.MAX_VALUE) {
-            this.ibn.cqy();
-            b.a a2 = this.ibn.a(this.mValue, this.ibd, j / 2);
-            this.ibn.aC(this.ibo);
-            this.ibo = Float.MAX_VALUE;
-            b.a a3 = this.ibn.a(a2.mValue, a2.ibd, j / 2);
-            this.mValue = a3.mValue;
-            this.ibd = a3.ibd;
-        } else {
-            b.a a4 = this.ibn.a(this.mValue, this.ibd, j);
-            this.mValue = a4.mValue;
-            this.ibd = a4.ibd;
-        }
-        this.mValue = Math.max(this.mValue, this.ibi);
-        this.mValue = Math.min(this.mValue, this.ibh);
-        if (C(this.mValue, this.ibd)) {
-            this.mValue = this.ibn.cqy();
-            this.ibd = 0.0f;
-            return true;
-        }
-        return false;
-    }
-
-    @Override // com.baidu.tieba.c.b
-    boolean C(float f, float f2) {
-        return this.ibn.C(f, f2);
     }
 }

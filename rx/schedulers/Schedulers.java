@@ -9,23 +9,23 @@ import rx.internal.schedulers.d;
 import rx.internal.schedulers.e;
 import rx.internal.schedulers.h;
 import rx.internal.schedulers.j;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class Schedulers {
-    private static final AtomicReference<Schedulers> pPs = new AtomicReference<>();
-    private final g pVA;
-    private final g pVB;
-    private final g pVC;
+    private static final AtomicReference<Schedulers> qqU = new AtomicReference<>();
+    private final g qxa;
+    private final g qxb;
+    private final g qxc;
 
-    private static Schedulers eGL() {
+    private static Schedulers eOT() {
         Schedulers schedulers;
         while (true) {
-            schedulers = pPs.get();
+            schedulers = qqU.get();
             if (schedulers == null) {
                 schedulers = new Schedulers();
-                if (pPs.compareAndSet(null, schedulers)) {
+                if (qqU.compareAndSet(null, schedulers)) {
                     break;
                 }
-                schedulers.eGN();
+                schedulers.eOV();
             } else {
                 break;
             }
@@ -34,45 +34,45 @@ public final class Schedulers {
     }
 
     private Schedulers() {
-        rx.c.g eGC = f.eGx().eGC();
-        g eGG = eGC.eGG();
-        if (eGG != null) {
-            this.pVA = eGG;
+        rx.c.g eOK = f.eOF().eOK();
+        g eOO = eOK.eOO();
+        if (eOO != null) {
+            this.qxa = eOO;
         } else {
-            this.pVA = rx.c.g.eGD();
+            this.qxa = rx.c.g.eOL();
         }
-        g eGH = eGC.eGH();
-        if (eGH != null) {
-            this.pVB = eGH;
+        g eOP = eOK.eOP();
+        if (eOP != null) {
+            this.qxb = eOP;
         } else {
-            this.pVB = rx.c.g.eGE();
+            this.qxb = rx.c.g.eOM();
         }
-        g eGI = eGC.eGI();
-        if (eGI != null) {
-            this.pVC = eGI;
+        g eOQ = eOK.eOQ();
+        if (eOQ != null) {
+            this.qxc = eOQ;
         } else {
-            this.pVC = rx.c.g.eGF();
+            this.qxc = rx.c.g.eON();
         }
     }
 
     public static g immediate() {
-        return e.pTH;
+        return e.qvi;
     }
 
     public static g trampoline() {
-        return j.pUf;
+        return j.qvF;
     }
 
     public static g newThread() {
-        return c.k(eGL().pVC);
+        return c.k(eOT().qxc);
     }
 
     public static g computation() {
-        return c.i(eGL().pVA);
+        return c.i(eOT().qxa);
     }
 
     public static g io() {
-        return c.j(eGL().pVB);
+        return c.j(eOT().qxb);
     }
 
     public static TestScheduler test() {
@@ -84,49 +84,49 @@ public final class Schedulers {
     }
 
     public static void reset() {
-        Schedulers andSet = pPs.getAndSet(null);
+        Schedulers andSet = qqU.getAndSet(null);
         if (andSet != null) {
-            andSet.eGN();
+            andSet.eOV();
         }
     }
 
     public static void start() {
-        Schedulers eGL = eGL();
-        eGL.eGM();
-        synchronized (eGL) {
-            d.pTF.start();
+        Schedulers eOT = eOT();
+        eOT.eOU();
+        synchronized (eOT) {
+            d.qvg.start();
         }
     }
 
     public static void shutdown() {
-        Schedulers eGL = eGL();
-        eGL.eGN();
-        synchronized (eGL) {
-            d.pTF.shutdown();
+        Schedulers eOT = eOT();
+        eOT.eOV();
+        synchronized (eOT) {
+            d.qvg.shutdown();
         }
     }
 
-    synchronized void eGM() {
-        if (this.pVA instanceof h) {
-            ((h) this.pVA).start();
+    synchronized void eOU() {
+        if (this.qxa instanceof h) {
+            ((h) this.qxa).start();
         }
-        if (this.pVB instanceof h) {
-            ((h) this.pVB).start();
+        if (this.qxb instanceof h) {
+            ((h) this.qxb).start();
         }
-        if (this.pVC instanceof h) {
-            ((h) this.pVC).start();
+        if (this.qxc instanceof h) {
+            ((h) this.qxc).start();
         }
     }
 
-    synchronized void eGN() {
-        if (this.pVA instanceof h) {
-            ((h) this.pVA).shutdown();
+    synchronized void eOV() {
+        if (this.qxa instanceof h) {
+            ((h) this.qxa).shutdown();
         }
-        if (this.pVB instanceof h) {
-            ((h) this.pVB).shutdown();
+        if (this.qxb instanceof h) {
+            ((h) this.qxb).shutdown();
         }
-        if (this.pVC instanceof h) {
-            ((h) this.pVC).shutdown();
+        if (this.qxc instanceof h) {
+            ((h) this.qxc).shutdown();
         }
     }
 }

@@ -2,21 +2,23 @@ package com.baidu.platform.comapi.wnplatform.p;
 
 import android.media.MediaPlayer;
 import android.text.TextUtils;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    private static j f3151a;
-    private MediaPlayer b = null;
+    private static j f4694a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private MediaPlayer f4695b = null;
     private boolean c = false;
 
     public static synchronized j a() {
         j jVar;
         synchronized (j.class) {
-            if (f3151a == null) {
-                f3151a = new j();
+            if (f4694a == null) {
+                f4694a = new j();
             }
-            jVar = f3151a;
+            jVar = f4694a;
         }
         return jVar;
     }
@@ -29,15 +31,15 @@ public class j {
     }
 
     private void c() {
-        if (this.b == null) {
-            this.b = new MediaPlayer();
+        if (this.f4695b == null) {
+            this.f4695b = new MediaPlayer();
         }
     }
 
     private void d() {
-        if (this.b != null) {
-            this.b.release();
-            this.b = null;
+        if (this.f4695b != null) {
+            this.f4695b.release();
+            this.f4695b = null;
         }
     }
 
@@ -55,10 +57,10 @@ public class j {
             com.baidu.platform.comapi.wnplatform.n.d.a().a(false);
         }
         if (com.baidu.platform.comapi.walknavi.b.a().g() != null) {
-            this.b.setDataSource(str);
-            this.b.prepare();
-            this.b.start();
-            this.b.setOnCompletionListener(new k(this));
+            this.f4695b.setDataSource(str);
+            this.f4695b.prepare();
+            this.f4695b.start();
+            this.f4695b.setOnCompletionListener(new k(this));
             return z;
         }
         z = false;
@@ -72,10 +74,10 @@ public class j {
         try {
             this.c = true;
             if (com.baidu.platform.comapi.walknavi.b.a().g() != null) {
-                this.b.setDataSource(str);
-                this.b.prepare();
-                this.b.start();
-                this.b.setOnCompletionListener(new l(this));
+                this.f4695b.setDataSource(str);
+                this.f4695b.prepare();
+                this.f4695b.start();
+                this.f4695b.setOnCompletionListener(new l(this));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -89,10 +91,10 @@ public class j {
         try {
             this.c = true;
             if (com.baidu.platform.comapi.walknavi.b.a().g() != null) {
-                this.b.setDataSource(str);
-                this.b.prepare();
-                this.b.start();
-                this.b.setOnCompletionListener(new m(this));
+                this.f4695b.setDataSource(str);
+                this.f4695b.prepare();
+                this.f4695b.start();
+                this.f4695b.setOnCompletionListener(new m(this));
             }
         } catch (Exception e) {
             e.printStackTrace();

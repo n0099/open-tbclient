@@ -1,5 +1,5 @@
 package com.baidu.tieba.easterEgg;
-/* loaded from: classes24.dex */
+/* loaded from: classes8.dex */
 public interface c {
-    void aB(String str, String str2, String str3);
+    void aE(String str, String str2, String str3);
 }

@@ -1,17 +1,25 @@
 package com.baidu.tieba.l;
-
-import android.os.Environment;
-import com.baidubce.AbstractBceClient;
-import java.io.File;
 /* loaded from: classes.dex */
 public interface g {
+    void OW(String str);
 
-    /* loaded from: classes.dex */
-    public interface a {
-        public static final String lld = File.separator;
-        public static final String lle = Environment.getExternalStorageDirectory() + lld + "tieba";
-        public static final String lll = lle + lld + ".tieba_post_monitor";
-        public static final String llm = lll + lld + AbstractBceClient.URL_PREFIX;
-        public static final String lln = llm + lld;
-    }
+    void OX(String str);
+
+    void bD(int i, String str);
+
+    void bE(int i, String str);
+
+    void bF(int i, String str);
+
+    void bG(int i, String str);
+
+    void diA();
+
+    void diB();
+
+    void diy();
+
+    void diz();
+
+    void p(int i, int i2, String str);
 }

@@ -30,7 +30,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class ImageClipActivity extends Activity {
     public static final int BUSSINESS_FROM_INVOICE_BUILD = 1;
     public static final int BUSSINESS_SET_PORTRAIT = 0;
@@ -47,8 +47,10 @@ public class ImageClipActivity extends Activity {
     private static final String n = "content://downloads/public_downloads";
 
     /* renamed from: a  reason: collision with root package name */
-    private int f3359a = 0;
-    private int b = 0;
+    private int f5092a = 0;
+
+    /* renamed from: b  reason: collision with root package name */
+    private int f5093b = 0;
     private int c = 0;
     private int d = 0;
     private int e;
@@ -103,7 +105,7 @@ public class ImageClipActivity extends Activity {
         Bitmap a2 = a(str);
         float f = 0.0f;
         try {
-            int attributeInt = new ExifInterface(str).getAttributeInt(android.support.media.ExifInterface.TAG_ORIENTATION, 1);
+            int attributeInt = new ExifInterface(str).getAttributeInt("Orientation", 1);
             if (attributeInt == 3) {
                 f = 180.0f;
             } else if (attributeInt == 6) {
@@ -120,8 +122,8 @@ public class ImageClipActivity extends Activity {
     }
 
     protected void setPendingTransition(int i, int i2, int i3, int i4) {
-        this.f3359a = i;
-        this.b = i2;
+        this.f5092a = i;
+        this.f5093b = i2;
         this.c = i3;
         this.d = i4;
     }
@@ -139,15 +141,17 @@ public class ImageClipActivity extends Activity {
             @Override // android.os.AsyncTask
             public byte[] doInBackground(Bitmap... bitmapArr) {
                 int i;
-                int i2 = 160;
+                int i2;
                 if (bitmapArr[0] != null && !bitmapArr[0].isRecycled()) {
                     if (ImageClipActivity.this.e != 0) {
-                        i = bitmapArr[0].getWidth();
-                        i2 = bitmapArr[0].getHeight();
+                        int width = bitmapArr[0].getWidth();
+                        i = bitmapArr[0].getHeight();
+                        i2 = width;
                     } else {
                         i = 160;
+                        i2 = 160;
                     }
-                    Bitmap createScaledBitmap = Bitmap.createScaledBitmap(bitmapArr[0], i, i2, true);
+                    Bitmap createScaledBitmap = Bitmap.createScaledBitmap(bitmapArr[0], i2, i, true);
                     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                     int i3 = 100;
                     createScaledBitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
@@ -193,7 +197,7 @@ public class ImageClipActivity extends Activity {
             clipBoxView.E = ClipBoxView.G;
             clipBoxView.F = false;
         }
-        setPendingTransition(a.C0164a.sapi_sdk_slide_right_in, a.C0164a.sapi_sdk_slide_left_out, a.C0164a.sapi_sdk_slide_left_in, a.C0164a.sapi_sdk_slide_right_out);
+        setPendingTransition(a.C0156a.sapi_sdk_slide_right_in, a.C0156a.sapi_sdk_slide_left_out, a.C0156a.sapi_sdk_slide_left_in, a.C0156a.sapi_sdk_slide_right_out);
         Button button = (Button) findViewById(a.e.sure_clip_btn);
         Button button2 = (Button) findViewById(a.e.cancel_clip_btn);
         if (Build.VERSION.SDK_INT >= 19) {
@@ -217,12 +221,12 @@ public class ImageClipActivity extends Activity {
     }
 
     private void c() {
-        if (this.f3359a == 0 && this.b == 0) {
+        if (this.f5092a == 0 && this.f5093b == 0) {
             return;
         }
-        overridePendingTransition(this.f3359a, this.b);
-        this.f3359a = 0;
-        this.b = 0;
+        overridePendingTransition(this.f5092a, this.f5093b);
+        this.f5092a = 0;
+        this.f5093b = 0;
     }
 
     @TargetApi(19)

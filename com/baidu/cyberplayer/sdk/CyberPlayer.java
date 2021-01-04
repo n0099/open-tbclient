@@ -14,12 +14,14 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class CyberPlayer implements CyberPlayerManager.OnErrorListener, MediaInstanceManagerProvider.OnClientInstanceHandler {
 
     /* renamed from: a  reason: collision with root package name */
-    private PlayerProvider f1344a;
-    private boolean b;
+    private PlayerProvider f1751a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private boolean f1752b;
     private boolean c;
     private int d;
     private MediaInstanceState e;
@@ -38,10 +40,10 @@ public class CyberPlayer implements CyberPlayerManager.OnErrorListener, MediaIns
     }
 
     public CyberPlayer(int i, CyberPlayerManager.HttpDNS httpDNS, boolean z) {
-        this.b = true;
+        this.f1752b = true;
         this.c = true;
         this.d = 0;
-        this.f1344a = l.a().a(i, httpDNS, z);
+        this.f1751a = l.a().a(i, httpDNS, z);
         if (z && a() && MultiInstanceManager.getInstance() != null) {
             this.d = MultiInstanceManager.getInstance().registerInstance(this);
             CyberLog.i("CyberPlayer", "[MultiInstanceManager] register instance: " + this.d);
@@ -57,21 +59,21 @@ public class CyberPlayer implements CyberPlayerManager.OnErrorListener, MediaIns
 
     private void a(boolean z) {
         if (this.e != null) {
-            this.f1344a = l.a().a(this.e.getDecoderMode(), this.e.dns(), z);
+            this.f1751a = l.a().a(this.e.getDecoderMode(), this.e.dns(), z);
         }
-        if (this.f1344a == null || this.e == null) {
+        if (this.f1751a == null || this.e == null) {
             return;
         }
         if (!z) {
-            this.f1344a.setOnPreparedListener(this.e.getOnPreparedListener());
+            this.f1751a.setOnPreparedListener(this.e.getOnPreparedListener());
         }
-        this.f1344a.setOnCompletionListener(this.e.getOnCompletionListener());
-        this.f1344a.setOnBufferingUpdateListener(this.e.getOnBufferingUpdateListener());
-        this.f1344a.setOnSeekCompleteListener(this.e.getOnSeekCompleteListener());
-        this.f1344a.setOnVideoSizeChangedListener(this.e.getOnVideoSizeChangedListener());
-        this.f1344a.setOnErrorListener(this);
-        this.f1344a.setOnInfoListener(this.e.getOnInfoListener());
-        this.f1344a.setOnMediaSourceChangedListener(this.e.getOnMediaSourceChangedListener());
+        this.f1751a.setOnCompletionListener(this.e.getOnCompletionListener());
+        this.f1751a.setOnBufferingUpdateListener(this.e.getOnBufferingUpdateListener());
+        this.f1751a.setOnSeekCompleteListener(this.e.getOnSeekCompleteListener());
+        this.f1751a.setOnVideoSizeChangedListener(this.e.getOnVideoSizeChangedListener());
+        this.f1751a.setOnErrorListener(this);
+        this.f1751a.setOnInfoListener(this.e.getOnInfoListener());
+        this.f1751a.setOnMediaSourceChangedListener(this.e.getOnMediaSourceChangedListener());
         Bundle instanceStatusByType = MultiInstanceManager.getInstance().getInstanceStatusByType(this.d, 0);
         if (instanceStatusByType != null) {
             for (String str : instanceStatusByType.keySet()) {
@@ -82,9 +84,9 @@ public class CyberPlayer implements CyberPlayerManager.OnErrorListener, MediaIns
         if (lRVolume >= 0.0f) {
             setVolume(lRVolume, lRVolume);
         }
-        this.f1344a.muteOrUnmuteAudio(this.e.getPlayStateByType(0));
-        this.f1344a.setLooping(this.e.getPlayStateByType(1));
-        this.f1344a.setEnableDumediaUA(this.b);
+        this.f1751a.muteOrUnmuteAudio(this.e.getPlayStateByType(0));
+        this.f1751a.setLooping(this.e.getPlayStateByType(1));
+        this.f1751a.setEnableDumediaUA(this.f1752b);
         if (this.e.getInstanceContext() != null) {
             setDataSource(this.e.getInstanceContext(), this.e.getInstanceUri(), this.e.getInstanceHeader());
         } else if (this.e.getInstanceUri() != null) {
@@ -101,8 +103,8 @@ public class CyberPlayer implements CyberPlayerManager.OnErrorListener, MediaIns
         if (this.e.getMediaSourceRank() != Integer.MIN_VALUE) {
             switchMediaSource(this.e.getMediaSourceRank());
         }
-        this.f1344a.setSurface(this.e.getInstanceSurface());
-        this.f1344a.prepareAsync();
+        this.f1751a.setSurface(this.e.getInstanceSurface());
+        this.f1751a.prepareAsync();
         if (this.e.getCurrentPosition() >= 0) {
             seekTo(this.e.getCurrentPosition());
         }
@@ -113,14 +115,14 @@ public class CyberPlayer implements CyberPlayerManager.OnErrorListener, MediaIns
     }
 
     public void changeProxyDynamic(String str, boolean z) {
-        if (this.f1344a != null) {
-            this.f1344a.changeProxyDynamic(str, z);
+        if (this.f1751a != null) {
+            this.f1751a.changeProxyDynamic(str, z);
         }
     }
 
     public int getCurrentPosition() {
-        if (this.f1344a != null) {
-            return this.f1344a.getCurrentPosition();
+        if (this.f1751a != null) {
+            return this.f1751a.getCurrentPosition();
         }
         if (this.d > 0) {
             return this.e.getCurrentPosition();
@@ -129,8 +131,8 @@ public class CyberPlayer implements CyberPlayerManager.OnErrorListener, MediaIns
     }
 
     public int getCurrentPositionSync() {
-        if (this.f1344a != null) {
-            return this.f1344a.getCurrentPositionSync();
+        if (this.f1751a != null) {
+            return this.f1751a.getCurrentPositionSync();
         }
         if (this.d > 0) {
             return this.e.getCurrentPosition();
@@ -139,29 +141,29 @@ public class CyberPlayer implements CyberPlayerManager.OnErrorListener, MediaIns
     }
 
     public int getDecodeMode() {
-        if (this.f1344a != null) {
-            return this.f1344a.getDecodeMode();
+        if (this.f1751a != null) {
+            return this.f1751a.getDecodeMode();
         }
         return 0;
     }
 
     public long getDownloadSpeed() {
-        if (this.f1344a != null) {
-            return this.f1344a.getDownloadSpeed();
+        if (this.f1751a != null) {
+            return this.f1751a.getDownloadSpeed();
         }
         return 0L;
     }
 
     public int getDuration() {
-        if (this.f1344a != null) {
-            return this.f1344a.getDuration();
+        if (this.f1751a != null) {
+            return this.f1751a.getDuration();
         }
         return -1;
     }
 
     public long getPlayedTime() {
-        if (this.f1344a != null) {
-            return this.f1344a.getPlayedTime();
+        if (this.f1751a != null) {
+            return this.f1751a.getPlayedTime();
         }
         if (this.d > 0) {
             return this.e.getPlayedTime();
@@ -170,37 +172,37 @@ public class CyberPlayer implements CyberPlayerManager.OnErrorListener, MediaIns
     }
 
     public int getVideoHeight() {
-        if (this.f1344a != null) {
-            return this.f1344a.getVideoHeight();
+        if (this.f1751a != null) {
+            return this.f1751a.getVideoHeight();
         }
         return 0;
     }
 
     public int getVideoWidth() {
-        if (this.f1344a != null) {
-            return this.f1344a.getVideoWidth();
+        if (this.f1751a != null) {
+            return this.f1751a.getVideoWidth();
         }
         return 0;
     }
 
     public boolean isLooping() {
-        return this.f1344a != null && this.f1344a.isLooping();
+        return this.f1751a != null && this.f1751a.isLooping();
     }
 
     public boolean isPlaying() {
-        return this.f1344a != null && this.f1344a.isPlaying();
+        return this.f1751a != null && this.f1751a.isPlaying();
     }
 
     public boolean isRemotePlayer() {
-        if (this.f1344a != null) {
-            return this.f1344a.isRemotePlayer();
+        if (this.f1751a != null) {
+            return this.f1751a.isRemotePlayer();
         }
         return false;
     }
 
     public void muteOrUnmuteAudio(boolean z) {
-        if (this.f1344a != null) {
-            this.f1344a.muteOrUnmuteAudio(z);
+        if (this.f1751a != null) {
+            this.f1751a.muteOrUnmuteAudio(z);
         }
         if (this.d <= 0 || this.e == null) {
             return;
@@ -211,7 +213,7 @@ public class CyberPlayer implements CyberPlayerManager.OnErrorListener, MediaIns
     @Override // com.baidu.cyberplayer.sdk.MediaInstanceManagerProvider.OnClientInstanceHandler
     public boolean onDestroyInstance() {
         CyberLog.i("CyberPlayer", "[MultiInstanceManager] onDestroyInstance:" + this.d);
-        if (this.f1344a == null || this.d <= 0) {
+        if (this.f1751a == null || this.d <= 0) {
             return false;
         }
         this.e.updateSeekPos(getCurrentPosition(), getDuration());
@@ -226,16 +228,16 @@ public class CyberPlayer implements CyberPlayerManager.OnErrorListener, MediaIns
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        this.f1344a.stop();
-        this.f1344a.release();
-        this.f1344a = null;
+        this.f1751a.stop();
+        this.f1751a.release();
+        this.f1751a = null;
         this.e.updateInstanceState(0);
         return true;
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
     public boolean onError(int i, int i2, Object obj) {
-        if (this.d <= 0 || CyberCfgManager.getInstance().a(CyberCfgManager.KEY_INT_REMOTE_RESUME_FORBIDDEN, false) || (!(i == -30000 || i == -30001) || this.f1344a == null)) {
+        if (this.d <= 0 || CyberCfgManager.getInstance().a(CyberCfgManager.KEY_INT_REMOTE_RESUME_FORBIDDEN, false) || (!(i == -30000 || i == -30001) || this.f1751a == null)) {
             if (this.d > 0) {
                 MultiInstanceManager.getInstance().unRegisterInstance(this.d);
                 CyberLog.i("CyberPlayer", "[MultiInstanceManager] unRegister instance:" + this.d);
@@ -245,8 +247,8 @@ public class CyberPlayer implements CyberPlayerManager.OnErrorListener, MediaIns
             }
             return this.f != null && this.f.onError(i, i2, obj);
         }
-        this.f1344a.stop();
-        this.f1344a.release();
+        this.f1751a.stop();
+        this.f1751a.release();
         a(true);
         if (this.e != null) {
             if (this.e.getPlayingStatus()) {
@@ -269,7 +271,7 @@ public class CyberPlayer implements CyberPlayerManager.OnErrorListener, MediaIns
     @Override // com.baidu.cyberplayer.sdk.MediaInstanceManagerProvider.OnClientInstanceHandler
     public boolean onResumeInstance() {
         CyberLog.i("CyberPlayer", "[MultiInstanceManager] onResumeInstance:" + this.d);
-        if (this.d <= 0 || this.f1344a != null) {
+        if (this.d <= 0 || this.f1751a != null) {
             return false;
         }
         a(this.e.isRemote());
@@ -284,8 +286,8 @@ public class CyberPlayer implements CyberPlayerManager.OnErrorListener, MediaIns
     }
 
     public void pause() {
-        if (this.f1344a != null) {
-            this.f1344a.pause();
+        if (this.f1751a != null) {
+            this.f1751a.pause();
         }
         if (this.d > 0) {
             this.e.updatePlayingStatus(false);
@@ -295,14 +297,14 @@ public class CyberPlayer implements CyberPlayerManager.OnErrorListener, MediaIns
     }
 
     public void prepareAsync() {
-        if (this.f1344a != null) {
-            this.f1344a.prepareAsync();
+        if (this.f1751a != null) {
+            this.f1751a.prepareAsync();
         }
     }
 
     public void release() {
-        if (this.f1344a != null) {
-            this.f1344a.release();
+        if (this.f1751a != null) {
+            this.f1751a.release();
         }
         if (this.c) {
             setOnPreparedListener(null);
@@ -326,26 +328,26 @@ public class CyberPlayer implements CyberPlayerManager.OnErrorListener, MediaIns
     }
 
     public void reset() {
-        if (this.f1344a != null) {
-            this.f1344a.reset();
+        if (this.f1751a != null) {
+            this.f1751a.reset();
         }
     }
 
     public void seekTo(long j) throws IllegalStateException {
-        if (this.f1344a != null) {
-            this.f1344a.seekTo(j);
+        if (this.f1751a != null) {
+            this.f1751a.seekTo(j);
         }
     }
 
     public void sendCommand(int i, int i2, long j, String str) {
-        if (this.f1344a != null) {
-            this.f1344a.sendCommand(i, i2, j, str);
+        if (this.f1751a != null) {
+            this.f1751a.sendCommand(i, i2, j, str);
         }
     }
 
     public void setClarityInfo(String str) {
-        if (this.f1344a != null) {
-            this.f1344a.setClarityInfo(str);
+        if (this.f1751a != null) {
+            this.f1751a.setClarityInfo(str);
         }
         if (this.d > 0) {
             this.e.setClarityInfo(str);
@@ -353,12 +355,12 @@ public class CyberPlayer implements CyberPlayerManager.OnErrorListener, MediaIns
     }
 
     public void setDataSource(Context context, Uri uri) {
-        if (this.f1344a != null) {
+        if (this.f1751a != null) {
             String a2 = CyberCfgManager.getInstance().a("force_url", (String) null);
             if (TextUtils.isEmpty(a2)) {
-                this.f1344a.setDataSource(context, uri);
+                this.f1751a.setDataSource(context, uri);
             } else {
-                this.f1344a.setDataSource(context, Uri.parse(a2));
+                this.f1751a.setDataSource(context, Uri.parse(a2));
             }
         }
         if (this.d > 0) {
@@ -367,15 +369,15 @@ public class CyberPlayer implements CyberPlayerManager.OnErrorListener, MediaIns
     }
 
     public void setDataSource(Context context, Uri uri, Map<String, String> map) {
-        if (this.f1344a != null) {
-            if (this.b) {
+        if (this.f1751a != null) {
+            if (this.f1752b) {
                 map = n.a(map);
             }
             String a2 = CyberCfgManager.getInstance().a("force_url", (String) null);
             if (TextUtils.isEmpty(a2)) {
-                this.f1344a.setDataSource(context, uri, map);
+                this.f1751a.setDataSource(context, uri, map);
             } else {
-                this.f1344a.setDataSource(context, Uri.parse(a2), map);
+                this.f1751a.setDataSource(context, Uri.parse(a2), map);
             }
         }
         if (this.d > 0) {
@@ -384,8 +386,8 @@ public class CyberPlayer implements CyberPlayerManager.OnErrorListener, MediaIns
     }
 
     public void setDataSource(FileDescriptor fileDescriptor) {
-        if (this.f1344a != null) {
-            this.f1344a.setDataSource(fileDescriptor);
+        if (this.f1751a != null) {
+            this.f1751a.setDataSource(fileDescriptor);
         }
     }
 
@@ -394,15 +396,15 @@ public class CyberPlayer implements CyberPlayerManager.OnErrorListener, MediaIns
     }
 
     public void setDataSource(String str, Map<String, String> map) {
-        if (this.f1344a != null) {
-            if (this.b) {
+        if (this.f1751a != null) {
+            if (this.f1752b) {
                 map = n.a(map);
             }
             String a2 = CyberCfgManager.getInstance().a("force_url", (String) null);
             if (TextUtils.isEmpty(a2)) {
-                this.f1344a.setDataSource(str, map);
+                this.f1751a.setDataSource(str, map);
             } else {
-                this.f1344a.setDataSource(a2, map);
+                this.f1751a.setDataSource(a2, map);
             }
         }
         if (this.d > 0) {
@@ -411,8 +413,8 @@ public class CyberPlayer implements CyberPlayerManager.OnErrorListener, MediaIns
     }
 
     public void setDisplay(SurfaceHolder surfaceHolder) {
-        if (this.f1344a != null) {
-            this.f1344a.setDisplay(surfaceHolder);
+        if (this.f1751a != null) {
+            this.f1751a.setDisplay(surfaceHolder);
         }
         if (this.d <= 0 || surfaceHolder == null) {
             return;
@@ -421,14 +423,14 @@ public class CyberPlayer implements CyberPlayerManager.OnErrorListener, MediaIns
     }
 
     public void setEnableDumediaUA(boolean z) {
-        this.b = z;
-        if (this.f1344a != null) {
-            this.f1344a.setEnableDumediaUA(z);
+        this.f1752b = z;
+        if (this.f1751a != null) {
+            this.f1751a.setEnableDumediaUA(z);
         }
     }
 
     public void setExternalInfo(String str, Object obj) {
-        if (TextUtils.isEmpty(str) || this.f1344a == null) {
+        if (TextUtils.isEmpty(str) || this.f1751a == null) {
             return;
         }
         if (str.equals("is_feed_video")) {
@@ -462,8 +464,8 @@ public class CyberPlayer implements CyberPlayerManager.OnErrorListener, MediaIns
     }
 
     public void setLooping(boolean z) {
-        if (this.f1344a != null) {
-            this.f1344a.setLooping(z);
+        if (this.f1751a != null) {
+            this.f1751a.setLooping(z);
         }
         if (this.d > 0) {
             this.e.updatePlayStateByType(1, z);
@@ -471,8 +473,8 @@ public class CyberPlayer implements CyberPlayerManager.OnErrorListener, MediaIns
     }
 
     public void setOnBufferingUpdateListener(CyberPlayerManager.OnBufferingUpdateListener onBufferingUpdateListener) {
-        if (this.f1344a != null) {
-            this.f1344a.setOnBufferingUpdateListener(onBufferingUpdateListener);
+        if (this.f1751a != null) {
+            this.f1751a.setOnBufferingUpdateListener(onBufferingUpdateListener);
         }
         if (this.d > 0) {
             this.e.setOnBufferingUpdateListener(onBufferingUpdateListener);
@@ -480,8 +482,8 @@ public class CyberPlayer implements CyberPlayerManager.OnErrorListener, MediaIns
     }
 
     public void setOnCompletionListener(CyberPlayerManager.OnCompletionListener onCompletionListener) {
-        if (this.f1344a != null) {
-            this.f1344a.setOnCompletionListener(onCompletionListener);
+        if (this.f1751a != null) {
+            this.f1751a.setOnCompletionListener(onCompletionListener);
         }
         if (this.d > 0) {
             this.e.setOnCompletionListener(onCompletionListener);
@@ -490,14 +492,14 @@ public class CyberPlayer implements CyberPlayerManager.OnErrorListener, MediaIns
 
     public void setOnErrorListener(CyberPlayerManager.OnErrorListener onErrorListener) {
         this.f = onErrorListener;
-        if (this.f1344a != null) {
-            this.f1344a.setOnErrorListener(this);
+        if (this.f1751a != null) {
+            this.f1751a.setOnErrorListener(this);
         }
     }
 
     public void setOnInfoListener(CyberPlayerManager.OnInfoListener onInfoListener) {
-        if (this.f1344a != null) {
-            this.f1344a.setOnInfoListener(onInfoListener);
+        if (this.f1751a != null) {
+            this.f1751a.setOnInfoListener(onInfoListener);
         }
         if (this.d <= 0 || this.e == null) {
             return;
@@ -506,8 +508,8 @@ public class CyberPlayer implements CyberPlayerManager.OnErrorListener, MediaIns
     }
 
     public void setOnMediaSourceChangedListener(CyberPlayerManager.OnMediaSourceChangedListener onMediaSourceChangedListener) {
-        if (this.f1344a != null) {
-            this.f1344a.setOnMediaSourceChangedListener(onMediaSourceChangedListener);
+        if (this.f1751a != null) {
+            this.f1751a.setOnMediaSourceChangedListener(onMediaSourceChangedListener);
         }
         if (this.d > 0) {
             this.e.setOnMediaSourceChangedListener(onMediaSourceChangedListener);
@@ -515,8 +517,8 @@ public class CyberPlayer implements CyberPlayerManager.OnErrorListener, MediaIns
     }
 
     public void setOnPreparedListener(CyberPlayerManager.OnPreparedListener onPreparedListener) {
-        if (this.f1344a != null) {
-            this.f1344a.setOnPreparedListener(onPreparedListener);
+        if (this.f1751a != null) {
+            this.f1751a.setOnPreparedListener(onPreparedListener);
         }
         if (this.d > 0) {
             this.e.setOnPreparedListener(onPreparedListener);
@@ -524,8 +526,8 @@ public class CyberPlayer implements CyberPlayerManager.OnErrorListener, MediaIns
     }
 
     public void setOnSeekCompleteListener(CyberPlayerManager.OnSeekCompleteListener onSeekCompleteListener) {
-        if (this.f1344a != null) {
-            this.f1344a.setOnSeekCompleteListener(onSeekCompleteListener);
+        if (this.f1751a != null) {
+            this.f1751a.setOnSeekCompleteListener(onSeekCompleteListener);
         }
         if (this.d > 0) {
             this.e.setOnSeekCompleteListener(onSeekCompleteListener);
@@ -533,8 +535,8 @@ public class CyberPlayer implements CyberPlayerManager.OnErrorListener, MediaIns
     }
 
     public void setOnVideoSizeChangedListener(CyberPlayerManager.OnVideoSizeChangedListener onVideoSizeChangedListener) {
-        if (this.f1344a != null) {
-            this.f1344a.setOnVideoSizeChangedListener(onVideoSizeChangedListener);
+        if (this.f1751a != null) {
+            this.f1751a.setOnVideoSizeChangedListener(onVideoSizeChangedListener);
         }
         if (this.d > 0) {
             this.e.setOnVideoSizeChangedListener(onVideoSizeChangedListener);
@@ -542,15 +544,15 @@ public class CyberPlayer implements CyberPlayerManager.OnErrorListener, MediaIns
     }
 
     public void setOption(String str, long j) {
-        if (this.f1344a == null || TextUtils.isEmpty(str)) {
+        if (this.f1751a == null || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f1344a.setOption(str, j);
+        this.f1751a.setOption(str, j);
     }
 
     public void setOption(String str, String str2) {
-        if (this.f1344a != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            this.f1344a.setOption(str, str2);
+        if (this.f1751a != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            this.f1751a.setOption(str, str2);
         }
         if (this.d > 0) {
             MultiInstanceManager.getInstance().updateStringOption(this.d, str, str2);
@@ -558,8 +560,8 @@ public class CyberPlayer implements CyberPlayerManager.OnErrorListener, MediaIns
     }
 
     public void setPlayJson(String str) {
-        if (this.f1344a != null) {
-            this.f1344a.setPlayJson(str);
+        if (this.f1751a != null) {
+            this.f1751a.setPlayJson(str);
         }
         if (this.d > 0) {
             this.e.setPlayJson(str);
@@ -567,20 +569,20 @@ public class CyberPlayer implements CyberPlayerManager.OnErrorListener, MediaIns
     }
 
     public void setScreenOnWhilePlaying(boolean z) {
-        if (this.f1344a != null) {
-            this.f1344a.setScreenOnWhilePlaying(z);
+        if (this.f1751a != null) {
+            this.f1751a.setScreenOnWhilePlaying(z);
         }
     }
 
     public void setSpeed(float f) {
-        if (this.f1344a != null) {
-            this.f1344a.setSpeed(f);
+        if (this.f1751a != null) {
+            this.f1751a.setSpeed(f);
         }
     }
 
     public void setSurface(Surface surface) {
-        if (this.f1344a != null) {
-            this.f1344a.setSurface(surface);
+        if (this.f1751a != null) {
+            this.f1751a.setSurface(surface);
         }
         if (this.d > 0) {
             this.e.updateSurface(surface);
@@ -588,14 +590,14 @@ public class CyberPlayer implements CyberPlayerManager.OnErrorListener, MediaIns
     }
 
     public void setVolume(float f, float f2) {
-        if (this.f1344a != null) {
-            this.f1344a.setVolume(f, f2);
+        if (this.f1751a != null) {
+            this.f1751a.setVolume(f, f2);
         }
     }
 
     public void setWakeMode(Context context, int i) {
-        if (this.f1344a != null) {
-            this.f1344a.setWakeMode(context, i);
+        if (this.f1751a != null) {
+            this.f1751a.setWakeMode(context, i);
         }
     }
 
@@ -608,20 +610,20 @@ public class CyberPlayer implements CyberPlayerManager.OnErrorListener, MediaIns
             }
             this.e.updatePlayingStatus(true);
         }
-        if (this.f1344a != null) {
-            this.f1344a.start();
+        if (this.f1751a != null) {
+            this.f1751a.start();
         }
     }
 
     public void stop() {
-        if (this.f1344a != null) {
-            this.f1344a.stop();
+        if (this.f1751a != null) {
+            this.f1751a.stop();
         }
     }
 
     public void switchMediaSource(int i) {
-        if (this.f1344a != null) {
-            this.f1344a.switchMediaSource(i);
+        if (this.f1751a != null) {
+            this.f1751a.switchMediaSource(i);
         }
         if (this.d > 0) {
             this.e.setMediaSourceRank(i);

@@ -309,7 +309,6 @@ public class ResourceManager {
 
     public static String readCountryFromAsset(Context context, String str) {
         String str2;
-        IOException e;
         try {
             InputStream open = context.getAssets().open(str);
             if (open == null) {
@@ -322,14 +321,14 @@ public class ResourceManager {
             try {
                 open.close();
                 return str2;
-            } catch (IOException e2) {
-                e = e2;
+            } catch (IOException e) {
+                e = e;
                 e.printStackTrace();
                 return str2;
             }
-        } catch (IOException e3) {
+        } catch (IOException e2) {
+            e = e2;
             str2 = "";
-            e = e3;
         }
     }
 }

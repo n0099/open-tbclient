@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class PendantfixBottomView extends PendantPriorityView {
     public PendantfixBottomView(Context context) {
         super(context);
@@ -50,8 +50,8 @@ public class PendantfixBottomView extends PendantPriorityView {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:27:0x0096  */
-    /* JADX WARN: Removed duplicated region for block: B:28:0x00a5  */
+    /* JADX WARN: Removed duplicated region for block: B:27:0x0093  */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x00a2  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -67,10 +67,11 @@ public class PendantfixBottomView extends PendantPriorityView {
         int i5 = 0;
         int i6 = paddingTop;
         int i7 = paddingBottom;
+        int i8 = paddingBottom;
         while (i5 < childCount) {
             View childAt = getChildAt(i5);
             if (childAt == null) {
-                paddingBottom += 0;
+                i7 += 0;
                 z = z2;
             } else if (childAt.getVisibility() == 8) {
                 z = z2;
@@ -82,48 +83,45 @@ public class PendantfixBottomView extends PendantPriorityView {
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) childAt.getLayoutParams();
                 FixedLocation fixedlocation = ((PendantChildView) childAt).getFixedlocation();
                 if (fixedlocation == FixedLocation.BOTTOM) {
-                    i3 = paddingBottom - layoutParams.bottomMargin;
-                    int i8 = i3 - measuredHeight;
-                    i7 = ((i7 - layoutParams.topMargin) - layoutParams.bottomMargin) - measuredHeight;
-                    if (i8 <= paddingTop) {
+                    i4 = i7 - layoutParams.bottomMargin;
+                    i2 = i4 - measuredHeight;
+                    i8 = ((i8 - layoutParams.topMargin) - layoutParams.bottomMargin) - measuredHeight;
+                    if (i2 <= paddingTop) {
                         childAt.layout(-1, -1, -1, -1);
                         z = true;
-                        paddingBottom = i3;
+                        i7 = i4;
                     } else {
-                        int i9 = paddingBottom;
-                        i4 = i8;
-                        i2 = i9;
-                        childAt.layout(childAt.getLeft(), i4, childAt.getRight(), i2);
+                        i3 = i7;
+                        childAt.layout(childAt.getLeft(), i2, childAt.getRight(), i3);
                         if (fixedlocation != FixedLocation.BOTTOM) {
-                            paddingBottom = (i3 - layoutParams.topMargin) - measuredHeight;
-                            i7 = (i7 - layoutParams.topMargin) - measuredHeight;
+                            i7 = (i4 - layoutParams.topMargin) - measuredHeight;
+                            i8 = (i8 - layoutParams.topMargin) - measuredHeight;
                             z = z2;
                         } else if (fixedlocation == FixedLocation.TOP || fixedlocation == FixedLocation.NULL) {
                             i6 = layoutParams.bottomMargin + i6 + measuredHeight;
                             z = z2;
-                            paddingBottom = i3;
+                            i7 = i4;
                         } else {
                             z = z2;
-                            paddingBottom = i3;
+                            i7 = i4;
                         }
                     }
                 } else {
                     if (fixedlocation == FixedLocation.TOP || fixedlocation == FixedLocation.NULL) {
-                        int i10 = i6 + layoutParams.topMargin;
-                        i2 = i10 + measuredHeight + layoutParams.bottomMargin;
-                        if (i2 >= i7) {
+                        i2 = i6 + layoutParams.topMargin;
+                        i3 = i2 + measuredHeight + layoutParams.bottomMargin;
+                        if (i3 >= i8) {
                             childAt.layout(-1, -1, -1, -1);
                             z = true;
                         } else {
-                            i3 = paddingBottom;
-                            i4 = i10;
+                            i4 = i7;
                         }
                     } else {
-                        i2 = paddingBottom;
-                        i3 = paddingBottom;
-                        i4 = i6;
+                        i3 = i7;
+                        i2 = i6;
+                        i4 = i7;
                     }
-                    childAt.layout(childAt.getLeft(), i4, childAt.getRight(), i2);
+                    childAt.layout(childAt.getLeft(), i2, childAt.getRight(), i3);
                     if (fixedlocation != FixedLocation.BOTTOM) {
                     }
                 }

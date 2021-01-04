@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.alaar.sticker.download.b;
 
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a {
     private boolean acceptRanges;
     private File dir;

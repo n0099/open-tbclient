@@ -1,10 +1,8 @@
 package com.baidu.tieba.frs;
+
+import java.util.List;
 /* loaded from: classes.dex */
-public class bd extends ba {
-    public int errCode;
-    public String errMsg;
-    public boolean isLocal = true;
-    public boolean hasMore = true;
-    public boolean atV = true;
-    public boolean iXU = true;
+public class bd {
+    public int jjJ;
+    public List<bc> jjK;
 }

@@ -9,7 +9,7 @@ import com.google.zxing.common.BitArray;
 import java.util.EnumMap;
 import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class UPCEANExtension2Support {
     private final int[] decodeMiddleCounters = new int[4];
     private final StringBuilder decodeRowStringBuffer = new StringBuilder();
@@ -40,12 +40,8 @@ public final class UPCEANExtension2Support {
         for (int i3 = 0; i3 < 2 && i < size; i3++) {
             int decodeDigit = UPCEANReader.decodeDigit(bitArray, iArr2, i, UPCEANReader.L_AND_G_PATTERNS);
             sb.append((char) ((decodeDigit % 10) + 48));
-            int length = iArr2.length;
-            int i4 = 0;
-            while (i4 < length) {
-                int i5 = iArr2[i4] + i;
-                i4++;
-                i = i5;
+            for (int i4 : iArr2) {
+                i += i4;
             }
             if (decodeDigit >= 10) {
                 i2 |= 1 << (1 - i3);

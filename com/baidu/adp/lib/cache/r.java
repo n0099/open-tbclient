@@ -16,7 +16,7 @@ public class r extends c<String> {
             hashCode *= -1;
         }
         String str2 = "cache_kv_t" + hashCode;
-        this.Lw.execSQLNoException("CREATE TABLE IF NOT EXISTS " + str2 + "(m_key VARCHAR(64) PRIMARY KEY, saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value text)");
+        this.KX.execSQLNoException("CREATE TABLE IF NOT EXISTS " + str2 + "(m_key VARCHAR(64) PRIMARY KEY, saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value text)");
         return str2;
     }
 
@@ -29,11 +29,10 @@ public class r extends c<String> {
         return 1;
     }
 
-    /* JADX WARN: Type inference failed for: r2v15, types: [T, java.lang.String] */
+    /* JADX WARN: Type inference failed for: r1v15, types: [T, java.lang.String] */
     @Override // com.baidu.adp.lib.cache.c
     protected g<String> a(SQLiteDatabase sQLiteDatabase, String str) throws Throwable {
         Cursor cursor;
-        Throwable th;
         g<String> gVar = null;
         try {
             cursor = sQLiteDatabase.rawQuery("SELECT m_key, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.tableName + " where m_key = ?", new String[]{str});
@@ -50,14 +49,14 @@ public class r extends c<String> {
                     com.baidu.adp.lib.f.a.close(cursor);
                 }
                 return gVar;
-            } catch (Throwable th2) {
-                th = th2;
+            } catch (Throwable th) {
+                th = th;
                 com.baidu.adp.lib.f.a.close(cursor);
                 throw th;
             }
-        } catch (Throwable th3) {
+        } catch (Throwable th2) {
+            th = th2;
             cursor = null;
-            th = th3;
         }
     }
 
@@ -79,7 +78,7 @@ public class r extends c<String> {
 
     @Override // com.baidu.adp.lib.cache.c
     protected boolean clearData(String str) {
-        this.Lw.execSQLNoException("DROP TABLE IF EXISTS " + this.tableName);
+        this.KX.execSQLNoException("DROP TABLE IF EXISTS " + this.tableName);
         return true;
     }
 }

@@ -5,34 +5,35 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.ala.alasquare.live_tab.b.f;
-/* loaded from: classes6.dex */
-public class c extends com.baidu.adp.widget.ListView.a<f, com.baidu.tieba.ala.alasquare.live_tab.view.f> {
-    private com.baidu.tieba.ala.alasquare.live_tab.view.e grD;
+import com.baidu.tieba.ala.alasquare.live_tab.view.StageLiveViewHolder;
+/* loaded from: classes10.dex */
+public class c extends com.baidu.adp.widget.ListView.a<f, StageLiveViewHolder> {
+    private com.baidu.tieba.ala.alasquare.live_tab.view.c gCC;
     private TbPageContext mPageContext;
 
     public c(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), f.grM);
+        super(tbPageContext.getPageActivity(), f.gCL);
         this.mPageContext = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: K */
-    public com.baidu.tieba.ala.alasquare.live_tab.view.f c(ViewGroup viewGroup) {
-        this.grD = new com.baidu.tieba.ala.alasquare.live_tab.view.e(this.mPageContext, viewGroup);
-        return new com.baidu.tieba.ala.alasquare.live_tab.view.f(this.grD);
+    /* renamed from: W */
+    public StageLiveViewHolder e(ViewGroup viewGroup) {
+        this.gCC = new com.baidu.tieba.ala.alasquare.live_tab.view.c(this.mPageContext, viewGroup);
+        return new StageLiveViewHolder(this.gCC);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, f fVar, com.baidu.tieba.ala.alasquare.live_tab.view.f fVar2) {
-        if (fVar2 == null || fVar2.grD == null) {
+    public View a(int i, View view, ViewGroup viewGroup, f fVar, StageLiveViewHolder stageLiveViewHolder) {
+        if (stageLiveViewHolder == null || stageLiveViewHolder.gCC == null) {
             return null;
         }
-        fVar2.grD.a(fVar);
-        fVar2.grD.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        return fVar2.getView();
+        stageLiveViewHolder.gCC.a(fVar);
+        stageLiveViewHolder.gCC.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        return stageLiveViewHolder.getView();
     }
 }

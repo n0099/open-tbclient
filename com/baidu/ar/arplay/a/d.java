@@ -2,7 +2,7 @@ package com.baidu.ar.arplay.a;
 
 import android.content.Context;
 import android.os.Vibrator;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class d {
     private static d dB;
     long[] dA = {800, 60, 400, 60};

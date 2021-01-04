@@ -4,7 +4,7 @@ import tbclient.SmartApp;
 /* loaded from: classes.dex */
 public class ac {
     public String avatar;
-    public Integer exF;
+    public Integer eGU;
     public String id;
     public String link;
     public String name;
@@ -15,7 +15,7 @@ public class ac {
             this.name = smartApp.name;
             this.id = smartApp.id;
             this.link = smartApp.link;
-            this.exF = smartApp.is_game;
+            this.eGU = smartApp.is_game;
         }
     }
 }

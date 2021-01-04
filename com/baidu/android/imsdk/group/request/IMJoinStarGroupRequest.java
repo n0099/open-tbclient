@@ -3,7 +3,6 @@ package com.baidu.android.imsdk.group.request;
 import android.content.Context;
 import android.util.Log;
 import android.util.Pair;
-import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.group.BIMValueCallBack;
 import com.baidu.android.imsdk.internal.Constants;
@@ -15,7 +14,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class IMJoinStarGroupRequest extends GroupBaseHttpRequest {
     private static final String TAG = IMJoinStarGroupRequest.class.getSimpleName();
     private long mAppid;
@@ -29,7 +28,7 @@ public class IMJoinStarGroupRequest extends GroupBaseHttpRequest {
         this.mGroupId = str2;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     class Mytask extends TaskManager.Task {
         public Mytask(Context context, String str, String str2) {
             super(str, str2);
@@ -41,21 +40,20 @@ public class IMJoinStarGroupRequest extends GroupBaseHttpRequest {
             String str;
             try {
                 JSONObject jSONObject = new JSONObject(this.mJson);
-                int i2 = jSONObject.getInt("error_code");
-                String optString = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG, "");
+                i = jSONObject.getInt("error_code");
+                String optString = jSONObject.optString("error_msg", "");
                 if (jSONObject.has("response_params")) {
                     JSONObject jSONObject2 = jSONObject.getJSONObject("response_params");
                     if (jSONObject2.has("blacklist_time")) {
-                        i2 = 1025;
+                        i = 1025;
                         optString = String.valueOf(jSONObject2.optLong("blacklist_time"));
                     }
                 }
-                i = i2;
                 str = optString;
             } catch (JSONException e) {
                 LogUtils.e(LogUtils.TAG, "IMCreateGroupRequest JSONException", e);
-                new IMTrack.CrashBuilder(IMJoinStarGroupRequest.this.mContext).exception(Log.getStackTraceString(e)).build();
                 i = 1010;
+                new IMTrack.CrashBuilder(IMJoinStarGroupRequest.this.mContext).exception(Log.getStackTraceString(e)).build();
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
             }
             IMListener removeListener = ListenerManager.getInstance().removeListener(IMJoinStarGroupRequest.this.mKey);

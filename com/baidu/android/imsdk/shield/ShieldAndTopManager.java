@@ -2,8 +2,8 @@ package com.baidu.android.imsdk.shield;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.ChatObject;
 import com.baidu.android.imsdk.chatmessage.ChatSession;
 import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class ShieldAndTopManager {
     private static final String TAG = "ShieldAndTopManager";
     private static volatile ShieldAndTopManager mInstance;

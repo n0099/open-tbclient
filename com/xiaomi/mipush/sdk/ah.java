@@ -1,5 +1,5 @@
 package com.xiaomi.mipush.sdk;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public enum ah {
     HUAWEI,
     MEIZU,

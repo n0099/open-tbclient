@@ -4,50 +4,50 @@ import android.app.Activity;
 import com.baidu.searchbox.perfframe.basic.PerfFrameTrackUIUtil;
 import java.lang.ref.WeakReference;
 import java.util.Stack;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public final class d {
-    private Stack<WeakReference<Activity>> oIg;
+    private Stack<WeakReference<Activity>> oOp;
 
-    /* synthetic */ d(byte b) {
+    /* synthetic */ d(byte b2) {
         this();
     }
 
     private d() {
-        this.oIg = new Stack<>();
+        this.oOp = new Stack<>();
     }
 
-    public final Stack<WeakReference<Activity>> ejt() {
-        return this.oIg;
+    public final Stack<WeakReference<Activity>> ejC() {
+        return this.oOp;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(WeakReference<Activity> weakReference) {
-        this.oIg.add(weakReference);
+        this.oOp.add(weakReference);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void b(Activity activity) {
-        if (this.oIg != null) {
+        if (this.oOp != null) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 >= this.oIg.size()) {
+                if (i2 >= this.oOp.size()) {
                     break;
                 }
-                if (this.oIg.get(i2).get() == activity) {
-                    this.oIg.remove(this.oIg.get(i2));
+                if (this.oOp.get(i2).get() == activity) {
+                    this.oOp.remove(this.oOp.get(i2));
                 }
                 i = i2 + 1;
             }
         }
-        adS();
+        afN();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final String adS() {
+    public final String afN() {
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < this.oIg.size(); i++) {
-            Activity activity = this.oIg.get(i).get();
+        for (int i = 0; i < this.oOp.size(); i++) {
+            Activity activity = this.oOp.get(i).get();
             if (activity != null) {
                 sb.append(activity.getClass().getSimpleName());
                 sb.append(PerfFrameTrackUIUtil.SEPERATOR_ARROR);
@@ -57,8 +57,8 @@ public final class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes6.dex */
     public static class a {
-        private static final d oIh = new d((byte) 0);
+        private static final d oOq = new d((byte) 0);
     }
 }

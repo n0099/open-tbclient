@@ -1,0 +1,193 @@
+package com.baidu.tieba.yuyinala.liveroom.teamfighttimeset;
+
+import android.app.Activity;
+import android.app.Dialog;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.TextView;
+import com.baidu.live.adp.framework.MessageManager;
+import com.baidu.live.adp.framework.listener.CustomMessageListener;
+import com.baidu.live.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.adp.lib.util.BdUtilHelper;
+import com.baidu.live.data.g;
+import com.baidu.live.data.x;
+import com.baidu.live.sdk.a;
+import com.baidu.live.tbadk.ubc.UbcStatConstant;
+import com.baidu.live.tbadk.ubc.UbcStatisticItem;
+import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
+import com.baidu.live.tbadk.ubc.UbcStatisticManager;
+import com.baidu.tieba.yuyinala.liveroom.teamfighttimeset.b;
+import com.baidu.tieba.yuyinala.liveroom.teamfighttimeset.indicatorseekbar.IndicatorSeekBar;
+import com.baidu.tieba.yuyinala.liveroom.teamfighttimeset.indicatorseekbar.d;
+import com.baidu.tieba.yuyinala.liveroom.teamfighttimeset.indicatorseekbar.e;
+import io.flutter.plugin.platform.PlatformPlugin;
+/* loaded from: classes11.dex */
+public class a extends Dialog {
+    private x aGe;
+    private View bYQ;
+    private TextView lYv;
+    private Activity mActivity;
+    private TextView ooG;
+    public CustomMessageListener ooJ;
+    private b ouh;
+    private InterfaceC0910a oui;
+    private IndicatorSeekBar ouj;
+    private IndicatorSeekBar ouk;
+
+    /* renamed from: com.baidu.tieba.yuyinala.liveroom.teamfighttimeset.a$a  reason: collision with other inner class name */
+    /* loaded from: classes11.dex */
+    public interface InterfaceC0910a {
+        void onDismiss();
+    }
+
+    public a(Activity activity) {
+        super(activity, a.i.DialogRoomcardStyle);
+        this.ooJ = new CustomMessageListener(2501014) { // from class: com.baidu.tieba.yuyinala.liveroom.teamfighttimeset.a.7
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.live.adp.framework.listener.MessageListener
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2501014 && (customResponsedMessage.getData() instanceof g) && ((g) customResponsedMessage.getData()).Ex() != 2 && a.this.isShowing()) {
+                    a.this.dismiss();
+                }
+            }
+        };
+        this.mActivity = activity;
+        init();
+    }
+
+    private void init() {
+        initView();
+        aaD();
+    }
+
+    private void aaD() {
+        Window window = getWindow();
+        if (window != null) {
+            window.setFlags(262144, 262144);
+            int[] screenDimensions = BdUtilHelper.getScreenDimensions(getContext());
+            WindowManager.LayoutParams attributes = window.getAttributes();
+            attributes.height = screenDimensions[1] - BdUtilHelper.getStatusBarHeight(this.mActivity);
+            attributes.width = -1;
+            attributes.gravity = 80;
+            attributes.flags = PlatformPlugin.DEFAULT_SYSTEM_UI;
+            window.setAttributes(attributes);
+            window.setSoftInputMode(48);
+        }
+    }
+
+    private void initView() {
+        setContentView(a.g.yuyin_layout_dialog_teamfight_time_setting);
+        this.bYQ = findViewById(a.f.view);
+        this.lYv = (TextView) findViewById(a.f.tv_cancel);
+        this.ooG = (TextView) findViewById(a.f.tv_confirm);
+        this.ouj = (IndicatorSeekBar) findViewById(a.f.sb_pk_time);
+        this.ouk = (IndicatorSeekBar) findViewById(a.f.sb_punish_time);
+        this.ouh = new b(this.mActivity);
+        this.ouj.setOnSeekChangeListener(new d() { // from class: com.baidu.tieba.yuyinala.liveroom.teamfighttimeset.a.1
+            @Override // com.baidu.tieba.yuyinala.liveroom.teamfighttimeset.indicatorseekbar.d
+            public void a(e eVar) {
+            }
+
+            @Override // com.baidu.tieba.yuyinala.liveroom.teamfighttimeset.indicatorseekbar.d
+            public void a(IndicatorSeekBar indicatorSeekBar) {
+                UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Page.VOICE_ROOM, "battletimebar_clk"));
+            }
+
+            @Override // com.baidu.tieba.yuyinala.liveroom.teamfighttimeset.indicatorseekbar.d
+            public void b(IndicatorSeekBar indicatorSeekBar) {
+            }
+        });
+        this.ouk.setOnSeekChangeListener(new d() { // from class: com.baidu.tieba.yuyinala.liveroom.teamfighttimeset.a.2
+            @Override // com.baidu.tieba.yuyinala.liveroom.teamfighttimeset.indicatorseekbar.d
+            public void a(e eVar) {
+            }
+
+            @Override // com.baidu.tieba.yuyinala.liveroom.teamfighttimeset.indicatorseekbar.d
+            public void a(IndicatorSeekBar indicatorSeekBar) {
+                UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Page.VOICE_ROOM, "punishtimebar_clk"));
+            }
+
+            @Override // com.baidu.tieba.yuyinala.liveroom.teamfighttimeset.indicatorseekbar.d
+            public void b(IndicatorSeekBar indicatorSeekBar) {
+            }
+        });
+        this.bYQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.teamfighttimeset.a.3
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                a.this.dismiss();
+            }
+        });
+        this.lYv.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.teamfighttimeset.a.4
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                a.this.dismiss();
+            }
+        });
+        this.ooG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.teamfighttimeset.a.5
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                if (a.this.ouh != null) {
+                    a.this.ouh.d(com.baidu.tieba.yuyinala.liveroom.wheat.e.g.av(a.this.aGe), 0, 1, 0, a.this.ouj.getProgress() + "", a.this.ouk.getProgress() + "");
+                }
+                UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Page.VOICE_ROOM, "startbattle_clk"));
+            }
+        });
+        this.ouh.a(new b.a() { // from class: com.baidu.tieba.yuyinala.liveroom.teamfighttimeset.a.6
+            @Override // com.baidu.tieba.yuyinala.liveroom.teamfighttimeset.b.a
+            public void a(TimeSettingResponseMessage timeSettingResponseMessage) {
+                if (a.this.ouj != null && a.this.ouk != null) {
+                    com.baidu.live.d.Ba().putInt("audio_live_pk_time", a.this.ouj.getProgress());
+                    com.baidu.live.d.Ba().putInt("audio_live_punish_time", a.this.ouk.getProgress());
+                }
+                a.this.dismiss();
+                BdUtilHelper.showToast(a.this.getContext(), "设置成功，团战即将开始");
+            }
+
+            @Override // com.baidu.tieba.yuyinala.liveroom.teamfighttimeset.b.a
+            public void onFail(int i, String str) {
+                a.this.dismiss();
+                BdUtilHelper.showToast(a.this.getContext(), "团战开始失败，请重试");
+            }
+        });
+    }
+
+    public void ac(x xVar) {
+        this.aGe = xVar;
+        try {
+            show();
+            if (this.ouj != null) {
+                this.ouj.setMin(com.baidu.tieba.yuyinala.liveroom.wheat.e.g.ay(xVar));
+                this.ouj.setMax(com.baidu.tieba.yuyinala.liveroom.wheat.e.g.az(xVar));
+                this.ouj.setProgress(com.baidu.tieba.yuyinala.liveroom.wheat.e.g.aA(xVar));
+            }
+            if (this.ouk != null) {
+                this.ouk.setMin(com.baidu.tieba.yuyinala.liveroom.wheat.e.g.aB(xVar));
+                this.ouk.setMax(com.baidu.tieba.yuyinala.liveroom.wheat.e.g.aC(xVar));
+                this.ouk.setProgress(com.baidu.tieba.yuyinala.liveroom.wheat.e.g.aD(xVar));
+            }
+        } catch (Exception e) {
+        }
+    }
+
+    @Override // android.app.Dialog, android.content.DialogInterface
+    public void dismiss() {
+        try {
+            if (this.oui != null) {
+                this.oui.onDismiss();
+            }
+            super.dismiss();
+            MessageManager.getInstance().unRegisterListener(this.ooJ);
+        } catch (Throwable th) {
+        }
+    }
+
+    @Override // android.app.Dialog
+    public void show() {
+        try {
+            super.show();
+            MessageManager.getInstance().registerListener(this.ooJ);
+        } catch (Throwable th) {
+        }
+    }
+}

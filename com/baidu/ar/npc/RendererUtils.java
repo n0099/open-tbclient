@@ -7,19 +7,23 @@ import java.nio.Buffer;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class RendererUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final float[] f1208a = {0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f};
-    private static final float[] b = {-1.0f, -1.0f, 1.0f, -1.0f, -1.0f, 1.0f, 1.0f, 1.0f};
+    private static final float[] f1509a = {0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f};
 
-    /* loaded from: classes26.dex */
+    /* renamed from: b  reason: collision with root package name */
+    private static final float[] f1510b = {-1.0f, -1.0f, 1.0f, -1.0f, -1.0f, 1.0f, 1.0f, 1.0f};
+
+    /* loaded from: classes15.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private int f1209a;
-        private int b;
+        private int f1511a;
+
+        /* renamed from: b  reason: collision with root package name */
+        private int f1512b;
         private int c;
         private int d;
         private FloatBuffer e;
@@ -72,7 +76,7 @@ public class RendererUtils {
         GLES20.glViewport(0, 0, i2, i3);
         GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
         GLES20.glClear(16384);
-        GLES20.glUseProgram(aVar.f1209a);
+        GLES20.glUseProgram(aVar.f1511a);
         GLES20.glDisable(2929);
         GLES20.glDisable(3042);
         GLES20.glVertexAttribPointer(aVar.c, 2, 5126, false, 0, (Buffer) aVar.e);
@@ -81,7 +85,7 @@ public class RendererUtils {
         GLES20.glEnableVertexAttribArray(aVar.d);
         GLES20.glActiveTexture(33984);
         GLES20.glBindTexture(3553, i);
-        GLES20.glUniform1i(aVar.b, 0);
+        GLES20.glUniform1i(aVar.f1512b, 0);
         GLES20.glDrawArrays(5, 0, 4);
     }
 
@@ -105,12 +109,12 @@ public class RendererUtils {
             }
         }
         a aVar = new a();
-        aVar.b = GLES20.glGetUniformLocation(glCreateProgram, "tex_sampler");
+        aVar.f1512b = GLES20.glGetUniformLocation(glCreateProgram, "tex_sampler");
         aVar.c = GLES20.glGetAttribLocation(glCreateProgram, "a_texcoord");
         aVar.d = GLES20.glGetAttribLocation(glCreateProgram, "a_position");
-        aVar.e = a(f1208a);
-        aVar.f = a(b);
-        aVar.f1209a = glCreateProgram;
+        aVar.e = a(f1509a);
+        aVar.f = a(f1510b);
+        aVar.f1511a = glCreateProgram;
         return aVar;
     }
 

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Build;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class ScreenHelper {
     public static int getScreenWidth(Context context) {
         DisplayMetrics displayMetrics = new DisplayMetrics();

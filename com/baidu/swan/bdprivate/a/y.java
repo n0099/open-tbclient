@@ -3,7 +3,7 @@ package com.baidu.swan.bdprivate.a;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.swan.apps.ap.ai;
+import com.baidu.swan.apps.ao.ai;
 import com.baidu.webkit.sdk.CookieManager;
 import com.baidu.webkit.sdk.CookieSyncManager;
 import java.text.SimpleDateFormat;
@@ -13,23 +13,23 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.SimpleTimeZone;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class y {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static String dNf = "cookieMap";
-    public static String dNg = "ptokenDomains";
-    public static String dNh = "bdussDomains";
+    public static String dVY = "cookieMap";
+    public static String dVZ = "ptokenDomains";
+    public static String dWa = "bdussDomains";
 
-    public static void dS(Context context) {
-        dT(context);
+    public static void el(Context context) {
+        em(context);
     }
 
-    public static void dT(Context context) {
+    public static void em(Context context) {
         if (context != null) {
-            String dE = a.dE(context);
-            String dL = a.dL(context);
-            b(context, dE, aQB());
-            c(context, dL, aQB());
+            String dX = a.dX(context);
+            String ee = a.ee(context);
+            b(context, dX, aSW());
+            c(context, ee, aSW());
         }
     }
 
@@ -48,19 +48,19 @@ public class y {
             } else {
                 buildBDUSSCookie = buildBDUSSCookie(str2, str);
             }
-            r("http://www." + str2, buildBDUSSCookie, false);
+            t("http://www." + str2, buildBDUSSCookie, false);
         }
     }
 
     private static String buildBDUSSCookie(String str, String str2) {
-        return ac(str, "BDUSS", str2);
+        return af(str, "BDUSS", str2);
     }
 
     private static String buildPtokenCookie(String str, String str2) {
-        return ac(str, "PTOKEN", str2);
+        return af(str, "PTOKEN", str2);
     }
 
-    private static String ac(String str, String str2, String str3) {
+    private static String af(String str, String str2, String str3) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date());
         calendar.add(1, TextUtils.isEmpty(str3) ? -8 : 8);
@@ -88,18 +88,18 @@ public class y {
             } else {
                 buildPtokenCookie = buildPtokenCookie(str2, str);
             }
-            r("http://www." + str2, buildPtokenCookie, false);
+            t("http://www." + str2, buildPtokenCookie, false);
         }
     }
 
-    private static void r(String str, String str2, boolean z) {
+    private static void t(String str, String str2, boolean z) {
         CookieManager.getInstance().setCookie(str, str2);
         if (z) {
             CookieSyncManager.getInstance().sync();
         }
     }
 
-    private static List<String> aQB() {
+    private static List<String> aSW() {
         ArrayList arrayList = new ArrayList();
         arrayList.add("baidu.com");
         arrayList.add("hao123.com");

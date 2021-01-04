@@ -3,18 +3,12 @@ package com.baidu.n.a;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
-/* JADX WARN: Classes with same name are omitted:
-  classes16.dex
- */
 @SuppressLint({"NewApi"})
 @TargetApi(23)
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class b {
 
-    /* JADX WARN: Classes with same name are omitted:
-      classes16.dex
-     */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void validateRequestPermissionsRequestCode(int i);
     }

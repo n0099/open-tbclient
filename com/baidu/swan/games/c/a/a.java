@@ -1,9 +1,9 @@
 package com.baidu.swan.games.c.a;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.util.Log;
-import com.baidu.swan.apps.ap.ae;
+import androidx.annotation.NonNull;
+import com.baidu.swan.apps.ao.ae;
 import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.core.pms.j;
 import com.baidu.swan.c.d;
@@ -13,14 +13,10 @@ import com.baidu.swan.pms.model.h;
 import com.baidu.swan.pms.utils.f;
 import java.io.File;
 import java.util.Set;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class a extends j {
     private static final boolean DEBUG = b.DEBUG;
-    @NonNull
-    private com.baidu.swan.games.c.b dYI;
-    @NonNull
-    private com.baidu.swan.games.c.b.a dYJ;
-    private c<h> dpN = new com.baidu.swan.pms.a.b<h>() { // from class: com.baidu.swan.games.c.a.a.1
+    private c<h> duM = new com.baidu.swan.pms.a.b<h>() { // from class: com.baidu.swan.games.c.a.a.1
         @Override // com.baidu.swan.pms.a.e
         @NonNull
         public Bundle a(@NonNull Bundle bundle, Set<String> set) {
@@ -31,7 +27,7 @@ public class a extends j {
         @Override // com.baidu.swan.pms.a.c
         /* renamed from: a */
         public String U(h hVar) {
-            return a.c.ayU().getPath();
+            return a.c.aAl().getPath();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -61,7 +57,7 @@ public class a extends j {
             if (a.DEBUG) {
                 Log.e("ConsoleJsDownload", "onDownloadError: " + aVar.toString());
             }
-            a.this.dYI.eX(false);
+            a.this.ehF.fg(false);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -72,36 +68,40 @@ public class a extends j {
             if (a.DEBUG) {
                 Log.i("ConsoleJsDownload", "onDownloadFinish: " + hVar.toString());
             }
-            if (!ae.e(new File(hVar.filePath), hVar.sign)) {
+            if (!ae.f(new File(hVar.filePath), hVar.sign)) {
                 if (a.DEBUG) {
                     Log.e("ConsoleJsDownload", "onDownloadFinish: 校验签名失败");
                 }
-                a.this.dYI.eX(false);
+                a.this.ehF.fg(false);
                 return;
             }
-            File aqg = a.this.dYJ.aqg();
-            if (aqg.exists()) {
-                d.deleteFile(aqg);
+            File ars = a.this.ehG.ars();
+            if (ars.exists()) {
+                d.deleteFile(ars);
             } else {
-                d.ensureDirectoryExist(aqg);
+                d.ensureDirectoryExist(ars);
             }
-            boolean unzipFile = d.unzipFile(hVar.filePath, aqg.getAbsolutePath());
+            boolean unzipFile = d.unzipFile(hVar.filePath, ars.getAbsolutePath());
             if (unzipFile) {
-                a.this.dYJ.nr(hVar.versionName);
+                a.this.ehG.nk(hVar.versionName);
             }
             d.deleteFile(hVar.filePath);
-            a.this.dYI.eX(unzipFile);
+            a.this.ehF.fg(unzipFile);
         }
     };
+    @NonNull
+    private com.baidu.swan.games.c.b ehF;
+    @NonNull
+    private com.baidu.swan.games.c.b.a ehG;
 
     public a(@NonNull com.baidu.swan.games.c.b.a aVar, @NonNull com.baidu.swan.games.c.b bVar) {
-        this.dYI = bVar;
-        this.dYJ = aVar;
+        this.ehF = bVar;
+        this.ehG = aVar;
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public void asM() {
-        super.asM();
+    public void aud() {
+        super.aud();
         if (DEBUG) {
             Log.i("ConsoleJsDownload", "onFetchSuccess");
         }
@@ -113,16 +113,16 @@ public class a extends j {
         if (DEBUG) {
             Log.e("ConsoleJsDownload", "onFetchError: " + aVar.toString());
         }
-        this.dYI.eX(false);
+        this.ehF.fg(false);
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public void apQ() {
-        super.apQ();
+    public void arc() {
+        super.arc();
         if (DEBUG) {
             Log.i("ConsoleJsDownload", "onNoPackage");
         }
-        this.dYI.eX(false);
+        this.ehF.fg(false);
     }
 
     @Override // com.baidu.swan.pms.a.g
@@ -134,7 +134,7 @@ public class a extends j {
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public c<h> aGR() {
-        return this.dpN;
+    public c<h> aIk() {
+        return this.duM;
     }
 }

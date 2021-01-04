@@ -1,44 +1,43 @@
 package com.baidu.tieba.homepage.personalize.view;
 
-import android.graphics.Rect;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
-/* loaded from: classes22.dex */
-public class a extends RecyclerView.ItemDecoration {
-    private int Ym;
-    private int Yn;
-    private int mEnd;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.homepage.personalize.data.f;
+/* loaded from: classes2.dex */
+public class a extends com.baidu.card.a<com.baidu.tbadk.core.data.a> {
+    private HomePageAlaRecommendLayout kiI;
+    private int mSkinType;
 
-    public a(int i, int i2, int i3) {
-        this.Ym = i;
-        this.Yn = i2;
-        this.mEnd = i3;
+    public a(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity());
+        this.mSkinType = 3;
+        this.kiI = new HomePageAlaRecommendLayout(tbPageContext.getPageActivity());
     }
 
-    @Override // android.support.v7.widget.RecyclerView.ItemDecoration
-    public void getItemOffsets(Rect rect, View view, RecyclerView recyclerView, RecyclerView.State state) {
-        super.getItemOffsets(rect, view, recyclerView, state);
-        LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
-        if (linearLayoutManager.getOrientation() == 1) {
-            if (recyclerView.getChildAdapterPosition(view) == 0) {
-                rect.top = this.Ym;
-            } else {
-                rect.top = this.Yn;
-            }
-            if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
-                rect.bottom = this.mEnd;
-                return;
-            }
-            return;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.card.a
+    public View getView() {
+        return this.kiI;
+    }
+
+    @Override // com.baidu.card.q
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        if (this.mSkinType != i) {
+            this.kiI.onChangeSkinType(i);
+            g(this.kiI, 3);
         }
-        if (recyclerView.getChildAdapterPosition(view) == 0) {
-            rect.left = this.Ym;
-        } else {
-            rect.left = this.Yn;
-        }
-        if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
-            rect.right = this.mEnd;
-        }
+        this.mSkinType = i;
+    }
+
+    @Override // com.baidu.card.a
+    public void setPageUniqueId(BdUniqueId bdUniqueId) {
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.card.p
+    /* renamed from: b */
+    public void D(com.baidu.tbadk.core.data.a aVar) {
+        this.kiI.setData((f) aVar);
     }
 }

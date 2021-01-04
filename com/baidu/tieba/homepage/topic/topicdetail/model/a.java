@@ -6,8 +6,8 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.l;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.by;
-import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.data.bz;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tieba.card.data.k;
 import com.baidu.tieba.homepage.GetMyPostHttpResponseMessage;
 import com.baidu.tieba.homepage.GetMyPostSocketResponseMessage;
@@ -18,10 +18,10 @@ import tbclient.GetMyPost.GetMyPostResIdl;
 import tbclient.GetMyPost.User_Info;
 import tbclient.ThreadInfo;
 import tbclient.User;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class a {
-    private BdUniqueId fzO;
-    private final com.baidu.adp.framework.listener.a iqm = new com.baidu.adp.framework.listener.a(1003010, CmdConfigSocket.CMD_GET_MY_POST) { // from class: com.baidu.tieba.homepage.topic.topicdetail.model.a.1
+    private BdUniqueId fJu;
+    private final com.baidu.adp.framework.listener.a iCG = new com.baidu.adp.framework.listener.a(1003010, CmdConfigSocket.CMD_GET_MY_POST) { // from class: com.baidu.tieba.homepage.topic.topicdetail.model.a.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage instanceof GetMyPostHttpResponseMessage) {
@@ -33,31 +33,31 @@ public class a {
             }
         }
     };
-    private TopicDetailView jXY;
+    private TopicDetailView klk;
 
     public a(TopicDetailView topicDetailView) {
-        this.jXY = topicDetailView;
+        this.klk = topicDetailView;
     }
 
     public void l(BdUniqueId bdUniqueId) {
-        this.fzO = bdUniqueId;
-        this.iqm.setTag(bdUniqueId);
-        this.iqm.getHttpMessageListener().setSelfListener(true);
-        this.iqm.getSocketMessageListener().setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.iqm);
+        this.fJu = bdUniqueId;
+        this.iCG.setTag(bdUniqueId);
+        this.iCG.getHttpMessageListener().setSelfListener(true);
+        this.iCG.getSocketMessageListener().setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.iCG);
     }
 
-    public RunnableC0765a z(long j, long j2) {
-        return new RunnableC0765a(j2, j);
+    public RunnableC0754a C(long j, long j2) {
+        return new RunnableC0754a(j2, j);
     }
 
     /* renamed from: com.baidu.tieba.homepage.topic.topicdetail.model.a$a  reason: collision with other inner class name */
-    /* loaded from: classes22.dex */
-    public class RunnableC0765a implements Runnable {
+    /* loaded from: classes2.dex */
+    public class RunnableC0754a implements Runnable {
         private long postId;
         private long threadId;
 
-        public RunnableC0765a(long j, long j2) {
+        public RunnableC0754a(long j, long j2) {
             this.threadId = j;
             this.postId = j2;
         }
@@ -68,11 +68,11 @@ public class a {
             int equipmentHeight = l.getEquipmentHeight(TbadkCoreApplication.getInst());
             float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
             int i = 1;
-            if (av.btX().btY()) {
+            if (au.bwr().bws()) {
                 i = 2;
             }
             RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
-            requestGetMyPostNetMessage.setTag(a.this.fzO);
+            requestGetMyPostNetMessage.setTag(a.this.fJu);
             requestGetMyPostNetMessage.setParams(this.threadId, this.postId, 0L, equipmentWidth, equipmentHeight, f, i);
             MessageManager.getInstance().sendMessage(requestGetMyPostNetMessage);
         }
@@ -87,11 +87,11 @@ public class a {
             builder2.portrait = TbadkCoreApplication.getCurrentPortrait();
             builder.author = builder2.build(true);
             ThreadInfo build = builder.build(true);
-            by byVar = new by();
-            byVar.a(build);
-            byVar.dF(new Date().getTime());
-            if (k.ad(byVar)) {
-                this.jXY.aF(byVar);
+            bz bzVar = new bz();
+            bzVar.a(build);
+            bzVar.dF(new Date().getTime());
+            if (k.ad(bzVar)) {
+                this.klk.aG(bzVar);
             }
         }
     }

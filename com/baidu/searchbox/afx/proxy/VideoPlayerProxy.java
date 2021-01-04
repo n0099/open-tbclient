@@ -16,7 +16,7 @@ import com.baidu.searchbox.afx.recode.Mp4Composer;
 import java.io.File;
 import java.io.FileDescriptor;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class VideoPlayerProxy extends PlayerProxy {
     private static final String TAG = "VideoPlayerProxy";
     private final VideoPlayer.PlayTask mPlayTask;

@@ -31,7 +31,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class ChatMsgManager extends BaseManager {
     public static void init(Context context) {
         if (!isNullContext(context)) {

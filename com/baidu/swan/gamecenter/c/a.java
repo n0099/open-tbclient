@@ -1,8 +1,8 @@
 package com.baidu.swan.gamecenter.c;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import org.json.JSONObject;
-/* loaded from: classes16.dex */
+/* loaded from: classes3.dex */
 public abstract class a {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     public final String name;

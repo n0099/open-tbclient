@@ -13,7 +13,7 @@ import com.google.zxing.ResultPointCallback;
 import com.google.zxing.common.BitArray;
 import java.util.Arrays;
 import java.util.Map;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public abstract class UPCEANReader extends OneDReader {
     private static final float MAX_AVG_VARIANCE = 0.48f;
     private static final float MAX_INDIVIDUAL_VARIANCE = 0.7f;
@@ -52,21 +52,21 @@ public abstract class UPCEANReader extends OneDReader {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static int[] findStartGuardPattern(BitArray bitArray) throws NotFoundException {
-        int[] iArr = new int[START_END_PATTERN.length];
+        int[] iArr = null;
+        int[] iArr2 = new int[START_END_PATTERN.length];
         int i = 0;
-        int[] iArr2 = null;
         boolean z = false;
         while (!z) {
-            Arrays.fill(iArr, 0, START_END_PATTERN.length, 0);
-            iArr2 = findGuardPattern(bitArray, i, false, START_END_PATTERN, iArr);
-            int i2 = iArr2[0];
-            i = iArr2[1];
+            Arrays.fill(iArr2, 0, START_END_PATTERN.length, 0);
+            iArr = findGuardPattern(bitArray, i, false, START_END_PATTERN, iArr2);
+            int i2 = iArr[0];
+            i = iArr[1];
             int i3 = i2 - (i - i2);
             if (i3 >= 0) {
                 z = bitArray.isRange(i3, i2, false);
             }
         }
-        return iArr2;
+        return iArr;
     }
 
     @Override // com.google.zxing.oned.OneDReader
@@ -179,30 +179,37 @@ public abstract class UPCEANReader extends OneDReader {
     }
 
     private static int[] findGuardPattern(BitArray bitArray, int i, boolean z, int[] iArr, int[] iArr2) throws NotFoundException {
+        int i2;
         int size = bitArray.getSize();
         int nextUnset = z ? bitArray.getNextUnset(i) : bitArray.getNextSet(i);
         int length = iArr.length;
+        int i3 = nextUnset;
         boolean z2 = z;
-        int i2 = 0;
-        for (int i3 = nextUnset; i3 < size; i3++) {
+        int i4 = nextUnset;
+        int i5 = 0;
+        while (i3 < size) {
             if (bitArray.get(i3) ^ z2) {
-                iArr2[i2] = iArr2[i2] + 1;
+                iArr2[i5] = iArr2[i5] + 1;
+                i2 = i4;
             } else {
-                if (i2 == length - 1) {
+                if (i5 == length - 1) {
                     if (patternMatchVariance(iArr2, iArr, MAX_INDIVIDUAL_VARIANCE) < MAX_AVG_VARIANCE) {
-                        return new int[]{nextUnset, i3};
+                        return new int[]{i4, i3};
                     }
-                    nextUnset += iArr2[0] + iArr2[1];
+                    i2 = iArr2[0] + iArr2[1] + i4;
                     System.arraycopy(iArr2, 2, iArr2, 0, length - 2);
                     iArr2[length - 2] = 0;
                     iArr2[length - 1] = 0;
-                    i2--;
+                    i5--;
                 } else {
-                    i2++;
+                    i5++;
+                    i2 = i4;
                 }
-                iArr2[i2] = 1;
+                iArr2[i5] = 1;
                 z2 = !z2;
             }
+            i3++;
+            i4 = i2;
         }
         throw NotFoundException.getNotFoundInstance();
     }

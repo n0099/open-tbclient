@@ -4,17 +4,17 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.ala.alaar.sticker.model.FuFaceItem;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AntiContentHttpResponseMessage extends JsonHttpResponsedMessage {
-    private int cmE;
-    private int gjU;
-    private int gjV;
-    public List<FuFaceItem> gjW;
+    private int ctK;
+    private int gut;
+    private int guu;
+    public List<FuFaceItem> guv;
     private int mask;
 
     public AntiContentHttpResponseMessage() {
         super(1021158);
-        this.gjW = null;
+        this.guv = null;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -22,14 +22,14 @@ public class AntiContentHttpResponseMessage extends JsonHttpResponsedMessage {
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.gjU = optJSONObject.optInt("auditType");
+            this.gut = optJSONObject.optInt("auditType");
             this.mask = optJSONObject.optInt("mask");
-            this.cmE = optJSONObject.optInt("display");
-            this.gjV = optJSONObject.optInt("ansSense");
+            this.ctK = optJSONObject.optInt("display");
+            this.guu = optJSONObject.optInt("ansSense");
         }
     }
 
-    public boolean bQo() {
-        return this.cmE == 1;
+    public boolean bSN() {
+        return this.ctK == 1;
     }
 }

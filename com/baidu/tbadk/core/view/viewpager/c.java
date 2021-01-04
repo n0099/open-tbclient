@@ -1,46 +1,108 @@
 package com.baidu.tbadk.core.view.viewpager;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.q;
-import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter;
-import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter.a;
+import com.baidu.adp.widget.ListView.n;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes.dex */
-public abstract class c<T extends q, V extends BdBaseViewPagerAdapter.a> {
-    protected BdUniqueId Wv;
-    protected a<T, V> fhH;
-    protected Context mContext;
+public class c {
+    private int frn;
+    private List<n> fru;
+    private List<n> frv;
+    private boolean frw;
+    private boolean frx;
+    private int fry = 2;
+    private int frz = 1;
 
-    /* loaded from: classes.dex */
-    public interface a<T extends q, V extends BdBaseViewPagerAdapter.a> {
-        void c(V v, T t);
+    public c(List<n> list, boolean z, int i) {
+        this.frn = 2;
+        this.fru = list;
+        this.frx = z;
+        this.frn = i;
+        bG(list);
     }
 
-    public abstract V E(ViewGroup viewGroup);
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public abstract View a(ViewGroup viewGroup, V v, T t);
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public c(Context context, BdUniqueId bdUniqueId) {
-        this.mContext = context;
-        this.Wv = bdUniqueId;
+    public void bG(List<n> list) {
+        if (list != null && list.size() >= this.fry && list.size() <= this.frn) {
+            this.frw = true;
+        } else if (list.size() > this.frn && this.frx) {
+            this.frw = true;
+        } else {
+            this.frw = false;
+        }
+        this.frv = byX();
     }
 
-    public BdUniqueId getType() {
-        return this.Wv;
+    private List<n> byX() {
+        ArrayList arrayList = new ArrayList();
+        if (this.fru != null) {
+            if (this.frw) {
+                if (this.fru.size() > this.frn && this.fru.size() >= this.frz) {
+                    arrayList.addAll(this.fru.subList(0, this.frn));
+                    arrayList.addAll(0, this.fru.subList(this.frn - this.frz, this.frn));
+                    arrayList.addAll(this.fru.subList(0, this.frz));
+                } else {
+                    arrayList.addAll(this.fru);
+                    arrayList.addAll(0, this.fru.subList(this.fru.size() - this.frz, this.fru.size()));
+                    arrayList.addAll(this.fru.subList(0, this.frz));
+                }
+            } else if (this.fru != null && this.fru.size() > 0 && this.fru.size() >= this.frz) {
+                arrayList.addAll(this.fru.subList(0, this.frz));
+            }
+        }
+        return arrayList;
     }
 
-    public void b(V v, T t) {
+    public int rG(int i) {
+        if (this.frw) {
+            int size = this.frv.size();
+            if (i == 0) {
+                return (size - 1) - this.frz;
+            }
+            if (i == size - this.frz) {
+                return this.frz;
+            }
+            return i;
+        }
+        return i;
     }
 
-    public void setOnItemClickListener(a<T, V> aVar) {
-        this.fhH = aVar;
+    public int rH(int i) {
+        if (this.frw) {
+            return i - this.frz;
+        }
+        return i;
     }
 
-    public a<T, V> bwD() {
-        return this.fhH;
+    public int byY() {
+        if (this.fru == null) {
+            return 0;
+        }
+        return this.fru.size();
+    }
+
+    public int byZ() {
+        if (this.frw) {
+            return this.frz;
+        }
+        return 0;
+    }
+
+    public void rI(int i) {
+        this.frn = i;
+        bG(this.fru);
+    }
+
+    public void rJ(int i) {
+        this.fry = i;
+        bG(this.fru);
+    }
+
+    public List<n> bza() {
+        return this.frv;
+    }
+
+    public void rK(int i) {
+        this.frz = i;
+        bG(this.fru);
     }
 }

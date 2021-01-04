@@ -10,6 +10,7 @@ import android.graphics.Rect;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.common.util.DeviceId;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.pass.biometrics.base.PassBiometricDefaultFactory;
 import com.baidu.pass.biometrics.base.debug.Log;
 import com.baidu.pass.common.SecurityUtil;
@@ -18,7 +19,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.UUID;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class PassBiometricUtil {
     public static final String CPU_TYPE_ARM64_V8A = "arm64-v8a";
     public static final String CPU_TYPE_ARMEABI = "armeabi";
@@ -26,8 +27,10 @@ public class PassBiometricUtil {
     public static final String CPU_TYPE_X86 = "x86";
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2714a = "PassBiometricUtil";
-    static final int b = 480;
+    private static final String f4013a = "PassBiometricUtil";
+
+    /* renamed from: b  reason: collision with root package name */
+    static final int f4014b = 480;
     static final int c = 480;
     static final int d = 192;
     static final int e = 480;
@@ -99,10 +102,10 @@ public class PassBiometricUtil {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [15=4, 32=6] */
-    /* JADX WARN: Removed duplicated region for block: B:103:0x0122 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:102:0x0123 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:27:0x00c5  */
     /* JADX WARN: Removed duplicated region for block: B:32:0x010c  */
-    /* JADX WARN: Removed duplicated region for block: B:43:0x0127 A[Catch: IOException -> 0x020d, TRY_LEAVE, TryCatch #6 {IOException -> 0x020d, blocks: (B:41:0x0122, B:43:0x0127), top: B:103:0x0122 }] */
+    /* JADX WARN: Removed duplicated region for block: B:43:0x0128 A[Catch: IOException -> 0x020f, TRY_LEAVE, TryCatch #5 {IOException -> 0x020f, blocks: (B:41:0x0123, B:43:0x0128), top: B:102:0x0123 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -113,7 +116,6 @@ public class PassBiometricUtil {
         String str;
         String str2;
         String readLine;
-        BufferedReader bufferedReader2 = null;
         String[] strArr = {"", ""};
         try {
             fileReader = new FileReader("/proc/cpuinfo");
@@ -124,6 +126,7 @@ public class PassBiometricUtil {
         } catch (Throwable th2) {
             fileReader = null;
             th = th2;
+            bufferedReader = null;
         }
         try {
             bufferedReader = new BufferedReader(fileReader, 8192);
@@ -133,13 +136,13 @@ public class PassBiometricUtil {
                     String[] split = readLine2.split("\\s+");
                     Object[] objArr = new Object[1];
                     objArr[0] = "getCpuType()str2:" + readLine2;
-                    Log.d(f2714a, objArr);
+                    Log.d(f4013a, objArr);
                     for (int i2 = 2; i2 < split.length; i2++) {
                         strArr[0] = strArr[0] + split[i2] + " ";
                     }
                     Object[] objArr2 = new Object[1];
                     objArr2[0] = "getCpuType()str2" + bufferedReader.readLine();
-                    Log.d(f2714a, objArr2);
+                    Log.d(f4013a, objArr2);
                     strArr[1] = strArr[1] + readLine.split("\\s+")[2];
                     try {
                         fileReader.close();
@@ -164,12 +167,11 @@ public class PassBiometricUtil {
                     if (Build.VERSION.SDK_INT >= 8) {
                     }
                     str2 = "none";
-                    Log.i(f2714a, "getCpuType()" + strArr[0] + strArr[1] + str + str2);
+                    Log.i(f4013a, "getCpuType()" + strArr[0] + strArr[1] + str + str2);
                     if (str.equals("armeabi")) {
                     }
                 }
             } catch (Throwable th3) {
-                bufferedReader2 = bufferedReader;
                 th = th3;
                 if (fileReader != null) {
                     try {
@@ -179,8 +181,8 @@ public class PassBiometricUtil {
                         throw th;
                     }
                 }
-                if (bufferedReader2 != null) {
-                    bufferedReader2.close();
+                if (bufferedReader != null) {
+                    bufferedReader.close();
                 }
                 throw th;
             }
@@ -189,9 +191,10 @@ public class PassBiometricUtil {
             bufferedReader = null;
         } catch (Throwable th4) {
             th = th4;
+            bufferedReader = null;
             if (fileReader != null) {
             }
-            if (bufferedReader2 != null) {
+            if (bufferedReader != null) {
             }
             throw th;
         }
@@ -200,13 +203,13 @@ public class PassBiometricUtil {
             try {
                 str2 = (String) Build.class.getDeclaredField("cpuAbi2").get(null);
             } catch (Exception e8) {
-                Log.w(f2714a, "getCpuType() abi2" + e8.toString());
+                Log.w(f4013a, "getCpuType() abi2" + e8.toString());
             }
-            Log.i(f2714a, "getCpuType()" + strArr[0] + strArr[1] + str + str2);
+            Log.i(f4013a, "getCpuType()" + strArr[0] + strArr[1] + str + str2);
             return (!str.equals("armeabi") || str2.equals("armeabi")) ? "armeabi" : (str.equals("armeabi-v7a") || str2.equals("armeabi-v7a")) ? "armeabi-v7a" : (str.equals("arm64-v8a") || str2.equals("arm64-v8a")) ? "arm64-v8a" : (str.equals("x86") || str2.equals("x86")) ? "x86" : strArr[0].toLowerCase().contains("armv7") ? "armeabi-v7a" : strArr[0].toLowerCase().contains("arm") ? "armeabi" : strArr[0].toLowerCase().contains("arm64") ? "arm64-v8a" : strArr[0].toLowerCase().contains("x86") ? "x86" : "armeabi";
         }
         str2 = "none";
-        Log.i(f2714a, "getCpuType()" + strArr[0] + strArr[1] + str + str2);
+        Log.i(f4013a, "getCpuType()" + strArr[0] + strArr[1] + str + str2);
         if (str.equals("armeabi")) {
         }
     }
@@ -248,7 +251,7 @@ public class PassBiometricUtil {
     public static String getUA(Context context, String str) {
         StringBuilder sb = new StringBuilder();
         sb.append("pass_bio").append("-p-");
-        sb.append("android").append("-p-");
+        sb.append(HttpConstants.OS_TYPE_VALUE).append("-p-");
         sb.append(str).append("-p-");
         sb.append(getVersionCode(context)).append("-p-");
         sb.append(PassBiometricDefaultFactory.VERSION_NAME).append("-p-");

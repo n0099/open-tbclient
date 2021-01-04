@@ -1,17 +1,20 @@
 package com.baidu.platform.comapi.walknavi.d.a.g;
 
 import android.os.Environment;
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.security.MessageDigest;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public final class k {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2996a = k.class.getName();
-    private static String b = Environment.getExternalStorageDirectory() + "/AR/Screenshots/";
+    private static final String f4463a = k.class.getName();
+
+    /* renamed from: b  reason: collision with root package name */
+    private static String f4464b = Environment.getExternalStorageDirectory() + "/AR/Screenshots/";
 
     public static String a(String str) {
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            MessageDigest messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
             char[] charArray = str.toCharArray();
             byte[] bArr = new byte[charArray.length];
             for (int i = 0; i < charArray.length; i++) {

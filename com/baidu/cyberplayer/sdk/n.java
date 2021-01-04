@@ -18,9 +18,10 @@ import android.os.StatFs;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.retrieve.Constants;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
-import com.baidu.searchbox.ui.animview.praise.guide.ControlShowManager;
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import com.baidu.webkit.internal.ETAG;
 import com.baidu.webkit.sdk.VideoCloudSetting;
+import com.kwai.video.player.KsMediaMeta;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import dalvik.system.BaseDexClassLoader;
 import java.io.BufferedInputStream;
@@ -44,14 +45,16 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import org.json.JSONObject;
 import org.json.JSONTokener;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f1405a = ".video_cache";
-    public static String b = "last_file_cache_time";
+    public static String f1844a = ".video_cache";
+
+    /* renamed from: b  reason: collision with root package name */
+    public static String f1845b = "last_file_cache_time";
     public static long c = 86400000;
-    public static long d = 536870912;
+    public static long d = KsMediaMeta.AV_CH_STEREO_LEFT;
     private static volatile int e = -1;
     private static volatile int f = -1;
     private static volatile String g = null;
@@ -61,7 +64,7 @@ public class n {
             long i = d.i();
             d.f();
             long i2 = d.i();
-            CyberCfgManager.getInstance().setPrefLong(b, System.currentTimeMillis());
+            CyberCfgManager.getInstance().setPrefLong(f1845b, System.currentTimeMillis());
             CyberLog.i("sdk_Utils", "delete file success,  beforeSpace = " + i + " afterSpace = " + i2 + " deleteSpaceSize = " + (i - i2));
             return i - i2;
         }
@@ -106,7 +109,7 @@ public class n {
         }
         byte[] bArr = new byte[1024];
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            MessageDigest messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
             FileInputStream fileInputStream = new FileInputStream(file);
             while (true) {
                 int read = fileInputStream.read(bArr, 0, 1024);
@@ -135,7 +138,7 @@ public class n {
             return null;
         }
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            MessageDigest messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
             messageDigest.update(bArr, 0, bArr.length);
             byte[] digest = messageDigest.digest();
             char[] charArray = "0123456789abcdef".toCharArray();
@@ -173,14 +176,17 @@ public class n {
                 throw new RuntimeException("output buffer too short");
             }
             int i5 = 0;
+            byte b3 = 0;
             int i6 = 0;
-            for (int i7 = 0; i7 < length; i7++) {
+            while (i5 < length) {
                 i6 = (i6 + 1) & 255;
-                i5 = (i5 + bArr2[i6]) & 255;
-                byte b3 = bArr2[i6];
-                bArr2[i6] = bArr2[i5];
-                bArr2[i5] = b3;
-                bArr3[i7] = (byte) (bArr[i7] ^ bArr2[(bArr2[i6] + bArr2[i5]) & 255]);
+                int i7 = (bArr2[i6] + b3) & 255;
+                byte b4 = bArr2[i6];
+                bArr2[i6] = bArr2[i7];
+                bArr2[i7] = b4;
+                bArr3[i5] = (byte) (bArr[i5] ^ bArr2[(bArr2[i6] + bArr2[i7]) & 255]);
+                i5++;
+                b3 = i7;
             }
             return new String(bArr3, "utf-8");
         } catch (Exception e2) {
@@ -410,7 +416,7 @@ public class n {
     }
 
     public static String d() {
-        return new SimpleDateFormat(ControlShowManager.DAY_TIME_FORMAT).format(new Date(System.currentTimeMillis()));
+        return new SimpleDateFormat("yyyy-MM-dd").format(new Date(System.currentTimeMillis()));
     }
 
     public static long e() {
@@ -560,31 +566,22 @@ public class n {
     }
 
     private static String p() {
-        String str;
-        IOException e2;
         if (Build.CPU_ABI.equalsIgnoreCase("x86")) {
             return "Intel";
         }
+        String str = "";
         try {
             byte[] bArr = new byte[1024];
             RandomAccessFile randomAccessFile = new RandomAccessFile("/proc/cpuinfo", "r");
             randomAccessFile.read(bArr);
-            str = new String(bArr);
-            int indexOf = str.indexOf(0);
-            if (indexOf != -1) {
-                str = str.substring(0, indexOf);
-            }
-            try {
-                randomAccessFile.close();
-                return str;
-            } catch (IOException e3) {
-                e2 = e3;
-                e2.printStackTrace();
-                return str;
-            }
-        } catch (IOException e4) {
-            str = "";
-            e2 = e4;
+            String str2 = new String(bArr);
+            int indexOf = str2.indexOf(0);
+            str = indexOf != -1 ? str2.substring(0, indexOf) : str2;
+            randomAccessFile.close();
+            return str;
+        } catch (IOException e2) {
+            e2.printStackTrace();
+            return str;
         }
     }
 
@@ -595,7 +592,7 @@ public class n {
     private static boolean r() {
         boolean z = false;
         try {
-            long prefLong = CyberCfgManager.getInstance().getPrefLong(b, 0L);
+            long prefLong = CyberCfgManager.getInstance().getPrefLong(f1845b, 0L);
             long currentTimeMillis = System.currentTimeMillis();
             if (prefLong > 0) {
                 boolean z2 = currentTimeMillis - prefLong > s();
@@ -604,7 +601,7 @@ public class n {
                     z = true;
                 }
             } else {
-                CyberCfgManager.getInstance().setPrefLong(b, currentTimeMillis);
+                CyberCfgManager.getInstance().setPrefLong(f1845b, currentTimeMillis);
             }
             return z;
         } catch (Exception e2) {

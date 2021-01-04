@@ -1,14 +1,14 @@
 package com.baidu.card;
 
 import android.content.Context;
-/* loaded from: classes21.dex */
-public class ac extends at {
+/* loaded from: classes.dex */
+public class ac extends as {
     public ac(Context context) {
         super(context);
     }
 
-    @Override // com.baidu.card.at
-    protected com.baidu.tieba.play.operableVideoView.a tK() {
-        return new com.baidu.tieba.play.operableVideoView.d(this.mContext, this.ajA);
+    @Override // com.baidu.card.as
+    protected com.baidu.tieba.play.operableVideoView.a ti() {
+        return new com.baidu.tieba.play.operableVideoView.d(this.mContext, this.ahC);
     }
 }

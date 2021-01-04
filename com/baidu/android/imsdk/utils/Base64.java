@@ -3,7 +3,7 @@ package com.baidu.android.imsdk.utils;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class Base64 {
     private static final char[] legalChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".toCharArray();
 
@@ -19,25 +19,24 @@ public class Base64 {
             stringBuffer.append(legalChars[(i4 >> 12) & 63]);
             stringBuffer.append(legalChars[(i4 >> 6) & 63]);
             stringBuffer.append(legalChars[i4 & 63]);
-            int i5 = i3 + 3;
-            int i6 = i2 + 1;
+            i3 += 3;
+            int i5 = i2 + 1;
             if (i2 >= 14) {
                 stringBuffer.append(" ");
-                i6 = 0;
+                i5 = 0;
             }
-            i2 = i6;
-            i3 = i5;
+            i2 = i5;
         }
         if (i3 == (0 + length) - 2) {
-            int i7 = ((bArr[i3 + 1] & 255) << 8) | ((bArr[i3] & 255) << 16);
-            stringBuffer.append(legalChars[(i7 >> 18) & 63]);
-            stringBuffer.append(legalChars[(i7 >> 12) & 63]);
-            stringBuffer.append(legalChars[(i7 >> 6) & 63]);
+            int i6 = ((bArr[i3] & 255) << 16) | ((bArr[i3 + 1] & 255) << 8);
+            stringBuffer.append(legalChars[(i6 >> 18) & 63]);
+            stringBuffer.append(legalChars[(i6 >> 12) & 63]);
+            stringBuffer.append(legalChars[(i6 >> 6) & 63]);
             stringBuffer.append("=");
         } else if (i3 == (0 + length) - 1) {
-            int i8 = (bArr[i3] & 255) << 16;
-            stringBuffer.append(legalChars[(i8 >> 18) & 63]);
-            stringBuffer.append(legalChars[(i8 >> 12) & 63]);
+            int i7 = (bArr[i3] & 255) << 16;
+            stringBuffer.append(legalChars[(i7 >> 18) & 63]);
+            stringBuffer.append(legalChars[(i7 >> 12) & 63]);
             stringBuffer.append("==");
         }
         return stringBuffer.toString();

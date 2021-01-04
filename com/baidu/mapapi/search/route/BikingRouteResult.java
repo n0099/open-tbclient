@@ -5,22 +5,24 @@ import android.os.Parcelable;
 import com.baidu.mapapi.search.core.SearchResult;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class BikingRouteResult extends SearchResult implements Parcelable {
     public static final Parcelable.Creator<BikingRouteResult> CREATOR = new c();
 
     /* renamed from: a  reason: collision with root package name */
-    private List<BikingRouteLine> f2134a;
-    private SuggestAddrInfo b;
+    private List<BikingRouteLine> f3013a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private SuggestAddrInfo f3014b;
 
     public BikingRouteResult() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public BikingRouteResult(Parcel parcel) {
-        this.f2134a = new ArrayList();
-        parcel.readList(this.f2134a, BikingRouteLine.class.getClassLoader());
-        this.b = (SuggestAddrInfo) parcel.readParcelable(SuggestAddrInfo.class.getClassLoader());
+        this.f3013a = new ArrayList();
+        parcel.readList(this.f3013a, BikingRouteLine.class.getClassLoader());
+        this.f3014b = (SuggestAddrInfo) parcel.readParcelable(SuggestAddrInfo.class.getClassLoader());
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
@@ -29,24 +31,24 @@ public class BikingRouteResult extends SearchResult implements Parcelable {
     }
 
     public List<BikingRouteLine> getRouteLines() {
-        return this.f2134a;
+        return this.f3013a;
     }
 
     public SuggestAddrInfo getSuggestAddrInfo() {
-        return this.b;
+        return this.f3014b;
     }
 
     public void setRouteLines(List<BikingRouteLine> list) {
-        this.f2134a = list;
+        this.f3013a = list;
     }
 
     public void setSuggestAddrInfo(SuggestAddrInfo suggestAddrInfo) {
-        this.b = suggestAddrInfo;
+        this.f3014b = suggestAddrInfo;
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeList(this.f2134a);
-        parcel.writeParcelable(this.b, 1);
+        parcel.writeList(this.f3013a);
+        parcel.writeParcelable(this.f3014b, 1);
     }
 }

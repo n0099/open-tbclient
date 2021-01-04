@@ -12,13 +12,13 @@ import com.baidu.searchbox.logsystem.logsys.LogObject;
 import com.baidu.searchbox.logsystem.logsys.LogType;
 import com.baidu.searchbox.logsystem.util.LLog;
 import java.io.File;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class LokiService extends Service {
     protected static final String LOG_SYSTEM_SERVICE = ":loki";
     private static final String TAG = "LokiService";
     public static LogSystemProcessor mProcessor;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes5.dex */
     public static final class Constant {
         public static final String LOG_BASIC_DATA = "logbasicdata";
         public static final String LOG_BASIC_DATA_FILE = "logbasicdatafile";

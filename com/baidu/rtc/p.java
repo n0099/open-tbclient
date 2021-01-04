@@ -9,10 +9,13 @@ import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
+import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.mobstat.Config;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.rtc.BaiduRtcRoom;
 import com.baidu.sapi2.views.SmsLoginView;
+import com.kwai.video.player.misc.KsMediaFormat;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -44,9 +47,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.webrtc.IceCandidate;
 import org.webrtc.SessionDescription;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class p {
-    static OkHttpClient.Builder crv = new OkHttpClient.Builder().connectionPool(new ConnectionPool(5, 1, TimeUnit.MINUTES)).addInterceptor(new Interceptor() { // from class: com.baidu.rtc.p.1
+    static int cyA = 25000;
+    static OkHttpClient.Builder cyz = new OkHttpClient.Builder().connectionPool(new ConnectionPool(5, 1, TimeUnit.MINUTES)).addInterceptor(new Interceptor() { // from class: com.baidu.rtc.p.1
         @Override // okhttp3.Interceptor
         public Response intercept(Interceptor.Chain chain) throws IOException {
             Request.Builder newBuilder = chain.request().newBuilder();
@@ -58,90 +62,98 @@ public class p {
             }
         }
     });
-    static int crw = 25000;
-    private BigInteger crU;
-    private WebSocket crY;
-    private c crx;
-    private ConcurrentHashMap<String, d> crZ = new ConcurrentHashMap<>();
-    private ConcurrentHashMap<BigInteger, b> crA = new ConcurrentHashMap<>();
-    private ConcurrentHashMap<BigInteger, b> cry = new ConcurrentHashMap<>();
+    private c cyB;
+    private BigInteger cyY;
+    private WebSocket czc;
+    private ConcurrentHashMap<String, d> czd = new ConcurrentHashMap<>();
+    private ConcurrentHashMap<BigInteger, b> cyE = new ConcurrentHashMap<>();
+    private ConcurrentHashMap<BigInteger, b> cyC = new ConcurrentHashMap<>();
     private long mUserId = (Build.SERIAL.hashCode() % 100000) + 78657895;
     private String mDisplayName = "Android-rtc";
     private String mRoomName = "";
-    private String mVideoCodec = "h264";
-    private boolean crC = true;
-    private boolean crB = true;
+    private String mVideoCodec = KsMediaFormat.CODEC_NAME_H264;
+    private boolean cyG = true;
+    private boolean cyF = true;
     private boolean mHasVideo = true;
     private boolean mHasAudio = true;
-    private boolean cpH = false;
+    private boolean cwM = false;
     private long mRoomId = -1160725808;
     private String mAppId = "";
-    private String crV = "";
-    private String crN = "";
-    private String crM = "";
-    private String crI = "";
-    private String crR = "";
-    private String crT = "";
-    private BaiduRtcRoom.RtcLiveTransferMode crP = BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ANCHOR_TRASNSMISSION;
-    private boolean crG = false;
-    private boolean crK = false;
-    private String crO = "";
-    private String crJ = "";
-    private BaiduRtcRoom.RtcLiveTransferMode crQ = BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ANCHOR_TRASNSMISSION;
-    private boolean crH = false;
-    private boolean crL = false;
-    private int crF = 5000;
-    private int crS = 5000;
-    public boolean crD = true;
-    public boolean crE = true;
-    volatile BaiduRtcRoom.e crX = null;
-    private ConcurrentHashMap<BigInteger, BaiduRtcRoom.d> crW = new ConcurrentHashMap<>();
-    private Runnable crz = new Runnable() { // from class: com.baidu.rtc.p.18
+    private String cyZ = "";
+    private String cyR = "";
+    private String cyQ = "";
+    private String cyM = "";
+    private String cyV = "";
+    private String cyX = "";
+    private BaiduRtcRoom.RtcLiveTransferMode cyT = BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ANCHOR_TRASNSMISSION;
+    private boolean cyK = false;
+    private boolean cyO = false;
+    private String cyS = "";
+    private String cyN = "";
+    private BaiduRtcRoom.RtcLiveTransferMode cyU = BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ANCHOR_TRASNSMISSION;
+    private boolean cyL = false;
+    private boolean cyP = false;
+    private int cyJ = 5000;
+    private int cyW = 5000;
+    public boolean cyH = true;
+    public boolean cyI = true;
+    volatile BaiduRtcRoom.e czb = null;
+    private ConcurrentHashMap<BigInteger, BaiduRtcRoom.d> cza = new ConcurrentHashMap<>();
+    private Runnable cyD = new Runnable() { // from class: com.baidu.rtc.p.18
         @Override // java.lang.Runnable
         public void run() {
-            p.this.agv();
-            p.this.mHandler.postDelayed(p.this.crz, p.crw);
+            p.this.air();
+            p.this.mHandler.postDelayed(p.this.cyD, p.cyA);
         }
     };
     private Handler mHandler = new Handler(Looper.getMainLooper());
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void agv() {
-        String c = c((Integer) 12);
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.putOpt("janus", "keepalive");
-            jSONObject.putOpt("session_id", this.crU);
-            jSONObject.putOpt("transaction", c);
-        } catch (JSONException e) {
-            e.printStackTrace();
+    private void aF(JSONObject jSONObject) {
+        if (this.czc != null) {
+            this.czc.send(jSONObject.toString());
         }
-        ax(jSONObject);
+        if (com.baidu.rtc.a.a.cwO) {
+            Log.i("WebSocketChannel", jSONObject.toString());
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void agw() {
-        String c = c((Integer) 12);
+    public void air() {
+        String e = e((Integer) 12);
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.putOpt("janus", "keepalive");
+            jSONObject.putOpt("session_id", this.cyY);
+            jSONObject.putOpt("transaction", e);
+        } catch (JSONException e2) {
+            e2.printStackTrace();
+        }
+        aF(jSONObject);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void ais() {
+        String e = e((Integer) 12);
         d dVar = new d();
-        dVar.tid = c;
-        dVar.cpn = new o() { // from class: com.baidu.rtc.p.22
+        dVar.tid = e;
+        dVar.cwt = new o() { // from class: com.baidu.rtc.p.22
             @Override // com.baidu.rtc.o
-            public void aw(JSONObject jSONObject) {
+            public void aE(JSONObject jSONObject) {
                 b bVar = new b();
-                bVar.cpb = new BigInteger(jSONObject.optJSONObject("data").optString("id"));
-                bVar.cpj = new e() { // from class: com.baidu.rtc.p.22.1
+                bVar.cwh = new BigInteger(jSONObject.optJSONObject("data").optString("id"));
+                bVar.cwp = new e() { // from class: com.baidu.rtc.p.22.1
                     @Override // com.baidu.rtc.e
                     public void a(b bVar2) {
-                        p.this.crx.c(bVar2.cpb);
+                        p.this.cyB.c(bVar2.cwh);
                     }
                 };
-                bVar.cpl = new f() { // from class: com.baidu.rtc.p.22.2
+                bVar.cwr = new f() { // from class: com.baidu.rtc.p.22.2
                     @Override // com.baidu.rtc.f
                     public void a(b bVar2, JSONObject jSONObject2) {
-                        p.this.crx.a(bVar2.cpb, jSONObject2);
+                        p.this.cyB.a(bVar2.cwh, jSONObject2);
                     }
                 };
-                p.this.crA.put(bVar.cpb, bVar);
+                p.this.cyE.put(bVar.cwh, bVar);
                 if (p.this.mRoomId == -1160725808) {
                     p.this.e(bVar);
                 } else {
@@ -149,31 +161,22 @@ public class p {
                 }
             }
         };
-        dVar.cpm = new n() { // from class: com.baidu.rtc.p.23
+        dVar.cws = new n() { // from class: com.baidu.rtc.p.23
             @Override // com.baidu.rtc.n
-            public void av(JSONObject jSONObject) {
+            public void aD(JSONObject jSONObject) {
             }
         };
-        this.crZ.put(c, dVar);
+        this.czd.put(e, dVar);
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.putOpt("janus", "attach");
             jSONObject.putOpt("plugin", "janus.plugin.videoroom");
-            jSONObject.putOpt("transaction", c);
-            jSONObject.putOpt("session_id", this.crU);
-        } catch (JSONException e) {
-            e.printStackTrace();
+            jSONObject.putOpt("transaction", e);
+            jSONObject.putOpt("session_id", this.cyY);
+        } catch (JSONException e2) {
+            e2.printStackTrace();
         }
-        ax(jSONObject);
-    }
-
-    private void ax(JSONObject jSONObject) {
-        if (this.crY != null) {
-            this.crY.send(jSONObject.toString());
-        }
-        if (com.baidu.rtc.b.a.cpJ) {
-            Log.i("WebSocketChannel", jSONObject.toString());
-        }
+        aF(jSONObject);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -184,22 +187,13 @@ public class p {
             jSONObject.putOpt("request", UbcStatConstant.ContentType.UBC_TYPE_IM_LEAVE);
             jSONObject2.putOpt("janus", "message");
             jSONObject2.putOpt("body", jSONObject);
-            jSONObject2.putOpt("transaction", c((Integer) 12));
-            jSONObject2.putOpt("session_id", this.crU);
-            jSONObject2.putOpt("handle_id", bVar.cpb);
+            jSONObject2.putOpt("transaction", e((Integer) 12));
+            jSONObject2.putOpt("session_id", this.cyY);
+            jSONObject2.putOpt("handle_id", bVar.cwh);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        ax(jSONObject2);
-    }
-
-    private String c(Integer num) {
-        Random random = new Random();
-        StringBuilder sb = new StringBuilder(num.intValue());
-        for (int i = 0; i < num.intValue(); i++) {
-            sb.append("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".charAt(random.nextInt("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".length())));
-        }
-        return sb.toString();
+        aF(jSONObject2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -218,71 +212,71 @@ public class p {
             jSONObject2.putOpt(DpStatConstants.KEY_ROOM_NAME, this.mRoomName);
             jSONObject2.putOpt("role", "publisher");
             jSONObject2.putOpt("token", "no_token");
-            if (!this.crR.isEmpty()) {
-                jSONObject2.putOpt("window_id_in_bypass", this.crR);
+            if (!this.cyV.isEmpty()) {
+                jSONObject2.putOpt("window_id_in_bypass", this.cyV);
             }
-            if (!this.crN.isEmpty() && this.crP == BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ANCHOR_TRASNSMISSION) {
-                jSONObject3.putOpt("url", this.crN);
-                if (!this.crI.isEmpty()) {
-                    jSONObject3.putOpt("mixTemplate", this.crI);
+            if (!this.cyR.isEmpty() && this.cyT == BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ANCHOR_TRASNSMISSION) {
+                jSONObject3.putOpt("url", this.cyR);
+                if (!this.cyM.isEmpty()) {
+                    jSONObject3.putOpt("mixTemplate", this.cyM);
                 }
-                jSONObject3.putOpt("mix", Boolean.valueOf(this.crG));
+                jSONObject3.putOpt("mix", Boolean.valueOf(this.cyK));
                 jSONObject2.putOpt(AlaRecorderLog.Protocol.RTMP, jSONObject3);
-            } else if (!this.crO.isEmpty() && this.crQ == BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ANCHOR_TRASNSMISSION) {
-                jSONObject3.putOpt("url", this.crO);
-                if (!this.crJ.isEmpty()) {
-                    jSONObject3.putOpt("mixTemplate", this.crJ);
+            } else if (!this.cyS.isEmpty() && this.cyU == BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ANCHOR_TRASNSMISSION) {
+                jSONObject3.putOpt("url", this.cyS);
+                if (!this.cyN.isEmpty()) {
+                    jSONObject3.putOpt("mixTemplate", this.cyN);
                 }
-                jSONObject3.putOpt("mix", Boolean.valueOf(this.crH));
+                jSONObject3.putOpt("mix", Boolean.valueOf(this.cyL));
                 jSONObject2.putOpt(AlaRecorderLog.Protocol.RTMP, jSONObject3);
             }
-            if (this.crK) {
-                jSONObject4.putOpt("rec", Boolean.valueOf(this.crK));
+            if (this.cyO) {
+                jSONObject4.putOpt("rec", Boolean.valueOf(this.cyO));
                 jSONObject2.putOpt("recording", jSONObject4);
             }
             jSONObject.putOpt("janus", "message");
             jSONObject.putOpt("body", jSONObject2);
-            jSONObject.putOpt("transaction", c((Integer) 12));
-            jSONObject.putOpt("session_id", this.crU);
-            jSONObject.putOpt("handle_id", bVar.cpb);
+            jSONObject.putOpt("transaction", e((Integer) 12));
+            jSONObject.putOpt("session_id", this.cyY);
+            jSONObject.putOpt("handle_id", bVar.cwh);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        ax(jSONObject);
+        aF(jSONObject);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void createSession() {
-        String c = c((Integer) 12);
+        String e = e((Integer) 12);
         d dVar = new d();
-        dVar.tid = c;
-        dVar.cpn = new o() { // from class: com.baidu.rtc.p.20
+        dVar.tid = e;
+        dVar.cwt = new o() { // from class: com.baidu.rtc.p.20
             @Override // com.baidu.rtc.o
-            public void aw(JSONObject jSONObject) {
-                p.this.crU = new BigInteger(jSONObject.optJSONObject("data").optString("id"));
-                p.this.mHandler.postDelayed(p.this.crz, p.crw);
-                p.this.agw();
+            public void aE(JSONObject jSONObject) {
+                p.this.cyY = new BigInteger(jSONObject.optJSONObject("data").optString("id"));
+                p.this.mHandler.postDelayed(p.this.cyD, p.cyA);
+                p.this.ais();
             }
         };
-        dVar.cpm = new n() { // from class: com.baidu.rtc.p.21
+        dVar.cws = new n() { // from class: com.baidu.rtc.p.21
             @Override // com.baidu.rtc.n
-            public void av(JSONObject jSONObject) {
+            public void aD(JSONObject jSONObject) {
             }
         };
-        this.crZ.put(c, dVar);
+        this.czd.put(e, dVar);
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.putOpt("janus", "create");
-            jSONObject.putOpt("transaction", c);
-            if (!this.crT.isEmpty()) {
-                jSONObject.putOpt("sdktag", this.crT);
+            jSONObject.putOpt("transaction", e);
+            if (!this.cyX.isEmpty()) {
+                jSONObject.putOpt("sdktag", this.cyX);
             }
             jSONObject.putOpt("sessionevent", true);
             jSONObject.putOpt("userevent", true);
-        } catch (JSONException e) {
-            e.printStackTrace();
+        } catch (JSONException e2) {
+            e2.printStackTrace();
         }
-        ax(jSONObject);
+        aF(jSONObject);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -293,24 +287,33 @@ public class p {
             jSONObject2.putOpt("request", UbcStatConstant.ContentType.UBC_TYPE_IM_JOIN);
             jSONObject2.putOpt(UbcStatConstant.KEY_CONTENT_ROOM, Long.valueOf(this.mRoomId));
             jSONObject2.putOpt("ptype", "listener");
-            jSONObject2.putOpt("feed", bVar.cpi);
+            jSONObject2.putOpt(LogConfig.KEY_FEED, bVar.cwo);
             jSONObject2.putOpt("id", Long.valueOf(this.mUserId));
             jSONObject2.putOpt("app_id", this.mAppId);
             jSONObject2.putOpt(DpStatConstants.KEY_ROOM_NAME, this.mRoomName);
-            jSONObject2.putOpt("token", this.crV);
+            jSONObject2.putOpt("token", this.cyZ);
             jSONObject2.putOpt("role", "listener");
-            if (!this.crR.isEmpty()) {
-                jSONObject2.putOpt("window_id_in_bypass", this.crR);
+            if (!this.cyV.isEmpty()) {
+                jSONObject2.putOpt("window_id_in_bypass", this.cyV);
             }
             jSONObject.putOpt("janus", "message");
             jSONObject.putOpt("body", jSONObject2);
-            jSONObject.putOpt("transaction", c((Integer) 12));
-            jSONObject.putOpt("session_id", this.crU);
-            jSONObject.putOpt("handle_id", bVar.cpb);
+            jSONObject.putOpt("transaction", e((Integer) 12));
+            jSONObject.putOpt("session_id", this.cyY);
+            jSONObject.putOpt("handle_id", bVar.cwh);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        ax(jSONObject);
+        aF(jSONObject);
+    }
+
+    private String e(Integer num) {
+        Random random = new Random();
+        StringBuilder sb = new StringBuilder(num.intValue());
+        for (int i = 0; i < num.intValue(); i++) {
+            sb.append("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".charAt(random.nextInt("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".length())));
+        }
+        return sb.toString();
     }
 
     public static String encodeURIComponent(String str) {
@@ -325,7 +328,7 @@ public class p {
     public void onMessage(String str) {
         JSONArray optJSONArray;
         int i = 0;
-        if (com.baidu.rtc.b.a.cpJ) {
+        if (com.baidu.rtc.a.a.cwO) {
             Log.i("WebSocketChannel", "onMessage" + str);
         }
         try {
@@ -333,61 +336,61 @@ public class p {
             String optString = jSONObject.optString("janus");
             if (optString.equals("success")) {
                 String optString2 = jSONObject.optString("transaction");
-                d dVar = this.crZ.get(optString2);
-                if (dVar.cpn != null) {
-                    dVar.cpn.aw(jSONObject);
+                d dVar = this.czd.get(optString2);
+                if (dVar.cwt != null) {
+                    dVar.cwt.aE(jSONObject);
                 }
-                this.crZ.remove(optString2);
+                this.czd.remove(optString2);
             } else if (optString.equals(BdStatsConstant.StatsType.ERROR)) {
                 String optString3 = jSONObject.optString("transaction");
-                d dVar2 = this.crZ.get(optString3);
-                if (dVar2 != null && dVar2.cpm != null) {
-                    dVar2.cpm.av(jSONObject);
+                d dVar2 = this.czd.get(optString3);
+                if (dVar2 != null && dVar2.cws != null) {
+                    dVar2.cws.aD(jSONObject);
                 }
-                this.crZ.remove(optString3);
+                this.czd.remove(optString3);
                 if (jSONObject.has(BdStatsConstant.StatsType.ERROR)) {
                     String optString4 = jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR).optString(TiebaInitialize.LogFields.REASON);
                     if (optString4.contains("Room is disbanded")) {
-                        if (this.crx != null) {
-                            this.crx.agh();
+                        if (this.cyB != null) {
+                            this.cyB.aid();
                         }
-                    } else if (!optString4.contains("User is kick out") || this.crx == null) {
+                    } else if (!optString4.contains("User is kick out") || this.cyB == null) {
                     } else {
-                        this.crx.bL(this.mUserId);
+                        this.cyB.bM(this.mUserId);
                     }
                 }
             } else if (optString.equals("ack")) {
             } else {
                 if (optString.equals("timeout")) {
-                    this.mHandler.removeCallbacks(this.crz);
-                    if (this.crx != null) {
-                        this.crx.age();
+                    this.mHandler.removeCallbacks(this.cyD);
+                    if (this.cyB != null) {
+                        this.cyB.aia();
                     }
                 } else if (optString.equals("slowlink")) {
-                    this.crx.h(jSONObject.optBoolean("uplink"), jSONObject.optInt("nacks"));
+                    this.cyB.g(jSONObject.optBoolean("uplink"), jSONObject.optInt("nacks"));
                 } else if (!optString.equals("sessionevent")) {
                     if (jSONObject.has("sender")) {
-                        final b bVar = this.crA.get(new BigInteger(jSONObject.optString("sender")));
+                        final b bVar = this.cyE.get(new BigInteger(jSONObject.optString("sender")));
                         if (bVar == null) {
                             Log.e("WebSocketChannel", "missing handle");
                         } else if (!optString.equals("event")) {
                             if (optString.equals("detached")) {
-                                bVar.cpk.a(bVar);
+                                bVar.cwq.a(bVar);
                             } else if (optString.equals("webrtcup")) {
-                                this.crx.f(bVar.cpb);
+                                this.cyB.f(bVar.cwh);
                             } else if (optString.equals("media")) {
-                                this.crx.a(bVar.cpb, jSONObject.getString("type").contains("video") ? 1 : 0, jSONObject.getBoolean("receiving"));
-                            } else if (!optString.equals("hangup") || this.crx == null) {
+                                this.cyB.a(bVar.cwh, jSONObject.getString("type").contains("video") ? 1 : 0, jSONObject.getBoolean("receiving"));
+                            } else if (!optString.equals("hangup") || this.cyB == null) {
                             } else {
-                                this.crx.b(bVar.cpb);
+                                this.cyB.b(bVar.cwh);
                             }
                         } else {
                             JSONObject optJSONObject = jSONObject.optJSONObject("plugindata").optJSONObject("data");
                             if (optJSONObject.optString("videoroom").equals("joined")) {
-                                bVar.cpj.a(bVar);
+                                bVar.cwp.a(bVar);
                             } else if (optJSONObject.optString("videoroom").equals("event")) {
                                 if (optJSONObject.has("error_code")) {
-                                    this.crx.hx(optJSONObject.optInt("error_code"));
+                                    this.cyB.hw(optJSONObject.optInt("error_code"));
                                 }
                                 if (optJSONObject.optInt("error_code") == 436) {
                                     Log.e("WebSocketChannel", "error_code 436， so try again。");
@@ -406,8 +409,8 @@ public class p {
                                     JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i);
                                     BigInteger bigInteger = new BigInteger(optJSONObject2.optString("id"));
                                     String optString5 = optJSONObject2.optString("display");
-                                    this.crx.b(bigInteger, optString5);
-                                    if (this.crB && this.crE) {
+                                    this.cyB.b(bigInteger, optString5);
+                                    if (this.cyF && this.cyI) {
                                         d(bigInteger, optString5);
                                     }
                                     i++;
@@ -415,41 +418,41 @@ public class p {
                             }
                             String optString6 = optJSONObject.optString("leaving");
                             if (!TextUtils.isEmpty(optString6) && !optString6.equals("ok")) {
-                                this.crx.a(bVar.cpb, new BigInteger(optString6));
-                                b bVar2 = this.cry.get(new BigInteger(optString6));
-                                if (bVar2 != null && bVar2.cpk != null) {
-                                    bVar2.cpk.a(bVar2);
+                                this.cyB.a(bVar.cwh, new BigInteger(optString6));
+                                b bVar2 = this.cyC.get(new BigInteger(optString6));
+                                if (bVar2 != null && bVar2.cwq != null) {
+                                    bVar2.cwq.a(bVar2);
                                 }
                             }
                             String optString7 = optJSONObject.optString("unpublished");
                             if (!TextUtils.isEmpty(optString7)) {
                                 if (!optString7.equals("ok") && !optString7.equals("self")) {
-                                    this.crx.a(bVar.cpb, new BigInteger(optString7));
-                                    b bVar3 = this.cry.get(new BigInteger(optString7));
-                                    if (bVar3 != null && bVar3.cpk != null) {
-                                        bVar3.cpk.a(bVar3);
+                                    this.cyB.a(bVar.cwh, new BigInteger(optString7));
+                                    b bVar3 = this.cyC.get(new BigInteger(optString7));
+                                    if (bVar3 != null && bVar3.cwq != null) {
+                                        bVar3.cwq.a(bVar3);
                                     }
                                 } else if (optString7.equals("self") && optJSONObject.has("servertrigger")) {
-                                    this.crx.b(bVar.cpb);
+                                    this.cyB.b(bVar.cwh);
                                 }
                             }
                             JSONObject optJSONObject3 = jSONObject.optJSONObject("jsep");
                             if (optJSONObject3 != null) {
-                                bVar.cpl.a(bVar, optJSONObject3);
+                                bVar.cwr.a(bVar, optJSONObject3);
                             }
                         }
                     }
                 } else if (jSONObject.has("recvdata")) {
                     JSONObject optJSONObject4 = jSONObject.optJSONObject("recvdata");
                     if (!optJSONObject4.optBoolean("internal")) {
-                        this.crx.c(new BigInteger(optJSONObject4.optString("from")), optJSONObject4.optString("data"));
+                        this.cyB.c(new BigInteger(optJSONObject4.optString("from")), optJSONObject4.optString("data"));
                         return;
                     }
-                    BaiduRtcRoom.d dVar3 = this.crW.get(BigInteger.valueOf(optJSONObject4.optLong("from")));
+                    BaiduRtcRoom.d dVar3 = this.cza.get(BigInteger.valueOf(optJSONObject4.optLong("from")));
                     if (dVar3 != null) {
                         dVar3.attribute = optJSONObject4.optString("data");
                     }
-                    this.crx.a(new BigInteger(optJSONObject4.optString("from")), optJSONObject4.optString("data"));
+                    this.cyB.a(new BigInteger(optJSONObject4.optString("from")), optJSONObject4.optString("data"));
                 } else if (jSONObject.has("userevent")) {
                     JSONObject optJSONObject5 = jSONObject.optJSONObject("userevent");
                     if (optJSONObject5.has("joined")) {
@@ -457,11 +460,11 @@ public class p {
                         dVar4.userId = optJSONObject5.optLong("joined");
                         dVar4.userName = optJSONObject5.optString("display");
                         dVar4.attribute = optJSONObject5.optString(Config.EVENT_ATTR);
-                        this.crW.put(BigInteger.valueOf(dVar4.userId), dVar4);
-                        this.crx.a(new BigInteger(optJSONObject5.optString("joined")), optJSONObject5.optString("display"), "");
+                        this.cza.put(BigInteger.valueOf(dVar4.userId), dVar4);
+                        this.cyB.a(new BigInteger(optJSONObject5.optString("joined")), optJSONObject5.optString("display"), "");
                     } else if (optJSONObject5.has("leaving")) {
-                        this.crW.remove(BigInteger.valueOf(optJSONObject5.optLong("leaving")));
-                        this.crx.e(new BigInteger(optJSONObject5.optString("leaving")));
+                        this.cza.remove(BigInteger.valueOf(optJSONObject5.optLong("leaving")));
+                        this.cyB.e(new BigInteger(optJSONObject5.optString("leaving")));
                     } else if (!optJSONObject5.has("users") || (optJSONArray = optJSONObject5.optJSONArray("users")) == null || optJSONArray.length() <= 0) {
                     } else {
                         int length2 = optJSONArray.length();
@@ -473,11 +476,11 @@ public class p {
                             dVar5.userId = optJSONObject6.optLong("id");
                             dVar5.userName = optJSONObject6.optString("display");
                             dVar5.attribute = optJSONObject6.optString(Config.EVENT_ATTR);
-                            this.crW.put(bigInteger2, dVar5);
-                            this.crx.a(bigInteger2, optString8, "");
+                            this.cza.put(bigInteger2, dVar5);
+                            this.cyB.a(bigInteger2, optString8, "");
                             String optString9 = optJSONObject6.optString(Config.EVENT_ATTR);
                             if (!optString9.isEmpty()) {
-                                this.crx.a(bigInteger2, optString9);
+                                this.cyB.a(bigInteger2, optString9);
                             }
                             i++;
                         }
@@ -490,24 +493,24 @@ public class p {
                         Boolean valueOf = Boolean.valueOf(optJSONObject7.optBoolean("video"));
                         Boolean valueOf2 = Boolean.valueOf(optJSONObject7.optBoolean("audio"));
                         if (valueOf.booleanValue() && valueOf2.booleanValue()) {
-                            this.crx.bK(optLong);
+                            this.cyB.bL(optLong);
                         } else if (valueOf.booleanValue() || valueOf2.booleanValue()) {
                         } else {
-                            this.crx.bM(optLong);
+                            this.cyB.bN(optLong);
                         }
                     } else if (jSONObject.has("userkickout")) {
-                        this.crx.bL(jSONObject.optJSONObject("userkickout").optLong("id"));
+                        this.cyB.bM(jSONObject.optJSONObject("userkickout").optLong("id"));
                     } else if (jSONObject.has("bypass_event")) {
                         JSONObject optJSONObject8 = jSONObject.optJSONObject("bypass_event");
-                        BaiduRtcRoom.RtcLiveTransferMode rtcLiveTransferMode = optJSONObject8.optString("level").contains(UbcStatConstant.KEY_CONTENT_ROOM) ? BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ROOM_TRANSMISSION : BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ANCHOR_TRASNSMISSION;
+                        BaiduRtcRoom.RtcLiveTransferMode rtcLiveTransferMode = optJSONObject8.optString(MapBundleKey.MapObjKey.OBJ_LEVEL).contains(UbcStatConstant.KEY_CONTENT_ROOM) ? BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ROOM_TRANSMISSION : BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ANCHOR_TRASNSMISSION;
                         String optString10 = optJSONObject8.optJSONObject(AlaRecorderLog.Protocol.RTMP).optString("url");
                         String optString11 = optJSONObject8.optString("bypassStatus");
                         if (optString11.contains("success")) {
-                            this.crx.c(rtcLiveTransferMode, optString10);
+                            this.cyB.c(rtcLiveTransferMode, optString10);
                         } else if (optString11.contains(SmsLoginView.f.l)) {
-                            this.crx.a(rtcLiveTransferMode, optString10);
+                            this.cyB.a(rtcLiveTransferMode, optString10);
                         } else if (optString11.contains("break")) {
-                            this.crx.b(rtcLiveTransferMode, optString10);
+                            this.cyB.b(rtcLiveTransferMode, optString10);
                         }
                     }
                 }
@@ -517,13 +520,13 @@ public class p {
         }
     }
 
-    public void Df() {
+    public void Cw() {
         this.mHandler.post(new Runnable() { // from class: com.baidu.rtc.p.9
             @Override // java.lang.Runnable
             public void run() {
-                int size = p.this.crA.size();
+                int size = p.this.cyE.size();
                 for (int i = 0; i < size; i++) {
-                    p.this.b((b) p.this.crA.values().toArray()[i]);
+                    p.this.b((b) p.this.cyE.values().toArray()[i]);
                     try {
                         Thread.sleep(50L);
                     } catch (Exception e) {
@@ -534,14 +537,14 @@ public class p {
     }
 
     public void L(String str, boolean z) {
-        String str2 = str + "?appid=" + this.mAppId + "&roomname=" + encodeURIComponent(this.mRoomName) + "&uid=" + this.mUserId + "&token=" + this.crV;
+        String str2 = str + "?appid=" + this.mAppId + "&roomname=" + encodeURIComponent(this.mRoomName) + "&uid=" + this.mUserId + "&token=" + this.cyZ;
         if (z) {
             str2 = str2 + "&compulsive=true";
         }
-        if (com.baidu.rtc.b.a.cpJ) {
+        if (com.baidu.rtc.a.a.cwO) {
             Log.i("WebSocketChannel", "connect url: " + str2);
         }
-        this.crY = crv.connectTimeout(this.crF, TimeUnit.MILLISECONDS).readTimeout(this.crS, TimeUnit.MILLISECONDS).dns(new Dns() { // from class: com.baidu.rtc.p.10
+        this.czc = cyz.connectTimeout(this.cyJ, TimeUnit.MILLISECONDS).readTimeout(this.cyW, TimeUnit.MILLISECONDS).dns(new Dns() { // from class: com.baidu.rtc.p.10
             @Override // okhttp3.Dns
             public List<InetAddress> lookup(final String str3) {
                 if (str3.equals("mytestrtc.exp.bcelive.com")) {
@@ -562,7 +565,7 @@ public class p {
                         }
                     });
                     new Thread(futureTask).start();
-                    return (List) futureTask.get(p.this.crF, TimeUnit.MILLISECONDS);
+                    return (List) futureTask.get(p.this.cyJ, TimeUnit.MILLISECONDS);
                 } catch (Exception e2) {
                     return null;
                 }
@@ -574,11 +577,11 @@ public class p {
 
             @Override // okhttp3.WebSocketListener
             public void onClosing(WebSocket webSocket, int i, String str3) {
-                if (com.baidu.rtc.b.a.cpJ) {
+                if (com.baidu.rtc.a.a.cwO) {
                     Log.i("WebSocketChannel", "onClosing");
                 }
-                if (p.this.crx != null) {
-                    p.this.crx.age();
+                if (p.this.cyB != null) {
+                    p.this.cyB.aia();
                 }
             }
 
@@ -589,25 +592,25 @@ public class p {
                 } else {
                     Log.e("WebSocketChannel", "onFailure");
                 }
-                if (p.this.crx == null) {
+                if (p.this.cyB == null) {
                     return;
                 }
                 if (th instanceof SocketTimeoutException) {
-                    if (p.this.crx != null) {
-                        p.this.crx.agg();
+                    if (p.this.cyB != null) {
+                        p.this.cyB.aic();
                     }
                 } else if (th instanceof NumberFormatException) {
                     Log.e("WebSocketChannel", "onFailure: java.lang.NumberFormatException");
                 } else if (th instanceof NullPointerException) {
                     Log.e("WebSocketChannel", "onFailure: java.lang.NullPointerException");
                 } else if (!(th instanceof SSLException)) {
-                    if (p.this.crx != null) {
-                        p.this.crx.agf();
+                    if (p.this.cyB != null) {
+                        p.this.cyB.aib();
                     }
                 } else {
                     Log.e("WebSocketChannel", "onFailure: SSLException");
-                    if (p.this.crx != null) {
-                        p.this.crx.age();
+                    if (p.this.cyB != null) {
+                        p.this.cyB.aia();
                     }
                 }
             }
@@ -623,7 +626,7 @@ public class p {
 
             @Override // okhttp3.WebSocketListener
             public void onOpen(WebSocket webSocket, Response response) {
-                if (com.baidu.rtc.b.a.cpJ) {
+                if (com.baidu.rtc.a.a.cwO) {
                     Log.i("WebSocketChannel", "onOpen");
                 }
                 p.this.createSession();
@@ -632,22 +635,22 @@ public class p {
     }
 
     public void a(long j, String str, final b bVar) {
-        String c = c((Integer) 12);
+        String e = e((Integer) 12);
         d dVar = new d();
-        dVar.tid = c;
-        dVar.cpn = new o() { // from class: com.baidu.rtc.p.5
+        dVar.tid = e;
+        dVar.cwt = new o() { // from class: com.baidu.rtc.p.5
             @Override // com.baidu.rtc.o
-            public void aw(JSONObject jSONObject) {
+            public void aE(JSONObject jSONObject) {
                 p.this.c(bVar);
             }
         };
-        dVar.cpm = new n() { // from class: com.baidu.rtc.p.6
+        dVar.cws = new n() { // from class: com.baidu.rtc.p.6
             @Override // com.baidu.rtc.n
-            public void av(JSONObject jSONObject) {
+            public void aD(JSONObject jSONObject) {
                 p.this.c(bVar);
             }
         };
-        this.crZ.put(c, dVar);
+        this.czd.put(e, dVar);
         JSONObject jSONObject = new JSONObject();
         JSONObject jSONObject2 = new JSONObject();
         JSONObject jSONObject3 = new JSONObject();
@@ -660,57 +663,57 @@ public class p {
             jSONObject.putOpt("is_private", false);
             jSONObject.putOpt("videocodec", this.mVideoCodec);
             jSONObject.putOpt("playoutdelay_ext", true);
-            if (!this.crN.isEmpty() && this.crP == BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ROOM_TRANSMISSION) {
-                jSONObject3.putOpt("url", this.crN);
-                if (!this.crI.isEmpty()) {
-                    jSONObject3.putOpt("mixTemplate", this.crI);
+            if (!this.cyR.isEmpty() && this.cyT == BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ROOM_TRANSMISSION) {
+                jSONObject3.putOpt("url", this.cyR);
+                if (!this.cyM.isEmpty()) {
+                    jSONObject3.putOpt("mixTemplate", this.cyM);
                 }
                 jSONObject.putOpt(AlaRecorderLog.Protocol.RTMP, jSONObject3);
-            } else if (!this.crO.isEmpty() && this.crQ == BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ROOM_TRANSMISSION) {
-                jSONObject3.putOpt("url", this.crO);
-                if (!this.crJ.isEmpty()) {
-                    jSONObject3.putOpt("mixTemplate", this.crJ);
+            } else if (!this.cyS.isEmpty() && this.cyU == BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ROOM_TRANSMISSION) {
+                jSONObject3.putOpt("url", this.cyS);
+                if (!this.cyN.isEmpty()) {
+                    jSONObject3.putOpt("mixTemplate", this.cyN);
                 }
                 jSONObject.putOpt(AlaRecorderLog.Protocol.RTMP, jSONObject3);
             }
-            if (this.crK) {
-                jSONObject4.putOpt("rec", Boolean.valueOf(this.crK));
+            if (this.cyO) {
+                jSONObject4.putOpt("rec", Boolean.valueOf(this.cyO));
                 jSONObject.putOpt("recording", jSONObject4);
             }
             jSONObject2.putOpt("janus", "message");
             jSONObject2.putOpt("body", jSONObject);
-            jSONObject2.putOpt("transaction", c);
-            jSONObject2.putOpt("session_id", this.crU);
-            jSONObject2.putOpt("handle_id", bVar.cpb);
-        } catch (JSONException e) {
-            e.printStackTrace();
+            jSONObject2.putOpt("transaction", e);
+            jSONObject2.putOpt("session_id", this.cyY);
+            jSONObject2.putOpt("handle_id", bVar.cwh);
+        } catch (JSONException e2) {
+            e2.printStackTrace();
         }
-        ax(jSONObject2);
+        aF(jSONObject2);
     }
 
     public void a(BaiduRtcRoom.RtcLiveTransferMode rtcLiveTransferMode) {
-        this.crP = rtcLiveTransferMode;
+        this.cyT = rtcLiveTransferMode;
     }
 
     public void a(c cVar) {
-        this.crx = cVar;
+        this.cyB = cVar;
     }
 
     public void a(String str, long j, boolean z) {
-        String c = c((Integer) 12);
+        String e = e((Integer) 12);
         d dVar = new d();
-        dVar.tid = c;
-        dVar.cpn = new o() { // from class: com.baidu.rtc.p.11
+        dVar.tid = e;
+        dVar.cwt = new o() { // from class: com.baidu.rtc.p.11
             @Override // com.baidu.rtc.o
-            public void aw(JSONObject jSONObject) {
+            public void aE(JSONObject jSONObject) {
             }
         };
-        dVar.cpm = new n() { // from class: com.baidu.rtc.p.12
+        dVar.cws = new n() { // from class: com.baidu.rtc.p.12
             @Override // com.baidu.rtc.n
-            public void av(JSONObject jSONObject) {
+            public void aD(JSONObject jSONObject) {
             }
         };
-        this.crZ.put(c, dVar);
+        this.czd.put(e, dVar);
         JSONObject jSONObject = new JSONObject();
         JSONObject jSONObject2 = new JSONObject();
         try {
@@ -722,12 +725,12 @@ public class p {
             jSONObject.putOpt("internal", Boolean.valueOf(z));
             jSONObject2.putOpt("janus", "message");
             jSONObject2.putOpt("body", jSONObject);
-            jSONObject2.putOpt("transaction", c);
-            jSONObject2.putOpt("session_id", this.crU);
-        } catch (JSONException e) {
-            e.printStackTrace();
+            jSONObject2.putOpt("transaction", e);
+            jSONObject2.putOpt("session_id", this.cyY);
+        } catch (JSONException e2) {
+            e2.printStackTrace();
         }
-        ax(jSONObject2);
+        aF(jSONObject2);
     }
 
     public void a(BigInteger bigInteger, IceCandidate iceCandidate) {
@@ -739,22 +742,49 @@ public class p {
             jSONObject.putOpt("sdpMLineIndex", Integer.valueOf(iceCandidate.sdpMLineIndex));
             jSONObject2.putOpt("janus", "trickle");
             jSONObject2.putOpt("candidate", jSONObject);
-            jSONObject2.putOpt("transaction", c((Integer) 12));
-            jSONObject2.putOpt("session_id", this.crU);
+            jSONObject2.putOpt("transaction", e((Integer) 12));
+            jSONObject2.putOpt("session_id", this.cyY);
             jSONObject2.putOpt("handle_id", bigInteger);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        ax(jSONObject2);
+        aF(jSONObject2);
     }
 
-    public BaiduRtcRoom.d[] agx() {
-        if (this.crW.size() < 1) {
+    public void aG(JSONObject jSONObject) {
+        String e = e((Integer) 12);
+        d dVar = new d();
+        dVar.tid = e;
+        dVar.cwt = new o() { // from class: com.baidu.rtc.p.15
+            @Override // com.baidu.rtc.o
+            public void aE(JSONObject jSONObject2) {
+            }
+        };
+        dVar.cws = new n() { // from class: com.baidu.rtc.p.16
+            @Override // com.baidu.rtc.n
+            public void aD(JSONObject jSONObject2) {
+            }
+        };
+        this.czd.put(e, dVar);
+        JSONObject jSONObject2 = new JSONObject();
+        try {
+            jSONObject2.putOpt("janus", "message");
+            jSONObject2.putOpt("body", jSONObject);
+            jSONObject2.putOpt("transaction", e);
+            jSONObject2.putOpt("session_id", this.cyY);
+        } catch (JSONException e2) {
+            e2.printStackTrace();
+        }
+        aF(jSONObject2);
+    }
+
+    public BaiduRtcRoom.d[] ait() {
+        if (this.cza.size() < 1) {
             return null;
         }
-        BaiduRtcRoom.d[] dVarArr = new BaiduRtcRoom.d[this.crW.size()];
+        BaiduRtcRoom.d[] dVarArr = new BaiduRtcRoom.d[this.cza.size()];
         int i = 0;
-        Iterator<BaiduRtcRoom.d> it = this.crW.values().iterator();
+        Iterator<BaiduRtcRoom.d> it = this.cza.values().iterator();
         while (true) {
             int i2 = i;
             if (!it.hasNext()) {
@@ -769,48 +799,21 @@ public class p {
         }
     }
 
-    public void ay(JSONObject jSONObject) {
-        String c = c((Integer) 12);
-        d dVar = new d();
-        dVar.tid = c;
-        dVar.cpn = new o() { // from class: com.baidu.rtc.p.15
-            @Override // com.baidu.rtc.o
-            public void aw(JSONObject jSONObject2) {
-            }
-        };
-        dVar.cpm = new n() { // from class: com.baidu.rtc.p.16
-            @Override // com.baidu.rtc.n
-            public void av(JSONObject jSONObject2) {
-            }
-        };
-        this.crZ.put(c, dVar);
-        JSONObject jSONObject2 = new JSONObject();
-        try {
-            jSONObject2.putOpt("janus", "message");
-            jSONObject2.putOpt("body", jSONObject);
-            jSONObject2.putOpt("transaction", c);
-            jSONObject2.putOpt("session_id", this.crU);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        ax(jSONObject2);
-    }
-
     public void b(String str, boolean z, boolean z2, String str2, BaiduRtcRoom.RtcLiveTransferMode rtcLiveTransferMode) {
-        this.crO = str;
-        this.crH = z;
-        this.crL = z2;
-        this.crJ = str2;
-        this.crQ = rtcLiveTransferMode;
+        this.cyS = str;
+        this.cyL = z;
+        this.cyP = z2;
+        this.cyN = str2;
+        this.cyU = rtcLiveTransferMode;
     }
 
-    public void bJ(long j) {
+    public void bK(long j) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.putOpt("request", "kickoutuser");
             jSONObject.putOpt(UbcStatConstant.KEY_CONTENT_ROOM, Long.valueOf(this.mRoomId));
             jSONObject.putOpt("target", Long.valueOf(j));
-            ay(jSONObject);
+            aG(jSONObject);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -824,82 +827,67 @@ public class p {
             jSONObject.putOpt("request", "configure");
             jSONObject.putOpt("audio", Boolean.valueOf(this.mHasAudio));
             jSONObject.putOpt("video", Boolean.valueOf(this.mHasVideo));
-            if (this.cpH) {
-                jSONObject.putOpt("data", Boolean.valueOf(this.cpH));
+            if (this.cwM) {
+                jSONObject.putOpt("data", Boolean.valueOf(this.cwM));
             }
             jSONObject2.putOpt("type", sessionDescription.type);
             jSONObject2.putOpt("sdp", sessionDescription.description);
             jSONObject3.putOpt("janus", "message");
             jSONObject3.putOpt("body", jSONObject);
             jSONObject3.putOpt("jsep", jSONObject2);
-            jSONObject3.putOpt("transaction", c((Integer) 12));
-            jSONObject3.putOpt("session_id", this.crU);
+            jSONObject3.putOpt("transaction", e((Integer) 12));
+            jSONObject3.putOpt("session_id", this.cyY);
             jSONObject3.putOpt("handle_id", bigInteger);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        ax(jSONObject3);
-    }
-
-    public void d(long j, boolean z) {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.putOpt("request", "forwardconfigure");
-            jSONObject.putOpt(UbcStatConstant.KEY_CONTENT_ROOM, Long.valueOf(this.mRoomId));
-            jSONObject.putOpt("target", Long.valueOf(j));
-            jSONObject.putOpt("audio", Boolean.valueOf(!z));
-            jSONObject.putOpt("video", Boolean.valueOf(!z));
-            jSONObject.putOpt("data", Boolean.valueOf(!z));
-            ay(jSONObject);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        aF(jSONObject3);
     }
 
     public void d(final BigInteger bigInteger, final String str) {
-        String c = c((Integer) 12);
+        String e = e((Integer) 12);
         d dVar = new d();
-        dVar.tid = c;
-        dVar.cpn = new o() { // from class: com.baidu.rtc.p.24
+        dVar.tid = e;
+        dVar.cwt = new o() { // from class: com.baidu.rtc.p.24
             @Override // com.baidu.rtc.o
-            public void aw(JSONObject jSONObject) {
+            public void aE(JSONObject jSONObject) {
                 b bVar = new b();
-                bVar.cpb = new BigInteger(jSONObject.optJSONObject("data").optString("id"));
-                bVar.cpi = bigInteger;
-                bVar.cph = str;
-                bVar.cpl = new f() { // from class: com.baidu.rtc.p.24.1
+                bVar.cwh = new BigInteger(jSONObject.optJSONObject("data").optString("id"));
+                bVar.cwo = bigInteger;
+                bVar.cwn = str;
+                bVar.cwr = new f() { // from class: com.baidu.rtc.p.24.1
                     @Override // com.baidu.rtc.f
                     public void a(b bVar2, JSONObject jSONObject2) {
-                        p.this.crx.b(bVar2.cpb, jSONObject2);
+                        p.this.cyB.b(bVar2.cwh, jSONObject2);
                     }
                 };
-                bVar.cpk = new e() { // from class: com.baidu.rtc.p.24.2
+                bVar.cwq = new e() { // from class: com.baidu.rtc.p.24.2
                     @Override // com.baidu.rtc.e
                     public void a(b bVar2) {
                         p.this.f(bVar2);
                     }
                 };
-                p.this.crA.put(bVar.cpb, bVar);
-                p.this.cry.put(bVar.cpi, bVar);
+                p.this.cyE.put(bVar.cwh, bVar);
+                p.this.cyC.put(bVar.cwo, bVar);
                 p.this.d(bVar);
             }
         };
-        dVar.cpm = new n() { // from class: com.baidu.rtc.p.2
+        dVar.cws = new n() { // from class: com.baidu.rtc.p.2
             @Override // com.baidu.rtc.n
-            public void av(JSONObject jSONObject) {
+            public void aD(JSONObject jSONObject) {
             }
         };
-        this.crZ.put(c, dVar);
+        this.czd.put(e, dVar);
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.putOpt("janus", "attach");
             jSONObject.putOpt("plugin", "janus.plugin.videoroom");
-            jSONObject.putOpt("transaction", c);
-            jSONObject.putOpt("session_id", this.crU);
-        } catch (JSONException e) {
-            e.printStackTrace();
+            jSONObject.putOpt("transaction", e);
+            jSONObject.putOpt("session_id", this.cyY);
+        } catch (JSONException e2) {
+            e2.printStackTrace();
         }
-        ax(jSONObject);
+        aF(jSONObject);
     }
 
     public void d(BigInteger bigInteger, SessionDescription sessionDescription) {
@@ -914,13 +902,13 @@ public class p {
             jSONObject3.putOpt("janus", "message");
             jSONObject3.putOpt("body", jSONObject);
             jSONObject3.putOpt("jsep", jSONObject2);
-            jSONObject3.putOpt("transaction", c((Integer) 12));
-            jSONObject3.putOpt("session_id", this.crU);
+            jSONObject3.putOpt("transaction", e((Integer) 12));
+            jSONObject3.putOpt("session_id", this.cyY);
             jSONObject3.putOpt("handle_id", bigInteger);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        ax(jSONObject3);
+        aF(jSONObject3);
     }
 
     public void disbandRoom() {
@@ -928,31 +916,46 @@ public class p {
         try {
             jSONObject.putOpt("request", "disbandroom");
             jSONObject.putOpt(UbcStatConstant.KEY_CONTENT_ROOM, Long.valueOf(this.mRoomId));
-            ay(jSONObject);
+            aG(jSONObject);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void e(long j, boolean z) {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.putOpt("request", "forwardconfigure");
+            jSONObject.putOpt(UbcStatConstant.KEY_CONTENT_ROOM, Long.valueOf(this.mRoomId));
+            jSONObject.putOpt("target", Long.valueOf(j));
+            jSONObject.putOpt("audio", Boolean.valueOf(!z));
+            jSONObject.putOpt("video", Boolean.valueOf(!z));
+            jSONObject.putOpt("data", Boolean.valueOf(!z));
+            aG(jSONObject);
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
     public void e(final b bVar) {
-        String c = c((Integer) 12);
+        String e = e((Integer) 12);
         d dVar = new d();
-        dVar.tid = c;
-        dVar.cpn = new o() { // from class: com.baidu.rtc.p.7
+        dVar.tid = e;
+        dVar.cwt = new o() { // from class: com.baidu.rtc.p.7
             @Override // com.baidu.rtc.o
-            public void aw(JSONObject jSONObject) {
+            public void aE(JSONObject jSONObject) {
                 p.this.mRoomId = jSONObject.optJSONObject("plugindata").optJSONObject("data").optLong(UbcStatConstant.KEY_CONTENT_ROOM);
                 Log.v("createRoomWithoutRoomID", "Got RoomID:" + p.this.mRoomId);
                 p.this.c(bVar);
             }
         };
-        dVar.cpm = new n() { // from class: com.baidu.rtc.p.8
+        dVar.cws = new n() { // from class: com.baidu.rtc.p.8
             @Override // com.baidu.rtc.n
-            public void av(JSONObject jSONObject) {
+            public void aD(JSONObject jSONObject) {
                 p.this.c(bVar);
             }
         };
-        this.crZ.put(c, dVar);
+        this.czd.put(e, dVar);
         JSONObject jSONObject = new JSONObject();
         JSONObject jSONObject2 = new JSONObject();
         JSONObject jSONObject3 = new JSONObject();
@@ -967,104 +970,104 @@ public class p {
             jSONObject.putOpt("is_private", false);
             jSONObject.putOpt("videocodec", this.mVideoCodec);
             jSONObject.putOpt("playoutdelay_ext", true);
-            if (!this.crN.isEmpty() && this.crP == BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ROOM_TRANSMISSION) {
-                jSONObject3.putOpt("url", this.crN);
-                jSONObject3.putOpt("mixTemplate", this.crI);
+            if (!this.cyR.isEmpty() && this.cyT == BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ROOM_TRANSMISSION) {
+                jSONObject3.putOpt("url", this.cyR);
+                jSONObject3.putOpt("mixTemplate", this.cyM);
                 jSONObject.putOpt(AlaRecorderLog.Protocol.RTMP, jSONObject3);
-            } else if (!this.crO.isEmpty() && this.crQ == BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ROOM_TRANSMISSION) {
-                jSONObject3.putOpt("url", this.crO);
-                if (!this.crJ.isEmpty()) {
-                    jSONObject3.putOpt("mixTemplate", this.crJ);
+            } else if (!this.cyS.isEmpty() && this.cyU == BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ROOM_TRANSMISSION) {
+                jSONObject3.putOpt("url", this.cyS);
+                if (!this.cyN.isEmpty()) {
+                    jSONObject3.putOpt("mixTemplate", this.cyN);
                 }
                 jSONObject.putOpt(AlaRecorderLog.Protocol.RTMP, jSONObject3);
             }
-            if (this.crK) {
-                jSONObject4.putOpt("rec", Boolean.valueOf(this.crK));
+            if (this.cyO) {
+                jSONObject4.putOpt("rec", Boolean.valueOf(this.cyO));
                 jSONObject.putOpt("recording", jSONObject4);
             }
             jSONObject2.putOpt("janus", "message");
             jSONObject2.putOpt("body", jSONObject);
-            jSONObject2.putOpt("transaction", c);
-            jSONObject2.putOpt("session_id", this.crU);
-            jSONObject2.putOpt("handle_id", bVar.cpb);
-        } catch (JSONException e) {
-            e.printStackTrace();
+            jSONObject2.putOpt("transaction", e);
+            jSONObject2.putOpt("session_id", this.cyY);
+            jSONObject2.putOpt("handle_id", bVar.cwh);
+        } catch (JSONException e2) {
+            e2.printStackTrace();
         }
-        ax(jSONObject2);
+        aF(jSONObject2);
     }
 
-    public void em(boolean z) {
-        this.mHasAudio = z;
+    public void eA(boolean z) {
+        this.cyF = z;
     }
 
-    public void en(boolean z) {
-        this.cpH = z;
+    public void eB(boolean z) {
+        this.cyG = z;
     }
 
-    public void eo(boolean z) {
-        this.mHasVideo = z;
+    public void eC(boolean z) {
+        this.cyH = z;
     }
 
-    public void er(boolean z) {
-        this.crB = z;
+    public void eD(boolean z) {
+        this.cyI = z;
     }
 
-    public void es(boolean z) {
-        this.crC = z;
+    public void eE(boolean z) {
+        this.cyK = z;
     }
 
-    public void et(boolean z) {
-        this.crD = z;
-    }
-
-    public void eu(boolean z) {
-        this.crE = z;
+    public void eF(boolean z) {
+        this.cyO = z;
     }
 
     public void ev(boolean z) {
-        this.crG = z;
+        this.mHasAudio = z;
     }
 
     public void ew(boolean z) {
-        this.crK = z;
+        this.cwM = z;
+    }
+
+    public void ex(boolean z) {
+        this.mHasVideo = z;
     }
 
     public void f(final b bVar) {
-        String c = c((Integer) 12);
+        String e = e((Integer) 12);
         d dVar = new d();
-        dVar.tid = c;
-        dVar.cpn = new o() { // from class: com.baidu.rtc.p.3
+        dVar.tid = e;
+        dVar.cwt = new o() { // from class: com.baidu.rtc.p.3
             @Override // com.baidu.rtc.o
-            public void aw(JSONObject jSONObject) {
-                p.this.crx.a(bVar.cpb, bVar.cpi);
-                p.this.crx.d(bVar.cpb);
-                p.this.crA.remove(bVar.cpb);
-                p.this.cry.remove(bVar.cpi);
+            public void aE(JSONObject jSONObject) {
+                p.this.cyB.a(bVar.cwh, bVar.cwo);
+                p.this.cyB.d(bVar.cwh);
+                p.this.cyE.remove(bVar.cwh);
+                p.this.cyC.remove(bVar.cwo);
             }
         };
-        dVar.cpm = new n() { // from class: com.baidu.rtc.p.4
+        dVar.cws = new n() { // from class: com.baidu.rtc.p.4
             @Override // com.baidu.rtc.n
-            public void av(JSONObject jSONObject) {
+            public void aD(JSONObject jSONObject) {
             }
         };
-        this.crZ.put(c, dVar);
+        this.czd.put(e, dVar);
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.putOpt("janus", "detach");
-            jSONObject.putOpt("transaction", c);
-            jSONObject.putOpt("session_id", this.crU);
-            jSONObject.putOpt("handle_id", bVar.cpb);
-        } catch (JSONException e) {
-            e.printStackTrace();
+            jSONObject.putOpt("transaction", e);
+            jSONObject.putOpt("session_id", this.cyY);
+            jSONObject.putOpt("handle_id", bVar.cwh);
+        } catch (JSONException e2) {
+            e2.printStackTrace();
         }
-        ax(jSONObject);
+        aF(jSONObject);
     }
 
     public void finalize() {
-        this.mHandler.removeCallbacks(this.crz);
-        this.crx = null;
-        if (this.crY != null) {
-            this.crY.close(1001, "going away");
+        this.mHandler.removeCallbacks(this.cyD);
+        this.cyB = null;
+        if (this.czc != null) {
+            this.czc.close(1001, "going away");
         }
     }
 
@@ -1072,47 +1075,47 @@ public class p {
         return this.mRoomId;
     }
 
-    public void hA(int i) {
-        this.crS = i;
+    public void hy(int i) {
+        this.cyJ = i;
     }
 
     public void hz(int i) {
-        this.crF = i;
+        this.cyW = i;
     }
 
     public BigInteger k(BigInteger bigInteger) {
-        return this.crA.get(bigInteger) == null ? BigInteger.valueOf(0L) : this.crA.get(bigInteger).cpi;
+        return this.cyE.get(bigInteger) == null ? BigInteger.valueOf(0L) : this.cyE.get(bigInteger).cwo;
     }
 
-    public void kA(String str) {
+    public void kq(String str) {
+        this.cyM = str;
+    }
+
+    public void kr(String str) {
+        this.cyR = str;
+    }
+
+    public void ks(String str) {
+        this.cyV = str;
+    }
+
+    public void kt(String str) {
         this.mRoomName = str;
     }
 
-    public void kB(String str) {
-        this.crT = str;
+    public void ku(String str) {
+        this.cyX = str;
     }
 
-    public void kC(String str) {
-        this.crV = str;
-    }
-
-    public void kx(String str) {
-        this.crI = str;
-    }
-
-    public void ky(String str) {
-        this.crN = str;
-    }
-
-    public void kz(String str) {
-        this.crR = str;
+    public void kv(String str) {
+        this.cyZ = str;
     }
 
     public String l(BigInteger bigInteger) {
-        if (this.crW.get(bigInteger) == null) {
+        if (this.cza.get(bigInteger) == null) {
             return null;
         }
-        return this.crW.get(bigInteger).userName;
+        return this.cza.get(bigInteger).userName;
     }
 
     public void m(BigInteger bigInteger) {
@@ -1122,8 +1125,8 @@ public class p {
             jSONObject.putOpt("completed", true);
             jSONObject2.putOpt("janus", "trickle");
             jSONObject2.putOpt("candidate", jSONObject);
-            jSONObject2.putOpt("transaction", c((Integer) 12));
-            jSONObject2.putOpt("session_id", this.crU);
+            jSONObject2.putOpt("transaction", e((Integer) 12));
+            jSONObject2.putOpt("session_id", this.cyY);
             jSONObject2.putOpt("handle_id", bigInteger);
         } catch (JSONException e) {
             e.printStackTrace();
@@ -1143,21 +1146,21 @@ public class p {
     }
 
     public void setUserAttribute(final String str) {
-        String c = c((Integer) 12);
+        String e = e((Integer) 12);
         d dVar = new d();
-        dVar.tid = c;
-        dVar.cpn = new o() { // from class: com.baidu.rtc.p.13
+        dVar.tid = e;
+        dVar.cwt = new o() { // from class: com.baidu.rtc.p.13
             @Override // com.baidu.rtc.o
-            public void aw(JSONObject jSONObject) {
+            public void aE(JSONObject jSONObject) {
                 p.this.a(str, 0L, true);
             }
         };
-        dVar.cpm = new n() { // from class: com.baidu.rtc.p.14
+        dVar.cws = new n() { // from class: com.baidu.rtc.p.14
             @Override // com.baidu.rtc.n
-            public void av(JSONObject jSONObject) {
+            public void aD(JSONObject jSONObject) {
             }
         };
-        this.crZ.put(c, dVar);
+        this.czd.put(e, dVar);
         JSONObject jSONObject = new JSONObject();
         JSONObject jSONObject2 = new JSONObject();
         try {
@@ -1167,12 +1170,12 @@ public class p {
             jSONObject.putOpt("userattribute", str);
             jSONObject2.putOpt("janus", "message");
             jSONObject2.putOpt("body", jSONObject);
-            jSONObject2.putOpt("transaction", c);
-            jSONObject2.putOpt("session_id", this.crU);
-        } catch (JSONException e) {
-            e.printStackTrace();
+            jSONObject2.putOpt("transaction", e);
+            jSONObject2.putOpt("session_id", this.cyY);
+        } catch (JSONException e2) {
+            e2.printStackTrace();
         }
-        ax(jSONObject2);
+        aF(jSONObject2);
     }
 
     public void setUserId(long j) {

@@ -9,38 +9,38 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.view.HeadImageView;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class i {
     Context context;
-    ViewGroup.LayoutParams hXD;
-    RelativeLayout hXE;
-    ArrayList<HeadImageView> hXC = new ArrayList<>();
+    ViewGroup.LayoutParams ikc;
+    RelativeLayout ikd;
+    ArrayList<HeadImageView> ikb = new ArrayList<>();
     boolean loop = false;
     Handler handler = new Handler(Looper.getMainLooper());
     int position = 0;
 
     public i(ArrayList<String> arrayList, HeadImageView headImageView, RelativeLayout relativeLayout) {
-        this.hXD = headImageView.getLayoutParams();
+        this.ikc = headImageView.getLayoutParams();
         this.context = headImageView.getContext();
-        this.hXE = relativeLayout;
+        this.ikd = relativeLayout;
         headImageView.setVisibility(8);
         if (arrayList == null) {
-            this.hXC.add(xO(0));
-            this.hXC.add(xO(1));
-            this.hXC.add(xO(0));
-            this.hXC.add(xO(1));
+            this.ikb.add(yb(0));
+            this.ikb.add(yb(1));
+            this.ikb.add(yb(0));
+            this.ikb.add(yb(1));
             return;
         }
         Iterator<String> it = arrayList.iterator();
         while (it.hasNext()) {
-            this.hXC.add(Jh(it.next()));
+            this.ikb.add(Jf(it.next()));
         }
     }
 
-    public void tn() {
-        if (!this.hXC.isEmpty()) {
-            if (this.hXC.size() == 1) {
-                this.hXC.get(this.position).setVisibility(0);
+    public void sN() {
+        if (!this.ikb.isEmpty()) {
+            if (this.ikb.size() == 1) {
+                this.ikb.get(this.position).setVisibility(0);
                 return;
             }
             this.loop = true;
@@ -48,15 +48,15 @@ public class i {
                 @Override // java.lang.Runnable
                 public void run() {
                     if (i.this.position == 0) {
-                        i.this.hXC.get(i.this.position).setVisibility(0);
-                        i.this.hXC.get(i.this.hXC.size() - 1).setVisibility(8);
-                    } else if (i.this.position == i.this.hXC.size() - 1) {
-                        i.this.hXC.get(i.this.position - 1).setVisibility(8);
-                        i.this.hXC.get(i.this.position).setVisibility(0);
+                        i.this.ikb.get(i.this.position).setVisibility(0);
+                        i.this.ikb.get(i.this.ikb.size() - 1).setVisibility(8);
+                    } else if (i.this.position == i.this.ikb.size() - 1) {
+                        i.this.ikb.get(i.this.position - 1).setVisibility(8);
+                        i.this.ikb.get(i.this.position).setVisibility(0);
                         i.this.position = -1;
                     } else {
-                        i.this.hXC.get(i.this.position - 1).setVisibility(8);
-                        i.this.hXC.get(i.this.position).setVisibility(0);
+                        i.this.ikb.get(i.this.position - 1).setVisibility(8);
+                        i.this.ikb.get(i.this.position).setVisibility(0);
                     }
                     i.this.position++;
                     if (i.this.loop) {
@@ -64,45 +64,45 @@ public class i {
                         return;
                     }
                     i.this.handler.removeCallbacksAndMessages(null);
-                    Iterator<HeadImageView> it = i.this.hXC.iterator();
+                    Iterator<HeadImageView> it = i.this.ikb.iterator();
                     while (it.hasNext()) {
                         HeadImageView next = it.next();
                         next.setVisibility(8);
-                        i.this.hXE.removeView(next);
+                        i.this.ikd.removeView(next);
                     }
-                    i.this.hXC.clear();
+                    i.this.ikb.clear();
                 }
             }, 500L);
         }
     }
 
-    public void cmk() {
+    public void cpb() {
         this.handler.removeCallbacksAndMessages(null);
         this.loop = false;
-        Iterator<HeadImageView> it = this.hXC.iterator();
+        Iterator<HeadImageView> it = this.ikb.iterator();
         while (it.hasNext()) {
             HeadImageView next = it.next();
             next.setVisibility(8);
-            this.hXE.removeView(next);
+            this.ikd.removeView(next);
         }
-        this.hXC.clear();
+        this.ikb.clear();
     }
 
-    public boolean cpB() {
-        return this.hXC.size() != 0;
+    public boolean csu() {
+        return this.ikb.size() != 0;
     }
 
-    private HeadImageView Jh(String str) {
+    private HeadImageView Jf(String str) {
         HeadImageView headImageView = new HeadImageView(this.context);
         headImageView.startLoad(str, 25, false, false);
         headImageView.setIsRound(true);
         headImageView.setAutoChangeStyle(false);
         headImageView.setVisibility(8);
-        this.hXE.addView(headImageView, this.hXD);
+        this.ikd.addView(headImageView, this.ikc);
         return headImageView;
     }
 
-    private HeadImageView xO(int i) {
+    private HeadImageView yb(int i) {
         HeadImageView headImageView = new HeadImageView(this.context);
         if (i == 0) {
             headImageView.setImageResource(a.e.ala_icon_five_pointed_star);
@@ -112,7 +112,7 @@ public class i {
         headImageView.setIsRound(true);
         headImageView.setAutoChangeStyle(false);
         headImageView.setVisibility(8);
-        this.hXE.addView(headImageView, this.hXD);
+        this.ikd.addView(headImageView, this.ikc);
         return headImageView;
     }
 }

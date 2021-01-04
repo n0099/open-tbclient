@@ -5,10 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
-import android.support.v4.content.LocalBroadcastManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.account.IConnectListener;
@@ -68,7 +68,7 @@ import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class BIMManager extends BaseManager implements NoProGuard {
     private static IConnectListener mConnectListener;
     private static Context sContext = null;
@@ -76,7 +76,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
     private static volatile Runnable checkIMLoginState = new Runnable() { // from class: com.baidu.android.imsdk.BIMManager.4
         @Override // java.lang.Runnable
         public void run() {
-            if (a.Aj() == 0 && LoginManager.getInstance(BIMManager.sContext).getCurrentState() != LoginManager.LoginState.LOGINED) {
+            if (a.zx() == 0 && LoginManager.getInstance(BIMManager.sContext).getCurrentState() != LoginManager.LoginState.LOGINED) {
                 LogUtils.e("BIMManager", "checkIMLoginState lcp connected, but im not login, triggle im relogin");
                 LoginManager.getInstance(BIMManager.sContext).triggleLogoutListener(4001, Constants.ERROR_LOGIN_STATE_ERROR);
             }
@@ -84,7 +84,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
         }
     };
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public enum CATEGORY {
         ALL(-1),
         SINGLEPERSON(0),
@@ -131,8 +131,8 @@ public class BIMManager extends BaseManager implements NoProGuard {
         }
         Context applicationContext = context.getApplicationContext();
         sContext = applicationContext;
-        com.baidu.h.a.ayO = a.aC(applicationContext);
-        if (com.baidu.h.a.ayO) {
+        com.baidu.i.a.aze = a.aB(applicationContext);
+        if (com.baidu.i.a.aze) {
             try {
                 b.i(applicationContext, i != 0);
                 b.j(applicationContext, i);
@@ -154,7 +154,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
                     }
                     try {
                         BIMManager.initIMServiceImpl(context2);
-                        com.baidu.h.a.mHandler.removeCallbacks(BIMManager.checkIMLoginState);
+                        com.baidu.i.a.mHandler.removeCallbacks(BIMManager.checkIMLoginState);
                         if (z) {
                             BIMManager.postCheckRunnable();
                         }
@@ -181,7 +181,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
         TaskManager.getInstance(context).submitForNetWork(new Runnable() { // from class: com.baidu.android.imsdk.BIMManager.2
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.h.a.aq(context);
+                com.baidu.i.a.ap(context);
             }
         });
     }
@@ -202,7 +202,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
 
     public static void imLogoutByLcp(Context context) {
         try {
-            com.baidu.h.a.ar(context);
+            com.baidu.i.a.aq(context);
             LoginManager.getInstance(context).onLogoutResultInternal(0, "lcp unconnected");
         } catch (Exception e) {
             LogUtils.e(TAG, "imLogoutByLcp exception ", e);
@@ -213,7 +213,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
     public static void postCheckRunnable() {
         try {
             LogUtils.i("BIMManager", "postCheckRunnable after 30s");
-            com.baidu.h.a.mHandler.postDelayed(checkIMLoginState, 30000L);
+            com.baidu.i.a.mHandler.postDelayed(checkIMLoginState, 30000L);
         } catch (Exception e) {
             LogUtils.e(TAG, "postCheckRunnable exception ", e);
         }
@@ -251,56 +251,51 @@ public class BIMManager extends BaseManager implements NoProGuard {
         String str7 = "1Y";
         long j = 0;
         try {
-            try {
-                String[] loginFlag = Utility.getLoginFlag(sContext);
-                if (loginFlag.length >= 2) {
-                    j = Long.valueOf(loginFlag[0]).longValue();
-                    str7 = loginFlag[1];
-                }
-                new IMTrack.RequestBuilder(sContext).method(String.valueOf(Utility.getLoginOpenType(sContext))).requestId(str7).requestTime(Utility.getLoginCallTime(sContext)).responseTime(j).ext(Utility.getLoginFlagExt(sContext)).aliasId(501100L).build();
-            } catch (Exception e) {
-                LogUtils.e(TAG, "IMTrack init request getLoginFlag Exception ");
-                new IMTrack.RequestBuilder(sContext).method(String.valueOf(Utility.getLoginOpenType(sContext))).requestId("1Y").requestTime(Utility.getLoginCallTime(sContext)).responseTime(j).ext(Utility.getLoginFlagExt(sContext)).aliasId(501100L).build();
+            String[] loginFlag = Utility.getLoginFlag(sContext);
+            if (loginFlag.length >= 2) {
+                j = Long.valueOf(loginFlag[0]).longValue();
+                str7 = loginFlag[1];
             }
-            Utility.writeLoginCallTime(sContext);
-            Utility.writeLoginFlag(sContext, "1Y", "context is nonnull, accessToken is null -> " + TextUtils.isEmpty(str2));
-            Utility.writeLoginOpenType(sContext, i2);
-            AccountManagerImpl.getInstance(sContext).setAppOpenType(i2);
-            AccountManagerImpl.getInstance(sContext).pushReStartWork();
-            if (TextUtils.isEmpty(str2)) {
-                Utility.writeLoginFlag(sContext, "2N", "accessToken is null");
-                if (iLoginListener != null) {
-                    iLoginListener.onLoginResult(1005, "accessToken is NULL");
-                    return;
-                }
-                return;
-            }
-            Utility.writeLoginFlag(sContext, "2Y", "accessToken is nonnull, loginType = " + i);
-            if (!TextUtils.isEmpty(str5)) {
-                LogUtils.d(TAG, "HB> im in login, zid is not null !");
-                AccountManagerImpl.getInstance(sContext).setZid(str5);
-            }
-            if (!TextUtils.isEmpty(str6)) {
-                LogUtils.d(TAG, "HB> im in login, vCode is not null !");
-                AccountManagerImpl.getInstance(sContext).setVersionCode(str6);
-            }
-            if (i == 6) {
-                AccountManagerImpl.getInstance(sContext).setCuid(str2);
-                String token = AccountManagerImpl.getInstance(sContext).getToken();
-                if (!TextUtils.isEmpty(token)) {
-                    loginExecutor(i, str, token, str3, str4, iLoginListener);
-                    return;
-                }
-                AccountManagerImpl.getInstance(sContext);
-                AccountManagerImpl.mCuidTokenTryTimes = 0;
-                getCuidTokenAndLogin(str2, i, str3, str4, iLoginListener);
-                return;
-            }
-            loginExecutor(i, str, str2, str3, str4, iLoginListener);
-        } catch (Throwable th) {
+        } catch (Exception e) {
+            LogUtils.e(TAG, "IMTrack init request getLoginFlag Exception ");
+        } finally {
             new IMTrack.RequestBuilder(sContext).method(String.valueOf(Utility.getLoginOpenType(sContext))).requestId("1Y").requestTime(Utility.getLoginCallTime(sContext)).responseTime(j).ext(Utility.getLoginFlagExt(sContext)).aliasId(501100L).build();
-            throw th;
         }
+        Utility.writeLoginCallTime(sContext);
+        Utility.writeLoginFlag(sContext, "1Y", "context is nonnull, accessToken is null -> " + TextUtils.isEmpty(str2));
+        Utility.writeLoginOpenType(sContext, i2);
+        AccountManagerImpl.getInstance(sContext).setAppOpenType(i2);
+        AccountManagerImpl.getInstance(sContext).pushReStartWork();
+        if (TextUtils.isEmpty(str2)) {
+            Utility.writeLoginFlag(sContext, "2N", "accessToken is null");
+            if (iLoginListener != null) {
+                iLoginListener.onLoginResult(1005, "accessToken is NULL");
+                return;
+            }
+            return;
+        }
+        Utility.writeLoginFlag(sContext, "2Y", "accessToken is nonnull, loginType = " + i);
+        if (!TextUtils.isEmpty(str5)) {
+            LogUtils.d(TAG, "HB> im in login, zid is not null !");
+            AccountManagerImpl.getInstance(sContext).setZid(str5);
+        }
+        if (!TextUtils.isEmpty(str6)) {
+            LogUtils.d(TAG, "HB> im in login, vCode is not null !");
+            AccountManagerImpl.getInstance(sContext).setVersionCode(str6);
+        }
+        if (i == 6) {
+            AccountManagerImpl.getInstance(sContext).setCuid(str2);
+            String token = AccountManagerImpl.getInstance(sContext).getToken();
+            if (!TextUtils.isEmpty(token)) {
+                loginExecutor(i, str, token, str3, str4, iLoginListener);
+                return;
+            }
+            AccountManagerImpl.getInstance(sContext);
+            AccountManagerImpl.mCuidTokenTryTimes = 0;
+            getCuidTokenAndLogin(str2, i, str3, str4, iLoginListener);
+            return;
+        }
+        loginExecutor(i, str, str2, str3, str4, iLoginListener);
     }
 
     public static void login(String str, String str2, int i, String str3, String str4, ILoginListener iLoginListener) {
@@ -315,45 +310,40 @@ public class BIMManager extends BaseManager implements NoProGuard {
         String str5 = "1Y";
         long j = 0;
         try {
-            try {
-                String[] loginFlag = Utility.getLoginFlag(sContext);
-                if (loginFlag.length >= 2) {
-                    j = Long.valueOf(loginFlag[0]).longValue();
-                    str5 = loginFlag[1];
-                }
-                new IMTrack.RequestBuilder(sContext).method(String.valueOf(AccountManagerImpl.getInstance(sContext).getAppOpenType())).requestId(str5).requestTime(Utility.getLoginCallTime(sContext)).responseTime(j).ext(Utility.getLoginFlagExt(sContext)).aliasId(501100L).build();
-            } catch (Exception e) {
-                LogUtils.e(TAG, "IMTrack init request getLoginFlag Exception ");
-                new IMTrack.RequestBuilder(sContext).method(String.valueOf(AccountManagerImpl.getInstance(sContext).getAppOpenType())).requestId("1Y").requestTime(Utility.getLoginCallTime(sContext)).responseTime(j).ext(Utility.getLoginFlagExt(sContext)).aliasId(501100L).build();
+            String[] loginFlag = Utility.getLoginFlag(sContext);
+            if (loginFlag.length >= 2) {
+                j = Long.valueOf(loginFlag[0]).longValue();
+                str5 = loginFlag[1];
             }
-            Utility.writeLoginCallTime(sContext);
-            Utility.writeLoginFlag(sContext, "1Y", "context is nonnull, accessToken is null -> " + TextUtils.isEmpty(str2));
-            if (TextUtils.isEmpty(str2)) {
-                Utility.writeLoginFlag(sContext, "2N", "accessToken is null");
-                if (iLoginListener != null) {
-                    iLoginListener.onLoginResult(1005, "accessToken is NULL");
-                    return;
-                }
-                return;
-            }
-            Utility.writeLoginFlag(sContext, "2Y", "accessToken is nonnull, loginType = " + i);
-            if (i == 6) {
-                AccountManagerImpl.getInstance(sContext).setCuid(str2);
-                String token = AccountManagerImpl.getInstance(sContext).getToken();
-                if (!TextUtils.isEmpty(token)) {
-                    loginExecutor(i, str, token, str3, str4, iLoginListener);
-                    return;
-                }
-                AccountManagerImpl.getInstance(sContext);
-                AccountManagerImpl.mCuidTokenTryTimes = 0;
-                getCuidTokenAndLogin(str2, i, str3, str4, iLoginListener);
-                return;
-            }
-            loginExecutor(i, str, str2, str3, str4, iLoginListener);
-        } catch (Throwable th) {
+        } catch (Exception e) {
+            LogUtils.e(TAG, "IMTrack init request getLoginFlag Exception ");
+        } finally {
             new IMTrack.RequestBuilder(sContext).method(String.valueOf(AccountManagerImpl.getInstance(sContext).getAppOpenType())).requestId("1Y").requestTime(Utility.getLoginCallTime(sContext)).responseTime(j).ext(Utility.getLoginFlagExt(sContext)).aliasId(501100L).build();
-            throw th;
         }
+        Utility.writeLoginCallTime(sContext);
+        Utility.writeLoginFlag(sContext, "1Y", "context is nonnull, accessToken is null -> " + TextUtils.isEmpty(str2));
+        if (TextUtils.isEmpty(str2)) {
+            Utility.writeLoginFlag(sContext, "2N", "accessToken is null");
+            if (iLoginListener != null) {
+                iLoginListener.onLoginResult(1005, "accessToken is NULL");
+                return;
+            }
+            return;
+        }
+        Utility.writeLoginFlag(sContext, "2Y", "accessToken is nonnull, loginType = " + i);
+        if (i == 6) {
+            AccountManagerImpl.getInstance(sContext).setCuid(str2);
+            String token = AccountManagerImpl.getInstance(sContext).getToken();
+            if (!TextUtils.isEmpty(token)) {
+                loginExecutor(i, str, token, str3, str4, iLoginListener);
+                return;
+            }
+            AccountManagerImpl.getInstance(sContext);
+            AccountManagerImpl.mCuidTokenTryTimes = 0;
+            getCuidTokenAndLogin(str2, i, str3, str4, iLoginListener);
+            return;
+        }
+        loginExecutor(i, str, str2, str3, str4, iLoginListener);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -838,7 +828,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
     }
 
     public static void tryConnection(Context context) {
-        if (!com.baidu.h.a.ayO) {
+        if (!com.baidu.i.a.aze) {
             AccountManagerImpl.getInstance(context);
             AccountManagerImpl.tryConnection(context);
         }

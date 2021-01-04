@@ -7,14 +7,14 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.tbadk.core.data.TransmitForumData;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes8.dex */
 public class b extends BaseAdapter {
-    private static int ltM = 3;
+    private static int lyU = 3;
     private Context mContext;
     private List<TransmitForumData> mDataList = new ArrayList();
 
@@ -52,41 +52,41 @@ public class b extends BaseAdapter {
             }
         }
         if (aVar != null) {
-            aVar.bvt();
+            aVar.bxO();
             aVar.b(this.mDataList.get(i));
         }
         return view;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes8.dex */
     public static class a {
-        public TextView fdz;
-        public BarImageView ltO;
+        public TextView fni;
+        public BarImageView lyW;
         public int mSkinType = 3;
-        public View nYf;
+        public View oaY;
 
         public a(View view) {
             if (view != null) {
-                this.fdz = (TextView) view.findViewById(R.id.transmit_forum_name);
-                this.ltO = (BarImageView) view.findViewById(R.id.forum_avatar);
-                this.ltO.setShowOval(true);
-                this.nYf = view.findViewById(R.id.divider_line);
+                this.fni = (TextView) view.findViewById(R.id.transmit_forum_name);
+                this.lyW = (BarImageView) view.findViewById(R.id.forum_avatar);
+                this.lyW.setShowOval(true);
+                this.oaY = view.findViewById(R.id.divider_line);
             }
         }
 
         public void b(TransmitForumData transmitForumData) {
             if (transmitForumData != null) {
-                this.fdz.setText(transmitForumData.forumName);
-                this.ltO.startLoad(transmitForumData.avatar, 10, false);
+                this.fni.setText(transmitForumData.forumName);
+                this.lyW.startLoad(transmitForumData.avatar, 10, false);
             }
         }
 
-        public void bvt() {
-            if (b.ltM != this.mSkinType) {
-                ap.setViewTextColor(this.fdz, R.color.CAM_X0105);
-                ap.setBackgroundColor(this.nYf, R.color.CAM_X0204);
+        public void bxO() {
+            if (b.lyU != this.mSkinType) {
+                ao.setViewTextColor(this.fni, R.color.CAM_X0105);
+                ao.setBackgroundColor(this.oaY, R.color.CAM_X0204);
             }
-            this.mSkinType = b.ltM;
+            this.mSkinType = b.lyU;
         }
     }
 
@@ -97,9 +97,9 @@ public class b extends BaseAdapter {
     }
 
     public void onChangeSkinType(int i) {
-        if (ltM != i) {
+        if (lyU != i) {
             notifyDataSetChanged();
         }
-        ltM = i;
+        lyU = i;
     }
 }

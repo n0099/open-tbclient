@@ -1,11 +1,11 @@
 package com.baidu.tieba.ala.data;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class s extends HttpMessage {
-    private long gJs;
-    private long gJt;
-    private String gJu;
+    private long gVf;
+    private long gVg;
+    private String gVh;
     private String liveId;
     private String roomId;
 
@@ -14,15 +14,15 @@ public class s extends HttpMessage {
     }
 
     public void fi(long j) {
-        this.gJs = j;
+        this.gVf = j;
     }
 
     public void fj(long j) {
-        this.gJt = j;
+        this.gVg = j;
     }
 
     public void Hp(String str) {
-        this.gJu = str;
+        this.gVh = str;
     }
 
     public void setLiveId(String str) {
@@ -34,9 +34,9 @@ public class s extends HttpMessage {
     }
 
     public void setParams() {
-        addParam("red_packet_balance", this.gJs);
-        addParam("red_packet_num", this.gJt);
-        addParam("condition", this.gJu);
+        addParam("red_packet_balance", this.gVf);
+        addParam("red_packet_num", this.gVg);
+        addParam("condition", this.gVh);
         addParam("live_id", this.liveId);
         addParam("room_id", this.roomId);
     }

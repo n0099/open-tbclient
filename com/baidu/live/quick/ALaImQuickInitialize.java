@@ -5,7 +5,7 @@ import com.baidu.live.adp.framework.message.CustomMessage;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.task.CustomMessageTask;
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class ALaImQuickInitialize {
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913163, new CustomMessageTask.CustomRunnable<TbPageContext>() { // from class: com.baidu.live.quick.ALaImQuickInitialize.1

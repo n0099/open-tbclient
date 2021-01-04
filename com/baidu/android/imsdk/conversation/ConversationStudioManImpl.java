@@ -4,9 +4,9 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.BIMConversation;
 import com.baidu.android.imsdk.BIMConversationStudio;
 import com.baidu.android.imsdk.BIMManager;
@@ -41,7 +41,7 @@ import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.RequsetNetworkUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.h.a;
+import com.baidu.i.a;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -53,7 +53,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class ConversationStudioManImpl {
     private static final int ACK_INTERVAL_TIME = 3000;
     private static final int ACK_MAX_COUNT = 1;
@@ -155,7 +155,7 @@ public class ConversationStudioManImpl {
         }
     };
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     interface HeartbeatOperation {
         void cancelHearbeat();
 
@@ -291,7 +291,7 @@ public class ConversationStudioManImpl {
             createMcastMethodIntent.putExtra("mcast_id", j);
             createMcastMethodIntent.putExtra(Constants.EXTRA_OPT_EXT, z);
             try {
-                a.aq(mContext).e(mContext, createMcastMethodIntent);
+                a.ap(mContext).e(mContext, createMcastMethodIntent);
                 new IMTrack.RequestBuilder(mContext).requestId("" + j).requestTime(System.currentTimeMillis()).ext("service enqueue join").aliasId(501112L).build();
                 return;
             } catch (Exception e) {
@@ -378,7 +378,7 @@ public class ConversationStudioManImpl {
             createMcastMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             createMcastMethodIntent.putExtra("mcast_id", j);
             try {
-                a.aq(mContext).e(mContext, createMcastMethodIntent);
+                a.ap(mContext).e(mContext, createMcastMethodIntent);
                 return;
             } catch (Exception e) {
                 ListenerManager.getInstance().removeListener(addListener);
@@ -400,7 +400,7 @@ public class ConversationStudioManImpl {
             createMcastMethodIntent.putExtra(Constants.EXTRA_OPT_CODE, i);
             createMcastMethodIntent.putExtra(Constants.EXTRA_OPT_EXT, str);
             try {
-                a.aq(mContext).e(mContext, createMcastMethodIntent);
+                a.ap(mContext).e(mContext, createMcastMethodIntent);
                 return;
             } catch (Exception e) {
                 ListenerManager.getInstance().removeListener(addListener);
@@ -423,7 +423,7 @@ public class ConversationStudioManImpl {
     }
 
     public void handleMessage(JSONObject jSONObject) {
-        if (!a.ayO || jSONObject != null) {
+        if (!a.aze || jSONObject != null) {
         }
         JSONArray jSONArray = new JSONArray();
         try {
@@ -516,8 +516,8 @@ public class ConversationStudioManImpl {
     }
 
     public boolean getConnectState() {
-        if (a.ayO) {
-            if (com.baidu.lcp.sdk.client.a.Aj() != 0) {
+        if (a.aze) {
+            if (com.baidu.lcp.sdk.client.a.zx() != 0) {
                 return false;
             }
             return true;
@@ -557,7 +557,7 @@ public class ConversationStudioManImpl {
     }
 
     public static void resetHeartBeat(int i) {
-        if (!a.ayO) {
+        if (!a.aze) {
             Heartbeat.ALARM_TIMEOUT = i;
             LogUtils.d(TAG, "reset heartbeat time to = " + Heartbeat.ALARM_TIMEOUT);
             IMSDK.getInstance(mContext).mHeartbeatOperator.cancelHearbeat();
@@ -566,7 +566,7 @@ public class ConversationStudioManImpl {
     }
 
     public void setMcastQuickHeartBeat() {
-        if (a.ayO && !mOpenPingRequest.get()) {
+        if (a.aze && !mOpenPingRequest.get()) {
             mOpenPingRequest.set(true);
             pingRequest(true, mCastHeartBeatTime);
             return;
@@ -580,7 +580,7 @@ public class ConversationStudioManImpl {
     }
 
     public void cancelMcastQuickHeartBeat() {
-        if (a.ayO && mOpenPingRequest.get()) {
+        if (a.aze && mOpenPingRequest.get()) {
             mOpenPingRequest.set(false);
             pingRequest(false, 0L);
             return;
@@ -593,17 +593,17 @@ public class ConversationStudioManImpl {
         resetHeartBeat(60000);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public class McastHeartbeat implements HeartbeatOperation {
         private Runnable startHeartBeatTask = new Runnable() { // from class: com.baidu.android.imsdk.conversation.ConversationStudioManImpl.McastHeartbeat.1
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    if (!a.ayO) {
+                    if (!a.aze) {
                         Intent intent = new Intent(ConversationStudioManImpl.mContext, a.class);
                         intent.putExtra(Constants.EXTRA_ALARM_ALERT, "OK");
                         intent.setPackage(ConversationStudioManImpl.mContext.getPackageName());
-                        a.aq(ConversationStudioManImpl.mContext).e(ConversationStudioManImpl.mContext, intent);
+                        a.ap(ConversationStudioManImpl.mContext).e(ConversationStudioManImpl.mContext, intent);
                     }
                 } catch (Exception e) {
                     if (e instanceof SecurityException) {
@@ -676,7 +676,7 @@ public class ConversationStudioManImpl {
     }
 
     private void registerNetChangedReceiver() {
-        if (!a.ayO) {
+        if (!a.aze) {
             try {
                 if (mNetChangedReceiver == null && mContext != null) {
                     mNetChangedReceiver = new IMReceiver();
@@ -695,7 +695,7 @@ public class ConversationStudioManImpl {
     }
 
     private void unRegisterNetChangedReceiver() {
-        if (!a.ayO) {
+        if (!a.aze) {
             try {
                 if (this.isRegisterNetReceiver && mContext != null) {
                     mContext.unregisterReceiver(mNetChangedReceiver);
@@ -709,7 +709,7 @@ public class ConversationStudioManImpl {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public class McastTodoAfterLogin implements TodoAfterLogin {
         McastTodoAfterLogin() {
         }

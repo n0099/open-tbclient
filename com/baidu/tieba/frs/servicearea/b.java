@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.servicearea;
 import android.view.View;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.tieba.tbadkCore.aa;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public interface b {
     View getView();
 

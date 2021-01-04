@@ -1,65 +1,69 @@
 package rx.internal.operators;
 
 import rx.d;
-import rx.internal.producers.SingleDelayedProducer;
-/* loaded from: classes12.dex */
-public final class i<T> implements d.b<Boolean, T> {
-    final boolean pQZ;
-    final rx.functions.f<? super T, Boolean> pQe;
+import rx.exceptions.OnErrorThrowable;
+/* loaded from: classes15.dex */
+public class i<T, R> implements d.b<R, T> {
+    final Class<R> qsG;
 
-    public i(rx.functions.f<? super T, Boolean> fVar, boolean z) {
-        this.pQe = fVar;
-        this.pQZ = z;
+    @Override // rx.functions.f
+    public /* bridge */ /* synthetic */ Object call(Object obj) {
+        return call((rx.j) ((rx.j) obj));
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // rx.functions.f
-    public rx.j<? super T> call(final rx.j<? super Boolean> jVar) {
-        final SingleDelayedProducer singleDelayedProducer = new SingleDelayedProducer(jVar);
-        rx.j jVar2 = (rx.j<T>) new rx.j<T>() { // from class: rx.internal.operators.i.1
-            boolean done;
-            boolean pRa;
+    public i(Class<R> cls) {
+        this.qsG = cls;
+    }
 
-            @Override // rx.e
-            public void onNext(T t) {
-                if (!this.done) {
-                    this.pRa = true;
-                    try {
-                        if (i.this.pQe.call(t).booleanValue()) {
-                            this.done = true;
-                            singleDelayedProducer.setValue(Boolean.valueOf(!i.this.pQZ));
-                            unsubscribe();
-                        }
-                    } catch (Throwable th) {
-                        rx.exceptions.a.a(th, this, t);
-                    }
-                }
+    public rx.j<? super T> call(rx.j<? super R> jVar) {
+        a aVar = new a(jVar, this.qsG);
+        jVar.add(aVar);
+        return aVar;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes15.dex */
+    public static final class a<T, R> extends rx.j<T> {
+        final rx.j<? super R> actual;
+        boolean done;
+        final Class<R> qsG;
+
+        public a(rx.j<? super R> jVar, Class<R> cls) {
+            this.actual = jVar;
+            this.qsG = cls;
+        }
+
+        @Override // rx.e
+        public void onNext(T t) {
+            try {
+                this.actual.onNext(this.qsG.cast(t));
+            } catch (Throwable th) {
+                rx.exceptions.a.O(th);
+                unsubscribe();
+                onError(OnErrorThrowable.addValueAsLastCause(th, t));
             }
+        }
 
-            @Override // rx.e
-            public void onError(Throwable th) {
-                if (!this.done) {
-                    this.done = true;
-                    jVar.onError(th);
-                    return;
-                }
+        @Override // rx.e
+        public void onError(Throwable th) {
+            if (this.done) {
                 rx.c.c.onError(th);
+                return;
             }
+            this.done = true;
+            this.actual.onError(th);
+        }
 
-            @Override // rx.e
-            public void onCompleted() {
-                if (!this.done) {
-                    this.done = true;
-                    if (this.pRa) {
-                        singleDelayedProducer.setValue(false);
-                    } else {
-                        singleDelayedProducer.setValue(Boolean.valueOf(i.this.pQZ));
-                    }
-                }
+        @Override // rx.e
+        public void onCompleted() {
+            if (!this.done) {
+                this.actual.onCompleted();
             }
-        };
-        jVar.add(jVar2);
-        jVar.setProducer(singleDelayedProducer);
-        return jVar2;
+        }
+
+        @Override // rx.j
+        public void setProducer(rx.f fVar) {
+            this.actual.setProducer(fVar);
+        }
     }
 }

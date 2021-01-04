@@ -3,7 +3,7 @@ package kotlin.sequences;
 import kotlin.Pair;
 import kotlin.jvm.internal.Lambda;
 @kotlin.e
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 final class SequencesKt___SequencesKt$zipWithNext$1 extends Lambda implements kotlin.jvm.a.c<T, T, Pair<? extends T, ? extends T>> {
     public static final SequencesKt___SequencesKt$zipWithNext$1 INSTANCE = new SequencesKt___SequencesKt$zipWithNext$1();
 

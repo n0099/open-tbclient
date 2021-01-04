@@ -1,105 +1,105 @@
 package com.baidu.swan.apps.api.module.l;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.Pair;
 import android.view.WindowManager;
+import androidx.annotation.NonNull;
 import com.baidu.live.adp.widget.HorizontalTranslateLayout;
 import com.baidu.live.adp.widget.VerticalTranslateLayout;
 import com.baidu.platform.comapi.location.CoordinateType;
 import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.ap.ac;
-import com.baidu.swan.apps.ap.ah;
-import com.baidu.swan.apps.ap.ak;
-import com.baidu.swan.apps.ap.y;
+import com.baidu.swan.apps.ao.ac;
+import com.baidu.swan.apps.ao.ah;
+import com.baidu.swan.apps.ao.ak;
+import com.baidu.swan.apps.ao.y;
 import com.baidu.webkit.sdk.PermissionRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class d extends com.baidu.swan.apps.api.a.d {
     public d(@NonNull com.baidu.swan.apps.api.a.b bVar) {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b amK() {
+    public com.baidu.swan.apps.api.c.b anU() {
         if (DEBUG) {
             Log.d("Api-SystemInfo", "start get system info");
         }
-        JSONObject cj = cj(getContext());
-        return cj == null ? new com.baidu.swan.apps.api.c.b(202, "empty joData") : new com.baidu.swan.apps.api.c.b(0, cj);
+        JSONObject cq = cq(getContext());
+        return cq == null ? new com.baidu.swan.apps.api.c.b(202, "empty joData") : new com.baidu.swan.apps.api.c.b(0, cq);
     }
 
-    public com.baidu.swan.apps.api.c.b amL() {
+    public com.baidu.swan.apps.api.c.b anV() {
         if (DEBUG) {
             Log.d("Api-SystemInfo", "start get system info sync");
         }
-        JSONObject cj = cj(getContext());
-        return cj == null ? new com.baidu.swan.apps.api.c.b(202, "empty joData") : new com.baidu.swan.apps.api.c.b(0, cj);
+        JSONObject cq = cq(getContext());
+        return cq == null ? new com.baidu.swan.apps.api.c.b(202, "empty joData") : new com.baidu.swan.apps.api.c.b(0, cq);
     }
 
-    private JSONObject cj(Context context) {
-        JSONObject cn2;
-        if (com.baidu.swan.apps.t.a.azd().ajd()) {
-            cn2 = e.cm(context);
+    private JSONObject cq(Context context) {
+        JSONObject cu;
+        if (com.baidu.swan.apps.t.a.aAu().akl()) {
+            cu = e.ct(context);
         } else {
-            cn2 = e.cn(context);
+            cu = e.cu(context);
         }
-        if (cn2 == null) {
+        if (cu == null) {
             return null;
         }
         DisplayMetrics displayMetrics = new DisplayMetrics();
         ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
-        Pair<Integer, Integer> aCb = com.baidu.swan.apps.v.f.aCp().aCb();
-        Pair<Integer, Integer> aCc = com.baidu.swan.apps.v.f.aCp().aCc();
+        Pair<Integer, Integer> aDs = com.baidu.swan.apps.v.f.aDG().aDs();
+        Pair<Integer, Integer> aDt = com.baidu.swan.apps.v.f.aDG().aDt();
         try {
-            cn2.put("SDKVersion", ck(context));
-            cn2.put("windowWidth", (int) (((Integer) aCb.first).intValue() / displayMetrics.density));
-            cn2.put("windowHeight", (int) (((Integer) aCb.second).intValue() / displayMetrics.density));
-            cn2.put("screenWidth", ah.O(((Integer) aCc.first).intValue()));
-            cn2.put("screenHeight", ah.O(((Integer) aCc.second).intValue()));
-            aS(cn2);
-            k(context, cn2);
-            a(context, cn2, aCc);
+            cu.put("SDKVersion", cr(context));
+            cu.put("windowWidth", (int) (((Integer) aDs.first).intValue() / displayMetrics.density));
+            cu.put("windowHeight", (int) (((Integer) aDs.second).intValue() / displayMetrics.density));
+            cu.put("screenWidth", ah.Q(((Integer) aDt.first).intValue()));
+            cu.put("screenHeight", ah.Q(((Integer) aDt.second).intValue()));
+            ba(cu);
+            j(context, cu);
+            a(context, cu, aDt);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
             }
         }
         if (DEBUG) {
-            Log.i("Api-SystemInfo-aiapp", "getSystemInfo:  " + cn2);
+            Log.i("Api-SystemInfo-aiapp", "getSystemInfo:  " + cu);
         }
-        return cn2;
+        return cu;
     }
 
-    private static String ck(Context context) {
+    private static String cr(Context context) {
         int i = 0;
         if (context instanceof SwanAppActivity) {
-            i = ((SwanAppActivity) context).aie();
+            i = ((SwanAppActivity) context).ajk();
         }
         if (i == 1) {
-            return com.baidu.swan.apps.swancore.b.a(com.baidu.swan.games.j.a.aXN().auD(), i);
+            return com.baidu.swan.apps.swancore.b.a(com.baidu.swan.games.j.a.bah().avV(), i);
         }
-        return com.baidu.swan.apps.swancore.b.a(com.baidu.swan.apps.core.turbo.d.aui().auD(), i);
+        return com.baidu.swan.apps.swancore.b.a(com.baidu.swan.apps.core.turbo.d.avA().avV(), i);
     }
 
-    public static void aS(@NonNull JSONObject jSONObject) throws JSONException {
-        com.baidu.swan.apps.runtime.e aJU = com.baidu.swan.apps.runtime.e.aJU();
-        if (aJU != null && aJU.aKg().tp("mapp_location")) {
-            com.baidu.swan.apps.t.b.d azs = com.baidu.swan.apps.t.a.azs();
-            com.baidu.swan.apps.scheme.actions.f.b aAA = azs == null ? null : azs.aAA();
-            if (aAA != null) {
+    public static void ba(@NonNull JSONObject jSONObject) throws JSONException {
+        com.baidu.swan.apps.runtime.e aMk = com.baidu.swan.apps.runtime.e.aMk();
+        if (aMk != null && aMk.aMw().tm("mapp_location")) {
+            com.baidu.swan.apps.t.b.d aAJ = com.baidu.swan.apps.t.a.aAJ();
+            com.baidu.swan.apps.scheme.actions.f.b aBR = aAJ == null ? null : aAJ.aBR();
+            if (aBR != null) {
                 JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("city", aAA.city);
-                jSONObject2.put("cityCode", aAA.cityCode);
-                jSONObject2.put("country", aAA.country);
-                jSONObject2.put("district", aAA.district);
-                jSONObject2.put("province", aAA.province);
-                jSONObject2.put("street", aAA.street);
-                jSONObject2.put("streetNumber", aAA.streetNumber);
-                jSONObject2.put("coord_gcj02", a(aAA, "gcj02"));
-                jSONObject2.put("coord_wgs84", a(aAA, CoordinateType.WGS84));
+                jSONObject2.put("city", aBR.city);
+                jSONObject2.put("cityCode", aBR.cityCode);
+                jSONObject2.put("country", aBR.country);
+                jSONObject2.put("district", aBR.district);
+                jSONObject2.put("province", aBR.province);
+                jSONObject2.put("street", aBR.street);
+                jSONObject2.put("streetNumber", aBR.streetNumber);
+                jSONObject2.put("coord_gcj02", a(aBR, "gcj02"));
+                jSONObject2.put("coord_wgs84", a(aBR, CoordinateType.WGS84));
                 jSONObject.put("cacheLocation", jSONObject2);
             }
         }
@@ -107,44 +107,44 @@ public class d extends com.baidu.swan.apps.api.a.d {
 
     private static JSONObject a(@NonNull com.baidu.swan.apps.scheme.actions.f.b bVar, @NonNull String str) throws JSONException {
         JSONObject jSONObject = new JSONObject();
-        double[] b = com.baidu.swan.apps.t.a.azs().b(bVar, str);
-        if (b != null && b.length >= 2) {
-            jSONObject.put("longitude", b[0]);
-            jSONObject.put("latitude", b[1]);
+        double[] b2 = com.baidu.swan.apps.t.a.aAJ().b(bVar, str);
+        if (b2 != null && b2.length >= 2) {
+            jSONObject.put("longitude", b2[0]);
+            jSONObject.put("latitude", b2[1]);
         }
         return jSONObject;
     }
 
-    private void k(@NonNull Context context, @NonNull JSONObject jSONObject) throws JSONException {
-        jSONObject.put("cameraAuthorized", y.aj(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE));
-        jSONObject.put("locationAuthorized", y.aj(context, "android.permission.ACCESS_FINE_LOCATION"));
-        jSONObject.put("microphoneAuthorized", y.aj(context, PermissionRequest.RESOURCE_AUDIO_CAPTURE));
-        jSONObject.put("notificationAuthorized", ak.dx(context));
-        jSONObject.put("locationEnabled", ak.dy(context));
-        jSONObject.put("wifiEnabled", ak.dz(context));
+    private void j(@NonNull Context context, @NonNull JSONObject jSONObject) throws JSONException {
+        jSONObject.put("cameraAuthorized", y.aq(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE));
+        jSONObject.put("locationAuthorized", y.aq(context, "android.permission.ACCESS_FINE_LOCATION"));
+        jSONObject.put("microphoneAuthorized", y.aq(context, PermissionRequest.RESOURCE_AUDIO_CAPTURE));
+        jSONObject.put("notificationAuthorized", ak.dQ(context));
+        jSONObject.put("locationEnabled", ak.dR(context));
+        jSONObject.put("wifiEnabled", ak.dS(context));
     }
 
     private void a(@NonNull Context context, @NonNull JSONObject jSONObject, @NonNull Pair<Integer, Integer> pair) throws JSONException {
-        int O = ah.O(ac.dp(context));
-        int O2 = ah.O(((Integer) pair.first).intValue());
-        int O3 = ah.O(((Integer) pair.second).intValue());
+        int Q = ah.Q(ac.dI(context));
+        int Q2 = ah.Q(((Integer) pair.first).intValue());
+        int Q3 = ah.Q(((Integer) pair.second).intValue());
         JSONObject jSONObject2 = new JSONObject();
         jSONObject2.put("left", 0);
-        jSONObject2.put(HorizontalTranslateLayout.DIRECTION_RIGHT, O2);
-        jSONObject2.put(VerticalTranslateLayout.TOP, O);
-        jSONObject2.put("width", O2);
-        jSONObject2.put(VerticalTranslateLayout.BOTTOM, O3);
-        jSONObject2.put("height", O3 - O);
+        jSONObject2.put(HorizontalTranslateLayout.DIRECTION_RIGHT, Q2);
+        jSONObject2.put(VerticalTranslateLayout.TOP, Q);
+        jSONObject2.put("width", Q2);
+        jSONObject2.put("bottom", Q3);
+        jSONObject2.put("height", Q3 - Q);
         jSONObject.put("safeArea", jSONObject2);
     }
 
-    public com.baidu.swan.apps.api.c.b amM() {
+    public com.baidu.swan.apps.api.c.b anW() {
         if (DEBUG) {
             Log.d("Api-SystemInfo", "start get common sys info sync");
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("imei", ak.aPx());
+            jSONObject.put("imei", ak.aRO());
             return new com.baidu.swan.apps.api.c.b(0, jSONObject);
         } catch (JSONException e) {
             return new com.baidu.swan.apps.api.c.b(1001, "exec fail");

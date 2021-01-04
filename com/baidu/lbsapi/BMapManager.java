@@ -4,12 +4,14 @@ import android.app.Application;
 import android.content.Context;
 import com.baidu.lbsapi.auth.LBSAuthManager;
 import com.baidu.pano.platform.c.b;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class BMapManager {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f1832a = true;
-    private Context b;
+    private static boolean f2526a = true;
+
+    /* renamed from: b  reason: collision with root package name */
+    private Context f2527b;
 
     static {
         try {
@@ -29,16 +31,16 @@ public class BMapManager {
         if (!(context instanceof Application)) {
             throw new IllegalArgumentException("BMapManager is a Globle project, context should be a Application Context");
         }
-        this.b = context;
+        this.f2527b = context;
     }
 
     public boolean init(MKGeneralListener mKGeneralListener) {
-        LBSAuthManager.getInstance(this.b).authenticate(true, "lbs_panosdk", null, new a(this, mKGeneralListener));
-        b.a().a(this.b);
+        LBSAuthManager.getInstance(this.f2527b).authenticate(true, "lbs_panosdk", null, new a(this, mKGeneralListener));
+        b.a().a(this.f2527b);
         return true;
     }
 
     public static boolean isIllegalPanoSDKUser() {
-        return f1832a;
+        return f2526a;
     }
 }

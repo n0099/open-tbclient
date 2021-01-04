@@ -1,5 +1,12 @@
 package com.baidu.live.z;
-/* loaded from: classes4.dex */
+
+import android.view.View;
+import android.widget.TextView;
+/* loaded from: classes11.dex */
 public interface b {
-    boolean QX();
+    View getRankItemRootView();
+
+    TextView getRankLevelView();
+
+    TextView getRankNameView();
 }

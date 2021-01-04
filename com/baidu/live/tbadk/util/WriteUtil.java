@@ -13,12 +13,12 @@ import com.baidu.live.tbadk.BaseActivity;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.BaseFragmentActivity;
-import com.baidu.live.tbadk.core.data.RequestResponseCode;
 import com.baidu.live.tbadk.core.util.BitmapHelper;
 import com.baidu.live.tbadk.core.util.FileHelper;
 import com.baidu.live.tbadk.core.util.UtilHelper;
+import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class WriteUtil {
     private static final String TMP_IMAGE_NAME = "camera.jpg";
 
@@ -35,7 +35,7 @@ public class WriteUtil {
                 if (CreateFile != null) {
                     Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
                     intent.putExtra("output", UtilHelper.getUriFromFile(CreateFile, intent, tbPageContext.getPageActivity()));
-                    tbPageContext.getPageActivity().startActivityForResult(intent, RequestResponseCode.REQUEST_CAMERA);
+                    tbPageContext.getPageActivity().startActivityForResult(intent, 12001);
                 } else if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
                     ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(a.h.sdk_error_sd_error));
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
@@ -72,7 +72,7 @@ public class WriteUtil {
                 if (z) {
                     Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
                     intent.putExtra("output", UtilHelper.getUriFromFile(file, intent, tbPageContext.getPageActivity()));
-                    tbPageContext.getPageActivity().startActivityForResult(intent, RequestResponseCode.REQUEST_CAMERA);
+                    tbPageContext.getPageActivity().startActivityForResult(intent, 12001);
                 }
             }
             if (!z) {
@@ -96,7 +96,7 @@ public class WriteUtil {
             Intent intent = new Intent();
             intent.setType("image/*");
             intent.setAction("android.intent.action.GET_CONTENT");
-            activity.startActivityForResult(intent, RequestResponseCode.REQUEST_ALBUM_IMAGE);
+            activity.startActivityForResult(intent, 12002);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
@@ -104,7 +104,7 @@ public class WriteUtil {
 
     public static int readPictureDegree(String str) {
         try {
-            switch (new ExifInterface(str).getAttributeInt(android.support.media.ExifInterface.TAG_ORIENTATION, 1)) {
+            switch (new ExifInterface(str).getAttributeInt("Orientation", 1)) {
                 case 3:
                     return 180;
                 case 4:
@@ -115,7 +115,7 @@ public class WriteUtil {
                 case 6:
                     return 90;
                 case 8:
-                    return 270;
+                    return SubsamplingScaleImageView.ORIENTATION_270;
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -124,62 +124,44 @@ public class WriteUtil {
     }
 
     private static Bitmap photoResult(int i) {
-        Exception e;
         try {
             int readPictureDegree = readPictureDegree(FileHelper.getFileDireciory("camera.jpg"));
             Bitmap subSampleBitmap = BitmapHelper.subSampleBitmap("camera.jpg", i);
             if (readPictureDegree != 0 && subSampleBitmap != null) {
-                try {
-                    return BitmapHelper.rotateBitmapBydegree(subSampleBitmap, readPictureDegree);
-                } catch (Exception e2) {
-                    e = e2;
-                    BdLog.e(e.getMessage());
-                    return null;
-                }
+                return BitmapHelper.rotateBitmapBydegree(subSampleBitmap, readPictureDegree);
             }
             return subSampleBitmap;
-        } catch (Exception e3) {
-            e = e3;
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+            return null;
         }
     }
 
     private static Bitmap AlbumImageResult(Context context, String str, int i) {
-        Exception e;
         try {
             int readPictureDegree = readPictureDegree(str);
             Bitmap loadResizedBitmap = BitmapHelper.loadResizedBitmap(str, i, i);
             if (readPictureDegree != 0 && loadResizedBitmap != null) {
-                try {
-                    return BitmapHelper.rotateBitmapBydegree(loadResizedBitmap, readPictureDegree);
-                } catch (Exception e2) {
-                    e = e2;
-                    BdLog.e(e.getMessage());
-                    return null;
-                }
+                return BitmapHelper.rotateBitmapBydegree(loadResizedBitmap, readPictureDegree);
             }
             return loadResizedBitmap;
-        } catch (Exception e3) {
-            e = e3;
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+            return null;
         }
     }
 
     private static Bitmap AlbumImageResult(Context context, Uri uri, int i) {
-        Exception e;
         try {
             int readPictureDegree = readPictureDegree(uri.getPath());
             Bitmap subSampleBitmap = BitmapHelper.subSampleBitmap(context, uri, i);
             if (readPictureDegree != 0 && subSampleBitmap != null) {
-                try {
-                    return BitmapHelper.rotateBitmapBydegree(subSampleBitmap, readPictureDegree);
-                } catch (Exception e2) {
-                    e = e2;
-                    BdLog.e(e.getMessage());
-                    return null;
-                }
+                return BitmapHelper.rotateBitmapBydegree(subSampleBitmap, readPictureDegree);
             }
             return subSampleBitmap;
-        } catch (Exception e3) {
-            e = e3;
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+            return null;
         }
     }
 

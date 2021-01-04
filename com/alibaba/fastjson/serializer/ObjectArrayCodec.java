@@ -11,7 +11,7 @@ import java.lang.reflect.GenericArrayType;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class ObjectArrayCodec implements ObjectDeserializer, ObjectSerializer {
     public static final ObjectArrayCodec instance = new ObjectArrayCodec();
 
@@ -33,6 +33,7 @@ public class ObjectArrayCodec implements ObjectDeserializer, ObjectSerializer {
         SerialContext serialContext = jSONSerializer.context;
         jSONSerializer.setContext(serialContext, obj, obj2, 0);
         Class<?> cls2 = null;
+        ObjectSerializer objectSerializer = null;
         try {
             serializeWriter.append('[');
             if (serializeWriter.isEnabled(SerializerFeature.PrettyFormat)) {
@@ -51,7 +52,6 @@ public class ObjectArrayCodec implements ObjectDeserializer, ObjectSerializer {
                 return;
             }
             int i4 = 0;
-            ObjectSerializer objectSerializer = null;
             while (i4 < i2) {
                 Object obj3 = objArr[i4];
                 if (obj3 == null) {
@@ -93,12 +93,13 @@ public class ObjectArrayCodec implements ObjectDeserializer, ObjectSerializer {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x006e */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:43:0x006e */
     /* JADX WARN: Type inference failed for: r0v1, types: [byte[], T] */
     @Override // com.alibaba.fastjson.parser.deserializer.ObjectDeserializer
     public <T> T deserialze(DefaultJSONParser defaultJSONParser, Type type, Object obj) {
-        Type componentType;
+        Type type2;
         Class<?> cls;
+        Class<?> cls2;
         Object[] objArr;
         int i = 0;
         JSONLexer jSONLexer = defaultJSONParser.lexer;
@@ -115,12 +116,12 @@ public class ObjectArrayCodec implements ObjectDeserializer, ObjectSerializer {
             return null;
         } else {
             if (type instanceof GenericArrayType) {
-                componentType = ((GenericArrayType) type).getGenericComponentType();
-                if (componentType instanceof TypeVariable) {
-                    TypeVariable typeVariable = (TypeVariable) componentType;
-                    Type type2 = defaultJSONParser.getContext().type;
-                    if (type2 instanceof ParameterizedType) {
-                        ParameterizedType parameterizedType = (ParameterizedType) type2;
+                type2 = ((GenericArrayType) type).getGenericComponentType();
+                if (type2 instanceof TypeVariable) {
+                    TypeVariable typeVariable = (TypeVariable) type2;
+                    Type type3 = defaultJSONParser.getContext().type;
+                    if (type3 instanceof ParameterizedType) {
+                        ParameterizedType parameterizedType = (ParameterizedType) type3;
                         Type rawType = parameterizedType.getRawType();
                         if (rawType instanceof Class) {
                             TypeVariable<Class<T>>[] typeParameters = ((Class) rawType).getTypeParameters();
@@ -137,22 +138,24 @@ public class ObjectArrayCodec implements ObjectDeserializer, ObjectSerializer {
                             objArr = null;
                         }
                         if (objArr instanceof Class) {
-                            cls = (Class) objArr;
+                            cls2 = (Class) objArr;
                         } else {
-                            cls = Object.class;
+                            cls2 = Object.class;
                         }
                     } else {
-                        cls = TypeUtils.getClass(typeVariable.getBounds()[0]);
+                        cls2 = TypeUtils.getClass(typeVariable.getBounds()[0]);
                     }
                 } else {
-                    cls = TypeUtils.getClass(componentType);
+                    cls2 = TypeUtils.getClass(type2);
                 }
+                cls = cls2;
             } else {
-                componentType = ((Class) type).getComponentType();
+                Class<?> componentType = ((Class) type).getComponentType();
+                type2 = componentType;
                 cls = componentType;
             }
             JSONArray jSONArray = new JSONArray();
-            defaultJSONParser.parseArray(componentType, jSONArray, obj);
+            defaultJSONParser.parseArray(type2, jSONArray, obj);
             return (T) toObjectArray(defaultJSONParser, cls, jSONArray);
         }
     }

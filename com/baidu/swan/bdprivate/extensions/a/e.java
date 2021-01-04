@@ -13,7 +13,7 @@ import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.apps.setting.oauth.a.b;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class e extends aa {
     public e(j jVar) {
         super(jVar, "/swanAPI/getStoken");
@@ -44,11 +44,11 @@ public class e extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
             return false;
         } else {
-            eVar.aKg().b(context, "mapp_i_get_stoken", new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.bdprivate.extensions.a.e.1
+            eVar.aMw().b(context, "mapp_i_get_stoken", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.bdprivate.extensions.a.e.1
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.swan.apps.ap.e.b
+                @Override // com.baidu.swan.apps.ao.e.b
                 /* renamed from: a */
-                public void M(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
+                public void L(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
                     e.this.a(hVar, context, callbackHandler, optString2, optString);
                 }
             });
@@ -61,14 +61,14 @@ public class e extends aa {
     public void a(com.baidu.swan.apps.setting.oauth.h<b.d> hVar, Context context, final CallbackHandler callbackHandler, final String str, final String str2) {
         if (!com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
             com.baidu.swan.apps.setting.oauth.c.a(hVar, callbackHandler, str);
-        } else if (TextUtils.isEmpty(com.baidu.swan.bdprivate.a.a.dE(context))) {
+        } else if (TextUtils.isEmpty(com.baidu.swan.bdprivate.a.a.dX(context))) {
             callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, "bduss is invalid").toString());
         } else {
-            com.baidu.swan.bdprivate.a.a.a(context, new com.baidu.swan.apps.ap.e.b<Bundle>() { // from class: com.baidu.swan.bdprivate.extensions.a.e.2
+            com.baidu.swan.bdprivate.a.a.a(context, new com.baidu.swan.apps.ao.e.b<Bundle>() { // from class: com.baidu.swan.bdprivate.extensions.a.e.2
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.swan.apps.ap.e.b
+                @Override // com.baidu.swan.apps.ao.e.b
                 /* renamed from: B */
-                public void M(Bundle bundle) {
+                public void L(Bundle bundle) {
                     JSONObject wrapCallbackParams;
                     if (bundle != null && !TextUtils.isEmpty(bundle.getString(str2))) {
                         String string = bundle.getString(str2);

@@ -2,7 +2,6 @@ package com.baidu.b;
 
 import android.content.Context;
 import android.provider.Settings;
-import android.support.media.ExifInterface;
 import android.text.TextUtils;
 import com.baidu.b.b.a;
 import com.baidu.b.e.a;
@@ -11,20 +10,24 @@ import java.util.Collections;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class h {
-    private static boolean b = false;
-    c aeM;
-    private com.baidu.b.b.c aeP;
-    private a.C0093a aed;
+
+    /* renamed from: b  reason: collision with root package name */
+    private static boolean f1618b = false;
+    private a.C0085a aeR;
+    c afr;
+    private com.baidu.b.b.c afu;
     private Context c;
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String[] f1272a = {ExifInterface.GPS_MEASUREMENT_INTERRUPTED, "O", "0"};
-        private String b;
+        public static final String[] f1619a = {"V", "O", "0"};
+
+        /* renamed from: b  reason: collision with root package name */
+        private String f1620b;
         private String c;
         private String d;
         private long e;
@@ -32,13 +35,13 @@ public class h {
         private int g = 1;
 
         public String a() {
-            return this.b;
+            return this.f1620b;
         }
 
         public String b() {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("dik", this.b);
+                jSONObject.put("dik", this.f1620b);
                 jSONObject.put("v270fk", this.c);
                 jSONObject.put("cck", this.d);
                 jSONObject.put("vsk", this.g);
@@ -57,8 +60,8 @@ public class h {
                 str = "0";
             }
             StringBuilder sb = new StringBuilder();
-            sb.append(this.b).append("|").append(str);
-            if (ExifInterface.GPS_MEASUREMENT_INTERRUPTED.equals(str)) {
+            sb.append(this.f1620b).append("|").append(str);
+            if ("V".equals(str)) {
                 sb.append(this.d);
             }
             if (!TextUtils.isEmpty(this.f)) {
@@ -75,7 +78,7 @@ public class h {
                 return false;
             }
             a aVar = (a) obj;
-            if (this.g == aVar.g && this.b.equals(aVar.b) && this.c.equals(aVar.c) && this.d.equals(aVar.d)) {
+            if (this.g == aVar.g && this.f1620b.equals(aVar.f1620b) && this.c.equals(aVar.c) && this.d.equals(aVar.d)) {
                 if (this.f == aVar.f) {
                     return true;
                 }
@@ -87,7 +90,7 @@ public class h {
         }
 
         public int hashCode() {
-            return Arrays.hashCode(new Object[]{this.b, this.c, this.d, this.f, Integer.valueOf(this.g)});
+            return Arrays.hashCode(new Object[]{this.f1620b, this.c, this.d, this.f, Integer.valueOf(this.g)});
         }
     }
 
@@ -96,9 +99,9 @@ public class h {
             throw new NullPointerException("context should not be null!!!");
         }
         this.c = context.getApplicationContext();
-        this.aed = aVar.sR().dc("bohrium");
-        this.aed.a();
-        this.aeM = cVar;
+        this.aeR = aVar.sr().cV("bohrium");
+        this.aeR.a();
+        this.afr = cVar;
         a(aVar);
     }
 
@@ -113,12 +116,12 @@ public class h {
             long optLong = jSONObject.optLong("ctk", 0L);
             int optInt = jSONObject.optInt("vsk", 1);
             String optString3 = jSONObject.optString("ek", "");
-            String optString4 = jSONObject.optString("v270fk", ExifInterface.GPS_MEASUREMENT_INTERRUPTED);
+            String optString4 = jSONObject.optString("v270fk", "V");
             if (TextUtils.isEmpty(optString)) {
                 return null;
             }
             a aVar = new a();
-            aVar.b = optString;
+            aVar.f1620b = optString;
             aVar.d = optString2;
             aVar.e = optLong;
             aVar.g = optInt;
@@ -138,15 +141,15 @@ public class h {
 
     private void a(com.baidu.b.e.a aVar) {
         com.baidu.b.b.c cVar = new com.baidu.b.b.c(new com.baidu.b.a());
-        a.C0091a c0091a = new a.C0091a();
-        c0091a.f1248a = this.c;
-        c0091a.adX = aVar;
+        a.C0083a c0083a = new a.C0083a();
+        c0083a.f1574a = this.c;
+        c0083a.aeM = aVar;
         a.c cVar2 = new a.c();
         for (com.baidu.b.b.a aVar2 : cVar.a()) {
-            aVar2.a(c0091a);
+            aVar2.a(c0083a);
             aVar2.a(cVar2);
         }
-        this.aeP = cVar;
+        this.afu = cVar;
     }
 
     private static String c(String str) {
@@ -166,7 +169,7 @@ public class h {
             String c = c(str);
             long currentTimeMillis = System.currentTimeMillis();
             a aVar = new a();
-            aVar.b = str;
+            aVar.f1620b = str;
             aVar.d = c;
             aVar.e = currentTimeMillis;
             aVar.g = 1;
@@ -181,17 +184,17 @@ public class h {
 
     public a a() {
         a.d dVar = new a.d();
-        dVar.f1249a = true;
-        List<com.baidu.b.b.a> a2 = this.aeP.a();
-        Collections.sort(a2, com.baidu.b.b.a.adW);
-        List<b> O = this.aeM.O(this.c);
-        if (O != null) {
-            for (b bVar : O) {
+        dVar.f1576a = true;
+        List<com.baidu.b.b.a> a2 = this.afu.a();
+        Collections.sort(a2, com.baidu.b.b.a.c);
+        List<b> b2 = this.afr.b(this.c);
+        if (b2 != null) {
+            for (b bVar : b2) {
                 if (!bVar.d && bVar.c) {
                     for (com.baidu.b.b.a aVar : a2) {
-                        a.e a3 = aVar.a(bVar.adT.packageName, dVar);
-                        if (a3 != null && a3.a() && a3.adZ != null) {
-                            return a3.adZ;
+                        a.e a3 = aVar.a(bVar.aeJ.packageName, dVar);
+                        if (a3 != null && a3.a() && a3.aeO != null) {
+                            return a3.aeO;
                         }
                     }
                     continue;
@@ -210,10 +213,10 @@ public class h {
         aVar.e = System.currentTimeMillis();
         aVar.g = 1;
         try {
-            aVar.c = fVar.b.substring(0, 1);
-            aVar.b = fVar.f1268a;
-            aVar.d = c(fVar.f1268a);
-            String[] strArr = a.f1272a;
+            aVar.c = fVar.f1613b.substring(0, 1);
+            aVar.f1620b = fVar.f1612a;
+            aVar.d = c(fVar.f1612a);
+            String[] strArr = a.f1619a;
             int length = strArr.length;
             int i = 0;
             while (true) {
@@ -226,10 +229,10 @@ public class h {
                     i++;
                 }
             }
-            if (!z || fVar.b == null || fVar.b.length() < 2) {
+            if (!z || fVar.f1613b == null || fVar.f1613b.length() < 2) {
                 return aVar;
             }
-            aVar.f = fVar.b.substring(1);
+            aVar.f = fVar.f1613b.substring(1);
             return aVar;
         } catch (Exception e) {
             return null;
@@ -241,8 +244,8 @@ public class h {
         a aVar = new a();
         aVar.e = System.currentTimeMillis();
         aVar.g = 1;
-        aVar.b = a2;
-        aVar.c = ExifInterface.LONGITUDE_EAST;
+        aVar.f1620b = a2;
+        aVar.c = "E";
         aVar.d = c(a2);
         aVar.f = "RO";
         return aVar;

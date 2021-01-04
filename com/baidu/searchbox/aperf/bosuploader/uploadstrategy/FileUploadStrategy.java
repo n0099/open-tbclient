@@ -3,12 +3,15 @@ package com.baidu.searchbox.aperf.bosuploader.uploadstrategy;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Pair;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.util.devices.NetWorkUtils;
 import com.baidu.live.adp.lib.cache.BdKVCache;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.pyramid.runtime.multiprocess.a;
 import com.baidu.searchbox.aperf.bosuploader.ZipUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.kwad.sdk.collector.AppStatusRules;
 import java.io.File;
 import java.io.IOException;
 import java.util.Collections;
@@ -18,13 +21,13 @@ import java.util.List;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes16.dex */
+/* loaded from: classes5.dex */
 public class FileUploadStrategy implements IUpload {
     private static final boolean DEBUG = false;
     private static final int KEEP_ALIVE_TIME = 60000;
     private static final String TAG = "FileUploadStrategy";
     private boolean mInvalidDirDeleted = false;
-    private ThreadPoolExecutor mUploadExecutor = new ThreadPoolExecutor(1, 1, 60000, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
+    private ThreadPoolExecutor mUploadExecutor = new ThreadPoolExecutor(1, 1, AppStatusRules.DEFAULT_GRANULARITY, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
 
     public static boolean checkFlag() {
         return StoreUtil.getAttachFlag().exists();
@@ -43,7 +46,7 @@ public class FileUploadStrategy implements IUpload {
     }
 
     @Override // com.baidu.searchbox.aperf.bosuploader.uploadstrategy.IUpload
-    public void upload(List<File> list, final String str, String str2) {
+    public void upload(@NonNull List<File> list, @NonNull final String str, @NonNull String str2) {
         final File createAttachZipFile = createAttachZipFile(list, FileName.createFileID(str, System.currentTimeMillis()), a.getProcessName(), str2);
         if (createAttachZipFile != null) {
             this.mUploadExecutor.execute(new Runnable() { // from class: com.baidu.searchbox.aperf.bosuploader.uploadstrategy.FileUploadStrategy.1
@@ -138,7 +141,8 @@ public class FileUploadStrategy implements IUpload {
         updateFileFlag();
     }
 
-    private ResponseEntity uploadAction(FileEntity fileEntity) {
+    @NonNull
+    private ResponseEntity uploadAction(@NonNull FileEntity fileEntity) {
         if (fileEntity == null) {
             return new ResponseEntity(false);
         }
@@ -147,7 +151,8 @@ public class FileUploadStrategy implements IUpload {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public ResponseEntity uploadAttachmentSync(String str, File file) {
+    @NonNull
+    public ResponseEntity uploadAttachmentSync(@NonNull String str, @NonNull File file) {
         if (TextUtils.isEmpty(str) || file == null) {
             return new ResponseEntity(false);
         }
@@ -158,7 +163,8 @@ public class FileUploadStrategy implements IUpload {
         return uploadSync;
     }
 
-    private File createAttachZipFile(List<File> list, String str, String str2, String str3) {
+    @Nullable
+    private File createAttachZipFile(@Nullable List<File> list, @NonNull String str, @NonNull String str2, @NonNull String str3) {
         FileName fileName = FileName.getFileName(str, str2, str3);
         if (fileName == null) {
             return null;
@@ -197,7 +203,8 @@ public class FileUploadStrategy implements IUpload {
         return null;
     }
 
-    private Pair<LinkedList<FileEntity>, LinkedList<File>> fileCluster(File[] fileArr, TrimConfig trimConfig) {
+    @NonNull
+    private Pair<LinkedList<FileEntity>, LinkedList<File>> fileCluster(@NonNull File[] fileArr, @NonNull TrimConfig trimConfig) {
         int i = 0;
         LinkedList linkedList = new LinkedList();
         LinkedList linkedList2 = new LinkedList();
@@ -254,7 +261,7 @@ public class FileUploadStrategy implements IUpload {
         }
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes5.dex */
     private static final class Constants {
         private static final int MAX_COUNT_ATTACHMENT = 100;
         private static final long MAX_LIFE_TIME = 2592000000L;
@@ -265,7 +272,7 @@ public class FileUploadStrategy implements IUpload {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes5.dex */
     public static final class TrimConfig {
         private long mLifeTime;
         private int mMaxCount;
@@ -277,7 +284,7 @@ public class FileUploadStrategy implements IUpload {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes5.dex */
     public static final class StoreUtil {
         private static final String BASE_ATTACHMENT_UPLOAD_FILE_PATH = "attachment_upload";
         private static final String BASE_UPLOAD_ATTACHMENT_DIR = "attachment";
@@ -307,7 +314,8 @@ public class FileUploadStrategy implements IUpload {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public static File obtainFilePath(File file, FileName fileName) {
+        @NonNull
+        public static File obtainFilePath(@NonNull File file, @NonNull FileName fileName) {
             return new File(file, FileName.getFileName(fileName));
         }
 
@@ -318,17 +326,19 @@ public class FileUploadStrategy implements IUpload {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes5.dex */
     public static final class FileEntity implements Comparable<FileEntity> {
+        @NonNull
         private File mFile;
+        @NonNull
         private FileName mFileName;
 
-        private FileEntity(File file, FileName fileName) {
+        private FileEntity(@NonNull File file, @NonNull FileName fileName) {
             this.mFile = file;
             this.mFileName = fileName;
         }
 
-        protected static FileEntity getFileEntity(File file) {
+        protected static FileEntity getFileEntity(@NonNull File file) {
             FileName fileName;
             if (file == null || !file.exists() || (fileName = FileName.getFileName(file.getName())) == null) {
                 return null;
@@ -338,7 +348,7 @@ public class FileUploadStrategy implements IUpload {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.lang.Comparable
-        public int compareTo(FileEntity fileEntity) {
+        public int compareTo(@NonNull FileEntity fileEntity) {
             long longValue = this.mFileName.mTimestamp.longValue() - fileEntity.mFileName.mTimestamp.longValue();
             if (longValue > 0) {
                 return -1;
@@ -351,7 +361,7 @@ public class FileUploadStrategy implements IUpload {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes5.dex */
     public static final class FileName {
         private static final String FILE_ID_SEPARATOR = "_";
         private static final String SEPARATOR = "#";
@@ -360,7 +370,7 @@ public class FileUploadStrategy implements IUpload {
         private String mProcessName;
         private Long mTimestamp;
 
-        private FileName(String str, long j, String str2, String str3) {
+        private FileName(@NonNull String str, long j, @NonNull String str2, @NonNull String str3) {
             this.mFileID = str;
             this.mTimestamp = Long.valueOf(j);
             this.mProcessName = str2;
@@ -368,12 +378,13 @@ public class FileUploadStrategy implements IUpload {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public static String createFileID(String str, long j) {
+        public static String createFileID(@NonNull String str, long j) {
             return str.replace("_", "").replace("#", "") + "_" + j;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public static String getFileName(FileName fileName) {
+        @NonNull
+        public static String getFileName(@NonNull FileName fileName) {
             return fileName.mFileID + "#" + fileName.mProcessName + "#" + fileName.mFileType;
         }
 
@@ -398,7 +409,7 @@ public class FileUploadStrategy implements IUpload {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public static FileName getFileName(String str) {
+        public static FileName getFileName(@NonNull String str) {
             String[] split;
             String[] split2;
             if (TextUtils.isEmpty(str) || (split = str.split("#")) == null || split.length != 3) {
@@ -424,6 +435,7 @@ public class FileUploadStrategy implements IUpload {
             return new FileName(str2, j, str4, str5);
         }
 
+        @NonNull
         public String toString() {
             return this.mFileID + "#" + this.mTimestamp + "#" + this.mProcessName + "#" + this.mFileType;
         }

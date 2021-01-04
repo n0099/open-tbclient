@@ -6,7 +6,7 @@ import android.hardware.Camera;
 import android.view.MotionEvent;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static void a(MotionEvent motionEvent, Camera camera, int i, int i2) {
         if (motionEvent != null && camera != null) {
@@ -20,7 +20,7 @@ public class a {
                     parameters.setFocusAreas(arrayList);
                 }
                 final String focusMode = parameters.getFocusMode();
-                parameters.setFocusMode(c(parameters));
+                parameters.setFocusMode(b(parameters));
                 camera.setParameters(parameters);
                 camera.autoFocus(new Camera.AutoFocusCallback() { // from class: com.baidu.swan.apps.camera.c.a.1
                     @Override // android.hardware.Camera.AutoFocusCallback
@@ -36,7 +36,7 @@ public class a {
         }
     }
 
-    private static String c(Camera.Parameters parameters) {
+    private static String b(Camera.Parameters parameters) {
         List<String> supportedFocusModes;
         if (parameters == null || (supportedFocusModes = parameters.getSupportedFocusModes()) == null) {
             return "auto";

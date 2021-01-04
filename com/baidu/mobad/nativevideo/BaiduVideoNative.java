@@ -10,15 +10,17 @@ import com.baidu.mobads.production.c.c;
 import com.baidu.mobads.production.i.a;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class BaiduVideoNative implements BaiduNative.BaiduNativeNetworkListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private c f2279a;
-    private BaiduVideoNetworkListener b;
+    private c f3271a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private BaiduVideoNetworkListener f3272b;
     private BaiduNative c;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes3.dex */
     public interface BaiduVideoNetworkListener {
         void onAdFail(NativeErrorCode nativeErrorCode);
 
@@ -26,9 +28,9 @@ public class BaiduVideoNative implements BaiduNative.BaiduNativeNetworkListener 
     }
 
     public BaiduVideoNative(Context context, String str, BaiduVideoNetworkListener baiduVideoNetworkListener) {
-        this.f2279a = new a(context, str);
-        this.b = baiduVideoNetworkListener;
-        this.c = new BaiduNative(context, str, this, this.f2279a);
+        this.f3271a = new a(context, str);
+        this.f3272b = baiduVideoNetworkListener;
+        this.c = new BaiduNative(context, str, this, this.f3271a);
     }
 
     public void makeRequest(RequestParameters requestParameters) {
@@ -45,7 +47,7 @@ public class BaiduVideoNative implements BaiduNative.BaiduNativeNetworkListener 
                 arrayList.add(new XAdVideoResponse(list.get(i2)));
                 i = i2 + 1;
             } else {
-                this.b.onAdLoad(arrayList);
+                this.f3272b.onAdLoad(arrayList);
                 return;
             }
         }
@@ -53,7 +55,7 @@ public class BaiduVideoNative implements BaiduNative.BaiduNativeNetworkListener 
 
     @Override // com.baidu.mobad.feeds.BaiduNative.BaiduNativeNetworkListener
     public void onNativeFail(NativeErrorCode nativeErrorCode) {
-        this.b.onAdFail(nativeErrorCode);
+        this.f3272b.onAdFail(nativeErrorCode);
     }
 
     public static void setAppSid(Activity activity, String str) {

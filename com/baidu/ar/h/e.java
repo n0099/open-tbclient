@@ -9,7 +9,7 @@ import android.graphics.Paint;
 import android.text.TextUtils;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class e {
     public static Bitmap a(Bitmap bitmap, int i) {
         Matrix matrix = new Matrix();
@@ -50,22 +50,22 @@ public class e {
 
     public static Bitmap rotateBitmap(Bitmap bitmap, int i) {
         float f;
-        float f2 = 0.0f;
+        float f2;
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
         Matrix matrix = new Matrix();
         matrix.setRotate(i, width / 2.0f, height / 2.0f);
         if (i != 90 && i != 270) {
             f = 0.0f;
+            f2 = 0.0f;
         } else if (width > height) {
-            f = (height / 2.0f) - (width / 2.0f);
-            f2 = 0.0f - f;
+            f2 = (height / 2.0f) - (width / 2.0f);
+            f = 0.0f - f2;
         } else {
-            float f3 = (width / 2.0f) - (height / 2.0f);
-            f = 0.0f - f3;
-            f2 = f3;
+            f = (width / 2.0f) - (height / 2.0f);
+            f2 = 0.0f - f;
         }
-        matrix.postTranslate(f, f2);
+        matrix.postTranslate(f2, f);
         Bitmap bitmap2 = null;
         try {
             bitmap2 = Bitmap.createBitmap(bitmap.getHeight(), bitmap.getWidth(), Bitmap.Config.ARGB_8888);

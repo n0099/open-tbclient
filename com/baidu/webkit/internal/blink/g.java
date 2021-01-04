@@ -5,7 +5,7 @@ import com.baidu.webkit.internal.daemon.HttpDnsCache;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.WebViewFactory;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 final class g implements Runnable {
     @Override // java.lang.Runnable
     public final void run() {

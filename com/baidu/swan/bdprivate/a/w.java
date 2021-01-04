@@ -3,8 +3,8 @@ package com.baidu.swan.bdprivate.a;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-/* loaded from: classes25.dex */
+import androidx.annotation.NonNull;
+/* loaded from: classes9.dex */
 public class w implements com.baidu.swan.apps.adaptation.a.e {
     @Override // com.baidu.swan.apps.adaptation.a.e
     public void a(Activity activity, Bundle bundle, com.baidu.swan.apps.a.a aVar) {
@@ -12,23 +12,23 @@ public class w implements com.baidu.swan.apps.adaptation.a.e {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.e
-    public boolean bU(Context context) {
-        return a.dD(context);
+    public boolean cb(Context context) {
+        return a.dW(context);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.e
-    public String bV(Context context) {
-        return a.dF(context);
+    public String cc(Context context) {
+        return a.dY(context);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.e
-    public String bW(@NonNull Context context) {
-        return a.dG(context);
+    public String cd(@NonNull Context context) {
+        return a.dZ(context);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.e
-    public String bX(@NonNull Context context) {
-        return a.dE(context);
+    public String ce(@NonNull Context context) {
+        return a.dX(context);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.e

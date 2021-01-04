@@ -10,7 +10,7 @@ import com.vivo.push.util.p;
 import com.vivo.push.util.s;
 import com.vivo.push.y;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public final class a {
     public static void a(Context context, String str, y yVar) {
         boolean c = yVar.c();
@@ -56,8 +56,8 @@ public final class a {
 
     public static void a(Context context, y yVar, String str) {
         try {
-            boolean b = s.b(context, str);
-            String str2 = b ? "com.vivo.pushclient.action.RECEIVE" : "com.vivo.pushservice.action.RECEIVE";
+            boolean b2 = s.b(context, str);
+            String str2 = b2 ? "com.vivo.pushclient.action.RECEIVE" : "com.vivo.pushservice.action.RECEIVE";
             if (TextUtils.isEmpty(str)) {
                 p.c(context, "消息接受者包名为空！");
                 throw new Exception("消息接受者包名为空！");
@@ -73,7 +73,7 @@ public final class a {
                     intent.setAction(str2);
                 }
                 intent.setPackage(str);
-                intent.setClassName(str, b ? "com.vivo.push.sdk.service.CommandClientService" : "com.vivo.push.sdk.service.CommandService");
+                intent.setClassName(str, b2 ? "com.vivo.push.sdk.service.CommandClientService" : "com.vivo.push.sdk.service.CommandService");
                 yVar.b(intent);
                 intent.putExtra("command_type", "reflect_receiver");
                 a(context, intent);

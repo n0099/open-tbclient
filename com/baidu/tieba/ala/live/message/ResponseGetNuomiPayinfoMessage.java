@@ -3,7 +3,7 @@ package com.baidu.tieba.ala.live.message;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.live.tbadk.pay.PayInfoResultData;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class ResponseGetNuomiPayinfoMessage extends JsonHttpResponsedMessage {
     private PayInfoResultData mPayInfoResultData;
 

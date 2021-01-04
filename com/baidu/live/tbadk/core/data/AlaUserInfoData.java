@@ -3,7 +3,7 @@ package com.baidu.live.tbadk.core.data;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.StringUtils;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaUserInfoData {
     public long ala_id;
     public long anchor_live;

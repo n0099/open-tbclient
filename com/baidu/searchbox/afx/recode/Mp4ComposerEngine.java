@@ -7,9 +7,11 @@ import android.media.MediaExtractor;
 import android.media.MediaFormat;
 import android.media.MediaMuxer;
 import android.util.Log;
+import com.kwai.video.player.KsMediaMeta;
+import com.kwai.video.player.misc.IMediaFormat;
 import java.io.FileDescriptor;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 class Mp4ComposerEngine {
     private static final long PROGRESS_INTERVAL_STEPS = 10;
     private static final float PROGRESS_UNKNOWN = -1.0f;
@@ -19,7 +21,7 @@ class Mp4ComposerEngine {
     private ProgressCallback mProgressCallback;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface ProgressCallback {
         void onProgress(float f);
     }
@@ -47,17 +49,16 @@ class Mp4ComposerEngine {
         compose(mediaExtractor, str, mp4Info);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:10:0x003f  */
-    /* JADX WARN: Removed duplicated region for block: B:12:0x0044  */
-    /* JADX WARN: Removed duplicated region for block: B:14:0x0049  */
+    /* JADX WARN: Removed duplicated region for block: B:10:0x0040  */
+    /* JADX WARN: Removed duplicated region for block: B:12:0x0045  */
+    /* JADX WARN: Removed duplicated region for block: B:14:0x004a  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private void compose(MediaExtractor mediaExtractor, String str, Mp4Info mp4Info) throws IOException {
+        VideoTrackTranscoder videoTrackTranscoder;
         MediaMuxer mediaMuxer;
         int i;
-        VideoTrackTranscoder videoTrackTranscoder;
-        VideoTrackTranscoder videoTrackTranscoder2 = null;
         try {
             int selectVideoTrackIndex = selectVideoTrackIndex(mediaExtractor);
             if (selectVideoTrackIndex < 0) {
@@ -65,7 +66,7 @@ class Mp4ComposerEngine {
                 throw new RuntimeException("No video track found in " + str);
             }
             MediaFormat trackFormat = mediaExtractor.getTrackFormat(selectVideoTrackIndex);
-            String string = trackFormat.getString("mime");
+            String string = trackFormat.getString(IMediaFormat.KEY_MIME);
             try {
                 i = trackFormat.getInteger("frame-rate");
             } catch (Exception e) {
@@ -75,37 +76,35 @@ class Mp4ComposerEngine {
             this.mDurationUs = mp4Info.getDurationUs();
             MediaFormat createVideoFormat = MediaFormat.createVideoFormat(string, mp4Info.getWidth(), mp4Info.getHeight());
             createVideoFormat.setInteger("bitrate-mode", 0);
-            createVideoFormat.setInteger("bitrate", mp4Info.getBitrate() * 3);
+            createVideoFormat.setInteger(KsMediaMeta.KSM_KEY_BITRATE, mp4Info.getBitrate() * 3);
             createVideoFormat.setInteger("frame-rate", i);
             createVideoFormat.setInteger("i-frame-interval", 0);
             createVideoFormat.setInteger("color-format", 2130708361);
-            MediaMuxer mediaMuxer2 = new MediaMuxer(str, 0);
+            mediaMuxer = new MediaMuxer(str, 0);
             try {
-                videoTrackTranscoder = new VideoTrackTranscoder(mediaExtractor, selectVideoTrackIndex, createVideoFormat, new QueuedMuxer(mediaMuxer2));
+                videoTrackTranscoder = new VideoTrackTranscoder(mediaExtractor, selectVideoTrackIndex, createVideoFormat, new QueuedMuxer(mediaMuxer));
             } catch (Throwable th) {
                 th = th;
-                mediaMuxer = mediaMuxer2;
+                videoTrackTranscoder = null;
             }
             try {
                 videoTrackTranscoder.setup(mp4Info);
                 mediaExtractor.selectTrack(selectVideoTrackIndex);
                 runPipelinesNoAudio(videoTrackTranscoder);
-                mediaMuxer2.stop();
+                mediaMuxer.stop();
                 if (videoTrackTranscoder != null) {
                     videoTrackTranscoder.release();
                 }
                 if (mediaExtractor != null) {
                     mediaExtractor.release();
                 }
-                if (mediaMuxer2 != null) {
-                    mediaMuxer2.release();
+                if (mediaMuxer != null) {
+                    mediaMuxer.release();
                 }
             } catch (Throwable th2) {
                 th = th2;
-                videoTrackTranscoder2 = videoTrackTranscoder;
-                mediaMuxer = mediaMuxer2;
-                if (videoTrackTranscoder2 != null) {
-                    videoTrackTranscoder2.release();
+                if (videoTrackTranscoder != null) {
+                    videoTrackTranscoder.release();
                 }
                 if (mediaExtractor != null) {
                     mediaExtractor.release();
@@ -117,8 +116,9 @@ class Mp4ComposerEngine {
             }
         } catch (Throwable th3) {
             th = th3;
+            videoTrackTranscoder = null;
             mediaMuxer = null;
-            if (videoTrackTranscoder2 != null) {
+            if (videoTrackTranscoder != null) {
             }
             if (mediaExtractor != null) {
             }
@@ -147,7 +147,7 @@ class Mp4ComposerEngine {
     private static int selectVideoTrackIndex(MediaExtractor mediaExtractor) {
         int trackCount = mediaExtractor.getTrackCount();
         for (int i = 0; i < trackCount; i++) {
-            if (mediaExtractor.getTrackFormat(i).getString("mime").startsWith("video/")) {
+            if (mediaExtractor.getTrackFormat(i).getString(IMediaFormat.KEY_MIME).startsWith("video/")) {
                 return i;
             }
         }

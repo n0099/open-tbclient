@@ -1,28 +1,31 @@
 package com.baidu.pass.common;
 
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import javax.crypto.Cipher;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 class a {
 
     /* renamed from: com.baidu.pass.common.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     static class C0282a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final String f2762a = "UTF-8";
-        private static final String b = "AES/CBC/NoPadding";
+        private static final String f4094a = "UTF-8";
+
+        /* renamed from: b  reason: collision with root package name */
+        private static final String f4095b = "AES/CBC/NoPadding";
         private static final String c = "AES";
         private String d;
         private String e;
         private String f;
 
         public C0282a() {
-            this("AES", b, "UTF-8");
+            this("AES", f4095b, "UTF-8");
         }
 
         public byte[] a(String str, String str2, String str3) throws Exception {
@@ -46,7 +49,7 @@ class a {
 
         public C0282a(String str, String str2, String str3) {
             this.d = "UTF-8";
-            this.e = b;
+            this.e = f4095b;
             this.f = "AES";
             this.f = str;
             this.e = str2;
@@ -81,7 +84,7 @@ class a {
 
     public String a(byte[] bArr, boolean z) {
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            MessageDigest messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
             messageDigest.reset();
             messageDigest.update(bArr);
             return a(messageDigest.digest(), "", z);
@@ -92,8 +95,8 @@ class a {
 
     private String a(byte[] bArr, String str, boolean z) {
         StringBuilder sb = new StringBuilder();
-        for (byte b : bArr) {
-            String hexString = Integer.toHexString(b & 255);
+        for (byte b2 : bArr) {
+            String hexString = Integer.toHexString(b2 & 255);
             if (z) {
                 hexString = hexString.toUpperCase();
             }
@@ -110,7 +113,7 @@ class a {
         if (bArr != null && bArr.length != 0) {
             StringBuilder sb = new StringBuilder();
             int length = bArr.length * 8;
-            byte b = 0;
+            byte b2 = 0;
             int i2 = 0;
             int i3 = 0;
             int i4 = 6;
@@ -118,20 +121,20 @@ class a {
             do {
                 if (i5 <= 0 || i4 <= 0) {
                     if (i5 == 0) {
-                        b = (byte) ((bArr[i3] & 255) >> (8 - i4));
+                        b2 = (byte) ((bArr[i3] & 255) >> (8 - i4));
                         i5 = 2;
                         i4 = 4;
                     } else if (i4 == 0) {
-                        b = (byte) (bArr[i3] & 63);
+                        b2 = (byte) (bArr[i3] & 63);
                         i4 = 6;
                         i5 = 0;
                     }
                 } else {
                     i5 = 8 - i4;
-                    b = (byte) (((byte) (((bArr[i3] & 255) << i4) | ((bArr[i3 + 1] & 255) >> i5))) & 63);
+                    b2 = (byte) (((byte) (((bArr[i3] & 255) << i4) | ((bArr[i3 + 1] & 255) >> i5))) & 63);
                     i4 = 6 - i5;
                 }
-                sb.append("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".charAt(b));
+                sb.append("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".charAt(b2));
                 i2 += 6;
                 i3 = i2 / 8;
                 i = length - i2;

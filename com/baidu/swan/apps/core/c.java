@@ -1,14 +1,14 @@
 package com.baidu.swan.apps.core;
 
 import android.os.Looper;
-import android.support.annotation.StringRes;
+import androidx.annotation.StringRes;
 import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.ap.ak;
+import com.baidu.swan.apps.ao.ak;
 import com.baidu.swan.apps.core.f;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class c {
-    private static long cMW;
-    private static volatile int cMX = 0;
+    private static long cRR;
+    private static volatile int cRS = 0;
 
     public static void showToast(@StringRes int i) {
         showToast(i, 0);
@@ -16,17 +16,17 @@ public class c {
 
     private static synchronized void showToast(@StringRes int i, int i2) {
         synchronized (c.class) {
-            if (f.a.cNe) {
-                switch (cMX) {
+            if (f.a.cRZ) {
+                switch (cRS) {
                     case 0:
-                        cMX = 1;
-                        cMW = System.currentTimeMillis();
-                        ak(i, i2);
+                        cRS = 1;
+                        cRR = System.currentTimeMillis();
+                        af(i, i2);
                         break;
                     case 1:
-                        if ((cMW + 5000) - System.currentTimeMillis() < 0) {
-                            cMX = 2;
-                            ak(i, i2);
+                        if ((cRR + 5000) - System.currentTimeMillis() < 0) {
+                            cRS = 2;
+                            af(i, i2);
                             f.log("toast提示个数已达2个");
                             break;
                         }
@@ -36,40 +36,40 @@ public class c {
         }
     }
 
-    private static void ak(@StringRes final int i, final int i2) {
+    private static void af(@StringRes final int i, final int i2) {
         if (Looper.getMainLooper() == Looper.myLooper()) {
-            al(i, i2);
+            ag(i, i2);
         } else {
-            ak.m(new Runnable() { // from class: com.baidu.swan.apps.core.c.1
+            ak.l(new Runnable() { // from class: com.baidu.swan.apps.core.c.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    c.al(i, i2);
+                    c.ag(i, i2);
                 }
             });
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void al(@StringRes int i, int i2) {
-        SwanAppActivity aBZ = com.baidu.swan.apps.v.f.aCp().aBZ();
-        if (aBZ != null && !aBZ.isFinishing()) {
+    public static void ag(@StringRes int i, int i2) {
+        SwanAppActivity aDq = com.baidu.swan.apps.v.f.aDG().aDq();
+        if (aDq != null && !aDq.isFinishing()) {
             switch (i2) {
                 case 1:
-                    com.baidu.swan.apps.res.widget.b.d.t(aBZ, i).showToastBottom();
+                    com.baidu.swan.apps.res.widget.b.d.u(aDq, i).aLU();
                     return;
                 default:
-                    com.baidu.swan.apps.res.widget.b.d.t(aBZ, i).showToast();
+                    com.baidu.swan.apps.res.widget.b.d.u(aDq, i).aLS();
                     return;
             }
         }
     }
 
-    public static boolean apt() {
-        return cMX < 2;
+    public static boolean aqF() {
+        return cRS < 2;
     }
 
     public static void reset() {
-        cMX = 0;
-        cMW = 0L;
+        cRS = 0;
+        cRR = 0L;
     }
 }

@@ -8,15 +8,15 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 public class b implements Closeable {
+    private byte[] buf;
     private final Charset charset;
-    private byte[] chs;
     private int end;
     private final InputStream in;
     private int pos;
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     class a extends ByteArrayOutputStream {
         a(int i) {
             super(i);
@@ -37,9 +37,9 @@ public class b implements Closeable {
         this(inputStream, 8192, charset);
     }
 
-    private void adE() {
+    private void afA() {
         InputStream inputStream = this.in;
-        byte[] bArr = this.chs;
+        byte[] bArr = this.buf;
         int read = inputStream.read(bArr, 0, bArr.length);
         if (read != -1) {
             this.pos = 0;
@@ -49,15 +49,15 @@ public class b implements Closeable {
         throw new EOFException();
     }
 
-    public boolean adF() {
+    public boolean D() {
         return this.end == -1;
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() {
         synchronized (this.in) {
-            if (this.chs != null) {
-                this.chs = null;
+            if (this.buf != null) {
+                this.buf = null;
                 this.in.close();
             }
         }
@@ -68,24 +68,24 @@ public class b implements Closeable {
         String aVar;
         int i2;
         synchronized (this.in) {
-            if (this.chs != null) {
+            if (this.buf != null) {
                 if (this.pos >= this.end) {
-                    adE();
+                    afA();
                 }
                 int i3 = this.pos;
                 while (true) {
                     if (i3 != this.end) {
-                        if (this.chs[i3] == 10) {
+                        if (this.buf[i3] == 10) {
                             if (i3 != this.pos) {
                                 int i4 = i3 - 1;
-                                if (this.chs[i4] == 13) {
+                                if (this.buf[i4] == 13) {
                                     i2 = i4;
-                                    aVar = new String(this.chs, this.pos, i2 - this.pos, this.charset.name());
+                                    aVar = new String(this.buf, this.pos, i2 - this.pos, this.charset.name());
                                     this.pos = i3 + 1;
                                 }
                             }
                             i2 = i3;
-                            aVar = new String(this.chs, this.pos, i2 - this.pos, this.charset.name());
+                            aVar = new String(this.buf, this.pos, i2 - this.pos, this.charset.name());
                             this.pos = i3 + 1;
                         } else {
                             i3++;
@@ -93,19 +93,19 @@ public class b implements Closeable {
                     } else {
                         a aVar2 = new a((this.end - this.pos) + 80);
                         loop1: while (true) {
-                            aVar2.write(this.chs, this.pos, this.end - this.pos);
+                            aVar2.write(this.buf, this.pos, this.end - this.pos);
                             this.end = -1;
-                            adE();
+                            afA();
                             i = this.pos;
                             while (i != this.end) {
-                                if (this.chs[i] == 10) {
+                                if (this.buf[i] == 10) {
                                     break loop1;
                                 }
                                 i++;
                             }
                         }
                         if (i != this.pos) {
-                            aVar2.write(this.chs, this.pos, i - this.pos);
+                            aVar2.write(this.buf, this.pos, i - this.pos);
                         }
                         this.pos = i + 1;
                         aVar = aVar2.toString();
@@ -126,7 +126,7 @@ public class b implements Closeable {
             if (charset.equals(c.US_ASCII)) {
                 this.in = inputStream;
                 this.charset = charset;
-                this.chs = new byte[i];
+                this.buf = new byte[i];
                 return;
             }
             throw new IllegalArgumentException("Unsupported encoding");

@@ -2,7 +2,7 @@ package com.google.zxing.common.reedsolomon;
 
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class ReedSolomonEncoder {
     private final List<GenericGFPoly> cachedGenerators = new ArrayList();
     private final GenericGF field;
@@ -14,10 +14,9 @@ public final class ReedSolomonEncoder {
 
     private GenericGFPoly buildGenerator(int i) {
         if (i >= this.cachedGenerators.size()) {
-            int size = this.cachedGenerators.size();
             GenericGFPoly genericGFPoly = this.cachedGenerators.get(this.cachedGenerators.size() - 1);
-            for (int i2 = size; i2 <= i; i2++) {
-                genericGFPoly = genericGFPoly.multiply(new GenericGFPoly(this.field, new int[]{1, this.field.exp((i2 - 1) + this.field.getGeneratorBase())}));
+            for (int size = this.cachedGenerators.size(); size <= i; size++) {
+                genericGFPoly = genericGFPoly.multiply(new GenericGFPoly(this.field, new int[]{1, this.field.exp((size - 1) + this.field.getGeneratorBase())}));
                 this.cachedGenerators.add(genericGFPoly);
             }
         }

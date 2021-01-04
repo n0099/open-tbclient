@@ -1,7 +1,7 @@
 package com.baidu.ar.recorder.c;
 
 import java.io.File;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
 

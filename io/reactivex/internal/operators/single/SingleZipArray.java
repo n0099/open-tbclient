@@ -8,17 +8,17 @@ import io.reactivex.w;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class SingleZipArray<T, R> extends w<R> {
-    final aa<? extends T>[] pHn;
+    final aa<? extends T>[] qiQ;
     final h<? super Object[], ? extends R> zipper;
 
     @Override // io.reactivex.w
     protected void b(y<? super R> yVar) {
-        aa<? extends T>[] aaVarArr = this.pHn;
+        aa<? extends T>[] aaVarArr = this.qiQ;
         int length = aaVarArr.length;
         if (length == 1) {
-            aaVarArr[0].a(new a.C1049a(yVar, new a()));
+            aaVarArr[0].a(new a.C1267a(yVar, new a()));
             return;
         }
         ZipCoordinator zipCoordinator = new ZipCoordinator(yVar, length, this.zipper);
@@ -33,7 +33,7 @@ public final class SingleZipArray<T, R> extends w<R> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class ZipCoordinator<T, R> extends AtomicInteger implements io.reactivex.disposables.b {
         private static final long serialVersionUID = -5556924161382950569L;
         final y<? super R> actual;
@@ -74,7 +74,7 @@ public final class SingleZipArray<T, R> extends w<R> {
                 try {
                     this.actual.onSuccess(io.reactivex.internal.functions.a.m(this.zipper.apply(this.values), "The zipper returned a null value"));
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.J(th);
+                    io.reactivex.exceptions.a.O(th);
                     this.actual.onError(th);
                 }
             }
@@ -102,7 +102,7 @@ public final class SingleZipArray<T, R> extends w<R> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static final class ZipSingleObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements y<T> {
         private static final long serialVersionUID = 3323743579927613702L;
         final int index;
@@ -133,7 +133,7 @@ public final class SingleZipArray<T, R> extends w<R> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     final class a implements h<T, R> {
         a() {
         }

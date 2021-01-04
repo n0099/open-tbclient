@@ -5,55 +5,55 @@ import android.util.Log;
 import com.baidu.swan.games.bdtls.e;
 import com.baidu.swan.games.bdtls.model.i;
 import java.io.IOException;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public abstract class b {
-    protected boolean dXI = false;
-    protected int dXJ = 0;
-    private String dXK;
+    protected boolean egG = false;
+    protected int egH = 0;
+    private String mMethod;
 
-    public abstract void aa(byte[] bArr);
+    public abstract void X(byte[] bArr);
 
     public abstract void b(IOException iOException);
 
-    public abstract void mw(int i);
+    public abstract void mE(int i);
 
-    public final String ab(byte[] bArr) {
+    public final String Y(byte[] bArr) {
         String str = new String(bArr);
         if (com.baidu.swan.games.bdtls.a.DEBUG) {
             Log.d("BDTLS", "processResponseData encodeResponseData=" + str);
         }
-        if (this.dXI) {
-            i a2 = com.baidu.swan.games.bdtls.d.aVx().a(e.aVy().aVz(), bArr);
+        if (this.egG) {
+            i a2 = com.baidu.swan.games.bdtls.d.aXR().a(e.aXS().aXT(), bArr);
             if (a2 != null) {
                 if (!TextUtils.isEmpty(a2.getResponseMessage())) {
                     str = a2.getResponseMessage();
                 }
-                this.dXJ = a2.aWw().intValue();
+                this.egH = a2.aYQ().intValue();
             } else {
-                this.dXJ = -1;
+                this.egH = -1;
             }
-            e.aVy().aVz().mv(this.dXJ);
-            if (this.dXJ == -1) {
-                com.baidu.swan.games.bdtls.c.aVw().setEnable(false);
+            e.aXS().aXT().mD(this.egH);
+            if (this.egH == -1) {
+                com.baidu.swan.games.bdtls.c.aXQ().setEnable(false);
             }
         }
         return str;
     }
 
-    public final void wX(String str) {
-        this.dXJ = 0;
-        com.baidu.swan.games.bdtls.c.aVw().a(str, this);
+    public final void wW(String str) {
+        this.egH = 0;
+        com.baidu.swan.games.bdtls.c.aXQ().a(str, this);
     }
 
-    public void hK(boolean z) {
-        this.dXI = z;
+    public void ic(boolean z) {
+        this.egG = z;
     }
 
     public String getMethod() {
-        return this.dXK;
+        return this.mMethod;
     }
 
-    public void wY(String str) {
-        this.dXK = str;
+    public void wX(String str) {
+        this.mMethod = str;
     }
 }

@@ -7,12 +7,14 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1572a = "SdkConfigOptions";
-    public static final String b = "global-config";
+    public static final String f2113a = "SdkConfigOptions";
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final String f2114b = "global-config";
     public static final String c = "host_version";
     public static final String d = "zip_version";
     public static final String e = "updateFail";
@@ -97,22 +99,24 @@ public class c {
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         private static final String d = "name";
         private static final String e = "url";
         private static final String f = "hash";
 
         /* renamed from: a  reason: collision with root package name */
-        public String f1573a = null;
-        public String b = null;
+        public String f2115a = null;
+
+        /* renamed from: b  reason: collision with root package name */
+        public String f2116b = null;
         public String c = null;
 
         public static a a(JSONObject jSONObject) {
             a aVar = new a();
             if (jSONObject != null) {
-                aVar.f1573a = jSONObject.optString("name");
-                aVar.b = jSONObject.optString("url");
+                aVar.f2115a = jSONObject.optString("name");
+                aVar.f2116b = jSONObject.optString("url");
                 aVar.c = jSONObject.optString(f);
             }
             return aVar;
@@ -121,8 +125,8 @@ public class c {
         public JSONObject a() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("name", this.f1573a);
-                jSONObject.put("url", this.b);
+                jSONObject.put("name", this.f2115a);
+                jSONObject.put("url", this.f2116b);
                 jSONObject.put(f, this.c);
                 return jSONObject;
             } catch (JSONException e2) {

@@ -4,8 +4,8 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.searchbox.player.constants.PlayerStatus;
 import com.baidu.searchbox.player.event.VideoEvent;
 import com.baidu.searchbox.player.interfaces.INeuron;
@@ -17,7 +17,7 @@ import java.lang.ref.WeakReference;
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class HandlerMessenger implements IMessenger {
     private static final int KEY_MESSAGE_EVENT = 153;
     public static final String TAG = "HandlerMessenger";
@@ -128,7 +128,7 @@ public class HandlerMessenger implements IMessenger {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     private class PrivateHandler extends Handler {
         WeakReference<IVideoEventInterceptor> mWeakControl;
 

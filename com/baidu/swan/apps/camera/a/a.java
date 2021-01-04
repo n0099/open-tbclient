@@ -10,9 +10,9 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 abstract class a extends aa {
-    protected abstract com.baidu.swan.apps.component.b.b c(UnitedSchemeEntity unitedSchemeEntity);
+    protected abstract com.baidu.swan.apps.component.b.b b(UnitedSchemeEntity unitedSchemeEntity);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(j jVar, String str) {
@@ -20,7 +20,7 @@ abstract class a extends aa {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String b(UnitedSchemeEntity unitedSchemeEntity) {
+    public String a(UnitedSchemeEntity unitedSchemeEntity) {
         return unitedSchemeEntity.getParams().get("params");
     }
 

@@ -1,9 +1,9 @@
 package com.baidu.ala.recorder.video;
 
-import com.baidu.live.adp.lib.util.BdLog;
+import com.baidu.ala.adp.lib.util.BdLog;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class DynamicBitRateConfig {
     private static final int MAX_BIT_RATE = 2048000;
     private static final int MAX_FPS = 24;
@@ -54,7 +54,7 @@ public class DynamicBitRateConfig {
         DynamicBitRateConfig dynamicBitRateConfig = new DynamicBitRateConfig();
         dynamicBitRateConfig.bitrates = new ArrayList();
         if (i == 3) {
-            dynamicBitRateConfig.bitrates.add(new DynamicBitRateItem(VIDEO_BITRATE_RTC1, 15));
+            dynamicBitRateConfig.bitrates.add(new DynamicBitRateItem(512000, 15));
             dynamicBitRateConfig.bitrates.add(new DynamicBitRateItem(VIDEO_BITRATE_RTC2, 15));
             dynamicBitRateConfig.bitrates.add(new DynamicBitRateItem(307200, 15));
         } else if (i == 1) {
@@ -257,7 +257,7 @@ public class DynamicBitRateConfig {
         this.bitrates = list;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes15.dex */
     public static class DynamicBitRateItem {
         public int bitrate;
         public int fps;

@@ -12,24 +12,24 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class i {
-    private final j<?> eps;
+    private final j<?> ezc;
 
     public static final i a(j<?> jVar) {
         return new i(jVar);
     }
 
     private i(j<?> jVar) {
-        this.eps = jVar;
+        this.ezc = jVar;
     }
 
-    public k bfh() {
-        return this.eps.bfj();
+    public k bhE() {
+        return this.ezc.bhG();
     }
 
     public int getActiveFragmentsCount() {
-        ArrayList<Fragment> arrayList = this.eps.epr.epJ;
+        ArrayList<Fragment> arrayList = this.ezc.ezb.ezu;
         if (arrayList == null) {
             return 0;
         }
@@ -37,129 +37,129 @@ public class i {
     }
 
     public List<Fragment> getActiveFragments(List<Fragment> list) {
-        if (this.eps.epr.epJ == null) {
+        if (this.ezc.ezb.ezu == null) {
             return null;
         }
         if (list == null) {
             list = new ArrayList<>(getActiveFragmentsCount());
         }
-        list.addAll(this.eps.epr.epJ);
+        list.addAll(this.ezc.ezb.ezu);
         return list;
     }
 
     public void h(Fragment fragment) {
-        this.eps.epr.a(this.eps, this.eps, fragment);
+        this.ezc.ezb.a(this.ezc, this.ezc, fragment);
     }
 
     public View onCreateView(View view, String str, Context context, AttributeSet attributeSet) {
-        return this.eps.epr.onCreateView(view, str, context, attributeSet);
+        return this.ezc.ezb.onCreateView(view, str, context, attributeSet);
     }
 
     public void noteStateNotSaved() {
-        this.eps.epr.noteStateNotSaved();
+        this.ezc.ezb.noteStateNotSaved();
     }
 
     public Parcelable saveAllState() {
-        return this.eps.epr.saveAllState();
+        return this.ezc.ezb.saveAllState();
     }
 
     public void restoreAllState(Parcelable parcelable, List<Fragment> list) {
-        this.eps.epr.restoreAllState(parcelable, list);
+        this.ezc.ezb.restoreAllState(parcelable, list);
     }
 
     public List<Fragment> retainNonConfig() {
-        return this.eps.epr.bfl();
+        return this.ezc.ezb.bhI();
     }
 
     public void dispatchCreate() {
-        this.eps.epr.dispatchCreate();
+        this.ezc.ezb.dispatchCreate();
     }
 
     public void dispatchActivityCreated() {
-        this.eps.epr.dispatchActivityCreated();
+        this.ezc.ezb.dispatchActivityCreated();
     }
 
     public void dispatchStart() {
-        this.eps.epr.dispatchStart();
+        this.ezc.ezb.dispatchStart();
     }
 
     public void dispatchResume() {
-        this.eps.epr.dispatchResume();
+        this.ezc.ezb.dispatchResume();
     }
 
     public void dispatchPause() {
-        this.eps.epr.dispatchPause();
+        this.ezc.ezb.dispatchPause();
     }
 
     public void dispatchStop() {
-        this.eps.epr.dispatchStop();
+        this.ezc.ezb.dispatchStop();
     }
 
     public void dispatchReallyStop() {
-        this.eps.epr.dispatchReallyStop();
+        this.ezc.ezb.dispatchReallyStop();
     }
 
     public void dispatchDestroy() {
-        this.eps.epr.dispatchDestroy();
+        this.ezc.ezb.dispatchDestroy();
     }
 
     public void dispatchConfigurationChanged(Configuration configuration) {
-        this.eps.epr.dispatchConfigurationChanged(configuration);
+        this.ezc.ezb.dispatchConfigurationChanged(configuration);
     }
 
     public void dispatchLowMemory() {
-        this.eps.epr.dispatchLowMemory();
+        this.ezc.ezb.dispatchLowMemory();
     }
 
     public boolean dispatchCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
-        return this.eps.epr.dispatchCreateOptionsMenu(menu, menuInflater);
+        return this.ezc.ezb.dispatchCreateOptionsMenu(menu, menuInflater);
     }
 
     public boolean dispatchPrepareOptionsMenu(Menu menu) {
-        return this.eps.epr.dispatchPrepareOptionsMenu(menu);
+        return this.ezc.ezb.dispatchPrepareOptionsMenu(menu);
     }
 
     public boolean dispatchOptionsItemSelected(MenuItem menuItem) {
-        return this.eps.epr.dispatchOptionsItemSelected(menuItem);
+        return this.ezc.ezb.dispatchOptionsItemSelected(menuItem);
     }
 
     public boolean dispatchContextItemSelected(MenuItem menuItem) {
-        return this.eps.epr.dispatchContextItemSelected(menuItem);
+        return this.ezc.ezb.dispatchContextItemSelected(menuItem);
     }
 
     public void dispatchOptionsMenuClosed(Menu menu) {
-        this.eps.epr.dispatchOptionsMenuClosed(menu);
+        this.ezc.ezb.dispatchOptionsMenuClosed(menu);
     }
 
     public boolean execPendingActions() {
-        return this.eps.epr.execPendingActions();
+        return this.ezc.ezb.execPendingActions();
     }
 
     public void doLoaderStart() {
-        this.eps.doLoaderStart();
+        this.ezc.doLoaderStart();
     }
 
     public void doLoaderStop(boolean z) {
-        this.eps.doLoaderStop(z);
+        this.ezc.doLoaderStop(z);
     }
 
     public void doLoaderDestroy() {
-        this.eps.doLoaderDestroy();
+        this.ezc.doLoaderDestroy();
     }
 
     public void reportLoaderStart() {
-        this.eps.reportLoaderStart();
+        this.ezc.reportLoaderStart();
     }
 
-    public com.baidu.swan.support.v4.b.f<String, o> bfi() {
-        return this.eps.bfi();
+    public com.baidu.swan.support.v4.b.f<String, o> bhF() {
+        return this.ezc.bhF();
     }
 
     public void a(com.baidu.swan.support.v4.b.f<String, o> fVar) {
-        this.eps.a(fVar);
+        this.ezc.a(fVar);
     }
 
     public void dumpLoaders(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
-        this.eps.dumpLoaders(str, fileDescriptor, printWriter, strArr);
+        this.ezc.dumpLoaders(str, fileDescriptor, printWriter, strArr);
     }
 }

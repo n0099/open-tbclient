@@ -2,12 +2,14 @@ package com.bun.miitmdid.supplier.i;
 
 import android.content.Context;
 import java.lang.reflect.Method;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Object f3998a;
-    private static Class<?> b;
+    private static Object f6059a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private static Class<?> f6060b;
     private static Method c;
     private static Method d;
     private static Method e;
@@ -17,23 +19,23 @@ public class a {
         d = null;
         e = null;
         try {
-            b = Class.forName("com.android.id.impl.IdProviderImpl");
-            f3998a = b.newInstance();
+            f6060b = Class.forName("com.android.id.impl.IdProviderImpl");
+            f6059a = f6060b.newInstance();
         } catch (Exception e2) {
             com.bun.miitmdid.utils.a.a("IdentifierManager", "reflect exception!", e2);
         }
         try {
-            c = b.getMethod("getOAID", Context.class);
+            c = f6060b.getMethod("getOAID", Context.class);
         } catch (Exception e3) {
             com.bun.miitmdid.utils.a.a("IdentifierManager", "reflect exception!", e3);
         }
         try {
-            d = b.getMethod("getVAID", Context.class);
+            d = f6060b.getMethod("getVAID", Context.class);
         } catch (Exception e4) {
             com.bun.miitmdid.utils.a.a("IdentifierManager", "reflect exception!", e4);
         }
         try {
-            e = b.getMethod("getAAID", Context.class);
+            e = f6060b.getMethod("getAAID", Context.class);
         } catch (Exception e5) {
             com.bun.miitmdid.utils.a.a("IdentifierManager", "reflect exception!", e5);
         }
@@ -44,9 +46,9 @@ public class a {
     }
 
     private static String a(Context context, Method method) {
-        if (f3998a != null && method != null) {
+        if (f6059a != null && method != null) {
             try {
-                Object invoke = method.invoke(f3998a, context);
+                Object invoke = method.invoke(f6059a, context);
                 if (invoke != null) {
                     return (String) invoke;
                 }
@@ -58,7 +60,7 @@ public class a {
     }
 
     public static boolean a() {
-        return (b == null || f3998a == null) ? false : true;
+        return (f6060b == null || f6059a == null) ? false : true;
     }
 
     public static String b(Context context) {

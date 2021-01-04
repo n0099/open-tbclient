@@ -5,62 +5,62 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class b {
-    private static volatile b eeI;
-    private int bdC;
-    private volatile ArrayList<a> eeJ = new ArrayList<>(20);
+    private static volatile b enJ;
+    private int bfp;
+    private volatile ArrayList<a> enK = new ArrayList<>(20);
 
     private b() {
     }
 
-    public static b aZy() {
-        if (eeI == null) {
+    public static b bbS() {
+        if (enJ == null) {
             synchronized (b.class) {
-                if (eeI == null) {
-                    eeI = new b();
+                if (enJ == null) {
+                    enJ = new b();
                 }
             }
         }
-        return eeI;
+        return enJ;
     }
 
     public synchronized void a(a aVar) {
         if (aVar != null) {
-            if (this.eeJ.size() < 20) {
-                this.eeJ.add(aVar);
+            if (this.enK.size() < 20) {
+                this.enK.add(aVar);
             } else {
-                this.bdC++;
+                this.bfp++;
             }
         }
     }
 
-    public synchronized JSONObject aZz() {
+    public synchronized JSONObject bbT() {
         JSONObject jSONObject;
-        int size = this.eeJ.size();
+        int size = this.enK.size();
         if (size == 0) {
             jSONObject = null;
         } else {
             JSONObject jSONObject2 = new JSONObject();
             try {
-                jSONObject2.put("dropcnt", this.bdC);
+                jSONObject2.put("dropcnt", this.bfp);
                 jSONObject2.put("errorcnt", size);
                 JSONArray jSONArray = new JSONArray();
                 jSONObject2.put("errors", jSONArray);
-                Iterator<a> it = this.eeJ.iterator();
+                Iterator<a> it = this.enK.iterator();
                 while (it.hasNext()) {
                     jSONArray.put(it.next().toJSON());
                 }
             } catch (JSONException e) {
             }
-            this.eeJ.clear();
+            this.enK.clear();
             jSONObject = jSONObject2;
         }
         return jSONObject;
     }
 
     public synchronized void clear() {
-        this.eeJ.clear();
-        this.bdC = 0;
+        this.enK.clear();
+        this.bfp = 0;
     }
 }

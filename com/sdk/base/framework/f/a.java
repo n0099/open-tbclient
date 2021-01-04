@@ -6,12 +6,14 @@ import android.util.Log;
 import com.sdk.base.framework.a.a.c;
 import com.sdk.base.framework.c.f;
 import java.lang.reflect.Method;
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f4261a = a.class.getSimpleName();
-    private static final boolean b = f.b;
+    private static final String f13126a = a.class.getSimpleName();
+
+    /* renamed from: b  reason: collision with root package name */
+    private static final boolean f13127b = f.f13118b;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public static Object a(Context context, String str, Boolean bool, Class<?>[] clsArr, Object[] objArr) {
@@ -42,7 +44,7 @@ public class a {
             declaredMethod.setAccessible(true);
             return bool.booleanValue() ? declaredMethod.invoke(null, objArr) : declaredMethod.invoke(telephonyManager, objArr);
         } catch (Exception e) {
-            c.b(f4261a, e.getMessage(), Boolean.valueOf(b));
+            c.b(f13126a, e.getMessage(), Boolean.valueOf(f13127b));
             return null;
         }
     }

@@ -4,22 +4,23 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.platform.comapi.map.MapBundleKey;
+import com.qq.e.comm.constants.Constants;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class AdResponseInfo implements Parcelable {
     public static final Parcelable.Creator<AdResponseInfo> CREATOR = new Parcelable.Creator<AdResponseInfo>() { // from class: com.baidu.swan.game.ad.entity.AdResponseInfo.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: C */
+        /* renamed from: D */
         public AdResponseInfo createFromParcel(Parcel parcel) {
             return new AdResponseInfo(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: mi */
+        /* renamed from: mq */
         public AdResponseInfo[] newArray(int i) {
             return new AdResponseInfo[i];
         }
@@ -62,7 +63,7 @@ public class AdResponseInfo implements Parcelable {
         if (str != null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.mErrorCode = jSONObject.optString("ret", "");
+                this.mErrorCode = jSONObject.optString(Constants.KEYS.RET, "");
                 if (TextUtils.equals(this.mErrorCode, "0") && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
                     this.mRequestId = optJSONObject.optString("id");
                     JSONArray optJSONArray = optJSONObject.optJSONArray("ads");
@@ -101,7 +102,7 @@ public class AdResponseInfo implements Parcelable {
         return 0;
     }
 
-    public AdElementInfo aTk() {
+    public AdElementInfo aVE() {
         if (this.mAdInstanceList.size() > 0) {
             return this.mAdInstanceList.get(0);
         }

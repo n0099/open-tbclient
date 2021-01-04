@@ -7,7 +7,7 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class LambdaSubscriber<T> extends AtomicReference<d> implements io.reactivex.disposables.b, j<T>, d {
     private static final long serialVersionUID = -7251123623727029452L;
     final io.reactivex.b.a onComplete;
@@ -28,7 +28,7 @@ public final class LambdaSubscriber<T> extends AtomicReference<d> implements io.
             try {
                 this.onSubscribe.accept(this);
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.J(th);
+                io.reactivex.exceptions.a.O(th);
                 dVar.cancel();
                 onError(th);
             }
@@ -41,7 +41,7 @@ public final class LambdaSubscriber<T> extends AtomicReference<d> implements io.
             try {
                 this.onNext.accept(t);
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.J(th);
+                io.reactivex.exceptions.a.O(th);
                 get().cancel();
                 onError(th);
             }
@@ -56,7 +56,7 @@ public final class LambdaSubscriber<T> extends AtomicReference<d> implements io.
                 this.onError.accept(th);
                 return;
             } catch (Throwable th2) {
-                io.reactivex.exceptions.a.J(th2);
+                io.reactivex.exceptions.a.O(th2);
                 io.reactivex.d.a.onError(new CompositeException(th, th2));
                 return;
             }
@@ -71,7 +71,7 @@ public final class LambdaSubscriber<T> extends AtomicReference<d> implements io.
             try {
                 this.onComplete.run();
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.J(th);
+                io.reactivex.exceptions.a.O(th);
                 io.reactivex.d.a.onError(th);
             }
         }
@@ -98,6 +98,6 @@ public final class LambdaSubscriber<T> extends AtomicReference<d> implements io.
     }
 
     public boolean hasCustomOnError() {
-        return this.onError != Functions.pER;
+        return this.onError != Functions.qgt;
     }
 }

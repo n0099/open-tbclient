@@ -9,7 +9,7 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.data.AlaLiveMarkData;
-import com.baidu.live.data.ar;
+import com.baidu.live.data.at;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.ListUtils;
@@ -25,25 +25,25 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a {
-    private static final int hLj = "   ".length();
-    private TextView hLl;
-    private TextView hLm;
-    private TextView hLn;
-    private View hLo;
-    private List<AlaLiveMarkData> hLp;
-    private List<AlaLiveMarkData> hLq;
-    private List<AlaLiveMarkData> hLr;
-    private ar hvU;
+    private static final int hXv = "   ".length();
+    private at hHQ;
+    private View hXA;
+    private List<AlaLiveMarkData> hXB;
+    private List<AlaLiveMarkData> hXC;
+    private List<AlaLiveMarkData> hXD;
+    private TextView hXx;
+    private TextView hXy;
+    private TextView hXz;
     private View mContentView;
     private View mRootView;
-    private PersonCardActivity ozu;
-    private int hLs = 0;
+    private PersonCardActivity oGZ;
+    private int hXE = 0;
     private long lastClickTime = 0;
 
     public a(PersonCardActivity personCardActivity, View view, View view2) {
-        this.ozu = personCardActivity;
+        this.oGZ = personCardActivity;
         this.mContentView = view;
         this.mRootView = view2;
         initView();
@@ -51,41 +51,41 @@ public class a {
 
     private void initView() {
         if (this.mContentView != null) {
-            this.hLl = (TextView) this.mContentView.findViewById(a.f.user_mark_normal);
-            this.hLm = (TextView) this.mContentView.findViewById(a.f.user_mark_extra);
-            this.hLn = (TextView) this.mRootView.findViewById(a.f.user_name);
-            this.hLm.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.person.view.a.1
+            this.hXx = (TextView) this.mContentView.findViewById(a.f.user_mark_normal);
+            this.hXy = (TextView) this.mContentView.findViewById(a.f.user_mark_extra);
+            this.hXz = (TextView) this.mRootView.findViewById(a.f.user_name);
+            this.hXy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.person.view.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.cmG();
+                    a.this.cpy();
                 }
             });
-            this.hLo = this.mContentView.findViewById(a.f.user_mark_divider);
+            this.hXA = this.mContentView.findViewById(a.f.user_mark_divider);
         }
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v7, resolved type: com.baidu.tieba.yuyinala.person.PersonCardActivity */
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Multi-variable type inference failed */
-    public void cmG() {
+    public void cpy() {
         long currentTimeMillis = System.currentTimeMillis();
         if (currentTimeMillis - this.lastClickTime >= 500) {
             this.lastClickTime = currentTimeMillis;
-            if (this.hvU != null && com.baidu.live.ae.a.RB().bxq.aQV != null) {
-                if (TbadkCoreApplication.getCurrentAccount() != null && TbadkCoreApplication.getCurrentAccount().equals(this.hvU.user_id)) {
-                    String str = com.baidu.live.ae.a.RB().bxq.aQV.aQH;
+            if (this.hHQ != null && com.baidu.live.af.a.SE().bCb.aRK != null) {
+                if (TbadkCoreApplication.getCurrentAccount() != null && TbadkCoreApplication.getCurrentAccount().equals(this.hHQ.user_id)) {
+                    String str = com.baidu.live.af.a.SE().bCb.aRK.aRw;
                     if (!TextUtils.isEmpty(str)) {
-                        UrlManager.getInstance().dealOneLink(this.ozu.getPageContext(), new String[]{str});
+                        UrlManager.getInstance().dealOneLink(this.oGZ.getPageContext(), new String[]{str});
                     }
                 } else {
-                    String str2 = com.baidu.live.ae.a.RB().bxq.aQV.aQI;
-                    if (str2 != null && this.hvU != null) {
+                    String str2 = com.baidu.live.af.a.SE().bCb.aRK.aRx;
+                    if (str2 != null && this.hHQ != null) {
                         if (str2.endsWith("/")) {
                             str2 = str2.substring(0, str2.length() - 1);
                         }
-                        String str3 = this.hvU.user_id;
-                        String str4 = this.hvU.portrait;
-                        String str5 = this.hvU.user_nickname;
+                        String str3 = this.hHQ.user_id;
+                        String str4 = this.hHQ.portrait;
+                        String str5 = this.hHQ.user_nickname;
                         StringBuilder sb = new StringBuilder();
                         sb.append("id=");
                         sb.append(ExtraParamsManager.getEncryptionUserId(str3));
@@ -110,7 +110,7 @@ public class a {
                         }
                         sb.insert(0, str2);
                         String sb2 = sb.toString();
-                        this.ozu.finish();
+                        this.oGZ.finish();
                         if (!TextUtils.isEmpty(sb2)) {
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913132, sb2));
                         }
@@ -123,46 +123,46 @@ public class a {
         }
     }
 
-    public void setData(ar arVar) {
-        if (arVar != null) {
-            this.hvU = arVar;
-            if (this.hLp == null) {
-                this.hLp = new ArrayList();
+    public void setData(at atVar) {
+        if (atVar != null) {
+            this.hHQ = atVar;
+            if (this.hXB == null) {
+                this.hXB = new ArrayList();
             }
-            this.hLp.clear();
-            if (this.hLq == null) {
-                this.hLq = new ArrayList();
+            this.hXB.clear();
+            if (this.hXC == null) {
+                this.hXC = new ArrayList();
             }
-            this.hLq.clear();
-            if (this.hLr == null) {
-                this.hLr = new ArrayList();
+            this.hXC.clear();
+            if (this.hXD == null) {
+                this.hXD = new ArrayList();
             }
-            this.hLr.clear();
-            boolean cH = cH(arVar.live_mark_info_new);
-            if (!ListUtils.isEmpty(this.hLp)) {
-                a("", "", this.hLl, this.hLp);
+            this.hXD.clear();
+            boolean cO = cO(atVar.live_mark_info_new);
+            if (!ListUtils.isEmpty(this.hXB)) {
+                a("", "", this.hXx, this.hXB);
             }
-            if (!ListUtils.isEmpty(this.hLq) || cH) {
-                int i = arVar.aPt;
+            if (!ListUtils.isEmpty(this.hXC) || cO) {
+                int i = atVar.aQi;
                 if (i <= 0) {
-                    i = this.hLs;
+                    i = this.hXE;
                 }
-                a("  ", i + this.ozu.getResources().getString(a.h.ala_count_mei), this.hLm, this.hLq);
-                this.hLm.setCompoundDrawablesWithIntrinsicBounds(0, 0, a.e.sdk_person_card_more, 0);
-                this.hLo.setVisibility(0);
+                a("  ", i + this.oGZ.getResources().getString(a.h.ala_count_mei), this.hXy, this.hXC);
+                this.hXy.setCompoundDrawablesWithIntrinsicBounds(0, 0, a.e.sdk_person_card_more, 0);
+                this.hXA.setVisibility(0);
             } else {
-                this.hLm.setText("");
-                this.hLm.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-                this.hLo.setVisibility(8);
+                this.hXy.setText("");
+                this.hXy.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+                this.hXA.setVisibility(8);
             }
-            if (!ListUtils.isEmpty(this.hLr)) {
-                a(cmH() + " ", "", this.hLn, this.hLr);
+            if (!ListUtils.isEmpty(this.hXD)) {
+                a(cpz() + " ", "", this.hXz, this.hXD);
             }
         }
     }
 
-    private String cmH() {
-        String nameShow = this.hvU.getNameShow();
+    private String cpz() {
+        String nameShow = this.hHQ.getNameShow();
         if (nameShow != null) {
             if (TextHelper.getTextLengthWithEmoji(nameShow) > 20) {
                 return TextHelper.subStringWithEmoji(nameShow, 20) + StringHelper.STRING_MORE;
@@ -193,19 +193,22 @@ public class a {
             int i3 = i2;
             if (i3 < list.size()) {
                 AlaLiveMarkData alaLiveMarkData = list.get(i3);
-                if (this.hvU != null) {
-                    alaLiveMarkData.userLevel = this.hvU.level_id;
+                if (this.hHQ != null) {
+                    alaLiveMarkData.userLevel = this.hHQ.level_id;
                     alaLiveMarkData.setupNewLevelMark();
                 }
                 if (alaLiveMarkData != null) {
-                    final int i4 = length + (hLj * i3);
+                    final int i4 = length + (hXv * i3);
                     final int i5 = i4 + 1;
                     AlaLiveMarkData alaLiveMarkData2 = new AlaLiveMarkData();
                     alaLiveMarkData2.mark_pic = alaLiveMarkData.mark_pic;
+                    if (textView.getId() == a.f.user_name) {
+                        alaLiveMarkData2.height = this.oGZ.getResources().getDimensionPixelSize(a.d.sdk_ds36);
+                    }
                     alaLiveMarkData2.isWidthAutoFit = true;
-                    new b(this.ozu, alaLiveMarkData2, true, new b.a() { // from class: com.baidu.tieba.yuyinala.person.view.a.2
+                    new b(this.oGZ, alaLiveMarkData2, true, new b.a() { // from class: com.baidu.tieba.yuyinala.person.view.a.2
                         @Override // com.baidu.live.view.b.a
-                        public void d(Bitmap bitmap) {
+                        public void e(Bitmap bitmap) {
                         }
 
                         @Override // com.baidu.live.view.b.a
@@ -222,7 +225,7 @@ public class a {
         }
     }
 
-    private boolean cH(List<AlaLiveMarkData> list) {
+    private boolean cO(List<AlaLiveMarkData> list) {
         if (ListUtils.isEmpty(list)) {
             return false;
         }
@@ -231,7 +234,7 @@ public class a {
             if (alaLiveMarkData != null && !TextUtils.isEmpty(alaLiveMarkData.mark_pic) && 3 != alaLiveMarkData.type && 4 != alaLiveMarkData.type) {
                 if (StringUtils.isNull(alaLiveMarkData.anchor_user_id) || "0".equals(alaLiveMarkData.anchor_user_id)) {
                     linkedList.add(alaLiveMarkData);
-                } else if (alaLiveMarkData.anchor_user_id.equals(this.ozu.cmo())) {
+                } else if (alaLiveMarkData.anchor_user_id.equals(this.oGZ.cpf())) {
                     linkedList.add(alaLiveMarkData);
                 }
             }
@@ -242,20 +245,20 @@ public class a {
         boolean z = false;
         for (AlaLiveMarkData alaLiveMarkData2 : linkedList) {
             if (alaLiveMarkData2.type == 103 || alaLiveMarkData2.type == 104) {
-                this.hLq.add(alaLiveMarkData2);
+                this.hXC.add(alaLiveMarkData2);
             } else if (alaLiveMarkData2.type == 2) {
-                this.hLr.add(alaLiveMarkData2);
+                this.hXD.add(alaLiveMarkData2);
             } else {
-                this.hLp.add(alaLiveMarkData2);
+                this.hXB.add(alaLiveMarkData2);
             }
             z = alaLiveMarkData2.type == 105 ? true : z;
         }
-        this.hLs = this.hLq.size();
-        if (this.hLs > 2) {
-            this.hLq = this.hLq.subList(0, 2);
+        this.hXE = this.hXC.size();
+        if (this.hXE > 2) {
+            this.hXC = this.hXC.subList(0, 2);
         }
-        if (this.hLp.size() > 3) {
-            this.hLp = this.hLp.subList(0, 3);
+        if (this.hXB.size() > 3) {
+            this.hXB = this.hXB.subList(0, 3);
         }
         return z;
     }

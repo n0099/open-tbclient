@@ -4,25 +4,27 @@ import com.baidu.searchbox.websocket.WebSocketRequest;
 import com.baidu.tbadk.TbConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class f extends g {
-    private b oZO;
-    private a oZP;
+    private b prd;
+    private a pre;
 
     public void a(b bVar) {
-        this.oZO = bVar;
+        this.prd = bVar;
     }
 
     public void a(a aVar) {
-        this.oZP = aVar;
+        this.pre = aVar;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f4017a;
-        private String b;
+        private String f8010a;
+
+        /* renamed from: b  reason: collision with root package name */
+        private String f8011b;
         private String c;
         private String d;
         private String e;
@@ -44,19 +46,19 @@ public class f extends g {
         }
 
         public String c() {
-            return this.f4017a;
+            return this.f8010a;
         }
 
         public void c(String str) {
-            this.f4017a = str;
+            this.f8010a = str;
         }
 
         public String d() {
-            return this.b;
+            return this.f8011b;
         }
 
         public void d(String str) {
-            this.b = str;
+            this.f8011b = str;
         }
 
         public String e() {
@@ -68,28 +70,28 @@ public class f extends g {
         }
 
         public String f() {
-            return com.cmic.sso.sdk.e.d.a(this.e + this.d + this.c + this.b + "@Fdiwmxy7CBDDQNUI");
+            return com.cmic.sso.sdk.e.d.a(this.e + this.d + this.c + this.f8011b + "@Fdiwmxy7CBDDQNUI");
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes7.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private JSONObject f4016a;
+        private JSONObject f8009a;
 
         public JSONObject a() {
-            return this.f4016a;
+            return this.f8009a;
         }
 
         public void a(JSONObject jSONObject) {
-            this.f4016a = jSONObject;
+            this.f8009a = jSONObject;
         }
     }
 
     @Override // com.cmic.sso.sdk.c.b.g
     public String a() {
-        return this.oZO.d;
+        return this.prd.d;
     }
 
     @Override // com.cmic.sso.sdk.c.b.g
@@ -98,13 +100,13 @@ public class f extends g {
         JSONObject jSONObject2 = new JSONObject();
         JSONObject jSONObject3 = new JSONObject();
         try {
-            jSONObject2.put("sign", this.oZO.c());
-            jSONObject2.put("msgid", this.oZO.d());
-            jSONObject2.put("systemtime", this.oZO.e());
-            jSONObject2.put("appid", this.oZO.b());
-            jSONObject2.put("version", this.oZO.a());
+            jSONObject2.put("sign", this.prd.c());
+            jSONObject2.put("msgid", this.prd.d());
+            jSONObject2.put("systemtime", this.prd.e());
+            jSONObject2.put("appid", this.prd.b());
+            jSONObject2.put("version", this.prd.a());
             jSONObject.put(WebSocketRequest.PARAM_KEY_HEADER, jSONObject2);
-            jSONObject3.put(TbConfig.TMP_LOG_DIR_NAME, this.oZP.a());
+            jSONObject3.put(TbConfig.TMP_LOG_DIR_NAME, this.pre.a());
             jSONObject.put("body", jSONObject3);
         } catch (JSONException e) {
             e.printStackTrace();

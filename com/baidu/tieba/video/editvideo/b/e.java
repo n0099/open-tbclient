@@ -7,34 +7,34 @@ import android.media.MediaMuxer;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 @TargetApi(18)
-/* loaded from: classes23.dex */
+/* loaded from: classes8.dex */
 class e {
-    private final MediaMuxer cbA;
-    private volatile boolean nDn;
-    private volatile boolean nDo;
-    private int nDm = 2;
+    private final MediaMuxer cil;
+    private volatile boolean nHs;
+    private volatile boolean nHt;
+    private int nHr = 2;
     private boolean mIsStarted = false;
 
     public e(String str) throws IOException {
-        this.cbA = new MediaMuxer(str, 0);
+        this.cil = new MediaMuxer(str, 0);
     }
 
-    public void dUy() {
-        this.nDn = true;
+    public void dUp() {
+        this.nHs = true;
     }
 
-    public void dUz() {
-        this.nDo = true;
+    public void dUq() {
+        this.nHt = true;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized boolean start() {
         boolean z;
-        if (!this.nDo || !this.nDn) {
+        if (!this.nHt || !this.nHs) {
             z = false;
         } else {
-            if (this.nDm > 0 && this.nDo && this.nDn) {
-                this.cbA.start();
+            if (this.nHr > 0 && this.nHt && this.nHs) {
+                this.cil.start();
                 this.mIsStarted = true;
                 notifyAll();
             }
@@ -45,10 +45,10 @@ class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void stop() {
-        if (this.nDm > 0) {
+        if (this.nHr > 0) {
             try {
-                this.cbA.stop();
-                this.cbA.release();
+                this.cil.stop();
+                this.cil.release();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -57,17 +57,17 @@ class e {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized int c(MediaFormat mediaFormat) {
+    public synchronized int f(MediaFormat mediaFormat) {
         if (this.mIsStarted) {
             throw new IllegalStateException("muxer already started");
         }
-        return this.cbA.addTrack(mediaFormat);
+        return this.cil.addTrack(mediaFormat);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void c(int i, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
         if (this.mIsStarted) {
-            this.cbA.writeSampleData(i, byteBuffer, bufferInfo);
+            this.cil.writeSampleData(i, byteBuffer, bufferInfo);
         }
     }
 

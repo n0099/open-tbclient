@@ -1,39 +1,39 @@
 package com.baidu.swan.gamecenter.appmanager.download;
 
 import android.os.Environment;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.down.manage.Download;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes16.dex */
+/* loaded from: classes3.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String dVa;
-    private long dVb;
+    private String edX;
+    private long edY;
     private String mPackageName;
     private String mUrl;
 
     public a() {
         this.mUrl = "";
-        this.dVa = "";
-        this.dVb = System.currentTimeMillis();
+        this.edX = "";
+        this.edY = System.currentTimeMillis();
     }
 
     public a(@NonNull Download download) {
         this.mUrl = "";
-        this.dVa = "";
-        this.dVb = System.currentTimeMillis();
+        this.edX = "";
+        this.edY = System.currentTimeMillis();
         this.mUrl = download.getUrl();
         this.mPackageName = download.getKeyByUser();
         String fromParam = download.getFromParam();
         if (!TextUtils.isEmpty(fromParam)) {
             try {
                 JSONObject jSONObject = new JSONObject(fromParam);
-                this.dVa = jSONObject.optString("apk_id");
-                this.dVb = jSONObject.optLong("download_time", System.currentTimeMillis());
+                this.edX = jSONObject.optString("apk_id");
+                this.edY = jSONObject.optLong("download_time", System.currentTimeMillis());
             } catch (JSONException e) {
                 if (DEBUG) {
                     e.printStackTrace();
@@ -42,14 +42,14 @@ public class a {
         }
     }
 
-    public Download aUu() {
+    public Download aWO() {
         Download download = new Download();
         download.setUrl(this.mUrl);
         download.setKeyByUser(this.mPackageName);
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("apk_id", this.dVa);
-            jSONObject.put("download_time", this.dVb);
+            jSONObject.put("apk_id", this.edX);
+            jSONObject.put("download_time", this.edY);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -66,27 +66,27 @@ public class a {
         return download;
     }
 
-    public a wx(String str) {
+    public a ww(String str) {
         this.mUrl = str;
         return this;
     }
 
-    public a wy(String str) {
+    public a wx(String str) {
         this.mPackageName = str;
         return this;
     }
 
-    public String aUv() {
-        return this.dVa;
+    public String aWP() {
+        return this.edX;
     }
 
-    public a wz(String str) {
-        this.dVa = str;
+    public a wy(String str) {
+        this.edX = str;
         return this;
     }
 
     public long getDownloadTime() {
-        return this.dVb;
+        return this.edY;
     }
 
     private static String getDownloadDir() {

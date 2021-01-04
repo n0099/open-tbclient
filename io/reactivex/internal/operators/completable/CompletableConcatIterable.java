@@ -8,23 +8,23 @@ import io.reactivex.internal.disposables.EmptyDisposable;
 import io.reactivex.internal.disposables.SequentialDisposable;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class CompletableConcatIterable extends a {
-    final Iterable<? extends e> pFe;
+    final Iterable<? extends e> qgG;
 
     @Override // io.reactivex.a
     public void b(c cVar) {
         try {
-            ConcatInnerObserver concatInnerObserver = new ConcatInnerObserver(cVar, (Iterator) io.reactivex.internal.functions.a.m(this.pFe.iterator(), "The iterator returned is null"));
+            ConcatInnerObserver concatInnerObserver = new ConcatInnerObserver(cVar, (Iterator) io.reactivex.internal.functions.a.m(this.qgG.iterator(), "The iterator returned is null"));
             cVar.onSubscribe(concatInnerObserver.sd);
             concatInnerObserver.next();
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.J(th);
+            io.reactivex.exceptions.a.O(th);
             EmptyDisposable.error(th, cVar);
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class ConcatInnerObserver extends AtomicInteger implements c {
         private static final long serialVersionUID = -7965400327305809232L;
         final c actual;
@@ -66,12 +66,12 @@ public final class CompletableConcatIterable extends a {
                                 return;
                             }
                         } catch (Throwable th) {
-                            io.reactivex.exceptions.a.J(th);
+                            io.reactivex.exceptions.a.O(th);
                             this.actual.onError(th);
                             return;
                         }
                     } catch (Throwable th2) {
-                        io.reactivex.exceptions.a.J(th2);
+                        io.reactivex.exceptions.a.O(th2);
                         this.actual.onError(th2);
                         return;
                     }

@@ -8,27 +8,27 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 public class e {
-    public static <K, V> Map<K, V> adP() {
+    public static <K, V> Map<K, V> afK() {
         return Build.VERSION.SDK_INT >= 19 ? new ArrayMap() : new HashMap();
     }
 
-    public static Map<String, String> an(JSONObject jSONObject) {
-        Map<String, String> adP = adP();
+    public static Map<String, String> av(JSONObject jSONObject) {
+        Map<String, String> afK = afK();
         if (jSONObject != null) {
             Iterator<String> keys = jSONObject.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
                 if (!TextUtils.isEmpty(next)) {
-                    adP.put(next, jSONObject.optString(next));
+                    afK.put(next, jSONObject.optString(next));
                 }
             }
         }
-        return adP;
+        return afK;
     }
 
-    public static Bundle l(Map<String, String> map) {
+    public static Bundle m(Map<String, String> map) {
         Bundle bundle = new Bundle();
         for (String str : map.keySet()) {
             bundle.putString(str, map.get(str));
@@ -36,7 +36,7 @@ public class e {
         return bundle;
     }
 
-    public static JSONObject m(Map<String, String> map) {
+    public static JSONObject n(Map<String, String> map) {
         JSONObject jSONObject = new JSONObject();
         for (String str : map.keySet()) {
             jSONObject.put(str, map.get(str));

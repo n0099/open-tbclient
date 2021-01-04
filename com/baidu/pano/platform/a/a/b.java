@@ -5,12 +5,14 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    protected static final Comparator<byte[]> f2640a = new c();
-    private List<byte[]> b = new LinkedList();
+    protected static final Comparator<byte[]> f3886a = new c();
+
+    /* renamed from: b  reason: collision with root package name */
+    private List<byte[]> f3887b = new LinkedList();
     private List<byte[]> c = new ArrayList(64);
     private int d = 0;
     private final int e;
@@ -31,7 +33,7 @@ public class b {
                 } else {
                     this.d -= bArr.length;
                     this.c.remove(i3);
-                    this.b.remove(bArr);
+                    this.f3887b.remove(bArr);
                     break;
                 }
             } else {
@@ -45,8 +47,8 @@ public class b {
     public synchronized void a(byte[] bArr) {
         if (bArr != null) {
             if (bArr.length <= this.e) {
-                this.b.add(bArr);
-                int binarySearch = Collections.binarySearch(this.c, bArr, f2640a);
+                this.f3887b.add(bArr);
+                int binarySearch = Collections.binarySearch(this.c, bArr, f3886a);
                 if (binarySearch < 0) {
                     binarySearch = (-binarySearch) - 1;
                 }
@@ -59,7 +61,7 @@ public class b {
 
     private synchronized void a() {
         while (this.d > this.e) {
-            byte[] remove = this.b.remove(0);
+            byte[] remove = this.f3887b.remove(0);
             this.c.remove(remove);
             this.d -= remove.length;
         }

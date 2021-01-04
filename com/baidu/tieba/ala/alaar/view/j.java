@@ -4,14 +4,14 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.view.View;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class j {
-    private boolean bbP;
-    protected a goy;
-    private ValueAnimator goz;
+    private boolean bdx;
+    protected a gyV;
+    private ValueAnimator gyW;
     View view;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void a(k kVar, View view);
     }
@@ -21,45 +21,45 @@ public class j {
     }
 
     public void show(boolean z) {
-        if (!this.bbP) {
-            this.bbP = true;
-            QM();
+        if (!this.bdx) {
+            this.bdx = true;
+            onShow();
             if (z) {
-                EW();
+                El();
             } else {
-                lR(isShowing());
+                mo(isShowing());
             }
         }
     }
 
     public boolean isShowing() {
-        return this.bbP;
+        return this.bdx;
     }
 
     public void dismiss(boolean z) {
-        if (this.bbP) {
-            this.bbP = false;
+        if (this.bdx) {
+            this.bdx = false;
             onDismiss();
             if (z) {
-                bRx();
+                bTV();
             } else {
-                lR(isShowing());
+                mo(isShowing());
             }
         }
     }
 
-    private void bRx() {
-        this.goz = z(0.0f, 1.0f);
+    private void bTV() {
+        this.gyW = z(0.0f, 1.0f);
     }
 
-    private void EW() {
-        lR(isShowing());
-        this.goz = z(1.0f, 0.0f);
+    private void El() {
+        mo(isShowing());
+        this.gyW = z(1.0f, 0.0f);
     }
 
     private ValueAnimator z(float f, float f2) {
-        if (this.goz != null && this.goz.isRunning()) {
-            this.goz.cancel();
+        if (this.gyW != null && this.gyW.isRunning()) {
+            this.gyW.cancel();
         }
         ValueAnimator ofFloat = ValueAnimator.ofFloat(f, f2);
         ofFloat.setDuration(250L);
@@ -70,19 +70,19 @@ public class j {
             }
         });
         ofFloat.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.alaar.view.j.2
-            boolean goB;
+            boolean gyY;
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationCancel(Animator animator) {
                 super.onAnimationCancel(animator);
-                this.goB = true;
+                this.gyY = true;
             }
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
-                if (!this.goB) {
-                    j.this.lR(j.this.isShowing());
+                if (!this.gyY) {
+                    j.this.mo(j.this.isShowing());
                 }
             }
         });
@@ -93,17 +93,17 @@ public class j {
     protected void a(ValueAnimator valueAnimator) {
     }
 
-    protected void lR(boolean z) {
+    protected void mo(boolean z) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void QM() {
+    public void onShow() {
     }
 
     protected void onDismiss() {
     }
 
     public void a(a aVar) {
-        this.goy = aVar;
+        this.gyV = aVar;
     }
 }

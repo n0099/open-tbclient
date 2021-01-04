@@ -1,27 +1,27 @@
 package com.baidu.tieba.personPolymeric.c;
 
-import com.baidu.tbadk.core.data.bq;
+import com.baidu.tbadk.core.data.br;
 import java.util.List;
 import tbclient.GetRecommendGodList.DataRes;
 import tbclient.User;
-/* loaded from: classes24.dex */
+/* loaded from: classes8.dex */
 public class q {
-    public int gQA;
-    public int jFO;
-    public List<User> msf;
+    public int hcn;
+    public int jTg;
+    public List<User> mxt;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
-            this.msf = dataRes.recom_user_list;
-            this.jFO = dataRes.has_more.intValue();
-            this.gQA = dataRes.current_page.intValue();
+            this.mxt = dataRes.recom_user_list;
+            this.jTg = dataRes.has_more.intValue();
+            this.hcn = dataRes.current_page.intValue();
         }
     }
 
-    public bq dAA() {
-        bq bqVar = new bq();
-        bqVar.eIg = false;
-        bqVar.bn(this.msf);
-        return bqVar;
+    public br dAp() {
+        br brVar = new br();
+        brVar.eRY = false;
+        brVar.bu(this.mxt);
+        return brVar;
     }
 }

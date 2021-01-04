@@ -4,117 +4,117 @@ import android.graphics.Rect;
 import java.util.LinkedList;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class g extends com.facebook.imagepipeline.g.a {
     private boolean mEnabled;
     @Nullable
-    private b pdC;
-    private final com.facebook.drawee.a.a.d peb;
-    private final com.facebook.common.time.b pec;
-    private final h ped = new h();
+    private b puI;
+    private final com.facebook.drawee.a.a.d pvh;
+    private final com.facebook.common.time.b pvi;
+    private final h pvj = new h();
     @Nullable
-    private c pee;
+    private c pvk;
     @Nullable
-    private com.facebook.drawee.a.a.a.a.c pef;
+    private com.facebook.drawee.a.a.a.a.c pvl;
     @Nullable
-    private com.facebook.drawee.a.a.a.a.a peg;
+    private com.facebook.drawee.a.a.a.a.a pvm;
     @Nullable
-    private com.facebook.imagepipeline.g.b peh;
+    private com.facebook.imagepipeline.g.b pvn;
     @Nullable
-    private List<f> pei;
+    private List<f> pvo;
 
     public g(com.facebook.common.time.b bVar, com.facebook.drawee.a.a.d dVar) {
-        this.pec = bVar;
-        this.peb = dVar;
+        this.pvi = bVar;
+        this.pvh = dVar;
     }
 
     public void setEnabled(boolean z) {
         this.mEnabled = z;
         if (z) {
-            eqX();
-            if (this.pdC != null) {
-                this.peb.a(this.pdC);
+            euZ();
+            if (this.puI != null) {
+                this.pvh.a(this.puI);
             }
-            if (this.peg != null) {
-                this.peb.a(this.peg);
+            if (this.pvm != null) {
+                this.pvh.a(this.pvm);
             }
-            if (this.peh != null) {
-                this.peb.a(this.peh);
+            if (this.pvn != null) {
+                this.pvh.a(this.pvn);
                 return;
             }
             return;
         }
-        if (this.pdC != null) {
-            this.peb.b(this.pdC);
+        if (this.puI != null) {
+            this.pvh.b(this.puI);
         }
-        if (this.peg != null) {
-            this.peb.b(this.peg);
+        if (this.pvm != null) {
+            this.pvh.b(this.pvm);
         }
-        if (this.peh != null) {
-            this.peb.b(this.peh);
+        if (this.pvn != null) {
+            this.pvh.b(this.pvn);
         }
     }
 
     public void b(@Nullable f fVar) {
         if (fVar != null) {
-            if (this.pei == null) {
-                this.pei = new LinkedList();
+            if (this.pvo == null) {
+                this.pvo = new LinkedList();
             }
-            this.pei.add(fVar);
+            this.pvo.add(fVar);
         }
     }
 
-    public void eqV() {
-        if (this.pei != null) {
-            this.pei.clear();
+    public void euX() {
+        if (this.pvo != null) {
+            this.pvo.clear();
         }
     }
 
     public void a(h hVar, int i) {
-        hVar.PX(i);
-        if (this.mEnabled && this.pei != null && !this.pei.isEmpty()) {
+        hVar.Qg(i);
+        if (this.mEnabled && this.pvo != null && !this.pvo.isEmpty()) {
             if (i == 3) {
-                eqW();
+                euY();
             }
-            e eqZ = hVar.eqZ();
-            for (f fVar : this.pei) {
-                fVar.a(eqZ, i);
+            e evb = hVar.evb();
+            for (f fVar : this.pvo) {
+                fVar.a(evb, i);
             }
         }
     }
 
-    private void eqW() {
-        com.facebook.drawee.d.b hierarchy = this.peb.getHierarchy();
+    private void euY() {
+        com.facebook.drawee.d.b hierarchy = this.pvh.getHierarchy();
         if (hierarchy != null && hierarchy.getTopLevelDrawable() != null) {
             Rect bounds = hierarchy.getTopLevelDrawable().getBounds();
-            this.ped.PZ(bounds.width());
-            this.ped.Qa(bounds.height());
+            this.pvj.Qi(bounds.width());
+            this.pvj.Qj(bounds.height());
         }
     }
 
-    private void eqX() {
-        if (this.peg == null) {
-            this.peg = new com.facebook.drawee.a.a.a.a.a(this.pec, this.ped, this);
+    private void euZ() {
+        if (this.pvm == null) {
+            this.pvm = new com.facebook.drawee.a.a.a.a.a(this.pvi, this.pvj, this);
         }
-        if (this.pef == null) {
-            this.pef = new com.facebook.drawee.a.a.a.a.c(this.pec, this.ped);
+        if (this.pvl == null) {
+            this.pvl = new com.facebook.drawee.a.a.a.a.c(this.pvi, this.pvj);
         }
-        if (this.pdC == null) {
-            this.pdC = new com.facebook.drawee.a.a.a.a.b(this.ped, this);
+        if (this.puI == null) {
+            this.puI = new com.facebook.drawee.a.a.a.a.b(this.pvj, this);
         }
-        if (this.pee == null) {
-            this.pee = new c(this.peb.getId(), this.pdC);
+        if (this.pvk == null) {
+            this.pvk = new c(this.pvh.getId(), this.puI);
         } else {
-            this.pee.init(this.peb.getId());
+            this.pvk.init(this.pvh.getId());
         }
-        if (this.peh == null) {
-            this.peh = new com.facebook.imagepipeline.g.b(this.pef, this.pee);
+        if (this.pvn == null) {
+            this.pvn = new com.facebook.imagepipeline.g.b(this.pvl, this.pvk);
         }
     }
 
     public void reset() {
-        eqV();
+        euX();
         setEnabled(false);
-        this.ped.reset();
+        this.pvj.reset();
     }
 }

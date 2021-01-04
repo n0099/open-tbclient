@@ -6,59 +6,59 @@ import android.graphics.PointF;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import com.facebook.drawee.drawable.p;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class o extends g {
     Matrix mDrawMatrix;
     private Matrix mTempMatrix;
-    int pfL;
-    int pfM;
-    p.b pfh;
-    Object pgr;
-    PointF pgs;
+    int pwT;
+    int pwU;
+    p.b pwn;
+    PointF pxA;
+    Object pxz;
 
     public o(Drawable drawable, p.b bVar) {
         super((Drawable) com.facebook.common.internal.g.checkNotNull(drawable));
-        this.pgs = null;
-        this.pfL = 0;
-        this.pfM = 0;
+        this.pxA = null;
+        this.pwT = 0;
+        this.pwU = 0;
         this.mTempMatrix = new Matrix();
-        this.pfh = bVar;
+        this.pwn = bVar;
     }
 
     @Override // com.facebook.drawee.drawable.g
-    public Drawable setCurrent(Drawable drawable) {
-        Drawable current = super.setCurrent(drawable);
-        configureBounds();
-        return current;
+    public Drawable x(Drawable drawable) {
+        Drawable x = super.x(drawable);
+        evL();
+        return x;
     }
 
-    public p.b erM() {
-        return this.pfh;
+    public p.b evP() {
+        return this.pwn;
     }
 
     public void a(p.b bVar) {
-        if (!com.facebook.common.internal.f.equal(this.pfh, bVar)) {
-            this.pfh = bVar;
-            this.pgr = null;
-            configureBounds();
+        if (!com.facebook.common.internal.f.equal(this.pwn, bVar)) {
+            this.pwn = bVar;
+            this.pxz = null;
+            evL();
             invalidateSelf();
         }
     }
 
     public void d(PointF pointF) {
-        if (!com.facebook.common.internal.f.equal(this.pgs, pointF)) {
-            if (this.pgs == null) {
-                this.pgs = new PointF();
+        if (!com.facebook.common.internal.f.equal(this.pxA, pointF)) {
+            if (this.pxA == null) {
+                this.pxA = new PointF();
             }
-            this.pgs.set(pointF);
-            configureBounds();
+            this.pxA.set(pointF);
+            evL();
             invalidateSelf();
         }
     }
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        erI();
+        evK();
         if (this.mDrawMatrix != null) {
             int save = canvas.save();
             canvas.clipRect(getBounds());
@@ -72,56 +72,56 @@ public class o extends g {
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
     protected void onBoundsChange(Rect rect) {
-        configureBounds();
+        evL();
     }
 
-    private void erI() {
+    private void evK() {
         boolean z;
         boolean z2 = false;
-        if (this.pfh instanceof p.l) {
-            Object state = ((p.l) this.pfh).getState();
-            z = state == null || !state.equals(this.pgr);
-            this.pgr = state;
+        if (this.pwn instanceof p.l) {
+            Object state = ((p.l) this.pwn).getState();
+            z = state == null || !state.equals(this.pxz);
+            this.pxz = state;
         } else {
             z = false;
         }
-        if (this.pfL != getCurrent().getIntrinsicWidth() || this.pfM != getCurrent().getIntrinsicHeight()) {
+        if (this.pwT != getCurrent().getIntrinsicWidth() || this.pwU != getCurrent().getIntrinsicHeight()) {
             z2 = true;
         }
         if (z2 || z) {
-            configureBounds();
+            evL();
         }
     }
 
-    void configureBounds() {
+    void evL() {
         Drawable current = getCurrent();
         Rect bounds = getBounds();
         int width = bounds.width();
         int height = bounds.height();
         int intrinsicWidth = current.getIntrinsicWidth();
-        this.pfL = intrinsicWidth;
+        this.pwT = intrinsicWidth;
         int intrinsicHeight = current.getIntrinsicHeight();
-        this.pfM = intrinsicHeight;
+        this.pwU = intrinsicHeight;
         if (intrinsicWidth <= 0 || intrinsicHeight <= 0) {
             current.setBounds(bounds);
             this.mDrawMatrix = null;
         } else if (intrinsicWidth == width && intrinsicHeight == height) {
             current.setBounds(bounds);
             this.mDrawMatrix = null;
-        } else if (this.pfh == p.b.pgt) {
+        } else if (this.pwn == p.b.pxB) {
             current.setBounds(bounds);
             this.mDrawMatrix = null;
         } else {
             current.setBounds(0, 0, intrinsicWidth, intrinsicHeight);
-            this.pfh.a(this.mTempMatrix, bounds, intrinsicWidth, intrinsicHeight, this.pgs != null ? this.pgs.x : 0.5f, this.pgs != null ? this.pgs.y : 0.5f);
+            this.pwn.a(this.mTempMatrix, bounds, intrinsicWidth, intrinsicHeight, this.pxA != null ? this.pxA.x : 0.5f, this.pxA != null ? this.pxA.y : 0.5f);
             this.mDrawMatrix = this.mTempMatrix;
         }
     }
 
     @Override // com.facebook.drawee.drawable.g, com.facebook.drawee.drawable.r
-    public void getTransform(Matrix matrix) {
-        getParentTransform(matrix);
-        erI();
+    public void f(Matrix matrix) {
+        g(matrix);
+        evK();
         if (this.mDrawMatrix != null) {
             matrix.preConcat(this.mDrawMatrix);
         }

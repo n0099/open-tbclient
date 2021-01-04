@@ -3,11 +3,11 @@ package com.baidu.platform.comapi.bikenavi.b;
 import com.baidu.platform.comapi.wnplatform.n.c;
 import com.baidu.platform.comapi.wnplatform.p.j;
 import com.baidu.platform.comjni.jninative.tts.WNaviTTSPlayer;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class a extends com.baidu.platform.comapi.wnplatform.n.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private c f2829a = null;
+    private c f4195a = null;
 
     @Override // com.baidu.platform.comapi.walknavi.a
     public boolean ready() {
@@ -20,33 +20,33 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
     public void release() {
         c();
         WNaviTTSPlayer.setTTSPlayerListener(null);
-        this.f2829a = null;
+        this.f4195a = null;
     }
 
     @Override // com.baidu.platform.comapi.wnplatform.n.a
     public void a(c cVar) {
-        this.f2829a = cVar;
+        this.f4195a = cVar;
     }
 
     public void a() {
-        if (this.f2829a != null) {
-            this.f2829a.a();
+        if (this.f4195a != null) {
+            this.f4195a.a();
         }
     }
 
     public int b() {
-        if (this.f2829a != null) {
-            return this.f2829a.b();
+        if (this.f4195a != null) {
+            return this.f4195a.b();
         }
         return 0;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public int a(String str, int i) {
-        if (com.baidu.platform.comapi.walknavi.b.f2957a == com.baidu.platform.comapi.walknavi.b.a().u()) {
+        if (com.baidu.platform.comapi.walknavi.b.f4401a == com.baidu.platform.comapi.walknavi.b.a().u()) {
             return a(str, false);
         }
-        if (com.baidu.platform.comapi.walknavi.b.b == com.baidu.platform.comapi.walknavi.b.a().u()) {
+        if (com.baidu.platform.comapi.walknavi.b.f4402b == com.baidu.platform.comapi.walknavi.b.a().u()) {
             if (i == 1) {
                 j.a().b(com.baidu.platform.comapi.wnplatform.f.a.a().b());
                 return 1;
@@ -63,15 +63,15 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
     }
 
     public int a(String str, boolean z) {
-        if (this.f2829a != null) {
-            return this.f2829a.a(str, z);
+        if (this.f4195a != null) {
+            return this.f4195a.a(str, z);
         }
         return 0;
     }
 
     public void c() {
-        if (this.f2829a != null) {
-            this.f2829a.c();
+        if (this.f4195a != null) {
+            this.f4195a.c();
         }
     }
 }

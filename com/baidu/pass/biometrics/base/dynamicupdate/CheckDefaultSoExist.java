@@ -5,7 +5,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
 import java.lang.reflect.Method;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class CheckDefaultSoExist {
     private static String a(Context context, String str) {
         Object invoke;
@@ -48,14 +48,14 @@ public class CheckDefaultSoExist {
 
     public static void isExist(Context context) {
         String[] strArr;
-        String b;
-        for (String str : LoadSo.b) {
+        String b2;
+        for (String str : LoadSo.f3980b) {
             if (Build.VERSION.SDK_INT > 8) {
-                b = a(context, str);
+                b2 = a(context, str);
             } else {
-                b = b(context, str);
+                b2 = b(context, str);
             }
-            if (TextUtils.isEmpty(b)) {
+            if (TextUtils.isEmpty(b2)) {
                 Log.e("CheckDefaultSoExist", str + " so is not exist ,please put the " + str + " so file in the right folder");
             }
         }

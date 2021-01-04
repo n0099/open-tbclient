@@ -2,10 +2,10 @@ package com.baidu.live.tbadk.core.view;
 
 import android.content.Context;
 import android.content.res.Configuration;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-/* loaded from: classes4.dex */
+import androidx.annotation.Nullable;
+/* loaded from: classes11.dex */
 public class BackImageView extends ImageView {
     public BackImageView(Context context) {
         super(context);

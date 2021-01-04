@@ -1,10 +1,10 @@
 package com.baidu.swan.apps.t.b;
 
-import android.support.annotation.NonNull;
-/* loaded from: classes25.dex */
+import androidx.annotation.NonNull;
+/* loaded from: classes9.dex */
 public interface d {
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void a(com.baidu.swan.apps.scheme.actions.f.b bVar);
 
@@ -15,17 +15,17 @@ public interface d {
 
     void a(String str, boolean z, boolean z2, a aVar);
 
-    com.baidu.swan.apps.scheme.actions.f.b aAA();
+    com.baidu.swan.apps.scheme.actions.f.b aBR();
 
-    void aAB();
+    void aBS();
 
-    void aAC();
+    void aBT();
 
-    void aAD();
+    void aBU();
 
-    void aAE();
+    void aBV();
 
     double[] b(@NonNull com.baidu.swan.apps.scheme.actions.f.b bVar, @NonNull String str);
 
-    void fJ(boolean z);
+    void fS(boolean z);
 }

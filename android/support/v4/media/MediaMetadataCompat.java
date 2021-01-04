@@ -6,15 +6,16 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.RestrictTo;
 import android.support.v4.media.MediaDescriptionCompat;
-import android.support.v4.util.ArrayMap;
+import android.support.v4.media.session.MediaSessionCompat;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.RestrictTo;
+import androidx.collection.ArrayMap;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Set;
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 public final class MediaMetadataCompat implements Parcelable {
     public static final Parcelable.Creator<MediaMetadataCompat> CREATOR;
     static final ArrayMap<String, Integer> METADATA_KEYS_TYPE = new ArrayMap<>();
@@ -63,25 +64,25 @@ public final class MediaMetadataCompat implements Parcelable {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     public @interface BitmapKey {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     public @interface LongKey {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     public @interface RatingKey {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     public @interface TextKey {
     }
 
@@ -139,12 +140,11 @@ public final class MediaMetadataCompat implements Parcelable {
 
     MediaMetadataCompat(Bundle bundle) {
         this.mBundle = new Bundle(bundle);
-        this.mBundle.setClassLoader(MediaMetadataCompat.class.getClassLoader());
+        MediaSessionCompat.ensureClassLoader(this.mBundle);
     }
 
     MediaMetadataCompat(Parcel parcel) {
-        this.mBundle = parcel.readBundle();
-        this.mBundle.setClassLoader(MediaMetadataCompat.class.getClassLoader());
+        this.mBundle = parcel.readBundle(MediaSessionCompat.class.getClassLoader());
     }
 
     public boolean containsKey(String str) {
@@ -192,7 +192,6 @@ public final class MediaMetadataCompat implements Parcelable {
     }
 
     public MediaDescriptionCompat getDescription() {
-        int i;
         Bitmap bitmap;
         Uri uri;
         if (this.mDescription != null) {
@@ -206,43 +205,40 @@ public final class MediaMetadataCompat implements Parcelable {
             charSequenceArr[1] = getText(METADATA_KEY_DISPLAY_SUBTITLE);
             charSequenceArr[2] = getText(METADATA_KEY_DISPLAY_DESCRIPTION);
         } else {
+            int i = 0;
             int i2 = 0;
-            int i3 = 0;
-            while (i3 < charSequenceArr.length && i2 < PREFERRED_DESCRIPTION_ORDER.length) {
-                int i4 = i2 + 1;
-                CharSequence text2 = getText(PREFERRED_DESCRIPTION_ORDER[i2]);
-                if (TextUtils.isEmpty(text2)) {
-                    i = i3;
-                } else {
-                    i = i3 + 1;
-                    charSequenceArr[i3] = text2;
+            while (i2 < charSequenceArr.length && i < PREFERRED_DESCRIPTION_ORDER.length) {
+                int i3 = i + 1;
+                CharSequence text2 = getText(PREFERRED_DESCRIPTION_ORDER[i]);
+                if (!TextUtils.isEmpty(text2)) {
+                    charSequenceArr[i2] = text2;
+                    i2++;
                 }
-                i3 = i;
-                i2 = i4;
+                i = i3;
             }
         }
-        int i5 = 0;
+        int i4 = 0;
         while (true) {
-            if (i5 >= PREFERRED_BITMAP_ORDER.length) {
+            if (i4 >= PREFERRED_BITMAP_ORDER.length) {
                 bitmap = null;
                 break;
             }
-            Bitmap bitmap2 = getBitmap(PREFERRED_BITMAP_ORDER[i5]);
+            Bitmap bitmap2 = getBitmap(PREFERRED_BITMAP_ORDER[i4]);
             if (bitmap2 != null) {
                 bitmap = bitmap2;
                 break;
             }
-            i5++;
+            i4++;
         }
-        int i6 = 0;
+        int i5 = 0;
         while (true) {
-            if (i6 >= PREFERRED_URI_ORDER.length) {
+            if (i5 >= PREFERRED_URI_ORDER.length) {
                 uri = null;
                 break;
             }
-            String string2 = getString(PREFERRED_URI_ORDER[i6]);
+            String string2 = getString(PREFERRED_URI_ORDER[i5]);
             if (TextUtils.isEmpty(string2)) {
-                i6++;
+                i5++;
             } else {
                 uri = Uri.parse(string2);
                 break;
@@ -291,7 +287,7 @@ public final class MediaMetadataCompat implements Parcelable {
     }
 
     public Bundle getBundle() {
-        return this.mBundle;
+        return new Bundle(this.mBundle);
     }
 
     public static MediaMetadataCompat fromMediaMetadata(Object obj) {
@@ -318,7 +314,7 @@ public final class MediaMetadataCompat implements Parcelable {
         return this.mMetadataObj;
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     public static final class Builder {
         private final Bundle mBundle;
 
@@ -328,6 +324,7 @@ public final class MediaMetadataCompat implements Parcelable {
 
         public Builder(MediaMetadataCompat mediaMetadataCompat) {
             this.mBundle = new Bundle(mediaMetadataCompat.mBundle);
+            MediaSessionCompat.ensureClassLoader(this.mBundle);
         }
 
         @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})

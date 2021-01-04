@@ -3,15 +3,15 @@ package com.baidu.tieba.personPolymeric.c;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import tbclient.GiftInfo;
-/* loaded from: classes24.dex */
+/* loaded from: classes8.dex */
 public class o extends BaseCardInfo {
-    public static final BdUniqueId mse = BdUniqueId.gen();
+    public static final BdUniqueId mxs = BdUniqueId.gen();
     public long giftNum;
     public String picUrl;
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return mse;
+        return mxs;
     }
 
     public void a(GiftInfo giftInfo) {

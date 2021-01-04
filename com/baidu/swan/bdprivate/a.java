@@ -1,7 +1,7 @@
 package com.baidu.swan.bdprivate;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.bdprivate.api.SwanApi$$ModulesProvider;
 import com.baidu.swan.bdprivate.extensions.a.d;
@@ -12,7 +12,7 @@ import com.baidu.swan.bdprivate.extensions.a.h;
 import com.baidu.swan.bdprivate.extensions.a.i;
 import com.baidu.swan.facade.a.c;
 import java.util.Map;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class a implements c {
     @Override // com.baidu.swan.facade.a.d
     public void a(j jVar) {

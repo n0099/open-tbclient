@@ -3,7 +3,6 @@ package com.baidu.android.imsdk.group.request;
 import android.content.Context;
 import android.util.Log;
 import android.util.Pair;
-import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.chatuser.request.IMUserBaseHttpRequest;
@@ -17,7 +16,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class IMGroupSetRequest extends IMUserBaseHttpRequest {
     private long mAppid;
     private int mDisturb;
@@ -62,23 +61,21 @@ public class IMGroupSetRequest extends IMUserBaseHttpRequest {
     public void onSuccess(int i, byte[] bArr) {
         int i2;
         String str;
-        int i3;
         String optString;
         try {
             JSONObject jSONObject = new JSONObject(new String(bArr));
             if (jSONObject.has("response_params")) {
-                i3 = jSONObject.getJSONObject("response_params").getInt("error_code");
-                optString = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG, Constants.ERROR_MSG_SUCCESS);
+                i2 = jSONObject.getJSONObject("response_params").getInt("error_code");
+                optString = jSONObject.optString("error_msg", Constants.ERROR_MSG_SUCCESS);
             } else {
-                i3 = jSONObject.getInt("error_code");
-                optString = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG, "");
+                i2 = jSONObject.getInt("error_code");
+                optString = jSONObject.optString("error_msg", "");
             }
-            i2 = i3;
             str = optString;
         } catch (JSONException e) {
             LogUtils.e("IMUserSetRequest", "JSONException", e);
-            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             i2 = 1010;
+            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
         }
         IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);

@@ -2,7 +2,7 @@ package alaim;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public final class LiveMedia extends Message {
     @ProtoField(tag = 1)
     public final LiveVideoInfo video;
@@ -16,7 +16,7 @@ public final class LiveMedia extends Message {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder extends Message.Builder<LiveMedia> {
         public LiveVideoInfo video;
 

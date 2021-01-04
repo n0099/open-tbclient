@@ -1,45 +1,33 @@
 package com.baidu.live.data;
 
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class ba {
-    public int aPL;
-    public int aPM;
-    public int aPN;
-    public int aPO;
-    public String aPP;
-    public bx aPQ;
-    public long anchorScore;
-    public long challengeId;
-    public int challengeResult;
-    public long endTime;
-    public long nowTime;
-    public long rivalScore;
-    public long stageEndTime;
-    public long stageStartTime;
-    public long startTime;
+    public AlaLiveUserInfoData aQy;
+    public int rank;
+    public int type;
 
-    public void parseJson(JSONObject jSONObject) {
+    public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.challengeId = jSONObject.optLong("challenge_id");
-            this.aPL = jSONObject.optInt("challenge_status");
-            this.challengeResult = jSONObject.optInt("challenge_ret");
-            this.aPM = jSONObject.optInt("challenge_ret_type");
-            this.startTime = jSONObject.optLong("start_time");
-            this.endTime = jSONObject.optLong("end_time");
-            this.stageStartTime = jSONObject.optLong("stage_start_time");
-            this.stageEndTime = jSONObject.optLong("stage_end_time");
-            this.nowTime = jSONObject.optLong("now_time");
-            this.anchorScore = jSONObject.optLong("anchor_score");
-            this.rivalScore = jSONObject.optLong("rival_score");
-            this.aPN = jSONObject.optInt("winning_num");
-            this.aPO = jSONObject.optInt("anchor_rank");
-            this.aPP = jSONObject.optString("rank_url");
-            this.aPQ = new bx();
-            JSONObject optJSONObject = jSONObject.optJSONObject("punish_stage_close_info");
+            this.type = jSONObject.optInt("type");
+            this.rank = jSONObject.optInt("rank");
+            JSONObject optJSONObject = jSONObject.optJSONObject("user_info");
             if (optJSONObject != null) {
-                this.aPQ.parseJson(optJSONObject);
+                this.aQy = new AlaLiveUserInfoData();
+                this.aQy.parserJson(optJSONObject);
             }
         }
+    }
+
+    public boolean Fe() {
+        return this.type == 1;
+    }
+
+    public boolean isFirst() {
+        return this.rank == 1;
+    }
+
+    public boolean a(ba baVar) {
+        return baVar != null && baVar.type == this.type && baVar.rank == this.rank && this.aQy != null && baVar.aQy != null && baVar.aQy.userId == this.aQy.userId;
     }
 }

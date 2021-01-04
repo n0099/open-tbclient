@@ -2,35 +2,35 @@ package com.baidu.tieba.person.more;
 
 import android.view.View;
 import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.adp.widget.ListView.q;
+import com.baidu.adp.widget.ListView.n;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.card.ab;
+import com.baidu.tieba.card.aa;
 import com.baidu.tieba.personCenter.c.h;
 import java.util.List;
-/* loaded from: classes24.dex */
+/* loaded from: classes8.dex */
 public class c {
-    private BdTypeListView gpZ;
-    private ab<h> jlF;
+    private BdTypeListView gAY;
+    private aa<h> jye;
     private NavigationBar mNavigationBar;
     private TbPageContext mPageContext;
-    private a mju;
+    private a moD;
 
     public c(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
     }
 
-    public void an(View view) {
+    public void ap(View view) {
         this.mNavigationBar = (NavigationBar) view.findViewById(R.id.person_more_navigation_bar);
-        this.gpZ = (BdTypeListView) view.findViewById(R.id.person_more_listview);
-        this.mju = new a(this.mPageContext, this.gpZ, this.jlF);
-        bFP();
+        this.gAY = (BdTypeListView) view.findViewById(R.id.person_more_listview);
+        this.moD = new a(this.mPageContext, this.gAY, this.jye);
+        bIk();
     }
 
-    private void bFP() {
+    private void bIk() {
         this.mNavigationBar.setCenterTextTitle(this.mPageContext.getString(R.string.person_center_more));
         this.mNavigationBar.showBottomLine();
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.person.more.c.1
@@ -42,17 +42,17 @@ public class c {
         this.mNavigationBar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void setData(List<q> list) {
-        this.gpZ.setData(list);
+    public void setData(List<n> list) {
+        this.gAY.setData(list);
     }
 
     public void onChangeSkinType() {
-        this.mju.notifyDataSetChanged();
-        ap.setBackgroundColor(this.gpZ, R.color.CAM_X0201);
+        this.moD.notifyDataSetChanged();
+        ao.setBackgroundColor(this.gAY, R.color.CAM_X0201);
         this.mNavigationBar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void c(ab<h> abVar) {
-        this.jlF = abVar;
+    public void c(aa<h> aaVar) {
+        this.jye = aaVar;
     }
 }

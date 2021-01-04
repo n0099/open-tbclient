@@ -6,16 +6,16 @@ import android.text.TextUtils;
 import com.baidu.tieba.ala.alaar.sticker.model.DuFileFaceItem;
 import com.baidu.tieba.ala.alaar.sticker.model.FuFaceItem;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class h {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface a<T> {
+        void J(T t);
+
         void a(T t, int i, int i2, String str);
 
-        void aD(T t);
-
-        void aE(T t);
+        void aF(T t);
     }
 
     public static final void a(FuFaceItem fuFaceItem, a<FuFaceItem> aVar) {
@@ -34,7 +34,7 @@ public class h {
                 final File file = new File(loadingFile);
                 if (file.exists()) {
                     if (aVar != null) {
-                        aVar.aD(duFileFaceItem);
+                        aVar.J(duFileFaceItem);
                     }
                     new Thread() { // from class: com.baidu.tieba.ala.alaar.sticker.a.h.1
                         @Override // java.lang.Thread, java.lang.Runnable
@@ -53,7 +53,7 @@ public class h {
                                     @Override // java.lang.Runnable
                                     public void run() {
                                         if (z) {
-                                            aVar.aE(DuFileFaceItem.this);
+                                            aVar.aF(DuFileFaceItem.this);
                                         } else {
                                             aVar.a(DuFileFaceItem.this, 0, 0, "本地贴纸独立文件解压导出失败");
                                         }

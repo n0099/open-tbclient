@@ -1,14 +1,13 @@
 package com.baidu.live;
-
-import com.baidu.live.tbadk.TbConfig;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a {
-    public static String aAr = "appkgkkjqetzp8a";
-    public static long aAs = 405384;
-    public static final String aAt = TbConfig.SERVER_ADDRESS + "ala/audio/room/getRoomDayRank";
-    public static final String aAu = TbConfig.SERVER_ADDRESS + "ala/audio/tipOff/tipOffRoom";
-    public static final String aAv = TbConfig.SERVER_ADDRESS + "ala/audio/tipOff/tipOff";
-    public static final String aAw = TbConfig.SERVER_ADDRESS + "ala/audio/live/blockIm";
-    public static final String aAx = TbConfig.SERVER_ADDRESS + "ala/audio/user/appointManager";
-    public static final String aAy = TbConfig.SERVER_ADDRESS + "ala/audio/user/unappointManager";
+    public static String aAH = "https://audio.baidu.com/";
+    public static String aAI = "appkgkkjqetzp8a";
+    public static long aAJ = 405384;
+    public static final String aAK = aAH + "ala/audio/room/getRoomDayRank";
+    public static final String aAL = aAH + "ala/audio/tipOff/tipOffRoom";
+    public static final String aAM = aAH + "ala/audio/tipOff/tipOff";
+    public static final String aAN = aAH + "ala/audio/live/blockIm";
+    public static final String aAO = aAH + "ala/audio/user/appointManager";
+    public static final String aAP = aAH + "ala/audio/user/unappointManager";
 }

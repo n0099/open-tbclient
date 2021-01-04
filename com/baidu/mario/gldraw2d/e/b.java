@@ -6,7 +6,7 @@ import com.baidu.mario.gldraw2d.d.c;
 import com.baidu.mario.gldraw2d.d.d;
 import com.baidu.mario.gldraw2d.params.MirrorType;
 import com.baidu.mario.gldraw2d.params.ScaleType;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class b {
     private static final String TAG = b.class.getSimpleName();
 
@@ -32,6 +32,7 @@ public class b {
 
     public static void a(float[] fArr, d dVar, c cVar, ScaleType scaleType, float f) {
         float f2;
+        float f3;
         if (fArr == null) {
             Log.e(TAG, "scaleDraw2DMVP mvpMatrix == NULLLLLLL!!!");
         } else if (dVar == null || dVar.getWidth() <= 0 || dVar.getHeight() <= 0) {
@@ -43,38 +44,41 @@ public class b {
             float width2 = (cVar.getWidth() * 1.0f) / cVar.getHeight();
             switch (scaleType) {
                 case FIT_XY:
-                    f = 1.0f;
                     f2 = 1.0f;
+                    f3 = 1.0f;
                     break;
                 case FIT_CENTER:
                     if (width > width2) {
-                        f = width2 / width;
-                        f2 = 1.0f;
+                        f2 = width2 / width;
+                        f3 = 1.0f;
                         break;
                     } else {
-                        f2 = width / width2;
-                        f = 1.0f;
+                        float f4 = width / width2;
+                        f2 = 1.0f;
+                        f3 = f4;
                         break;
                     }
                 case CENTER_CROP:
                     if (width > width2) {
-                        f2 = width / width2;
-                        f = 1.0f;
+                        float f5 = width / width2;
+                        f2 = 1.0f;
+                        f3 = f5;
                         break;
                     } else {
-                        f = width2 / width;
-                        f2 = 1.0f;
+                        f2 = width2 / width;
+                        f3 = 1.0f;
                         break;
                     }
                 case EQUAL_SCALE:
                     f2 = f;
+                    f3 = f;
                     break;
                 default:
-                    f = 1.0f;
                     f2 = 1.0f;
+                    f3 = 1.0f;
                     break;
             }
-            Matrix.scaleM(fArr, 0, f2, f, 1.0f);
+            Matrix.scaleM(fArr, 0, f3, f2, 1.0f);
         }
     }
 

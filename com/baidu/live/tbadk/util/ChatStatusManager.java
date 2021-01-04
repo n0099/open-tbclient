@@ -2,7 +2,7 @@ package com.baidu.live.tbadk.util;
 
 import android.util.SparseArray;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class ChatStatusManager {
     public static final int GROUP_CHAT = 2;
     public static final int OFFICIALBAR_CHAT = 1;
@@ -14,7 +14,7 @@ public class ChatStatusManager {
     private static ChatStatusManager instance;
     private SparseArray<ActivityStatus> mStatus = new SparseArray<>();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public static class ActivityStatus {
         public String curId;
         public boolean isOpen;

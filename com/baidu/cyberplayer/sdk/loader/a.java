@@ -16,15 +16,17 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes17.dex */
-public class a implements a.InterfaceC0109a {
+/* loaded from: classes6.dex */
+public class a implements a.InterfaceC0101a {
     private static ClassLoader l = null;
     private static a m = null;
     private volatile int h;
 
     /* renamed from: a  reason: collision with root package name */
-    private long f1399a = 0;
-    private int b = 0;
+    private long f1834a = 0;
+
+    /* renamed from: b  reason: collision with root package name */
+    private int f1835b = 0;
     private Context c = null;
     private String d = SDKVersion.VERSION;
     private String e = null;
@@ -157,8 +159,8 @@ public class a implements a.InterfaceC0109a {
             a(-4, "cancel download isSFSwitchEnabled");
             return false;
         }
-        this.b = a("success-download-core-count", 0);
-        if (this.b >= 12) {
+        this.f1835b = a("success-download-core-count", 0);
+        if (this.f1835b >= 12) {
             CyberLog.w("CyberCoreLoader", "Achieve max success download time:12");
             a(-1, "Achieve max success download time");
             return false;
@@ -204,36 +206,36 @@ public class a implements a.InterfaceC0109a {
         }
     }
 
-    @Override // com.baidu.cyberplayer.sdk.a.a.InterfaceC0109a
+    @Override // com.baidu.cyberplayer.sdk.a.a.InterfaceC0101a
     public void a(String str, long j) {
     }
 
-    @Override // com.baidu.cyberplayer.sdk.a.a.InterfaceC0109a
+    @Override // com.baidu.cyberplayer.sdk.a.a.InterfaceC0101a
     public void a(String str, long j, int i, String str2) {
         CyberLog.d("CyberCoreLoader", "srcUrl:" + str + " detail:" + str2);
         if (i != -1) {
-            this.b++;
-            a("success-download-core-count", Integer.toString(this.b));
+            this.f1835b++;
+            a("success-download-core-count", Integer.toString(this.f1835b));
         }
         a(i, str2);
     }
 
-    @Override // com.baidu.cyberplayer.sdk.a.a.InterfaceC0109a
+    @Override // com.baidu.cyberplayer.sdk.a.a.InterfaceC0101a
     public void a(String str, long j, long j2) {
         Long valueOf = Long.valueOf(System.currentTimeMillis());
-        if (valueOf.longValue() - this.f1399a > 500) {
+        if (valueOf.longValue() - this.f1834a > 500) {
             float f = (((float) j) / ((float) j2)) * 99.0f;
             a((int) f);
-            this.f1399a = valueOf.longValue();
+            this.f1834a = valueOf.longValue();
             CyberLog.d("CyberCoreLoader", "onDownloading:" + ((int) f) + "%");
         }
     }
 
-    @Override // com.baidu.cyberplayer.sdk.a.a.InterfaceC0109a
+    @Override // com.baidu.cyberplayer.sdk.a.a.InterfaceC0101a
     public void a(String str, long j, ArrayList<String> arrayList) {
         this.j = arrayList;
-        this.b++;
-        a("success-download-core-count", Integer.toString(this.b));
+        this.f1835b++;
+        a("success-download-core-count", Integer.toString(this.f1835b));
         CyberLog.d("CyberCoreLoader", "onDownloadSuccess:" + this.j);
         c();
     }

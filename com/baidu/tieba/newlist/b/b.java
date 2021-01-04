@@ -1,11 +1,11 @@
 package com.baidu.tieba.newlist.b;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.q;
+import com.baidu.adp.widget.ListView.n;
 import tbclient.TopicList.NewTopicList;
-/* loaded from: classes21.dex */
-public class b implements q {
+/* loaded from: classes8.dex */
+public class b implements n {
     public String cover;
     public String desc;
     public int index;
@@ -24,8 +24,8 @@ public class b implements q {
         this.topicId = newTopicList.topic_id.longValue();
     }
 
-    @Override // com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return a.lwY;
+        return a.lCg;
     }
 }

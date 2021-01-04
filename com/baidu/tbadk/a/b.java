@@ -5,49 +5,48 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.n.l;
 import com.baidu.tieba.compatible.EditorHelper;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
-    private static b ezl;
+    private static b eIJ;
     private final HashMap<String, a> mSwitchs = new HashMap<>();
 
     public b() {
-        HashMap<String, a> bjZ = bjZ();
+        HashMap<String, a> bmo = bmo();
         this.mSwitchs.clear();
-        this.mSwitchs.putAll(bjZ);
+        this.mSwitchs.putAll(bmo);
     }
 
-    public static b bjX() {
-        if (ezl == null) {
+    public static b bmm() {
+        if (eIJ == null) {
             synchronized (b.class) {
-                if (ezl == null) {
-                    ezl = new b();
+                if (eIJ == null) {
+                    eIJ = new b();
                 }
             }
         }
-        return ezl;
+        return eIJ;
     }
 
-    private static String bjY() {
+    private static String bmn() {
         return "pref_name_abtest_" + TbadkCoreApplication.getCurrentAccount();
     }
 
     private static SharedPreferences getSharedPreferences() {
-        return TbadkCoreApplication.getInst().getSharedPreferences(bjY(), 0);
+        return TbadkCoreApplication.getInst().getSharedPreferences(bmn(), 0);
     }
 
-    public synchronized a Am(String str) {
+    public synchronized a Ah(String str) {
         return this.mSwitchs.get(str);
     }
 
-    private String dI(String str, String str2) {
-        a Am = Am(str);
-        if (Am != null && !TextUtils.isEmpty(Am.ezj)) {
-            return Am.ezj;
+    private String dH(String str, String str2) {
+        a Ah = Ah(str);
+        if (Ah != null && !TextUtils.isEmpty(Ah.eIH)) {
+            return Ah.eIH;
         }
         return str2;
     }
@@ -88,14 +87,13 @@ public class b {
                 this.mSwitchs.putAll(hashMap);
             }
             EditorHelper.putString(getSharedPreferences(), "pref_key_abtest_switchs", jSONArray.toString());
-            com.baidu.tbadk.core.sharedPref.b.bsO().putInt("perf_start_open", An("performance_start_small_flow") ? 1 : 0);
-            l.bFl().kS(An("performance_start_small_flow"));
+            com.baidu.tbadk.core.sharedPref.b.bvq().putInt("perf_start_open", Ai("performance_start_small_flow") ? 1 : 0);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private HashMap<String, a> bjZ() {
+    private HashMap<String, a> bmo() {
         HashMap<String, a> hashMap = new HashMap<>();
         try {
             JSONArray jSONArray = new JSONArray(getSharedPreferences().getString("pref_key_abtest_switchs", "[]"));
@@ -112,7 +110,7 @@ public class b {
         return hashMap;
     }
 
-    public static boolean An(String str) {
-        return "a".equalsIgnoreCase(bjX().dI(str, ""));
+    public static boolean Ai(String str) {
+        return "a".equalsIgnoreCase(bmm().dH(str, ""));
     }
 }

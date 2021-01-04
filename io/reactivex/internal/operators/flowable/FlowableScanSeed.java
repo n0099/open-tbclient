@@ -9,22 +9,22 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import org.a.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class FlowableScanSeed<T, R> extends a<T, R> {
     final io.reactivex.b.c<R, ? super T, R> accumulator;
-    final Callable<R> pFU;
+    final Callable<R> qhw;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super R> cVar) {
         try {
-            this.pFi.a((j) new ScanSeedSubscriber(cVar, this.accumulator, io.reactivex.internal.functions.a.m(this.pFU.call(), "The seed supplied is null"), eCS()));
+            this.qgK.a((j) new ScanSeedSubscriber(cVar, this.accumulator, io.reactivex.internal.functions.a.m(this.qhw.call(), "The seed supplied is null"), eLa()));
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.J(th);
+            io.reactivex.exceptions.a.O(th);
             EmptySubscription.error(th, cVar);
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class ScanSeedSubscriber<T, R> extends AtomicInteger implements j<T>, d {
         private static final long serialVersionUID = -1776795561228106469L;
         final io.reactivex.b.c<R, ? super T, R> accumulator;
@@ -69,7 +69,7 @@ public final class FlowableScanSeed<T, R> extends a<T, R> {
                     this.queue.offer(r);
                     drain();
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.J(th);
+                    io.reactivex.exceptions.a.O(th);
                     this.s.cancel();
                     onError(th);
                 }

@@ -3,8 +3,8 @@ package com.baidu.lcp.sdk.b;
 import android.content.Context;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.lcp.sdk.b.c;
-/* loaded from: classes14.dex */
-public abstract class a implements c.a, c.InterfaceC0167c {
+/* loaded from: classes3.dex */
+public abstract class a implements c.a, c.InterfaceC0159c {
     protected Context context;
 
     @Override // com.baidu.lcp.sdk.b.c.a

@@ -27,7 +27,7 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class RetrieveFileJob extends IRetrieveJob {
     private static final String FETCH_FILE_ZIP = ".im_fetch_file_zip";
     private static final long MAX_SIZE = 1048576;
@@ -88,7 +88,7 @@ public class RetrieveFileJob extends IRetrieveJob {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.android.imsdk.retrieve.RetrieveFileJob$2  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public class AnonymousClass2 implements IGenBosObjectUrlListener {
         final /* synthetic */ Context val$context;
         final /* synthetic */ RetrieveFileData.RetrieveFileBean val$fileBean;

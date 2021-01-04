@@ -4,13 +4,15 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.mapapi.model.LatLng;
 import java.util.List;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class PoiDetailInfo implements Parcelable {
     public static final Parcelable.Creator<PoiDetailInfo> CREATOR = new f();
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2104a;
-    private LatLng b;
+    private String f2962a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private LatLng f2963b;
     private String c;
     public int checkinNum;
     public int commentNum;
@@ -46,8 +48,8 @@ public class PoiDetailInfo implements Parcelable {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public PoiDetailInfo(Parcel parcel) {
-        this.f2104a = parcel.readString();
-        this.b = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
+        this.f2962a = parcel.readString();
+        this.f2963b = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
         this.c = parcel.readString();
         this.d = parcel.readString();
         this.e = parcel.readString();
@@ -145,11 +147,11 @@ public class PoiDetailInfo implements Parcelable {
     }
 
     public LatLng getLocation() {
-        return this.b;
+        return this.f2963b;
     }
 
     public String getName() {
-        return this.f2104a;
+        return this.f2962a;
     }
 
     public LatLng getNaviLocation() {
@@ -273,11 +275,11 @@ public class PoiDetailInfo implements Parcelable {
     }
 
     public void setLocation(LatLng latLng) {
-        this.b = latLng;
+        this.f2963b = latLng;
     }
 
     public void setName(String str) {
-        this.f2104a = str;
+        this.f2962a = str;
     }
 
     public void setNaviLocation(LatLng latLng) {
@@ -338,10 +340,10 @@ public class PoiDetailInfo implements Parcelable {
 
     public String toString() {
         StringBuffer stringBuffer = new StringBuffer("PoiDetailInfo: ");
-        stringBuffer.append("name = ").append(this.f2104a);
+        stringBuffer.append("name = ").append(this.f2962a);
         stringBuffer.append("; location = ");
-        if (this.b != null) {
-            stringBuffer.append(this.b.toString());
+        if (this.f2963b != null) {
+            stringBuffer.append(this.f2963b.toString());
         } else {
             stringBuffer.append("null");
         }
@@ -399,8 +401,8 @@ public class PoiDetailInfo implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.f2104a);
-        parcel.writeParcelable(this.b, i);
+        parcel.writeString(this.f2962a);
+        parcel.writeParcelable(this.f2963b, i);
         parcel.writeString(this.c);
         parcel.writeString(this.d);
         parcel.writeString(this.e);

@@ -4,53 +4,53 @@ import com.facebook.imagepipeline.request.ImageRequest;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.concurrent.Executor;
-/* loaded from: classes15.dex */
+/* loaded from: classes5.dex */
 public abstract class z implements aj<com.facebook.imagepipeline.f.e> {
     private final Executor mExecutor;
-    private final com.facebook.common.memory.g pjQ;
+    private final com.facebook.common.memory.g pzv;
 
-    protected abstract String ewH();
+    protected abstract String eAo();
 
     protected abstract com.facebook.imagepipeline.f.e g(ImageRequest imageRequest) throws IOException;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public z(Executor executor, com.facebook.common.memory.g gVar) {
         this.mExecutor = executor;
-        this.pjQ = gVar;
+        this.pzv = gVar;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
     public void a(k<com.facebook.imagepipeline.f.e> kVar, ak akVar) {
-        final am ewx = akVar.ewx();
+        final am eAe = akVar.eAe();
         final String id = akVar.getId();
-        final ImageRequest eww = akVar.eww();
-        final aq<com.facebook.imagepipeline.f.e> aqVar = new aq<com.facebook.imagepipeline.f.e>(kVar, ewx, ewH(), id) { // from class: com.facebook.imagepipeline.producers.z.1
+        final ImageRequest eAd = akVar.eAd();
+        final aq<com.facebook.imagepipeline.f.e> aqVar = new aq<com.facebook.imagepipeline.f.e>(kVar, eAe, eAo(), id) { // from class: com.facebook.imagepipeline.producers.z.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
-            @Override // com.facebook.common.b.h
-            /* renamed from: ewV */
+            @Override // com.facebook.common.b.e
+            /* renamed from: eAC */
             public com.facebook.imagepipeline.f.e getResult() throws Exception {
-                com.facebook.imagepipeline.f.e g = z.this.g(eww);
+                com.facebook.imagepipeline.f.e g = z.this.g(eAd);
                 if (g == null) {
-                    ewx.J(id, z.this.ewH(), false);
+                    eAe.M(id, z.this.eAo(), false);
                     return null;
                 }
-                g.evE();
-                ewx.J(id, z.this.ewH(), true);
+                g.ezl();
+                eAe.M(id, z.this.eAo(), true);
                 return g;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
-            @Override // com.facebook.imagepipeline.producers.aq, com.facebook.common.b.h
+            @Override // com.facebook.imagepipeline.producers.aq, com.facebook.common.b.e
             /* renamed from: h */
-            public void aZ(com.facebook.imagepipeline.f.e eVar) {
+            public void ba(com.facebook.imagepipeline.f.e eVar) {
                 com.facebook.imagepipeline.f.e.e(eVar);
             }
         };
         akVar.a(new e() { // from class: com.facebook.imagepipeline.producers.z.2
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.al
-            public void ewD() {
+            public void eAk() {
                 aqVar.cancel();
             }
         });
@@ -62,13 +62,13 @@ public abstract class z implements aj<com.facebook.imagepipeline.f.e> {
         com.facebook.common.references.a aVar = null;
         try {
             if (i <= 0) {
-                aVar = com.facebook.common.references.a.e(this.pjQ.s(inputStream));
+                aVar = com.facebook.common.references.a.f(this.pzv.v(inputStream));
             } else {
-                aVar = com.facebook.common.references.a.e(this.pjQ.b(inputStream, i));
+                aVar = com.facebook.common.references.a.f(this.pzv.b(inputStream, i));
             }
             return new com.facebook.imagepipeline.f.e(aVar);
         } finally {
-            com.facebook.common.internal.b.r(inputStream);
+            com.facebook.common.internal.b.u(inputStream);
             com.facebook.common.references.a.c(aVar);
         }
     }

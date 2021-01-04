@@ -1,20 +1,20 @@
 package com.baidu.swan.apps.scheme.actions;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.ap.ai;
-import com.baidu.swan.apps.ap.ak;
+import com.baidu.swan.apps.ao.ai;
+import com.baidu.swan.apps.ao.ak;
 import com.baidu.swan.apps.setting.oauth.a.b;
 import com.baidu.swan.apps.t.b.i;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class z extends aa {
     public z(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/share");
@@ -26,41 +26,41 @@ public class z extends aa {
             com.baidu.swan.apps.console.c.e("Share", "context or swanApp is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "system error");
             return false;
-        } else if (eVar.ama()) {
+        } else if (eVar.ank()) {
             if (DEBUG) {
                 Log.d("ShareAction", "ShareAction does not supported when app is invisible.");
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
             return false;
         } else {
-            final JSONObject b = b(unitedSchemeEntity, "params");
-            if (b == null) {
+            final JSONObject b2 = b(unitedSchemeEntity, "params");
+            if (b2 == null) {
                 com.baidu.swan.apps.console.c.e("Share", "params invalid");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "params invalid");
                 return false;
             }
-            final String optString = b.optString("cb");
+            final String optString = b2.optString("cb");
             if (TextUtils.isEmpty(optString)) {
                 com.baidu.swan.apps.console.c.e("Share", "cb is empty");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "params invalid");
                 return false;
             }
             try {
-                b.put("iconUrl", b.optString("imageUrl", ""));
+                b2.put("iconUrl", b2.optString("imageUrl", ""));
             } catch (JSONException e) {
                 if (DEBUG) {
                     Log.d("ShareAction", e.toString());
                 }
             }
-            eVar.aKg().e("mapp_i_share_update_weburl", new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.e>() { // from class: com.baidu.swan.apps.scheme.actions.z.1
+            eVar.aMw().e("mapp_i_share_update_weburl", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.e>() { // from class: com.baidu.swan.apps.scheme.actions.z.1
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.swan.apps.ap.e.b
+                @Override // com.baidu.swan.apps.ao.e.b
                 /* renamed from: c */
-                public void M(com.baidu.swan.apps.setting.oauth.e eVar2) {
+                public void L(com.baidu.swan.apps.setting.oauth.e eVar2) {
                     String str = "";
-                    if (eVar2 != null && !eVar2.forbidden && eVar2.dDk == 1 && !TextUtils.isEmpty(eVar2.dDo.optString("web_url"))) {
-                        String optString2 = eVar2.dDo.optString("web_url");
-                        String optString3 = b.optString("path");
+                    if (eVar2 != null && !eVar2.forbidden && eVar2.dLO == 1 && !TextUtils.isEmpty(eVar2.dLS.optString("web_url"))) {
+                        String optString2 = eVar2.dLS.optString("web_url");
+                        String optString3 = b2.optString("path");
                         if (!TextUtils.isEmpty(optString3)) {
                             if (!optString2.endsWith("/")) {
                                 optString2 = optString2 + "/";
@@ -70,13 +70,13 @@ public class z extends aa {
                             }
                             optString2 = optString2 + optString3;
                         }
-                        str = ai.addParam(ai.addParam(optString2, "_swebfr", "1"), "hostname", com.baidu.swan.apps.t.a.azM().getHostName());
+                        str = ai.addParam(ai.addParam(optString2, "_swebfr", "1"), "hostname", com.baidu.swan.apps.t.a.aBd().getHostName());
                     }
-                    String k = (ak.aPy() || !TextUtils.isEmpty(str)) ? str : com.baidu.swan.config.c.c.aRm().k(eVar.getAppKey(), eVar.aie(), b.optString("path"));
+                    String k = (ak.aRP() || !TextUtils.isEmpty(str)) ? str : com.baidu.swan.config.c.c.aTH().k(eVar.getAppKey(), eVar.ajk(), b2.optString("path"));
                     if (aa.DEBUG) {
                         Log.d("ShareAction", "final share url is " + k);
                     }
-                    z.this.a(k, context, optString, callbackHandler, b, eVar);
+                    z.this.a(k, context, optString, callbackHandler, b2, eVar);
                 }
             });
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
@@ -113,11 +113,11 @@ public class z extends aa {
                 return;
             }
         }
-        eVar.aKg().b(context, "mapp_i_share_update_linkurl", new com.baidu.swan.apps.ap.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.z.2
+        eVar.aMw().b(context, "mapp_i_share_update_linkurl", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.z.2
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.swan.apps.ap.e.b
+            @Override // com.baidu.swan.apps.ao.e.b
             /* renamed from: a */
-            public void M(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
+            public void L(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
                 z.this.a(context, callbackHandler, str2, jSONObject, com.baidu.swan.apps.setting.oauth.c.b(hVar), str);
             }
         });
@@ -148,24 +148,24 @@ public class z extends aa {
     private void a(@NonNull Context context, final CallbackHandler callbackHandler, final String str, JSONObject jSONObject) {
         jSONObject.remove("defaultPannel");
         jSONObject.remove("shareUrl");
-        com.baidu.swan.apps.runtime.e aJV = com.baidu.swan.apps.runtime.e.aJV();
-        if (aJV != null) {
-            String aBe = aJV.aJY().aBe();
+        com.baidu.swan.apps.runtime.e aMl = com.baidu.swan.apps.runtime.e.aMl();
+        if (aMl != null) {
+            String aCv = aMl.aMo().aCv();
             JSONObject optJSONObject = jSONObject.optJSONObject("categoryInfo");
             if (optJSONObject != null) {
-                com.baidu.swan.apps.ap.v.b(optJSONObject, "source", aBe);
+                com.baidu.swan.apps.ao.v.b(optJSONObject, "source", aCv);
             } else {
-                com.baidu.swan.apps.ap.v.b(jSONObject, "categoryInfo", com.baidu.swan.apps.ap.v.b(null, "source", aBe));
+                com.baidu.swan.apps.ao.v.b(jSONObject, "categoryInfo", com.baidu.swan.apps.ao.v.b(null, "source", aCv));
             }
         }
-        com.baidu.swan.apps.t.a.azb().a(context, jSONObject, new i.a() { // from class: com.baidu.swan.apps.scheme.actions.z.3
+        com.baidu.swan.apps.t.a.aAs().a(context, jSONObject, new i.a() { // from class: com.baidu.swan.apps.scheme.actions.z.3
             @Override // com.baidu.swan.apps.t.b.i.a
-            public void aAF() {
+            public void aBW() {
                 z.this.a(callbackHandler, str, true);
             }
 
             @Override // com.baidu.swan.apps.t.b.i.a
-            public void aAG() {
+            public void aBX() {
                 z.this.a(callbackHandler, str, false);
             }
         });

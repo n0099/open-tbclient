@@ -3,7 +3,7 @@ package kotlin;
 import java.io.Serializable;
 import kotlin.jvm.internal.p;
 @e
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class Pair<A, B> implements Serializable {
     private final A first;
     private final B second;
@@ -28,8 +28,8 @@ public final class Pair<A, B> implements Serializable {
         return this.second;
     }
 
-    public final Pair<A, B> copy(A a2, B b) {
-        return new Pair<>(a2, b);
+    public final Pair<A, B> copy(A a2, B b2) {
+        return new Pair<>(a2, b2);
     }
 
     public boolean equals(Object obj) {
@@ -47,13 +47,13 @@ public final class Pair<A, B> implements Serializable {
     public int hashCode() {
         A a2 = this.first;
         int hashCode = (a2 != null ? a2.hashCode() : 0) * 31;
-        B b = this.second;
-        return hashCode + (b != null ? b.hashCode() : 0);
+        B b2 = this.second;
+        return hashCode + (b2 != null ? b2.hashCode() : 0);
     }
 
-    public Pair(A a2, B b) {
+    public Pair(A a2, B b2) {
         this.first = a2;
-        this.second = b;
+        this.second = b2;
     }
 
     public final A getFirst() {

@@ -1,0 +1,38 @@
+package com.bytedance.sdk.openadsdk.a;
+
+import android.content.Context;
+import com.bytedance.sdk.openadsdk.core.i;
+import com.bytedance.sdk.openadsdk.core.k;
+import com.bytedance.sdk.openadsdk.core.p;
+import com.bytedance.sdk.openadsdk.utils.aj;
+import com.bytedance.sdk.openadsdk.utils.x;
+/* loaded from: classes4.dex */
+public class a {
+    public static String a() {
+        return "open_news";
+    }
+
+    public static String b() {
+        return "1371";
+    }
+
+    public static String c() {
+        return "3.2.5.1";
+    }
+
+    public static String d() {
+        return aj.f();
+    }
+
+    public static String e() {
+        return i.c().f();
+    }
+
+    public static String f() {
+        return x.f(p.a());
+    }
+
+    public static String a(Context context) {
+        return k.a(context);
+    }
+}

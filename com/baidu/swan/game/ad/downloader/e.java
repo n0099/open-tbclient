@@ -6,14 +6,14 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.v4.content.FileProvider;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.core.content.FileProvider;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.ap.ak;
+import com.baidu.swan.apps.ao.ak;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class e {
     public static boolean ak(String str, boolean z) {
         if (TextUtils.isEmpty(str)) {
@@ -38,15 +38,15 @@ public class e {
             if (z) {
                 intent.putExtra("android.intent.extra.RETURN_RESULT", true);
             }
-            if (!com.baidu.swan.apps.ap.c.hasNougat()) {
+            if (!com.baidu.swan.apps.ao.c.hasNougat()) {
                 intent.setComponent(new ComponentName("com.android.packageinstaller", "com.android.packageinstaller.PackageInstallerActivity"));
             }
-            processFileUriIntent(context, file, intent);
+            a(context, file, intent);
             context.startActivity(intent);
             return true;
         } catch (Exception e) {
             intent.setComponent(null);
-            processFileUriIntent(context, file, intent);
+            a(context, file, intent);
             try {
                 context.startActivity(intent);
                 return true;
@@ -56,11 +56,11 @@ public class e {
         }
     }
 
-    private static boolean processFileUriIntent(Context context, File file, Intent intent) {
+    private static boolean a(Context context, File file, Intent intent) {
         Uri uriForFile;
-        if (com.baidu.swan.apps.ap.c.hasNougat()) {
+        if (com.baidu.swan.apps.ao.c.hasNougat()) {
             try {
-                if (ak.aPy()) {
+                if (ak.aRP()) {
                     uriForFile = FileProvider.getUriForFile(context, context.getPackageName() + ".fileprovider", file);
                 } else {
                     uriForFile = FileProvider.getUriForFile(context, context.getPackageName() + ".swan.fileprovider", file);
@@ -85,7 +85,7 @@ public class e {
         return true;
     }
 
-    public static boolean am(Context context, String str) {
+    public static boolean au(Context context, String str) {
         if (context != null) {
             try {
                 if (context.getPackageManager() != null) {
@@ -100,7 +100,7 @@ public class e {
         return false;
     }
 
-    public static String an(Context context, @NonNull String str) {
+    public static String av(Context context, @NonNull String str) {
         PackageInfo packageArchiveInfo;
         File file = new File(str);
         if (!file.exists() || (packageArchiveInfo = context.getPackageManager().getPackageArchiveInfo(file.getAbsolutePath(), 1)) == null) {

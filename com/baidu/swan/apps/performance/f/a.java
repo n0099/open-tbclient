@@ -4,52 +4,53 @@ import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
-import com.baidu.swan.apps.ap.l;
+import com.baidu.swan.apps.ao.l;
 import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.swan.apps.statistic.h;
+import com.baidu.swan.games.view.webview.GameWebViewJavascriptInterface;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    public static List<Pair<String, Pair<String, String>>> dpE;
+    public static List<Pair<String, Pair<String, String>>> duD;
 
     static {
         if (DEBUG) {
-            dpE = new ArrayList();
-            dpE.add(new Pair<>("总时长", new Pair("na_pms_start_req", "na_end_update_db")));
-            dpE.add(new Pair<>("PMS信息获取时长", new Pair("na_pms_start_req", "na_pms_end_req")));
-            dpE.add(new Pair<>("包下载时长", new Pair("na_pms_start_download", "na_pms_end_download")));
-            dpE.add(new Pair<>("Icon下载时长", new Pair("na_pms_start_icon", "na_pms_end_icon")));
-            dpE.add(new Pair<>("签名校验时长", new Pair("na_pms_start_check_sign", "na_pms_end_check_sign")));
-            dpE.add(new Pair<>("包解压时长", new Pair("na_package_start_unzip", "na_package_end_unzip")));
-            dpE.add(new Pair<>("包解密时长", new Pair("na_package_start_decrypt", "na_package_end_decrypt")));
-            dpE.add(new Pair<>("更新数据库时长", new Pair("na_start_update_db", "na_end_update_db")));
+            duD = new ArrayList();
+            duD.add(new Pair<>("总时长", new Pair("na_pms_start_req", "na_end_update_db")));
+            duD.add(new Pair<>("PMS信息获取时长", new Pair("na_pms_start_req", "na_pms_end_req")));
+            duD.add(new Pair<>("包下载时长", new Pair("na_pms_start_download", "na_pms_end_download")));
+            duD.add(new Pair<>("Icon下载时长", new Pair("na_pms_start_icon", "na_pms_end_icon")));
+            duD.add(new Pair<>("签名校验时长", new Pair("na_pms_start_check_sign", "na_pms_end_check_sign")));
+            duD.add(new Pair<>("包解压时长", new Pair("na_package_start_unzip", "na_package_end_unzip")));
+            duD.add(new Pair<>("包解密时长", new Pair("na_package_start_decrypt", "na_package_end_decrypt")));
+            duD.add(new Pair<>("更新数据库时长", new Pair("na_start_update_db", "na_end_update_db")));
         }
     }
 
     public static void a(String str, String str2, List<UbcFlowEvent> list, String str3) {
         if (!TextUtils.isEmpty(str) && list != null && list.size() > 0) {
-            com.baidu.swan.apps.statistic.a tD = h.tD("770");
+            com.baidu.swan.apps.statistic.a tA = h.tA("770");
             for (UbcFlowEvent ubcFlowEvent : list) {
                 if (ubcFlowEvent != null) {
-                    com.baidu.swan.apps.statistic.b.a(tD, ubcFlowEvent.id, ubcFlowEvent.value(), ubcFlowEvent.aGk());
+                    com.baidu.swan.apps.statistic.b.a(tA, ubcFlowEvent.id, ubcFlowEvent.value(), ubcFlowEvent.aHD());
                 }
             }
             JSONObject jSONObject = new JSONObject();
             JSONObject jSONObject2 = new JSONObject();
             try {
-                jSONObject.put("from", "swan");
+                jSONObject.put("from", GameWebViewJavascriptInterface.JAVASCRIPT_INTERFACE_NAME);
                 jSONObject.put("type", str2);
                 jSONObject2.put("appid", str);
-                jSONObject2.put("mobile", l.aOW());
-                jSONObject2.put("net", SwanAppNetworkUtils.aFi().type);
+                jSONObject2.put("mobile", l.aRn());
+                jSONObject2.put("net", SwanAppNetworkUtils.aGC().type);
                 if (TextUtils.isEmpty(str3)) {
                     str3 = "0";
                 }
@@ -58,9 +59,9 @@ public class a {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            com.baidu.swan.apps.statistic.b.a(tD, jSONObject.toString());
-            com.baidu.swan.apps.statistic.b.c(tD);
-            b(str, list, dpE);
+            com.baidu.swan.apps.statistic.b.a(tA, jSONObject.toString());
+            com.baidu.swan.apps.statistic.b.c(tA);
+            b(str, list, duD);
         }
     }
 
@@ -74,8 +75,8 @@ public class a {
             sb.append("\n").append("小程序ID：").append(str);
             for (UbcFlowEvent ubcFlowEvent : list) {
                 if (ubcFlowEvent != null) {
-                    sb.append("\n").append(ubcFlowEvent.aGk()).append(" : ").append(ubcFlowEvent.id);
-                    hashMap.put(ubcFlowEvent.id, Long.valueOf(ubcFlowEvent.aGk()));
+                    sb.append("\n").append(ubcFlowEvent.aHD()).append(" : ").append(ubcFlowEvent.id);
+                    hashMap.put(ubcFlowEvent.id, Long.valueOf(ubcFlowEvent.aHD()));
                 }
             }
             sb.append("\n").append("耗时计算开始：>>>>>>>>>>>>");

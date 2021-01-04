@@ -2,10 +2,10 @@ package com.baidu.searchbox.logsystem.basic.javacrash;
 
 import android.content.Context;
 import android.os.SystemClock;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.pyramid.runtime.multiprocess.a;
 import com.baidu.searchbox.aperf.runtime.AperfRuntime;
@@ -29,7 +29,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public abstract class BUncaughtExceptionHandler extends UncaughtExceptionHandler {
     private static final String TAG = "BaseUncaughtException";
     private Context mContext;

@@ -16,7 +16,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public class HttpRetryStrategyDataParse {
     private static final boolean DEBUG = false;
     private static final String DOWNFLOW_DOWNLOAD_INNER = "download_inner";
@@ -48,7 +48,7 @@ public class HttpRetryStrategyDataParse {
     private long mFetchServerDataElapsedTime;
     private Timer mFetchServerDataOverTime;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     public interface OnFetchRetryDataRequestListener {
         void afterRequest(boolean z, HttpDNSCacheInfo httpDNSCacheInfo, int i);
     }
@@ -174,7 +174,7 @@ public class HttpRetryStrategyDataParse {
                         if (optInt == 0) {
                             JSONArray optJSONArray = jSONObject2.optJSONArray(HTTP_DNS_CDN_VIPS);
                             httpDNSCacheInfo.mXCode = jSONObject2.optString(HTTP_DNS_CDN_XCODE);
-                            httpDNSCacheInfo.mHost = jSONObject2.optString("host");
+                            httpDNSCacheInfo.mHost = jSONObject2.optString(HTTP_DNS_CDN_HOST);
                             httpDNSCacheInfo.mIpLiveTime = jSONObject2.optInt(HTTP_DNS_CDN_LIVE_TIME);
                             httpDNSCacheInfo.mApn = Utils.getWifiOr2gOr3G(context);
                             if (optJSONArray != null && !TextUtils.isEmpty(httpDNSCacheInfo.mHost)) {

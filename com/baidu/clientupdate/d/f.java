@@ -2,19 +2,19 @@ package com.baidu.clientupdate.d;
 
 import android.content.Context;
 import android.widget.Toast;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 final class f implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f1331a;
+    final /* synthetic */ Context f1727a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(Context context) {
-        this.f1331a = context;
+        this.f1727a = context;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        Toast.makeText(this.f1331a, "手机存储空间不足,建议您释放空间后再下载", 1).show();
+        Toast.makeText(this.f1727a, "手机存储空间不足,建议您释放空间后再下载", 1).show();
     }
 }

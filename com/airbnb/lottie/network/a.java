@@ -1,17 +1,17 @@
 package com.airbnb.lottie.network;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
-import android.support.annotation.WorkerThread;
-import android.support.v4.util.Pair;
-import com.airbnb.lottie.d;
+import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
+import androidx.core.util.Pair;
+import com.airbnb.lottie.c;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 class a {
     private final Context appContext;
     private final String url;
@@ -23,23 +23,23 @@ class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    @WorkerThread
     @Nullable
-    public Pair<FileExtension, InputStream> kL() {
+    @WorkerThread
+    public Pair<FileExtension, InputStream> kk() {
         FileExtension fileExtension;
         try {
-            File bq = bq(this.url);
-            if (bq == null) {
+            File bn = bn(this.url);
+            if (bn == null) {
                 return null;
             }
             try {
-                FileInputStream fileInputStream = new FileInputStream(bq);
-                if (bq.getAbsolutePath().endsWith(".zip")) {
+                FileInputStream fileInputStream = new FileInputStream(bn);
+                if (bn.getAbsolutePath().endsWith(".zip")) {
                     fileExtension = FileExtension.Zip;
                 } else {
                     fileExtension = FileExtension.Json;
                 }
-                d.debug("Cache hit for " + this.url + " at " + bq.getAbsolutePath());
+                c.debug("Cache hit for " + this.url + " at " + bn.getAbsolutePath());
                 return new Pair<>(fileExtension, fileInputStream);
             } catch (FileNotFoundException e) {
                 return null;
@@ -75,14 +75,14 @@ class a {
         File file = new File(this.appContext.getCacheDir(), a(this.url, fileExtension, true));
         File file2 = new File(file.getAbsolutePath().replace(".temp", ""));
         boolean renameTo = file.renameTo(file2);
-        d.debug("Copying temp file to real file (" + file2 + ")");
+        c.debug("Copying temp file to real file (" + file2 + ")");
         if (!renameTo) {
-            d.warn("Unable to rename cache file " + file.getAbsolutePath() + " to " + file2.getAbsolutePath() + ".");
+            c.warn("Unable to rename cache file " + file.getAbsolutePath() + " to " + file2.getAbsolutePath() + ".");
         }
     }
 
     @Nullable
-    private File bq(String str) throws FileNotFoundException {
+    private File bn(String str) throws FileNotFoundException {
         File file = new File(this.appContext.getCacheDir(), a(str, FileExtension.Json, false));
         if (!file.exists()) {
             File file2 = new File(this.appContext.getCacheDir(), a(str, FileExtension.Zip, false));

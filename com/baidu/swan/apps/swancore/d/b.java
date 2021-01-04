@@ -1,50 +1,50 @@
 package com.baidu.swan.apps.swancore.d;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import com.baidu.swan.apps.u.c.c;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class b {
-    public boolean dGC;
-    public boolean dGD;
+    public boolean dPg;
+    public boolean dPh;
     @Nullable
-    public c dGE;
-    public String dGF;
+    public c dPi;
+    public String dPj;
 
     private b() {
-        this.dGC = false;
-        this.dGD = false;
-        this.dGE = null;
-        this.dGF = "";
+        this.dPg = false;
+        this.dPh = false;
+        this.dPi = null;
+        this.dPj = "";
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes9.dex */
     public static class a {
-        private boolean dGC = false;
-        private boolean dGD = false;
+        private boolean dPg = false;
+        private boolean dPh = false;
         @Nullable
-        private c dGE = null;
-        private String dGF = "";
+        private c dPi = null;
+        private String dPj = "";
 
-        public static a aNG() {
+        public static a aPW() {
             return new a();
         }
 
-        public a he(boolean z) {
-            this.dGC = z;
+        public a hw(boolean z) {
+            this.dPg = z;
             return this;
         }
 
-        public a ut(String str) {
-            this.dGF = str;
+        public a uq(String str) {
+            this.dPj = str;
             return this;
         }
 
-        public b aNH() {
+        public b aPX() {
             b bVar = new b();
-            bVar.dGC = this.dGC;
-            bVar.dGD = this.dGD;
-            bVar.dGE = this.dGE;
-            bVar.dGF = this.dGF;
+            bVar.dPg = this.dPg;
+            bVar.dPh = this.dPh;
+            bVar.dPi = this.dPi;
+            bVar.dPj = this.dPj;
             return bVar;
         }
     }

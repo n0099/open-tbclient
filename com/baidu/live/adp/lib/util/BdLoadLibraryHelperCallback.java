@@ -1,5 +1,5 @@
 package com.baidu.live.adp.lib.util;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public abstract class BdLoadLibraryHelperCallback {
     public abstract void callback(boolean z);
 }

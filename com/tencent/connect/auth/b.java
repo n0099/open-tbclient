@@ -2,22 +2,26 @@ package com.tencent.connect.auth;
 
 import com.tencent.tauth.IUiListener;
 import java.util.HashMap;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f4315a;
+    public static b f13615a;
     static final /* synthetic */ boolean d;
     private static int e;
-    public HashMap<String, a> b = new HashMap<>();
+
+    /* renamed from: b  reason: collision with root package name */
+    public HashMap<String, a> f13616b = new HashMap<>();
     public final String c = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public IUiListener f4316a;
-        public com.tencent.connect.auth.a b;
+        public IUiListener f13617a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public com.tencent.connect.auth.a f13618b;
         public String c;
     }
 
@@ -27,10 +31,10 @@ public class b {
     }
 
     public static b a() {
-        if (f4315a == null) {
-            f4315a = new b();
+        if (f13615a == null) {
+            f13615a = new b();
         }
-        return f4315a;
+        return f13615a;
     }
 
     public static int b() {
@@ -40,13 +44,13 @@ public class b {
     }
 
     public String a(a aVar) {
-        int b = b();
+        int b2 = b();
         try {
-            this.b.put("" + b, aVar);
+            this.f13616b.put("" + b2, aVar);
         } catch (Throwable th) {
             th.printStackTrace();
         }
-        return "" + b;
+        return "" + b2;
     }
 
     public String c() {

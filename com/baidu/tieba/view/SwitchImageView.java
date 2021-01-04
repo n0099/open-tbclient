@@ -1,82 +1,82 @@
 package com.baidu.tieba.view;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatImageView;
 /* loaded from: classes.dex */
 public class SwitchImageView extends AppCompatImageView {
-    private int cnU;
-    private int nRN;
-    private int nRO;
-    private boolean nRP;
-    private com.baidu.tbadk.core.util.d.a nRQ;
-    private com.baidu.tbadk.core.util.d.a nRR;
+    private int cvb;
+    private int nVi;
+    private int nVj;
+    private boolean nVk;
+    private com.baidu.tbadk.core.util.e.a nVl;
+    private com.baidu.tbadk.core.util.e.a nVm;
 
     public SwitchImageView(Context context) {
         super(context);
-        this.nRP = false;
+        this.nVk = false;
         init();
     }
 
     public SwitchImageView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.nRP = false;
+        this.nVk = false;
         init();
     }
 
     public SwitchImageView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.nRP = false;
+        this.nVk = false;
         init();
     }
 
     private void init() {
-        this.cnU = 0;
-        this.nRN = 0;
-        this.nRO = 0;
+        this.cvb = 0;
+        this.nVi = 0;
+        this.nVj = 0;
     }
 
     public void setStateImage(int i, int i2) {
-        this.nRN = i;
-        this.nRO = i2;
+        this.nVi = i;
+        this.nVj = i2;
     }
 
-    public void setSvgStateImage(com.baidu.tbadk.core.util.d.a aVar, com.baidu.tbadk.core.util.d.a aVar2) {
-        this.nRQ = aVar;
-        this.nRR = aVar2;
-        this.nRP = true;
+    public void setSvgStateImage(com.baidu.tbadk.core.util.e.a aVar, com.baidu.tbadk.core.util.e.a aVar2) {
+        this.nVl = aVar;
+        this.nVm = aVar2;
+        this.nVk = true;
     }
 
     public void setState(int i) {
         if (i == 0) {
-            this.cnU = 0;
-            if (this.nRP) {
-                setImageDrawable(this.nRQ.getDrawable());
+            this.cvb = 0;
+            if (this.nVk) {
+                setImageDrawable(this.nVl.getDrawable());
             } else {
-                setImageResource(this.nRN);
+                setImageResource(this.nVi);
             }
         } else if (i == 1) {
-            this.cnU = 1;
-            if (this.nRP) {
-                setImageDrawable(this.nRR.getDrawable());
+            this.cvb = 1;
+            if (this.nVk) {
+                setImageDrawable(this.nVm.getDrawable());
             } else {
-                setImageResource(this.nRO);
+                setImageResource(this.nVj);
             }
         }
     }
 
-    public void dYh() {
-        if (this.cnU == 0) {
-            this.cnU = 1;
+    public void dXK() {
+        if (this.cvb == 0) {
+            this.cvb = 1;
             setState(1);
             return;
         }
-        this.cnU = 0;
+        this.cvb = 0;
         setState(0);
     }
 
     public int getCurrentState() {
-        return this.cnU;
+        return this.cvb;
     }
 }

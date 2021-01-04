@@ -1,32 +1,35 @@
 package com.baidu.live.data;
 
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class af {
-    public long aLt;
-    public String aLu;
-    public int aLv;
-    public int aLw;
-    public boolean aLx;
+    public String aJH;
+    public o aLS;
+    public ad aLT;
+    private int aLU;
+    public String msg;
 
-    public void parse(JSONObject jSONObject) {
-        try {
-            if (jSONObject != null) {
-                this.aLt = jSONObject.optLong("stay_interval_ms", 7000L);
-                this.aLu = jSONObject.optString("rec_title");
-                this.aLv = jSONObject.optInt("rec_daily_num", 1);
-                this.aLw = jSONObject.optInt("rec_hide_limit_num", 3);
-                this.aLx = jSONObject.optInt("switch", 0) == 1;
-            } else {
-                this.aLt = 7000L;
-                this.aLv = 1;
-                this.aLw = 3;
+    public boolean EK() {
+        return this.aLU == 1;
+    }
+
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            this.msg = jSONObject.optString("msg");
+            this.aJH = jSONObject.optString(BigdayActivityConfig.JUMP_URL);
+            JSONObject optJSONObject = jSONObject.optJSONObject("super_king");
+            if (optJSONObject != null) {
+                this.aLS = new o();
+                this.aLS.iconUrl = optJSONObject.optString("icon_url");
+                this.aLS.msg = optJSONObject.optString("msg");
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-            this.aLt = 7000L;
-            this.aLv = 1;
-            this.aLw = 3;
+            this.aLU = jSONObject.optInt("is_season_over", 0);
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("division");
+            if (optJSONObject2 != null) {
+                this.aLT = new ad();
+                this.aLT.parserJson(optJSONObject2);
+            }
         }
     }
 }

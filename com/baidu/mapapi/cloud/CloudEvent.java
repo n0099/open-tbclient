@@ -1,8 +1,8 @@
 package com.baidu.mapapi.cloud;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class CloudEvent {
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public class ErrorNo {
         public static final int STATUS_CODE_NETWORK_ERROR = 2;
         public static final int STATUS_CODE_NETWORK_TIME_OUT = 8;

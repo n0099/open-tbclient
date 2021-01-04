@@ -2,32 +2,32 @@ package kotlin.internal;
 
 import kotlin.e;
 @e
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class d {
-    private static final int em(int i, int i2) {
+    private static final int el(int i, int i2) {
         int i3 = i % i2;
         return i3 >= 0 ? i3 : i3 + i2;
     }
 
-    private static final long P(long j, long j2) {
+    private static final long U(long j, long j2) {
         long j3 = j % j2;
         return j3 >= 0 ? j3 : j3 + j2;
     }
 
-    private static final int ak(int i, int i2, int i3) {
-        return em(em(i, i3) - em(i2, i3), i3);
+    private static final int am(int i, int i2, int i3) {
+        return el(el(i, i3) - el(i2, i3), i3);
     }
 
     private static final long i(long j, long j2, long j3) {
-        return P(P(j, j3) - P(j2, j3), j3);
+        return U(U(j, j3) - U(j2, j3), j3);
     }
 
-    public static final int al(int i, int i2, int i3) {
+    public static final int an(int i, int i2, int i3) {
         if (i3 > 0) {
-            return i2 - ak(i2, i, i3);
+            return i2 - am(i2, i, i3);
         }
         if (i3 < 0) {
-            return ak(i, i2, -i3) + i2;
+            return am(i, i2, -i3) + i2;
         }
         throw new IllegalArgumentException("Step is zero.");
     }

@@ -1,11 +1,11 @@
 package kotlin.collections;
 
-import android.support.v7.widget.ActivityChooserView;
+import androidx.appcompat.widget.ActivityChooserView;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.e
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public class ad extends ac {
-    public static final int RV(int i) {
+    public static final int To(int i) {
         if (i < 3) {
             return i + 1;
         }

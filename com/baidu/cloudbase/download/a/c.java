@@ -1,5 +1,5 @@
 package com.baidu.cloudbase.download.a;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public interface c {
     void a(b bVar);
 }

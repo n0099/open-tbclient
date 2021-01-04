@@ -20,7 +20,6 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.sapi2.SapiContext;
-import com.baidu.searchbox.ugc.model.UgcConstant;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -29,7 +28,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class IMFetchMsgByIdMsg extends Message {
     private static final String TAG = "IMFetchMsgByIdMsg";
     public static final Map<Long, Boolean> reliableListFirst = new ConcurrentHashMap();
@@ -92,7 +91,7 @@ public class IMFetchMsgByIdMsg extends Message {
             if (4 == this.mCategory) {
                 this.mMessageExt = MessageExt.getInstance().toJson();
                 if (this.mMessageExt != null && this.mMessageExt.length() > 0) {
-                    jSONObject.put(UgcConstant.EXT_INFO, this.mMessageExt.toString());
+                    jSONObject.put("ext_info", this.mMessageExt.toString());
                 }
             }
             this.mBody = jSONObject.toString();
@@ -150,7 +149,7 @@ public class IMFetchMsgByIdMsg extends Message {
         TaskManager.getInstance(this.mContext).submitForNetWork(new FetchTask(context, jSONObject, i, str));
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     private class FetchTask extends TaskManager.Task {
         private Context mContext;
         private int mErrorCode;

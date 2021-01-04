@@ -2,12 +2,12 @@ package rx.internal.operators;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 import rx.d;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class OnSubscribeUsing<T, Resource> implements d.a<T> {
     private final rx.functions.b<? super Resource> dispose;
-    private final rx.functions.e<Resource> pQW;
-    private final rx.functions.f<? super Resource, ? extends rx.d<? extends T>> pQX;
-    private final boolean pQY;
+    private final rx.functions.e<Resource> qsx;
+    private final rx.functions.f<? super Resource, ? extends rx.d<? extends T>> qsy;
+    private final boolean qsz;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -15,18 +15,18 @@ public final class OnSubscribeUsing<T, Resource> implements d.a<T> {
     }
 
     public void call(rx.j<? super T> jVar) {
-        rx.d<? extends T> b;
+        rx.d<? extends T> b2;
         try {
-            Resource call = this.pQW.call();
+            Resource call = this.qsx.call();
             DisposeAction disposeAction = new DisposeAction(this.dispose, call);
             jVar.add(disposeAction);
-            rx.d<? extends T> call2 = this.pQX.call(call);
-            if (this.pQY) {
-                b = call2.a(disposeAction);
+            rx.d<? extends T> call2 = this.qsy.call(call);
+            if (this.qsz) {
+                b2 = call2.a(disposeAction);
             } else {
-                b = call2.b(disposeAction);
+                b2 = call2.b(disposeAction);
             }
-            b.a(rx.b.f.d(jVar));
+            b2.a(rx.b.f.d(jVar));
         } catch (Throwable th) {
             rx.exceptions.a.a(th, jVar);
         }
@@ -42,7 +42,7 @@ public final class OnSubscribeUsing<T, Resource> implements d.a<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes15.dex */
     public static final class DisposeAction<Resource> extends AtomicBoolean implements rx.functions.a, rx.k {
         private static final long serialVersionUID = 4262875056400218316L;
         private rx.functions.b<? super Resource> dispose;

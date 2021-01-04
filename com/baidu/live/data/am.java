@@ -1,32 +1,36 @@
 package com.baidu.live.data;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class am {
-    private int aOP;
-    private int aOQ;
-    private int aOR;
+    public String aJH;
+    public String aKL;
+    public int aMk;
+    public int aMl;
+    public String aMm;
+    public String aMn;
+    public boolean aMo;
+    public int duration;
+    public String iconUrl;
+    public int limit;
+    public String picUrl;
 
     public void parseJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.aOP = jSONObject.optInt("category_select_switch", 0);
-            this.aOQ = jSONObject.optInt("im_audience_watch_switch", 0);
-            this.aOR = jSONObject.optInt("im_audience_watch_time", 60);
+        JSONObject optJSONObject;
+        if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
+            this.aMk = optJSONObject.optInt("interval");
+            this.picUrl = optJSONObject.optString("pic_url");
+            this.aMl = optJSONObject.optInt("is_month_super_customer");
+            this.aJH = optJSONObject.optString(BigdayActivityConfig.JUMP_URL);
+            this.aMm = optJSONObject.optString("jump_url_audio");
+            this.limit = optJSONObject.optInt(Constants.EXTRA_CONFIG_LIMIT);
+            this.duration = optJSONObject.optInt("duration");
+            this.aKL = optJSONObject.optString("toast_text");
+            this.iconUrl = optJSONObject.optString("icon_url");
+            this.aMn = optJSONObject.optString("btn_url");
+            this.aMo = optJSONObject.optInt("audio_show_switch") == 1;
         }
-    }
-
-    public static boolean FD() {
-        return (com.baidu.live.ae.a.RB().brA == null || com.baidu.live.ae.a.RB().brA.aOE == null || com.baidu.live.ae.a.RB().brA.aOE.aOP != 1) ? false : true;
-    }
-
-    public static boolean FE() {
-        return (com.baidu.live.ae.a.RB().brA == null || com.baidu.live.ae.a.RB().brA.aOE == null || com.baidu.live.ae.a.RB().brA.aOE.aOQ != 1) ? false : true;
-    }
-
-    public static int FF() {
-        if (com.baidu.live.ae.a.RB().brA == null || com.baidu.live.ae.a.RB().brA.aOE == null) {
-            return 0;
-        }
-        return com.baidu.live.ae.a.RB().brA.aOE.aOR;
     }
 }

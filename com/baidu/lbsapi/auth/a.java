@@ -2,12 +2,14 @@ package com.baidu.lbsapi.auth;
 
 import android.util.Log;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f1835a = false;
-    private static String b = "BaiduApiAuth";
+    public static boolean f2532a = false;
+
+    /* renamed from: b  reason: collision with root package name */
+    private static String f2533b = "BaiduApiAuth";
 
     public static String a() {
         StackTraceElement stackTraceElement = new Throwable().getStackTrace()[2];
@@ -15,23 +17,23 @@ class a {
     }
 
     public static void a(String str) {
-        if (!f1835a || Thread.currentThread().getStackTrace().length == 0) {
+        if (!f2532a || Thread.currentThread().getStackTrace().length == 0) {
             return;
         }
-        Log.d(b, a() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + str);
+        Log.d(f2533b, a() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + str);
     }
 
     public static void b(String str) {
         if (Thread.currentThread().getStackTrace().length == 0) {
             return;
         }
-        Log.i(b, str);
+        Log.i(f2533b, str);
     }
 
     public static void c(String str) {
-        if (!f1835a || Thread.currentThread().getStackTrace().length == 0) {
+        if (!f2532a || Thread.currentThread().getStackTrace().length == 0) {
             return;
         }
-        Log.e(b, a() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + str);
+        Log.e(f2533b, a() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + str);
     }
 }

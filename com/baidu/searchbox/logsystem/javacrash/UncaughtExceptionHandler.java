@@ -1,12 +1,12 @@
 package com.baidu.searchbox.logsystem.javacrash;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.searchbox.logsystem.util.LLog;
 import java.lang.Thread;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public abstract class UncaughtExceptionHandler implements Thread.UncaughtExceptionHandler {
     private static final String TAG = "loki-java-UncaughtExceptionHandler";
     private Thread.UncaughtExceptionHandler mPreHandler;

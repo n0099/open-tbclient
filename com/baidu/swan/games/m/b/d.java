@@ -1,5 +1,5 @@
 package com.baidu.swan.games.m.b;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public interface d {
-    byte[] h(String str, byte[] bArr);
+    byte[] j(String str, byte[] bArr);
 }

@@ -5,114 +5,115 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.ala.atomdata.AlaSDKShareEmptyActivityConfig;
-import com.baidu.tbadk.core.data.by;
+import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
+import com.baidu.tbadk.core.data.bz;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.pageInfo.TbPageTag;
-import com.baidu.tieba.card.t;
-import com.baidu.tieba.card.z;
-/* loaded from: classes22.dex */
-public class b implements CustomMessageTask.CustomRunnable<by>, z {
-    private int jcT = 3;
-    private com.baidu.tieba.frs.d.b jqP;
-    private int jqQ;
+import com.baidu.tieba.card.s;
+import com.baidu.tieba.card.y;
+/* loaded from: classes2.dex */
+public class b implements CustomMessageTask.CustomRunnable<bz>, y {
+    private com.baidu.tieba.frs.b.b jDl;
+    private int jDm;
+    private int jpp = 3;
     private BdUniqueId mPageId;
     private TbPageTag mTbPageTag;
 
-    public b(com.baidu.tieba.frs.d.b bVar, TbPageTag tbPageTag, BdUniqueId bdUniqueId) {
-        this.jqP = null;
+    public b(com.baidu.tieba.frs.b.b bVar, TbPageTag tbPageTag, BdUniqueId bdUniqueId) {
+        this.jDl = null;
         this.mTbPageTag = null;
-        this.jqP = bVar;
+        this.jDl = bVar;
         this.mTbPageTag = tbPageTag;
         this.mPageId = bdUniqueId;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<by> customMessage) {
-        if (customMessage != null && (customMessage.getData() instanceof by)) {
-            by data = customMessage.getData();
+    public CustomResponsedMessage<?> run(CustomMessage<bz> customMessage) {
+        if (customMessage != null && (customMessage.getData() instanceof bz)) {
+            bz data = customMessage.getData();
             if (customMessage.getCmd() == 2921018) {
                 av(data);
-                com.baidu.tieba.frs.d.c.cJI().a(this.jqP, data, 1);
-                com.baidu.tieba.frs.d.a.a(data, 1, this.mPageId, this.jqP, this.mTbPageTag);
+                com.baidu.tieba.frs.b.c.cMI().a(this.jDl, data, 1);
+                com.baidu.tieba.frs.b.a.a(data, 1, this.mPageId, this.jDl, this.mTbPageTag);
             } else if (customMessage.getCmd() == 2921016) {
                 av(data);
-                com.baidu.tieba.frs.d.c.cJI().a(this.jqP, data, 2);
-                com.baidu.tieba.frs.d.a.a(data, 2, this.mPageId, this.jqP, this.mTbPageTag);
+                com.baidu.tieba.frs.b.c.cMI().a(this.jDl, data, 2);
+                com.baidu.tieba.frs.b.a.a(data, 2, this.mPageId, this.jDl, this.mTbPageTag);
             } else if (customMessage.getCmd() == 2921019) {
                 av(data);
-                com.baidu.tieba.frs.d.c.cJI().a(this.jqP, data, 4);
-                com.baidu.tieba.frs.d.a.a(data, 1, this.mPageId, this.jqP, this.mTbPageTag);
+                com.baidu.tieba.frs.b.c.cMI().a(this.jDl, data, 4);
+                com.baidu.tieba.frs.b.a.a(data, 1, this.mPageId, this.jDl, this.mTbPageTag);
             } else if (customMessage.getCmd() == 2921017) {
                 aw(data);
-                com.baidu.tieba.frs.d.c.cJI().a(this.jqP, data);
-                com.baidu.tieba.frs.d.a.a(data, this.mPageId, this.jqP, this.mTbPageTag);
+                com.baidu.tieba.frs.b.c.cMI().a(this.jDl, data);
+                com.baidu.tieba.frs.b.a.a(data, this.mPageId, this.jDl, this.mTbPageTag);
             }
         }
         return null;
     }
 
-    private void av(by byVar) {
-        if (byVar != null && byVar.boP() != null && byVar.bpj() != null) {
+    private void av(bz bzVar) {
+        if (bzVar != null && bzVar.brq() != null && bzVar.brJ() != null) {
             long j = 0;
-            if (byVar.bpj().user_info != null) {
-                j = byVar.bpj().user_info.ala_id;
+            if (bzVar.brJ().user_info != null) {
+                j = bzVar.brJ().user_info.ala_id;
             }
-            ar arVar = new ar("c13615");
-            arVar.dY("uid", byVar.boP().getUserId());
-            arVar.w("fid", byVar.getFid());
-            arVar.dY("ab_tag", byVar.mRecomAbTag);
-            arVar.al("obj_type", byVar.bpj().isChushou ? 2 : 1);
-            arVar.dY("tid", byVar.getTid());
-            arVar.w(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, byVar.bpj().live_id);
-            arVar.w("star_id", j);
-            arVar.dY("extra", byVar.mRecomExtra);
-            arVar.dY("source_from", byVar.mRecomSource);
-            if (this.jqQ == 14) {
-                arVar.al("obj_locate", 1);
-            } else if (this.jqQ == 13) {
-                arVar.al("obj_locate", 2);
+            aq aqVar = new aq("c13615");
+            aqVar.dX("uid", bzVar.brq().getUserId());
+            aqVar.w("fid", bzVar.getFid());
+            aqVar.dX("ab_tag", bzVar.mRecomAbTag);
+            aqVar.an("obj_type", bzVar.brJ().isChushou ? 2 : 1);
+            aqVar.dX("tid", bzVar.getTid());
+            aqVar.w(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, bzVar.brJ().live_id);
+            aqVar.w("star_id", j);
+            aqVar.dX("extra", bzVar.mRecomExtra);
+            aqVar.dX(VideoPlayActivityConfig.SOURCE_FROM, bzVar.mRecomSource);
+            if (this.jDm == 14) {
+                aqVar.an("obj_locate", 1);
+            } else if (this.jDm == 13) {
+                aqVar.an("obj_locate", 2);
             }
-            TiebaStatic.log(arVar);
+            TiebaStatic.log(aqVar);
         }
     }
 
-    private void aw(by byVar) {
-        if (byVar != null && byVar.boP() != null && byVar.bpj() != null) {
+    private void aw(bz bzVar) {
+        if (bzVar != null && bzVar.brq() != null && bzVar.brJ() != null) {
             long j = 0;
-            if (byVar.bpj().user_info != null) {
-                j = byVar.bpj().user_info.ala_id;
+            if (bzVar.brJ().user_info != null) {
+                j = bzVar.brJ().user_info.ala_id;
             }
-            ar arVar = new ar("c13614");
-            arVar.dY("uid", byVar.boP().getUserId());
-            arVar.w("fid", byVar.getFid());
-            arVar.dY("ab_tag", byVar.mRecomAbTag);
-            arVar.al("obj_type", byVar.bpj().isChushou ? 2 : 1);
-            arVar.dY("tid", byVar.getTid());
-            arVar.w(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, byVar.bpj().live_id);
-            arVar.w("star_id", j);
-            arVar.dY("extra", byVar.mRecomExtra);
-            arVar.dY("source_from", byVar.mRecomSource);
-            if (this.jqQ == 14) {
-                arVar.al("obj_locate", 1);
-            } else if (this.jqQ == 13) {
-                arVar.al("obj_locate", 2);
+            aq aqVar = new aq("c13614");
+            aqVar.dX("uid", bzVar.brq().getUserId());
+            aqVar.w("fid", bzVar.getFid());
+            aqVar.dX("ab_tag", bzVar.mRecomAbTag);
+            aqVar.an("obj_type", bzVar.brJ().isChushou ? 2 : 1);
+            aqVar.dX("tid", bzVar.getTid());
+            aqVar.w(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, bzVar.brJ().live_id);
+            aqVar.w("star_id", j);
+            aqVar.dX("extra", bzVar.mRecomExtra);
+            aqVar.dX(VideoPlayActivityConfig.SOURCE_FROM, bzVar.mRecomSource);
+            if (this.jDm == 14) {
+                aqVar.an("obj_locate", 1);
+            } else if (this.jDm == 13) {
+                aqVar.an("obj_locate", 2);
             }
-            t.csh().e(arVar);
+            s.cva().e(aqVar);
         }
     }
 
-    @Override // com.baidu.tieba.card.z
+    @Override // com.baidu.tieba.card.y
     public void setForumName(String str) {
     }
 
-    @Override // com.baidu.tieba.card.z
-    public void wi(int i) {
-        this.jcT = i;
+    @Override // com.baidu.tieba.card.y
+    public void wt(int i) {
+        this.jpp = i;
     }
 
-    public void Bi(int i) {
-        this.jqQ = i;
+    public void Bu(int i) {
+        this.jDm = i;
     }
 }

@@ -4,23 +4,23 @@ import android.os.Bundle;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.card.data.BaseCardInfo;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class h extends BaseCardInfo {
-    public static BdUniqueId mkx = BdUniqueId.gen();
-    public String aJj;
-    public int gjd;
+    public static BdUniqueId mpG = BdUniqueId.gen();
+    public String aJH;
+    public int gtC;
     public int itemId;
-    public boolean mks;
-    public boolean mkt;
-    public boolean mku = false;
-    public j mkv;
-    public Bundle mkw;
+    public boolean mpB;
+    public boolean mpC;
+    public boolean mpD = false;
+    public j mpE;
+    public Bundle mpF;
     public String title;
     public int type;
     public UserData userData;
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return mkx;
+        return mpG;
     }
 }

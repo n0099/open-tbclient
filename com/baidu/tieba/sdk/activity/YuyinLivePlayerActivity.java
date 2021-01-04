@@ -6,9 +6,9 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.KeyEvent;
+import androidx.annotation.NonNull;
 import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.adp.base.BdBaseApplication;
 import com.baidu.live.adp.base.BdPageContext;
@@ -23,24 +23,24 @@ import com.baidu.tieba.sdk.b.g;
 import com.baidu.tieba.sdk.e.d;
 import com.baidu.tieba.sdk.util.b;
 import java.lang.ref.WeakReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class YuyinLivePlayerActivity extends LiveBaseActivity implements BdPageContextSupport, IScrollable {
-    private a mSv;
-    private d mSw;
+    private a mXU;
+    private d mXV;
     private boolean mReceiverTag = false;
-    com.baidu.live.e.a mSx = new com.baidu.live.e.a() { // from class: com.baidu.tieba.sdk.activity.YuyinLivePlayerActivity.1
+    com.baidu.live.e.a mXW = new com.baidu.live.e.a() { // from class: com.baidu.tieba.sdk.activity.YuyinLivePlayerActivity.1
         @Override // com.baidu.live.e.a
         public void a(boolean z, boolean z2, long j) {
             YuyinLivePlayerActivity.this.finish();
         }
     };
 
-    @Override // android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
+    @Override // androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         g gVar;
         requestWindowFeature(1);
         if (BdBaseApplication.getInst() != null) {
-            gVar = com.baidu.tieba.sdk.d.a.dHm().dHt();
+            gVar = com.baidu.tieba.sdk.d.a.dHb().dHj();
             if (gVar != null) {
                 gVar.a(this);
             }
@@ -52,129 +52,128 @@ public class YuyinLivePlayerActivity extends LiveBaseActivity implements BdPageC
             TbConfig.sdkInitCallback.initSdk();
         }
         if (BdBaseApplication.getInst() == null) {
-            super.onCreate(bundle);
             super.finish();
             return;
         }
-        com.baidu.tieba.sdk.a.dHi().dHk();
-        this.mSw = com.baidu.tieba.sdk.a.dHi().b(this);
-        this.mSw.a(this.mSx);
+        com.baidu.tieba.sdk.a.dGX().dGZ();
+        this.mXV = com.baidu.tieba.sdk.a.dGX().b(this);
+        this.mXV.a(this.mXW);
         if (gVar != null) {
             gVar.b(this);
         }
         if (!this.mReceiverTag) {
-            this.mSv = new a(this);
+            this.mXU = new a(this);
             IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction(b.dHK());
-            registerReceiver(this.mSv, intentFilter, WebViewBroadcastReceiver.BROADCAST_PERMISSION_CLOSE_WEBVIEW, null);
+            intentFilter.addAction(b.dHA());
+            registerReceiver(this.mXU, intentFilter, WebViewBroadcastReceiver.BROADCAST_PERMISSION_CLOSE_WEBVIEW, null);
             this.mReceiverTag = true;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        this.mSw.onStart();
-        g dHt = com.baidu.tieba.sdk.d.a.dHm().dHt();
-        if (dHt != null) {
-            dHt.e(this);
+        this.mXV.onStart();
+        g dHj = com.baidu.tieba.sdk.d.a.dHb().dHj();
+        if (dHj != null) {
+            dHj.e(this);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.mSw.onResume();
-        g dHt = com.baidu.tieba.sdk.d.a.dHm().dHt();
-        if (dHt != null) {
-            dHt.c(this);
+        this.mXV.onResume();
+        g dHj = com.baidu.tieba.sdk.d.a.dHb().dHj();
+        if (dHj != null) {
+            dHj.c(this);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.mSw.onPause();
-        g dHt = com.baidu.tieba.sdk.d.a.dHm().dHt();
-        if (dHt != null) {
-            dHt.d(this);
+        this.mXV.onPause();
+        g dHj = com.baidu.tieba.sdk.d.a.dHb().dHj();
+        if (dHj != null) {
+            dHj.d(this);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        this.mSw.onStop();
-        g dHt = com.baidu.tieba.sdk.d.a.dHm().dHt();
-        if (dHt != null) {
-            dHt.f(this);
+        this.mXV.onStop();
+        g dHj = com.baidu.tieba.sdk.d.a.dHb().dHj();
+        if (dHj != null) {
+            dHj.f(this);
         }
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public void onWindowFocusChanged(boolean z) {
         super.onWindowFocusChanged(z);
-        if (this.mSw != null) {
-            this.mSw.onWindowFocusChanged(z);
+        if (this.mXV != null) {
+            this.mXV.onWindowFocusChanged(z);
         }
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (this.mSw.onKeyDown(i, keyEvent)) {
+        if (this.mXV.onKeyDown(i, keyEvent)) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        this.mSw.onActivityResult(i, i2, intent);
+        this.mXV.onActivityResult(i, i2, intent);
     }
 
-    @Override // android.support.v4.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        if (this.mSw != null) {
-            this.mSw.onConfigurationChanged(configuration);
+        if (this.mXV != null) {
+            this.mXV.onConfigurationChanged(configuration);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        g dHt = com.baidu.tieba.sdk.d.a.dHm().dHt();
-        if (dHt != null) {
-            dHt.g(this);
+        g dHj = com.baidu.tieba.sdk.d.a.dHb().dHj();
+        if (dHj != null) {
+            dHj.g(this);
         }
         super.onDestroy();
-        if (this.mSw != null) {
-            this.mSw.onDestroy();
+        if (this.mXV != null) {
+            this.mXV.onDestroy();
         }
-        if (dHt != null) {
-            dHt.h(this);
+        if (dHj != null) {
+            dHj.h(this);
         }
-        if (this.mSv != null && this.mReceiverTag) {
-            unregisterReceiver(this.mSv);
+        if (this.mXU != null && this.mReceiverTag) {
+            unregisterReceiver(this.mXU);
             this.mReceiverTag = false;
         }
     }
 
     @Override // com.baidu.live.adp.base.BdPageContextSupport, com.baidu.live.tbadk.TbPageContextSupport
     public BdPageContext getPageContext() {
-        return this.mSw;
+        return this.mXV;
     }
 
     @Override // com.baidu.live.adp.base.IScrollable
@@ -195,7 +194,7 @@ public class YuyinLivePlayerActivity extends LiveBaseActivity implements BdPageC
     public void onPreLoad(IPreLoadListView iPreLoadListView) {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     private static class a extends BroadcastReceiver {
         WeakReference<YuyinLivePlayerActivity> reference;
 
@@ -205,16 +204,16 @@ public class YuyinLivePlayerActivity extends LiveBaseActivity implements BdPageC
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            if (intent != null && this.reference != null && this.reference.get() != null && TextUtils.equals(b.dHK(), intent.getAction()) && TextUtils.equals(intent.getStringExtra("DetailLifecycle"), MissionEvent.MESSAGE_START)) {
+            if (intent != null && this.reference != null && this.reference.get() != null && TextUtils.equals(b.dHA(), intent.getAction()) && TextUtils.equals(intent.getStringExtra("DetailLifecycle"), MissionEvent.MESSAGE_START)) {
                 this.reference.get().onStop();
             }
         }
     }
 
-    @Override // android.support.v4.app.FragmentActivity, android.app.Activity, android.support.v4.app.ActivityCompat.OnRequestPermissionsResultCallback
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, androidx.core.app.ActivityCompat.OnRequestPermissionsResultCallback
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-        if (this.mSw != null) {
-            this.mSw.onRequestPermissionsResult(i, strArr, iArr);
+        if (this.mXV != null) {
+            this.mXV.onRequestPermissionsResult(i, strArr, iArr);
         }
     }
 }

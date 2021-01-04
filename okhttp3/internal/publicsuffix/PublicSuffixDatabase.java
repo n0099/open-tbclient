@@ -11,7 +11,7 @@ import okhttp3.internal.platform.Platform;
 import okio.BufferedSource;
 import okio.GzipSource;
 import okio.Okio;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public final class PublicSuffixDatabase {
     private static final byte EXCEPTION_MARKER = 33;
     public static final String PUBLIC_SUFFIX_RESOURCE = "publicsuffixes.gz";
@@ -162,23 +162,21 @@ public final class PublicSuffixDatabase {
                     break;
                 }
                 i14++;
-                int i16 = i13 + 1;
+                i5 = i13 + 1;
                 if (i14 == i12) {
-                    i5 = i16;
                     i4 = i14;
                     break;
                 }
-                if (bArr2[i15].length == i16) {
+                if (bArr2[i15].length == i5) {
                     if (i15 == bArr2.length - 1) {
-                        i5 = i16;
                         i4 = i14;
                         break;
                     }
                     i15++;
-                    i16 = -1;
+                    i5 = -1;
                     z = true;
                 }
-                i13 = i16;
+                i13 = i5;
             }
             if (i3 < 0) {
                 i7 = i10 - 1;
@@ -187,15 +185,15 @@ public final class PublicSuffixDatabase {
                 i6 = i11 + i10 + 1;
                 i7 = length;
             } else {
-                int i17 = i12 - i4;
+                int i16 = i12 - i4;
                 int length2 = bArr2[i15].length - i5;
-                for (int i18 = i15 + 1; i18 < bArr2.length; i18++) {
-                    length2 += bArr2[i18].length;
+                for (int i17 = i15 + 1; i17 < bArr2.length; i17++) {
+                    length2 += bArr2[i17].length;
                 }
-                if (length2 < i17) {
+                if (length2 < i16) {
                     i7 = i10 - 1;
                     i6 = i8;
-                } else if (length2 > i17) {
+                } else if (length2 > i16) {
                     i6 = i11 + i10 + 1;
                     i7 = length;
                 } else {

@@ -18,7 +18,7 @@ import okhttp3.EventListener;
 import okhttp3.HttpUrl;
 import okhttp3.Route;
 import okhttp3.internal.Util;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public final class RouteSelector {
     private final Address address;
     private final Call call;
@@ -108,36 +108,34 @@ public final class RouteSelector {
     }
 
     private void resetNextInetSocketAddress(Proxy proxy) throws IOException {
+        String host;
         int port;
-        String str;
         this.inetSocketAddresses = new ArrayList();
         if (proxy.type() == Proxy.Type.DIRECT || proxy.type() == Proxy.Type.SOCKS) {
-            String host = this.address.url().host();
+            host = this.address.url().host();
             port = this.address.url().port();
-            str = host;
         } else {
             SocketAddress address = proxy.address();
             if (!(address instanceof InetSocketAddress)) {
                 throw new IllegalArgumentException("Proxy.address() is not an InetSocketAddress: " + address.getClass());
             }
             InetSocketAddress inetSocketAddress = (InetSocketAddress) address;
-            String hostString = getHostString(inetSocketAddress);
+            host = getHostString(inetSocketAddress);
             port = inetSocketAddress.getPort();
-            str = hostString;
         }
         if (port < 1 || port > 65535) {
-            throw new SocketException("No route to " + str + ":" + port + "; port is out of range");
+            throw new SocketException("No route to " + host + ":" + port + "; port is out of range");
         }
         if (proxy.type() == Proxy.Type.SOCKS) {
-            this.inetSocketAddresses.add(InetSocketAddress.createUnresolved(str, port));
+            this.inetSocketAddresses.add(InetSocketAddress.createUnresolved(host, port));
             return;
         }
-        this.eventListener.dnsStart(this.call, str);
-        List<InetAddress> lookup = this.address.dns().lookup(str);
+        this.eventListener.dnsStart(this.call, host);
+        List<InetAddress> lookup = this.address.dns().lookup(host);
         if (lookup.isEmpty()) {
-            throw new UnknownHostException(this.address.dns() + " returned no addresses for " + str);
+            throw new UnknownHostException(this.address.dns() + " returned no addresses for " + host);
         }
-        this.eventListener.dnsEnd(this.call, str, lookup);
+        this.eventListener.dnsEnd(this.call, host, lookup);
         int size = lookup.size();
         for (int i = 0; i < size; i++) {
             this.inetSocketAddresses.add(new InetSocketAddress(lookup.get(i), port));
@@ -149,7 +147,7 @@ public final class RouteSelector {
         return address == null ? inetSocketAddress.getHostName() : address.getHostAddress();
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static final class Selection {
         private int nextRouteIndex = 0;
         private final List<Route> routes;

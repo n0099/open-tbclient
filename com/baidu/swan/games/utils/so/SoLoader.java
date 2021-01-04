@@ -4,10 +4,9 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.support.annotation.Keep;
 import android.text.TextUtils;
 import android.util.Log;
-import java.io.Closeable;
+import androidx.annotation.Keep;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -24,7 +23,7 @@ import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 @Keep
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public final class SoLoader {
     private static final String TAG = "SoLoader";
     private StringBuilder sb = new StringBuilder();
@@ -36,20 +35,20 @@ public final class SoLoader {
     }
 
     public static f loadV8EngineSo(Context context) {
-        String bau = e.bau();
-        if (sLoadedLibraries.contains(bau)) {
-            return f.baw();
+        String bcO = e.bcO();
+        if (sLoadedLibraries.contains(bcO)) {
+            return f.bcQ();
         }
         f a2 = e.a(context, new SoLoader());
         if (a2.isSuccess()) {
-            sLoadedLibraries.add(bau);
+            sLoadedLibraries.add(bcO);
             return a2;
         }
         return a2;
     }
 
     public static String getV8SoDependentFilePath() {
-        if (!sLoadedLibraries.contains(e.bau())) {
+        if (!sLoadedLibraries.contains(e.bcO())) {
             return null;
         }
         String v8SoDependentFilePath = e.getV8SoDependentFilePath();
@@ -71,11 +70,11 @@ public final class SoLoader {
     public static void load(Context context, String str, boolean z, boolean z2) {
         boolean load;
         if (!sLoadedLibraries.contains(str)) {
-            a bak = a.bak();
+            a bcE = a.bcE();
             if (!z) {
-                load = new SoLoader().loadInternalFromLocal(context, str, bak, z2);
+                load = new SoLoader().loadInternalFromLocal(context, str, bcE, z2);
             } else {
-                load = load(context, str, bak, z2);
+                load = load(context, str, bcE, z2);
             }
             if (load) {
                 sLoadedLibraries.add(str);
@@ -85,7 +84,7 @@ public final class SoLoader {
 
     private static boolean load(Context context, String str, b bVar, boolean z) {
         if (bVar == null) {
-            bVar = a.bak();
+            bVar = a.bcE();
         }
         SoLoader soLoader = new SoLoader();
         if (soSources.size() == 0) {
@@ -209,20 +208,24 @@ public final class SoLoader {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [428=4] */
-    /* JADX WARN: Removed duplicated region for block: B:69:0x004f A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:72:0x0092 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x009e */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:74:0x0090 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:76:0x0073 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:78:0x00b6 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:78:0x004f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Type inference failed for: r3v18 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public boolean executeRelease(ZipFile zipFile, String str, String str2, File file) {
         FileLock fileLock;
         FileChannel fileChannel;
-        Throwable th;
-        Exception e;
+        FileLock fileLock2;
+        FileChannel fileChannel2;
+        FileChannel fileChannel3;
+        FileChannel fileChannel4;
         boolean releaseFileFromApk;
-        FileLock fileLock2 = null;
+        FileLock fileLock3 = null;
         if (zipFile == null || file == null) {
             return false;
         }
@@ -234,112 +237,114 @@ public final class SoLoader {
             parentFile.mkdirs();
         }
         try {
-            File file2 = new File(parentFile, str + ".lock");
-            if (!file2.exists()) {
+            try {
+                File file2 = new File(parentFile, str + ".lock");
+                if (!file2.exists()) {
+                    try {
+                        file2.createNewFile();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
                 try {
-                    file2.createNewFile();
-                } catch (IOException e2) {
-                    e2.printStackTrace();
+                    fileChannel3 = new RandomAccessFile(file2, "rw").getChannel();
+                } catch (FileNotFoundException e2) {
+                    e = e2;
+                    fileChannel3 = null;
+                }
+            } catch (Throwable th) {
+                th = th;
+                fileChannel = parentFile;
+            }
+        } catch (Exception e3) {
+            e = e3;
+            fileLock2 = null;
+            fileChannel2 = null;
+        } catch (Throwable th2) {
+            th = th2;
+            fileLock = null;
+            fileChannel = null;
+        }
+        try {
+            try {
+                fileLock3 = fileChannel3.lock();
+            } catch (IOException e4) {
+                try {
+                    e4.printStackTrace();
+                } catch (FileNotFoundException e5) {
+                    e = e5;
+                    e.printStackTrace();
+                    fileLock2 = null;
+                    fileChannel4 = fileChannel3;
+                    if (fileLock2 != null) {
+                    }
+                    releaseFileFromApk = true;
+                    if (fileLock2 != null) {
+                    }
+                    com.baidu.swan.c.d.closeSafely(fileChannel4);
+                    return releaseFileFromApk;
                 }
             }
-            try {
-                fileChannel = new RandomAccessFile(file2, "rw").getChannel();
-            } catch (FileNotFoundException e3) {
-                e = e3;
-                fileChannel = null;
-            }
-            try {
+            fileLock2 = fileLock3;
+            fileChannel4 = fileChannel3;
+            if (fileLock2 != null) {
                 try {
-                    fileLock2 = fileChannel.lock();
-                } catch (IOException e4) {
-                    try {
-                        e4.printStackTrace();
-                    } catch (FileNotFoundException e5) {
-                        e = e5;
-                        e.printStackTrace();
-                        fileLock = null;
-                        if (fileLock != null) {
+                    if (fileLock2.isValid()) {
+                        releaseFileFromApk = releaseFileFromApk(zipFile, file, str2 + File.separator + str);
+                        if (fileLock2 != null) {
+                            try {
+                                fileLock2.release();
+                            } catch (IOException e6) {
+                                e6.printStackTrace();
+                            }
                         }
-                        releaseFileFromApk = true;
-                        if (fileLock != null) {
-                        }
-                        com.baidu.swan.c.d.closeSafely(fileChannel);
+                        com.baidu.swan.c.d.closeSafely(fileChannel4);
                         return releaseFileFromApk;
                     }
-                }
-                fileLock = fileLock2;
-                if (fileLock != null) {
-                    try {
+                } catch (Exception e7) {
+                    e = e7;
+                    fileChannel2 = fileChannel4;
+                    this.sb.append(Log.getStackTraceString(e));
+                    e.printStackTrace();
+                    if (fileLock2 != null) {
                         try {
-                            if (fileLock.isValid()) {
-                                releaseFileFromApk = releaseFileFromApk(zipFile, file, str2 + File.separator + str);
-                                if (fileLock != null) {
-                                    try {
-                                        fileLock.release();
-                                    } catch (IOException e6) {
-                                        e6.printStackTrace();
-                                    }
-                                }
-                                com.baidu.swan.c.d.closeSafely(fileChannel);
-                                return releaseFileFromApk;
-                            }
-                        } catch (Exception e7) {
-                            e = e7;
-                            this.sb.append(Log.getStackTraceString(e));
-                            e.printStackTrace();
-                            if (fileLock != null) {
-                                try {
-                                    fileLock.release();
-                                } catch (IOException e8) {
-                                    e8.printStackTrace();
-                                }
-                            }
-                            com.baidu.swan.c.d.closeSafely(fileChannel);
-                            return true;
+                            fileLock2.release();
+                        } catch (IOException e8) {
+                            e8.printStackTrace();
                         }
-                    } catch (Throwable th2) {
-                        th = th2;
-                        if (fileLock != null) {
-                            try {
-                                fileLock.release();
-                            } catch (IOException e9) {
-                                e9.printStackTrace();
-                            }
-                        }
-                        com.baidu.swan.c.d.closeSafely(fileChannel);
-                        throw th;
                     }
+                    com.baidu.swan.c.d.closeSafely(fileChannel2);
+                    return true;
                 }
-                releaseFileFromApk = true;
-                if (fileLock != null) {
-                }
-                com.baidu.swan.c.d.closeSafely(fileChannel);
-                return releaseFileFromApk;
-            } catch (Exception e10) {
-                fileLock = null;
-                e = e10;
-                this.sb.append(Log.getStackTraceString(e));
-                e.printStackTrace();
-                if (fileLock != null) {
-                }
-                com.baidu.swan.c.d.closeSafely(fileChannel);
-                return true;
-            } catch (Throwable th3) {
-                fileLock = null;
-                th = th3;
-                if (fileLock != null) {
-                }
-                com.baidu.swan.c.d.closeSafely(fileChannel);
-                throw th;
             }
-        } catch (Exception e11) {
-            fileChannel = null;
-            e = e11;
+            releaseFileFromApk = true;
+            if (fileLock2 != null) {
+            }
+            com.baidu.swan.c.d.closeSafely(fileChannel4);
+            return releaseFileFromApk;
+        } catch (Exception e9) {
+            e = e9;
+            fileLock2 = null;
+            fileChannel2 = fileChannel3;
+            this.sb.append(Log.getStackTraceString(e));
+            e.printStackTrace();
+            if (fileLock2 != null) {
+            }
+            com.baidu.swan.c.d.closeSafely(fileChannel2);
+            return true;
+        } catch (Throwable th3) {
+            th = th3;
             fileLock = null;
-        } catch (Throwable th4) {
-            fileLock = null;
-            fileChannel = null;
-            th = th4;
+            fileChannel = fileChannel3;
+            if (fileLock != null) {
+                try {
+                    fileLock.release();
+                } catch (IOException e10) {
+                    e10.printStackTrace();
+                }
+            }
+            com.baidu.swan.c.d.closeSafely(fileChannel);
+            throw th;
         }
     }
 
@@ -363,63 +368,70 @@ public final class SoLoader {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [492=5, 493=4] */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v11, types: [java.io.OutputStream, java.io.Closeable, java.io.FileOutputStream] */
     private boolean releaseFileFromApk(ZipFile zipFile, File file, String str) {
+        Throwable th;
+        FileOutputStream fileOutputStream;
         InputStream inputStream;
-        ?? fileOutputStream;
-        Closeable closeable;
-        InputStream inputStream2 = null;
+        Exception exc;
+        FileOutputStream fileOutputStream2;
         File file2 = new File(file.getAbsoluteFile() + ".tmp");
         if (zipFile != null) {
             try {
                 inputStream = zipFile.getInputStream(zipFile.getEntry(str));
                 try {
-                    try {
-                        fileOutputStream = new FileOutputStream(file2);
-                    } catch (Exception e) {
-                        e = e;
-                    }
-                } catch (Throwable th) {
-                    th = th;
+                    fileOutputStream2 = new FileOutputStream(file2);
+                } catch (Exception e) {
+                    exc = e;
+                    fileOutputStream = null;
+                } catch (Throwable th2) {
+                    th = th2;
+                    fileOutputStream = null;
                 }
             } catch (Exception e2) {
-                e = e2;
+                exc = e2;
+                fileOutputStream = null;
                 inputStream = null;
-            } catch (Throwable th2) {
-                th = th2;
+            } catch (Throwable th3) {
+                th = th3;
+                fileOutputStream = null;
                 inputStream = null;
             }
             try {
-                if (SoUtils.copyStream(inputStream, fileOutputStream, 256) > 0) {
+                if (SoUtils.copyStream(inputStream, fileOutputStream2, 256) > 0) {
                     boolean renameTo = file2.renameTo(file);
                     com.baidu.swan.c.d.closeSafely(inputStream);
-                    com.baidu.swan.c.d.closeSafely(fileOutputStream);
+                    com.baidu.swan.c.d.closeSafely(fileOutputStream2);
                     return renameTo;
                 }
-                inputStream2 = inputStream;
-                closeable = fileOutputStream;
             } catch (Exception e3) {
-                inputStream2 = fileOutputStream;
-                e = e3;
-                if (DEBUG) {
-                    Log.e(TAG, "SoLoader releaseFileFromApk exception.", e);
+                exc = e3;
+                fileOutputStream = fileOutputStream2;
+                try {
+                    if (DEBUG) {
+                        Log.e(TAG, "SoLoader releaseFileFromApk exception.", exc);
+                    }
+                    com.baidu.swan.c.d.closeSafely(inputStream);
+                    com.baidu.swan.c.d.closeSafely(fileOutputStream);
+                    return false;
+                } catch (Throwable th4) {
+                    th = th4;
+                    com.baidu.swan.c.d.closeSafely(inputStream);
+                    com.baidu.swan.c.d.closeSafely(fileOutputStream);
+                    throw th;
                 }
+            } catch (Throwable th5) {
+                th = th5;
+                fileOutputStream = fileOutputStream2;
                 com.baidu.swan.c.d.closeSafely(inputStream);
-                com.baidu.swan.c.d.closeSafely(inputStream2);
-                return false;
-            } catch (Throwable th3) {
-                inputStream2 = fileOutputStream;
-                th = th3;
-                com.baidu.swan.c.d.closeSafely(inputStream);
-                com.baidu.swan.c.d.closeSafely(inputStream2);
+                com.baidu.swan.c.d.closeSafely(fileOutputStream);
                 throw th;
             }
         } else {
-            closeable = null;
+            fileOutputStream2 = null;
+            inputStream = null;
         }
-        com.baidu.swan.c.d.closeSafely(inputStream2);
-        com.baidu.swan.c.d.closeSafely(closeable);
+        com.baidu.swan.c.d.closeSafely(inputStream);
+        com.baidu.swan.c.d.closeSafely(fileOutputStream2);
         return false;
     }
 

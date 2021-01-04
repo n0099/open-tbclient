@@ -2,29 +2,29 @@ package com.xiaomi.push.service;
 
 import android.app.NotificationManager;
 import com.xiaomi.push.ai;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 final class ab extends ai.a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ int f4813a;
+    final /* synthetic */ int f14523a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ NotificationManager f836a;
+    final /* synthetic */ NotificationManager f914a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(int i, NotificationManager notificationManager) {
-        this.f4813a = i;
-        this.f836a = notificationManager;
+        this.f14523a = i;
+        this.f914a = notificationManager;
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo159a() {
-        return this.f4813a;
+    public int mo185a() {
+        return this.f14523a;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f836a.cancel(this.f4813a);
+        this.f914a.cancel(this.f14523a);
     }
 }

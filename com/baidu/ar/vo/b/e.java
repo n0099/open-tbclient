@@ -10,14 +10,14 @@ import com.baidu.ar.arplay.core.pixel.PixelType;
 import com.baidu.ar.callback.ICallbackWith;
 import com.baidu.ar.d.j;
 import io.flutter.plugin.platform.PlatformPlugin;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class e extends j {
     private static final String TAG = e.class.getSimpleName();
     private HandlerThread lM;
     private a yT;
     private b yU;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes6.dex */
     private static final class a extends Handler {
         public a(Looper looper) {
             super(looper);

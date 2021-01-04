@@ -1,5 +1,5 @@
 package com.baidu.android.pushservice.c;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class d {
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
         jadx.core.utils.exceptions.JadxRuntimeException: Found unreachable blocks
@@ -24,7 +24,7 @@ public class d {
             return r0
         L10:
             android.content.ContentResolver r0 = r8.getContentResolver()     // Catch: java.lang.Throwable -> Lce
-            if (r0 == 0) goto Lf7
+            if (r0 == 0) goto Lf5
             java.lang.StringBuilder r1 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> Lce
             r1.<init>()     // Catch: java.lang.Throwable -> Lce
             java.lang.String r2 = "content://"
@@ -49,12 +49,12 @@ public class d {
             r5 = 0
             android.database.Cursor r7 = r0.query(r1, r2, r3, r4, r5)     // Catch: java.lang.Throwable -> Lce
             if (r7 == 0) goto L75
-            boolean r0 = r7.moveToFirst()     // Catch: java.lang.Throwable -> Leb
-            if (r0 == 0) goto Lf7
-            com.baidu.android.pushservice.c.c$e r0 = com.baidu.android.pushservice.c.c.e.PushVersion     // Catch: java.lang.Throwable -> Leb
-            java.lang.String r0 = r0.name()     // Catch: java.lang.Throwable -> Leb
-            int r0 = r7.getColumnIndex(r0)     // Catch: java.lang.Throwable -> Leb
-            int r6 = r7.getInt(r0)     // Catch: java.lang.Throwable -> Leb
+            boolean r0 = r7.moveToFirst()     // Catch: java.lang.Throwable -> Lea
+            if (r0 == 0) goto Lf5
+            com.baidu.android.pushservice.c.c$e r0 = com.baidu.android.pushservice.c.c.e.PushVersion     // Catch: java.lang.Throwable -> Lea
+            java.lang.String r0 = r0.name()     // Catch: java.lang.Throwable -> Lea
+            int r0 = r7.getColumnIndex(r0)     // Catch: java.lang.Throwable -> Lea
+            int r6 = r7.getInt(r0)     // Catch: java.lang.Throwable -> Lea
             r0 = r6
         L6d:
             if (r7 == 0) goto Lf
@@ -64,38 +64,38 @@ public class d {
             r1 = move-exception
             goto Lf
         L75:
-            java.lang.StringBuilder r1 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> Leb
-            r1.<init>()     // Catch: java.lang.Throwable -> Leb
+            java.lang.StringBuilder r1 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> Lea
+            r1.<init>()     // Catch: java.lang.Throwable -> Lea
             java.lang.String r2 = "content://"
-            java.lang.StringBuilder r1 = r1.append(r2)     // Catch: java.lang.Throwable -> Leb
-            java.lang.StringBuilder r1 = r1.append(r9)     // Catch: java.lang.Throwable -> Leb
+            java.lang.StringBuilder r1 = r1.append(r2)     // Catch: java.lang.Throwable -> Lea
+            java.lang.StringBuilder r1 = r1.append(r9)     // Catch: java.lang.Throwable -> Lea
             java.lang.String r2 = ".bdpush"
-            java.lang.StringBuilder r1 = r1.append(r2)     // Catch: java.lang.Throwable -> Leb
+            java.lang.StringBuilder r1 = r1.append(r2)     // Catch: java.lang.Throwable -> Lea
             java.lang.String r2 = "/"
-            java.lang.StringBuilder r1 = r1.append(r2)     // Catch: java.lang.Throwable -> Leb
+            java.lang.StringBuilder r1 = r1.append(r2)     // Catch: java.lang.Throwable -> Lea
             java.lang.String r2 = "pushinfo"
-            java.lang.StringBuilder r1 = r1.append(r2)     // Catch: java.lang.Throwable -> Leb
-            java.lang.String r1 = r1.toString()     // Catch: java.lang.Throwable -> Leb
-            android.net.Uri r1 = android.net.Uri.parse(r1)     // Catch: java.lang.Throwable -> Leb
+            java.lang.StringBuilder r1 = r1.append(r2)     // Catch: java.lang.Throwable -> Lea
+            java.lang.String r1 = r1.toString()     // Catch: java.lang.Throwable -> Lea
+            android.net.Uri r1 = android.net.Uri.parse(r1)     // Catch: java.lang.Throwable -> Lea
             r2 = 1
-            java.lang.String[] r2 = new java.lang.String[r2]     // Catch: java.lang.Throwable -> Leb
+            java.lang.String[] r2 = new java.lang.String[r2]     // Catch: java.lang.Throwable -> Lea
             r3 = 0
-            com.baidu.android.pushservice.c.c$e r4 = com.baidu.android.pushservice.c.c.e.PushVersion     // Catch: java.lang.Throwable -> Leb
-            java.lang.String r4 = r4.name()     // Catch: java.lang.Throwable -> Leb
-            r2[r3] = r4     // Catch: java.lang.Throwable -> Leb
+            com.baidu.android.pushservice.c.c$e r4 = com.baidu.android.pushservice.c.c.e.PushVersion     // Catch: java.lang.Throwable -> Lea
+            java.lang.String r4 = r4.name()     // Catch: java.lang.Throwable -> Lea
+            r2[r3] = r4     // Catch: java.lang.Throwable -> Lea
             r3 = 0
             r4 = 0
             r5 = 0
-            android.database.Cursor r0 = r0.query(r1, r2, r3, r4, r5)     // Catch: java.lang.Throwable -> Leb
-            if (r0 == 0) goto Lf3
-            boolean r1 = r0.moveToFirst()     // Catch: java.lang.Throwable -> Lef
-            if (r1 == 0) goto Lf3
-            com.baidu.android.pushservice.c.c$e r1 = com.baidu.android.pushservice.c.c.e.PushVersion     // Catch: java.lang.Throwable -> Lef
-            java.lang.String r1 = r1.name()     // Catch: java.lang.Throwable -> Lef
-            int r1 = r0.getColumnIndex(r1)     // Catch: java.lang.Throwable -> Lef
-            int r6 = r0.getInt(r1)     // Catch: java.lang.Throwable -> Lef
-            r7 = r0
+            android.database.Cursor r1 = r0.query(r1, r2, r3, r4, r5)     // Catch: java.lang.Throwable -> Lea
+            if (r1 == 0) goto Lf1
+            boolean r0 = r1.moveToFirst()     // Catch: java.lang.Throwable -> Lee
+            if (r0 == 0) goto Lf1
+            com.baidu.android.pushservice.c.c$e r0 = com.baidu.android.pushservice.c.c.e.PushVersion     // Catch: java.lang.Throwable -> Lee
+            java.lang.String r0 = r0.name()     // Catch: java.lang.Throwable -> Lee
+            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> Lee
+            int r6 = r1.getInt(r0)     // Catch: java.lang.Throwable -> Lee
             r0 = r6
+            r7 = r1
             goto L6d
         Lce:
             r0 = move-exception
@@ -122,25 +122,23 @@ public class d {
             r1 = move-exception
             goto Le1
         Le7:
-            r1 = move-exception
-            r7 = r0
-            r0 = r1
+            r0 = move-exception
+            r7 = r1
             goto Ldc
-        Leb:
+        Lea:
             r0 = move-exception
             r0 = r6
             r1 = r7
             goto Ld1
-        Lef:
-            r1 = move-exception
-            r1 = r0
+        Lee:
+            r0 = move-exception
             r0 = r6
             goto Ld1
-        Lf3:
-            r7 = r0
+        Lf1:
             r0 = r6
+            r7 = r1
             goto L6d
-        Lf7:
+        Lf5:
             r0 = r6
             goto L6d
         */

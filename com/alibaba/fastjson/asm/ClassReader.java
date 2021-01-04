@@ -3,17 +3,19 @@ package com.alibaba.fastjson.asm;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class ClassReader {
-    public final byte[] b;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final byte[] f1128b;
     public final int header;
     private final int[] items;
     private final int maxStringLength;
     private final String[] strings;
 
     public ClassReader(InputStream inputStream) throws IOException {
-        int readUnsignedShort;
-        int i = 0;
+        int i;
+        int i2 = 0;
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         byte[] bArr = new byte[1024];
         while (true) {
@@ -25,21 +27,23 @@ public class ClassReader {
             }
         }
         inputStream.close();
-        this.b = byteArrayOutputStream.toByteArray();
+        this.f1128b = byteArrayOutputStream.toByteArray();
         this.items = new int[readUnsignedShort(8)];
         int length = this.items.length;
         this.strings = new String[length];
-        int i2 = 1;
-        int i3 = 10;
-        while (i2 < length) {
-            this.items[i2] = i3 + 1;
-            switch (this.b[i3]) {
+        int i3 = 1;
+        int i4 = 10;
+        while (i3 < length) {
+            this.items[i3] = i4 + 1;
+            switch (this.f1128b[i4]) {
                 case 1:
-                    readUnsignedShort = readUnsignedShort(i3 + 1) + 3;
-                    if (readUnsignedShort <= i) {
+                    int readUnsignedShort = readUnsignedShort(i4 + 1) + 3;
+                    if (readUnsignedShort <= i2) {
+                        i = readUnsignedShort;
                         break;
                     } else {
                         i = readUnsignedShort;
+                        i2 = readUnsignedShort;
                         break;
                     }
                 case 2:
@@ -50,7 +54,7 @@ public class ClassReader {
                 case 16:
                 case 17:
                 default:
-                    readUnsignedShort = 3;
+                    i = 3;
                     break;
                 case 3:
                 case 4:
@@ -59,22 +63,22 @@ public class ClassReader {
                 case 11:
                 case 12:
                 case 18:
-                    readUnsignedShort = 5;
+                    i = 5;
                     break;
                 case 5:
                 case 6:
-                    readUnsignedShort = 9;
-                    i2++;
+                    i = 9;
+                    i3++;
                     break;
                 case 15:
-                    readUnsignedShort = 4;
+                    i = 4;
                     break;
             }
-            i2++;
-            i3 = readUnsignedShort + i3;
+            i3++;
+            i4 = i + i4;
         }
-        this.maxStringLength = i;
-        this.header = i3;
+        this.maxStringLength = i2;
+        this.header = i4;
     }
 
     public void accept(TypeCollector typeCollector) {
@@ -123,70 +127,71 @@ public class ClassReader {
         int readUnsignedShort = readUnsignedShort(i);
         String readUTF8 = readUTF8(i + 2, cArr);
         String readUTF82 = readUTF8(i + 4, cArr);
-        int i2 = i + 8;
-        int i3 = 0;
-        for (int readUnsignedShort2 = readUnsignedShort(i + 6); readUnsignedShort2 > 0; readUnsignedShort2--) {
-            String readUTF83 = readUTF8(i2, cArr);
-            int readInt = readInt(i2 + 2);
-            int i4 = i2 + 6;
+        int readUnsignedShort2 = readUnsignedShort(i + 6);
+        int i2 = 0;
+        int i3 = i + 8;
+        while (readUnsignedShort2 > 0) {
+            String readUTF83 = readUTF8(i3, cArr);
+            int readInt = readInt(i3 + 2);
+            int i4 = i3 + 6;
             if (readUTF83.equals("Code")) {
-                i3 = i4;
+                i2 = i4;
             }
-            i2 = i4 + readInt;
+            readUnsignedShort2--;
+            i3 = i4 + readInt;
         }
         MethodCollector visitMethod = typeCollector.visitMethod(readUnsignedShort, readUTF8, readUTF82);
-        if (visitMethod != null && i3 != 0) {
-            int readInt2 = readInt(i3 + 4) + i3 + 8;
+        if (visitMethod != null && i2 != 0) {
+            int readInt2 = readInt(i2 + 4) + i2 + 8;
             int i5 = readInt2 + 2;
             for (int readUnsignedShort3 = readUnsignedShort(readInt2); readUnsignedShort3 > 0; readUnsignedShort3--) {
                 i5 += 8;
             }
-            int readUnsignedShort4 = readUnsignedShort(i5);
             int i6 = i5 + 2;
             int i7 = 0;
             int i8 = 0;
-            for (int i9 = readUnsignedShort4; i9 > 0; i9--) {
+            for (int readUnsignedShort4 = readUnsignedShort(i5); readUnsignedShort4 > 0; readUnsignedShort4--) {
                 String readUTF84 = readUTF8(i6, cArr);
                 if (readUTF84.equals("LocalVariableTable")) {
-                    i7 = i6 + 6;
-                } else if (readUTF84.equals("LocalVariableTypeTable")) {
                     i8 = i6 + 6;
+                } else if (readUTF84.equals("LocalVariableTypeTable")) {
+                    i7 = i6 + 6;
                 }
                 i6 += readInt(i6 + 2) + 6;
             }
-            if (i7 != 0) {
-                if (i8 != 0) {
-                    int readUnsignedShort5 = readUnsignedShort(i8) * 3;
+            if (i8 != 0) {
+                if (i7 != 0) {
+                    int readUnsignedShort5 = readUnsignedShort(i7) * 3;
+                    int i9 = i7 + 2;
                     int[] iArr = new int[readUnsignedShort5];
-                    int i10 = i8 + 2;
-                    int i11 = readUnsignedShort5;
-                    while (i11 > 0) {
+                    int i10 = readUnsignedShort5;
+                    while (i10 > 0) {
+                        int i11 = i10 - 1;
+                        iArr[i11] = i9 + 6;
                         int i12 = i11 - 1;
-                        iArr[i12] = i10 + 6;
-                        int i13 = i12 - 1;
-                        iArr[i13] = readUnsignedShort(i10 + 8);
-                        i11 = i13 - 1;
-                        iArr[i11] = readUnsignedShort(i10);
-                        i10 += 10;
+                        iArr[i12] = readUnsignedShort(i9 + 8);
+                        i10 = i12 - 1;
+                        iArr[i10] = readUnsignedShort(i9);
+                        i9 += 10;
                     }
                 }
-                int i14 = i7 + 2;
-                for (int readUnsignedShort6 = readUnsignedShort(i7); readUnsignedShort6 > 0; readUnsignedShort6--) {
-                    visitMethod.visitLocalVariable(readUTF8(i14 + 4, cArr), readUnsignedShort(i14 + 8));
-                    i14 += 10;
+                int i13 = i8 + 2;
+                for (int readUnsignedShort6 = readUnsignedShort(i8); readUnsignedShort6 > 0; readUnsignedShort6--) {
+                    visitMethod.visitLocalVariable(readUTF8(i13 + 4, cArr), readUnsignedShort(i13 + 8));
+                    i13 += 10;
                 }
             }
         }
-        return i2;
+        return i3;
     }
 
     private int readUnsignedShort(int i) {
-        byte[] bArr = this.b;
+        byte[] bArr = this.f1128b;
         return (bArr[i + 1] & 255) | ((bArr[i] & 255) << 8);
     }
 
     private int readInt(int i) {
-        byte[] bArr = this.b;
+        byte[] bArr = this.f1128b;
         return (bArr[i + 3] & 255) | ((bArr[i] & 255) << 24) | ((bArr[i + 1] & 255) << 16) | ((bArr[i + 2] & 255) << 8);
     }
 
@@ -206,16 +211,16 @@ public class ClassReader {
     private String readUTF(int i, int i2, char[] cArr) {
         int i3;
         int i4 = i + i2;
-        byte[] bArr = this.b;
+        byte[] bArr = this.f1128b;
         char c = 0;
         char c2 = 0;
         int i5 = 0;
         while (i < i4) {
             int i6 = i + 1;
-            byte b = bArr[i];
+            byte b2 = bArr[i];
             switch (c2) {
                 case 0:
-                    int i7 = b & 255;
+                    int i7 = b2 & 255;
                     if (i7 < 128) {
                         i3 = i5 + 1;
                         cArr[i5] = (char) i7;
@@ -232,12 +237,12 @@ public class ClassReader {
                         break;
                     }
                 case 1:
-                    cArr[i5] = (char) ((b & 63) | (c << 6));
                     i3 = i5 + 1;
+                    cArr[i5] = (char) ((c << 6) | (b2 & 63));
                     c2 = 0;
                     break;
                 case 2:
-                    c = (char) ((c << 6) | (b & 63));
+                    c = (char) ((c << 6) | (b2 & 63));
                     c2 = 1;
                     i3 = i5;
                     break;

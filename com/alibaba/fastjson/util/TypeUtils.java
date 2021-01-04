@@ -1,6 +1,5 @@
 package com.alibaba.fastjson.util;
 
-import android.support.media.ExifInterface;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.JSONObject;
@@ -17,7 +16,7 @@ import com.alibaba.fastjson.serializer.SerializeBeanInfo;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-import com.baidu.searchbox.ui.animview.praise.guide.ControlShowManager;
+import com.kwai.video.player.KsMediaMeta;
 import com.vivo.push.PushClientConstants;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.AccessibleObject;
@@ -68,7 +67,7 @@ import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class TypeUtils {
     public static boolean compatibleWithFieldName;
     public static boolean compatibleWithJavaBean;
@@ -280,7 +279,7 @@ public class TypeUtils {
                     if (str2.length() == JSON.DEFFAULT_DATE_FORMAT.length() || (str2.length() == 22 && JSON.DEFFAULT_DATE_FORMAT.equals("yyyyMMddHHmmssSSSZ"))) {
                         str = JSON.DEFFAULT_DATE_FORMAT;
                     } else if (str2.length() == 10) {
-                        str = ControlShowManager.DAY_TIME_FORMAT;
+                        str = "yyyy-MM-dd";
                     } else if (str2.length() == "yyyy-MM-dd HH:mm:ss".length()) {
                         str = "yyyy-MM-dd HH:mm:ss";
                     } else if (str2.length() == 29 && str2.charAt(26) == ':' && str2.charAt(28) == '0') {
@@ -534,7 +533,7 @@ public class TypeUtils {
             if ("false".equalsIgnoreCase(str) || "0".equals(str)) {
                 return Boolean.FALSE;
             }
-            if ("Y".equalsIgnoreCase(str) || ExifInterface.GPS_DIRECTION_TRUE.equals(str)) {
+            if ("Y".equalsIgnoreCase(str) || "T".equals(str)) {
                 return Boolean.TRUE;
             }
             if ("F".equalsIgnoreCase(str) || "N".equals(str)) {
@@ -826,7 +825,7 @@ public class TypeUtils {
                 return parserConfig2.getDeserializers().get(cls) != null ? (T) JSON.parseObject(JSON.toJSONString(jSONObject), cls) : (T) Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(), new Class[]{cls}, jSONObject);
             }
             if (cls == Locale.class) {
-                Object obj2 = map.get("language");
+                Object obj2 = map.get(KsMediaMeta.KSM_KEY_LANGUAGE);
                 Object obj3 = map.get("country");
                 if (obj2 instanceof String) {
                     String str5 = (String) obj2;
@@ -962,7 +961,6 @@ public class TypeUtils {
                     return cls;
                 } catch (Throwable th) {
                     th.printStackTrace();
-                    cls = cls;
                 }
             }
             try {
@@ -1109,9 +1107,9 @@ public class TypeUtils {
         return computeGetters(cls, (JSONType) getAnnotation(cls, JSONType.class), map, hashMap, z, PropertyNamingStrategy.CamelCase);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:164:0x03bf  */
-    /* JADX WARN: Removed duplicated region for block: B:72:0x0185  */
-    /* JADX WARN: Removed duplicated region for block: B:91:0x020e  */
+    /* JADX WARN: Removed duplicated region for block: B:164:0x03c8  */
+    /* JADX WARN: Removed duplicated region for block: B:72:0x018e  */
+    /* JADX WARN: Removed duplicated region for block: B:91:0x0217  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -1120,9 +1118,8 @@ public class TypeUtils {
         String[] strArr;
         Annotation[][] annotationArr;
         Constructor<?>[] constructorArr;
-        JSONField jSONField;
         String substring;
-        JSONField jSONField2;
+        JSONField jSONField;
         short[] sArr2;
         String[] strArr2;
         Annotation[][] annotationArr2;
@@ -1130,12 +1127,14 @@ public class TypeUtils {
         String str;
         String str2;
         String propertyNameByCompatibleFieldName;
-        JSONField jSONField3;
+        JSONField jSONField2;
         Boolean bool;
         String str3;
+        String str4;
         char charAt;
         int i;
         Field fieldFromCache;
+        Constructor koltinConstructor;
         LinkedHashMap linkedHashMap = new LinkedHashMap();
         boolean isKotlin = isKotlin(cls);
         Constructor<?>[] constructorArr3 = null;
@@ -1151,7 +1150,7 @@ public class TypeUtils {
             int i3 = 0;
             int i4 = 0;
             int i5 = 0;
-            String str4 = null;
+            String str5 = null;
             if (Modifier.isStatic(method.getModifiers())) {
                 sArr2 = sArr3;
                 strArr2 = strArr3;
@@ -1189,32 +1188,22 @@ public class TypeUtils {
                 constructorArr2 = constructorArr3;
             } else {
                 Boolean bool2 = false;
-                JSONField jSONField4 = (JSONField) method.getAnnotation(JSONField.class);
-                JSONField superMethodAnnotation = jSONField4 == null ? getSuperMethodAnnotation(cls, method) : jSONField4;
+                JSONField jSONField3 = (JSONField) method.getAnnotation(JSONField.class);
+                JSONField superMethodAnnotation = jSONField3 == null ? getSuperMethodAnnotation(cls, method) : jSONField3;
                 if (superMethodAnnotation == null && isKotlin) {
-                    if (constructorArr3 == null) {
-                        Constructor<?>[] declaredConstructors = cls.getDeclaredConstructors();
-                        Constructor koltinConstructor = getKoltinConstructor(declaredConstructors);
-                        if (koltinConstructor != null) {
-                            Annotation[][] parameterAnnotations = koltinConstructor.getParameterAnnotations();
-                            String[] koltinConstructorParameters = getKoltinConstructorParameters(cls);
-                            if (koltinConstructorParameters != null) {
-                                strArr3 = new String[koltinConstructorParameters.length];
-                                System.arraycopy(koltinConstructorParameters, 0, strArr3, 0, koltinConstructorParameters.length);
-                                Arrays.sort(strArr3);
-                                sArr3 = new short[koltinConstructorParameters.length];
-                                for (short s = 0; s < koltinConstructorParameters.length; s = (short) (s + 1)) {
-                                    sArr3[Arrays.binarySearch(strArr3, koltinConstructorParameters[s])] = s;
-                                }
-                                annotationArr3 = parameterAnnotations;
-                                constructorArr3 = declaredConstructors;
-                            } else {
-                                strArr3 = koltinConstructorParameters;
-                                annotationArr3 = parameterAnnotations;
-                                constructorArr3 = declaredConstructors;
+                    if (constructorArr3 == null && (koltinConstructor = getKoltinConstructor((constructorArr3 = cls.getDeclaredConstructors()))) != null) {
+                        annotationArr3 = koltinConstructor.getParameterAnnotations();
+                        String[] koltinConstructorParameters = getKoltinConstructorParameters(cls);
+                        if (koltinConstructorParameters != null) {
+                            strArr3 = new String[koltinConstructorParameters.length];
+                            System.arraycopy(koltinConstructorParameters, 0, strArr3, 0, koltinConstructorParameters.length);
+                            Arrays.sort(strArr3);
+                            sArr3 = new short[koltinConstructorParameters.length];
+                            for (short s = 0; s < koltinConstructorParameters.length; s = (short) (s + 1)) {
+                                sArr3[Arrays.binarySearch(strArr3, koltinConstructorParameters[s])] = s;
                             }
                         } else {
-                            constructorArr3 = declaredConstructors;
+                            strArr3 = koltinConstructorParameters;
                         }
                     }
                     if (strArr3 != null && sArr3 != null && name.startsWith("get")) {
@@ -1250,38 +1239,38 @@ public class TypeUtils {
                                 }
                             }
                             if (superMethodAnnotation == null && (fieldFromCache = ParserConfig.getFieldFromCache(decapitalize, map2)) != null) {
+                                superMethodAnnotation = (JSONField) fieldFromCache.getAnnotation(JSONField.class);
                                 sArr = sArr3;
                                 strArr = strArr3;
                                 annotationArr = annotationArr3;
                                 constructorArr = constructorArr3;
-                                jSONField = (JSONField) fieldFromCache.getAnnotation(JSONField.class);
-                                if (jSONField != null) {
-                                    if (jSONField.serialize()) {
-                                        i3 = jSONField.ordinal();
-                                        i4 = SerializerFeature.of(jSONField.serialzeFeatures());
-                                        i5 = Feature.of(jSONField.parseFeatures());
-                                        if (jSONField.name().length() != 0) {
-                                            String name2 = jSONField.name();
+                                if (superMethodAnnotation != null) {
+                                    if (superMethodAnnotation.serialize()) {
+                                        i3 = superMethodAnnotation.ordinal();
+                                        i4 = SerializerFeature.of(superMethodAnnotation.serialzeFeatures());
+                                        i5 = Feature.of(superMethodAnnotation.parseFeatures());
+                                        if (superMethodAnnotation.name().length() != 0) {
+                                            String name2 = superMethodAnnotation.name();
                                             if (map != null) {
-                                                String str5 = map.get(name2);
-                                                if (str5 == null) {
+                                                String str6 = map.get(name2);
+                                                if (str6 == null) {
                                                     sArr2 = sArr;
                                                     strArr2 = strArr;
                                                     annotationArr2 = annotationArr;
                                                     constructorArr2 = constructorArr;
                                                 } else {
-                                                    name2 = str5;
+                                                    name2 = str6;
                                                 }
                                             }
-                                            linkedHashMap.put(name2, new FieldInfo(name2, method, null, cls, null, i3, i4, i5, jSONField, null, null));
+                                            linkedHashMap.put(name2, new FieldInfo(name2, method, null, cls, null, i3, i4, i5, superMethodAnnotation, null, null));
                                             sArr2 = sArr;
                                             strArr2 = strArr;
                                             annotationArr2 = annotationArr;
                                             constructorArr2 = constructorArr;
-                                        } else if (jSONField.label().length() == 0) {
+                                        } else if (superMethodAnnotation.label().length() == 0) {
                                             bool2 = true;
                                         } else {
-                                            str4 = jSONField.label();
+                                            str5 = superMethodAnnotation.label();
                                             bool2 = true;
                                         }
                                     } else {
@@ -1340,62 +1329,63 @@ public class TypeUtils {
                                                 fieldFromCache2 = ParserConfig.getFieldFromCache(decapitalize(name.substring(3)), map2);
                                             }
                                             if (fieldFromCache2 == null) {
-                                                jSONField3 = null;
-                                                String str6 = propertyNameByCompatibleFieldName;
+                                                jSONField2 = null;
                                                 bool = bool2;
-                                                str3 = str6;
                                             } else {
-                                                JSONField jSONField5 = (JSONField) fieldFromCache2.getAnnotation(JSONField.class);
-                                                if (jSONField5 == null) {
-                                                    jSONField3 = jSONField5;
-                                                    String str7 = propertyNameByCompatibleFieldName;
-                                                    bool = bool2;
-                                                    str3 = str7;
-                                                } else if (jSONField5.serialize()) {
-                                                    i3 = jSONField5.ordinal();
-                                                    i4 = SerializerFeature.of(jSONField5.serialzeFeatures());
-                                                    i5 = Feature.of(jSONField5.parseFeatures());
-                                                    if (jSONField5.name().length() != 0) {
-                                                        str3 = jSONField5.name();
-                                                        if (map != null && (str3 = map.get(str3)) == null) {
-                                                            sArr2 = sArr;
-                                                            strArr2 = strArr;
-                                                            annotationArr2 = annotationArr;
-                                                            constructorArr2 = constructorArr;
+                                                JSONField jSONField4 = (JSONField) fieldFromCache2.getAnnotation(JSONField.class);
+                                                if (jSONField4 != null) {
+                                                    bool = true;
+                                                    if (jSONField4.serialize()) {
+                                                        i3 = jSONField4.ordinal();
+                                                        i4 = SerializerFeature.of(jSONField4.serialzeFeatures());
+                                                        i5 = Feature.of(jSONField4.parseFeatures());
+                                                        if (jSONField4.name().length() != 0) {
+                                                            str4 = jSONField4.name();
+                                                            if (map != null && (str4 = map.get(str4)) == null) {
+                                                                sArr2 = sArr;
+                                                                strArr2 = strArr;
+                                                                annotationArr2 = annotationArr;
+                                                                constructorArr2 = constructorArr;
+                                                            }
+                                                        } else {
+                                                            str4 = propertyNameByCompatibleFieldName;
+                                                        }
+                                                        if (jSONField4.label().length() != 0) {
+                                                            str5 = jSONField4.label();
+                                                            jSONField2 = jSONField4;
+                                                            propertyNameByCompatibleFieldName = str4;
+                                                        } else {
+                                                            jSONField2 = jSONField4;
+                                                            propertyNameByCompatibleFieldName = str4;
                                                         }
                                                     } else {
-                                                        str3 = propertyNameByCompatibleFieldName;
-                                                    }
-                                                    if (jSONField5.label().length() == 0) {
-                                                        jSONField3 = jSONField5;
-                                                        bool = true;
-                                                    } else {
-                                                        str4 = jSONField5.label();
-                                                        jSONField3 = jSONField5;
-                                                        bool = true;
+                                                        sArr2 = sArr;
+                                                        strArr2 = strArr;
+                                                        annotationArr2 = annotationArr;
+                                                        constructorArr2 = constructorArr;
                                                     }
                                                 } else {
-                                                    sArr2 = sArr;
-                                                    strArr2 = strArr;
-                                                    annotationArr2 = annotationArr;
-                                                    constructorArr2 = constructorArr;
+                                                    jSONField2 = jSONField4;
+                                                    bool = bool2;
                                                 }
                                             }
                                             if (map != null) {
-                                                String str8 = map.get(str3);
-                                                if (str8 == null) {
+                                                String str7 = map.get(propertyNameByCompatibleFieldName);
+                                                if (str7 == null) {
                                                     sArr2 = sArr;
                                                     strArr2 = strArr;
                                                     annotationArr2 = annotationArr;
                                                     constructorArr2 = constructorArr;
                                                 } else {
-                                                    str3 = str8;
+                                                    str3 = str7;
                                                 }
+                                            } else {
+                                                str3 = propertyNameByCompatibleFieldName;
                                             }
                                             if (propertyNamingStrategy != null && !bool.booleanValue()) {
                                                 str3 = propertyNamingStrategy.translate(str3);
                                             }
-                                            linkedHashMap.put(str3, new FieldInfo(str3, method, fieldFromCache2, cls, null, i3, i4, i5, jSONField, jSONField3, str4));
+                                            linkedHashMap.put(str3, new FieldInfo(str3, method, fieldFromCache2, cls, null, i3, i4, i5, superMethodAnnotation, jSONField2, str5));
                                         }
                                     }
                                 }
@@ -1430,16 +1420,16 @@ public class TypeUtils {
                                                 fieldFromCache3 = ParserConfig.getFieldFromCache(name, map2);
                                             }
                                             if (fieldFromCache3 == null) {
-                                                jSONField2 = null;
+                                                jSONField = null;
                                             } else {
-                                                JSONField jSONField6 = (JSONField) fieldFromCache3.getAnnotation(JSONField.class);
-                                                if (jSONField6 != null) {
-                                                    if (jSONField6.serialize()) {
-                                                        i3 = jSONField6.ordinal();
-                                                        i4 = SerializerFeature.of(jSONField6.serialzeFeatures());
-                                                        i5 = Feature.of(jSONField6.parseFeatures());
-                                                        if (jSONField6.name().length() != 0) {
-                                                            substring = jSONField6.name();
+                                                JSONField jSONField5 = (JSONField) fieldFromCache3.getAnnotation(JSONField.class);
+                                                if (jSONField5 != null) {
+                                                    if (jSONField5.serialize()) {
+                                                        i3 = jSONField5.ordinal();
+                                                        i4 = SerializerFeature.of(jSONField5.serialzeFeatures());
+                                                        i5 = Feature.of(jSONField5.parseFeatures());
+                                                        if (jSONField5.name().length() != 0) {
+                                                            substring = jSONField5.name();
                                                             if (map != null && (substring = map.get(substring)) == null) {
                                                                 sArr2 = sArr;
                                                                 strArr2 = strArr;
@@ -1447,9 +1437,9 @@ public class TypeUtils {
                                                                 constructorArr2 = constructorArr;
                                                             }
                                                         }
-                                                        if (jSONField6.label().length() != 0) {
-                                                            str4 = jSONField6.label();
-                                                            jSONField2 = jSONField6;
+                                                        if (jSONField5.label().length() != 0) {
+                                                            str5 = jSONField5.label();
+                                                            jSONField = jSONField5;
                                                         }
                                                     } else {
                                                         sArr2 = sArr;
@@ -1458,17 +1448,17 @@ public class TypeUtils {
                                                         constructorArr2 = constructorArr;
                                                     }
                                                 }
-                                                jSONField2 = jSONField6;
+                                                jSONField = jSONField5;
                                             }
                                             if (map != null) {
-                                                String str9 = map.get(substring);
-                                                if (str9 == null) {
+                                                String str8 = map.get(substring);
+                                                if (str8 == null) {
                                                     sArr2 = sArr;
                                                     strArr2 = strArr;
                                                     annotationArr2 = annotationArr;
                                                     constructorArr2 = constructorArr;
                                                 } else {
-                                                    substring = str9;
+                                                    substring = str8;
                                                 }
                                             }
                                             if (propertyNamingStrategy != null) {
@@ -1480,7 +1470,7 @@ public class TypeUtils {
                                                 annotationArr2 = annotationArr;
                                                 constructorArr2 = constructorArr;
                                             } else {
-                                                linkedHashMap.put(substring, new FieldInfo(substring, method, fieldFromCache3, cls, null, i3, i4, i5, jSONField, jSONField2, str4));
+                                                linkedHashMap.put(substring, new FieldInfo(substring, method, fieldFromCache3, cls, null, i3, i4, i5, superMethodAnnotation, jSONField, str5));
                                             }
                                         }
                                     } else {
@@ -1502,8 +1492,7 @@ public class TypeUtils {
                 strArr = strArr3;
                 annotationArr = annotationArr3;
                 constructorArr = constructorArr3;
-                jSONField = superMethodAnnotation;
-                if (jSONField != null) {
+                if (superMethodAnnotation != null) {
                 }
                 if (name.startsWith("get")) {
                 }
@@ -1515,10 +1504,10 @@ public class TypeUtils {
                 constructorArr2 = constructorArr;
             }
             i2++;
-            annotationArr3 = annotationArr2;
-            constructorArr3 = constructorArr2;
             sArr3 = sArr2;
             strArr3 = strArr2;
+            annotationArr3 = annotationArr2;
+            constructorArr3 = constructorArr2;
         }
         computeFields(cls, map, propertyNamingStrategy, linkedHashMap, cls.getFields());
         return getFieldInfos(cls, z, linkedHashMap);
@@ -1872,23 +1861,23 @@ public class TypeUtils {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:36:0x011f */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x0034 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:36:0x011a */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x002f */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r4v11, types: [java.lang.Class] */
-    /* JADX WARN: Type inference failed for: r4v3, types: [java.lang.Class] */
-    /* JADX WARN: Type inference failed for: r4v4, types: [java.lang.Class] */
-    /* JADX WARN: Type inference failed for: r4v5, types: [java.lang.Class] */
-    /* JADX WARN: Type inference failed for: r4v6, types: [java.lang.Class] */
-    /* JADX WARN: Type inference failed for: r4v7, types: [java.lang.Class] */
-    /* JADX WARN: Type inference failed for: r4v8, types: [java.lang.Class] */
-    /* JADX WARN: Type inference failed for: r4v9, types: [java.lang.Class] */
+    /* JADX WARN: Type inference failed for: r3v11, types: [java.lang.Class] */
+    /* JADX WARN: Type inference failed for: r3v3, types: [java.lang.Class] */
+    /* JADX WARN: Type inference failed for: r3v4, types: [java.lang.Class] */
+    /* JADX WARN: Type inference failed for: r3v5, types: [java.lang.Class] */
+    /* JADX WARN: Type inference failed for: r3v6, types: [java.lang.Class] */
+    /* JADX WARN: Type inference failed for: r3v7, types: [java.lang.Class] */
+    /* JADX WARN: Type inference failed for: r3v8, types: [java.lang.Class] */
+    /* JADX WARN: Type inference failed for: r3v9, types: [java.lang.Class] */
     public static Type checkPrimitiveArray(GenericArrayType genericArrayType) {
         Type genericComponentType = genericArrayType.getGenericComponentType();
         String str = "[";
         while (genericComponentType instanceof GenericArrayType) {
-            str = str + str;
             genericComponentType = ((GenericArrayType) genericComponentType).getGenericComponentType();
+            str = str + str;
         }
         if (genericComponentType instanceof Class) {
             Class cls = (Class) genericComponentType;
@@ -1901,7 +1890,7 @@ public class TypeUtils {
                     } else if (cls == Byte.TYPE) {
                         genericArrayType = Class.forName(str + "B");
                     } else if (cls == Short.TYPE) {
-                        genericArrayType = Class.forName(str + ExifInterface.LATITUDE_SOUTH);
+                        genericArrayType = Class.forName(str + "S");
                     } else if (cls == Integer.TYPE) {
                         genericArrayType = Class.forName(str + "I");
                     } else if (cls == Long.TYPE) {

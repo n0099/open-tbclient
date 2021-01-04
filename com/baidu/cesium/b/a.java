@@ -8,9 +8,9 @@ import com.baidu.cesium.g;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import java.util.Comparator;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public abstract class a {
-    public static Comparator<a> ani = new Comparator<a>() { // from class: com.baidu.cesium.b.a.1
+    public static Comparator<a> d = new Comparator<a>() { // from class: com.baidu.cesium.b.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
@@ -19,30 +19,32 @@ public abstract class a {
             return b2 != 0 ? b2 > 0 ? -1 : 1 : aVar.a().compareTo(aVar2.a());
         }
     };
-    protected C0099a ang;
-    protected a.C0102a anh;
+    protected C0091a anL;
+    protected a.C0094a anM;
     private final String e;
     private long f;
 
     /* renamed from: com.baidu.cesium.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes14.dex */
-    public static class C0099a {
+    /* loaded from: classes4.dex */
+    public static class C0091a {
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f1296a;
-        public com.baidu.cesium.e.a anj;
+        public Context f1669a;
+        public com.baidu.cesium.e.a anN;
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes4.dex */
     public static abstract class b {
-        private a.C0102a ank;
-        private String b;
+        private a.C0094a anO;
+
+        /* renamed from: b  reason: collision with root package name */
+        private String f1670b;
         private String c;
         private boolean d = true;
 
-        public b(a.C0102a c0102a, String str) {
-            this.ank = c0102a;
-            this.b = str;
+        public b(a.C0094a c0094a, String str) {
+            this.anO = c0094a;
+            this.f1670b = str;
             this.c = "target-pkg-" + Base64.encodeToString(str.getBytes(), 3);
         }
 
@@ -53,7 +55,7 @@ public abstract class a {
         }
 
         public boolean a() {
-            String a2 = this.ank.a(this.c, true);
+            String a2 = this.anO.a(this.c, true);
             if (!TextUtils.isEmpty(a2)) {
                 try {
                     a(new JSONObject(a2));
@@ -72,7 +74,7 @@ public abstract class a {
                 try {
                     JSONObject jSONObject = new JSONObject();
                     b(jSONObject);
-                    this.ank.c(this.c, jSONObject.toString(), true);
+                    this.anO.a(this.c, jSONObject.toString(), true);
                     a(false);
                     return true;
                 } catch (Exception e) {
@@ -82,15 +84,15 @@ public abstract class a {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes4.dex */
     public static class c {
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes4.dex */
     public static class d {
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes4.dex */
     public static class e {
         public Exception e;
         private int f;
@@ -106,34 +108,36 @@ public abstract class a {
             return new e(-1, i, null);
         }
 
-        public static e ut() {
+        public static e tS() {
             return new e(0, 0, null);
         }
 
-        public static e uu() {
+        public static e tT() {
             return bH(0);
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes4.dex */
     public static class f {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f1297a;
+        public boolean f1671a;
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes4.dex */
     public static class g {
 
         /* renamed from: a  reason: collision with root package name */
-        public g.a f1298a;
-        public Exception aea;
-        public int b;
+        public g.a f1672a;
+        public Exception aeP;
+
+        /* renamed from: b  reason: collision with root package name */
+        public int f1673b;
 
         public g(int i, g.a aVar, Exception exc) {
-            this.b = i;
-            this.f1298a = aVar;
-            this.aea = exc;
+            this.f1673b = i;
+            this.f1672a = aVar;
+            this.aeP = exc;
         }
 
         public static g bI(int i) {
@@ -144,12 +148,12 @@ public abstract class a {
             return new g(0, aVar, null);
         }
 
-        public static g uv() {
+        public static g tU() {
             return new g(-1, null, null);
         }
 
         public boolean a() {
-            return this.b == 0;
+            return this.f1673b == 0;
         }
     }
 
@@ -166,9 +170,9 @@ public abstract class a {
         return this.e;
     }
 
-    public final void a(C0099a c0099a) {
-        this.ang = c0099a;
-        this.anh = c0099a.anj.uy().dt(IXAdRequestInfo.CS);
+    public final void a(C0091a c0091a) {
+        this.anL = c0091a;
+        this.anM = c0091a.anN.tX().dm(IXAdRequestInfo.CS);
     }
 
     public abstract void a(c cVar);

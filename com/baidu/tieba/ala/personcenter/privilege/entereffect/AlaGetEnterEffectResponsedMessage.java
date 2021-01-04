@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.personcenter.privilege.entereffect;
 
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.q;
+import com.baidu.adp.widget.ListView.n;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
@@ -10,9 +10,9 @@ import java.util.LinkedList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class AlaGetEnterEffectResponsedMessage extends JsonHttpResponsedMessage {
-    private List<q> mEffectList;
+    private List<n> mEffectList;
     private int mEnterEffectCount;
     private String mNickName;
     private String mPortrait;
@@ -79,7 +79,7 @@ public class AlaGetEnterEffectResponsedMessage extends JsonHttpResponsedMessage 
         return this.mEnterEffectCount;
     }
 
-    public List<q> getEffectList() {
+    public List<n> getEffectList() {
         return this.mEffectList;
     }
 }

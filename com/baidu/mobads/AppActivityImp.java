@@ -27,7 +27,7 @@ import java.lang.reflect.Method;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class AppActivityImp {
     public static final String EXTRA_AD_INSTANCE_INFO = "EXTRA_DATA_STRING_AD";
     public static final String EXTRA_COMMAND_EXTRA_INFO = "EXTRA_DATA_STRING_COM";
@@ -36,25 +36,27 @@ public class AppActivityImp {
     private static Class<?> d;
 
     /* renamed from: a  reason: collision with root package name */
-    private Activity f2301a;
+    private Activity f3309a;
     private Object c;
     private Method[] e = null;
-    private static boolean b = false;
+
+    /* renamed from: b  reason: collision with root package name */
+    private static boolean f3308b = false;
     private static AtomicBoolean f = new AtomicBoolean(false);
 
     public AppActivityImp(Activity activity) {
-        this.f2301a = activity;
+        this.f3309a = activity;
     }
 
     public AppActivityImp() {
     }
 
     public void setActivity(Activity activity) {
-        this.f2301a = activity;
+        this.f3309a = activity;
     }
 
     public static void canLpShowWhenLocked(boolean z) {
-        b = z;
+        f3308b = z;
     }
 
     public static boolean isAppActivityOpening() {
@@ -206,12 +208,12 @@ public class AppActivityImp {
     public void onCreate(Bundle bundle) {
         try {
             f.set(true);
-            Intent intent = this.f2301a.getIntent();
+            Intent intent = this.f3309a.getIntent();
             if (AppActivity.isAnti() && intent.getParcelableExtra(EXTRA_DATA) == null) {
                 XAdLandingPageExtraInfo xAdLandingPageExtraInfo = new XAdLandingPageExtraInfo((String) null, new XAdInstanceInfo(new JSONObject()));
-                a(XAdLandingPageExtraInfo.class, xAdLandingPageExtraInfo, this.f2301a.getIntent().getStringExtra(EXTRA_LANDINGPAGE_EXTRA_INFO));
-                a(XAdCommandExtraInfo.class, xAdLandingPageExtraInfo, this.f2301a.getIntent().getStringExtra(EXTRA_COMMAND_EXTRA_INFO));
-                a(XAdInstanceInfo.class, xAdLandingPageExtraInfo.getAdInstanceInfo(), this.f2301a.getIntent().getStringExtra(EXTRA_AD_INSTANCE_INFO));
+                a(XAdLandingPageExtraInfo.class, xAdLandingPageExtraInfo, this.f3309a.getIntent().getStringExtra(EXTRA_LANDINGPAGE_EXTRA_INFO));
+                a(XAdCommandExtraInfo.class, xAdLandingPageExtraInfo, this.f3309a.getIntent().getStringExtra(EXTRA_COMMAND_EXTRA_INFO));
+                a(XAdInstanceInfo.class, xAdLandingPageExtraInfo.getAdInstanceInfo(), this.f3309a.getIntent().getStringExtra(EXTRA_AD_INSTANCE_INFO));
                 intent.putExtra(EXTRA_DATA, xAdLandingPageExtraInfo);
             }
             DexClassLoader d2 = com.baidu.mobads.g.b.d();
@@ -221,8 +223,8 @@ public class AppActivityImp {
                 d = loadLocalApk("com.baidu.mobads.container.landingpage.App2Activity");
             }
             this.e = d.getDeclaredMethods();
-            this.c = d.getConstructor(Activity.class).newInstance(this.f2301a);
-            invokeRemoteStatic("canLpShowWhenLocked", Boolean.valueOf(b));
+            this.c = d.getConstructor(Activity.class).newInstance(this.f3309a);
+            invokeRemoteStatic("canLpShowWhenLocked", Boolean.valueOf(f3308b));
             com.baidu.mobads.utils.m.a().d("com.baidu.mobads.container.landingpage.App2Activity", d, this.c);
         } catch (Exception e) {
             com.baidu.mobads.utils.m.a().e(e);
@@ -234,7 +236,7 @@ public class AppActivityImp {
         Class<?> cls = null;
         com.baidu.mobads.utils.m a2 = com.baidu.mobads.utils.m.a();
         try {
-            cls = Class.forName(str, true, new DexClassLoader(com.baidu.mobads.g.g.a(this.f2301a), this.f2301a.getFilesDir().getAbsolutePath(), null, getClass().getClassLoader()));
+            cls = Class.forName(str, true, new DexClassLoader(com.baidu.mobads.g.g.a(this.f3309a), this.f3309a.getFilesDir().getAbsolutePath(), null, getClass().getClassLoader()));
         } catch (Exception e) {
             a2.e(e);
         }

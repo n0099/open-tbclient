@@ -3,7 +3,7 @@ package com.baidu.tieba.ala.data;
 import com.baidu.live.tbadk.core.data.BaseData;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class PkStatusInfoData extends BaseData implements Serializable {
     public long anchorScore;
     public long endTime;

@@ -7,12 +7,14 @@ import android.view.animation.Interpolator;
 import com.baidu.live.tbadk.img.effect.RotateImageAction;
 import com.baidu.mapapi.animation.Animation;
 import com.baidu.mapapi.map.Marker;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class f extends c {
 
     /* renamed from: a  reason: collision with root package name */
-    private Animator f2196a = null;
-    private long b = 0;
+    private Animator f3125a = null;
+
+    /* renamed from: b  reason: collision with root package name */
+    private long f3126b = 0;
     private Interpolator c = null;
     private Animation.AnimationListener d = null;
     private int e = 1;
@@ -30,7 +32,7 @@ public class f extends c {
         if (ofFloat != null) {
             ofFloat.setRepeatCount(this.f);
             ofFloat.setRepeatMode(c());
-            ofFloat.setDuration(this.b);
+            ofFloat.setDuration(this.f3126b);
             if (this.c != null) {
                 ofFloat.setInterpolator(this.c);
             }
@@ -41,10 +43,10 @@ public class f extends c {
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     @TargetApi(11)
     public void a() {
-        if (this.f2196a == null) {
+        if (this.f3125a == null) {
             return;
         }
-        this.f2196a.start();
+        this.f3125a.start();
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
@@ -57,7 +59,7 @@ public class f extends c {
         if (j < 0) {
             j = 0;
         }
-        this.b = j;
+        this.f3126b = j;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
@@ -82,16 +84,16 @@ public class f extends c {
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     @TargetApi(11)
     public void a(Marker marker, Animation animation) {
-        this.f2196a = a(marker);
-        a(this.f2196a);
+        this.f3125a = a(marker);
+        a(this.f3125a);
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     @TargetApi(11)
     public void b() {
-        if (this.f2196a != null) {
-            this.f2196a.cancel();
-            this.f2196a = null;
+        if (this.f3125a != null) {
+            this.f3125a.cancel();
+            this.f3125a = null;
         }
     }
 

@@ -1,6 +1,6 @@
 package com.baidu.searchbox.player.session;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.player.BDPlayerConfig;
 import com.baidu.searchbox.player.BDVideoPlayer;
 import com.baidu.searchbox.player.annotation.PublicMethod;
@@ -12,7 +12,7 @@ import com.baidu.searchbox.player.interfaces.IVideoEventInterceptor;
 import com.baidu.searchbox.player.layer.ILayer;
 import com.baidu.searchbox.player.message.IMessenger;
 import com.baidu.searchbox.player.pool.IPoolItem;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public final class VideoSession implements IPoolItem {
     private ControlEventTrigger mControlEventTrigger;
     private IMessenger mCourier;
@@ -46,14 +46,14 @@ public final class VideoSession implements IPoolItem {
         return this.mCourier;
     }
 
-    @PublicMethod
     @NonNull
+    @PublicMethod
     public VideoKernelState getState() {
         return this.mState;
     }
 
-    @PublicMethod
     @NonNull
+    @PublicMethod
     public PlayerStatus getStatus() {
         return this.mState.getStatus();
     }
@@ -93,14 +93,14 @@ public final class VideoSession implements IPoolItem {
         return this.mState.isPreparing();
     }
 
-    @PublicMethod
     @NonNull
+    @PublicMethod
     public PlayerEventTrigger getPlayerEventTrigger() {
         return this.mPlayerEventTrigger;
     }
 
-    @PublicMethod
     @NonNull
+    @PublicMethod
     public ControlEventTrigger getControlEventTrigger() {
         return this.mControlEventTrigger;
     }

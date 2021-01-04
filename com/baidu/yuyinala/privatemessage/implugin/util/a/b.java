@@ -11,20 +11,21 @@ import android.media.ExifInterface;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
+import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class b {
     private static final String TAG;
-    public static double oVA;
-    private static final boolean oVz;
+    private static final boolean pbE;
+    public static double pbF;
 
     static {
-        oVz = Build.VERSION.SDK_INT >= 11;
+        pbE = Build.VERSION.SDK_INT >= 11;
         TAG = b.class.getSimpleName();
-        oVA = 1.778d;
+        pbF = 1.778d;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [106=5, 108=4, 109=4, 110=4] */
@@ -129,10 +130,10 @@ public class b {
                 if (Math.max(options.outWidth, options.outHeight) > 0) {
                     float max = f / Math.max(options.outWidth, options.outHeight);
                     float f2 = max <= 1.0f ? max : 1.0f;
-                    options.inSampleSize = bp(f2);
+                    options.inSampleSize = bA(f2);
                     options.inJustDecodeBounds = false;
                     options.inPreferredConfig = Bitmap.Config.ARGB_4444;
-                    b(options);
+                    e(options);
                     return a(BitmapFactory.decodeFile(str, options), f2, readPictureDegree(str), f);
                 }
                 return null;
@@ -153,7 +154,7 @@ public class b {
         if (max <= 0.5d) {
             bitmap = a(bitmap, max, true);
         }
-        return a(i, aa(bitmap));
+        return b(i, Z(bitmap));
     }
 
     private static Bitmap a(Bitmap bitmap, float f, boolean z) {
@@ -176,7 +177,7 @@ public class b {
         return bitmap;
     }
 
-    private static Bitmap aa(Bitmap bitmap) {
+    private static Bitmap Z(Bitmap bitmap) {
         if (bitmap != null && bitmap.getConfig() == null) {
             Bitmap copy = bitmap.copy(Bitmap.Config.ARGB_8888, false);
             bitmap.recycle();
@@ -186,15 +187,15 @@ public class b {
     }
 
     @TargetApi(11)
-    private static void b(BitmapFactory.Options options) {
-        if (oVz) {
+    private static void e(BitmapFactory.Options options) {
+        if (pbE) {
             options.inMutable = true;
         }
     }
 
     public static int readPictureDegree(String str) {
         try {
-            switch (new ExifInterface(str).getAttributeInt(android.support.media.ExifInterface.TAG_ORIENTATION, 1)) {
+            switch (new ExifInterface(str).getAttributeInt("Orientation", 1)) {
                 case 3:
                     return 180;
                 case 4:
@@ -205,7 +206,7 @@ public class b {
                 case 6:
                     return 90;
                 case 8:
-                    return 270;
+                    return SubsamplingScaleImageView.ORIENTATION_270;
             }
         } catch (IOException e) {
             Log.e(TAG, e.getMessage());
@@ -213,22 +214,22 @@ public class b {
         }
     }
 
-    private static int bp(float f) {
+    private static int bA(float f) {
         int floor = (int) Math.floor(1.0f / f);
         if (floor <= 1) {
             return 1;
         }
-        return floor <= 8 ? Py(floor) : (floor / 8) * 8;
+        return floor <= 8 ? Pm(floor) : (floor / 8) * 8;
     }
 
-    private static int Py(int i) throws IllegalArgumentException {
+    private static int Pm(int i) throws IllegalArgumentException {
         if (i <= 0) {
             throw new IllegalArgumentException();
         }
         return Integer.highestOneBit(i);
     }
 
-    public static Bitmap a(int i, Bitmap bitmap) {
+    public static Bitmap b(int i, Bitmap bitmap) {
         Matrix matrix = new Matrix();
         matrix.postRotate(i);
         Bitmap createBitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
@@ -238,16 +239,18 @@ public class b {
 
     public static int[] d(Context context, int i, int i2) {
         int i3;
+        int i4;
         int[] iArr = new int[2];
-        int i4 = ((int) context.getResources().getDisplayMetrics().density) * 120;
+        int i5 = ((int) context.getResources().getDisplayMetrics().density) * 120;
         if (i >= i2) {
-            i3 = (int) ((i4 / i) * i2);
+            i4 = (int) ((i5 / i) * i2);
+            i3 = i5;
         } else {
-            i4 = (int) ((i4 / i2) * i);
-            i3 = i4;
+            i3 = (int) ((i5 / i2) * i);
+            i4 = i5;
         }
-        iArr[0] = i4;
-        iArr[1] = i3;
+        iArr[0] = i3;
+        iArr[1] = i4;
         return iArr;
     }
 }

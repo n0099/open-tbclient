@@ -3,7 +3,6 @@ package com.baidu.webkit.internal.daemon;
 import android.content.Context;
 import android.os.Build;
 import android.util.Base64;
-import com.baidu.searchbox.ui.animview.praise.guide.ControlShowManager;
 import com.baidu.webkit.internal.CfgFileUtils;
 import com.baidu.webkit.internal.ConectivityUtils;
 import com.baidu.webkit.internal.ETAG;
@@ -25,7 +24,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public class CloudSettings implements INoProGuard, INetListener {
     private static final String CLOUD_SETTING_URL = "https://browserkernel.baidu.com/config/t5config?cmd=1&";
     private static final String CLOUD_SETTING_URL_HTTP = "http://browserkernel.baidu.com/config/t5config?cmd=1&";
@@ -41,12 +40,14 @@ public class CloudSettings implements INoProGuard, INetListener {
     private int mNetres = -1;
     private ByteArrayOutputStream mData = null;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f3940a;
-        public int b = -1;
+        public long f5966a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public int f5967b = -1;
         public boolean c;
 
         public a() {
@@ -54,12 +55,12 @@ public class CloudSettings implements INoProGuard, INetListener {
 
         final void a(int i) {
             Log.w(CloudSettings.LOG_TAG, "setNetRes " + i);
-            this.b = i;
+            this.f5967b = i;
         }
 
         final void a(long j) {
             Log.w(CloudSettings.LOG_TAG, "setNetTime " + j);
-            this.f3940a = j;
+            this.f5966a = j;
         }
 
         final void a(boolean z) {
@@ -100,8 +101,8 @@ public class CloudSettings implements INoProGuard, INetListener {
         if (bArr == null || bArr.length <= 0) {
             return null;
         }
-        for (byte b : bArr) {
-            String hexString = Integer.toHexString(b & 255);
+        for (byte b2 : bArr) {
+            String hexString = Integer.toHexString(b2 & 255);
             if (hexString.length() < 2) {
                 sb.append(0);
             }
@@ -141,7 +142,7 @@ public class CloudSettings implements INoProGuard, INetListener {
     }
 
     private static String refFormatNowDate() {
-        return new SimpleDateFormat(ControlShowManager.DAY_TIME_FORMAT).format(new Date(System.currentTimeMillis()));
+        return new SimpleDateFormat("yyyy-MM-dd").format(new Date(System.currentTimeMillis()));
     }
 
     public static void restoreLastSentTimeFromCfg() {
@@ -292,8 +293,6 @@ public class CloudSettings implements INoProGuard, INetListener {
 
     @Override // com.baidu.webkit.net.INetListener
     public void onNetTaskComplete(BdNet bdNet, BdNetTask bdNetTask) {
-        byte[] bArr;
-        Exception e;
         a aVar = new a();
         aVar.a(System.currentTimeMillis() - this.mStartTime);
         aVar.a(1);
@@ -318,21 +317,13 @@ public class CloudSettings implements INoProGuard, INetListener {
         Log.w(LOG_TAG, "onNetDownloadComplete " + byteArray.length);
         Log.w(LOG_TAG, "onNetDownloadComplete url " + bdNetTask.getUrl());
         try {
-            bArr = new d(WebSettingsGlobalBlink.getRc4SecrectKey()).a(byteArray);
-            try {
-                WebSettingsGlobalBlink.setCloudSettings(new String(bArr, "utf-8"));
-                VideoCloudSetting.saveVideoSettingToCfg();
-            } catch (Exception e2) {
-                e = e2;
-                e.printStackTrace();
-                saveLastSentTimeToCfg(bArr);
-                mReady = true;
-            }
-        } catch (Exception e3) {
-            bArr = byteArray;
-            e = e3;
+            byteArray = new d(WebSettingsGlobalBlink.getRc4SecrectKey()).a(byteArray);
+            WebSettingsGlobalBlink.setCloudSettings(new String(byteArray, "utf-8"));
+            VideoCloudSetting.saveVideoSettingToCfg();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        saveLastSentTimeToCfg(bArr);
+        saveLastSentTimeToCfg(byteArray);
         mReady = true;
     }
 

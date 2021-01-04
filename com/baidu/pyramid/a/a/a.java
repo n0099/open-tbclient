@@ -1,8 +1,8 @@
 package com.baidu.pyramid.a.a;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class a<T> implements c<T> {
-    public com.baidu.pyramid.a.a<T> coA;
-    public com.baidu.pyramid.a.a<T> coz;
+    public com.baidu.pyramid.a.a<T> cvF;
+    public com.baidu.pyramid.a.a<T> cvG;
     public T t;
 
     @Override // com.baidu.pyramid.a.a.c
@@ -10,11 +10,11 @@ public class a<T> implements c<T> {
         if (this.t != null) {
             return this.t;
         }
-        if (this.coz != null) {
-            this.t = this.coz.get();
+        if (this.cvF != null) {
+            this.t = this.cvF.get();
             return this.t;
-        } else if (this.coA != null) {
-            return this.coA.get();
+        } else if (this.cvG != null) {
+            return this.cvG.get();
         } else {
             return null;
         }
@@ -22,11 +22,11 @@ public class a<T> implements c<T> {
 
     @Override // com.baidu.pyramid.a.a.c
     public void a(com.baidu.pyramid.a.a<T> aVar) {
-        this.coz = aVar;
+        this.cvF = aVar;
         this.t = null;
     }
 
-    public static a afD() {
+    public static a ahz() {
         return new a();
     }
 }

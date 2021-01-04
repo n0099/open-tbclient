@@ -1,7 +1,7 @@
 package com.google.zxing;
 
-import android.support.v4.view.ViewCompat;
-/* loaded from: classes16.dex */
+import androidx.core.view.ViewCompat;
+/* loaded from: classes6.dex */
 public final class PlanarYUVLuminanceSource extends LuminanceSource {
     private static final int THUMBNAIL_SCALE_FACTOR = 2;
     private final int dataHeight;
@@ -101,9 +101,9 @@ public final class PlanarYUVLuminanceSource extends LuminanceSource {
             int i6 = (i3 + i) - 1;
             int i7 = i3;
             while (i7 < i5) {
-                byte b = bArr[i7];
+                byte b2 = bArr[i7];
                 bArr[i7] = bArr[i6];
-                bArr[i6] = b;
+                bArr[i6] = b2;
                 i7++;
                 i6--;
             }

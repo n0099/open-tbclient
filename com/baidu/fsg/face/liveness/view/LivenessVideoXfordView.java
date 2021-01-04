@@ -11,18 +11,20 @@ import android.graphics.RectF;
 import android.graphics.Xfermode;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class LivenessVideoXfordView extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final float f1763a = 230.0f;
-    private static final float b = 20.0f;
+    private static final float f2407a = 230.0f;
+
+    /* renamed from: b  reason: collision with root package name */
+    private static final float f2408b = 20.0f;
     private float c;
     private float d;
     private int e;
@@ -45,14 +47,14 @@ public class LivenessVideoXfordView extends FrameLayout {
     private int v;
     private a w;
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes6.dex */
     public enum VideoXfordViewState {
         FAILURE,
         SUCCESSING,
         SUCCESSED
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a();
     }
@@ -65,15 +67,15 @@ public class LivenessVideoXfordView extends FrameLayout {
 
     public LivenessVideoXfordView(@NonNull Context context) {
         super(context);
-        this.c = f1763a;
-        this.d = b;
+        this.c = f2407a;
+        this.d = f2408b;
         a();
     }
 
     public LivenessVideoXfordView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.c = f1763a;
-        this.d = b;
+        this.c = f2407a;
+        this.d = f2408b;
         a();
     }
 
@@ -134,8 +136,8 @@ public class LivenessVideoXfordView extends FrameLayout {
                     return;
                 }
                 LivenessVideoXfordView.this.v += 2;
-                LivenessVideoXfordView.this.d = LivenessVideoXfordView.b + LivenessVideoXfordView.this.v;
-                LivenessVideoXfordView.this.c = (LivenessVideoXfordView.f1763a + (LivenessVideoXfordView.this.v * 1)) % 360.0f;
+                LivenessVideoXfordView.this.d = LivenessVideoXfordView.f2408b + LivenessVideoXfordView.this.v;
+                LivenessVideoXfordView.this.c = (LivenessVideoXfordView.f2407a + (LivenessVideoXfordView.this.v * 1)) % 360.0f;
                 LivenessVideoXfordView.this.invalidate();
                 LivenessVideoXfordView.this.t.postDelayed(LivenessVideoXfordView.this.u, 3L);
             }
@@ -185,8 +187,8 @@ public class LivenessVideoXfordView extends FrameLayout {
                 b();
             } else if (this.n == VideoXfordViewState.SUCCESSING) {
                 this.w = aVar;
-                this.c = b;
-                this.d = b;
+                this.c = f2408b;
+                this.d = f2408b;
                 this.q.removeCallbacksAndMessages(null);
                 c();
             } else if (this.n == VideoXfordViewState.SUCCESSED) {

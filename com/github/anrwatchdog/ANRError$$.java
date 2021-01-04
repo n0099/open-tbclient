@@ -2,13 +2,13 @@ package com.github.anrwatchdog;
 
 import java.io.Serializable;
 /* JADX INFO: Access modifiers changed from: private */
-/* loaded from: classes19.dex */
+/* loaded from: classes5.dex */
 public class ANRError$$ implements Serializable {
     private final String _name;
     private final StackTraceElement[] _stackTrace;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes19.dex */
+    /* loaded from: classes5.dex */
     public class _Thread extends Throwable {
         private _Thread(_Thread _thread) {
             super(ANRError$$.this._name, _thread);

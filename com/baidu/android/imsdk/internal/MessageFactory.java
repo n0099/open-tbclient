@@ -10,7 +10,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class MessageFactory {
     private static final String TAG = MessageFactory.class.getSimpleName();
     private static MessageFactory mInstance = null;
@@ -47,9 +47,8 @@ public class MessageFactory {
         return invokeMethod(context, "parseBody", i, new Class[]{Context.class, String.class, String.class, String.class}, new Object[]{context, str, str2, str3}, null);
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: java.lang.reflect.Method */
-    /* JADX WARN: Multi-variable type inference failed */
     private Message invokeMethod(Context context, String str, int i, Class<?>[] clsArr, Object[] objArr, Intent intent) {
+        Method method;
         Message message;
         Message message2;
         Message message3 = null;
@@ -63,16 +62,15 @@ public class MessageFactory {
                 return null;
             }
             try {
-                Method method = cls.getMethod(str, clsArr);
-                if (method != 0) {
+                method = cls.getMethod(str, clsArr);
+                if (method != null) {
                     try {
                         message3 = (Message) method.invoke(cls, objArr);
                     } catch (Exception e) {
                         e = e;
                         message = null;
-                        message3 = method;
                         new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
-                        LogUtils.e(LogUtils.TAG, "IllegalArgumentException " + cls.getSimpleName() + ":" + message3, e);
+                        LogUtils.e(LogUtils.TAG, "IllegalArgumentException " + cls.getSimpleName() + ":" + method, e);
                         message2 = message;
                         return message2;
                     }
@@ -85,9 +83,8 @@ public class MessageFactory {
                     } catch (Exception e2) {
                         e = e2;
                         message = message3;
-                        message3 = method;
                         new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
-                        LogUtils.e(LogUtils.TAG, "IllegalArgumentException " + cls.getSimpleName() + ":" + message3, e);
+                        LogUtils.e(LogUtils.TAG, "IllegalArgumentException " + cls.getSimpleName() + ":" + method, e);
                         message2 = message;
                         return message2;
                     }
@@ -95,6 +92,7 @@ public class MessageFactory {
                 message2 = message3;
             } catch (Exception e3) {
                 e = e3;
+                method = null;
                 message = null;
             }
             return message2;

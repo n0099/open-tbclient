@@ -6,57 +6,57 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.widget.ListView.q;
+import com.baidu.adp.widget.ListView.n;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.ala.alasquare.live_tab.c.b;
 import com.baidu.tieba.ala.alasquare.subtablist.message.SdkLiveInfoListResponsedMessage;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class AlaLiveTabGameModel extends BdBaseModel {
-    private String fFV;
-    private b gsE;
-    private a gsF;
-    private String gsd;
-    private boolean gsy;
+    private String fPy;
+    private b gDD;
+    private a gDE;
+    private String gDc;
+    private boolean gDx;
     private boolean hasMore;
     private int mPn;
     private TbPageContext mTbPageContext;
-    private HttpMessageListener gsG = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GAME_LIVE_LIST) { // from class: com.baidu.tieba.ala.alasquare.live_tab.model.AlaLiveTabGameModel.1
+    private HttpMessageListener gDF = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GAME_LIVE_LIST) { // from class: com.baidu.tieba.ala.alasquare.live_tab.model.AlaLiveTabGameModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021150 && (httpResponsedMessage instanceof SdkLiveInfoListResponsedMessage) && httpResponsedMessage.getOrginalMessage().getTag() == AlaLiveTabGameModel.this.mCurTag) {
                 SdkLiveInfoListResponsedMessage sdkLiveInfoListResponsedMessage = (SdkLiveInfoListResponsedMessage) httpResponsedMessage;
                 if (sdkLiveInfoListResponsedMessage.getError() != 0 || !sdkLiveInfoListResponsedMessage.isSuccess()) {
-                    if (AlaLiveTabGameModel.this.gsF != null) {
-                        AlaLiveTabGameModel.this.gsF.h(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), AlaLiveTabGameModel.this.gsy);
+                    if (AlaLiveTabGameModel.this.gDE != null) {
+                        AlaLiveTabGameModel.this.gDE.h(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), AlaLiveTabGameModel.this.gDx);
                     }
                 } else {
-                    if (AlaLiveTabGameModel.this.gsy) {
-                        AlaLiveTabGameModel.this.gsE.l(sdkLiveInfoListResponsedMessage.getLiveList(), sdkLiveInfoListResponsedMessage.hasMore());
+                    if (AlaLiveTabGameModel.this.gDx) {
+                        AlaLiveTabGameModel.this.gDD.l(sdkLiveInfoListResponsedMessage.getLiveList(), sdkLiveInfoListResponsedMessage.hasMore());
                     } else {
-                        if (AlaLiveTabGameModel.this.gsE != null) {
-                            AlaLiveTabGameModel.this.gsE.clear();
+                        if (AlaLiveTabGameModel.this.gDD != null) {
+                            AlaLiveTabGameModel.this.gDD.clear();
                         }
-                        AlaLiveTabGameModel.this.gsE = new b(sdkLiveInfoListResponsedMessage.getLiveList(), sdkLiveInfoListResponsedMessage.hasMore(), AlaLiveTabGameModel.this.fFV, AlaLiveTabGameModel.this.gsd);
+                        AlaLiveTabGameModel.this.gDD = new b(sdkLiveInfoListResponsedMessage.getLiveList(), sdkLiveInfoListResponsedMessage.hasMore(), AlaLiveTabGameModel.this.fPy, AlaLiveTabGameModel.this.gDc);
                     }
-                    AlaLiveTabGameModel.this.hasMore = AlaLiveTabGameModel.this.gsE.hasMore();
+                    AlaLiveTabGameModel.this.hasMore = AlaLiveTabGameModel.this.gDD.hasMore();
                     AlaLiveTabGameModel.g(AlaLiveTabGameModel.this);
-                    if (AlaLiveTabGameModel.this.gsF != null) {
-                        AlaLiveTabGameModel.this.gsF.e(AlaLiveTabGameModel.this.hasMore, AlaLiveTabGameModel.this.gsE.getData());
+                    if (AlaLiveTabGameModel.this.gDE != null) {
+                        AlaLiveTabGameModel.this.gDE.f(AlaLiveTabGameModel.this.hasMore, AlaLiveTabGameModel.this.gDD.getData());
                     }
                 }
-                AlaLiveTabGameModel.this.gsy = false;
+                AlaLiveTabGameModel.this.gDx = false;
             }
         }
     };
     private BdUniqueId mCurTag = BdUniqueId.gen();
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public interface a {
-        void e(boolean z, List<q> list);
+        void f(boolean z, List<n> list);
 
         void h(int i, String str, boolean z);
     }
@@ -69,38 +69,38 @@ public class AlaLiveTabGameModel extends BdBaseModel {
 
     public AlaLiveTabGameModel(TbPageContext tbPageContext, a aVar) {
         this.mTbPageContext = tbPageContext;
-        this.gsF = aVar;
+        this.gDE = aVar;
     }
 
     public void init() {
-        MessageManager.getInstance().registerListener(this.gsG);
+        MessageManager.getInstance().registerListener(this.gDF);
     }
 
     public void refresh() {
-        this.gsy = false;
+        this.gDx = false;
         this.mPn = 1;
-        uX(this.mPn);
+        vj(this.mPn);
     }
 
-    public void bRN() {
-        if (this.hasMore && !this.gsy) {
-            this.gsy = true;
-            uX(this.mPn);
+    public void bUp() {
+        if (this.hasMore && !this.gDx) {
+            this.gDx = true;
+            vj(this.mPn);
         }
     }
 
-    private void uX(int i) {
+    private void vj(int i) {
         HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GAME_LIVE_LIST);
         httpMessage.addParam("ps", 20);
         httpMessage.addParam(Config.PACKAGE_NAME, this.mPn);
-        httpMessage.addParam("fid", this.fFV);
-        httpMessage.addParam("fname", this.gsd);
+        httpMessage.addParam("fid", this.fPy);
+        httpMessage.addParam("fname", this.gDc);
         httpMessage.setTag(this.mCurTag);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.gsG);
+        MessageManager.getInstance().unRegisterListener(this.gDF);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -113,8 +113,8 @@ public class AlaLiveTabGameModel extends BdBaseModel {
         return false;
     }
 
-    public void ek(String str, String str2) {
-        this.fFV = str;
-        this.gsd = str2;
+    public void ej(String str, String str2) {
+        this.fPy = str;
+        this.gDc = str2;
     }
 }

@@ -1,110 +1,110 @@
 package com.baidu.tieba.hottopic.frs;
 
-import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.l;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.adp.widget.ListView.q;
+import com.baidu.adp.widget.ListView.n;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.s;
-import com.baidu.tieba.frs.u;
+import com.baidu.tieba.frs.t;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes21.dex */
+/* loaded from: classes8.dex */
 public class d {
-    private BdTypeRecyclerView Yf;
-    private PbListView grg;
-    private final a keE;
-    private final b keF;
+    private BdTypeRecyclerView Yc;
+    private PbListView gCf;
+    private final a krQ;
+    private final b krR;
     private final TbPageContext mPageContext;
     private View mRootView;
 
-    /* loaded from: classes21.dex */
+    /* loaded from: classes8.dex */
     public interface a {
     }
 
     public d(a aVar, View view, TbPageContext tbPageContext) {
         this.mRootView = view;
         this.mPageContext = tbPageContext;
-        this.keE = aVar;
-        this.Yf = (BdTypeRecyclerView) view.findViewById(R.id.frs_hottopic_lv_thread);
-        this.Yf.setLayoutManager(new LinearLayoutManager(this.Yf.getContext()));
-        this.Yf.setFadingEdgeLength(0);
-        this.Yf.setOverScrollMode(2);
-        this.grg = new PbListView(tbPageContext.getPageActivity());
-        this.grg.createView();
-        this.grg.setContainerBackgroundColorResId(R.color.CAM_X0205);
-        this.grg.setHeight(l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds182));
-        this.grg.setLineGone();
-        this.grg.setTextSize(R.dimen.tbfontsize33);
-        this.grg.setNoMoreTextColorId(R.color.CAM_X0110);
-        this.Yf.setNextPage(this.grg);
-        this.grg.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-        this.grg.endLoadData();
-        this.grg.setText(tbPageContext.getResources().getString(R.string.list_no_more));
+        this.krQ = aVar;
+        this.Yc = (BdTypeRecyclerView) view.findViewById(R.id.frs_hottopic_lv_thread);
+        this.Yc.setLayoutManager(new LinearLayoutManager(this.Yc.getContext()));
+        this.Yc.setFadingEdgeLength(0);
+        this.Yc.setOverScrollMode(2);
+        this.gCf = new PbListView(tbPageContext.getPageActivity());
+        this.gCf.createView();
+        this.gCf.setContainerBackgroundColorResId(R.color.CAM_X0205);
+        this.gCf.setHeight(l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds182));
+        this.gCf.setLineGone();
+        this.gCf.setTextSize(R.dimen.tbfontsize33);
+        this.gCf.setNoMoreTextColorId(R.color.CAM_X0110);
+        this.Yc.setNextPage(this.gCf);
+        this.gCf.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+        this.gCf.endLoadData();
+        this.gCf.setText(tbPageContext.getResources().getString(R.string.list_no_more));
         onChangeSkinType();
-        this.keF = new b(tbPageContext, this.Yf);
+        this.krR = new b(tbPageContext, this.Yc);
     }
 
     public void b(TbPageTag tbPageTag) {
-        this.keF.b(tbPageTag);
+        this.krR.b(tbPageTag);
     }
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (this.grg != null) {
-            this.grg.setTextColor(ap.getColor(R.color.CAM_X0107));
-            this.grg.changeSkin(skinType);
+        if (this.gCf != null) {
+            this.gCf.setTextColor(ao.getColor(R.color.CAM_X0107));
+            this.gCf.changeSkin(skinType);
         }
-        if (this.Yf != null && this.Yf.getAdapter() != null) {
-            this.Yf.getAdapter().notifyDataSetChanged();
+        if (this.Yc != null && this.Yc.getAdapter() != null) {
+            this.Yc.getAdapter().notifyDataSetChanged();
         }
     }
 
-    public void qr(boolean z) {
+    public void qP(boolean z) {
         if (z) {
-            this.Yf.setVisibility(0);
+            this.Yc.setVisibility(0);
         } else {
-            this.Yf.setVisibility(8);
+            this.Yc.setVisibility(8);
         }
     }
 
     public void setRefreshing(boolean z) {
-        u uVar = new u();
-        uVar.tabId = 401;
-        uVar.fVi = z;
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, uVar));
+        t tVar = new t();
+        tVar.tabId = 401;
+        tVar.geO = z;
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, tVar));
     }
 
     public View getRootView() {
         return this.mRootView;
     }
 
-    public void setData(List<q> list) {
-        if (!y.isEmpty(list)) {
-            this.Yf.setData(list);
+    public void setData(List<n> list) {
+        if (!x.isEmpty(list)) {
+            this.Yc.setData(list);
         }
     }
 
     public void showNoDataView() {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new s());
-        this.Yf.setData(arrayList);
+        this.Yc.setData(arrayList);
     }
 
-    public void cBM() {
-        this.Yf.scrollToPosition(0);
+    public void cEF() {
+        this.Yc.scrollToPosition(0);
     }
 
     public boolean hasData() {
-        return (this.Yf == null || y.isEmpty(this.Yf.getData())) ? false : true;
+        return (this.Yc == null || x.isEmpty(this.Yc.getData())) ? false : true;
     }
 }

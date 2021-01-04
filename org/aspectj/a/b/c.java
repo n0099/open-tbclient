@@ -2,53 +2,53 @@ package org.aspectj.a.b;
 
 import org.aspectj.lang.a;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class c implements org.aspectj.lang.b {
     Object[] args;
-    Object pLL;
-    a.InterfaceC1056a pLM;
+    Object qno;
+    a.InterfaceC1274a qnp;
     Object target;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes16.dex */
-    public static class a implements a.InterfaceC1056a {
+    /* loaded from: classes6.dex */
+    public static class a implements a.InterfaceC1274a {
         private int id;
-        String pLN;
-        org.aspectj.lang.c pLO;
-        org.aspectj.lang.reflect.d pLP;
+        String qnq;
+        org.aspectj.lang.c qnr;
+        org.aspectj.lang.reflect.d qns;
 
         public a(int i, String str, org.aspectj.lang.c cVar, org.aspectj.lang.reflect.d dVar) {
-            this.pLN = str;
-            this.pLO = cVar;
-            this.pLP = dVar;
+            this.qnq = str;
+            this.qnr = cVar;
+            this.qns = dVar;
             this.id = i;
         }
 
-        public String eEw() {
-            return this.pLN;
+        public String eME() {
+            return this.qnq;
         }
 
-        public org.aspectj.lang.c eEx() {
-            return this.pLO;
+        public org.aspectj.lang.c eMF() {
+            return this.qnr;
         }
 
         String a(h hVar) {
             StringBuffer stringBuffer = new StringBuffer();
-            stringBuffer.append(hVar.aav(eEw()));
+            stringBuffer.append(hVar.acp(eME()));
             stringBuffer.append("(");
-            stringBuffer.append(((f) eEx()).a(hVar));
+            stringBuffer.append(((f) eMF()).a(hVar));
             stringBuffer.append(")");
             return stringBuffer.toString();
         }
 
         public final String toString() {
-            return a(h.pMg);
+            return a(h.qnJ);
         }
     }
 
-    public c(a.InterfaceC1056a interfaceC1056a, Object obj, Object obj2, Object[] objArr) {
-        this.pLM = interfaceC1056a;
-        this.pLL = obj;
+    public c(a.InterfaceC1274a interfaceC1274a, Object obj, Object obj2, Object[] objArr) {
+        this.qnp = interfaceC1274a;
+        this.qno = obj;
         this.target = obj2;
         this.args = objArr;
     }
@@ -59,6 +59,6 @@ public class c implements org.aspectj.lang.b {
     }
 
     public final String toString() {
-        return this.pLM.toString();
+        return this.qnp.toString();
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.tieba.ala.liveroom.activeview;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public interface a {
     void HW(String str);
 
@@ -7,9 +7,9 @@ public interface a {
 
     void HY(String str);
 
-    void bO(int i, int i2);
+    void bN(int i, int i2);
 
-    void bZT();
+    void ccA();
 
-    void na(boolean z);
+    void nz(boolean z);
 }

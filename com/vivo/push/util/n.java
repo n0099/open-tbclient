@@ -3,15 +3,15 @@ package com.vivo.push.util;
 import android.content.Context;
 import android.os.Process;
 import android.util.Log;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public final class n implements o {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f4475a = "(" + Process.myPid() + ")";
+    private static final String f13993a = "(" + Process.myPid() + ")";
 
     @Override // com.vivo.push.util.o
     public final int a(String str, String str2) {
-        return Log.e("VivoPush." + str, f4475a + str2);
+        return Log.e("VivoPush." + str, f13993a + str2);
     }
 
     @Override // com.vivo.push.util.o
@@ -21,23 +21,23 @@ public final class n implements o {
 
     @Override // com.vivo.push.util.o
     public final int a(String str, String str2, Throwable th) {
-        return Log.e("VivoPush." + str, f4475a + str2, th);
+        return Log.e("VivoPush." + str, f13993a + str2, th);
     }
 
     @Override // com.vivo.push.util.o
     public final int b(String str, String str2) {
-        return Log.w("VivoPush." + str, f4475a + str2);
+        return Log.w("VivoPush." + str, f13993a + str2);
     }
 
     @Override // com.vivo.push.util.o
     public final int c(String str, String str2) {
-        return Log.d("VivoPush." + str, f4475a + str2);
+        return Log.d("VivoPush." + str, f13993a + str2);
     }
 
     @Override // com.vivo.push.util.o
     public final int d(String str, String str2) {
         if (p.a()) {
-            return Log.i("VivoPush." + str, f4475a + str2);
+            return Log.i("VivoPush." + str, f13993a + str2);
         }
         return -1;
     }
@@ -45,7 +45,7 @@ public final class n implements o {
     @Override // com.vivo.push.util.o
     public final int b(String str, String str2, Throwable th) {
         if (p.a()) {
-            return Log.i("VivoPush." + str, f4475a + str2, th);
+            return Log.i("VivoPush." + str, f13993a + str2, th);
         }
         return -1;
     }
@@ -53,7 +53,7 @@ public final class n implements o {
     @Override // com.vivo.push.util.o
     public final int e(String str, String str2) {
         if (p.a()) {
-            return Log.v("VivoPush." + str, f4475a + str2);
+            return Log.v("VivoPush." + str, f13993a + str2);
         }
         return -1;
     }

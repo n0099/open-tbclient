@@ -5,117 +5,119 @@ import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.MediaData;
 import com.baidu.tbadk.core.data.at;
-import com.baidu.tbadk.core.data.by;
+import com.baidu.tbadk.core.data.bz;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
-import com.baidu.tbadk.core.util.ah;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.ag;
+import com.baidu.tbadk.core.util.aq;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes21.dex */
-public abstract class b extends com.baidu.tbadk.core.data.a implements ah {
-    public static BdUniqueId[][] imE;
-    public by eCR;
-    private String imF;
-    private int imG;
-    private String imH;
-    private String imI;
-    public int imK;
+/* loaded from: classes.dex */
+public abstract class b extends com.baidu.tbadk.core.data.a implements ag {
+    public static final BdUniqueId iyN = BdUniqueId.gen();
+    public static final BdUniqueId iyO = BdUniqueId.gen();
+    public static final BdUniqueId iyP = BdUniqueId.gen();
+    public static final BdUniqueId iyQ = BdUniqueId.gen();
+    public static final BdUniqueId iyR = BdUniqueId.gen();
+    public static final BdUniqueId iyS = BdUniqueId.gen();
+    public static final BdUniqueId iyT = BdUniqueId.gen();
+    public static final BdUniqueId iyU = BdUniqueId.gen();
+    public static final BdUniqueId iyV = BdUniqueId.gen();
+    public static final BdUniqueId iyW = BdUniqueId.gen();
+    public static final ArrayList<BdUniqueId> iyX = new ArrayList<>();
+    public static final ArrayList<BdUniqueId> iyY = new ArrayList<>();
+    public static BdUniqueId[][] iyZ;
+    public bz eMv;
+    private String iza;
+    private int izb;
+    private String izc;
+    private String izd;
+    public int izf;
     private String mExtra;
     private String mSource;
     public String tid;
-    public static final BdUniqueId imt = BdUniqueId.gen();
-    public static final BdUniqueId imu = BdUniqueId.gen();
-    public static final BdUniqueId imv = BdUniqueId.gen();
-    public static final BdUniqueId imw = BdUniqueId.gen();
-    public static final BdUniqueId imx = BdUniqueId.gen();
-    public static final BdUniqueId imy = BdUniqueId.gen();
-    public static final BdUniqueId imz = BdUniqueId.gen();
-    public static final BdUniqueId imA = BdUniqueId.gen();
-    public static final BdUniqueId imB = BdUniqueId.gen();
-    public static final ArrayList<BdUniqueId> imC = new ArrayList<>();
-    public static final ArrayList<BdUniqueId> imD = new ArrayList<>();
     public int objType = 1;
-    private Integer imJ = 0;
-    public int eIP = 0;
-    public int eIQ = 0;
-    public boolean eIy = false;
-    public boolean eIO = false;
-    public boolean eID = false;
-    public boolean imL = false;
-    public boolean eIC = false;
-    public boolean eIz = false;
-    public boolean imM = false;
-    public boolean eIK = false;
-    public boolean eIM = false;
-    public boolean eIN = false;
-    public boolean imN = false;
-    public boolean eIF = false;
-    public boolean eIE = false;
-    public boolean imO = false;
+    private Integer ize = 0;
+    public int eSI = 0;
+    public int eSJ = 0;
+    public boolean eSq = false;
+    public boolean eSH = false;
+    public boolean eSv = false;
+    public boolean izg = false;
+    public boolean eSu = false;
+    public boolean eSr = false;
+    public boolean izh = false;
+    public boolean eSD = false;
+    public boolean eSF = false;
+    public boolean eSG = false;
+    public boolean izi = false;
+    public boolean eSx = false;
+    public boolean eSw = false;
+    public boolean izj = false;
 
     static {
-        imC.add(imt);
-        imC.add(imu);
-        imD.add(imy);
-        imD.add(imv);
-        imD.add(imx);
-        imD.add(imw);
-        imE = (BdUniqueId[][]) Array.newInstance(BdUniqueId.class, imC.size(), imD.size());
-        for (int i = 0; i < imC.size(); i++) {
-            for (int i2 = 0; i2 < imD.size(); i2++) {
-                imE[i][i2] = BdUniqueId.gen();
+        iyX.add(iyN);
+        iyX.add(iyO);
+        iyY.add(iyS);
+        iyY.add(iyP);
+        iyY.add(iyR);
+        iyY.add(iyQ);
+        iyZ = (BdUniqueId[][]) Array.newInstance(BdUniqueId.class, iyX.size(), iyY.size());
+        for (int i = 0; i < iyX.size(); i++) {
+            for (int i2 = 0; i2 < iyY.size(); i2++) {
+                iyZ[i][i2] = BdUniqueId.gen();
             }
         }
     }
 
     public void setWeight(String str) {
-        this.imF = str;
+        this.iza = str;
     }
 
     public void setSource(String str) {
         this.mSource = str;
     }
 
-    public void ym(int i) {
-        this.imG = i;
+    public void yA(int i) {
+        this.izb = i;
     }
 
-    public void Js(String str) {
-        this.imH = str;
+    public void Jq(String str) {
+        this.izc = str;
     }
 
-    public int cst() {
-        return this.imG;
+    public int cvm() {
+        return this.izb;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public String bmq() {
-        return this.mSource + "#" + this.imG + "#" + this.imH;
+    public String boR() {
+        return this.mSource + "#" + this.izb + "#" + this.izc;
     }
 
     public String getWeight() {
-        return this.imF;
+        return this.iza;
     }
 
     public String getSource() {
         return this.mSource;
     }
 
-    public String csu() {
-        return this.imH;
+    public String cvn() {
+        return this.izc;
     }
 
-    public String csv() {
-        return this.imI;
+    public String cvo() {
+        return this.izd;
     }
 
-    public void Jt(String str) {
-        this.imI = str;
+    public void Jr(String str) {
+        this.izd = str;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public by bmn() {
+    public bz boO() {
         return null;
     }
 
@@ -131,67 +133,67 @@ public abstract class b extends com.baidu.tbadk.core.data.a implements ah {
         return this.mExtra;
     }
 
-    public Integer csw() {
-        return this.imJ;
+    public Integer cvp() {
+        return this.ize;
     }
 
-    public void n(Integer num) {
-        this.imJ = num;
+    public void p(Integer num) {
+        this.ize = num;
     }
 
-    public ar Ju(String str) {
-        return aJ(str, false);
+    public aq Js(String str) {
+        return aA(str, false);
     }
 
-    public ar aJ(String str, boolean z) {
-        by bmn = bmn();
-        if (bmn == null || str.length() == 0) {
+    public aq aA(String str, boolean z) {
+        bz boO = boO();
+        if (boO == null || str.length() == 0) {
             return null;
         }
-        ar dY = new ar(str).dY("fid", String.valueOf(bmn.getFid())).dY("tid", String.valueOf(bmn.getTid())).dY("nid", bmn.getNid()).dY("obj_id", getExtra()).dY("obj_param1", getWeight()).al(TiebaInitialize.Params.OBJ_PARAM2, 1).dY("obj_source", getSource()).al("obj_locate", cst()).dY("uid", TbadkCoreApplication.getCurrentAccount()).dY(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.n.crY()).dY("ab_tag", csu());
+        aq dX = new aq(str).dX("fid", String.valueOf(boO.getFid())).dX("tid", String.valueOf(boO.getTid())).dX(IntentConfig.NID, boO.bpO()).dX("obj_id", getExtra()).dX("obj_param1", getWeight()).an(TiebaInitialize.Params.OBJ_PARAM2, 1).dX("obj_source", getSource()).an("obj_locate", cvm()).dX("uid", TbadkCoreApplication.getCurrentAccount()).dX(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.m.cuR()).dX("ab_tag", cvn());
         if (!z) {
-            dY.al("obj_type", csx());
+            dX.an("obj_type", cvq());
         } else {
-            if (bmn.eLF > 0) {
-                dY.al("midpageflag", 1);
+            if (boO.eVz > 0) {
+                dX.an("midpageflag", 1);
             } else {
-                dY.al("midpageflag", 0);
+                dX.an("midpageflag", 0);
             }
-            dY.al("is_vertical", csw().intValue());
+            dX.an("is_vertical", cvp().intValue());
         }
-        if (bmn.bqu() != null && bmn.bqu().dPj() != null && bmn.bqu().dPj().bIC() != null && bmn.bqu().dPj().bIC().size() > 0) {
-            dY.al(TiebaInitialize.Params.OBJ_TO, bmn.bqu().nmp ? 2 : 1);
+        if (boO.bsW() != null && boO.bsW().dPf() != null && boO.bsW().dPf().bKW() != null && boO.bsW().dPf().bKW().size() > 0) {
+            dX.an(TiebaInitialize.Params.OBJ_TO, boO.bsW().nsb ? 2 : 1);
         }
-        return dY;
+        return dX;
     }
 
-    public ar aN(String str, int i) {
-        by bmn = bmn();
-        if (bmn == null) {
+    public aq aV(String str, int i) {
+        bz boO = boO();
+        if (boO == null) {
             return null;
         }
-        ar dY = new ar(str).dY("fid", String.valueOf(bmn.getFid())).dY("tid", String.valueOf(bmn.getTid())).al(TiebaInitialize.Params.OBJ_PARAM2, 1).dY("obj_param1", getWeight()).dY("obj_source", getSource()).al("obj_locate", cst()).dY("obj_name", csu()).dY("uid", TbadkCoreApplication.getCurrentAccount()).dY(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.n.crY());
+        aq dX = new aq(str).dX("fid", String.valueOf(boO.getFid())).dX("tid", String.valueOf(boO.getTid())).an(TiebaInitialize.Params.OBJ_PARAM2, 1).dX("obj_param1", getWeight()).dX("obj_source", getSource()).an("obj_locate", cvm()).dX("obj_name", cvn()).dX("uid", TbadkCoreApplication.getCurrentAccount()).dX(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.m.cuR());
         if (i == 0) {
-            dY.al("obj_type", csx());
+            dX.an("obj_type", cvq());
         } else {
-            dY.al("obj_type", i);
+            dX.an("obj_type", i);
         }
-        dY.dY("obj_id", getExtra());
-        return dY;
+        dX.dX("obj_id", getExtra());
+        return dX;
     }
 
-    private int csx() {
+    private int cvq() {
         int i;
         int i2 = 0;
-        by bmn = bmn();
-        if (bmn == null) {
+        bz boO = boO();
+        if (boO == null) {
             return 0;
         }
-        ArrayList<MediaData> boY = bmn.boY();
-        if (boY == null) {
+        ArrayList<MediaData> brz = boO.brz();
+        if (brz == null) {
             i = 0;
         } else {
-            Iterator<MediaData> it = boY.iterator();
+            Iterator<MediaData> it = brz.iterator();
             while (true) {
                 i = i2;
                 if (!it.hasNext()) {
@@ -207,61 +209,61 @@ public abstract class b extends com.baidu.tbadk.core.data.a implements ah {
         return i;
     }
 
-    @Override // com.baidu.tbadk.core.util.ah
+    @Override // com.baidu.tbadk.core.util.ag
     public ArrayList<PreLoadImageInfo> getImages() {
-        by bmn = bmn();
-        if (bmn != null) {
-            return bmn.getImages();
+        bz boO = boO();
+        if (boO != null) {
+            return boO.getImages();
         }
         return null;
     }
 
-    public void yn(int i) {
-        this.imK = i;
+    public void yB(int i) {
+        this.izf = i;
     }
 
-    public boolean csy() {
-        return this.imK == 1;
+    public boolean cvr() {
+        return this.izf == 1;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public at bmp() {
-        if (bmn() == null || this.feedBackReasonMap == null || this.feedBackReasonMap.size() <= 0) {
+    public at boQ() {
+        if (boO() == null || this.feedBackReasonMap == null || this.feedBackReasonMap.size() <= 0) {
             return null;
         }
         at atVar = new at();
-        atVar.setTid(bmn().getTid());
-        atVar.setFid(bmn().getFid());
-        atVar.setNid(bmn().getNid());
+        atVar.setTid(boO().getTid());
+        atVar.setFid(boO().getFid());
+        atVar.setNid(boO().bpO());
         atVar.setFeedBackReasonMap(this.feedBackReasonMap);
-        atVar.weight = this.imF;
+        atVar.weight = this.iza;
         atVar.source = this.mSource;
         atVar.extra = this.mExtra;
-        atVar.threadType = bmn().threadType;
+        atVar.threadType = boO().threadType;
         return atVar;
     }
 
-    public ar csz() {
+    public aq cvs() {
         return null;
     }
 
-    public ar csA() {
+    public aq cvt() {
         return null;
     }
 
-    public ar csB() {
+    public aq cvu() {
         return null;
     }
 
-    public ar csC() {
+    public aq cvv() {
         return null;
     }
 
-    public ar Jv(String str) {
+    public aq Jt(String str) {
         return null;
     }
 
-    public boolean bnv() {
+    public boolean bpV() {
         return false;
     }
 }

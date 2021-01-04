@@ -1,256 +1,65 @@
 package com.baidu.adp.base;
 
 import android.app.Activity;
-import android.app.ActivityManager;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
-import java.lang.ref.SoftReference;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import android.content.pm.ActivityInfo;
+import android.content.res.TypedArray;
+import android.os.Build;
+import androidx.annotation.NonNull;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 /* loaded from: classes.dex */
-public final class a {
-    private static a IE;
-    private static ArrayList<SoftReference<Activity>> sActivityStack;
-    private InterfaceC0016a IF;
-    private int mActivityStackMaxSize = 0;
-
-    /* renamed from: com.baidu.adp.base.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public interface InterfaceC0016a {
-        void onActivityClosed();
-    }
-
-    public void a(InterfaceC0016a interfaceC0016a) {
-        this.IF = interfaceC0016a;
-    }
-
-    private a() {
-        if (sActivityStack == null) {
-            sActivityStack = new ArrayList<>(20);
-        }
-    }
-
-    public static a lg() {
-        if (IE == null) {
-            IE = new a();
-        }
-        return IE;
-    }
-
-    public int getSize() {
-        return sActivityStack.size();
-    }
-
-    public void pushActivity(Activity activity) {
-        if (activity != null) {
-            sActivityStack.add(new SoftReference<>(activity));
-            checkAndMaintainActivityStack(this.mActivityStackMaxSize);
-        }
-    }
-
-    public Activity popActivity() {
-        SoftReference<Activity> remove;
-        int size = sActivityStack.size();
-        if (size != 0 && (remove = sActivityStack.remove(size - 1)) != null) {
-            return remove.get();
-        }
-        return null;
-    }
-
-    public Activity popActivity(int i) {
-        int size = sActivityStack.size();
-        if (size == 0) {
-            return null;
-        }
-        if (i < 0 || i >= size) {
-            return null;
-        }
-        SoftReference<Activity> remove = sActivityStack.remove(i);
-        if (remove == null) {
-            return null;
-        }
-        return remove.get();
-    }
-
-    public Activity aa(int i) {
-        int size = sActivityStack.size();
-        if (size == 0) {
-            return null;
-        }
-        if (i < 0 || i >= size) {
-            return null;
-        }
-        SoftReference<Activity> softReference = sActivityStack.get(i);
-        if (softReference == null) {
-            return null;
-        }
-        return softReference.get();
-    }
-
-    public int m(Activity activity) {
-        int size = sActivityStack.size();
-        if (size > 0 && activity != null) {
-            for (int i = size - 1; i >= 0; i--) {
-                SoftReference<Activity> softReference = sActivityStack.get(i);
-                if (softReference == null) {
-                    sActivityStack.remove(i);
-                } else if (activity.equals(softReference.get())) {
-                    return i;
-                }
-            }
-        }
-        return -1;
-    }
-
-    public void ab(int i) {
-        for (int i2 = 0; i2 < i; i2++) {
-            Activity popActivity = popActivity();
-            if (popActivity != null) {
-                popActivity.finish();
-            }
-        }
-    }
-
-    public void popActivity(Activity activity) {
-        if (activity != null) {
-            int size = sActivityStack.size();
-            if (size == 0) {
-                if (this.IF != null) {
-                    this.IF.onActivityClosed();
-                    return;
-                }
-                return;
-            }
-            for (int i = size - 1; i >= 0; i--) {
-                SoftReference<Activity> softReference = sActivityStack.get(i);
-                if (softReference == null) {
-                    sActivityStack.remove(i);
-                } else if (activity.equals(softReference.get())) {
-                    sActivityStack.remove(i);
-                    if (sActivityStack.size() == 0 && this.IF != null) {
-                        this.IF.onActivityClosed();
-                        return;
-                    }
-                    return;
-                } else if (sActivityStack.size() == 0 && this.IF != null) {
-                    this.IF.onActivityClosed();
-                }
-            }
-        }
-    }
-
-    public Activity currentActivity() {
-        SoftReference<Activity> softReference;
-        int size = sActivityStack.size();
-        if (size != 0 && (softReference = sActivityStack.get(size - 1)) != null) {
-            return softReference.get();
-        }
-        return null;
-    }
-
-    public boolean bt(String str) {
-        if (sActivityStack.size() == 0) {
-            return false;
-        }
-        Iterator<SoftReference<Activity>> it = sActivityStack.iterator();
-        while (it.hasNext()) {
-            SoftReference<Activity> next = it.next();
-            if (next != null && next.get() != null && next.get().getClass().getSimpleName() != null && next.get().getClass().getSimpleName().equals(str)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public void setActivityStackMaxSize(int i) {
-        if (i >= 10 || i == 0) {
-            this.mActivityStackMaxSize = i;
-        }
-    }
-
-    public void releaseAllPossibleAcitivities() {
-        checkAndMaintainActivityStack(3);
-    }
-
-    public void releaseAllAcitivities() {
-        Activity activity;
-        if (sActivityStack != null) {
-            while (!sActivityStack.isEmpty()) {
-                SoftReference<Activity> remove = sActivityStack.remove(0);
-                if (remove != null && remove.get() != null && (activity = remove.get()) != null) {
-                    activity.finish();
-                }
-            }
-        }
-        if (this.IF != null) {
-            this.IF.onActivityClosed();
-        }
-    }
-
-    public int getActivityStackMaxSize() {
-        return this.mActivityStackMaxSize;
-    }
-
-    private void checkAndMaintainActivityStack(int i) {
-        if (i != 0) {
-            int size = lg().getSize();
-            while (size > i) {
-                size--;
-                Activity popActivity = lg().popActivity(1);
-                if (popActivity != null) {
-                    popActivity.finish();
-                }
-            }
-        }
-    }
-
-    public String lh() {
-        ActivityManager activityManager;
-        List<ActivityManager.RunningTaskInfo> runningTasks;
-        String str;
-        Activity activity;
-        String str2;
-        if (sActivityStack == null || sActivityStack.size() == 0) {
+public class a {
+    public static void j(@NonNull Activity activity) {
+        if (k(activity)) {
             try {
-                if (BdBaseApplication.getInst() != null && (activityManager = (ActivityManager) BdBaseApplication.getInst().getSystemService(PushConstants.INTENT_ACTIVITY_NAME)) != null && (runningTasks = activityManager.getRunningTasks(1)) != null && runningTasks.size() > 0) {
-                    StringBuilder sb = new StringBuilder();
-                    for (ActivityManager.RunningTaskInfo runningTaskInfo : runningTasks) {
-                        if (runningTaskInfo != null) {
-                            String str3 = runningTaskInfo.topActivity != null ? "top:" + runningTaskInfo.topActivity.getClassName() : "";
-                            if (runningTaskInfo.baseActivity != null) {
-                                str3 = str3 + "&base:" + runningTaskInfo.baseActivity.getClassName();
-                            }
-                            str = str3 + "&numbers:" + runningTaskInfo.numActivities;
-                        } else {
-                            str = "";
-                        }
-                        if (!StringUtils.isNull(str)) {
-                            sb.append(str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
-                        }
-                    }
-                    return sb.toString();
+                Field declaredField = Activity.class.getDeclaredField("mActivityInfo");
+                declaredField.setAccessible(true);
+                ActivityInfo activityInfo = (ActivityInfo) declaredField.get(activity);
+                if (Z(activityInfo.screenOrientation)) {
+                    activityInfo.screenOrientation = -1;
                 }
             } catch (Exception e) {
-            }
-            return "";
-        }
-        StringBuilder sb2 = new StringBuilder();
-        Iterator<SoftReference<Activity>> it = sActivityStack.iterator();
-        while (it.hasNext()) {
-            SoftReference<Activity> next = it.next();
-            if (next != null && (activity = next.get()) != null) {
-                if (activity == null || activity.getClass() == null) {
-                    str2 = "";
-                } else {
-                    str2 = activity.getClass().getSimpleName();
-                }
-                if (!StringUtils.isNull(str2)) {
-                    sb2.append(str2 + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
-                }
+                e.printStackTrace();
             }
         }
-        return sb2.toString();
+    }
+
+    private static boolean isTranslucentOrFloating(Activity activity) {
+        try {
+            Field declaredField = Class.forName("com.android.internal.R$styleable").getDeclaredField("Window");
+            declaredField.setAccessible(true);
+            TypedArray obtainStyledAttributes = activity.obtainStyledAttributes((int[]) declaredField.get(null));
+            Method declaredMethod = ActivityInfo.class.getDeclaredMethod("isTranslucentOrFloating", TypedArray.class);
+            declaredMethod.setAccessible(true);
+            return ((Boolean) declaredMethod.invoke(null, obtainStyledAttributes)).booleanValue();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public static boolean k(Activity activity) {
+        return Build.VERSION.SDK_INT == 26 && isTranslucentOrFloating(activity);
+    }
+
+    public static boolean Z(int i) {
+        switch (i) {
+            case 0:
+            case 1:
+            case 6:
+            case 7:
+            case 8:
+            case 9:
+            case 11:
+            case 12:
+                return true;
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+            case 10:
+            default:
+                return false;
+        }
     }
 }

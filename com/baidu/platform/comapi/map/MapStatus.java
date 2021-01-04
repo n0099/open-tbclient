@@ -1,7 +1,7 @@
 package com.baidu.platform.comapi.map;
 
 import java.io.Serializable;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class MapStatus implements Serializable {
     public int animationTime;
     public int animationType;
@@ -26,7 +26,7 @@ public class MapStatus implements Serializable {
     public float xOffset;
     public float yOffset;
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public static class GeoBound implements Serializable {
         public long left = 0;
         public long right = 0;
@@ -52,7 +52,7 @@ public class MapStatus implements Serializable {
         }
     }
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public static class WinRound implements Serializable {
         public int left = 0;
         public int right = 0;

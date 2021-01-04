@@ -10,7 +10,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 final class DecodedBitStreamParser {
     private static final char[] ALPHANUMERIC_CHARS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ $%*+-./:".toCharArray();
     private static final int GB2312_SUBSET = 1;
@@ -30,9 +30,8 @@ final class DecodedBitStreamParser {
         boolean z = false;
         while (true) {
             try {
-                int i3 = i2;
-                int i4 = i;
                 boolean z2 = z;
+                int i3 = i;
                 if (bitSource.available() < 4) {
                     forBits = Mode.TERMINATOR;
                 } else {
@@ -40,58 +39,51 @@ final class DecodedBitStreamParser {
                 }
                 if (forBits == Mode.TERMINATOR) {
                     z = z2;
-                    i = i4;
-                    i2 = i3;
+                    i = i3;
                 } else if (forBits == Mode.FNC1_FIRST_POSITION || forBits == Mode.FNC1_SECOND_POSITION) {
                     z = true;
-                    i = i4;
-                    i2 = i3;
+                    i = i3;
                 } else if (forBits == Mode.STRUCTURED_APPEND) {
                     if (bitSource.available() < 16) {
                         throw FormatException.getFormatInstance();
                     }
-                    z = z2;
-                    i = bitSource.readBits(8);
+                    int readBits = bitSource.readBits(8);
                     i2 = bitSource.readBits(8);
+                    z = z2;
+                    i = readBits;
                 } else if (forBits == Mode.ECI) {
                     characterSetECI = CharacterSetECI.getCharacterSetECIByValue(parseECIValue(bitSource));
                     if (characterSetECI == null) {
                         throw FormatException.getFormatInstance();
                     }
                     z = z2;
-                    i = i4;
-                    i2 = i3;
+                    i = i3;
                 } else if (forBits == Mode.HANZI) {
-                    int readBits = bitSource.readBits(4);
-                    int readBits2 = bitSource.readBits(forBits.getCharacterCountBits(version));
-                    if (readBits == 1) {
-                        decodeHanziSegment(bitSource, sb, readBits2);
+                    int readBits2 = bitSource.readBits(4);
+                    int readBits3 = bitSource.readBits(forBits.getCharacterCountBits(version));
+                    if (readBits2 == 1) {
+                        decodeHanziSegment(bitSource, sb, readBits3);
                     }
                     z = z2;
-                    i = i4;
-                    i2 = i3;
+                    i = i3;
                 } else {
-                    int readBits3 = bitSource.readBits(forBits.getCharacterCountBits(version));
+                    int readBits4 = bitSource.readBits(forBits.getCharacterCountBits(version));
                     if (forBits == Mode.NUMERIC) {
-                        decodeNumericSegment(bitSource, sb, readBits3);
+                        decodeNumericSegment(bitSource, sb, readBits4);
                         z = z2;
-                        i = i4;
-                        i2 = i3;
+                        i = i3;
                     } else if (forBits == Mode.ALPHANUMERIC) {
-                        decodeAlphanumericSegment(bitSource, sb, readBits3, z2);
+                        decodeAlphanumericSegment(bitSource, sb, readBits4, z2);
                         z = z2;
-                        i = i4;
-                        i2 = i3;
+                        i = i3;
                     } else if (forBits == Mode.BYTE) {
-                        decodeByteSegment(bitSource, sb, readBits3, characterSetECI, arrayList, map);
+                        decodeByteSegment(bitSource, sb, readBits4, characterSetECI, arrayList, map);
                         z = z2;
-                        i = i4;
-                        i2 = i3;
+                        i = i3;
                     } else if (forBits == Mode.KANJI) {
-                        decodeKanjiSegment(bitSource, sb, readBits3);
+                        decodeKanjiSegment(bitSource, sb, readBits4);
                         z = z2;
-                        i = i4;
-                        i2 = i3;
+                        i = i3;
                     } else {
                         throw FormatException.getFormatInstance();
                     }

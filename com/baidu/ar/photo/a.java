@@ -6,7 +6,7 @@ import com.baidu.ar.arplay.core.renderer.TakePictureCallback;
 import com.baidu.ar.arrender.l;
 import com.baidu.ar.h.i;
 import java.io.File;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class a implements TakePictureCallback {
     private String tB;
     private PhotoCallback tC;

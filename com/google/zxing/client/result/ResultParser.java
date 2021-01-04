@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public abstract class ResultParser {
     private static final String BYTE_ORDER_MARK = "\ufeff";
     private static final ResultParser[] PARSERS = {new BookmarkDoCoMoResultParser(), new AddressBookDoCoMoResultParser(), new EmailDoCoMoResultParser(), new AddressBookAUResultParser(), new VCardResultParser(), new BizcardResultParser(), new VEventResultParser(), new EmailAddressResultParser(), new SMTPResultParser(), new TelResultParser(), new SMSMMSResultParser(), new SMSTOMMSTOResultParser(), new GeoResultParser(), new WifiResultParser(), new URLTOResultParser(), new URIResultParser(), new ISBNResultParser(), new ProductResultParser(), new ExpandedProductResultParser(), new VINResultParser()};
@@ -62,20 +62,24 @@ public abstract class ResultParser {
     }
 
     protected static String unescapeBackslash(String str) {
+        boolean z;
         int indexOf = str.indexOf(92);
         if (indexOf >= 0) {
             int length = str.length();
             StringBuilder sb = new StringBuilder(length - 1);
             sb.append(str.toCharArray(), 0, indexOf);
-            boolean z = false;
-            for (int i = indexOf; i < length; i++) {
+            int i = indexOf;
+            boolean z2 = false;
+            while (i < length) {
                 char charAt = str.charAt(i);
-                if (z || charAt != '\\') {
+                if (z2 || charAt != '\\') {
                     sb.append(charAt);
                     z = false;
                 } else {
                     z = true;
                 }
+                i++;
+                z2 = z;
             }
             return sb.toString();
         }
@@ -152,33 +156,29 @@ public abstract class ResultParser {
             }
             int length2 = indexOf + str.length();
             boolean z2 = true;
-            ArrayList arrayList2 = arrayList;
-            int i2 = length2;
+            i = length2;
             while (z2) {
-                int indexOf2 = str2.indexOf(c, i2);
+                int indexOf2 = str2.indexOf(c, i);
                 if (indexOf2 < 0) {
-                    i2 = str2.length();
+                    i = str2.length();
                     z2 = false;
                 } else if (countPrecedingBackslashes(str2, indexOf2) % 2 != 0) {
-                    i2 = indexOf2 + 1;
+                    i = indexOf2 + 1;
                 } else {
-                    if (arrayList2 == null) {
-                        arrayList2 = new ArrayList(3);
+                    if (arrayList == null) {
+                        arrayList = new ArrayList(3);
                     }
                     String unescapeBackslash = unescapeBackslash(str2.substring(length2, indexOf2));
                     if (z) {
                         unescapeBackslash = unescapeBackslash.trim();
                     }
                     if (!unescapeBackslash.isEmpty()) {
-                        arrayList2.add(unescapeBackslash);
+                        arrayList.add(unescapeBackslash);
                     }
-                    i2 = indexOf2 + 1;
+                    i = indexOf2 + 1;
                     z2 = false;
                 }
             }
-            int i3 = i2;
-            arrayList = arrayList2;
-            i = i3;
         }
         if (arrayList == null || arrayList.isEmpty()) {
             return null;

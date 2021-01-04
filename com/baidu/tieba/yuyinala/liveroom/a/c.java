@@ -1,9 +1,9 @@
 package com.baidu.tieba.yuyinala.liveroom.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public interface c {
-    void bU(String str, int i);
+    void cb(String str, int i);
 
-    void f(long j, String str, String str2);
+    void g(long j, String str, String str2);
 
     void pause();
 

@@ -5,7 +5,7 @@ import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.annotation.Nullable;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public final class MediaType {
     private static final String QUOTED = "\"([^\"]*)\"";
     private static final String TOKEN = "([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)";
@@ -31,13 +31,12 @@ public final class MediaType {
         }
         String lowerCase = matcher.group(1).toLowerCase(Locale.US);
         String lowerCase2 = matcher.group(2).toLowerCase(Locale.US);
-        Matcher matcher2 = PARAMETER.matcher(str);
-        int end = matcher.end();
         String str2 = null;
-        for (int i = end; i < str.length(); i = matcher2.end()) {
-            matcher2.region(i, str.length());
+        Matcher matcher2 = PARAMETER.matcher(str);
+        for (int end = matcher.end(); end < str.length(); end = matcher2.end()) {
+            matcher2.region(end, str.length());
             if (!matcher2.lookingAt()) {
-                throw new IllegalArgumentException("Parameter is not formatted correctly: \"" + str.substring(i) + "\" for: \"" + str + '\"');
+                throw new IllegalArgumentException("Parameter is not formatted correctly: \"" + str.substring(end) + "\" for: \"" + str + '\"');
             }
             String group = matcher2.group(1);
             if (group != null && group.equalsIgnoreCase("charset")) {

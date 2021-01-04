@@ -22,7 +22,7 @@ import java.io.InputStreamReader;
 import java.io.StringWriter;
 import java.net.NetworkInterface;
 import java.util.Collections;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public final class i {
     private static String A;
     private static String B;
@@ -99,9 +99,9 @@ public final class i {
         WifiInfo connectionInfo = wifiManager.getConnectionInfo();
         if (connectionInfo != null && Config.DEF_MAC_ID.equals(connectionInfo.getMacAddress())) {
             try {
-                String ejC = ejC();
-                if (ejC != null) {
-                    encode = com.baidu.ubs.analytics.d.f.encode(ejC);
+                String aj = aj();
+                if (aj != null) {
+                    encode = com.baidu.ubs.analytics.d.f.encode(aj);
                 } else {
                     encode = com.baidu.ubs.analytics.d.f.encode(a(wifiManager));
                 }
@@ -117,7 +117,7 @@ public final class i {
         }
     }
 
-    private static String ejC() {
+    private static String aj() {
         try {
             for (NetworkInterface networkInterface : Collections.list(NetworkInterface.getNetworkInterfaces())) {
                 if (networkInterface.getName().equalsIgnoreCase("wlan0")) {
@@ -143,25 +143,15 @@ public final class i {
     }
 
     private static String a(WifiManager wifiManager) throws Exception {
-        String str;
-        Exception e;
-        FileInputStream fileInputStream;
+        String str = "";
         boolean z2 = 3 == wifiManager.getWifiState();
         try {
             wifiManager.setWifiEnabled(true);
-            fileInputStream = new FileInputStream(new File("/sys/class/net/wlan0/address"));
+            FileInputStream fileInputStream = new FileInputStream(new File("/sys/class/net/wlan0/address"));
             str = a(fileInputStream);
-        } catch (Exception e2) {
-            str = "";
-            e = e2;
-        }
-        try {
             fileInputStream.close();
-        } catch (Exception e3) {
-            e = e3;
+        } catch (Exception e) {
             com.baidu.ubs.analytics.d.j.a(e);
-            wifiManager.setWifiEnabled(z2);
-            return str;
         }
         wifiManager.setWifiEnabled(z2);
         return str;
@@ -211,21 +201,21 @@ public final class i {
 
     public static String y() {
         if (TextUtils.isEmpty(z)) {
-            p(com.baidu.ubs.analytics.d.ejo().getContext());
+            p(com.baidu.ubs.analytics.d.ejy().getContext());
         }
         return z;
     }
 
     public static String z() {
         if (TextUtils.isEmpty(A)) {
-            p(com.baidu.ubs.analytics.d.ejo().getContext());
+            p(com.baidu.ubs.analytics.d.ejy().getContext());
         }
         return A;
     }
 
     public static String A() {
         if (TextUtils.isEmpty(B)) {
-            p(com.baidu.ubs.analytics.d.ejo().getContext());
+            p(com.baidu.ubs.analytics.d.ejy().getContext());
         }
         return B;
     }

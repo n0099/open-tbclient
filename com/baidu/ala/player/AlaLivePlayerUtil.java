@@ -2,11 +2,9 @@ package com.baidu.ala.player;
 
 import android.app.ActivityManager;
 import android.content.Context;
-import com.baidu.live.adp.lib.stats.BdStatisticsManager;
-import com.baidu.live.adp.lib.util.BdLog;
-import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import com.baidu.ala.adp.lib.util.BdLog;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class AlaLivePlayerUtil {
     private static final String LOG_TAG = "liveplayer";
     public static final int MAX_LOG_DECODEYUV_COUNT = 5;
@@ -30,8 +28,5 @@ public class AlaLivePlayerUtil {
     }
 
     public static void log(Object... objArr) {
-        if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-            BdStatisticsManager.getInstance().newDebug(LOG_TAG, 0L, null, objArr);
-        }
     }
 }

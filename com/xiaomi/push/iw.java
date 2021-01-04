@@ -3,10 +3,10 @@ package com.xiaomi.push;
 import android.content.Context;
 import com.xiaomi.push.je;
 import com.xiaomi.push.jo;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class iw {
     public static short a(Context context, ii iiVar) {
-        return (short) ((ah.b(context) ? 4 : 0) + 0 + g.m299a(context, iiVar.f606b).a() + (ah.a(context) ? 8 : 0));
+        return (short) ((ah.b(context) ? 4 : 0) + 0 + g.m325a(context, iiVar.f684b).a() + (ah.a(context) ? 8 : 0));
     }
 
     public static <T extends ix<T, ?>> void a(T t, byte[] bArr) {

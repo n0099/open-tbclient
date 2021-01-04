@@ -1,24 +1,25 @@
 package com.airbnb.lottie.c;
 
 import android.graphics.Color;
-import android.support.annotation.IntRange;
 import android.util.JsonReader;
 import android.util.JsonToken;
+import androidx.annotation.IntRange;
+import com.kwai.video.player.KsMediaMeta;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class l implements aj<com.airbnb.lottie.model.content.c> {
-    private int HL;
+    private int Hu;
 
     public l(int i) {
-        this.HL = i;
+        this.Hu = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.airbnb.lottie.c.aj
-    /* renamed from: e */
-    public com.airbnb.lottie.model.content.c b(JsonReader jsonReader, float f) throws IOException {
+    /* renamed from: j */
+    public com.airbnb.lottie.model.content.c g(JsonReader jsonReader, float f) throws IOException {
         ArrayList arrayList = new ArrayList();
         boolean z = jsonReader.peek() == JsonToken.BEGIN_ARRAY;
         if (z) {
@@ -30,14 +31,14 @@ public class l implements aj<com.airbnb.lottie.model.content.c> {
         if (z) {
             jsonReader.endArray();
         }
-        if (this.HL == -1) {
-            this.HL = arrayList.size() / 4;
+        if (this.Hu == -1) {
+            this.Hu = arrayList.size() / 4;
         }
-        float[] fArr = new float[this.HL];
-        int[] iArr = new int[this.HL];
+        float[] fArr = new float[this.Hu];
+        int[] iArr = new int[this.Hu];
         int i = 0;
         int i2 = 0;
-        for (int i3 = 0; i3 < this.HL * 4; i3++) {
+        for (int i3 = 0; i3 < this.Hu * 4; i3++) {
             int i4 = i3 / 4;
             double floatValue = arrayList.get(i3).floatValue();
             switch (i3 % 4) {
@@ -62,7 +63,7 @@ public class l implements aj<com.airbnb.lottie.model.content.c> {
 
     private void a(com.airbnb.lottie.model.content.c cVar, List<Float> list) {
         int i;
-        int i2 = this.HL * 4;
+        int i2 = this.Hu * 4;
         if (list.size() > i2) {
             int size = (list.size() - i2) / 2;
             double[] dArr = new double[size];
@@ -82,13 +83,13 @@ public class l implements aj<com.airbnb.lottie.model.content.c> {
             }
             for (int i5 = 0; i5 < cVar.getSize(); i5++) {
                 int i6 = cVar.getColors()[i5];
-                cVar.getColors()[i5] = Color.argb(a(cVar.jO()[i5], dArr, dArr2), Color.red(i6), Color.green(i6), Color.blue(i6));
+                cVar.getColors()[i5] = Color.argb(b(cVar.jn()[i5], dArr, dArr2), Color.red(i6), Color.green(i6), Color.blue(i6));
             }
         }
     }
 
-    @IntRange(from = 0, to = 255)
-    private int a(double d, double[] dArr, double[] dArr2) {
+    @IntRange(from = 0, to = KsMediaMeta.AV_CH_LAYOUT_7POINT1_WIDE_BACK)
+    private int b(double d, double[] dArr, double[] dArr2) {
         int i = 1;
         while (true) {
             int i2 = i;

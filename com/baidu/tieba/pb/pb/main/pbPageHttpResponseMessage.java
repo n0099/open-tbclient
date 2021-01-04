@@ -7,7 +7,7 @@ import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import java.util.ArrayList;
 import org.json.JSONObject;
 import tbclient.PbPage.PbPageResIdl;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
     private String cacheKey;
     private Context context;
@@ -55,7 +55,7 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
                 this.mAppealInfo = new com.baidu.tieba.pb.data.d();
                 if (pbPageResIdl.data.appeal_info != null) {
                     this.mAppealInfo.source = pbPageResIdl.data.appeal_info.source;
-                    this.mAppealInfo.lAD = pbPageResIdl.data.appeal_info.appeal_url;
+                    this.mAppealInfo.lFJ = pbPageResIdl.data.appeal_info.appeal_url;
                 }
                 if (pbPageResIdl.data.forum != null) {
                     this.mAppealInfo.forumName = pbPageResIdl.data.forum.name;
@@ -66,7 +66,7 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
             return;
         }
         this.pbData = new com.baidu.tieba.pb.data.f();
-        this.pbData.GP(2);
+        this.pbData.GH(2);
         this.pbData.a(pbPageResIdl.data, this.context);
         if (pbPageResIdl.data != null) {
             String str = "";
@@ -78,7 +78,7 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
             if (a2 != null) {
                 arrayList.add(a2);
             }
-            com.baidu.tieba.recapp.report.b.dGf().q("tag_pb_tab", arrayList);
+            com.baidu.tieba.recapp.report.b.dFU().q("PB", arrayList);
         }
         BdLog.detailException(null);
     }
@@ -88,10 +88,10 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         switch (this.updateType) {
             case 3:
-                j.doP().a(this.cacheKey, this.isFromMark, bArr);
+                i.doB().a(this.cacheKey, this.isFromMark, bArr);
                 return;
             case 4:
-                j.doP().n(this.cacheKey, bArr);
+                i.doB().o(this.cacheKey, bArr);
                 return;
             default:
                 return;

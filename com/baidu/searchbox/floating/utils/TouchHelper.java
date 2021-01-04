@@ -14,9 +14,9 @@ import kotlin.jvm.internal.p;
 import kotlin.jvm.internal.s;
 import kotlin.reflect.j;
 @e
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public final class TouchHelper {
-    static final /* synthetic */ j[] $$delegatedProperties = {s.a(new PropertyReference1Impl(s.M(TouchHelper.class), "mScreenHeight", "getMScreenHeight()I")), s.a(new PropertyReference1Impl(s.M(TouchHelper.class), "navigationBarHeight", "getNavigationBarHeight()I")), s.a(new PropertyReference1Impl(s.M(TouchHelper.class), "mTouchSlop", "getMTouchSlop()I")), s.a(new PropertyReference1Impl(s.M(TouchHelper.class), "mBlockOffset", "getMBlockOffset()Landroid/graphics/Rect;"))};
+    static final /* synthetic */ j[] $$delegatedProperties = {s.a(new PropertyReference1Impl(s.G(TouchHelper.class), "mScreenHeight", "getMScreenHeight()I")), s.a(new PropertyReference1Impl(s.G(TouchHelper.class), "navigationBarHeight", "getNavigationBarHeight()I")), s.a(new PropertyReference1Impl(s.G(TouchHelper.class), "mTouchSlop", "getMTouchSlop()I")), s.a(new PropertyReference1Impl(s.G(TouchHelper.class), "mBlockOffset", "getMBlockOffset()Landroid/graphics/Rect;"))};
     private final Config config;
     private final Context context;
     private final c mBlockOffset$delegate;

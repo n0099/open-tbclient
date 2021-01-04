@@ -5,29 +5,31 @@ import android.net.Uri;
 import android.webkit.WebView;
 import com.baidu.mobads.interfaces.event.IXAdEvent;
 import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class BaiduHybridAdManager {
     private com.baidu.mobads.production.d.a c;
     private WebView d;
-    private BaiduHybridAdViewListener b = new d(this);
+
+    /* renamed from: b  reason: collision with root package name */
+    private BaiduHybridAdViewListener f3311b = new d(this);
     private boolean e = false;
 
     /* renamed from: a  reason: collision with root package name */
-    IOAdEventListener f2302a = new e(this);
+    IOAdEventListener f3310a = new e(this);
 
     public void setBaiduHybridAdViewListener(BaiduHybridAdViewListener baiduHybridAdViewListener) {
-        this.b = baiduHybridAdViewListener;
+        this.f3311b = baiduHybridAdViewListener;
     }
 
     public void injectJavaScriptBridge(WebView webView) {
         if (!this.e) {
             this.d = webView;
             this.c = new com.baidu.mobads.production.d.a(this.d);
-            this.c.addEventListener(IXAdEvent.AD_LOADED, this.f2302a);
-            this.c.addEventListener(IXAdEvent.AD_ERROR, this.f2302a);
-            this.c.addEventListener(IXAdEvent.AD_STARTED, this.f2302a);
-            this.c.addEventListener("AdUserClick", this.f2302a);
-            this.c.addEventListener(IXAdEvent.AD_USER_CLOSE, this.f2302a);
+            this.c.addEventListener(IXAdEvent.AD_LOADED, this.f3310a);
+            this.c.addEventListener(IXAdEvent.AD_ERROR, this.f3310a);
+            this.c.addEventListener(IXAdEvent.AD_STARTED, this.f3310a);
+            this.c.addEventListener("AdUserClick", this.f3310a);
+            this.c.addEventListener(IXAdEvent.AD_USER_CLOSE, this.f3310a);
             this.c.request();
         }
     }

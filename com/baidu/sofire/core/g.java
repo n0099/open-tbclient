@@ -3,27 +3,29 @@ package com.baidu.sofire.core;
 import android.content.IntentFilter;
 import android.text.TextUtils;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public final class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f3619a;
-    public String b;
+    public String f5512a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f5513b;
     public String c;
     public IntentFilter d;
 
     public g(String str, IntentFilter intentFilter, String str2, String str3) {
-        this.f3619a = str;
+        this.f5512a = str;
         this.d = intentFilter;
-        this.b = str2;
+        this.f5513b = str2;
         this.c = str3;
     }
 
     public final boolean a(g gVar) {
         if (gVar != null) {
             try {
-                if (!TextUtils.isEmpty(gVar.f3619a) && !TextUtils.isEmpty(gVar.b) && !TextUtils.isEmpty(gVar.c)) {
-                    if (gVar.f3619a.equals(this.f3619a) && gVar.b.equals(this.b) && gVar.c.equals(this.c)) {
+                if (!TextUtils.isEmpty(gVar.f5512a) && !TextUtils.isEmpty(gVar.f5513b) && !TextUtils.isEmpty(gVar.c)) {
+                    if (gVar.f5512a.equals(this.f5512a) && gVar.f5513b.equals(this.f5513b) && gVar.c.equals(this.c)) {
                         if (gVar.d == null || this.d == null) {
                             return true;
                         }
@@ -41,7 +43,7 @@ public final class g {
 
     public final String toString() {
         try {
-            return "PluginloaderIntentFilter:" + this.f3619a + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.b + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.c + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.d;
+            return "PluginloaderIntentFilter:" + this.f5512a + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.f5513b + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.c + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.d;
         } catch (Throwable th) {
             return "";
         }

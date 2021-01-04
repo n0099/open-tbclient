@@ -1,7 +1,7 @@
 package com.baidu.ar.arplay.representation;
 
 import android.util.Log;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class Matrixf4x4 {
     public static final String TAG = Matrixf4x4.class.getSimpleName();
     public static final int[] MAT_IND_COL_IN9_WITH3X3 = {0, 1, 2, 3, 4, 5, 6, 7, 8};
@@ -93,93 +93,81 @@ public class Matrixf4x4 {
     public void multiplyVector3fByMatrix(Vector3f vector3f) {
         float f;
         float f2;
-        float f3 = 0.0f;
+        float f3;
+        int i = 0;
         if (!this.matrixValid || this.matrix.length != 9) {
             Log.e(TAG, "matrixMatrix is invalid, is " + this.matrix.length + " long, this function expects the internal matrix to be of size 9");
             return;
         }
         float[] array = vector3f.toArray();
         if (this.colMaj) {
-            int i = 0;
             f = 0.0f;
             f2 = 0.0f;
+            f3 = 0.0f;
             while (i < 3) {
-                float f4 = (this.matrix[i + 0] * array[i]) + f;
-                float f5 = (this.matrix[i + 3] * array[i]) + f3;
-                float f6 = (this.matrix[i + 6] * array[i]) + f2;
+                f3 += this.matrix[i + 0] * array[i];
+                f2 += this.matrix[i + 3] * array[i];
+                f += this.matrix[i + 6] * array[i];
                 i++;
-                f2 = f6;
-                f3 = f5;
-                f = f4;
             }
         } else {
-            int i2 = 0;
             f = 0.0f;
             f2 = 0.0f;
-            while (i2 < 3) {
-                int i3 = i2 * 3;
-                float f7 = (this.matrix[i3 + 0] * array[i2]) + f;
-                float f8 = (this.matrix[i3 + 1] * array[i2]) + f3;
-                float f9 = (this.matrix[i3 + 2] * array[i2]) + f2;
-                i2++;
-                f2 = f9;
-                f3 = f8;
-                f = f7;
+            f3 = 0.0f;
+            while (i < 3) {
+                int i2 = i * 3;
+                f3 += this.matrix[i2 + 0] * array[i];
+                f2 += this.matrix[i2 + 1] * array[i];
+                f += this.matrix[i2 + 2] * array[i];
+                i++;
             }
         }
-        vector3f.setX(f);
-        vector3f.setY(f3);
-        vector3f.setZ(f2);
+        vector3f.setX(f3);
+        vector3f.setY(f2);
+        vector3f.setZ(f);
     }
 
     public void multiplyVector4fByMatrix(Vector4f vector4f) {
         float f;
         float f2;
         float f3;
-        float f4 = 0.0f;
+        float f4;
+        int i = 0;
         if (!this.matrixValid || this.matrix.length != 16) {
             Log.e(TAG, "matrixMatrix is invalid, is " + this.matrix.length + " long, this equation expects a 16 value matrix");
             return;
         }
         float[] array = vector4f.toArray();
         if (this.colMaj) {
-            int i = 0;
             f = 0.0f;
             f2 = 0.0f;
             f3 = 0.0f;
+            f4 = 0.0f;
             while (i < 4) {
                 int i2 = i * 4;
-                float f5 = (this.matrix[i2 + 0] * array[i]) + f2;
-                float f6 = (this.matrix[i2 + 1] * array[i]) + f;
-                float f7 = (this.matrix[i2 + 2] * array[i]) + f4;
-                float f8 = (this.matrix[i2 + 3] * array[i]) + f3;
+                f4 += this.matrix[i2 + 0] * array[i];
+                f3 += this.matrix[i2 + 1] * array[i];
+                f2 += this.matrix[i2 + 2] * array[i];
+                f += this.matrix[i2 + 3] * array[i];
                 i++;
-                f3 = f8;
-                f4 = f7;
-                f = f6;
-                f2 = f5;
             }
         } else {
-            int i3 = 0;
             f = 0.0f;
             f2 = 0.0f;
             f3 = 0.0f;
-            while (i3 < 4) {
-                float f9 = (this.matrix[i3 + 0] * array[i3]) + f2;
-                float f10 = (this.matrix[i3 + 4] * array[i3]) + f;
-                float f11 = (this.matrix[i3 + 8] * array[i3]) + f4;
-                float f12 = (this.matrix[i3 + 12] * array[i3]) + f3;
-                i3++;
-                f3 = f12;
-                f4 = f11;
-                f = f10;
-                f2 = f9;
+            f4 = 0.0f;
+            while (i < 4) {
+                f4 += this.matrix[i + 0] * array[i];
+                f3 += this.matrix[i + 4] * array[i];
+                f2 += this.matrix[i + 8] * array[i];
+                f += this.matrix[i + 12] * array[i];
+                i++;
             }
         }
-        vector4f.setX(f2);
-        vector4f.setY(f);
-        vector4f.setZ(f4);
-        vector4f.setW(f3);
+        vector4f.setX(f4);
+        vector4f.setY(f3);
+        vector4f.setZ(f2);
+        vector4f.setW(f);
     }
 
     public void setColumnMajor(boolean z) {

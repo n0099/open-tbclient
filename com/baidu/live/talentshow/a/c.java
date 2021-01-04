@@ -3,18 +3,18 @@ package com.baidu.live.talentshow.a;
 import android.graphics.Outline;
 import android.graphics.Rect;
 import android.os.Build;
-import android.support.annotation.RequiresApi;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewOutlineProvider;
 import android.widget.FrameLayout;
+import androidx.annotation.RequiresApi;
 import com.baidu.ala.recorder.AlaLiveRecorder;
 import com.baidu.ala.recorder.RecorderCallback;
 import com.baidu.ala.recorder.video.AlaLiveVideoConfig;
 import com.baidu.ala.recorder.video.VideoBeautyType;
 import com.baidu.ala.recorder.video.VideoRecorderType;
 import com.baidu.live.adp.lib.util.BdLog;
-import com.baidu.live.data.bm;
+import com.baidu.live.data.bo;
 import com.baidu.live.recorder.helper.LiveRecorderConfigHelper;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
@@ -22,10 +22,10 @@ import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import com.baidu.platform.comapi.UIMsg;
 import com.baidu.tbadk.TbConfig;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class c {
-    private AlaLiveRecorder bAP;
-    private VideoBeautyType bAZ;
+    private AlaLiveRecorder bFC;
+    private VideoBeautyType bFM;
     private TbPageContext mPageContext;
     private RecorderCallback mRecorderCallback = new RecorderCallback() { // from class: com.baidu.live.talentshow.a.c.1
         @Override // com.baidu.ala.recorder.RecorderCallback
@@ -48,33 +48,33 @@ public class c {
         this.mPageContext = tbPageContext;
     }
 
-    public AlaLiveRecorder TI() {
-        if (this.bAP == null) {
-            TJ();
+    public AlaLiveRecorder UN() {
+        if (this.bFC == null) {
+            UO();
         }
-        return this.bAP;
+        return this.bFC;
     }
 
-    private void TJ() {
-        this.bAZ = bm.b(com.baidu.live.ae.a.RB().bxq) ? VideoBeautyType.DUMIX_AR : VideoBeautyType.BEAUTY_NONE;
-        if (this.bAP == null) {
-            AlaLiveVideoConfig d = LiveRecorderConfigHelper.QY().d(4, 1, false);
+    private void UO() {
+        this.bFM = bo.b(com.baidu.live.af.a.SE().bCb) ? VideoBeautyType.DUMIX_AR : VideoBeautyType.BEAUTY_NONE;
+        if (this.bFC == null) {
+            AlaLiveVideoConfig d = LiveRecorderConfigHelper.Sb().d(4, 1, false);
             d.setOutputWidth(UIMsg.MsgDefine.MSG_NETWORK_CHANNEL);
             d.setOutputHeight(TbConfig.HEAD_IMG_SIZE);
-            this.bAP = new AlaLiveRecorder(this.mPageContext.getPageActivity(), d, VideoRecorderType.CAMERA, this.bAZ);
-            this.bAP.addRecorderCallback(this.mRecorderCallback);
+            this.bFC = new AlaLiveRecorder(this.mPageContext.getPageActivity(), d, VideoRecorderType.CAMERA, new com.baidu.live.recorder.helper.a(), this.bFM);
+            this.bFC.addRecorderCallback(this.mRecorderCallback);
         }
     }
 
-    public void t(ViewGroup viewGroup) {
-        TI();
-        this.bAP.getPreview().setEnabled(false);
-        TL();
-        ab(this.bAP.getPreview());
-        viewGroup.addView(this.bAP.getPreview(), 0, TK());
+    public void w(ViewGroup viewGroup) {
+        UN();
+        this.bFC.getPreview().setEnabled(false);
+        UQ();
+        ab(this.bFC.getPreview());
+        viewGroup.addView(this.bFC.getPreview(), 0, UP());
     }
 
-    private FrameLayout.LayoutParams TK() {
+    private FrameLayout.LayoutParams UP() {
         return new FrameLayout.LayoutParams(-1, -1);
     }
 
@@ -98,9 +98,9 @@ public class c {
         view.setClipToOutline(true);
     }
 
-    public void TL() {
+    public void UQ() {
         View preview;
-        if (this.bAP != null && (preview = this.bAP.getPreview()) != null) {
+        if (this.bFC != null && (preview = this.bFC.getPreview()) != null) {
             if (Build.VERSION.SDK_INT >= 21) {
                 n(preview, 0.0f);
             }
@@ -111,22 +111,22 @@ public class c {
     }
 
     public void startPreview() {
-        if (this.bAP != null) {
-            this.bAP.startRecord();
+        if (this.bFC != null) {
+            this.bFC.startRecord();
         }
     }
 
-    public void TM() {
-        if (this.bAP != null) {
-            this.bAP.stopRecord();
+    public void UR() {
+        if (this.bFC != null) {
+            this.bFC.stopRecord();
         }
     }
 
     public void onDestroy() {
-        if (this.bAP != null) {
-            this.bAP.stopRecord();
-            this.bAP.release();
-            this.bAP = null;
+        if (this.bFC != null) {
+            this.bFC.stopRecord();
+            this.bFC.release();
+            this.bFC = null;
         }
     }
 }

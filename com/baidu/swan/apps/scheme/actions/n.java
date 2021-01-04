@@ -10,7 +10,7 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class n extends aa {
     public n(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/openApp4Ad");
@@ -18,25 +18,25 @@ public class n extends aa {
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        JSONObject b = b(unitedSchemeEntity, "params");
-        if (b == null) {
+        JSONObject b2 = b(unitedSchemeEntity, "params");
+        if (b2 == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal parameter");
             com.baidu.swan.apps.console.c.i("OpenAdAppAction", "params parse error");
             return false;
         }
-        String optString = b.optString("name");
+        String optString = b2.optString("name");
         if (TextUtils.isEmpty(optString)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "empty package name");
             com.baidu.swan.apps.console.c.i("OpenAdAppAction", "empty package name");
             return false;
         }
-        ResolveInfo ag = ag(context, optString);
-        if (ag == null) {
+        ResolveInfo am = am(context, optString);
+        if (am == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "app not installed");
             com.baidu.swan.apps.console.c.i("OpenAdAppAction", "app not installed");
             return false;
         }
-        a(context, ag);
+        a(context, am);
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         return true;
     }
@@ -57,7 +57,7 @@ public class n extends aa {
         }
     }
 
-    private static ResolveInfo ag(Context context, String str) {
+    private static ResolveInfo am(Context context, String str) {
         if (context == null || TextUtils.isEmpty(str)) {
             return null;
         }

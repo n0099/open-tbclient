@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseModel;
-import com.baidu.adp.base.d;
+import com.baidu.adp.base.e;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.l;
@@ -13,22 +13,22 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.aa;
-import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.z;
 import com.baidu.tbadk.coreExtra.data.aj;
-import com.baidu.tbadk.coreExtra.model.e;
+import com.baidu.tbadk.coreExtra.messageCenter.d;
 import com.baidu.tieba.setting.more.AboutActivity;
-/* loaded from: classes26.dex */
+/* loaded from: classes8.dex */
 public class AboutModel extends BdBaseModel<AboutActivity> {
     private Context mContext;
-    private a mUf;
-    private final boolean mUg;
+    private a mZC;
+    private final boolean mZD;
 
-    public AboutModel(BaseActivity baseActivity, d dVar) {
+    public AboutModel(BaseActivity baseActivity, e eVar) {
         super(baseActivity.getPageContext());
         this.mContext = baseActivity.getPageContext().getPageActivity();
-        this.mLoadDataCallBack = dVar;
-        this.mUg = false;
+        this.mLoadDataCallBack = eVar;
+        this.mZD = false;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -38,27 +38,27 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.mUf != null) {
-            this.mUf.cancel();
+        if (this.mZC != null) {
+            this.mZC.cancel();
             return false;
         }
         return false;
     }
 
-    public void dIg() {
-        if (this.mUf == null) {
-            this.mUf = new a();
+    public void checkUpdate() {
+        if (this.mZC == null) {
+            this.mZC = new a();
         }
-        this.mUf.setPriority(3);
-        this.mUf.execute(new String[0]);
+        this.mZC.setPriority(3);
+        this.mZC.execute(new String[0]);
     }
 
-    /* loaded from: classes26.dex */
-    private class a extends BdAsyncTask<String, Integer, e> {
-        aa cfI;
+    /* loaded from: classes8.dex */
+    private class a extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.model.e> {
+        z cmJ;
 
         private a() {
-            this.cfI = null;
+            this.cmJ = null;
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
@@ -70,68 +70,67 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: T */
-        public e doInBackground(String... strArr) {
-            e eVar;
-            Exception e;
+        /* renamed from: Z */
+        public com.baidu.tbadk.coreExtra.model.e doInBackground(String... strArr) {
+            com.baidu.tbadk.coreExtra.model.e eVar;
             try {
-                this.cfI = new aa(TbConfig.SERVER_ADDRESS + TbConfig.GET_SYNC_ADDRESS);
-                this.cfI.addPostData("_os_version", Build.VERSION.RELEASE);
+                this.cmJ = new z(TbConfig.SERVER_ADDRESS + TbConfig.GET_SYNC_ADDRESS);
+                this.cmJ.addPostData("_os_version", Build.VERSION.RELEASE);
                 StringBuffer stringBuffer = new StringBuffer(15);
                 stringBuffer.append(String.valueOf(l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp())));
                 stringBuffer.append(",");
                 stringBuffer.append(String.valueOf(l.getEquipmentHeight(TbadkCoreApplication.getInst().getApp())));
-                this.cfI.addPostData("_phone_screen", stringBuffer.toString());
-                if (com.baidu.tbadk.coreExtra.messageCenter.d.bzl().bzo() > 0) {
-                    this.cfI.addPostData("_msg_status", "0");
+                this.cmJ.addPostData("_phone_screen", stringBuffer.toString());
+                if (d.bBF().bBI() > 0) {
+                    this.cmJ.addPostData("_msg_status", "0");
                 } else {
-                    this.cfI.addPostData("_msg_status", "1");
+                    this.cmJ.addPostData("_msg_status", "1");
                 }
-                if (AboutModel.this.mUg) {
-                    this.cfI.addPostData("reversion_return", "1");
+                if (AboutModel.this.mZD) {
+                    this.cmJ.addPostData("reversion_return", "1");
                 }
                 String packageName = TbadkCoreApplication.getInst().getPackageName();
-                this.cfI.addPostData("package", packageName);
-                this.cfI.addPostData("versioncode", TbadkCoreApplication.getInst().getVersionCode() + "");
-                this.cfI.addPostData("signmd5", aw.creatSignInt(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
-                this.cfI.addPostData("md5", UtilHelper.getTiebaApkMd5());
-                String postNetData = this.cfI.postNetData();
-                if (!this.cfI.btv().buf().isRequestSuccess()) {
+                this.cmJ.addPostData("package", packageName);
+                this.cmJ.addPostData("versioncode", TbadkCoreApplication.getInst().getVersionCode() + "");
+                this.cmJ.addPostData("signmd5", av.creatSignInt(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
+                this.cmJ.addPostData("md5", UtilHelper.getTiebaApkMd5());
+                String postNetData = this.cmJ.postNetData();
+                if (!this.cmJ.bvQ().bwA().isRequestSuccess()) {
                     return null;
                 }
-                eVar = new e();
+                eVar = new com.baidu.tbadk.coreExtra.model.e();
                 try {
                     eVar.parserJson(postNetData);
-                    if (TbadkCoreApplication.getClientId() == null && eVar.bzR().getClientId() != null && eVar.bzR().getClientId().length() > 0) {
-                        TbadkCoreApplication.saveClientId(AboutModel.this.mContext, eVar.bzR().getClientId());
-                        TbadkCoreApplication.setClientId(eVar.bzR().getClientId());
+                    if (TbadkCoreApplication.getClientId() == null && eVar.bCl().getClientId() != null && eVar.bCl().getClientId().length() > 0) {
+                        TbadkCoreApplication.saveClientId(AboutModel.this.mContext, eVar.bCl().getClientId());
+                        TbadkCoreApplication.setClientId(eVar.bCl().getClientId());
                     }
-                    aj bzS = eVar.bzS();
-                    if (bzS != null) {
-                        b.bsO().putBoolean("localvideo_open", bzS.byr());
+                    aj bCm = eVar.bCm();
+                    if (bCm != null) {
+                        b.bvq().putBoolean("localvideo_open", bCm.bAL());
                     }
                     com.baidu.tbadk.coreExtra.data.d adAdSense = eVar.getAdAdSense();
                     if (adAdSense != null && !TextUtils.isEmpty(adAdSense.getUrl())) {
-                        b.bsO().putString("sync_ad_privacy_url", adAdSense.getUrl());
+                        b.bvq().putString("sync_ad_privacy_url", adAdSense.getUrl());
                         return eVar;
                     }
                     return eVar;
-                } catch (Exception e2) {
-                    e = e2;
+                } catch (Exception e) {
+                    e = e;
                     BdLog.e(e.getMessage());
                     return eVar;
                 }
-            } catch (Exception e3) {
+            } catch (Exception e2) {
+                e = e2;
                 eVar = null;
-                e = e3;
             }
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            AboutModel.this.mUf = null;
-            if (this.cfI != null) {
-                this.cfI.cancelNetConnect();
+            AboutModel.this.mZC = null;
+            if (this.cmJ != null) {
+                this.cmJ.cancelNetConnect();
             }
             super.cancel(true);
         }
@@ -140,12 +139,12 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: a */
-        public void onPostExecute(e eVar) {
+        public void onPostExecute(com.baidu.tbadk.coreExtra.model.e eVar) {
             super.onPostExecute(eVar);
             if (eVar != null && eVar.getAdAdSense() != null) {
                 TbadkCoreApplication.getInst().setAdAdSense(eVar.getAdAdSense());
             }
-            AboutModel.this.mUf = null;
+            AboutModel.this.mZC = null;
             AboutModel.this.mLoadDataCallBack.callback(eVar);
         }
     }

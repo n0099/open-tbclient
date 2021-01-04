@@ -18,7 +18,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Stack;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public final class BdZeusUtil implements INoProGuard {
     private static final String ARCH_ARM = "armv";
     private static final int ARCH_ARM_INT = 7;
@@ -159,11 +159,9 @@ public final class BdZeusUtil implements INoProGuard {
     }
 
     public static String getTnNumbersFromApk(Context context) {
-        InputStream inputStream;
-        Throwable th;
         ByteArrayOutputStream byteArrayOutputStream;
-        InputStream inputStream2;
-        ByteArrayOutputStream byteArrayOutputStream2 = null;
+        InputStream inputStream;
+        ByteArrayOutputStream byteArrayOutputStream2;
         try {
             inputStream = context.getResources().openRawResource(context.getResources().getIdentifier("tnconfig", "raw", context.getPackageName()));
             try {
@@ -193,22 +191,21 @@ public final class BdZeusUtil implements INoProGuard {
                     return trim;
                 } catch (Exception e3) {
                     byteArrayOutputStream2 = byteArrayOutputStream;
-                    inputStream2 = inputStream;
                     if (byteArrayOutputStream2 != null) {
                         try {
                             byteArrayOutputStream2.close();
                         } catch (Exception e4) {
                         }
                     }
-                    if (inputStream2 != null) {
+                    if (inputStream != null) {
                         try {
-                            inputStream2.close();
+                            inputStream.close();
                         } catch (Exception e5) {
                         }
                     }
                     return DEFAULT_TNNUMBER;
-                } catch (Throwable th2) {
-                    th = th2;
+                } catch (Throwable th) {
+                    th = th;
                     if (byteArrayOutputStream != null) {
                         try {
                             byteArrayOutputStream.close();
@@ -224,17 +221,18 @@ public final class BdZeusUtil implements INoProGuard {
                     throw th;
                 }
             } catch (Exception e8) {
-                inputStream2 = inputStream;
-            } catch (Throwable th3) {
+                byteArrayOutputStream2 = null;
+            } catch (Throwable th2) {
+                th = th2;
                 byteArrayOutputStream = null;
-                th = th3;
             }
         } catch (Exception e9) {
-            inputStream2 = null;
-        } catch (Throwable th4) {
+            byteArrayOutputStream2 = null;
             inputStream = null;
-            th = th4;
+        } catch (Throwable th3) {
+            th = th3;
             byteArrayOutputStream = null;
+            inputStream = null;
         }
     }
 

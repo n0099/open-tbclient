@@ -23,13 +23,15 @@ import java.net.URLEncoder;
 import java.util.HashSet;
 import java.util.Iterator;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public final class a {
     private static String n;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f3952a;
-    private int b;
+    private String f5985a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private int f5986b;
     private int c;
     private int d;
     private String e;
@@ -56,10 +58,10 @@ public final class a {
 
     private String a(Context context, com.baidu.webkit.logsdk.b bVar) {
         if (TextUtils.isEmpty(this.g)) {
-            if (this.b == 0) {
+            if (this.f5986b == 0) {
                 d(context);
             }
-            int i = this.b;
+            int i = this.f5986b;
             if (this.c == 0) {
                 d(context);
             }
@@ -98,13 +100,13 @@ public final class a {
     }
 
     private String a(com.baidu.webkit.logsdk.b bVar) {
-        if (TextUtils.isEmpty(this.f3952a)) {
-            this.f3952a = bVar.e();
+        if (TextUtils.isEmpty(this.f5985a)) {
+            this.f5985a = bVar.e();
         }
-        if (TextUtils.isEmpty(this.f3952a)) {
+        if (TextUtils.isEmpty(this.f5985a)) {
             throw new RuntimeException("BdLogBase: get cuid null!");
         }
-        return this.f3952a;
+        return this.f5985a;
     }
 
     private String b() {
@@ -148,7 +150,7 @@ public final class a {
                 }
                 return "unknown";
             }
-            return "fail";
+            return com.baidu.pass.biometrics.face.liveness.c.a.p;
         } catch (Exception e) {
             com.baidu.webkit.logsdk.d.c.a(e);
             return "exception";
@@ -184,8 +186,8 @@ public final class a {
 
     public static boolean c(Context context) {
         b.a().g();
-        String b = b(context);
-        return b.equals("2g") || b.equals("3g") || b.equals("4g");
+        String b2 = b(context);
+        return b2.equals("2g") || b2.equals("3g") || b2.equals("4g");
     }
 
     @SuppressLint({"HardwareIds"})
@@ -204,7 +206,7 @@ public final class a {
     private void d(Context context) {
         try {
             DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-            this.b = displayMetrics.widthPixels;
+            this.f5986b = displayMetrics.widthPixels;
             this.c = displayMetrics.heightPixels;
             this.d = displayMetrics.densityDpi;
         } catch (Exception e) {
@@ -342,98 +344,7 @@ public final class a {
         return jSONObject.toString();
     }
 
-    /* JADX WARN: Can't wrap try/catch for region: R(50:4|(1:6)(1:111)|7|(2:8|9)|(3:11|12|(1:14))|16|17|18|(1:20)|22|23|(1:25)|27|28|(1:30)|32|33|(1:35)|37|38|(1:40)|42|43|44|(1:46)|48|49|50|(1:52)|53|54|55|(1:57)|59|60|61|(1:63)|65|66|(1:68)|70|(1:72)(1:85)|73|(1:75)|76|(1:78)|79|(1:81)|82|83) */
-    /* JADX WARN: Can't wrap try/catch for region: R(51:4|(1:6)(1:111)|7|8|9|(3:11|12|(1:14))|16|17|18|(1:20)|22|23|(1:25)|27|28|(1:30)|32|33|(1:35)|37|38|(1:40)|42|43|44|(1:46)|48|49|50|(1:52)|53|54|55|(1:57)|59|60|61|(1:63)|65|66|(1:68)|70|(1:72)(1:85)|73|(1:75)|76|(1:78)|79|(1:81)|82|83) */
-    /* JADX WARN: Code restructure failed: missing block: B:66:0x01b6, code lost:
-        r1 = move-exception;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:67:0x01b7, code lost:
-        com.baidu.webkit.logsdk.d.c.a(r1);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:68:0x01bc, code lost:
-        r1 = move-exception;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:69:0x01bd, code lost:
-        com.baidu.webkit.logsdk.d.c.a(r1);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:70:0x01c2, code lost:
-        r1 = move-exception;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:71:0x01c3, code lost:
-        com.baidu.webkit.logsdk.d.c.a(r1);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:72:0x01c8, code lost:
-        r1 = move-exception;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:73:0x01c9, code lost:
-        com.baidu.webkit.logsdk.d.c.a(r1);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:74:0x01ce, code lost:
-        r1 = move-exception;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:75:0x01cf, code lost:
-        com.baidu.webkit.logsdk.d.c.a(r1);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:76:0x01d4, code lost:
-        r1 = move-exception;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:77:0x01d5, code lost:
-        com.baidu.webkit.logsdk.d.c.a(r1);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:78:0x01da, code lost:
-        r1 = move-exception;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:79:0x01db, code lost:
-        com.baidu.webkit.logsdk.d.c.a(r1);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:80:0x01e0, code lost:
-        r1 = move-exception;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:81:0x01e1, code lost:
-        com.baidu.webkit.logsdk.d.c.a(r1);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:82:0x01e6, code lost:
-        r1 = move-exception;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:83:0x01e7, code lost:
-        com.baidu.webkit.logsdk.d.c.a(r1);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:84:0x01ec, code lost:
-        r1 = move-exception;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:85:0x01ed, code lost:
-        com.baidu.webkit.logsdk.d.c.a(r1);
-     */
-    /* JADX WARN: Removed duplicated region for block: B:17:0x004a A[Catch: Exception -> 0x01b6, TRY_LEAVE, TryCatch #8 {Exception -> 0x01b6, blocks: (B:15:0x0040, B:17:0x004a), top: B:105:0x0040 }] */
-    /* JADX WARN: Removed duplicated region for block: B:20:0x0065 A[Catch: Exception -> 0x01bc, TRY_LEAVE, TryCatch #4 {Exception -> 0x01bc, blocks: (B:18:0x0054, B:20:0x0065), top: B:97:0x0054 }] */
-    /* JADX WARN: Removed duplicated region for block: B:23:0x0080 A[Catch: Exception -> 0x01c2, TRY_LEAVE, TryCatch #10 {Exception -> 0x01c2, blocks: (B:21:0x006f, B:23:0x0080), top: B:109:0x006f }] */
-    /* JADX WARN: Removed duplicated region for block: B:26:0x009b A[Catch: Exception -> 0x01c8, TRY_LEAVE, TryCatch #6 {Exception -> 0x01c8, blocks: (B:24:0x008a, B:26:0x009b), top: B:101:0x008a }] */
-    /* JADX WARN: Removed duplicated region for block: B:29:0x00b6 A[Catch: Exception -> 0x01ce, TRY_LEAVE, TryCatch #1 {Exception -> 0x01ce, blocks: (B:27:0x00a5, B:29:0x00b6), top: B:91:0x00a5 }] */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x00d0 A[Catch: Exception -> 0x01d4, TRY_LEAVE, TryCatch #9 {Exception -> 0x01d4, blocks: (B:31:0x00c6, B:33:0x00d0), top: B:107:0x00c6 }] */
-    /* JADX WARN: Removed duplicated region for block: B:37:0x00f2  */
-    /* JADX WARN: Removed duplicated region for block: B:41:0x0106 A[Catch: Exception -> 0x01e0, TRY_LEAVE, TryCatch #0 {Exception -> 0x01e0, blocks: (B:39:0x0100, B:41:0x0106), top: B:89:0x0100 }] */
-    /* JADX WARN: Removed duplicated region for block: B:45:0x0118 A[Catch: Exception -> 0x01e6, TRY_LEAVE, TryCatch #7 {Exception -> 0x01e6, blocks: (B:43:0x0112, B:45:0x0118), top: B:103:0x0112 }] */
-    /* JADX WARN: Removed duplicated region for block: B:48:0x0134 A[Catch: Exception -> 0x01ec, TRY_LEAVE, TryCatch #3 {Exception -> 0x01ec, blocks: (B:46:0x012a, B:48:0x0134), top: B:95:0x012a }] */
-    /* JADX WARN: Removed duplicated region for block: B:51:0x0147  */
-    /* JADX WARN: Removed duplicated region for block: B:54:0x0161  */
-    /* JADX WARN: Removed duplicated region for block: B:57:0x017b  */
-    /* JADX WARN: Removed duplicated region for block: B:60:0x0195  */
-    /* JADX WARN: Removed duplicated region for block: B:88:0x01f4  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public final String a(Context context, String str) {
-        String str2;
-        Exception e;
-        String str3;
-        String b;
-        String str4;
-        String packageName;
-        String c;
-        String encode;
-        String encode2;
-        String encode3;
-        String encode4;
         if (TextUtils.isEmpty(str) || context == null) {
             return str;
         }
@@ -443,103 +354,98 @@ public final class a {
         } else {
             sb.append(ETAG.ITEM_SEPARATOR);
         }
-        com.baidu.webkit.logsdk.b c2 = b.a().c();
+        com.baidu.webkit.logsdk.b c = b.a().c();
+        String str2 = "";
         try {
-            str2 = a(context, c2);
-        } catch (Exception e2) {
-            str2 = "";
-            e = e2;
-        }
-        try {
+            str2 = a(context, c);
             if (!TextUtils.isEmpty(str2)) {
                 sb.append("ua=").append(str2);
             }
-        } catch (Exception e3) {
-            e = e3;
+        } catch (Exception e) {
             com.baidu.webkit.logsdk.d.c.a(e);
-            str3 = "";
-            str3 = a(c2);
+        }
+        String str3 = "";
+        try {
+            str3 = a(c);
             if (!TextUtils.isEmpty(str3)) {
+                sb.append("&cuid=").append(str3);
             }
-            encode4 = URLEncoder.encode(c(c2), "UTF-8");
-            if (!TextUtils.isEmpty(encode4)) {
-            }
-            encode3 = URLEncoder.encode(b(c2), "UTF-8");
-            if (!TextUtils.isEmpty(encode3)) {
-            }
-            encode2 = URLEncoder.encode(a(), "UTF-8");
-            if (!TextUtils.isEmpty(encode2)) {
-            }
-            encode = URLEncoder.encode(b(), "UTF-8");
+        } catch (Exception e2) {
+            com.baidu.webkit.logsdk.d.c.a(e2);
+        }
+        try {
+            String encode = URLEncoder.encode(c(c), "UTF-8");
             if (!TextUtils.isEmpty(encode)) {
+                sb.append("&cfrom=").append(encode);
             }
-            sb.append("ctv=2");
-            c = c();
-            if (!TextUtils.isEmpty(c)) {
-            }
-            sb.append("&st=").append(f());
-            b = b(context);
-            if (!TextUtils.isEmpty(b)) {
-            }
-            if (!TextUtils.isEmpty(null)) {
-            }
-            if (!TextUtils.isEmpty(null)) {
-            }
-            packageName = context.getPackageName();
-            if (!TextUtils.isEmpty(packageName)) {
-            }
-            if (TextUtils.isEmpty(str2)) {
-            }
-            if (!TextUtils.isEmpty(str3)) {
-            }
-            if (!TextUtils.isEmpty(null)) {
-            }
-            if (!TextUtils.isEmpty(str4)) {
-            }
-            return sb.toString();
+        } catch (Exception e3) {
+            com.baidu.webkit.logsdk.d.c.a(e3);
         }
-        str3 = "";
-        str3 = a(c2);
-        if (!TextUtils.isEmpty(str3)) {
-            sb.append("&cuid=").append(str3);
+        try {
+            String encode2 = URLEncoder.encode(b(c), "UTF-8");
+            if (!TextUtils.isEmpty(encode2)) {
+                sb.append("&from=").append(encode2);
+            }
+        } catch (Exception e4) {
+            com.baidu.webkit.logsdk.d.c.a(e4);
         }
-        encode4 = URLEncoder.encode(c(c2), "UTF-8");
-        if (!TextUtils.isEmpty(encode4)) {
-            sb.append("&cfrom=").append(encode4);
+        try {
+            String encode3 = URLEncoder.encode(a(), "UTF-8");
+            if (!TextUtils.isEmpty(encode3)) {
+                sb.append("&crp=").append(encode3);
+            }
+        } catch (Exception e5) {
+            com.baidu.webkit.logsdk.d.c.a(e5);
         }
-        encode3 = URLEncoder.encode(b(c2), "UTF-8");
-        if (!TextUtils.isEmpty(encode3)) {
-            sb.append("&from=").append(encode3);
-        }
-        encode2 = URLEncoder.encode(a(), "UTF-8");
-        if (!TextUtils.isEmpty(encode2)) {
-            sb.append("&crp=").append(encode2);
-        }
-        encode = URLEncoder.encode(b(), "UTF-8");
-        if (!TextUtils.isEmpty(encode)) {
-            sb.append("&it=").append(encode);
+        try {
+            String encode4 = URLEncoder.encode(b(), "UTF-8");
+            if (!TextUtils.isEmpty(encode4)) {
+                sb.append("&it=").append(encode4);
+            }
+        } catch (Exception e6) {
+            com.baidu.webkit.logsdk.d.c.a(e6);
         }
         sb.append("ctv=2");
-        c = c();
-        if (!TextUtils.isEmpty(c)) {
-            sb.append("&seid=").append(c);
+        try {
+            String c2 = c();
+            if (!TextUtils.isEmpty(c2)) {
+                sb.append("&seid=").append(c2);
+            }
+        } catch (Exception e7) {
+            com.baidu.webkit.logsdk.d.c.a(e7);
         }
-        sb.append("&st=").append(f());
-        b = b(context);
-        if (!TextUtils.isEmpty(b)) {
-            sb.append("&nw=").append(b);
+        try {
+            sb.append("&st=").append(f());
+        } catch (Exception e8) {
+            com.baidu.webkit.logsdk.d.c.a(e8);
         }
-        if (!TextUtils.isEmpty(null)) {
-            sb.append("&uid=").append((String) null);
+        String b2 = b(context);
+        if (!TextUtils.isEmpty(b2)) {
+            sb.append("&nw=").append(b2);
         }
-        if (!TextUtils.isEmpty(null)) {
-            sb.append("&city=").append(URLEncoder.encode(null, "UTF-8"));
+        try {
+            if (!TextUtils.isEmpty(null)) {
+                sb.append("&uid=").append((String) null);
+            }
+        } catch (Exception e9) {
+            com.baidu.webkit.logsdk.d.c.a(e9);
         }
-        packageName = context.getPackageName();
-        if (!TextUtils.isEmpty(packageName)) {
-            sb.append("&pkgname=").append(packageName);
+        try {
+            if (!TextUtils.isEmpty(null)) {
+                sb.append("&city=").append(URLEncoder.encode(null, "UTF-8"));
+            }
+        } catch (Exception e10) {
+            com.baidu.webkit.logsdk.d.c.a(e10);
         }
-        str4 = TextUtils.isEmpty(str2) ? "" + j.c : "";
+        try {
+            String packageName = context.getPackageName();
+            if (!TextUtils.isEmpty(packageName)) {
+                sb.append("&pkgname=").append(packageName);
+            }
+        } catch (Exception e11) {
+            com.baidu.webkit.logsdk.d.c.a(e11);
+        }
+        String str4 = !TextUtils.isEmpty(str2) ? "" + j.c : "";
         if (!TextUtils.isEmpty(str3)) {
             str4 = str4 + "_cuid";
         }
@@ -756,7 +662,7 @@ public final class a {
 
     public final String b(Context context, String str) {
         com.baidu.webkit.logsdk.b.c c = b.a().e().c(str);
-        if ("full".equals(c.f3960a)) {
+        if ("full".equals(c.f6000a)) {
             return a(context);
         }
         HashSet<String> hashSet = c.c;

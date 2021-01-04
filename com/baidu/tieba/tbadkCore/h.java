@@ -1,16 +1,16 @@
 package com.baidu.tieba.tbadkCore;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.by;
+import com.baidu.tbadk.core.data.bz;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import java.util.List;
 /* loaded from: classes.dex */
-public class h extends BaseCardInfo implements com.baidu.adp.widget.ListView.q {
-    public static final BdUniqueId njB = BdUniqueId.gen();
-    public List<by> njC;
+public class h extends BaseCardInfo implements com.baidu.adp.widget.ListView.n {
+    public static final BdUniqueId npi = BdUniqueId.gen();
+    public List<bz> npj;
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return njB;
+        return npi;
     }
 }

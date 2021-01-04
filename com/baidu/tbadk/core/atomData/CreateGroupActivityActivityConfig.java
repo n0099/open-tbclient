@@ -5,7 +5,7 @@ import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.im.data.GroupActivityData;
-/* loaded from: classes21.dex */
+/* loaded from: classes.dex */
 public class CreateGroupActivityActivityConfig extends IntentConfig {
     public static final String GROUP_ACTIVITY_AREA = "area";
     public static final String GROUP_ACTIVITY_CONTENT = "content";

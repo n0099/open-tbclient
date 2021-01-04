@@ -8,22 +8,25 @@ import java.io.File;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public final class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f3637a = {"java.lang.UnsatisfiedLinkError"};
-    public static final String[] b = {"space left"};
+    public static final String[] f5542a = {"java.lang.UnsatisfiedLinkError"};
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final String[] f5543b = {"space left"};
 
     public static String a(Context context, String str, String str2) {
         char c;
         ApkInfo d;
         String[] split;
+        File[] listFiles;
         try {
-            if (str.contains(f3637a[0])) {
+            if (str.contains(f5542a[0])) {
                 c = 1;
             } else {
-                c = str.contains(b[0]) ? (char) 2 : (char) 0;
+                c = str.contains(f5543b[0]) ? (char) 2 : (char) 0;
             }
             switch (c) {
                 case 1:
@@ -36,12 +39,7 @@ public final class j {
                             } else if (!file.isDirectory()) {
                                 str3 = str3 + "\r\nsubLibPathFile " + str4 + " not a dir";
                             } else {
-                                File[] listFiles = file.listFiles();
-                                int length = listFiles.length;
-                                int i = 0;
-                                while (i < length) {
-                                    File file2 = listFiles[i];
-                                    i++;
+                                for (File file2 : file.listFiles()) {
                                     str3 = str3 + "\r\n{" + file2.getAbsolutePath() + ":" + p.a(file2) + "}\r\n";
                                 }
                             }

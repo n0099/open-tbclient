@@ -1,6 +1,6 @@
 package com.googlecode.mp4parser.boxes.apple;
 
-import com.baidu.searchbox.account.contants.AccountConstants;
+import androidx.core.internal.view.SupportMenu;
 import com.coremedia.iso.BoxParser;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class QuicktimeTextSampleEntry extends AbstractSampleEntry {
     public static final String TYPE = "text";
     int backgroundB;
@@ -34,9 +34,9 @@ public class QuicktimeTextSampleEntry extends AbstractSampleEntry {
 
     public QuicktimeTextSampleEntry() {
         super("text");
-        this.foregroundR = 65535;
-        this.foregroundG = 65535;
-        this.foregroundB = 65535;
+        this.foregroundR = SupportMenu.USER_MASK;
+        this.foregroundG = SupportMenu.USER_MASK;
+        this.foregroundB = SupportMenu.USER_MASK;
         this.fontName = "";
     }
 
@@ -109,7 +109,7 @@ public class QuicktimeTextSampleEntry extends AbstractSampleEntry {
     @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
     public long getSize() {
         long containerSize = 52 + getContainerSize() + (this.fontName != null ? this.fontName.length() : 0);
-        return ((this.largeBox || 8 + containerSize >= AccountConstants.TYPE_MODIFY_EXT_FIELDS) ? 16 : 8) + containerSize;
+        return ((this.largeBox || 8 + containerSize >= 4294967296L) ? 16 : 8) + containerSize;
     }
 
     public int getDisplayFlags() {
@@ -188,8 +188,8 @@ public class QuicktimeTextSampleEntry extends AbstractSampleEntry {
         return this.reserved2;
     }
 
-    public void setReserved2(byte b) {
-        this.reserved2 = b;
+    public void setReserved2(byte b2) {
+        this.reserved2 = b2;
     }
 
     public short getReserved3() {

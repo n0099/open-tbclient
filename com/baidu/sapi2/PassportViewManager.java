@@ -1,19 +1,21 @@
 package com.baidu.sapi2;
 
 import android.graphics.drawable.Drawable;
-import android.support.v7.widget.ActivityChooserView;
+import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.l.a.a;
 import com.baidu.sapi2.callback.TitleBtnCallback;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class PassportViewManager implements NoProguard {
     private static SapiConfiguration c;
     private static PassportViewManager d;
 
     /* renamed from: a  reason: collision with root package name */
-    private TitleBtnCallback f3215a;
-    private TitleViewModule b = null;
+    private TitleBtnCallback f4809a;
 
-    /* loaded from: classes6.dex */
+    /* renamed from: b  reason: collision with root package name */
+    private TitleViewModule f4810b = null;
+
+    /* loaded from: classes3.dex */
     public static class TitleViewModule implements NoProguard {
         public static final int DEFAULT_TEXT_COLOR = PassportViewManager.c.context.getResources().getColor(a.b.sapi_sdk_edit_text_color);
         public int bgColor = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
@@ -61,7 +63,7 @@ public class PassportViewManager implements NoProguard {
     }
 
     public void configTitle(TitleViewModule titleViewModule) {
-        this.b = titleViewModule;
+        this.f4810b = titleViewModule;
         if (titleViewModule.bgColor == Integer.MAX_VALUE) {
             titleViewModule.bgColor = -1;
         }
@@ -71,20 +73,20 @@ public class PassportViewManager implements NoProguard {
     }
 
     public TitleBtnCallback getTitleBtnCallback() {
-        return this.f3215a;
+        return this.f4809a;
     }
 
     public TitleViewModule getTitleViewModule() {
-        return this.b;
+        return this.f4810b;
     }
 
     public void release() {
-        this.f3215a = null;
-        this.b = null;
+        this.f4809a = null;
+        this.f4810b = null;
         SapiWebView.statLoadLogin = null;
     }
 
     public void setTitleBtnCallback(TitleBtnCallback titleBtnCallback) {
-        this.f3215a = titleBtnCallback;
+        this.f4809a = titleBtnCallback;
     }
 }

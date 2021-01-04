@@ -4,13 +4,16 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import io.flutter.Log;
 import io.flutter.embedding.engine.renderer.FlutterRenderer;
 import io.flutter.embedding.engine.renderer.FlutterUiDisplayListener;
 import io.flutter.embedding.engine.renderer.RenderSurface;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class FlutterSurfaceView extends SurfaceView implements RenderSurface {
     private static final String TAG = "FlutterSurfaceView";
+    @Nullable
     private FlutterRenderer flutterRenderer;
     private final FlutterUiDisplayListener flutterUiDisplayListener;
     private boolean isAttachedToFlutterRenderer;
@@ -18,25 +21,25 @@ public class FlutterSurfaceView extends SurfaceView implements RenderSurface {
     private final boolean renderTransparently;
     private final SurfaceHolder.Callback surfaceCallback;
 
-    public FlutterSurfaceView(Context context) {
+    public FlutterSurfaceView(@NonNull Context context) {
         this(context, null, false);
     }
 
-    public FlutterSurfaceView(Context context, boolean z) {
+    public FlutterSurfaceView(@NonNull Context context, boolean z) {
         this(context, null, z);
     }
 
-    public FlutterSurfaceView(Context context, AttributeSet attributeSet) {
+    public FlutterSurfaceView(@NonNull Context context, @NonNull AttributeSet attributeSet) {
         this(context, attributeSet, false);
     }
 
-    private FlutterSurfaceView(Context context, AttributeSet attributeSet, boolean z) {
+    private FlutterSurfaceView(@NonNull Context context, @Nullable AttributeSet attributeSet, boolean z) {
         super(context, attributeSet);
         this.isSurfaceAvailableForRendering = false;
         this.isAttachedToFlutterRenderer = false;
         this.surfaceCallback = new SurfaceHolder.Callback() { // from class: io.flutter.embedding.android.FlutterSurfaceView.1
             @Override // android.view.SurfaceHolder.Callback
-            public void surfaceCreated(SurfaceHolder surfaceHolder) {
+            public void surfaceCreated(@NonNull SurfaceHolder surfaceHolder) {
                 Log.v(FlutterSurfaceView.TAG, "SurfaceHolder.Callback.startRenderingToSurface()");
                 FlutterSurfaceView.this.isSurfaceAvailableForRendering = true;
                 if (FlutterSurfaceView.this.isAttachedToFlutterRenderer) {
@@ -45,7 +48,7 @@ public class FlutterSurfaceView extends SurfaceView implements RenderSurface {
             }
 
             @Override // android.view.SurfaceHolder.Callback
-            public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
+            public void surfaceChanged(@NonNull SurfaceHolder surfaceHolder, int i, int i2, int i3) {
                 Log.v(FlutterSurfaceView.TAG, "SurfaceHolder.Callback.surfaceChanged()");
                 if (FlutterSurfaceView.this.isAttachedToFlutterRenderer) {
                     FlutterSurfaceView.this.changeSurfaceSize(i2, i3);
@@ -53,7 +56,7 @@ public class FlutterSurfaceView extends SurfaceView implements RenderSurface {
             }
 
             @Override // android.view.SurfaceHolder.Callback
-            public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
+            public void surfaceDestroyed(@NonNull SurfaceHolder surfaceHolder) {
                 Log.v(FlutterSurfaceView.TAG, "SurfaceHolder.Callback.stopRenderingToSurface()");
                 FlutterSurfaceView.this.isSurfaceAvailableForRendering = false;
                 if (FlutterSurfaceView.this.isAttachedToFlutterRenderer) {
@@ -89,12 +92,13 @@ public class FlutterSurfaceView extends SurfaceView implements RenderSurface {
     }
 
     @Override // io.flutter.embedding.engine.renderer.RenderSurface
+    @Nullable
     public FlutterRenderer getAttachedRenderer() {
         return this.flutterRenderer;
     }
 
     @Override // io.flutter.embedding.engine.renderer.RenderSurface
-    public void attachToRenderer(FlutterRenderer flutterRenderer) {
+    public void attachToRenderer(@NonNull FlutterRenderer flutterRenderer) {
         Log.v(TAG, "Attaching to FlutterRenderer.");
         if (this.flutterRenderer != null) {
             Log.v(TAG, "Already connected to a FlutterRenderer. Detaching from old one and attaching to new one.");

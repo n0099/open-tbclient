@@ -1,8 +1,8 @@
 package com.baidu.searchbox.player.pool;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.player.pool.IPoolItem;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class SynchronizedFIFOPool<T extends IPoolItem> extends FIFOPool<T> {
     private final Object mLock;
 

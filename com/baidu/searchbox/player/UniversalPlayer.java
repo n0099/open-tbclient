@@ -1,11 +1,11 @@
 package com.baidu.searchbox.player;
 
 import android.content.Context;
-import android.support.annotation.IntRange;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.util.SimpleArrayMap;
 import android.text.TextUtils;
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.collection.SimpleArrayMap;
 import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.callback.UniversalPlayerCallbackManager;
 import com.baidu.searchbox.player.constants.PlayerConstant;
@@ -25,7 +25,7 @@ import com.baidu.searchbox.player.stat.UniversalStatDispatcherImp;
 import com.baidu.searchbox.player.utils.BdActivityUtils;
 import com.baidu.searchbox.player.utils.BdVideoLog;
 import com.baidu.searchbox.player.utils.BdViewOpUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class UniversalPlayer extends BDVideoPlayer {
     private static final String TAG = "UniversalPlayer";
     protected static boolean sIsOrientationLock = false;
@@ -75,8 +75,8 @@ public class UniversalPlayer extends BDVideoPlayer {
         this.mContextMap.put(cls, iPlayerContext);
     }
 
-    @PublicMethod
     @Nullable
+    @PublicMethod
     public <T extends IPlayerContext> T getPlayerContext(Class<T> cls) {
         T t = (T) this.mContextMap.get(cls);
         if (t != null) {
@@ -98,8 +98,8 @@ public class UniversalPlayer extends BDVideoPlayer {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.player.BDVideoPlayer
-    @PublicMethod
     @NonNull
+    @PublicMethod
     public UniversalPlayerCallbackManager getPlayerCallbackManager() {
         return (UniversalPlayerCallbackManager) this.mCallbackManager;
     }
@@ -109,14 +109,14 @@ public class UniversalPlayer extends BDVideoPlayer {
         this.mStyleSwitchHelper = iPlayerStyleSwitchHelper;
     }
 
-    @PublicMethod
     @NonNull
+    @PublicMethod
     public IPlayerStyleSwitchHelper getStyleSwitchHelper() {
         return this.mStyleSwitchHelper;
     }
 
-    @PublicMethod
     @IntRange(from = -1)
+    @PublicMethod
     public int findLayerIndex(@NonNull ILayer iLayer) {
         return this.mLayerContainer.indexOfChild(iLayer.getContentView());
     }
@@ -163,8 +163,8 @@ public class UniversalPlayer extends BDVideoPlayer {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.player.BDVideoPlayer
-    @PublicMethod
     @NonNull
+    @PublicMethod
     public IUniversalPlayerStatDispatcher getStatDispatcher() {
         return UniversalStatDispatcherImp.EMPTY;
     }
@@ -304,7 +304,7 @@ public class UniversalPlayer extends BDVideoPlayer {
         this.mContextMap.clear();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public class OrientationChangeCallBack implements OrientationHelper.IOrientationChange {
         private static final int DELAY_TIME = 1000;
         private long mChangedTime = 0;

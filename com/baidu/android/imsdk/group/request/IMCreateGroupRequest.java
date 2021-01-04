@@ -3,7 +3,6 @@ package com.baidu.android.imsdk.group.request;
 import android.content.Context;
 import android.util.Log;
 import android.util.Pair;
-import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.chatmessage.ChatSession;
@@ -25,7 +24,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class IMCreateGroupRequest extends GroupBaseHttpRequest {
     private static final String TAG = IMCreateGroupRequest.class.getSimpleName();
     private ArrayList<String> mAddingList;
@@ -33,7 +32,7 @@ public class IMCreateGroupRequest extends GroupBaseHttpRequest {
     private String mKey;
     private String mName;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     class Mytask extends TaskManager.Task {
         public Mytask(String str, String str2) {
             super(str, str2);
@@ -41,25 +40,24 @@ public class IMCreateGroupRequest extends GroupBaseHttpRequest {
 
         @Override // com.baidu.android.imsdk.task.TaskManager.Task, java.lang.Runnable
         public void run() {
-            long j;
             int i;
+            long j;
             String str;
             long j2 = 0;
             try {
                 JSONObject jSONObject = new JSONObject(this.mJson);
                 int i2 = jSONObject.getInt("error_code");
-                String optString = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG, "");
+                str = jSONObject.optString("error_msg", "");
                 if (i2 == 0 && jSONObject.has("response_params")) {
                     j2 = jSONObject.getJSONObject("response_params").optLong("group_id", -1L);
                 }
                 j = j2;
-                str = optString;
                 i = i2;
             } catch (JSONException e) {
                 LogUtils.e(LogUtils.TAG, "IMCreateGroupRequest JSONException", e);
+                i = 1010;
                 new IMTrack.CrashBuilder(IMCreateGroupRequest.this.mContext).exception(Log.getStackTraceString(e)).build();
                 j = 0;
-                i = 1010;
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
             }
             if (i == 0) {

@@ -3,29 +3,29 @@ package com.baidu.swan.apps.core.c;
 import com.baidu.swan.apps.adaptation.b.e;
 import com.baidu.swan.apps.v.f;
 import java.util.HashMap;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static void aqe() {
-        e oj = f.aCp().oj(f.aCp().arl());
-        if (oj != null) {
+    public static void arq() {
+        e ob = f.aDG().ob(f.aDG().asD());
+        if (ob != null) {
             com.baidu.swan.apps.console.c.i("ConsoleMessageHelper", "send full San request");
-            oj.handleSchemeDispatchCallback("window.__san_devtool__.retrieveData", null);
+            ob.handleSchemeDispatchCallback("window.__san_devtool__.retrieveData", null);
         }
     }
 
-    public static void np(String str) {
-        bA("sanFullData2Console", str);
+    public static void ni(String str) {
+        bz("sanFullData2Console", str);
     }
 
-    public static void nq(String str) {
-        bA("sanIncData2Console", str);
+    public static void nj(String str) {
+        bz("sanIncData2Console", str);
     }
 
-    private static void bA(String str, String str2) {
+    private static void bz(String str, String str2) {
         HashMap hashMap = new HashMap(1);
         hashMap.put("data", str2);
-        f.aCp().a(f.aCp().aBS().alj(), new com.baidu.swan.apps.event.a.b(str, hashMap));
+        f.aDG().a(f.aDG().aDj().amt(), new com.baidu.swan.apps.event.a.b(str, hashMap));
     }
 }

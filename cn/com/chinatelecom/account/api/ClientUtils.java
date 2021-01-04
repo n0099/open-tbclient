@@ -11,7 +11,7 @@ import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.xiaomi.mipush.sdk.Constants;
 import java.security.interfaces.RSAPublicKey;
-/* loaded from: classes16.dex */
+/* loaded from: classes4.dex */
 public final class ClientUtils {
     private static final String TAG = ClientUtils.class.getSimpleName();
 
@@ -55,12 +55,15 @@ public final class ClientUtils {
     public static String getPID() {
         String str = "";
         try {
-            str = Thread.currentThread().getId() + "" + Process.myPid();
-            return str.length() > 6 ? str.substring(0, 6) : "ctacco";
+            String str2 = Thread.currentThread().getId() + "" + Process.myPid();
+            if (str2.length() > 6) {
+                str = str2.substring(0, 6);
+                return str;
+            }
+            return "ctacco";
         } catch (Exception e) {
-            String str2 = str;
             e.printStackTrace();
-            return str2;
+            return str;
         }
     }
 

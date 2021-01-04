@@ -7,19 +7,20 @@ import com.coremedia.iso.IsoTypeWriter;
 import com.coremedia.iso.Utf8;
 import com.googlecode.mp4parser.AbstractFullBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
+import com.kwai.video.player.KsMediaMeta;
 import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class AlbumBox extends AbstractFullBox {
     public static final String TYPE = "albm";
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_6 = null;
     private String albumTitle;
     private String language;
     private int trackNumber;
@@ -33,7 +34,7 @@ public class AlbumBox extends AbstractFullBox {
         ajc$tjp_0 = bVar.a("method-execution", bVar.d("1", "getLanguage", "com.coremedia.iso.boxes.AlbumBox", "", "", "", FieldUtil.TYPE_STRING), 51);
         ajc$tjp_1 = bVar.a("method-execution", bVar.d("1", "getAlbumTitle", "com.coremedia.iso.boxes.AlbumBox", "", "", "", FieldUtil.TYPE_STRING), 55);
         ajc$tjp_2 = bVar.a("method-execution", bVar.d("1", "getTrackNumber", "com.coremedia.iso.boxes.AlbumBox", "", "", "", "int"), 59);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.d("1", "setLanguage", "com.coremedia.iso.boxes.AlbumBox", FieldUtil.TYPE_STRING, "language", "", "void"), 63);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.d("1", "setLanguage", "com.coremedia.iso.boxes.AlbumBox", FieldUtil.TYPE_STRING, KsMediaMeta.KSM_KEY_LANGUAGE, "", "void"), 63);
         ajc$tjp_4 = bVar.a("method-execution", bVar.d("1", "setAlbumTitle", "com.coremedia.iso.boxes.AlbumBox", FieldUtil.TYPE_STRING, "albumTitle", "", "void"), 67);
         ajc$tjp_5 = bVar.a("method-execution", bVar.d("1", "setTrackNumber", "com.coremedia.iso.boxes.AlbumBox", "int", "trackNumber", "", "void"), 71);
         ajc$tjp_6 = bVar.a("method-execution", bVar.d("1", "toString", "com.coremedia.iso.boxes.AlbumBox", "", "", "", FieldUtil.TYPE_STRING), 103);
@@ -69,7 +70,7 @@ public class AlbumBox extends AbstractFullBox {
     }
 
     public void setTrackNumber(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.RZ(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.Ts(i)));
         this.trackNumber = i;
     }
 

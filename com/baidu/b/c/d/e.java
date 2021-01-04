@@ -1,23 +1,23 @@
 package com.baidu.b.c.d;
 
 import java.math.BigInteger;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class e implements d {
-    private BigInteger aeH;
-    private BigInteger aeI;
+    private BigInteger afm;
+    private BigInteger afn;
 
     public e(byte[] bArr, byte[] bArr2) {
-        this.aeH = new BigInteger(bArr);
-        this.aeI = new BigInteger(bArr2);
+        this.afm = new BigInteger(bArr);
+        this.afn = new BigInteger(bArr2);
     }
 
     @Override // com.baidu.b.c.d.d
-    public BigInteger sP() {
-        return this.aeH;
+    public BigInteger sp() {
+        return this.afm;
     }
 
     @Override // com.baidu.b.c.d.d
-    public BigInteger sQ() {
-        return this.aeI;
+    public BigInteger sq() {
+        return this.afn;
     }
 }

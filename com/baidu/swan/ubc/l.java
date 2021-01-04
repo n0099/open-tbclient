@@ -3,9 +3,9 @@ package com.baidu.swan.ubc;
 import android.content.Context;
 import java.util.concurrent.ExecutorService;
 import org.json.JSONArray;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public interface l {
-    void L(String str, int i);
+    void M(String str, int i);
 
     void a(String str, int i, JSONArray jSONArray);
 
@@ -13,25 +13,25 @@ public interface l {
 
     void a(String str, String str2, int i, String str3, long j, int i2);
 
-    String aAm();
+    String aBD();
 
-    String aAn();
+    String aBE();
 
-    String aFA();
+    String aGU();
 
-    boolean aFB();
+    boolean aGV();
 
-    boolean aFC();
+    boolean aGW();
 
-    boolean aFD();
+    boolean aGX();
 
-    int aie();
+    int ajk();
 
-    m akQ();
+    ExecutorService alz();
 
-    ExecutorService akr();
+    m ama();
 
-    String cW(Context context);
+    String df(Context context);
 
     String getAppId();
 
@@ -45,5 +45,5 @@ public interface l {
 
     void i(String str, int i, String str2);
 
-    boolean re(String str);
+    boolean qX(String str);
 }

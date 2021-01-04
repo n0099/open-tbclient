@@ -6,13 +6,14 @@ import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.swan.game.ad.a.a;
 import com.baidu.swan.game.ad.entity.AdElementInfo;
+import com.qq.e.comm.constants.Constants;
 import okhttp3.Response;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class d {
     public static void a(AdElementInfo adElementInfo, com.baidu.swan.game.ad.a.b bVar) {
         if (adElementInfo != null) {
-            for (String str : adElementInfo.aTg()) {
+            for (String str : adElementInfo.aVA()) {
                 a(a(str, (b) null), bVar);
             }
         }
@@ -28,7 +29,7 @@ public class d {
 
     public static void a(b bVar, AdElementInfo adElementInfo, com.baidu.swan.game.ad.a.b bVar2) {
         if (adElementInfo != null) {
-            for (String str : adElementInfo.aTi()) {
+            for (String str : adElementInfo.aVC()) {
                 a(a(str, bVar), bVar2);
             }
         }
@@ -44,18 +45,18 @@ public class d {
 
     public static String a(String str, b bVar) {
         if (bVar != null) {
-            return str.replaceAll("\\{REQ_WIDTH\\}", bVar.dTe).replaceAll("\\{REQ_HEIGHT\\}", bVar.dTf).replaceAll("\\{WIDTH\\}", bVar.dTg).replaceAll("\\{HEIGHT\\}", bVar.dTh).replaceAll("\\{DOWN_X\\}", bVar.dTi).replaceAll("\\{DOWN_Y\\}", bVar.dTj).replaceAll("\\{UP_X\\}", bVar.dTk).replaceAll("\\{UP_Y\\}", bVar.dTl).replaceAll("\\{VIDEO_TIME\\}", bVar.dTm).replaceAll("\\{BEGIN_TIME\\}", bVar.dTn).replaceAll("\\{END_TIME\\}", bVar.mEndTime).replaceAll("\\{PLAY_FIRST_FRAME\\}", bVar.dTo).replaceAll("\\{PLAY_LAST_FRAME\\}", bVar.dTp).replaceAll("\\{SCENE\\}", bVar.dTq).replaceAll("\\{TYPE\\}", bVar.mType).replaceAll("\\{BEHAVIOR\\}", bVar.dTr).replaceAll("\\{STATUS\\}", bVar.mStatus).replaceAll("\\{CONVERSION_ACTION\\}", bVar.dTs).replaceAll("\\{CLICK_ID\\}", bVar.dTc);
+            return str.replaceAll("\\{REQ_WIDTH\\}", bVar.ecb).replaceAll("\\{REQ_HEIGHT\\}", bVar.ecc).replaceAll("\\{WIDTH\\}", bVar.ecd).replaceAll("\\{HEIGHT\\}", bVar.ece).replaceAll("\\{DOWN_X\\}", bVar.ecf).replaceAll("\\{DOWN_Y\\}", bVar.ecg).replaceAll("\\{UP_X\\}", bVar.ech).replaceAll("\\{UP_Y\\}", bVar.eci).replaceAll("\\{VIDEO_TIME\\}", bVar.ecj).replaceAll("\\{BEGIN_TIME\\}", bVar.eck).replaceAll("\\{END_TIME\\}", bVar.mEndTime).replaceAll("\\{PLAY_FIRST_FRAME\\}", bVar.ecl).replaceAll("\\{PLAY_LAST_FRAME\\}", bVar.ecm).replaceAll("\\{SCENE\\}", bVar.ecn).replaceAll("\\{TYPE\\}", bVar.mType).replaceAll("\\{BEHAVIOR\\}", bVar.eco).replaceAll("\\{STATUS\\}", bVar.mStatus).replaceAll("\\{CONVERSION_ACTION\\}", bVar.ecp).replaceAll("\\{CLICK_ID\\}", bVar.ebZ);
         }
         return str;
     }
 
     private static void a(String str, com.baidu.swan.game.ad.a.b bVar) {
-        bVar.wf(str);
+        bVar.we(str);
     }
 
     public static void a(b bVar, AdElementInfo adElementInfo, com.baidu.swan.game.ad.a.b bVar2, final a.d dVar) {
-        if (adElementInfo != null && !TextUtils.isEmpty(adElementInfo.aTb())) {
-            String a2 = a(adElementInfo.aTb(), bVar);
+        if (adElementInfo != null && !TextUtils.isEmpty(adElementInfo.aVv())) {
+            String a2 = a(adElementInfo.aVv(), bVar);
             ResponseCallback<a> responseCallback = new ResponseCallback<a>() { // from class: com.baidu.swan.game.ad.c.d.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
@@ -73,12 +74,12 @@ public class d {
                             }
                             try {
                                 JSONObject jSONObject = new JSONObject(string);
-                                if (!TextUtils.equals(jSONObject.optString("ret", ""), "0") || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
+                                if (!TextUtils.equals(jSONObject.optString(Constants.KEYS.RET, ""), "0") || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
                                     return null;
                                 }
                                 a aVar = new a();
-                                aVar.dTc = optJSONObject.optString("clickid");
-                                aVar.dTd = optJSONObject.optString("dstlink");
+                                aVar.ebZ = optJSONObject.optString("clickid");
+                                aVar.eca = optJSONObject.optString("dstlink");
                                 return aVar;
                             } catch (Exception e) {
                                 e.printStackTrace();
@@ -97,7 +98,7 @@ public class d {
                 /* renamed from: a */
                 public void onSuccess(a aVar, int i) {
                     if (aVar != null && a.d.this != null) {
-                        a.d.this.cU(aVar.dTc, aVar.dTd);
+                        a.d.this.cT(aVar.ebZ, aVar.eca);
                     }
                 }
 

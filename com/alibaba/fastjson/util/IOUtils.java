@@ -1,6 +1,6 @@
 package com.alibaba.fastjson.util;
 
-import android.support.v7.widget.ActivityChooserView;
+import androidx.appcompat.widget.ActivityChooserView;
 import com.alibaba.fastjson.JSONException;
 import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
@@ -19,7 +19,7 @@ import java.security.AccessController;
 import java.security.PrivilegedAction;
 import java.util.Arrays;
 import java.util.Properties;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class IOUtils {
     public static final char[] ASCII_CHARS;
     public static final char[] CA;
@@ -202,7 +202,6 @@ public class IOUtils {
     public static void getChars(long j, int i, char[] cArr) {
         char c;
         int i2;
-        int i3;
         if (j >= 0) {
             c = 0;
             i2 = i;
@@ -213,38 +212,36 @@ public class IOUtils {
         }
         while (j > 2147483647L) {
             long j2 = j / 100;
-            int i4 = (int) (j - (((j2 << 6) + (j2 << 5)) + (j2 << 2)));
-            int i5 = i2 - 1;
-            cArr[i5] = DigitOnes[i4];
-            int i6 = i5 - 1;
-            cArr[i6] = DigitTens[i4];
-            i2 = i6;
+            int i3 = (int) (j - (((j2 << 6) + (j2 << 5)) + (j2 << 2)));
+            int i4 = i2 - 1;
+            cArr[i4] = DigitOnes[i3];
+            int i5 = i4 - 1;
+            cArr[i5] = DigitTens[i3];
+            i2 = i5;
             j = j2;
         }
-        int i7 = (int) j;
-        while (i7 >= 65536) {
-            int i8 = i7 / 100;
-            int i9 = i7 - (((i8 << 6) + (i8 << 5)) + (i8 << 2));
-            int i10 = i2 - 1;
-            cArr[i10] = DigitOnes[i9];
-            i2 = i10 - 1;
-            cArr[i2] = DigitTens[i9];
-            i7 = i8;
+        int i6 = (int) j;
+        while (i6 >= 65536) {
+            int i7 = i6 / 100;
+            int i8 = i6 - (((i7 << 6) + (i7 << 5)) + (i7 << 2));
+            int i9 = i2 - 1;
+            cArr[i9] = DigitOnes[i8];
+            i2 = i9 - 1;
+            cArr[i2] = DigitTens[i8];
+            i6 = i7;
         }
-        int i11 = i2;
+        int i10 = i2;
         while (true) {
-            int i12 = (52429 * i7) >>> 19;
-            int i13 = i7 - ((i12 << 3) + (i12 << 1));
-            i3 = i11 - 1;
-            cArr[i3] = digits[i13];
-            if (i12 == 0) {
+            int i11 = (52429 * i6) >>> 19;
+            i10--;
+            cArr[i10] = digits[i6 - ((i11 << 3) + (i11 << 1))];
+            if (i11 == 0) {
                 break;
             }
-            i11 = i3;
-            i7 = i12;
+            i6 = i11;
         }
         if (c != 0) {
-            cArr[i3 - 1] = c;
+            cArr[i10 - 1] = c;
         }
     }
 
@@ -254,44 +251,44 @@ public class IOUtils {
         int i4;
         if (i >= 0) {
             c = 0;
-            i3 = i;
-            i4 = i2;
+            i3 = i2;
+            i4 = i;
         } else {
-            i3 = -i;
+            i4 = -i;
             c = '-';
-            i4 = i2;
+            i3 = i2;
         }
-        while (i3 >= 65536) {
-            int i5 = i3 / 100;
-            int i6 = i3 - (((i5 << 6) + (i5 << 5)) + (i5 << 2));
-            int i7 = i4 - 1;
+        while (i4 >= 65536) {
+            int i5 = i4 / 100;
+            int i6 = i4 - (((i5 << 6) + (i5 << 5)) + (i5 << 2));
+            int i7 = i3 - 1;
             cArr[i7] = DigitOnes[i6];
             int i8 = i7 - 1;
             cArr[i8] = DigitTens[i6];
-            i4 = i8;
-            i3 = i5;
+            i3 = i8;
+            i4 = i5;
         }
         while (true) {
-            int i9 = (52429 * i3) >>> 19;
-            i4--;
-            cArr[i4] = digits[i3 - ((i9 << 3) + (i9 << 1))];
+            int i9 = (52429 * i4) >>> 19;
+            i3--;
+            cArr[i3] = digits[i4 - ((i9 << 3) + (i9 << 1))];
             if (i9 == 0) {
                 break;
             }
-            i3 = i9;
+            i4 = i9;
         }
         if (c != 0) {
-            cArr[i4 - 1] = c;
+            cArr[i3 - 1] = c;
         }
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:12:0x0006 */
-    public static void getChars(byte b, int i, char[] cArr) {
+    public static void getChars(byte b2, int i, char[] cArr) {
         char c = 0;
-        int i2 = b;
-        if (b < 0) {
+        int i2 = b2;
+        if (b2 < 0) {
             c = '-';
-            i2 = -b;
+            i2 = -b2;
         }
         while (true) {
             int i3 = (52429 * i2) >>> 19;
@@ -340,60 +337,63 @@ public class IOUtils {
 
     public static byte[] decodeBase64(char[] cArr, int i, int i2) {
         int i3;
-        int i4 = 0;
         if (i2 == 0) {
             return new byte[0];
         }
-        int i5 = (i + i2) - 1;
-        int i6 = i;
-        while (i6 < i5 && IA[cArr[i6]] < 0) {
-            i6++;
+        int i4 = (i + i2) - 1;
+        int i5 = i;
+        while (i5 < i4 && IA[cArr[i5]] < 0) {
+            i5++;
         }
-        int i7 = i5;
-        while (i7 > 0 && IA[cArr[i7]] < 0) {
-            i7--;
+        int i6 = i4;
+        while (i6 > 0 && IA[cArr[i6]] < 0) {
+            i6--;
         }
-        if (cArr[i7] == '=') {
-            i3 = cArr[i7 + (-1)] == '=' ? 2 : 1;
+        if (cArr[i6] == '=') {
+            i3 = cArr[i6 + (-1)] == '=' ? 2 : 1;
         } else {
             i3 = 0;
         }
-        int i8 = (i7 - i6) + 1;
-        int i9 = i2 > 76 ? (cArr[76] == '\r' ? i8 / 78 : 0) << 1 : 0;
-        int i10 = (((i8 - i9) * 6) >> 3) - i3;
-        byte[] bArr = new byte[i10];
-        int i11 = (i10 / 3) * 3;
+        int i7 = (i6 - i5) + 1;
+        int i8 = i2 > 76 ? (cArr[76] == '\r' ? i7 / 78 : 0) << 1 : 0;
+        int i9 = (((i7 - i8) * 6) >> 3) - i3;
+        byte[] bArr = new byte[i9];
+        int i10 = (i9 / 3) * 3;
+        int i11 = 0;
         int i12 = 0;
-        int i13 = 0;
-        while (i13 < i11) {
-            int i14 = i6 + 1;
-            int i15 = i14 + 1;
-            int i16 = (IA[cArr[i6]] << 18) | (IA[cArr[i14]] << 12);
-            int i17 = i15 + 1;
-            int i18 = (IA[cArr[i15]] << 6) | i16;
-            i6 = i17 + 1;
-            int i19 = i18 | IA[cArr[i17]];
-            int i20 = i13 + 1;
-            bArr[i13] = (byte) (i19 >> 16);
+        while (i12 < i10) {
+            int i13 = i5 + 1;
+            int i14 = i13 + 1;
+            int i15 = (IA[cArr[i5]] << 18) | (IA[cArr[i13]] << 12);
+            int i16 = i14 + 1;
+            int i17 = (IA[cArr[i14]] << 6) | i15;
+            int i18 = i16 + 1;
+            int i19 = i17 | IA[cArr[i16]];
+            int i20 = i12 + 1;
+            bArr[i12] = (byte) (i19 >> 16);
             int i21 = i20 + 1;
             bArr[i20] = (byte) (i19 >> 8);
-            i13 = i21 + 1;
+            i12 = i21 + 1;
             bArr[i21] = (byte) i19;
-            if (i9 > 0 && (i12 = i12 + 1) == 19) {
-                i6 += 2;
-                i12 = 0;
+            if (i8 > 0 && (i11 = i11 + 1) == 19) {
+                i18 += 2;
+                i11 = 0;
             }
+            i5 = i18;
         }
-        if (i13 < i10) {
+        if (i12 < i9) {
             int i22 = 0;
-            for (int i23 = i6; i23 <= i7 - i3; i23++) {
-                i4++;
-                i22 = (IA[cArr[i23]] << (18 - (i4 * 6))) | i22;
+            int i23 = 0;
+            while (i5 <= i6 - i3) {
+                int i24 = i23 | (IA[cArr[i5]] << (18 - (i22 * 6)));
+                i22++;
+                i23 = i24;
+                i5++;
             }
-            int i24 = 16;
-            for (int i25 = i13; i25 < i10; i25++) {
-                bArr[i25] = (byte) (i22 >> i24);
-                i24 -= 8;
+            int i25 = 16;
+            for (int i26 = i12; i26 < i9; i26++) {
+                bArr[i26] = (byte) (i23 >> i25);
+                i25 -= 8;
             }
         }
         return bArr;
@@ -401,60 +401,63 @@ public class IOUtils {
 
     public static byte[] decodeBase64(String str, int i, int i2) {
         int i3;
-        int i4 = 0;
         if (i2 == 0) {
             return new byte[0];
         }
-        int i5 = (i + i2) - 1;
-        int i6 = i;
-        while (i6 < i5 && IA[str.charAt(i6)] < 0) {
-            i6++;
+        int i4 = (i + i2) - 1;
+        int i5 = i;
+        while (i5 < i4 && IA[str.charAt(i5)] < 0) {
+            i5++;
         }
-        int i7 = i5;
-        while (i7 > 0 && IA[str.charAt(i7)] < 0) {
-            i7--;
+        int i6 = i4;
+        while (i6 > 0 && IA[str.charAt(i6)] < 0) {
+            i6--;
         }
-        if (str.charAt(i7) == '=') {
-            i3 = str.charAt(i7 + (-1)) == '=' ? 2 : 1;
+        if (str.charAt(i6) == '=') {
+            i3 = str.charAt(i6 + (-1)) == '=' ? 2 : 1;
         } else {
             i3 = 0;
         }
-        int i8 = (i7 - i6) + 1;
-        int i9 = i2 > 76 ? (str.charAt(76) == '\r' ? i8 / 78 : 0) << 1 : 0;
-        int i10 = (((i8 - i9) * 6) >> 3) - i3;
-        byte[] bArr = new byte[i10];
-        int i11 = (i10 / 3) * 3;
+        int i7 = (i6 - i5) + 1;
+        int i8 = i2 > 76 ? (str.charAt(76) == '\r' ? i7 / 78 : 0) << 1 : 0;
+        int i9 = (((i7 - i8) * 6) >> 3) - i3;
+        byte[] bArr = new byte[i9];
+        int i10 = (i9 / 3) * 3;
+        int i11 = 0;
         int i12 = 0;
-        int i13 = 0;
-        while (i13 < i11) {
-            int i14 = i6 + 1;
-            int i15 = i14 + 1;
-            int i16 = (IA[str.charAt(i6)] << 18) | (IA[str.charAt(i14)] << 12);
-            int i17 = i15 + 1;
-            int i18 = (IA[str.charAt(i15)] << 6) | i16;
-            i6 = i17 + 1;
-            int i19 = i18 | IA[str.charAt(i17)];
-            int i20 = i13 + 1;
-            bArr[i13] = (byte) (i19 >> 16);
+        while (i12 < i10) {
+            int i13 = i5 + 1;
+            int i14 = i13 + 1;
+            int i15 = (IA[str.charAt(i5)] << 18) | (IA[str.charAt(i13)] << 12);
+            int i16 = i14 + 1;
+            int i17 = (IA[str.charAt(i14)] << 6) | i15;
+            int i18 = i16 + 1;
+            int i19 = i17 | IA[str.charAt(i16)];
+            int i20 = i12 + 1;
+            bArr[i12] = (byte) (i19 >> 16);
             int i21 = i20 + 1;
             bArr[i20] = (byte) (i19 >> 8);
-            i13 = i21 + 1;
+            i12 = i21 + 1;
             bArr[i21] = (byte) i19;
-            if (i9 > 0 && (i12 = i12 + 1) == 19) {
-                i6 += 2;
-                i12 = 0;
+            if (i8 > 0 && (i11 = i11 + 1) == 19) {
+                i18 += 2;
+                i11 = 0;
             }
+            i5 = i18;
         }
-        if (i13 < i10) {
+        if (i12 < i9) {
             int i22 = 0;
-            for (int i23 = i6; i23 <= i7 - i3; i23++) {
-                i4++;
-                i22 = (IA[str.charAt(i23)] << (18 - (i4 * 6))) | i22;
+            int i23 = 0;
+            while (i5 <= i6 - i3) {
+                int i24 = i23 | (IA[str.charAt(i5)] << (18 - (i22 * 6)));
+                i22++;
+                i23 = i24;
+                i5++;
             }
-            int i24 = 16;
-            for (int i25 = i13; i25 < i10; i25++) {
-                bArr[i25] = (byte) (i22 >> i24);
-                i24 -= 8;
+            int i25 = 16;
+            for (int i26 = i12; i26 < i9; i26++) {
+                bArr[i26] = (byte) (i23 >> i25);
+                i25 -= 8;
             }
         }
         return bArr;
@@ -462,68 +465,71 @@ public class IOUtils {
 
     public static byte[] decodeBase64(String str) {
         int i;
-        int i2 = 0;
         int length = str.length();
         if (length == 0) {
             return new byte[0];
         }
-        int i3 = length - 1;
-        int i4 = 0;
-        while (i4 < i3 && IA[str.charAt(i4) & 255] < 0) {
-            i4++;
+        int i2 = length - 1;
+        int i3 = 0;
+        while (i3 < i2 && IA[str.charAt(i3) & 255] < 0) {
+            i3++;
         }
-        int i5 = i3;
-        while (i5 > 0 && IA[str.charAt(i5) & 255] < 0) {
-            i5--;
+        int i4 = i2;
+        while (i4 > 0 && IA[str.charAt(i4) & 255] < 0) {
+            i4--;
         }
-        if (str.charAt(i5) == '=') {
-            i = str.charAt(i5 + (-1)) == '=' ? 2 : 1;
+        if (str.charAt(i4) == '=') {
+            i = str.charAt(i4 + (-1)) == '=' ? 2 : 1;
         } else {
             i = 0;
         }
-        int i6 = (i5 - i4) + 1;
-        int i7 = length > 76 ? (str.charAt(76) == '\r' ? i6 / 78 : 0) << 1 : 0;
-        int i8 = (((i6 - i7) * 6) >> 3) - i;
-        byte[] bArr = new byte[i8];
-        int i9 = (i8 / 3) * 3;
+        int i5 = (i4 - i3) + 1;
+        int i6 = length > 76 ? (str.charAt(76) == '\r' ? i5 / 78 : 0) << 1 : 0;
+        int i7 = (((i5 - i6) * 6) >> 3) - i;
+        byte[] bArr = new byte[i7];
+        int i8 = (i7 / 3) * 3;
+        int i9 = 0;
         int i10 = 0;
-        int i11 = 0;
-        while (i11 < i9) {
-            int i12 = i4 + 1;
-            int i13 = i12 + 1;
-            int i14 = (IA[str.charAt(i4)] << 18) | (IA[str.charAt(i12)] << 12);
-            int i15 = i13 + 1;
-            int i16 = (IA[str.charAt(i13)] << 6) | i14;
-            i4 = i15 + 1;
-            int i17 = i16 | IA[str.charAt(i15)];
-            int i18 = i11 + 1;
-            bArr[i11] = (byte) (i17 >> 16);
+        while (i10 < i8) {
+            int i11 = i3 + 1;
+            int i12 = i11 + 1;
+            int i13 = (IA[str.charAt(i3)] << 18) | (IA[str.charAt(i11)] << 12);
+            int i14 = i12 + 1;
+            int i15 = (IA[str.charAt(i12)] << 6) | i13;
+            int i16 = i14 + 1;
+            int i17 = i15 | IA[str.charAt(i14)];
+            int i18 = i10 + 1;
+            bArr[i10] = (byte) (i17 >> 16);
             int i19 = i18 + 1;
             bArr[i18] = (byte) (i17 >> 8);
-            i11 = i19 + 1;
+            i10 = i19 + 1;
             bArr[i19] = (byte) i17;
-            if (i7 > 0 && (i10 = i10 + 1) == 19) {
-                i4 += 2;
-                i10 = 0;
+            if (i6 > 0 && (i9 = i9 + 1) == 19) {
+                i16 += 2;
+                i9 = 0;
             }
+            i3 = i16;
         }
-        if (i11 < i8) {
+        if (i10 < i7) {
             int i20 = 0;
-            for (int i21 = i4; i21 <= i5 - i; i21++) {
-                i2++;
-                i20 = (IA[str.charAt(i21)] << (18 - (i2 * 6))) | i20;
+            int i21 = 0;
+            while (i3 <= i4 - i) {
+                int i22 = i21 | (IA[str.charAt(i3)] << (18 - (i20 * 6)));
+                i20++;
+                i21 = i22;
+                i3++;
             }
-            int i22 = 16;
-            for (int i23 = i11; i23 < i8; i23++) {
-                bArr[i23] = (byte) (i20 >> i22);
-                i22 -= 8;
+            int i23 = 16;
+            for (int i24 = i10; i24 < i7; i24++) {
+                bArr[i24] = (byte) (i21 >> i23);
+                i23 -= 8;
             }
         }
         return bArr;
     }
 
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v22, types: [int] */
+    /* JADX WARN: Type inference failed for: r0v20, types: [int] */
     public static int encodeUTF8(char[] cArr, int i, int i2, byte[] bArr) {
         int i3;
         int i4 = i + i2;
@@ -602,60 +608,60 @@ public class IOUtils {
             i4++;
             i5++;
         }
-        while (i5 < i3) {
-            int i6 = i5 + 1;
-            byte b = bArr[i5];
-            if (b >= 0) {
-                cArr[i4] = (char) b;
+        int i6 = i5;
+        while (i6 < i3) {
+            int i7 = i6 + 1;
+            byte b2 = bArr[i6];
+            if (b2 >= 0) {
+                cArr[i4] = (char) b2;
                 i4++;
-                i5 = i6;
-            } else if ((b >> 5) == -2 && (b & 30) != 0) {
-                if (i6 >= i3) {
+                i6 = i7;
+            } else if ((b2 >> 5) == -2 && (b2 & 30) != 0) {
+                if (i7 >= i3) {
                     return -1;
                 }
-                int i7 = i6 + 1;
-                byte b2 = bArr[i6];
-                if ((b2 & 192) != 128) {
+                i6 = i7 + 1;
+                byte b3 = bArr[i7];
+                if ((b3 & 192) != 128) {
                     return -1;
                 }
-                cArr[i4] = (char) ((b2 ^ (b << 6)) ^ 3968);
+                cArr[i4] = (char) ((b3 ^ (b2 << 6)) ^ 3968);
                 i4++;
-                i5 = i7;
-            } else if ((b >> 4) == -2) {
-                if (i6 + 1 >= i3) {
+            } else if ((b2 >> 4) == -2) {
+                if (i7 + 1 >= i3) {
                     return -1;
                 }
-                int i8 = i6 + 1;
-                byte b3 = bArr[i6];
-                int i9 = i8 + 1;
-                byte b4 = bArr[i8];
-                if ((b == -32 && (b3 & 224) == 128) || (b3 & 192) != 128 || (b4 & 192) != 128) {
+                int i8 = i7 + 1;
+                byte b4 = bArr[i7];
+                i6 = i8 + 1;
+                byte b5 = bArr[i8];
+                if ((b2 == -32 && (b4 & 224) == 128) || (b4 & 192) != 128 || (b5 & 192) != 128) {
                     return -1;
                 }
-                char c = (char) ((b4 ^ (-123008)) ^ ((b3 << 6) ^ (b << 12)));
+                char c = (char) ((b5 ^ (-123008)) ^ ((b4 << 6) ^ (b2 << 12)));
                 if (c >= 55296 && c < 57344) {
                     return -1;
                 }
                 cArr[i4] = c;
                 i4++;
-                i5 = i9;
-            } else if ((b >> 3) != -2 || i6 + 2 >= i3) {
+            } else if ((b2 >> 3) != -2 || i7 + 2 >= i3) {
                 return -1;
             } else {
-                int i10 = i6 + 1;
-                byte b5 = bArr[i6];
+                int i9 = i7 + 1;
+                byte b6 = bArr[i7];
+                int i10 = i9 + 1;
+                byte b7 = bArr[i9];
                 int i11 = i10 + 1;
-                byte b6 = bArr[i10];
-                i5 = i11 + 1;
-                byte b7 = bArr[i11];
-                int i12 = (((b << 18) ^ (b5 << 12)) ^ (b6 << 6)) ^ (3678080 ^ b7);
-                if ((b5 & 192) != 128 || (b6 & 192) != 128 || (b7 & 192) != 128 || !Character.isSupplementaryCodePoint(i12)) {
+                byte b8 = bArr[i10];
+                int i12 = (((b2 << 18) ^ (b6 << 12)) ^ (b7 << 6)) ^ (3678080 ^ b8);
+                if ((b6 & 192) != 128 || (b7 & 192) != 128 || (b8 & 192) != 128 || !Character.isSupplementaryCodePoint(i12)) {
                     return -1;
                 }
                 int i13 = i4 + 1;
                 cArr[i4] = (char) ((i12 >>> 10) + 55232);
                 i4 = i13 + 1;
                 cArr[i13] = (char) ((i12 & 1023) + 56320);
+                i6 = i11;
             }
         }
         return i4;

@@ -10,7 +10,7 @@ import com.baidu.ar.statistic.StatisticApi;
 import com.baidu.ar.statistic.StatisticConstants;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class a {
     private DefaultParams d;
     private String mCasePath;
@@ -82,11 +82,11 @@ public class a {
     }
 
     public void a(FilterParam filterParam, Object obj) {
-        String str;
         boolean z;
         if (filterParam == null) {
             return;
         }
+        String str = null;
         if (filterParam.getFilterNode().equals(FilterNode.makeupFilter)) {
             if (obj instanceof Float) {
                 str = "/opacity";
@@ -101,7 +101,6 @@ public class a {
             }
             a(filterParam, obj, str, z);
         }
-        str = null;
         z = false;
         a(filterParam, obj, str, z);
     }

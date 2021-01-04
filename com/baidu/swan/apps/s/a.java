@@ -15,26 +15,21 @@ import java.nio.channels.Channels;
 import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
 import java.nio.charset.Charset;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static final boolean DEBUG = b.DEBUG;
 
-    /* JADX WARN: Removed duplicated region for block: B:32:0x008f A[Catch: all -> 0x00b3, TRY_LEAVE, TryCatch #2 {, blocks: (B:4:0x0004, B:6:0x000f, B:8:0x0013, B:28:0x0080, B:29:0x0083, B:30:0x0087, B:32:0x008f, B:38:0x00b7, B:44:0x00d2, B:45:0x00d5, B:47:0x00db, B:52:0x00ea, B:53:0x00ed, B:54:0x00f0, B:56:0x00f2), top: B:72:0x0004, inners: #0, #3, #6 }] */
-    /* JADX WARN: Removed duplicated region for block: B:77:0x00ea A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x008f A[Catch: all -> 0x00b3, TRY_LEAVE, TryCatch #4 {, blocks: (B:4:0x0004, B:6:0x000f, B:8:0x0013, B:28:0x0080, B:29:0x0083, B:30:0x0087, B:32:0x008f, B:38:0x00b7, B:44:0x00d2, B:45:0x00d5, B:47:0x00db, B:52:0x00eb, B:53:0x00ee, B:54:0x00f1, B:56:0x00f3), top: B:75:0x0004, inners: #0, #5, #8 }] */
+    /* JADX WARN: Removed duplicated region for block: B:78:0x00eb A[EXC_TOP_SPLITTER, SYNTHETIC] */
     @SuppressLint({"SwanDebugLog"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static synchronized boolean n(String str, String str2, boolean z) {
+    public static synchronized boolean p(String str, String str2, boolean z) {
         boolean z2;
+        FileLock fileLock;
         FileChannel fileChannel;
         boolean z3;
-        IOException e;
-        FileLock fileLock;
-        FileLock lock;
-        FileLock fileLock2 = null;
-        fileLock2 = null;
-        FileChannel fileChannel2 = null;
         synchronized (a.class) {
             long currentTimeMillis = System.currentTimeMillis();
             z2 = false;
@@ -52,86 +47,80 @@ public class a {
                     }
                     fileChannel = new FileOutputStream(file, z).getChannel();
                     try {
+                        fileLock = fileChannel.lock();
                         try {
-                            lock = fileChannel.lock();
                             try {
                                 if (TextUtils.isEmpty(str2)) {
                                     str2 = "";
                                 }
                                 fileChannel.write(ByteBuffer.wrap(str2.getBytes()));
-                            } catch (IOException e2) {
-                                fileLock = lock;
-                                fileChannel2 = fileChannel;
-                                z3 = false;
-                                e = e2;
-                            }
-                        } catch (IOException e3) {
-                            fileLock = null;
-                            fileChannel2 = fileChannel;
-                            z3 = false;
-                            e = e3;
-                        }
-                        try {
-                            if (DEBUG) {
-                                Log.d("SwanAppFile", "Write file：" + str2);
-                            }
-                            if (lock != null) {
                                 try {
-                                    lock.release();
-                                } catch (IOException e4) {
-                                    Log.e("SwanAppFile", Log.getStackTraceString(e4));
+                                    if (DEBUG) {
+                                        Log.d("SwanAppFile", "Write file：" + str2);
+                                    }
+                                    if (fileLock != null) {
+                                        try {
+                                            fileLock.release();
+                                        } catch (IOException e) {
+                                            Log.e("SwanAppFile", Log.getStackTraceString(e));
+                                        }
+                                    }
+                                    d.closeSafely(fileChannel);
+                                    z2 = true;
+                                } catch (IOException e2) {
+                                    e = e2;
+                                    z3 = true;
+                                    Log.e("SwanAppFile", Log.getStackTraceString(e));
+                                    if (fileLock != null) {
+                                        try {
+                                            fileLock.release();
+                                        } catch (IOException e3) {
+                                            Log.e("SwanAppFile", Log.getStackTraceString(e3));
+                                        }
+                                    }
+                                    d.closeSafely(fileChannel);
+                                    z2 = z3;
+                                    long currentTimeMillis2 = System.currentTimeMillis();
+                                    if (DEBUG) {
+                                    }
+                                    return z2;
                                 }
-                            }
-                            d.closeSafely(fileChannel);
-                            z2 = true;
-                        } catch (IOException e5) {
-                            e = e5;
-                            fileChannel2 = fileChannel;
-                            z3 = true;
-                            fileLock = lock;
-                            try {
-                                Log.e("SwanAppFile", Log.getStackTraceString(e));
+                            } catch (Throwable th) {
+                                th = th;
                                 if (fileLock != null) {
                                     try {
                                         fileLock.release();
-                                    } catch (IOException e6) {
-                                        Log.e("SwanAppFile", Log.getStackTraceString(e6));
+                                    } catch (IOException e4) {
+                                        Log.e("SwanAppFile", Log.getStackTraceString(e4));
                                     }
-                                }
-                                d.closeSafely(fileChannel2);
-                                z2 = z3;
-                                long currentTimeMillis2 = System.currentTimeMillis();
-                                if (DEBUG) {
-                                }
-                                return z2;
-                            } catch (Throwable th) {
-                                th = th;
-                                fileChannel = fileChannel2;
-                                fileLock2 = fileLock;
-                                if (fileLock2 != null) {
                                 }
                                 d.closeSafely(fileChannel);
                                 throw th;
                             }
+                        } catch (IOException e5) {
+                            e = e5;
+                            z3 = false;
                         }
+                    } catch (IOException e6) {
+                        e = e6;
+                        fileLock = null;
+                        z3 = false;
                     } catch (Throwable th2) {
                         th = th2;
-                        if (fileLock2 != null) {
-                            try {
-                                fileLock2.release();
-                            } catch (IOException e7) {
-                                Log.e("SwanAppFile", Log.getStackTraceString(e7));
-                            }
+                        fileLock = null;
+                        if (fileLock != null) {
                         }
                         d.closeSafely(fileChannel);
                         throw th;
                     }
-                } catch (IOException e8) {
-                    z3 = false;
-                    e = e8;
+                } catch (IOException e7) {
+                    e = e7;
                     fileLock = null;
+                    fileChannel = null;
+                    z3 = false;
                 } catch (Throwable th3) {
                     th = th3;
+                    fileLock = null;
                     fileChannel = null;
                 }
                 long currentTimeMillis22 = System.currentTimeMillis();
@@ -143,19 +132,15 @@ public class a {
         return z2;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:26:0x0072 A[Catch: all -> 0x00d0, TryCatch #1 {, blocks: (B:4:0x0004, B:6:0x000e, B:8:0x0012, B:11:0x001d, B:33:0x00bd, B:34:0x00c0, B:24:0x006a, B:26:0x0072, B:27:0x0094, B:37:0x00c5, B:22:0x0064, B:23:0x0067, B:43:0x00d4, B:48:0x00e5, B:49:0x00e8, B:50:0x00eb, B:52:0x00ed), top: B:64:0x0004, inners: #3, #4, #9 }] */
-    /* JADX WARN: Removed duplicated region for block: B:71:0x00e5 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:26:0x0071 A[Catch: all -> 0x00cf, TryCatch #9 {, blocks: (B:4:0x0004, B:6:0x000e, B:8:0x0012, B:11:0x001d, B:33:0x00bc, B:34:0x00bf, B:24:0x0069, B:26:0x0071, B:27:0x0093, B:37:0x00c4, B:22:0x0063, B:23:0x0066, B:43:0x00d3, B:48:0x00e3, B:49:0x00e6, B:50:0x00e9, B:52:0x00eb), top: B:71:0x0004, inners: #0, #2, #5 }] */
+    /* JADX WARN: Removed duplicated region for block: B:62:0x00e3 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     @SuppressLint({"SwanDebugLog"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static synchronized String px(String str) {
+    public static synchronized String pq(String str) {
         FileLock fileLock;
         BufferedReader bufferedReader;
-        Throwable th;
-        BufferedReader bufferedReader2;
-        IOException e;
-        FileLock fileLock2;
         String str2 = null;
         synchronized (a.class) {
             long currentTimeMillis = System.currentTimeMillis();
@@ -170,48 +155,38 @@ public class a {
                         bufferedReader = new BufferedReader(Channels.newReader(channel, Charset.defaultCharset().name()));
                         while (true) {
                             try {
-                                String readLine = bufferedReader.readLine();
-                                if (readLine == null) {
-                                    break;
-                                }
-                                stringBuffer.append(readLine);
-                            } catch (IOException e2) {
-                                e = e2;
-                                fileLock2 = fileLock;
-                                bufferedReader2 = bufferedReader;
                                 try {
+                                    String readLine = bufferedReader.readLine();
+                                    if (readLine == null) {
+                                        break;
+                                    }
+                                    stringBuffer.append(readLine);
+                                } catch (IOException e) {
+                                    e = e;
                                     Log.e("SwanAppFile", Log.getStackTraceString(e));
-                                    if (fileLock2 != null) {
+                                    if (fileLock != null) {
                                         try {
-                                            fileLock2.release();
-                                        } catch (IOException e3) {
-                                            Log.e("SwanAppFile", Log.getStackTraceString(e3));
+                                            fileLock.release();
+                                        } catch (IOException e2) {
+                                            Log.e("SwanAppFile", Log.getStackTraceString(e2));
                                         }
                                     }
-                                    d.closeSafely(bufferedReader2);
+                                    d.closeSafely(bufferedReader);
                                     long currentTimeMillis2 = System.currentTimeMillis();
                                     if (DEBUG) {
                                     }
                                     str2 = stringBuffer.toString();
                                     return str2;
-                                } catch (Throwable th2) {
-                                    th = th2;
-                                    bufferedReader = bufferedReader2;
-                                    fileLock = fileLock2;
-                                    if (fileLock != null) {
-                                        try {
-                                            fileLock.release();
-                                        } catch (IOException e4) {
-                                            Log.e("SwanAppFile", Log.getStackTraceString(e4));
-                                            throw th;
-                                        }
-                                    }
-                                    d.closeSafely(bufferedReader);
-                                    throw th;
                                 }
-                            } catch (Throwable th3) {
-                                th = th3;
+                            } catch (Throwable th) {
+                                th = th;
                                 if (fileLock != null) {
+                                    try {
+                                        fileLock.release();
+                                    } catch (IOException e3) {
+                                        Log.e("SwanAppFile", Log.getStackTraceString(e3));
+                                        throw th;
+                                    }
                                 }
                                 d.closeSafely(bufferedReader);
                                 throw th;
@@ -223,27 +198,30 @@ public class a {
                         if (fileLock != null) {
                             try {
                                 fileLock.release();
-                            } catch (IOException e5) {
-                                Log.e("SwanAppFile", Log.getStackTraceString(e5));
+                            } catch (IOException e4) {
+                                Log.e("SwanAppFile", Log.getStackTraceString(e4));
                             }
                         }
                         d.closeSafely(bufferedReader);
-                    } catch (IOException e6) {
-                        fileLock2 = fileLock;
-                        bufferedReader2 = null;
-                        e = e6;
-                    } catch (Throwable th4) {
+                    } catch (IOException e5) {
+                        e = e5;
                         bufferedReader = null;
-                        th = th4;
+                    } catch (Throwable th2) {
+                        th = th2;
+                        bufferedReader = null;
+                        if (fileLock != null) {
+                        }
+                        d.closeSafely(bufferedReader);
+                        throw th;
                     }
-                } catch (IOException e7) {
-                    bufferedReader2 = null;
-                    e = e7;
-                    fileLock2 = null;
-                } catch (Throwable th5) {
+                } catch (IOException e6) {
+                    e = e6;
                     fileLock = null;
                     bufferedReader = null;
-                    th = th5;
+                } catch (Throwable th3) {
+                    th = th3;
+                    fileLock = null;
+                    bufferedReader = null;
                 }
                 long currentTimeMillis22 = System.currentTimeMillis();
                 if (DEBUG) {

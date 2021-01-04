@@ -4,53 +4,55 @@ import com.baidu.platform.comapi.util.SysOSUtil;
 import com.baidu.platform.comjni.base.logstatistics.NALogStatistics;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private NALogStatistics f2824a;
-    private ArrayList<b> b;
+    private NALogStatistics f4187a;
 
-    /* loaded from: classes26.dex */
+    /* renamed from: b  reason: collision with root package name */
+    private ArrayList<b> f4188b;
+
+    /* loaded from: classes15.dex */
     private static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final c f2825a = new c();
+        private static final c f4189a = new c();
     }
 
     private c() {
-        this.f2824a = null;
-        this.b = new ArrayList<>();
+        this.f4187a = null;
+        this.f4188b = new ArrayList<>();
         b();
     }
 
     public static c a() {
-        return a.f2825a;
+        return a.f4189a;
     }
 
     private boolean b() {
-        if (this.f2824a == null) {
-            this.f2824a = new NALogStatistics();
+        if (this.f4187a == null) {
+            this.f4187a = new NALogStatistics();
             return true;
         }
         return true;
     }
 
     public boolean a(int i, int i2, String str, String str2) {
-        if (this.f2824a != null) {
+        if (this.f4187a != null) {
             if (com.baidu.platform.comapi.b.f() || com.baidu.platform.comapi.b.h()) {
                 a(new com.baidu.platform.comapi.b.a(i, i2, str, str2));
             }
-            return this.f2824a.a(i, i2, SysOSUtil.getInstance().getNetType(), str, str2);
+            return this.f4187a.a(i, i2, SysOSUtil.getInstance().getNetType(), str, str2);
         }
         return false;
     }
 
     public boolean a(com.baidu.platform.comapi.b.a aVar) {
-        if (this.b == null || this.b.isEmpty()) {
+        if (this.f4188b == null || this.f4188b.isEmpty()) {
             return false;
         }
-        Iterator<b> it = this.b.iterator();
+        Iterator<b> it = this.f4188b.iterator();
         while (it.hasNext()) {
             it.next().a(aVar);
         }

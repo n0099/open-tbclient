@@ -4,7 +4,7 @@ import com.baidu.android.imsdk.IMListener;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class ListenerManager {
     private static ListenerManager sInstance;
     private Map<String, IMListener> mMap = new HashMap();

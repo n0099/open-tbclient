@@ -6,11 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.BannerImage;
 /* loaded from: classes.dex */
-public class aj extends BaseCardInfo implements com.baidu.adp.widget.ListView.q {
+public class aj extends BaseCardInfo implements com.baidu.adp.widget.ListView.n {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
     public List<k> dataList = new ArrayList();
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
         return TYPE;
     }

@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.mobads.interfaces.IXAdInstanceInfo;
 import com.baidu.mobads.vo.XAdInstanceInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public abstract class XAdCommandExtraInfo implements Parcelable {
     public String adid;
     public String appsec;

@@ -1,119 +1,137 @@
 package com.baidu.swan.apps.ak.a;
 
-import android.text.TextUtils;
+import android.content.Context;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.util.Log;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.ap.j;
-import com.baidu.swan.apps.b;
+import com.baidu.swan.apps.console.c;
 import com.baidu.swan.apps.runtime.e;
-import com.baidu.swan.c.d;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Date;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class a {
-    private static final boolean DEBUG = b.DEBUG;
-    private final String dEL;
+    private static volatile a dPk;
+    private SensorEventListener dPl;
+    private Sensor dPm;
+    private InterfaceC0377a dPn;
+    private double[] dPo = new double[3];
+    private boolean dPp = false;
+    private long dPq = 0;
+    private int dPr;
+    private Context mContext;
+    private SensorManager mSensorManager;
 
-    public a() {
-        String str;
-        try {
-            str = AppRuntime.getAppContext().getFilesDir().getPath();
-        } catch (Exception e) {
-            if (DEBUG) {
-                throw e;
+    /* renamed from: com.baidu.swan.apps.ak.a.a$a  reason: collision with other inner class name */
+    /* loaded from: classes9.dex */
+    public interface InterfaceC0377a {
+        void b(double[] dArr);
+    }
+
+    private a() {
+    }
+
+    public static a aPY() {
+        if (dPk == null) {
+            synchronized (a.class) {
+                if (dPk == null) {
+                    dPk = new a();
+                }
             }
-            str = "";
         }
-        if (!TextUtils.isEmpty(str)) {
-            this.dEL = str + File.separator + "aiapps_folder/stability";
+        return dPk;
+    }
+
+    public void w(Context context, int i) {
+        this.mContext = context;
+        this.dPr = i;
+    }
+
+    public void a(InterfaceC0377a interfaceC0377a) {
+        this.dPn = interfaceC0377a;
+    }
+
+    public void aPZ() {
+        if (this.mContext == null) {
+            c.e("accelerometer", "start error, none context");
+        } else if (this.dPp) {
+            c.w("accelerometer", "has already start");
         } else {
-            this.dEL = "";
+            this.mSensorManager = (SensorManager) this.mContext.getSystemService("sensor");
+            if (this.mSensorManager != null) {
+                this.dPm = this.mSensorManager.getDefaultSensor(1);
+                this.mSensorManager.registerListener(aQc(), this.dPm, 1);
+                this.dPp = true;
+                c.i("accelerometer", "start listen");
+                return;
+            }
+            c.e("accelerometer", "none sensorManager");
         }
     }
 
-    public File H(JSONArray jSONArray) {
-        long currentTimeMillis = System.currentTimeMillis();
-        try {
-            kQ(9);
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("_app_id", e.aJW() == null ? "" : e.aJW());
-            jSONObject.put("_date", j.a(new Date(currentTimeMillis), "yyyy-MM-dd HH:mm:ss"));
-            jSONArray.put(jSONObject);
-            File cN = cN(currentTimeMillis);
-            if (cN != null) {
-                if (com.baidu.swan.apps.s.a.n(cN.getPath(), jSONArray.toString(), false)) {
-                    return cN;
-                }
-            }
-            return null;
-        } catch (Exception e) {
-            if (DEBUG) {
-                Log.e("SwanStabilityTraceCache", "TraceCache Exception:", e);
-            }
-            return null;
+    public void aQa() {
+        if (!this.dPp) {
+            c.w("accelerometer", "has already stop");
+            return;
+        }
+        if (this.dPl != null && this.mSensorManager != null) {
+            this.mSensorManager.unregisterListener(this.dPl);
+            this.dPl = null;
+        }
+        this.mSensorManager = null;
+        this.dPm = null;
+        this.dPp = false;
+    }
+
+    public static void release() {
+        if (dPk != null) {
+            dPk.aQb();
         }
     }
 
-    public File[] aMA() {
-        if (TextUtils.isEmpty(this.dEL)) {
-            return null;
+    private void aQb() {
+        c.i("accelerometer", "release");
+        if (this.dPp) {
+            aQa();
         }
-        try {
-            return new File(this.dEL).listFiles();
-        } catch (Exception e) {
-            if (DEBUG) {
-                Log.e("SwanStabilityTraceCache", "TraceCache Exception:", e);
-                return null;
-            }
-            return null;
-        }
+        this.mSensorManager = null;
+        this.dPm = null;
+        this.dPl = null;
+        this.dPo = null;
+        this.mContext = null;
+        dPk = null;
     }
 
-    private void kQ(int i) {
-        File[] aMA = aMA();
-        if (aMA != null && aMA.length != 0) {
-            long currentTimeMillis = System.currentTimeMillis();
-            Arrays.sort(aMA, new Comparator<File>() { // from class: com.baidu.swan.apps.ak.a.a.1
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // java.util.Comparator
-                /* renamed from: c */
-                public int compare(File file, File file2) {
-                    long lastModified = file.lastModified();
-                    long lastModified2 = file2.lastModified();
-                    if (lastModified == lastModified2) {
-                        return 0;
+    private SensorEventListener aQc() {
+        c.i("accelerometer", "get Accelerometer listener");
+        if (this.dPl != null) {
+            return this.dPl;
+        }
+        this.dPl = new SensorEventListener() { // from class: com.baidu.swan.apps.ak.a.a.1
+            @Override // android.hardware.SensorEventListener
+            public void onSensorChanged(SensorEvent sensorEvent) {
+                if (sensorEvent != null && sensorEvent.sensor != null && sensorEvent.sensor.getType() == 1) {
+                    if (sensorEvent.values != null && sensorEvent.values.length == 3) {
+                        if (a.this.dPn != null && System.currentTimeMillis() - a.this.dPq > a.this.dPr) {
+                            a.this.dPo[0] = (-sensorEvent.values[0]) / 9.8d;
+                            a.this.dPo[1] = (-sensorEvent.values[1]) / 9.8d;
+                            a.this.dPo[2] = (-sensorEvent.values[2]) / 9.8d;
+                            a.this.dPn.b(a.this.dPo);
+                            a.this.dPq = System.currentTimeMillis();
+                        }
+                        if (e.DEBUG) {
+                            Log.d("AccelerometerManager", "current Time : " + a.this.dPq + "current Acc x : " + a.this.dPo[0] + "current Acc y : " + a.this.dPo[1] + "current Acc z : " + a.this.dPo[2]);
+                            return;
+                        }
+                        return;
                     }
-                    return lastModified - lastModified2 > 0 ? 1 : -1;
+                    c.w("accelerometer", "illegal accelerometer event");
                 }
-            });
-            ArrayList<File> arrayList = new ArrayList(aMA.length);
-            int i2 = 0;
-            for (File file : aMA) {
-                if (i2 < i) {
-                    if (file.lastModified() - currentTimeMillis > 172800000) {
-                        arrayList.add(file);
-                    }
-                } else {
-                    arrayList.add(file);
-                }
-                i2++;
             }
-            for (File file2 : arrayList) {
-                d.deleteFile(file2);
-            }
-        }
-    }
 
-    private File cN(long j) {
-        if (TextUtils.isEmpty(this.dEL)) {
-            return null;
-        }
-        return new File(this.dEL + File.separator + (e.aJW() == null ? "" : e.aJW()) + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + j + "_swan_stability_traces.log");
+            @Override // android.hardware.SensorEventListener
+            public void onAccuracyChanged(Sensor sensor, int i) {
+            }
+        };
+        return this.dPl;
     }
 }

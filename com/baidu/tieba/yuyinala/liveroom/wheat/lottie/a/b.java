@@ -12,12 +12,12 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class b {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface a {
-        void zX(boolean z);
+        void zZ(boolean z);
     }
 
     public static void a(String str, final String str2, final a aVar) {
@@ -26,62 +26,65 @@ public class b {
         } else if (TextUtils.isEmpty(str)) {
             BdLog.w("warning!! download illegal name");
         } else {
-            final String str3 = com.baidu.live.ag.b.iG(str2) + "/" + str2 + ".zip";
-            final String iH = com.baidu.live.ag.b.iH(str2);
-            if (!str3.startsWith(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath())) {
-                BdLog.w("warning!! download illegal dir=" + str3 + " name=" + str2);
-                return;
-            }
-            final DownloadData downloadData = new DownloadData();
-            downloadData.setId(str2);
-            downloadData.setName(str2);
-            downloadData.setUrl(str);
-            downloadData.setCheck(str2);
-            downloadData.setType(23);
-            downloadData.setPath(str3);
-            downloadData.setCallback(new FileDownloadCallBack() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.b.1
-                @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
-                public void onFileUpdateProgress(DownloadData downloadData2) {
+            String it = com.baidu.live.ah.b.it(str2);
+            final String iv = com.baidu.live.ah.b.iv(str2);
+            if (!TextUtils.isEmpty(it)) {
+                final String str3 = it + "/" + str2 + ".zip";
+                if (!str3.startsWith(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath())) {
+                    BdLog.w("warning!! download illegal dir=" + str3 + " name=" + str2);
+                    return;
                 }
-
-                @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
-                public boolean onPreDownload(DownloadData downloadData2) {
-                    return com.baidu.live.ag.a.b.Sm().K(downloadData2);
-                }
-
-                @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
-                public boolean onFileDownloaded(DownloadData downloadData2) {
-                    return true;
-                }
-
-                @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
-                public void onFileDownloadSucceed(DownloadData downloadData2) {
-                    b.a(str3, iH, str2, aVar);
-                }
-
-                @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
-                public void onFileDownloadFailed(DownloadData downloadData2, int i, String str4) {
-                    if (aVar != null) {
-                        aVar.zX(false);
+                final DownloadData downloadData = new DownloadData();
+                downloadData.setId(str2);
+                downloadData.setName(str2);
+                downloadData.setUrl(str);
+                downloadData.setCheck(str2);
+                downloadData.setType(23);
+                downloadData.setPath(str3);
+                downloadData.setCallback(new FileDownloadCallBack() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.b.1
+                    @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
+                    public void onFileUpdateProgress(DownloadData downloadData2) {
                     }
-                }
-            });
-            new BdAsyncTask<Void, Void, Boolean>() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.b.2
-                /* JADX DEBUG: Method merged with bridge method */
-                /* JADX INFO: Access modifiers changed from: protected */
-                @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
-                public Boolean doInBackground(Void... voidArr) {
-                    FileHelper.deleteFileOrDir(new File(com.baidu.live.ag.b.iG(str2)));
-                    return true;
-                }
 
-                /* JADX DEBUG: Method merged with bridge method */
-                /* JADX INFO: Access modifiers changed from: protected */
-                @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
-                public void onPostExecute(Boolean bool) {
-                    FileSerialDownLoader.getInstance().startDownLoadWithoutMax(downloadData);
-                }
-            }.execute(new Void[0]);
+                    @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
+                    public boolean onPreDownload(DownloadData downloadData2) {
+                        return com.baidu.live.ah.a.b.Tq().G(downloadData2);
+                    }
+
+                    @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
+                    public boolean onFileDownloaded(DownloadData downloadData2) {
+                        return true;
+                    }
+
+                    @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
+                    public void onFileDownloadSucceed(DownloadData downloadData2) {
+                        b.a(str3, iv, str2, aVar);
+                    }
+
+                    @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
+                    public void onFileDownloadFailed(DownloadData downloadData2, int i, String str4) {
+                        if (aVar != null) {
+                            aVar.zZ(false);
+                        }
+                    }
+                });
+                new BdAsyncTask<Void, Void, Boolean>() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.b.2
+                    /* JADX DEBUG: Method merged with bridge method */
+                    /* JADX INFO: Access modifiers changed from: protected */
+                    @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
+                    public Boolean doInBackground(Void... voidArr) {
+                        FileHelper.deleteFileOrDir(new File(com.baidu.live.ah.b.it(str2)));
+                        return true;
+                    }
+
+                    /* JADX DEBUG: Method merged with bridge method */
+                    /* JADX INFO: Access modifiers changed from: protected */
+                    @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
+                    public void onPostExecute(Boolean bool) {
+                        FileSerialDownLoader.getInstance().startDownLoadWithInsert(downloadData);
+                    }
+                }.execute(new Void[0]);
+            }
         }
     }
 
@@ -95,7 +98,7 @@ public class b {
                 public Boolean doInBackground(Void... voidArr) {
                     boolean unZip = b.unZip(str, str2);
                     if (unZip) {
-                        c.gT(str3, str2);
+                        c.gR(str3, str2);
                     }
                     return Boolean.valueOf(unZip);
                 }
@@ -106,7 +109,7 @@ public class b {
                 public void onPostExecute(Boolean bool) {
                     super.onPostExecute((AnonymousClass3) bool);
                     if (aVar != null) {
-                        aVar.zX(bool.booleanValue());
+                        aVar.zZ(bool.booleanValue());
                     }
                 }
             }.execute(new Void[0]);
@@ -126,7 +129,7 @@ public class b {
         /*
             r3 = 0
             r0 = 0
-            boolean r1 = com.baidu.live.h.a.existFile(r5)
+            boolean r1 = com.baidu.live.i.a.existFile(r5)
             if (r1 != 0) goto L9
         L8:
             return r0
@@ -140,17 +143,17 @@ public class b {
             boolean r1 = r1.mkdirs()
             if (r1 == 0) goto L8
         L20:
-            java.io.FileInputStream r4 = new java.io.FileInputStream     // Catch: java.lang.Throwable -> L9e
-            r4.<init>(r5)     // Catch: java.lang.Throwable -> L9e
-            java.util.zip.ZipInputStream r2 = new java.util.zip.ZipInputStream     // Catch: java.lang.Throwable -> La1
-            java.io.BufferedInputStream r1 = new java.io.BufferedInputStream     // Catch: java.lang.Throwable -> La1
-            r1.<init>(r4)     // Catch: java.lang.Throwable -> La1
-            r2.<init>(r1)     // Catch: java.lang.Throwable -> La1
+            java.io.FileInputStream r4 = new java.io.FileInputStream     // Catch: java.lang.Throwable -> L9a
+            r4.<init>(r5)     // Catch: java.lang.Throwable -> L9a
+            java.util.zip.ZipInputStream r2 = new java.util.zip.ZipInputStream     // Catch: java.lang.Throwable -> L9e
+            java.io.BufferedInputStream r1 = new java.io.BufferedInputStream     // Catch: java.lang.Throwable -> L9e
+            r1.<init>(r4)     // Catch: java.lang.Throwable -> L9e
+            r2.<init>(r1)     // Catch: java.lang.Throwable -> L9e
         L2f:
             java.util.zip.ZipEntry r1 = r2.getNextEntry()     // Catch: java.lang.Throwable -> L48
-            if (r1 == 0) goto L71
+            if (r1 == 0) goto L70
             boolean r3 = r1.isDirectory()     // Catch: java.lang.Throwable -> L48
-            if (r3 == 0) goto L5d
+            if (r3 == 0) goto L5c
             java.io.File r3 = new java.io.File     // Catch: java.lang.Throwable -> L48
             java.lang.String r1 = r1.getName()     // Catch: java.lang.Throwable -> L48
             r3.<init>(r6, r1)     // Catch: java.lang.Throwable -> L48
@@ -158,86 +161,80 @@ public class b {
             goto L2f
         L48:
             r1 = move-exception
-            r3 = r4
-        L4a:
-            r1.printStackTrace()     // Catch: java.lang.Throwable -> L9b
-            if (r2 == 0) goto L52
-            r2.close()     // Catch: java.io.IOException -> L58
-        L52:
-            if (r3 == 0) goto L8
-            r3.close()     // Catch: java.io.IOException -> L58
+        L49:
+            r1.printStackTrace()     // Catch: java.lang.Throwable -> L64
+            if (r2 == 0) goto L51
+            r2.close()     // Catch: java.io.IOException -> L57
+        L51:
+            if (r4 == 0) goto L8
+            r4.close()     // Catch: java.io.IOException -> L57
             goto L8
-        L58:
+        L57:
             r1 = move-exception
             r1.printStackTrace()
             goto L8
-        L5d:
+        L5c:
             java.lang.String r1 = r1.getName()     // Catch: java.lang.Throwable -> L48
-            a(r2, r6, r1)     // Catch: java.lang.Throwable -> L48
+            b(r2, r6, r1)     // Catch: java.lang.Throwable -> L48
             goto L2f
-        L65:
+        L64:
             r0 = move-exception
-        L66:
-            if (r2 == 0) goto L6b
-            r2.close()     // Catch: java.io.IOException -> L8f
-        L6b:
-            if (r4 == 0) goto L70
-            r4.close()     // Catch: java.io.IOException -> L8f
-        L70:
+        L65:
+            if (r2 == 0) goto L6a
+            r2.close()     // Catch: java.io.IOException -> L8e
+        L6a:
+            if (r4 == 0) goto L6f
+            r4.close()     // Catch: java.io.IOException -> L8e
+        L6f:
             throw r0
-        L71:
+        L70:
             java.io.File r1 = new java.io.File     // Catch: java.lang.Throwable -> L48
             r1.<init>(r5)     // Catch: java.lang.Throwable -> L48
             java.io.File r1 = r1.getParentFile()     // Catch: java.lang.Throwable -> L48
             com.baidu.live.tbadk.core.util.FileHelper.deleteFileOrDir(r1)     // Catch: java.lang.Throwable -> L48
             r0 = 1
-            if (r2 == 0) goto L83
-            r2.close()     // Catch: java.io.IOException -> L89
-        L83:
+            if (r2 == 0) goto L82
+            r2.close()     // Catch: java.io.IOException -> L88
+        L82:
             if (r4 == 0) goto L8
-            r4.close()     // Catch: java.io.IOException -> L89
+            r4.close()     // Catch: java.io.IOException -> L88
             goto L8
-        L89:
+        L88:
             r1 = move-exception
             r1.printStackTrace()
             goto L8
-        L8f:
+        L8e:
             r1 = move-exception
             r1.printStackTrace()
-            goto L70
-        L94:
+            goto L6f
+        L93:
             r0 = move-exception
             r2 = r3
             r4 = r3
-            goto L66
-        L98:
+            goto L65
+        L97:
             r0 = move-exception
             r2 = r3
-            goto L66
-        L9b:
-            r0 = move-exception
+            goto L65
+        L9a:
+            r1 = move-exception
+            r2 = r3
             r4 = r3
-            goto L66
+            goto L49
         L9e:
             r1 = move-exception
             r2 = r3
-            goto L4a
-        La1:
-            r1 = move-exception
-            r2 = r3
-            r3 = r4
-            goto L4a
+            goto L49
         */
         throw new UnsupportedOperationException("Method not decompiled: com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.b.unZip(java.lang.String, java.lang.String):boolean");
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [224=5, 225=5, 226=5, 228=5, 229=5] */
-    /* JADX WARN: Removed duplicated region for block: B:70:0x00b5 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [231=5, 232=5, 233=5, 235=5, 236=5] */
+    /* JADX WARN: Removed duplicated region for block: B:68:0x00b4 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static File a(InputStream inputStream, String str, String str2) {
-        Throwable th;
+    private static File b(InputStream inputStream, String str, String str2) {
         FileOutputStream fileOutputStream;
         if (inputStream == null || TextUtils.isEmpty(str) || str2.contains("/.")) {
             return null;
@@ -313,8 +310,8 @@ public class b {
                         return null;
                     }
                 }
-            } catch (Throwable th2) {
-                th = th2;
+            } catch (Throwable th) {
+                th = th;
                 if (fileOutputStream2 != null) {
                     try {
                         fileOutputStream2.flush();
@@ -328,9 +325,9 @@ public class b {
         } catch (IOException e7) {
             e = e7;
             fileOutputStream = null;
-        } catch (Throwable th3) {
+        } catch (Throwable th2) {
+            th = th2;
             fileOutputStream2 = null;
-            th = th3;
             if (fileOutputStream2 != null) {
             }
             throw th;

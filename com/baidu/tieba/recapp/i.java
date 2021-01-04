@@ -1,6 +1,7 @@
 package com.baidu.tieba.recapp;
 
 import android.content.Context;
+import android.os.Bundle;
 import java.util.Map;
 /* loaded from: classes.dex */
 public interface i {
@@ -17,16 +18,16 @@ public interface i {
 
     /* loaded from: classes.dex */
     public interface c {
-        int b(Context context, String str, String str2, boolean z, d dVar, boolean z2);
+        int b(Context context, String str, String str2, boolean z, d dVar, boolean z2, Bundle bundle);
     }
 
     /* loaded from: classes.dex */
     public interface d {
     }
 
-    boolean Fs(String str);
+    boolean Fq(String str);
 
-    void a(Context context, String[] strArr, boolean z);
+    void a(Context context, String[] strArr, boolean z, Bundle bundle);
 
-    boolean c(Context context, String[] strArr);
+    boolean a(Context context, String[] strArr, Bundle bundle);
 }

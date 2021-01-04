@@ -23,10 +23,10 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.os.SystemProperties;
-import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
+import androidx.core.app.NotificationCompat;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.pushservice.PushSettings;
 import com.baidu.android.pushservice.h.a.b;
@@ -65,12 +65,14 @@ import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 @SuppressLint({"WorldReadableFiles"})
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public final class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f1155a = -1;
-    private static final String[] b = {"android.permission.INTERNET", "android.permission.ACCESS_NETWORK_STATE"};
+    public static int f1426a = -1;
+
+    /* renamed from: b  reason: collision with root package name */
+    private static final String[] f1427b = {"android.permission.INTERNET", "android.permission.ACCESS_NETWORK_STATE"};
     private static int c = -1;
 
     private static boolean A(Context context) {
@@ -232,7 +234,7 @@ public final class m {
     public static synchronized void a(Context context, boolean z) {
         synchronized (m.class) {
             try {
-                f1155a = z ? 1 : 0;
+                f1426a = z ? 1 : 0;
                 SharedPreferences.Editor edit = context.getSharedPreferences("com.baidu.pushservice.BIND_CACHE", 0).edit();
                 edit.putBoolean("bind_status", z);
                 edit.commit();
@@ -760,7 +762,6 @@ public final class m {
 
     public static boolean e(Context context) {
         boolean z;
-        Exception e;
         try {
             Intent intent = new Intent("com.baidu.android.pushservice.action.notification.CLICK");
             intent.setPackage(context.getPackageName());
@@ -834,14 +835,14 @@ public final class m {
             try {
                 Log.e("BDPushSDK-Utility", str + " is disable, please check!");
                 return z;
-            } catch (Exception e2) {
-                e = e2;
+            } catch (Exception e) {
+                e = e;
                 new b.c(context).a(Log.getStackTraceString(e)).a();
                 return z;
             }
-        } catch (Exception e3) {
+        } catch (Exception e2) {
+            e = e2;
             z = false;
-            e = e3;
         }
     }
 
@@ -1066,13 +1067,13 @@ public final class m {
     public static synchronized boolean j(Context context) {
         boolean z;
         synchronized (m.class) {
-            if (f1155a == -1) {
+            if (f1426a == -1) {
                 try {
-                    f1155a = context.getSharedPreferences("com.baidu.pushservice.BIND_CACHE", 0).getBoolean("bind_status", false) ? 1 : 0;
+                    f1426a = context.getSharedPreferences("com.baidu.pushservice.BIND_CACHE", 0).getBoolean("bind_status", false) ? 1 : 0;
                 } catch (Exception e) {
                 }
             }
-            z = f1155a == 1;
+            z = f1426a == 1;
         }
         return z;
     }
@@ -1208,6 +1209,7 @@ public final class m {
     }
 
     public static String n(Context context) {
+        Throwable th;
         String str;
         String str2 = "";
         if (!n()) {
@@ -1249,9 +1251,9 @@ public final class m {
                         str4 = matcher.group();
                     }
                     return str4;
-                } catch (Throwable th) {
+                } catch (Throwable th2) {
+                    th = th2;
                     str2 = str4;
-                    th = th;
                     new b.c(context).a(Log.getStackTraceString(th)).a();
                     return (Build.VERSION.SDK_INT < 21 || !upperCase.contains("HUAWEI")) ? upperCase.contains("HUAWEI") ? "1.0" : upperCase.contains("XIAOMI") ? "4.0" : upperCase.contains("MEIZU") ? "6.0" : (upperCase.contains(RomUtils.ROM_OPPO) || upperCase.contains("REALME")) ? "3.0" : upperCase.contains(RomUtils.ROM_VIVO) ? "3.2" : str2 : Constants.SDK_VER;
                 }
@@ -1267,8 +1269,8 @@ public final class m {
                 Matcher matcher4 = Pattern.compile("\\d+(\\.\\d+)?").matcher(str);
                 return matcher4.find() ? matcher4.group() : str;
             }
-        } catch (Throwable th2) {
-            th = th2;
+        } catch (Throwable th3) {
+            th = th3;
         }
     }
 
@@ -1304,45 +1306,23 @@ public final class m {
     }
 
     public static int o(Context context, String str) {
-        int i;
-        Exception e;
-        String str2;
-        int i2 = 0;
-        String str3 = str;
-        while (true) {
+        int indexOf;
+        int i = 0;
+        String str2 = str;
+        do {
             try {
-                int indexOf = str3.indexOf("#Intent;");
+                indexOf = str2.indexOf("#Intent;");
                 if (indexOf != -1) {
-                    int length = i2 + "#Intent;".length() + indexOf;
-                    String substring = str3.substring("#Intent;".length() + indexOf);
-                    i = length;
-                    str2 = substring;
-                } else {
-                    String str4 = str3;
-                    i = i2;
-                    str2 = str4;
+                    i += "#Intent;".length() + indexOf;
+                    str2 = str2.substring("#Intent;".length() + indexOf);
+                    continue;
                 }
-                if (indexOf == -1) {
-                    break;
-                }
-                String str5 = str2;
-                i2 = i;
-                str3 = str5;
-            } catch (Exception e2) {
-                i = i2;
-                e = e2;
-            }
-        }
-        if (i > 0) {
-            try {
-                return i - "#Intent;".length();
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e) {
                 new b.c(context).a(Log.getStackTraceString(e)).a();
                 return i;
             }
-        }
-        return i;
+        } while (indexOf != -1);
+        return i > 0 ? i - "#Intent;".length() : i;
     }
 
     public static boolean o(Context context) {
@@ -1395,7 +1375,6 @@ public final class m {
 
     public static Bitmap q(Context context, String str) {
         Bitmap bitmap;
-        Exception e;
         try {
             HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
             httpURLConnection.setConnectTimeout(1000);
@@ -1405,14 +1384,14 @@ public final class m {
             bitmap = BitmapFactory.decodeStream(inputStream);
             try {
                 inputStream.close();
-            } catch (Exception e2) {
-                e = e2;
+            } catch (Exception e) {
+                e = e;
                 new b.c(context).a(Log.getStackTraceString(e)).a();
                 return bitmap;
             }
-        } catch (Exception e3) {
+        } catch (Exception e2) {
+            e = e2;
             bitmap = null;
-            e = e3;
         }
         return bitmap;
     }
@@ -1426,7 +1405,7 @@ public final class m {
                 if (strArr != null) {
                     if (!a(context, packageManager, strArr)) {
                         if (!a(context, strArr)) {
-                            String[] strArr2 = b;
+                            String[] strArr2 = f1427b;
                             int length = strArr2.length;
                             int i = 0;
                             while (true) {

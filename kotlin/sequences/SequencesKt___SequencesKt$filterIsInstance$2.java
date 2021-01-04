@@ -2,7 +2,7 @@ package kotlin.sequences;
 
 import kotlin.jvm.internal.Lambda;
 @kotlin.e
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 final class SequencesKt___SequencesKt$filterIsInstance$2 extends Lambda implements kotlin.jvm.a.b<Object, Boolean> {
     final /* synthetic */ Class $klass;
 

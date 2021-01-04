@@ -13,29 +13,29 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.view.spanGroup.SpanGroupEditText;
 import com.baidu.tieba.R;
 import com.baidu.tieba.write.j;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class b {
-    private View.OnClickListener foP;
-    private View jjc;
-    private View jjd;
-    private TextView jje;
-    private TextView jjf;
-    private TextView jjg;
-    private ImageView jjh;
-    private EditText jji;
-    private SpanGroupEditText jjj;
-    private a jjk;
-    private boolean jjl;
+    private View jvB;
+    private View jvC;
+    private TextView jvD;
+    private TextView jvE;
+    private TextView jvF;
+    private ImageView jvG;
+    private EditText jvH;
+    private SpanGroupEditText jvI;
+    private a jvJ;
+    private boolean jvK;
     private Context mContext;
+    private View.OnClickListener onClickListener;
     private View rootView;
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes2.dex */
     public interface a {
-        void cHg();
+        void cKf();
     }
 
     public b(Context context) {
@@ -45,17 +45,17 @@ public class b {
 
     private void init() {
         this.rootView = LayoutInflater.from(this.mContext).inflate(R.layout.forum_rule_edit_item, (ViewGroup) null);
-        this.jjc = this.rootView.findViewById(R.id.item_divider);
-        this.jjf = (TextView) this.rootView.findViewById(R.id.item_title_index);
-        this.jjh = (ImageView) this.rootView.findViewById(R.id.item_del);
-        this.jji = (EditText) this.rootView.findViewById(R.id.item_title);
-        this.jje = (TextView) this.rootView.findViewById(R.id.item_title_number);
-        this.jjd = this.rootView.findViewById(R.id.titile_divider);
-        this.jjj = (SpanGroupEditText) this.rootView.findViewById(R.id.item_content);
-        this.jjg = (TextView) this.rootView.findViewById(R.id.item_content_number);
-        com.baidu.tieba.frs.forumRule.view.a.b(this.jje, 0, 30);
-        com.baidu.tieba.frs.forumRule.view.a.b(this.jjg, 0, 300);
-        this.jji.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.frs.forumRule.view.b.1
+        this.jvB = this.rootView.findViewById(R.id.item_divider);
+        this.jvE = (TextView) this.rootView.findViewById(R.id.item_title_index);
+        this.jvG = (ImageView) this.rootView.findViewById(R.id.item_del);
+        this.jvH = (EditText) this.rootView.findViewById(R.id.item_title);
+        this.jvD = (TextView) this.rootView.findViewById(R.id.item_title_number);
+        this.jvC = this.rootView.findViewById(R.id.titile_divider);
+        this.jvI = (SpanGroupEditText) this.rootView.findViewById(R.id.item_content);
+        this.jvF = (TextView) this.rootView.findViewById(R.id.item_content_number);
+        com.baidu.tieba.frs.forumRule.view.a.b(this.jvD, 0, 30);
+        com.baidu.tieba.frs.forumRule.view.a.b(this.jvF, 0, 300);
+        this.jvH.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.frs.forumRule.view.b.1
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -66,18 +66,18 @@ public class b {
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                com.baidu.tieba.frs.forumRule.view.a.b(b.this.jje, editable.toString().length(), 30);
-                if (b.this.jjk != null) {
-                    b.this.jjk.cHg();
+                com.baidu.tieba.frs.forumRule.view.a.b(b.this.jvD, editable.toString().length(), 30);
+                if (b.this.jvJ != null) {
+                    b.this.jvJ.cKf();
                 }
-                if (b.this.jjl) {
-                    com.baidu.tbadk.core.elementsMaven.c.bm(b.this.jji).ps(R.color.CAM_X0105);
-                    com.baidu.tbadk.core.elementsMaven.c.bm(b.this.jjj).ps(R.color.CAM_X0105);
-                    b.this.jjl = false;
+                if (b.this.jvK) {
+                    com.baidu.tbadk.core.elementsMaven.c.bv(b.this.jvH).pC(R.color.CAM_X0105);
+                    com.baidu.tbadk.core.elementsMaven.c.bv(b.this.jvI).pC(R.color.CAM_X0105);
+                    b.this.jvK = false;
                 }
             }
         });
-        this.jjj.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.frs.forumRule.view.b.2
+        this.jvI.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.frs.forumRule.view.b.2
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -88,17 +88,17 @@ public class b {
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                com.baidu.tieba.frs.forumRule.view.a.b(b.this.jjg, editable.toString().length(), 300);
-                if (b.this.jjk != null) {
-                    b.this.jjk.cHg();
+                com.baidu.tieba.frs.forumRule.view.a.b(b.this.jvF, editable.toString().length(), 300);
+                if (b.this.jvJ != null) {
+                    b.this.jvJ.cKf();
                 }
-                if (b.this.jjl) {
-                    com.baidu.tbadk.core.elementsMaven.c.bm(b.this.jji).ps(R.color.CAM_X0105);
-                    com.baidu.tbadk.core.elementsMaven.c.bm(b.this.jjj).ps(R.color.CAM_X0105);
-                    b.this.jjl = false;
+                if (b.this.jvK) {
+                    com.baidu.tbadk.core.elementsMaven.c.bv(b.this.jvH).pC(R.color.CAM_X0105);
+                    com.baidu.tbadk.core.elementsMaven.c.bv(b.this.jvI).pC(R.color.CAM_X0105);
+                    b.this.jvK = false;
                 }
-                if (b.this.jjj.getLineCount() > 6) {
-                    b.this.jjj.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.frs.forumRule.view.b.2.1
+                if (b.this.jvI.getLineCount() > 6) {
+                    b.this.jvI.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.frs.forumRule.view.b.2.1
                         @Override // android.view.View.OnTouchListener
                         public boolean onTouch(View view, MotionEvent motionEvent) {
                             if (motionEvent.getAction() == 0) {
@@ -112,44 +112,44 @@ public class b {
                         }
                     });
                 } else {
-                    b.this.jjj.setOnTouchListener(null);
+                    b.this.jvI.setOnTouchListener(null);
                 }
             }
         });
-        this.jji.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.forumRule.view.b.3
+        this.jvH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.forumRule.view.b.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                l.showSoftKeyPad(b.this.mContext, b.this.jji);
+                l.showSoftKeyPad(b.this.mContext, b.this.jvH);
             }
         });
-        this.jjj.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.forumRule.view.b.4
+        this.jvI.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.forumRule.view.b.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                l.showSoftKeyPad(b.this.mContext, b.this.jjj);
+                l.showSoftKeyPad(b.this.mContext, b.this.jvI);
             }
         });
-        bvt();
-        this.jjj.bwh();
+        bxO();
+        this.jvI.byA();
     }
 
-    private void bvt() {
+    private void bxO() {
         if (this.rootView != null) {
-            com.baidu.tbadk.core.elementsMaven.c.bm(this.jjc).setBackGroundColor(R.color.CAM_X0204);
-            com.baidu.tbadk.core.elementsMaven.c.bm(this.jjd).setBackGroundColor(R.color.CAM_X0210);
-            com.baidu.tbadk.core.elementsMaven.c.bm(this.jjf).ps(R.color.CAM_X0107).pu(R.string.F_X02);
-            com.baidu.tbadk.core.elementsMaven.c.bm(this.jje).ps(R.color.CAM_X0111);
-            this.jjh.setImageDrawable(WebPManager.a(R.drawable.icon_pure_edit_delete16, ap.getColor(R.color.CAM_X0107), WebPManager.ResourceStateType.NORMAL_PRESS));
-            this.jjj.setHintTextColor(ap.getColor(R.color.CAM_X0111));
-            this.jjj.setTextColor(ap.getColor(R.color.CAM_X0105));
-            this.jji.setTextColor(ap.getColor(R.color.CAM_X0105));
-            this.jji.setHintTextColor(ap.getColor(R.color.CAM_X0111));
+            com.baidu.tbadk.core.elementsMaven.c.bv(this.jvB).setBackGroundColor(R.color.CAM_X0204);
+            com.baidu.tbadk.core.elementsMaven.c.bv(this.jvC).setBackGroundColor(R.color.CAM_X0210);
+            com.baidu.tbadk.core.elementsMaven.c.bv(this.jvE).pC(R.color.CAM_X0107).pE(R.string.F_X02);
+            com.baidu.tbadk.core.elementsMaven.c.bv(this.jvD).pC(R.color.CAM_X0111);
+            this.jvG.setImageDrawable(WebPManager.a(R.drawable.icon_pure_edit_delete16, ao.getColor(R.color.CAM_X0107), WebPManager.ResourceStateType.NORMAL_PRESS));
+            this.jvI.setHintTextColor(ao.getColor(R.color.CAM_X0111));
+            this.jvI.setTextColor(ao.getColor(R.color.CAM_X0105));
+            this.jvH.setTextColor(ao.getColor(R.color.CAM_X0105));
+            this.jvH.setHintTextColor(ao.getColor(R.color.CAM_X0111));
             if (TbadkCoreApplication.getInst().getSkinType() == 0) {
-                j.h(this.jji, R.drawable.edittext_cursor);
-                j.h(this.jjj, R.drawable.edittext_cursor);
+                j.h(this.jvH, R.drawable.edittext_cursor);
+                j.h(this.jvI, R.drawable.edittext_cursor);
                 return;
             }
-            j.h(this.jji, R.drawable.edittext_cursor_1);
-            j.h(this.jjj, R.drawable.edittext_cursor_1);
+            j.h(this.jvH, R.drawable.edittext_cursor_1);
+            j.h(this.jvI, R.drawable.edittext_cursor_1);
         }
     }
 
@@ -157,81 +157,34 @@ public class b {
         return this.rootView;
     }
 
-    public SpanGroupEditText cHh() {
-        return this.jjj;
+    public SpanGroupEditText cKg() {
+        return this.jvI;
     }
 
-    public EditText cHi() {
-        return this.jji;
+    public EditText cKh() {
+        return this.jvH;
     }
 
     public void setClickListener(View.OnClickListener onClickListener) {
-        this.foP = onClickListener;
-        this.jjh.setOnClickListener(this.foP);
+        this.onClickListener = onClickListener;
+        this.jvG.setOnClickListener(this.onClickListener);
     }
 
     public void a(a aVar) {
-        this.jjk = aVar;
+        this.jvJ = aVar;
     }
 
-    public void AK(int i) {
-        if (this.jjf != null) {
-            this.jjf.setText(String.format(this.mContext.getString(R.string.forum_rule_title_index), AL(i)));
+    public void AX(int i) {
+        if (this.jvE != null) {
+            this.jvE.setText(String.format(this.mContext.getString(R.string.forum_rule_title_index), AY(i)));
         }
     }
 
-    public void qF(boolean z) {
-        this.jjl = z;
+    public void rd(boolean z) {
+        this.jvK = z;
     }
 
-    private String AL(int i) {
-        return AM(i + 5);
-    }
-
-    public String AM(int i) {
-        switch (i) {
-            case 1:
-                return "一";
-            case 2:
-                return "二";
-            case 3:
-                return "三";
-            case 4:
-                return "四";
-            case 5:
-                return "五";
-            case 6:
-                return "六";
-            case 7:
-                return "七";
-            case 8:
-                return "八";
-            case 9:
-                return "九";
-            case 10:
-                return "十";
-            case 11:
-                return "十一";
-            case 12:
-                return "十二";
-            case 13:
-                return "十三";
-            case 14:
-                return "十四";
-            case 15:
-                return "十五";
-            case 16:
-                return "十六";
-            case 17:
-                return "十七";
-            case 18:
-                return "十八";
-            case 19:
-                return "十九";
-            case 20:
-                return "二十";
-            default:
-                return "";
-        }
+    private String AY(int i) {
+        return com.baidu.tieba.frs.forumRule.d.a.AU(i + 5);
     }
 }

@@ -13,7 +13,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.ByteBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class CoderManager {
     private static volatile CoderManager sInstance = null;
 

@@ -6,19 +6,20 @@ import com.baidu.android.imsdk.db.DBManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.ar.constants.HttpConstants;
 import java.util.LinkedList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class NewAckMessage extends Message {
     private Context mContext;
     private JSONArray mJsonArray;
     private long mTriggerId;
     private List<Tripule> tripules;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public static class Tripule {
         private String accountType;
         private String businessSource;
@@ -39,7 +40,7 @@ public class NewAckMessage extends Message {
         private long ukToUser;
         private JSONObject jack = null;
         private boolean isReliable = false;
-        private String osName = "android";
+        private String osName = HttpConstants.OS_TYPE_VALUE;
 
         public Tripule(long j, String str, long j2, String str2, int i, String str3, long j3, long j4, long j5, int i2, int i3, int i4, String str4, String str5, String str6) {
             this.msgid = j;

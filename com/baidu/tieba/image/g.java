@@ -1,163 +1,239 @@
 package com.baidu.tieba.image;
 
-import android.content.Intent;
-import android.os.Bundle;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationConstants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.au;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-/* loaded from: classes21.dex */
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.live.tbadk.core.data.ConstantData;
+import com.baidu.sapi2.views.SmsLoginView;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
+import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
+import com.baidu.tbadk.core.atomData.MissonDetailsActivityConfig;
+import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.core.data.AlaInfoData;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.data.MetaData;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import tbclient.App;
+import tbclient.GoodsInfo;
+/* loaded from: classes8.dex */
 public class g {
-    private String kMC;
-    private int kMD;
-    private int kME;
-    private int kMF;
-    private long kMB = 0;
-    private HashMap<String, Boolean> kMA = new HashMap<>();
+    public String fGe;
+    private ForumData jPU;
+    public MetaData kQK;
+    public String kQL;
+    public int kQN;
+    private LinkedList<e> kQW;
+    private String kQY;
+    private String kQZ;
+    public int kRb;
+    private int replyPrivateFlag;
+    private String fid = null;
+    private int kQV = 0;
+    private AdvertAppInfo kQX = null;
+    private LinkedList<AlaInfoData> kRa = new LinkedList<>();
 
-    public void Fd(int i) {
-        this.kME = i;
+    public g() {
+        this.kQW = null;
+        this.kQW = new LinkedList<>();
     }
 
-    public int dcw() {
-        return this.kME;
-    }
-
-    public void Fe(int i) {
-        this.kMF = i;
-    }
-
-    public int dcx() {
-        return this.kMF;
-    }
-
-    public void b(Bundle bundle, Intent intent) {
-        if (bundle != null) {
-            this.kMC = bundle.getString(ImageViewerConfig.PV_TYPE);
-        } else if (intent != null) {
-            this.kMC = intent.getStringExtra(ImageViewerConfig.PV_TYPE);
-            int intExtra = intent.getIntExtra("index", -1);
-            this.kMD = intExtra;
-            this.kME = intExtra;
-            this.kMF = intExtra;
+    public void aT(String str, boolean z) {
+        try {
+            a(new JSONObject(str), Boolean.valueOf(z));
+        } catch (Exception e) {
+            BdLog.detailException(e);
         }
     }
 
-    public void az(Bundle bundle) {
-        if (bundle != null) {
-            bundle.putString(ImageViewerConfig.PV_TYPE, this.kMC);
-        }
+    public LinkedList<e> dbN() {
+        return this.kQW;
     }
 
-    public void e(List<String> list, int i, int i2) {
-        synchronized (this.kMA) {
-            if (System.nanoTime() - this.kMB > 300000000 && list != null && i < list.size()) {
-                this.kMA.put(list.get(i), true);
-            }
-            this.kMB = System.nanoTime();
-            if (list != null && i2 < list.size() && this.kMA.get(list.get(i2)) == null) {
-                this.kMA.put(list.get(i2), false);
-            }
-        }
-        if (this.kMA.size() >= 100) {
-            dcy();
-        }
+    public LinkedList<AlaInfoData> dbO() {
+        return this.kRa;
     }
 
-    public void dcy() {
-        if (this.kMA != null) {
-            synchronized (this.kMA) {
-                if (this.kMA.size() > 0) {
-                    int i = 0;
-                    for (Map.Entry<String, Boolean> entry : this.kMA.entrySet()) {
-                        if (entry.getValue().booleanValue()) {
-                            i++;
+    public int getImageNum() {
+        return this.kQV;
+    }
+
+    public String btb() {
+        return this.kQY;
+    }
+
+    public String btc() {
+        return this.kQZ;
+    }
+
+    public int dbP() {
+        return this.replyPrivateFlag;
+    }
+
+    public ForumData bFK() {
+        return this.jPU;
+    }
+
+    public void a(JSONObject jSONObject, Boolean bool) {
+        if (jSONObject != null) {
+            try {
+                JSONObject optJSONObject = jSONObject.optJSONObject("forum");
+                if (optJSONObject != null) {
+                    this.jPU = new ForumData();
+                    this.jPU.parserJson(optJSONObject);
+                    this.fid = optJSONObject.optString("id");
+                    this.kQY = optJSONObject.optString("frist_class");
+                    this.kQZ = optJSONObject.optString("second_class");
+                }
+                JSONObject optJSONObject2 = jSONObject.optJSONObject("thread");
+                if (optJSONObject2 != null) {
+                    JSONObject optJSONObject3 = optJSONObject2.optJSONObject("author");
+                    if (optJSONObject3 != null) {
+                        this.kQK = new MetaData();
+                        this.kQK.setUserId(optJSONObject3.optString("user_id"));
+                        this.kQK.setUserName(optJSONObject3.optString("user_name"));
+                        this.kQK.setName_show(optJSONObject3.optString("nickname"));
+                    }
+                    this.kQL = optJSONObject2.optString("first_post_id");
+                    this.kRb = optJSONObject2.optInt("is_multiforum_thread");
+                }
+                JSONObject optJSONObject4 = jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI);
+                if (optJSONObject4 != null) {
+                    this.replyPrivateFlag = optJSONObject4.optInt("reply_private_flag");
+                    this.fGe = optJSONObject4.optString("voice_message");
+                }
+                this.kQN = jSONObject.optInt("show_adsense", 0);
+                this.kQV = jSONObject.optInt("pic_amount", 0);
+                JSONArray optJSONArray = jSONObject.optJSONArray("pic_list");
+                if (optJSONArray != null) {
+                    if (bool.booleanValue()) {
+                        for (int i = 0; i < optJSONArray.length(); i++) {
+                            e eVar = new e();
+                            eVar.paserJson(optJSONArray.optJSONObject(i));
+                            int index = eVar.getIndex();
+                            if (index >= 1 && index <= this.kQV) {
+                                this.kQW.addLast(eVar);
+                            }
+                        }
+                    } else {
+                        for (int length = optJSONArray.length() - 1; length >= 0; length--) {
+                            e eVar2 = new e();
+                            eVar2.paserJson(optJSONArray.getJSONObject(length));
+                            int index2 = eVar2.getIndex();
+                            if (index2 >= 1 && index2 <= this.kQV) {
+                                this.kQW.addFirst(eVar2);
+                            }
                         }
                     }
-                    TbadkCoreApplication.getInst().sendImagePv(i, this.kMA.size(), this.kMC, this.kMD + 1, this.kME + 1);
-                    this.kMA.clear();
                 }
+                h(jSONObject, bool.booleanValue());
+                es(jSONObject);
+            } catch (Exception e) {
+                BdLog.detailException(e);
             }
         }
     }
 
-    public void bA(int i, String str) {
-        if (i == 1 && System.nanoTime() - this.kMB > 300000000) {
-            this.kMA.put(str, true);
+    private void h(JSONObject jSONObject, boolean z) {
+        JSONArray optJSONArray;
+        if (jSONObject != null && (optJSONArray = jSONObject.optJSONArray("recom_ala_info")) != null) {
+            if (z) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    AlaInfoData alaInfoData = new AlaInfoData();
+                    alaInfoData.parserJson(optJSONArray.optJSONObject(i));
+                    this.kRa.addLast(alaInfoData);
+                }
+                return;
+            }
+            for (int length = optJSONArray.length() - 1; length >= 0; length--) {
+                AlaInfoData alaInfoData2 = new AlaInfoData();
+                alaInfoData2.parserJson(optJSONArray.optJSONObject(length));
+                this.kRa.addFirst(alaInfoData2);
+            }
         }
     }
 
-    public void a(int i, String str, String str2, String str3, String str4, String str5) {
-        StringBuilder sb = new StringBuilder();
-        StringBuilder sb2 = new StringBuilder();
-        if (this.kMF == this.kME) {
-            sb.append(this.kMF + 1);
-            if (this.kME == i - 1) {
-                sb2.append(1);
-            } else {
-                sb2.append(0);
+    private void es(JSONObject jSONObject) {
+        JSONObject optJSONObject;
+        JSONArray optJSONArray = jSONObject.optJSONArray("app");
+        if (optJSONArray != null && (optJSONObject = optJSONArray.optJSONObject(0)) != null) {
+            App.Builder builder = new App.Builder();
+            builder.id = optJSONObject.optString("id");
+            builder.type = Integer.valueOf(optJSONObject.optInt("type", 0));
+            builder.pos = Integer.valueOf(optJSONObject.optInt("pos", 0));
+            builder.icon_url = optJSONObject.optString("icon_url");
+            builder.icon_link = optJSONObject.optString("icon_link");
+            builder.app_name = optJSONObject.optString("app_name");
+            builder.app_desc = optJSONObject.optString("app_desc");
+            builder.p_name = optJSONObject.optString("p_name");
+            builder.p_url = optJSONObject.optString("p_url");
+            builder.img_url = optJSONObject.optString(BigdayActivityConfig.IMG_URL);
+            builder.app_time = Integer.valueOf(optJSONObject.optInt("app_time", 0));
+            builder.web_url = optJSONObject.optString("web_url");
+            builder.ad_id = optJSONObject.optString(LegoListActivityConfig.AD_ID);
+            builder.id = optJSONObject.optString("id");
+            builder.name = optJSONObject.optString("name");
+            builder.url_type = Integer.valueOf(optJSONObject.optInt(ConstantData.Logo.LOGO_JUMP_URL_TPYE, 0));
+            builder.url = optJSONObject.optString("url");
+            builder.ios_url = optJSONObject.optString("ios_url");
+            builder.apk_url = optJSONObject.optString(ConstantData.Logo.LOGO_AD_APK_URL);
+            builder.apk_name = optJSONObject.optString(ConstantData.Logo.LOGO_AD_APK_PACKAGE_NAME);
+            builder.pos_name = optJSONObject.optString("pos_name");
+            builder.first_name = optJSONObject.optString("first_name");
+            builder.second_name = optJSONObject.optString("second_name");
+            builder.cpid = Integer.valueOf(optJSONObject.optInt("cpid", 0));
+            builder.abtest = optJSONObject.optString("abtest");
+            builder.plan_id = Integer.valueOf(optJSONObject.optInt("plan_id", 0));
+            builder.user_id = optJSONObject.optString("user_id");
+            builder.price = optJSONObject.optString("price");
+            builder.verify = optJSONObject.optString(SmsLoginView.f.j);
+            builder.ext_info = optJSONObject.optString("ext_info");
+            builder.pos_name = optJSONObject.optString("pos_name");
+            GoodsInfo et = et(optJSONObject);
+            if (et != null) {
+                builder.goods_info = new ArrayList();
+                builder.goods_info.add(et);
             }
-        } else {
-            for (int i2 = this.kMF; i2 <= this.kME; i2++) {
-                if (i2 == this.kME) {
-                    sb.append(i2 + 1);
-                    if (this.kME == i - 1) {
-                        sb2.append(1);
-                    } else {
-                        sb2.append(0);
-                    }
-                } else {
-                    sb.append(i2 + 1);
-                    sb.append("|");
-                    sb2.append(0);
-                    sb2.append("|");
-                }
-            }
+            builder.loc_code = optJSONObject.optString("loc_code");
+            App build = builder.build(true);
+            this.kQX = new AdvertAppInfo();
+            this.kQX.a(build);
+            this.kQX.adPosition = "c0111";
+            this.kQX.eOh = this.fid;
         }
-        ar arVar = new ar("common_exp");
-        arVar.dY("page_type", PageStayDurationConstants.PageName.BIGIMAGE);
-        if (!au.isEmpty(str2)) {
-            arVar.dY("fid", str2);
+    }
+
+    private GoodsInfo et(JSONObject jSONObject) {
+        JSONObject optJSONObject;
+        JSONArray optJSONArray = jSONObject.optJSONArray("goods_info");
+        if (optJSONArray == null || (optJSONObject = optJSONArray.optJSONObject(0)) == null) {
+            return null;
         }
-        if (!au.isEmpty(str3)) {
-            arVar.dY("tid", str3);
-        }
-        if (TbadkCoreApplication.getInst().getAdAdSense() != null) {
-            arVar.dY("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().fje);
-        }
-        arVar.al("pic_count", i);
-        arVar.dY("obj_floors", sb.toString());
-        arVar.dY("obj_isads", sb2.toString());
-        int i3 = (this.kME - this.kMF) + 1;
-        if (i3 == 1) {
-            if (this.kME == i - 1) {
-                arVar.dY("obj_id", str);
-            } else {
-                arVar.dY("obj_id", "");
-            }
-        }
-        if (i3 > 1) {
-            StringBuilder sb3 = new StringBuilder();
-            for (int i4 = 0; i4 < i3 - 1; i4++) {
-                sb3.append("|");
-            }
-            if (this.kME == i - 1) {
-                sb3.append(str);
-            }
-            arVar.dY("obj_ids", str);
-        }
-        if (!StringUtils.isNull(str4)) {
-            arVar.dY("first_dir", str4);
-        }
-        if (!StringUtils.isNull(str5)) {
-            arVar.dY("second_dir", str5);
-        }
-        TiebaStatic.log(arVar);
+        GoodsInfo.Builder builder = new GoodsInfo.Builder();
+        builder.id = Integer.valueOf(optJSONObject.optInt("id", 0));
+        builder.user_name = optJSONObject.optString("user_name");
+        builder.user_portrait = optJSONObject.optString("user_portrait");
+        builder.thread_title = optJSONObject.optString(MissonDetailsActivityConfig.THREAD_TITLE);
+        builder.thread_pic = optJSONObject.optString("thread_pic");
+        builder.pop_window_text = optJSONObject.optString("pop_window_text");
+        builder.goods_style = Integer.valueOf(optJSONObject.optInt("goods_style", 0));
+        builder.label_visible = Integer.valueOf(optJSONObject.optInt("label_visible", 0));
+        builder.label_text = optJSONObject.optString("label_text");
+        builder.rank_level = Integer.valueOf(optJSONObject.optInt("rank_level", 0));
+        builder.thread_type = optJSONObject.optString("thread_type");
+        builder.button_text = optJSONObject.optString("button_text");
+        builder.card_desc = optJSONObject.optString("card_desc");
+        builder.card_tag = optJSONObject.optString("card_tag");
+        builder.tag_name = optJSONObject.optString("tag_name");
+        builder.ad_source = optJSONObject.optString("ad_source");
+        builder.tag_name_url = optJSONObject.optString("tag_name_url");
+        builder.tag_name_wh = optJSONObject.optString("tag_name_wh");
+        builder.lego_card = optJSONObject.optString("lego_card");
+        return builder.build(true);
+    }
+
+    public AdvertAppInfo bpi() {
+        return this.kQX;
     }
 }

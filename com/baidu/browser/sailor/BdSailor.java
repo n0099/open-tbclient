@@ -4,9 +4,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.NetworkInfo;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.view.KeyEvent;
+import androidx.annotation.Nullable;
 import com.baidu.android.common.util.CommonParam;
 import com.baidu.browser.core.INoProGuard;
 import com.baidu.browser.sailor.platform.BdSailorPlatform;
@@ -30,7 +30,7 @@ import com.baidu.webkit.sdk.location.ZeusGeoLocationInfo;
 import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public class BdSailor implements INoProGuard {
     public static final String LOG_TAG = BdSailor.class.getSimpleName();
     protected static BdSailor sInstance;
@@ -93,7 +93,7 @@ public class BdSailor implements INoProGuard {
         }
         Log.i(EngineManager.LOG_TAG, "start check zeus update after notifyUserPrivacyConfirmInner");
         getAppContext();
-        com.baidu.browser.sailor.webkit.update.a.tB().a(getAppContext());
+        com.baidu.browser.sailor.webkit.update.a.sZ().a(getAppContext());
     }
 
     private void setSailorFeatureListener() {
@@ -273,7 +273,7 @@ public class BdSailor implements INoProGuard {
 
     public void initWebkit(String str, boolean z, Class<? extends CrashCallback> cls) {
         long currentTimeMillis = System.currentTimeMillis();
-        boolean z2 = BdWebkitManager.a.f1288a == BdSailorPlatform.getWebkitManager().getWebkitType$630ca8f2();
+        boolean z2 = BdWebkitManager.a.f1653a == BdSailorPlatform.getWebkitManager().getWebkitType$630ca8f2();
         if (z2) {
             ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.Start, ZeusPerformanceTiming.KEY_INIT_SYS_WEBKIT);
         } else {
@@ -430,7 +430,7 @@ public class BdSailor implements INoProGuard {
         this.mClient = bdSailorClient;
         WebKitFactory.setWebKitClient(bdSailorClient);
         setSailorFeatureListener();
-        BdSailorPlatform.getStatic().agv = this.mClient;
+        BdSailorPlatform.getStatic().agV = this.mClient;
     }
 
     public void setSailorCronetListenerInterface(ICronetListenerInterface iCronetListenerInterface) {

@@ -2,12 +2,14 @@ package com.baidu.mapsdkplatform.comapi.map;
 
 import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class s {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2240a = s.class.getSimpleName();
-    private r b;
+    private static final String f3194a = s.class.getSimpleName();
+
+    /* renamed from: b  reason: collision with root package name */
+    private r f3195b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(Message message) {
@@ -30,8 +32,8 @@ public class s {
             case 12:
             case 101:
             case 102:
-                if (this.b != null) {
-                    this.b.a(message.arg1, message.arg2);
+                if (this.f3195b != null) {
+                    this.f3195b.a(message.arg1, message.arg2);
                     return;
                 }
                 return;
@@ -42,11 +44,11 @@ public class s {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(r rVar) {
-        this.b = rVar;
+        this.f3195b = rVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(r rVar) {
-        this.b = null;
+        this.f3195b = null;
     }
 }

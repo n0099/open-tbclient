@@ -1,5 +1,5 @@
 package com.baidu.mapapi.search.busline;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class BusLineSearchOption {
     public String mUid = null;
     public String mCity = null;

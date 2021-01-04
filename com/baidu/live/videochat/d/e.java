@@ -1,5 +1,5 @@
 package com.baidu.live.videochat.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class e {
     public String liveId;
     public String portrait;

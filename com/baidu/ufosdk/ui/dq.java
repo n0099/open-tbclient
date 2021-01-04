@@ -7,15 +7,15 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes22.dex */
+/* loaded from: classes8.dex */
 final class dq implements AdapterView.OnItemLongClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackListActivity f3840a;
+    final /* synthetic */ FeedbackListActivity f5818a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public dq(FeedbackListActivity feedbackListActivity) {
-        this.f3840a = feedbackListActivity;
+        this.f5818a = feedbackListActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemLongClickListener
@@ -28,19 +28,19 @@ final class dq implements AdapterView.OnItemLongClickListener {
         PopupWindow popupWindow3;
         PopupWindow popupWindow4;
         RelativeLayout relativeLayout;
-        list = this.f3840a.e;
-        list2 = this.f3840a.e;
-        a2 = this.f3840a.a(this.f3840a.getApplicationContext(), com.baidu.ufosdk.f.s.a("3"), (String) ((Map) list.get(i)).get("id"), (String) ((Map) list2.get(i)).get("appid"));
-        this.f3840a.z = new PopupWindow(a2, com.baidu.ufosdk.f.i.a(this.f3840a.getApplicationContext(), 79.0f), com.baidu.ufosdk.f.i.a(this.f3840a.getApplicationContext(), 68.0f));
-        popupWindow = this.f3840a.z;
+        list = this.f5818a.e;
+        list2 = this.f5818a.e;
+        a2 = this.f5818a.a(this.f5818a.getApplicationContext(), com.baidu.ufosdk.f.s.a("3"), (String) ((Map) list.get(i)).get("id"), (String) ((Map) list2.get(i)).get("appid"));
+        this.f5818a.z = new PopupWindow(a2, com.baidu.ufosdk.f.i.a(this.f5818a.getApplicationContext(), 79.0f), com.baidu.ufosdk.f.i.a(this.f5818a.getApplicationContext(), 68.0f));
+        popupWindow = this.f5818a.z;
         popupWindow.setFocusable(false);
-        popupWindow2 = this.f3840a.z;
+        popupWindow2 = this.f5818a.z;
         popupWindow2.setOutsideTouchable(true);
-        popupWindow3 = this.f3840a.z;
+        popupWindow3 = this.f5818a.z;
         popupWindow3.setBackgroundDrawable(new BitmapDrawable());
         a2.getLocationOnScreen(new int[2]);
-        popupWindow4 = this.f3840a.z;
-        relativeLayout = this.f3840a.f3741a;
+        popupWindow4 = this.f5818a.z;
+        relativeLayout = this.f5818a.f5698a;
         popupWindow4.showAtLocation(relativeLayout, 17, 0, 0);
         return true;
     }

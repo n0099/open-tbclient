@@ -1,14 +1,14 @@
 package com.baidu.tieba.personCenter.c;
 
 import android.graphics.drawable.Drawable;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class j {
     public boolean isShowRedTip = false;
     public String linkUrl;
-    public Drawable mkA;
-    public Drawable mkB;
-    public Drawable mkC;
-    public boolean mkD;
-    public String mkz;
+    public String mpI;
+    public Drawable mpJ;
+    public Drawable mpK;
+    public Drawable mpL;
+    public boolean mpM;
     public String text;
 }

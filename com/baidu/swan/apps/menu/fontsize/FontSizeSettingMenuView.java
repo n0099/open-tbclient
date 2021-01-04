@@ -1,18 +1,18 @@
 package com.baidu.swan.apps.menu.fontsize;
 
 import android.content.Context;
-import android.support.annotation.AttrRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
+import androidx.annotation.AttrRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.ui.SliderBar;
 import com.baidu.swan.menu.BaseMenuView;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class FontSizeSettingMenuView extends BaseMenuView {
-    private SliderBar dlg;
-    private SliderBar.b dlh;
+    private SliderBar dqf;
+    private SliderBar.b dqg;
     private Context mContext;
 
     public FontSizeSettingMenuView(@NonNull Context context) {
@@ -31,18 +31,18 @@ public class FontSizeSettingMenuView extends BaseMenuView {
 
     private void init() {
         setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
-        this.dlg = (SliderBar) inflate(this.mContext, a.g.swan_app_font_setting, null);
-        this.dlg.kg(b.aEt());
-        a(this.dlg, new FrameLayout.LayoutParams(-1, (int) this.mContext.getResources().getDimension(a.d.font_setting_font_slider_bar_height_pop)));
+        this.dqf = (SliderBar) inflate(this.mContext, a.g.swan_app_font_setting, null);
+        this.dqf.kf(b.aFM());
+        a(this.dqf, new FrameLayout.LayoutParams(-1, (int) this.mContext.getResources().getDimension(a.d.font_setting_font_slider_bar_height_pop)));
     }
 
     @Override // com.baidu.swan.menu.BaseMenuView
-    public boolean aEv() {
+    public boolean aFO() {
         return false;
     }
 
     public void setOnSliderBarChangeListener(SliderBar.b bVar) {
-        this.dlh = bVar;
-        this.dlg.a(this.dlh);
+        this.dqg = bVar;
+        this.dqf.a(this.dqg);
     }
 }

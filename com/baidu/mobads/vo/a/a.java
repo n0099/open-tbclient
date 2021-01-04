@@ -1,6 +1,7 @@
 package com.baidu.mobads.vo.a;
 
 import android.content.Context;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.mobads.interfaces.IXAdInstanceInfo;
 import com.baidu.mobads.interfaces.IXAdProdInfo;
@@ -12,12 +13,14 @@ import com.baidu.webkit.internal.ETAG;
 import com.xiaomi.mipush.sdk.Constants;
 import java.net.URLEncoder;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f2454a;
-    public String b;
+    public long f3553a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f3554b;
     public String c;
     public String d;
     public String e;
@@ -30,30 +33,32 @@ public abstract class a {
     protected Context l;
     protected e m;
     protected IXAdSystemUtils n;
-    private C0273a o;
+    private C0274a o;
 
     protected abstract HashMap<String, String> b();
 
     /* renamed from: com.baidu.mobads.vo.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C0273a {
+    /* loaded from: classes3.dex */
+    public static class C0274a {
 
         /* renamed from: a  reason: collision with root package name */
-        String f2455a;
-        String b;
+        String f3555a;
+
+        /* renamed from: b  reason: collision with root package name */
+        String f3556b;
         String c;
         String d;
         String e;
 
-        public C0273a(IXAdInstanceInfo iXAdInstanceInfo, IXAdProdInfo iXAdProdInfo) {
-            this.f2455a = "";
-            this.b = "";
+        public C0274a(IXAdInstanceInfo iXAdInstanceInfo, IXAdProdInfo iXAdProdInfo) {
+            this.f3555a = "";
+            this.f3556b = "";
             this.c = "";
             this.d = "";
             this.e = "";
             if (iXAdInstanceInfo != null) {
-                this.f2455a = iXAdInstanceInfo.getAdId();
-                this.b = iXAdInstanceInfo.getQueryKey();
+                this.f3555a = iXAdInstanceInfo.getAdId();
+                this.f3556b = iXAdInstanceInfo.getQueryKey();
                 this.d = iXAdInstanceInfo.getCreativeType().getValue();
             }
             if (iXAdProdInfo != null) {
@@ -63,14 +68,14 @@ public abstract class a {
         }
     }
 
-    public a(C0273a c0273a) {
-        this(c0273a.f2455a, c0273a.b, c0273a.c);
-        this.o = c0273a;
+    public a(C0274a c0274a) {
+        this(c0274a.f3555a, c0274a.f3556b, c0274a.c);
+        this.o = c0274a;
     }
 
     @Deprecated
     public a(String str, String str2, String str3) {
-        this.b = "-1";
+        this.f3554b = "-1";
         this.c = "";
         this.d = "";
         this.e = "";
@@ -83,8 +88,8 @@ public abstract class a {
         this.m = XAdSDKFoundationFacade.getInstance().getCommonUtils();
         this.n = XAdSDKFoundationFacade.getInstance().getSystemUtils();
         this.l = XAdSDKFoundationFacade.getInstance().getApplicationContext();
-        this.f2454a = System.currentTimeMillis();
-        this.b = str;
+        this.f3553a = System.currentTimeMillis();
+        this.f3554b = str;
         this.c = str2;
         this.e = this.m.getAppSec(this.l);
         if (this.l != null) {
@@ -92,7 +97,7 @@ public abstract class a {
         }
         this.f = this.m.getAppId(this.l);
         this.h = this.n.getEncodedSN(this.l);
-        this.i = "android";
+        this.i = HttpConstants.OS_TYPE_VALUE;
         this.g = "android_" + com.baidu.mobads.a.a.c + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + "4.1.30";
         this.j = str3;
         this.k = XAdSDKFoundationFacade.getInstance().getSystemUtils().getCUID(this.l);
@@ -100,13 +105,13 @@ public abstract class a {
 
     protected HashMap<String, String> a() {
         HashMap<String, String> hashMap = new HashMap<>();
-        hashMap.put("adid", this.b);
+        hashMap.put("adid", this.f3554b);
         hashMap.put("appsec", this.e);
         hashMap.put("appsid", this.f);
         hashMap.put("pack", this.d);
         hashMap.put("qk", this.c);
         hashMap.put(IXAdRequestInfo.SN, this.h);
-        hashMap.put("ts", "" + this.f2454a);
+        hashMap.put("ts", "" + this.f3553a);
         hashMap.put("v", this.g);
         hashMap.put("os", this.i);
         hashMap.put("prod", this.j);
@@ -121,9 +126,9 @@ public abstract class a {
 
     public HashMap<String, String> c() {
         HashMap<String, String> a2 = a();
-        HashMap<String, String> b = b();
-        if (b != null) {
-            a2.putAll(b);
+        HashMap<String, String> b2 = b();
+        if (b2 != null) {
+            a2.putAll(b2);
         }
         return a2;
     }

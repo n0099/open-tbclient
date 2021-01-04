@@ -2,25 +2,25 @@ package com.baidu.tieba.ala.guardclub.model;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.tbadk.encryption.EncryptionHelper;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class c extends HttpMessage {
     private long anchorId;
-    private int biZ;
-    private long gQv;
-    private String gQw;
+    private int bkE;
+    private long hci;
+    private String hcj;
     private String sign;
 
     public c() {
         super(1021142);
-        this.biZ = 2;
+        this.bkE = 2;
     }
 
     public void fk(long j) {
-        this.gQv = j;
+        this.hci = j;
     }
 
     public void HE(String str) {
-        this.gQw = str;
+        this.hcj = str;
     }
 
     public void HF(String str) {
@@ -28,10 +28,10 @@ public class c extends HttpMessage {
     }
 
     public void setParams() {
-        addParam("guard_club_id", this.gQv);
-        addParam("club_name", this.gQw);
+        addParam("guard_club_id", this.hci);
+        addParam("club_name", this.hcj);
         addParam("sign", this.sign);
         addParam("anchor_id", EncryptionHelper.getEncryptionUserId(this.anchorId + ""));
-        addParam("client_type", this.biZ);
+        addParam("client_type", this.bkE);
     }
 }

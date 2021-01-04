@@ -9,21 +9,21 @@ import android.util.Log;
 import com.baidu.browser.core.util.BdLog;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes4.dex */
 public final class f {
-    private static ConcurrentHashMap<String, ConcurrentHashMap<String, Object>> afE = new ConcurrentHashMap<>();
-    private static volatile boolean afG = false;
-    private static a afF = new a(com.baidu.browser.core.async.b.m18do("PreferenceQueue").getLooper());
+    private static ConcurrentHashMap<String, ConcurrentHashMap<String, Object>> agi = new ConcurrentHashMap<>();
+    private static volatile boolean agk = false;
+    private static a agj = new a(com.baidu.browser.core.async.b.dh("PreferenceQueue").getLooper());
 
     static {
-        afF.sendEmptyMessageDelayed(0, 15000L);
+        agj.sendEmptyMessageDelayed(0, 15000L);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void b(String str, String str2, Object obj) {
         if (str != null) {
-            if (afE.containsKey(str)) {
-                ConcurrentHashMap<String, Object> concurrentHashMap = afE.get(str);
+            if (agi.containsKey(str)) {
+                ConcurrentHashMap<String, Object> concurrentHashMap = agi.get(str);
                 if (concurrentHashMap != null) {
                     if (obj != null) {
                         concurrentHashMap.put(str2, obj);
@@ -33,12 +33,12 @@ public final class f {
                 } else if (obj != null && str2 != null) {
                     ConcurrentHashMap<String, Object> concurrentHashMap2 = new ConcurrentHashMap<>();
                     concurrentHashMap2.put(str2, obj);
-                    afE.put(str, concurrentHashMap2);
+                    agi.put(str, concurrentHashMap2);
                 }
             } else if (obj != null && str2 != null) {
                 ConcurrentHashMap<String, Object> concurrentHashMap3 = new ConcurrentHashMap<>();
                 concurrentHashMap3.put(str2, obj);
-                afE.put(str, concurrentHashMap3);
+                agi.put(str, concurrentHashMap3);
             }
         }
     }
@@ -46,7 +46,7 @@ public final class f {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void clear(String str) {
         ConcurrentHashMap<String, Object> concurrentHashMap;
-        if (str != null && (concurrentHashMap = afE.get(str)) != null) {
+        if (str != null && (concurrentHashMap = agi.get(str)) != null) {
             concurrentHashMap.clear();
         }
     }
@@ -54,13 +54,13 @@ public final class f {
     /* JADX INFO: Access modifiers changed from: private */
     public static void apply() {
         int i;
-        if (!afG) {
-            afG = true;
+        if (!agk) {
+            agk = true;
             try {
-                Context baseContext = b.ti().getBaseContext();
-                BdLog.d("BdPreferenceQueueWorker", "pending work category: " + afE.size());
-                for (String str : afE.keySet()) {
-                    ConcurrentHashMap<String, Object> concurrentHashMap = afE.get(str);
+                Context baseContext = b.sI().getBaseContext();
+                BdLog.d("BdPreferenceQueueWorker", "pending work category: " + agi.size());
+                for (String str : agi.keySet()) {
+                    ConcurrentHashMap<String, Object> concurrentHashMap = agi.get(str);
                     if (concurrentHashMap == null || concurrentHashMap.size() <= 0) {
                         i = 0;
                     } else {
@@ -96,26 +96,26 @@ public final class f {
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {
-                afG = false;
+                agk = false;
             }
         }
     }
 
-    public static void tm() {
+    public static void sM() {
         Log.d("BdPreferenceQueueWorker", "wait to finish");
-        afF.removeMessages(0);
+        agj.removeMessages(0);
         apply();
-        tn();
+        sN();
     }
 
-    public static void tn() {
-        if (!afF.hasMessages(0)) {
-            afF.sendEmptyMessageDelayed(0, 15000L);
+    public static void sN() {
+        if (!agj.hasMessages(0)) {
+            agj.sendEmptyMessageDelayed(0, 15000L);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes4.dex */
     public static class a extends Handler {
         private a(Looper looper) {
             super(looper);
@@ -126,7 +126,7 @@ public final class f {
             switch (message.what) {
                 case 0:
                     f.apply();
-                    f.afF.sendEmptyMessageDelayed(0, 15000L);
+                    f.agj.sendEmptyMessageDelayed(0, 15000L);
                     return;
                 default:
                     return;

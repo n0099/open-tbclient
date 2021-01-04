@@ -2,19 +2,19 @@ package com.baidu.clientupdate.d;
 
 import android.content.Context;
 import android.widget.Toast;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 final class d implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f1329a;
+    final /* synthetic */ Context f1725a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(Context context) {
-        this.f1329a = context;
+        this.f1725a = context;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        Toast.makeText(this.f1329a, "无SD卡，将为你下载到手机内存", 0).show();
+        Toast.makeText(this.f1725a, "无SD卡，将为你下载到手机内存", 0).show();
     }
 }

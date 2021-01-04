@@ -3,38 +3,38 @@ package com.facebook.common.references;
 import java.lang.ref.SoftReference;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 public class b<T> {
-    SoftReference<T> pcm = null;
-    SoftReference<T> pcn = null;
-    SoftReference<T> pco = null;
+    SoftReference<T> ptr = null;
+    SoftReference<T> ptt = null;
+    SoftReference<T> ptu = null;
 
     public void set(@Nonnull T t) {
-        this.pcm = new SoftReference<>(t);
-        this.pcn = new SoftReference<>(t);
-        this.pco = new SoftReference<>(t);
+        this.ptr = new SoftReference<>(t);
+        this.ptt = new SoftReference<>(t);
+        this.ptu = new SoftReference<>(t);
     }
 
     @Nullable
     public T get() {
-        if (this.pcm == null) {
+        if (this.ptr == null) {
             return null;
         }
-        return this.pcm.get();
+        return this.ptr.get();
     }
 
     public void clear() {
-        if (this.pcm != null) {
-            this.pcm.clear();
-            this.pcm = null;
+        if (this.ptr != null) {
+            this.ptr.clear();
+            this.ptr = null;
         }
-        if (this.pcn != null) {
-            this.pcn.clear();
-            this.pcn = null;
+        if (this.ptt != null) {
+            this.ptt.clear();
+            this.ptt = null;
         }
-        if (this.pco != null) {
-            this.pco.clear();
-            this.pco = null;
+        if (this.ptu != null) {
+            this.ptu.clear();
+            this.ptu = null;
         }
     }
 }

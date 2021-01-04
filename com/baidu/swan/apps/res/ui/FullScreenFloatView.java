@@ -11,53 +11,54 @@ import android.view.ViewConfiguration;
 import android.view.animation.AccelerateInterpolator;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.swan.apps.a;
-import com.baidu.swan.apps.ap.ah;
-/* loaded from: classes25.dex */
+import com.baidu.swan.apps.ao.ah;
+/* loaded from: classes9.dex */
 public class FullScreenFloatView extends FrameLayout {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public float bIF;
-    public View dtl;
-    public int dtm;
-    public int dtn;
-    public int dto;
-    public boolean dtp;
-    public boolean dtq;
-    public boolean dtr;
-    public float dtt;
-    public a dtu;
-    public b dtv;
-    public int mParentHeight;
+    public float bNt;
+    public View dyL;
+    public int dyM;
+    public int dyN;
+    public int dyO;
+    public int dyP;
+    public boolean dyQ;
+    public boolean dyR;
+    public boolean dyS;
+    public float dyT;
+    public a dyU;
+    public b dyV;
     public int mStatusBarHeight;
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes9.dex */
     public interface b {
-        void aCe();
+        void aDv();
 
         void onClick();
     }
 
     public b getDragImageListener() {
-        return this.dtv;
+        return this.dyV;
     }
 
     public void setDragImageListener(b bVar) {
-        this.dtv = bVar;
+        this.dyV = bVar;
     }
 
     public void setAutoAttachEnable(boolean z) {
-        this.dtr = z;
+        this.dyS = z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes25.dex */
+    /* loaded from: classes9.dex */
     public class a implements Runnable {
         private a() {
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            FullScreenFloatView.this.dtp = false;
+            FullScreenFloatView.this.dyQ = false;
             if (FullScreenFloatView.DEBUG) {
                 Log.e("FullScreenFloatView", "CheckClick=====checkTap====");
             }
@@ -67,25 +68,25 @@ public class FullScreenFloatView extends FrameLayout {
     public FullScreenFloatView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mStatusBarHeight = 66;
-        this.dtp = false;
-        this.dtq = false;
-        this.dtr = true;
-        this.dtu = new a();
+        this.dyQ = false;
+        this.dyR = false;
+        this.dyS = true;
+        this.dyU = new a();
         setStatusBarHeight();
     }
 
     public FullScreenFloatView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mStatusBarHeight = 66;
-        this.dtp = false;
-        this.dtq = false;
-        this.dtr = true;
-        this.dtu = new a();
+        this.dyQ = false;
+        this.dyR = false;
+        this.dyS = true;
+        this.dyU = new a();
         setStatusBarHeight();
     }
 
     public void setStatusBarHeight() {
-        int identifier = getResources().getIdentifier("status_bar_height", "dimen", "android");
+        int identifier = getResources().getIdentifier("status_bar_height", "dimen", HttpConstants.OS_TYPE_VALUE);
         if (identifier > 0) {
             this.mStatusBarHeight = getResources().getDimensionPixelSize(identifier);
         }
@@ -105,17 +106,17 @@ public class FullScreenFloatView extends FrameLayout {
         }
     }
 
-    public void aA(View view) {
-        if (this.dto == 0) {
-            this.dto = getWidth();
+    public void aH(View view) {
+        if (this.dyO == 0) {
+            this.dyO = getWidth();
         }
-        if (this.mParentHeight == 0) {
-            this.mParentHeight = getHeight();
+        if (this.dyP == 0) {
+            this.dyP = getHeight();
         }
-        this.dtm = view.getWidth();
-        this.dtn = view.getHeight();
+        this.dyM = view.getWidth();
+        this.dyN = view.getHeight();
         if (DEBUG) {
-            Log.e("FullScreenFloatView", "dragInit-> mScreenWidth = " + this.dto + ", mScreenHeight = " + this.mParentHeight + ",mFloatViewWidth = " + this.dtm + ", mFloatViewHeight = " + this.dtn);
+            Log.e("FullScreenFloatView", "dragInit-> mScreenWidth = " + this.dyO + ", mScreenHeight = " + this.dyP + ",mFloatViewWidth = " + this.dyM + ", mFloatViewHeight = " + this.dyN);
         }
     }
 
@@ -126,15 +127,15 @@ public class FullScreenFloatView extends FrameLayout {
                 float x = motionEvent.getX();
                 float y = motionEvent.getY();
                 Rect rect = new Rect();
-                if (this.dtl == null) {
-                    this.dtl = findViewById(a.f.float_imgview);
-                    aA(this.dtl);
+                if (this.dyL == null) {
+                    this.dyL = findViewById(a.f.float_imgview);
+                    aH(this.dyL);
                 }
-                this.dtl.getHitRect(rect);
+                this.dyL.getHitRect(rect);
                 if (rect.contains((int) x, (int) y)) {
-                    this.dtq = true;
-                    this.dtt = x;
-                    this.bIF = y;
+                    this.dyR = true;
+                    this.dyT = x;
+                    this.bNt = y;
                     return true;
                 }
                 break;
@@ -145,158 +146,153 @@ public class FullScreenFloatView extends FrameLayout {
     @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        this.dto = getWidth();
-        this.mParentHeight = getHeight();
+        this.dyO = getWidth();
+        this.dyP = getHeight();
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        float f = 0.0f;
         float x = motionEvent.getX();
         float y = motionEvent.getY();
         Rect rect = new Rect();
         switch (motionEvent.getAction()) {
             case 0:
-                this.dtl.getHitRect(rect);
+                this.dyL.getHitRect(rect);
                 if (rect.contains((int) x, (int) y)) {
-                    this.dtt = x;
-                    this.bIF = y;
-                    this.dtq = true;
-                    this.dtp = true;
-                    postDelayed(this.dtu, ViewConfiguration.getTapTimeout());
+                    this.dyT = x;
+                    this.bNt = y;
+                    this.dyR = true;
+                    this.dyQ = true;
+                    postDelayed(this.dyU, ViewConfiguration.getTapTimeout());
                     break;
                 }
                 break;
             case 1:
-                if (this.dtp) {
-                    if (this.dtv != null) {
-                        this.dtv.onClick();
+                if (this.dyQ) {
+                    if (this.dyV != null) {
+                        this.dyV.onClick();
                     }
-                    removeCallbacks(this.dtu);
-                } else if (this.dtq && this.dtv != null) {
-                    this.dtv.aCe();
+                    removeCallbacks(this.dyU);
+                } else if (this.dyR && this.dyV != null) {
+                    this.dyV.aDv();
                 }
                 if (DEBUG) {
-                    Log.e("FullScreenFloatView", "ACTION_UP--> x = " + x + ", y = " + y + ",mIsClickDrag = " + this.dtp);
+                    Log.e("FullScreenFloatView", "ACTION_UP--> x = " + x + ", y = " + y + ",mIsClickDrag = " + this.dyQ);
                 }
-                if (this.dtr && !this.dtp && x > this.dtm / 2 && x < this.dto - (this.dtm / 2) && y > this.dtn / 2 && y < this.mParentHeight - (this.dtn / 2)) {
+                if (this.dyS && !this.dyQ && x > this.dyM / 2 && x < this.dyO - (this.dyM / 2) && y > this.dyN / 2 && y < this.dyP - (this.dyN / 2)) {
                     int o = o(x, y);
                     if (DEBUG) {
-                        Log.e("FullScreenFloatView", "mScreenHeight = " + this.mParentHeight + ", mintype = " + o);
+                        Log.e("FullScreenFloatView", "mScreenHeight = " + this.dyP + ", mintype = " + o);
                     }
                     switch (o) {
                         case 1:
+                            x = 0.0f;
                             break;
                         case 2:
-                            f = this.dto - this.dtm;
+                            x = this.dyO - this.dyM;
                             break;
                         case 3:
                             y = 0.0f;
-                            f = x;
                             break;
                         case 4:
-                            y = this.mParentHeight - this.dtn;
-                            f = x;
-                            break;
-                        default:
-                            f = x;
+                            y = this.dyP - this.dyN;
                             break;
                     }
                     switch (o) {
                         case 1:
                         case 2:
-                            this.dtl.animate().x(f).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
+                            this.dyL.animate().x(x).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
                             break;
                         case 3:
                         case 4:
-                            this.dtl.animate().y(y).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
+                            this.dyL.animate().y(y).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
                             break;
                     }
                 }
-                this.dtp = false;
-                this.dtq = false;
+                this.dyQ = false;
+                this.dyR = false;
                 break;
             case 2:
-                float abs = Math.abs(x - this.dtt);
-                float abs2 = Math.abs(y - this.bIF);
+                float abs = Math.abs(x - this.dyT);
+                float abs2 = Math.abs(y - this.bNt);
                 if (Math.sqrt((abs * abs) + (abs2 * abs2)) > 10.0d) {
-                    this.dtp = false;
+                    this.dyQ = false;
                 }
                 n(x, y);
                 break;
             case 3:
-                this.dtp = false;
-                this.dtq = false;
+                this.dyQ = false;
+                this.dyR = false;
                 break;
             case 4:
-                this.dtp = false;
-                this.dtq = false;
+                this.dyQ = false;
+                this.dyR = false;
                 break;
         }
-        return this.dtp || this.dtq;
+        return this.dyQ || this.dyR;
     }
 
     public int o(float f, float f2) {
         if (DEBUG) {
             Log.e("FullScreenFloatView", "minDIstance---> x = " + f + ", y = " + f2);
         }
-        boolean z = f <= ((float) this.dto) - f;
-        boolean z2 = f2 <= ((float) this.mParentHeight) - f2;
+        boolean z = f <= ((float) this.dyO) - f;
+        boolean z2 = f2 <= ((float) this.dyP) - f2;
         if (z && z2) {
             return f <= f2 ? 1 : 3;
         } else if (z && !z2) {
-            return f > ((float) this.mParentHeight) - f2 ? 4 : 1;
+            return f > ((float) this.dyP) - f2 ? 4 : 1;
         } else if (!z && z2) {
-            return ((float) this.dto) - f <= f2 ? 2 : 3;
+            return ((float) this.dyO) - f <= f2 ? 2 : 3;
         } else if (z || z2) {
             return 0;
         } else {
-            return ((float) this.dto) - f <= ((float) this.mParentHeight) - f2 ? 2 : 4;
+            return ((float) this.dyO) - f <= ((float) this.dyP) - f2 ? 2 : 4;
         }
     }
 
     private void n(float f, float f2) {
-        if (this.dtl != null) {
+        if (this.dyL != null) {
             if (DEBUG) {
                 Log.e("FullScreenFloatView", "move--> x = " + f + ", y = " + f2);
             }
-            int i = (int) (f - (this.dtm / 2));
-            int i2 = (int) (f2 - (this.dtn / 2));
+            int i = (int) (f - (this.dyM / 2));
+            int i2 = (int) (f2 - (this.dyN / 2));
             if (i <= 0) {
                 i = 0;
             }
             int i3 = i2 > 0 ? i2 : 0;
-            int i4 = i > this.dto - this.dtm ? this.dto - this.dtm : i;
-            if (i3 > this.mParentHeight - this.dtn) {
-                i3 = this.mParentHeight - this.dtn;
+            int i4 = i > this.dyO - this.dyM ? this.dyO - this.dyM : i;
+            if (i3 > this.dyP - this.dyN) {
+                i3 = this.dyP - this.dyN;
             }
-            int i5 = (this.dto - i4) - this.dtm;
-            int i6 = (this.mParentHeight - i3) - this.dtn;
+            int i5 = (this.dyO - i4) - this.dyM;
+            int i6 = (this.dyP - i3) - this.dyN;
             if (DEBUG) {
                 Log.e("FullScreenFloatView", "move--> left = " + i4 + ", top = " + i3 + ", right = " + i5 + ",bottom = " + i6 + ", mStatusBarHeight = " + this.mStatusBarHeight);
             }
-            this.dtl.setX(i4);
-            this.dtl.setY(i3);
+            this.dyL.setX(i4);
+            this.dyL.setY(i3);
             requestLayout();
         }
     }
 
-    public void aIL() {
-        if (this.dtl != null) {
+    public void aKk() {
+        if (this.dyL != null) {
             int dimensionPixelOffset = getResources().getDimensionPixelOffset(a.d.dimens_21dp);
             int dimensionPixelOffset2 = getResources().getDimensionPixelOffset(a.d.dimens_51dp);
-            this.dtl.animate().x((ah.getDisplayWidth(getContext()) - dimensionPixelOffset) - this.dtm).y((ah.getDisplayHeight(getContext()) - dimensionPixelOffset2) - this.dtn).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
+            this.dyL.animate().x((ah.getDisplayWidth(getContext()) - dimensionPixelOffset) - this.dyM).y((ah.getDisplayHeight(getContext()) - dimensionPixelOffset2) - this.dyN).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
         }
     }
 
     @Override // android.view.View
     protected void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        this.dto = getHeight() + this.mStatusBarHeight;
-        this.mParentHeight = getWidth() - this.mStatusBarHeight;
+        this.dyO = getHeight() + this.mStatusBarHeight;
+        this.dyP = getWidth() - this.mStatusBarHeight;
         if (DEBUG) {
-            Log.e("FullScreenFloatView", "onConfigurationChanged--> newConfig " + configuration.orientation + ", mScreenWidth = " + this.dto + ", mScreenHeight = " + this.mParentHeight);
+            Log.e("FullScreenFloatView", "onConfigurationChanged--> newConfig " + configuration.orientation + ", mScreenWidth = " + this.dyO + ", mScreenHeight = " + this.dyP);
         }
-        aIL();
+        aKk();
     }
 }

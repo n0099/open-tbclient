@@ -9,20 +9,19 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.ao;
-import com.baidu.tbadk.core.data.by;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.data.bz;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.card.n;
+import com.baidu.tieba.card.m;
 /* loaded from: classes.dex */
 public class ThreadLinkView extends RelativeLayout {
-    private TbImageView fdT;
-    private TextView fdU;
-    private TextView fdV;
-    private TextView fdW;
-    private ViewGroup fdX;
-    private View fdY;
+    private TbImageView fnC;
+    private TextView fnD;
+    private TextView fnE;
+    private TextView fnF;
+    private ViewGroup fnG;
+    private View fnH;
     private Context mContext;
     private BdUniqueId mTag;
 
@@ -44,90 +43,89 @@ public class ThreadLinkView extends RelativeLayout {
     private void init(Context context) {
         this.mContext = context;
         View inflate = LayoutInflater.from(context).inflate(R.layout.link_thread_item, (ViewGroup) this, true);
-        this.fdX = (ViewGroup) inflate.findViewById(R.id.root_layout);
-        this.fdT = (TbImageView) inflate.findViewById(R.id.link_thread_head_img);
-        this.fdT.setDefaultBgResource(R.drawable.icon_card_url_n);
-        this.fdT.setDefaultErrorResource(R.drawable.icon_card_url_n);
-        this.fdU = (TextView) inflate.findViewById(R.id.link_thread_title);
-        this.fdV = (TextView) inflate.findViewById(R.id.link_thread_abstract);
-        this.fdW = (TextView) inflate.findViewById(R.id.link_thread_url);
-        this.fdY = inflate.findViewById(R.id.link_thread_content);
-        this.fdT.setLongIconSupport(false);
-        this.fdT.setGifIconSupport(false);
-        this.fdT.setRadius(com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds10));
-        this.fdT.setConrers(5);
-        bA(inflate);
+        this.fnG = (ViewGroup) inflate.findViewById(R.id.root_layout);
+        this.fnC = (TbImageView) inflate.findViewById(R.id.link_thread_head_img);
+        this.fnC.setDefaultBgResource(R.drawable.icon_card_url_n);
+        this.fnD = (TextView) inflate.findViewById(R.id.link_thread_title);
+        this.fnE = (TextView) inflate.findViewById(R.id.link_thread_abstract);
+        this.fnF = (TextView) inflate.findViewById(R.id.link_thread_url);
+        this.fnH = inflate.findViewById(R.id.link_thread_content);
+        this.fnC.setLongIconSupport(false);
+        this.fnC.setGifIconSupport(false);
+        this.fnC.setRadius(com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds10));
+        this.fnC.setConrers(5);
+        bJ(inflate);
     }
 
     public void setTag(BdUniqueId bdUniqueId) {
         this.mTag = bdUniqueId;
     }
 
-    public void setData(by byVar) {
-        if (byVar == null || byVar.bqv() == null || au.isEmpty(byVar.bqv().getLinkUrl())) {
+    public void setData(bz bzVar) {
+        if (bzVar == null || bzVar.bsX() == null || at.isEmpty(bzVar.bsX().getLinkUrl())) {
             setVisibility(8);
             return;
         }
-        ao bqv = byVar.bqv();
-        if (!bqv.bnl() && bqv.bnk() != ao.eGK) {
+        ao bsX = bzVar.bsX();
+        if (!bsX.bpK() && bsX.bpJ() != ao.eQA) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
-        this.fdT.setPageId(this.mTag);
-        if (bqv.bnl()) {
-            this.fdW.setVisibility(0);
-            this.fdU.setVisibility(8);
-            this.fdV.setVisibility(8);
-            this.fdW.setText(bqv.getLinkUrl());
-            this.fdT.reset();
+        this.fnC.setPageId(this.mTag);
+        if (bsX.bpK()) {
+            this.fnF.setVisibility(0);
+            this.fnD.setVisibility(8);
+            this.fnE.setVisibility(8);
+            this.fnF.setText(bsX.getLinkUrl());
+            this.fnC.reset();
         } else {
-            this.fdW.setVisibility(8);
-            String bnh = bqv.bnh();
-            String bni = bqv.bni();
-            if (!au.isEmpty(bnh)) {
-                this.fdU.setText(bnh);
-                this.fdU.setVisibility(0);
-                this.fdV.setVisibility(8);
+            this.fnF.setVisibility(8);
+            String bpG = bsX.bpG();
+            String bpH = bsX.bpH();
+            if (!at.isEmpty(bpG)) {
+                this.fnD.setText(bpG);
+                this.fnD.setVisibility(0);
+                this.fnE.setVisibility(8);
             } else {
-                this.fdU.setVisibility(8);
-                if (!au.isEmpty(bni)) {
-                    this.fdV.setText(bni);
-                    this.fdV.setVisibility(0);
+                this.fnD.setVisibility(8);
+                if (!at.isEmpty(bpH)) {
+                    this.fnE.setText(bpH);
+                    this.fnE.setVisibility(0);
                 } else {
-                    this.fdV.setVisibility(4);
+                    this.fnE.setVisibility(4);
                 }
             }
-            if (!au.isEmpty(bqv.bnj())) {
-                this.fdT.startLoad(bqv.bnj(), 10, false);
+            if (!at.isEmpty(bsX.bpI())) {
+                this.fnC.startLoad(bsX.bpI(), 10, false);
             } else {
-                this.fdT.reset();
+                this.fnC.reset();
             }
         }
-        CD(byVar.getId());
+        CB(bzVar.getId());
     }
 
     public void onChangeSkinType() {
-        ap.setBackgroundColor(this.fdY, R.color.CAM_X0205);
-        ap.setBackgroundResource(this.fdT, R.drawable.shape_link_thread_head_bg);
+        com.baidu.tbadk.core.util.ao.setBackgroundColor(this.fnH, R.color.CAM_X0205);
+        com.baidu.tbadk.core.util.ao.setBackgroundResource(this.fnC, R.drawable.shape_link_thread_head_bg);
     }
 
-    public void CD(String str) {
-        n.a(this.fdU, str, R.color.CAM_X0107, R.color.CAM_X0109);
-        n.a(this.fdW, str, R.color.CAM_X0107, R.color.CAM_X0109);
-        n.a(this.fdV, str, R.color.CAM_X0107, R.color.CAM_X0109);
+    public void CB(String str) {
+        m.a(this.fnD, str, R.color.CAM_X0107, R.color.CAM_X0109);
+        m.a(this.fnF, str, R.color.CAM_X0107, R.color.CAM_X0109);
+        m.a(this.fnE, str, R.color.CAM_X0107, R.color.CAM_X0109);
     }
 
-    private void bA(View view) {
-        if (this.fdX != null && this.fdT != null) {
+    private void bJ(View view) {
+        if (this.fnG != null && this.fnC != null) {
             int equipmentWidth = (((com.baidu.adp.lib.util.l.getEquipmentWidth(this.mContext) - (com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds44) * 2)) - (com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds26) * 2)) - (com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds10) * 4)) / 5;
-            ViewGroup.LayoutParams layoutParams = this.fdX.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.fnG.getLayoutParams();
             layoutParams.height = equipmentWidth;
-            this.fdX.setLayoutParams(layoutParams);
-            ViewGroup.LayoutParams layoutParams2 = this.fdT.getLayoutParams();
+            this.fnG.setLayoutParams(layoutParams);
+            ViewGroup.LayoutParams layoutParams2 = this.fnC.getLayoutParams();
             layoutParams2.width = equipmentWidth;
             layoutParams2.height = equipmentWidth;
-            this.fdT.setLayoutParams(layoutParams2);
+            this.fnC.setLayoutParams(layoutParams2);
         }
     }
 }

@@ -2,86 +2,86 @@ package com.baidu.tieba.newdetail.adapter.a;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.adp.widget.ListView.q;
+import com.baidu.adp.widget.ListView.n;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bl;
-import com.baidu.tbadk.core.data.by;
+import com.baidu.tbadk.core.data.bm;
+import com.baidu.tbadk.core.data.bz;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes21.dex */
+/* loaded from: classes8.dex */
 public class l {
-    private List<com.baidu.adp.widget.ListView.a> bnf = new LinkedList();
-    private BdTypeRecyclerView iAI;
-    private TbPageContext<?> jnp;
-    private j lpU;
-    private c lpV;
-    private e lpW;
-    private d lpX;
-    private f lpY;
-    private k lpZ;
-    private g lqa;
-    private h lqb;
-    private b lqc;
-    private m lqd;
-    private i lqe;
+    private List<com.baidu.adp.widget.ListView.a> boM = new LinkedList();
+    private BdTypeRecyclerView iMU;
+    private TbPageContext<?> jzN;
+    private j lvc;
+    private c lvd;
+    private e lve;
+    private d lvf;
+    private f lvg;
+    private k lvh;
+    private g lvi;
+    private h lvj;
+    private b lvk;
+    private m lvl;
+    private i lvm;
     private BdUniqueId pageId;
 
     public l(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.jnp = tbPageContext;
+        this.jzN = tbPageContext;
         this.pageId = bdUniqueId;
-        this.iAI = bdTypeRecyclerView;
-        Nt();
+        this.iMU = bdTypeRecyclerView;
+        MT();
     }
 
-    private void Nt() {
-        this.lpU = new j(this.jnp, by.eIY, this.pageId);
-        this.lpU.a(this.iAI);
-        this.bnf.add(this.lpU);
-        this.lpV = new c(this.jnp, by.eJd, this.pageId);
-        this.lpV.a(this.iAI);
-        this.bnf.add(this.lpV);
-        this.lpW = new e(this.jnp, by.eJb, this.pageId);
-        this.lpW.a(this.iAI);
-        this.bnf.add(this.lpW);
-        this.lpX = new d(this.jnp, by.eJc, this.pageId);
-        this.lpX.a(this.iAI);
-        this.bnf.add(this.lpX);
-        this.lpY = new f(this.jnp, by.eIZ, this.pageId);
-        this.lpY.a(this.iAI);
-        this.bnf.add(this.lpY);
-        this.lpZ = new k(this.jnp, by.eJq, this.pageId);
-        this.lpZ.a(this.iAI);
-        this.bnf.add(this.lpZ);
-        this.lqa = new g(this.jnp, by.eJi, this.pageId);
-        this.lqa.a(this.iAI);
-        this.bnf.add(this.lqa);
-        this.lqb = new h(this.jnp, by.eJe, this.pageId);
-        this.lqb.a(this.iAI);
-        this.bnf.add(this.lqb);
-        this.lqc = new b(this.jnp, by.eJh, this.pageId);
-        this.lqc.a(this.iAI);
-        this.bnf.add(this.lqc);
-        this.lqd = new m(this.jnp, bl.eFE);
-        this.lqd.a(this.iAI);
-        this.bnf.add(this.lqd);
-        this.lqe = new i(this.jnp, com.baidu.tieba.card.data.k.eJv);
-        this.bnf.add(this.lqe);
-        this.iAI.addAdapters(this.bnf);
+    private void MT() {
+        this.lvc = new j(this.jzN, bz.eSR, this.pageId);
+        this.lvc.a(this.iMU);
+        this.boM.add(this.lvc);
+        this.lvd = new c(this.jzN, bz.eSW, this.pageId);
+        this.lvd.a(this.iMU);
+        this.boM.add(this.lvd);
+        this.lve = new e(this.jzN, bz.eSU, this.pageId);
+        this.lve.a(this.iMU);
+        this.boM.add(this.lve);
+        this.lvf = new d(this.jzN, bz.eSV, this.pageId);
+        this.lvf.a(this.iMU);
+        this.boM.add(this.lvf);
+        this.lvg = new f(this.jzN, bz.eSS, this.pageId);
+        this.lvg.a(this.iMU);
+        this.boM.add(this.lvg);
+        this.lvh = new k(this.jzN, bz.eTj, this.pageId);
+        this.lvh.a(this.iMU);
+        this.boM.add(this.lvh);
+        this.lvi = new g(this.jzN, bz.eTb, this.pageId);
+        this.lvi.a(this.iMU);
+        this.boM.add(this.lvi);
+        this.lvj = new h(this.jzN, bz.eSX, this.pageId);
+        this.lvj.a(this.iMU);
+        this.boM.add(this.lvj);
+        this.lvk = new b(this.jzN, bz.eTa, this.pageId);
+        this.lvk.a(this.iMU);
+        this.boM.add(this.lvk);
+        this.lvl = new m(this.jzN, bm.ePu);
+        this.lvl.a(this.iMU);
+        this.boM.add(this.lvl);
+        this.lvm = new i(this.jzN, com.baidu.tieba.card.data.k.eTo);
+        this.boM.add(this.lvm);
+        this.iMU.addAdapters(this.boM);
     }
 
-    public void ug(boolean z) {
-        for (com.baidu.adp.widget.ListView.a aVar : this.bnf) {
+    public void uh(boolean z) {
+        for (com.baidu.adp.widget.ListView.a aVar : this.boM) {
             if (aVar instanceof a) {
-                ((a) aVar).uf(z);
+                ((a) aVar).ug(z);
             }
         }
     }
 
     public void notifyDataSetChanged() {
-        this.iAI.getAdapter().notifyDataSetChanged();
+        this.iMU.getAdapter().notifyDataSetChanged();
     }
 
-    public void setData(List<? extends q> list) {
-        this.iAI.setData(list);
+    public void setData(List<? extends n> list) {
+        this.iMU.setData(list);
     }
 }

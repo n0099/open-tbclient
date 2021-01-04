@@ -28,7 +28,7 @@ import java.io.PrintStream;
 import java.io.Writer;
 import java.lang.Thread;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class UExceptionHandler implements Thread.UncaughtExceptionHandler {
     private static final String HPROF_FILE_PATH = Environment.getExternalStorageDirectory().getPath() + File.separator + "tblive" + File.separator + "oom" + File.separator;
     private static final String OOM = "java.lang.OutOfMemoryError";
@@ -41,21 +41,30 @@ public class UExceptionHandler implements Thread.UncaughtExceptionHandler {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [78=4] */
-    /* JADX WARN: Removed duplicated region for block: B:40:0x0095  */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x0094  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void saveExceptionInfo(Thread thread, Throwable th, boolean z) {
         PrintStream printStream;
         ByteArrayOutputStream byteArrayOutputStream;
-        ByteArrayOutputStream byteArrayOutputStream2 = null;
         if (TbConfig.getDebugSwitch() && isOOM(th)) {
             dumpOOM();
         }
         try {
             byteArrayOutputStream = new ByteArrayOutputStream();
+        } catch (Exception e) {
+            e = e;
+            printStream = null;
+            byteArrayOutputStream = null;
+        } catch (Throwable th2) {
+            th = th2;
+            printStream = null;
+            byteArrayOutputStream = null;
+        }
+        try {
+            printStream = new PrintStream(byteArrayOutputStream);
             try {
-                printStream = new PrintStream(byteArrayOutputStream);
                 try {
                     th.printStackTrace(printStream);
                     byte[] byteArray = byteArrayOutputStream.toByteArray();
@@ -79,58 +88,44 @@ public class UExceptionHandler implements Thread.UncaughtExceptionHandler {
                     } else {
                         this.handler.uncaughtException(thread, th);
                     }
-                } catch (Exception e) {
-                    e = e;
-                    byteArrayOutputStream2 = byteArrayOutputStream;
-                    try {
-                        e.printStackTrace();
-                        CloseUtil.close((OutputStream) printStream);
-                        CloseUtil.close((OutputStream) byteArrayOutputStream2);
-                        if (z) {
-                            return;
-                        }
-                        if (!TbConfig.getDebugSwitch() || this.handler == null) {
-                            Process.killProcess(Process.myPid());
-                        } else {
-                            this.handler.uncaughtException(thread, th);
-                        }
-                    } catch (Throwable th2) {
-                        th = th2;
-                        byteArrayOutputStream = byteArrayOutputStream2;
-                        CloseUtil.close((OutputStream) printStream);
-                        CloseUtil.close((OutputStream) byteArrayOutputStream);
-                        if (!z) {
-                            if (!TbConfig.getDebugSwitch() || this.handler == null) {
-                                Process.killProcess(Process.myPid());
-                            } else {
-                                this.handler.uncaughtException(thread, th);
-                            }
-                        }
-                        throw th;
-                    }
-                } catch (Throwable th3) {
-                    th = th3;
+                } catch (Exception e2) {
+                    e = e2;
+                    e.printStackTrace();
                     CloseUtil.close((OutputStream) printStream);
                     CloseUtil.close((OutputStream) byteArrayOutputStream);
-                    if (!z) {
+                    if (z) {
+                        return;
                     }
-                    throw th;
+                    if (!TbConfig.getDebugSwitch() || this.handler == null) {
+                        Process.killProcess(Process.myPid());
+                    } else {
+                        this.handler.uncaughtException(thread, th);
+                    }
                 }
-            } catch (Exception e2) {
-                e = e2;
-                printStream = null;
-                byteArrayOutputStream2 = byteArrayOutputStream;
-            } catch (Throwable th4) {
-                th = th4;
-                printStream = null;
+            } catch (Throwable th3) {
+                th = th3;
+                CloseUtil.close((OutputStream) printStream);
+                CloseUtil.close((OutputStream) byteArrayOutputStream);
+                if (!z) {
+                    if (!TbConfig.getDebugSwitch() || this.handler == null) {
+                        Process.killProcess(Process.myPid());
+                    } else {
+                        this.handler.uncaughtException(thread, th);
+                    }
+                }
+                throw th;
             }
         } catch (Exception e3) {
             e = e3;
             printStream = null;
-        } catch (Throwable th5) {
-            th = th5;
+        } catch (Throwable th4) {
+            th = th4;
             printStream = null;
-            byteArrayOutputStream = null;
+            CloseUtil.close((OutputStream) printStream);
+            CloseUtil.close((OutputStream) byteArrayOutputStream);
+            if (!z) {
+            }
+            throw th;
         }
     }
 
@@ -147,80 +142,81 @@ public class UExceptionHandler implements Thread.UncaughtExceptionHandler {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:31:0x0124 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v0, types: [com.baidu.live.tbadk.core.data.ExceptionData] */
-    /* JADX WARN: Type inference failed for: r1v1, types: [java.io.Writer] */
-    /* JADX WARN: Type inference failed for: r1v3 */
     private void writeToFile(Thread thread, Throwable th, String str) {
+        Throwable th2;
         FileWriter fileWriter;
-        Exception e;
+        Exception exc;
         FileWriter fileWriter2 = null;
-        ?? r1 = this.mInfo;
-        try {
-            if (r1 != 0) {
-                try {
-                    File CreateFileIfNotFound = FileHelper.CreateFileIfNotFound(str);
-                    if (CreateFileIfNotFound != null) {
-                        fileWriter = new FileWriter(CreateFileIfNotFound, true);
-                        try {
-                            addInfo(fileWriter, StringHelper.getCurrentString(), null);
-                            addInfo(fileWriter, "tblive_crash_new_info_end", null);
-                            addInfo(fileWriter, "version", TbConfig.getVersion());
-                            addInfo(fileWriter, "model", Build.MODEL);
-                            addInfo(fileWriter, "android_version", Build.VERSION.RELEASE);
-                            addInfo(fileWriter, MapController.ANDROID_SDK_LAYER_TAG, String.valueOf(Build.VERSION.SDK_INT));
-                            addInfo(fileWriter, "uid", TbadkCoreApplication.getCurrentAccount());
-                            addInfo(fileWriter, "client_id", TbadkCoreApplication.getClientId());
-                            if (!TextUtils.isEmpty(TbConfig.getSubappType())) {
-                                addInfo(fileWriter, "subapp_type", TbConfig.getSubappType());
-                            }
-                            addInfo(fileWriter, "imei", TbadkCoreApplication.getInst().getImei());
-                            addInfo(fileWriter, BdStatsConstant.StatsKey.UNAME, TbadkCoreApplication.getCurrentAccountName());
-                            addInfo(fileWriter, PushConstants.INTENT_ACTIVITY_NAME, TiebaStaticHelper.getCurrentActivityAllName());
-                            addInfo(fileWriter, "maxMemory", String.valueOf(Runtime.getRuntime().maxMemory()));
-                            addInfo(fileWriter, BdStatsConstant.StatsKey.CRASH_TYPE, th.getClass().getName());
-                            addInfo(fileWriter, BdStatsConstant.StatsType.ERROR, this.mInfo.info);
-                            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) TbadkCoreApplication.getInst().getApp().getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
-                            int myPid = Process.myPid();
-                            if (runningAppProcesses != null) {
-                                int i = 0;
-                                while (true) {
-                                    int i2 = i;
-                                    if (i2 >= runningAppProcesses.size()) {
-                                        break;
-                                    } else if (runningAppProcesses.get(i2).pid != myPid) {
-                                        i = i2 + 1;
-                                    } else {
-                                        addInfo(fileWriter, "process_name", runningAppProcesses.get(i2).processName);
-                                        break;
-                                    }
+        if (this.mInfo != null) {
+            try {
+                File CreateFileIfNotFound = FileHelper.CreateFileIfNotFound(str);
+                if (CreateFileIfNotFound != null) {
+                    FileWriter fileWriter3 = new FileWriter(CreateFileIfNotFound, true);
+                    try {
+                        addInfo(fileWriter3, StringHelper.getCurrentString(), null);
+                        addInfo(fileWriter3, "tblive_crash_new_info_end", null);
+                        addInfo(fileWriter3, "version", TbConfig.getVersion());
+                        addInfo(fileWriter3, "model", Build.MODEL);
+                        addInfo(fileWriter3, "android_version", Build.VERSION.RELEASE);
+                        addInfo(fileWriter3, MapController.ANDROID_SDK_LAYER_TAG, String.valueOf(Build.VERSION.SDK_INT));
+                        addInfo(fileWriter3, "uid", TbadkCoreApplication.getCurrentAccount());
+                        addInfo(fileWriter3, "client_id", TbadkCoreApplication.getClientId());
+                        if (!TextUtils.isEmpty(TbConfig.getSubappType())) {
+                            addInfo(fileWriter3, "subapp_type", TbConfig.getSubappType());
+                        }
+                        addInfo(fileWriter3, "imei", TbadkCoreApplication.getInst().getImei());
+                        addInfo(fileWriter3, BdStatsConstant.StatsKey.UNAME, TbadkCoreApplication.getCurrentAccountName());
+                        addInfo(fileWriter3, PushConstants.INTENT_ACTIVITY_NAME, TiebaStaticHelper.getCurrentActivityAllName());
+                        addInfo(fileWriter3, "maxMemory", String.valueOf(Runtime.getRuntime().maxMemory()));
+                        addInfo(fileWriter3, BdStatsConstant.StatsKey.CRASH_TYPE, th.getClass().getName());
+                        addInfo(fileWriter3, BdStatsConstant.StatsType.ERROR, this.mInfo.info);
+                        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) TbadkCoreApplication.getInst().getApp().getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
+                        int myPid = Process.myPid();
+                        if (runningAppProcesses != null) {
+                            int i = 0;
+                            while (true) {
+                                int i2 = i;
+                                if (i2 >= runningAppProcesses.size()) {
+                                    break;
+                                } else if (runningAppProcesses.get(i2).pid != myPid) {
+                                    i = i2 + 1;
+                                } else {
+                                    addInfo(fileWriter3, "process_name", runningAppProcesses.get(i2).processName);
+                                    break;
                                 }
                             }
-                            addInfo(fileWriter, "tblive_crash_new_info_end", null);
-                            fileWriter.append("\n");
-                            fileWriter.flush();
-                            fileWriter2 = fileWriter;
-                        } catch (Exception e2) {
-                            e = e2;
-                            e.printStackTrace();
+                        }
+                        addInfo(fileWriter3, "tblive_crash_new_info_end", null);
+                        fileWriter3.append("\n");
+                        fileWriter3.flush();
+                        fileWriter2 = fileWriter3;
+                    } catch (Exception e) {
+                        exc = e;
+                        fileWriter = fileWriter3;
+                        try {
+                            exc.printStackTrace();
                             CloseUtil.close((Writer) fileWriter);
                             return;
+                        } catch (Throwable th3) {
+                            th2 = th3;
+                            CloseUtil.close((Writer) fileWriter);
+                            throw th2;
                         }
+                    } catch (Throwable th4) {
+                        th2 = th4;
+                        fileWriter = fileWriter3;
+                        CloseUtil.close((Writer) fileWriter);
+                        throw th2;
                     }
-                    CloseUtil.close((Writer) fileWriter2);
-                } catch (Exception e3) {
-                    fileWriter = null;
-                    e = e3;
-                } catch (Throwable th2) {
-                    r1 = 0;
-                    th = th2;
-                    CloseUtil.close((Writer) r1);
-                    throw th;
                 }
+                CloseUtil.close((Writer) fileWriter2);
+            } catch (Exception e2) {
+                exc = e2;
+                fileWriter = null;
+            } catch (Throwable th5) {
+                th2 = th5;
+                fileWriter = null;
             }
-        } catch (Throwable th3) {
-            th = th3;
         }
     }
 
@@ -279,44 +275,42 @@ public class UExceptionHandler implements Thread.UncaughtExceptionHandler {
     }
 
     public static byte[] getBytesFromFile(File file) {
-        FileInputStream fileInputStream;
-        Exception e;
         byte[] bArr;
+        FileInputStream fileInputStream;
         int read;
         try {
-            fileInputStream = new FileInputStream(file);
             try {
+                fileInputStream = new FileInputStream(file);
                 try {
                     bArr = new byte[(int) file.length()];
                     int i = 0;
                     while (i < bArr.length && (read = fileInputStream.read(bArr, i, bArr.length - i)) >= 0) {
                         try {
                             i += read;
-                        } catch (Exception e2) {
-                            e = e2;
+                        } catch (Exception e) {
+                            e = e;
                             BdLog.e(e.toString());
                             CloseUtil.close((InputStream) fileInputStream);
                             return bArr;
                         }
                     }
                     CloseUtil.close((InputStream) fileInputStream);
-                } catch (Throwable th) {
-                    th = th;
-                    CloseUtil.close((InputStream) fileInputStream);
-                    throw th;
+                } catch (Exception e2) {
+                    e = e2;
+                    bArr = null;
                 }
-            } catch (Exception e3) {
-                bArr = null;
-                e = e3;
+            } catch (Throwable th) {
+                th = th;
+                CloseUtil.close((InputStream) null);
+                throw th;
             }
-        } catch (Exception e4) {
-            fileInputStream = null;
-            e = e4;
+        } catch (Exception e3) {
+            e = e3;
             bArr = null;
+            fileInputStream = null;
         } catch (Throwable th2) {
             th = th2;
-            fileInputStream = null;
-            CloseUtil.close((InputStream) fileInputStream);
+            CloseUtil.close((InputStream) null);
             throw th;
         }
         return bArr;

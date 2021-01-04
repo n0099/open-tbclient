@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.utils.LogUtils;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class RetrieveTaskManager {
     private static final String ACTION_FETCH_LOG_NOTICE = "fetch_log_notice";
     private static final String DATA = "data";

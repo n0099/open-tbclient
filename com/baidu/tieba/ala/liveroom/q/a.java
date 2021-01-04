@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.liveroom.q;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public interface a {
-    void ir(String str);
+    void ie(String str);
 
     void pause();
 

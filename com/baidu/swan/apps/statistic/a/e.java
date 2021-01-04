@@ -1,17 +1,18 @@
 package com.baidu.swan.apps.statistic.a;
 
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.swan.games.view.webview.GameWebViewJavascriptInterface;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class e {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected JSONObject dFA;
-    protected JSONObject dFz;
+    protected JSONObject dOd;
+    protected JSONObject dOe;
     public String mAppId;
-    public String mFrom = "swan";
+    public String mFrom = GameWebViewJavascriptInterface.JAVASCRIPT_INTERFACE_NAME;
     public String mPage;
     public String mSource;
     public String mType;
@@ -34,16 +35,16 @@ public class e {
             }
             jSONObject.put("source", this.mSource);
             if (!TextUtils.isEmpty(this.mPage)) {
-                this.mPage = com.baidu.swan.apps.statistic.g.tC(this.mPage);
+                this.mPage = com.baidu.swan.apps.statistic.g.tz(this.mPage);
                 jSONObject.put("page", this.mPage);
             }
-            if (this.dFz == null) {
-                this.dFz = new JSONObject();
+            if (this.dOd == null) {
+                this.dOd = new JSONObject();
             }
             if (!TextUtils.isEmpty(this.mAppId)) {
-                this.dFz.put("appid", this.mAppId);
+                this.dOd.put("appid", this.mAppId);
             }
-            jSONObject.put("ext", this.dFz);
+            jSONObject.put("ext", this.dOd);
             return jSONObject;
         } catch (JSONException e) {
             if (DEBUG) {
@@ -53,16 +54,16 @@ public class e {
         }
     }
 
-    public void cc(JSONObject jSONObject) {
+    public void ck(JSONObject jSONObject) {
         if (jSONObject != null) {
-            if (this.dFz == null) {
-                this.dFz = new JSONObject();
+            if (this.dOd == null) {
+                this.dOd = new JSONObject();
             }
             Iterator<String> keys = jSONObject.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
                 try {
-                    this.dFz.put(next, jSONObject.opt(next));
+                    this.dOd.put(next, jSONObject.opt(next));
                 } catch (JSONException e) {
                     if (DEBUG) {
                         e.printStackTrace();
@@ -72,10 +73,10 @@ public class e {
         }
     }
 
-    public void tO(String str) {
+    public void tL(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
-                cc(new JSONObject(str));
+                ck(new JSONObject(str));
             } catch (JSONException e) {
                 if (DEBUG) {
                     e.printStackTrace();
@@ -84,20 +85,20 @@ public class e {
         }
     }
 
-    public void cd(JSONObject jSONObject) {
+    public void cl(JSONObject jSONObject) {
         if (jSONObject != null) {
-            if (this.dFz == null) {
-                this.dFz = new JSONObject();
+            if (this.dOd == null) {
+                this.dOd = new JSONObject();
             }
-            this.dFA = this.dFz.optJSONObject("extlog");
-            if (this.dFA == null) {
-                this.dFA = new JSONObject();
+            this.dOe = this.dOd.optJSONObject("extlog");
+            if (this.dOe == null) {
+                this.dOe = new JSONObject();
             }
             Iterator<String> keys = jSONObject.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
                 try {
-                    this.dFA.put(next, jSONObject.opt(next));
+                    this.dOe.put(next, jSONObject.opt(next));
                 } catch (JSONException e) {
                     if (DEBUG) {
                         e.printStackTrace();
@@ -105,7 +106,7 @@ public class e {
                 }
             }
             try {
-                this.dFz.put("extlog", this.dFA);
+                this.dOd.put("extlog", this.dOe);
             } catch (JSONException e2) {
                 if (DEBUG) {
                     e2.printStackTrace();
@@ -115,11 +116,11 @@ public class e {
     }
 
     public void t(@NonNull String str, Object obj) {
-        if (this.dFz == null) {
-            this.dFz = new JSONObject();
+        if (this.dOd == null) {
+            this.dOd = new JSONObject();
         }
         try {
-            this.dFz.put(str, obj);
+            this.dOd.put(str, obj);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -127,12 +128,12 @@ public class e {
         }
     }
 
-    public JSONObject aMU() {
-        if (this.dFz == null) {
+    public JSONObject aPk() {
+        if (this.dOd == null) {
             return null;
         }
         try {
-            return new JSONObject(this.dFz.toString());
+            return new JSONObject(this.dOd.toString());
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();

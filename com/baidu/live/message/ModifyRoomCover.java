@@ -1,7 +1,7 @@
 package com.baidu.live.message;
 
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class ModifyRoomCover implements Serializable {
     public String url;
 

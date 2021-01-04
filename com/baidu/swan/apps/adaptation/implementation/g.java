@@ -4,18 +4,18 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v4.content.FileProvider;
 import android.text.TextUtils;
+import androidx.core.content.FileProvider;
 import com.baidu.swan.apps.scheme.actions.p;
 import java.io.File;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class g implements com.baidu.swan.apps.adaptation.a.u {
     @Override // com.baidu.swan.apps.adaptation.a.u
     public boolean a(Activity activity, Uri uri, String str) {
         if (activity == null || uri == null || uri.getPath() == null || TextUtils.isEmpty(str)) {
             return false;
         }
-        if (com.baidu.swan.apps.ap.c.hasNougat()) {
+        if (com.baidu.swan.apps.ao.c.hasNougat()) {
             uri = FileProvider.getUriForFile(activity, activity.getPackageName() + ".swan.fileprovider", new File(uri.getPath()));
         }
         b(activity, uri, str);
@@ -23,7 +23,7 @@ public class g implements com.baidu.swan.apps.adaptation.a.u {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.u
-    public boolean T(Context context, String str) {
+    public boolean Z(Context context, String str) {
         return true;
     }
 
@@ -38,6 +38,6 @@ public class g implements com.baidu.swan.apps.adaptation.a.u {
         intent.addFlags(268435456);
         intent.addFlags(1);
         intent.setDataAndType(uri, str);
-        com.baidu.swan.apps.ap.e.startActivitySafely(activity, intent);
+        com.baidu.swan.apps.ao.e.b(activity, intent);
     }
 }

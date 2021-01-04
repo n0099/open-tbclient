@@ -1,6 +1,7 @@
 package okhttp3.internal.http2;
 
-import android.support.v7.widget.ActivityChooserView;
+import androidx.appcompat.widget.ActivityChooserView;
+import androidx.core.internal.view.SupportMenu;
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.InterruptedIOException;
@@ -29,7 +30,7 @@ import okio.BufferedSink;
 import okio.BufferedSource;
 import okio.ByteString;
 import okio.Okio;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public final class Http2Connection implements Closeable {
     static final /* synthetic */ boolean $assertionsDisabled;
     static final int AWAIT_PING = 3;
@@ -110,7 +111,7 @@ public final class Http2Connection implements Closeable {
             this.writerExecutor.scheduleAtFixedRate(new IntervalPingRunnable(), builder.pingIntervalMillis, builder.pingIntervalMillis, TimeUnit.MILLISECONDS);
         }
         this.pushExecutor = new ThreadPoolExecutor(0, 1, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), Util.threadFactory(Util.format("OkHttp %s Push Observer", this.hostname), true));
-        this.peerSettings.set(7, 65535);
+        this.peerSettings.set(7, SupportMenu.USER_MASK);
         this.peerSettings.set(5, 16384);
         this.bytesLeftInWriteWindow = this.peerSettings.getInitialWindowSize();
         this.socket = builder.socket;
@@ -270,7 +271,7 @@ public final class Http2Connection implements Closeable {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     final class PingRunnable extends NamedRunnable {
         final int payload1;
         final int payload2;
@@ -289,7 +290,7 @@ public final class Http2Connection implements Closeable {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     final class IntervalPingRunnable extends NamedRunnable {
         IntervalPingRunnable() {
             super("OkHttp %s ping", Http2Connection.this.hostname);
@@ -431,7 +432,7 @@ public final class Http2Connection implements Closeable {
             this.writer.settings(this.okHttpSettings);
             int initialWindowSize = this.okHttpSettings.getInitialWindowSize();
             if (initialWindowSize != 65535) {
-                this.writer.windowUpdate(0, initialWindowSize - 65535);
+                this.writer.windowUpdate(0, initialWindowSize - SupportMenu.USER_MASK);
             }
         }
         new Thread(this.readerRunnable).start();
@@ -486,7 +487,7 @@ public final class Http2Connection implements Closeable {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static class Builder {
         boolean client;
         String hostname;
@@ -534,7 +535,7 @@ public final class Http2Connection implements Closeable {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public class ReaderRunnable extends NamedRunnable implements Http2Reader.Handler {
         final Http2Reader reader;
 
@@ -543,46 +544,36 @@ public final class Http2Connection implements Closeable {
             this.reader = http2Reader;
         }
 
-        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:22:0x0042 */
-        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:26:0x0046 */
-        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:28:0x0004 */
-        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x0016 */
+        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:30:0x0004 */
         /* JADX WARN: Multi-variable type inference failed */
         /* JADX WARN: Type inference failed for: r0v0, types: [okhttp3.internal.http2.ErrorCode] */
-        /* JADX WARN: Type inference failed for: r0v10, types: [java.io.Closeable, okhttp3.internal.http2.Http2Reader] */
-        /* JADX WARN: Type inference failed for: r0v6 */
-        /* JADX WARN: Type inference failed for: r0v8, types: [okhttp3.internal.http2.ErrorCode] */
-        /* JADX WARN: Type inference failed for: r2v0, types: [okhttp3.internal.http2.ErrorCode] */
-        /* JADX WARN: Type inference failed for: r2v2, types: [okhttp3.internal.http2.ErrorCode] */
-        /* JADX WARN: Type inference failed for: r2v3 */
-        /* JADX WARN: Type inference failed for: r2v4 */
-        /* JADX WARN: Type inference failed for: r2v5 */
-        /* JADX WARN: Type inference failed for: r2v6, types: [okhttp3.internal.http2.Http2Connection] */
-        /* JADX WARN: Type inference failed for: r3v0, types: [okhttp3.internal.http2.Http2Connection] */
+        /* JADX WARN: Type inference failed for: r0v11, types: [java.io.Closeable, okhttp3.internal.http2.Http2Reader] */
+        /* JADX WARN: Type inference failed for: r0v8 */
+        /* JADX WARN: Type inference failed for: r0v9, types: [okhttp3.internal.http2.ErrorCode] */
+        /* JADX WARN: Type inference failed for: r2v4, types: [okhttp3.internal.http2.Http2Connection] */
         @Override // okhttp3.internal.NamedRunnable
         protected void execute() {
             ErrorCode errorCode;
+            Throwable th;
             ?? r0 = ErrorCode.INTERNAL_ERROR;
-            ?? r2 = ErrorCode.INTERNAL_ERROR;
+            ErrorCode errorCode2 = ErrorCode.INTERNAL_ERROR;
             try {
                 try {
                     this.reader.readConnectionPreface(this);
                     do {
                     } while (this.reader.nextFrame(false, this));
                     r0 = ErrorCode.NO_ERROR;
-                    ErrorCode errorCode2 = ErrorCode.CANCEL;
                     try {
-                        r2 = Http2Connection.this;
-                        r2.close(r0, errorCode2);
+                        Http2Connection.this.close(r0, ErrorCode.CANCEL);
                     } catch (IOException e) {
                     }
                     r0 = this.reader;
                     Util.closeQuietly((Closeable) r0);
-                } catch (Throwable th) {
+                } catch (Throwable th2) {
+                    th = th2;
                     errorCode = r0;
-                    th = th;
                     try {
-                        Http2Connection.this.close(errorCode, r2);
+                        Http2Connection.this.close(errorCode, errorCode2);
                     } catch (IOException e2) {
                     }
                     Util.closeQuietly(this.reader);
@@ -596,9 +587,9 @@ public final class Http2Connection implements Closeable {
                     } catch (IOException e4) {
                     }
                     Util.closeQuietly(this.reader);
-                } catch (Throwable th2) {
-                    th = th2;
-                    Http2Connection.this.close(errorCode, r2);
+                } catch (Throwable th3) {
+                    th = th3;
+                    Http2Connection.this.close(errorCode, errorCode2);
                     Util.closeQuietly(this.reader);
                     throw th;
                 }
@@ -691,8 +682,8 @@ public final class Http2Connection implements Closeable {
         }
 
         void applyAndAckSettings(boolean z, Settings settings) {
-            long j;
             Http2Stream[] http2StreamArr;
+            long j = 0;
             synchronized (Http2Connection.this.writer) {
                 synchronized (Http2Connection.this) {
                     int initialWindowSize = Http2Connection.this.peerSettings.getInitialWindowSize();
@@ -702,7 +693,6 @@ public final class Http2Connection implements Closeable {
                     Http2Connection.this.peerSettings.merge(settings);
                     int initialWindowSize2 = Http2Connection.this.peerSettings.getInitialWindowSize();
                     if (initialWindowSize2 == -1 || initialWindowSize2 == initialWindowSize) {
-                        j = 0;
                         http2StreamArr = null;
                     } else {
                         j = initialWindowSize2 - initialWindowSize;
@@ -903,7 +893,7 @@ public final class Http2Connection implements Closeable {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static abstract class Listener {
         public static final Listener REFUSE_INCOMING_STREAMS = new Listener() { // from class: okhttp3.internal.http2.Http2Connection.Listener.1
             @Override // okhttp3.internal.http2.Http2Connection.Listener

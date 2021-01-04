@@ -14,11 +14,11 @@ import java.nio.ByteBuffer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends BdAsyncTask<String, SocketResponsedMessage, SocketResponsedMessage> {
-    private static final BdUniqueId Jx = BdUniqueId.gen();
-    private e JA;
-    private SocketMessageTask JB;
-    private a Jy;
-    private com.baidu.adp.framework.client.socket.coder.c Jz;
+    private static final BdUniqueId IX = BdUniqueId.gen();
+    private a IY;
+    private com.baidu.adp.framework.client.socket.coder.c IZ;
+    private e Ja;
+    private SocketMessageTask Jb;
     private int mSequenceId;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -28,37 +28,37 @@ public class d extends BdAsyncTask<String, SocketResponsedMessage, SocketRespons
     }
 
     public d(com.baidu.adp.framework.client.socket.coder.c cVar, e eVar, a aVar, int i) {
-        this.Jy = null;
-        this.Jz = null;
-        this.JA = null;
+        this.IY = null;
+        this.IZ = null;
+        this.Ja = null;
         this.mSequenceId = 0;
-        this.JB = null;
-        this.Jz = cVar;
-        this.JA = eVar;
-        this.Jy = aVar;
+        this.Jb = null;
+        this.IZ = cVar;
+        this.Ja = eVar;
+        this.IY = aVar;
         this.mSequenceId = i;
         try {
-            if (this.JA != null) {
-                this.JB = this.JA.lu();
+            if (this.Ja != null) {
+                this.Jb = this.Ja.kQ();
             }
-            if (this.JB == null) {
-                this.JB = (SocketMessageTask) MessageManager.getInstance().findTask(this.Jz.JP.getCommand());
+            if (this.Jb == null) {
+                this.Jb = (SocketMessageTask) MessageManager.getInstance().findTask(this.IZ.Jp.getCommand());
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        setTag(Jx);
+        setTag(IX);
         setPriority(4);
-        if (this.JB != null) {
-            setKey(String.valueOf(this.JB.getCmd()));
-            setParallel(this.JB.getParallel());
+        if (this.Jb != null) {
+            setKey(String.valueOf(this.Jb.getCmd()));
+            setParallel(this.Jb.getParallel());
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX WARN: Removed duplicated region for block: B:115:0x019d A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:48:0x0187  */
+    /* JADX WARN: Removed duplicated region for block: B:113:0x01a4 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:48:0x018e  */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: f */
     /*
@@ -68,195 +68,222 @@ public class d extends BdAsyncTask<String, SocketResponsedMessage, SocketRespons
         String str;
         int i;
         com.baidu.adp.framework.client.socket.coder.c cVar;
-        SocketResponsedMessage socketResponsedMessage;
         com.baidu.adp.framework.client.socket.coder.c cVar2;
-        SocketResponsedMessage socketResponsedMessage2;
+        SocketResponsedMessage socketResponsedMessage;
         long j;
         long j2;
-        String str2;
         long j3;
+        long currentTimeMillis;
+        boolean lcsSwitchHttp;
+        int i2;
+        long currentTimeMillis2;
+        SocketMessage socketMessage;
+        String str2;
         long j4;
         long j5;
-        SocketMessage socketMessage;
         long j6;
         long j7;
         long j8;
+        long j9;
+        long j10;
+        long j11;
+        long j12;
         byte[] bArr;
-        int i2 = 0;
-        if (this.Jz == null) {
+        long j13;
+        SocketResponsedMessage socketResponsedMessage2 = null;
+        int i3 = 0;
+        if (this.IZ == null) {
             return null;
         }
         try {
-            if (this.JA == null) {
-                j = 0;
-            } else {
-                j = this.JA.firstByteReachTime;
-            }
-            if (this.JA == null) {
+            if (this.Ja == null) {
                 j2 = 0;
             } else {
-                j2 = this.JA.allDataReadTime;
+                j2 = this.Ja.firstByteReachTime;
             }
-            long currentTimeMillis = System.currentTimeMillis();
-            i2 = this.Jz.JP.getCommand();
-            boolean lcsSwitchHttp = this.Jz.JP.getLcsSwitchHttp();
-            int i3 = this.Jz.bodyLength;
-            cVar2 = com.baidu.adp.framework.client.socket.coder.b.lx().a(this.Jz);
+            if (this.Ja == null) {
+                j3 = 0;
+            } else {
+                j3 = this.Ja.allDataReadTime;
+            }
+            currentTimeMillis = System.currentTimeMillis();
+            i3 = this.IZ.Jp.getCommand();
+            lcsSwitchHttp = this.IZ.Jp.getLcsSwitchHttp();
+            i2 = this.IZ.bodyLength;
+            cVar2 = com.baidu.adp.framework.client.socket.coder.b.kT().a(this.IZ);
             try {
-                long currentTimeMillis2 = System.currentTimeMillis();
-                if (i2 == 301001) {
+                currentTimeMillis2 = System.currentTimeMillis();
+                socketMessage = null;
+                if (i3 == 301001) {
                     str2 = "frs";
-                } else if (i2 == 302001) {
+                } else if (i3 == 302001) {
                     str2 = "pb";
-                } else if (i2 == 309264) {
+                } else if (i3 == 309264) {
                     str2 = "home_page";
-                } else if (i2 == 303011) {
+                } else if (i3 == 303011) {
                     str2 = "enter_forum";
-                } else if (i2 == 303012) {
+                } else if (i3 == 303012) {
                     str2 = "user_center";
-                } else if (i2 == 303002) {
+                } else if (i3 == 303002) {
                     str2 = "person_center_post";
-                } else if (i2 != 309647) {
+                } else if (i3 != 309647) {
                     str2 = "other";
                 } else {
                     str2 = "person_center_dynamic";
                 }
-                long j9 = 0;
-                long j10 = 0;
-                long j11 = 0;
-                try {
-                    if (this.JA == null) {
-                        j3 = 0;
-                        j4 = 0;
-                        j5 = 0;
-                        socketMessage = null;
-                        j6 = 0;
-                        j7 = 0;
-                        j8 = 0;
+                j4 = 0;
+                j5 = 0;
+                j6 = 0;
+                j7 = 0;
+                j8 = 0;
+            } catch (CoderException e) {
+                str = "other";
+                i = i3;
+                cVar = cVar2;
+            }
+        } catch (CoderException e2) {
+            str = "other";
+            i = i3;
+            cVar = null;
+        }
+        try {
+            if (this.Ja == null) {
+                j9 = 0;
+                j10 = 0;
+                j11 = 0;
+                j12 = 0;
+            } else {
+                SocketMessage kP = this.Ja.kP();
+                long startTime = kP.getStartTime();
+                long startSendTime = this.Ja.getStartSendTime();
+                j4 = startSendTime - startTime;
+                long j14 = currentTimeMillis - startSendTime;
+                if (j2 > 0) {
+                    long j15 = j2 - startSendTime;
+                    if (j3 >= j2) {
+                        j8 = currentTimeMillis - j3;
+                        j7 = j3 - j2;
+                        j6 = j15;
+                        j13 = j3 - startSendTime;
                     } else {
-                        SocketMessage lt = this.JA.lt();
-                        long startTime = lt.getStartTime();
-                        long startSendTime = this.JA.getStartSendTime();
-                        long j12 = startSendTime - startTime;
-                        long j13 = currentTimeMillis - startSendTime;
-                        if (j > 0) {
-                            j9 = j - startSendTime;
-                            if (j2 >= j) {
-                                j13 = j2 - startSendTime;
-                                j10 = j2 - j;
-                                j11 = currentTimeMillis - j2;
-                            }
-                        }
-                        j3 = j11;
-                        j4 = currentTimeMillis2 - currentTimeMillis;
-                        j5 = j12;
-                        j6 = j10;
-                        socketMessage = lt;
-                        j8 = j13;
-                        j7 = j9;
+                        j6 = j15;
+                        j13 = j14;
                     }
-                    byte[] bArr2 = null;
-                    if (cVar2.bodyOffset == 0 && cVar2.bodyLength == cVar2.body.length) {
-                        bArr = null;
-                    } else if (cVar2.bodyLength <= 0) {
-                        cVar2.body = null;
-                        bArr = null;
-                    } else {
-                        if (this.Jz.JP.getHasExtraData()) {
-                            try {
-                                short s = ByteBuffer.wrap(cVar2.body, cVar2.bodyOffset, com.baidu.adp.framework.client.socket.coder.a.EXTRA_DATA_HEADER_LEN).getShort();
-                                int i4 = com.baidu.adp.framework.client.socket.coder.a.EXTRA_DATA_HEADER_LEN + s;
-                                bArr2 = ByteBuffer.allocateDirect(s).put(cVar2.body, cVar2.bodyOffset + com.baidu.adp.framework.client.socket.coder.a.EXTRA_DATA_HEADER_LEN, s).array();
-                                cVar2.bodyOffset += i4;
-                                cVar2.bodyLength -= i4;
-                            } catch (Exception e) {
-                                throw new CoderException(h.CODEC_UNPACK_EXTRA_DATA_FAILED);
-                            }
-                        }
-                        cVar2.body = ByteBuffer.allocateDirect(cVar2.bodyLength).put(cVar2.body, cVar2.bodyOffset, cVar2.bodyLength).array();
-                        bArr = bArr2;
-                    }
-                    socketResponsedMessage2 = com.baidu.adp.framework.client.socket.coder.b.lx().a(i2, cVar2.body, socketMessage, this.JB, lcsSwitchHttp);
+                } else {
+                    j13 = j14;
+                }
+                j10 = currentTimeMillis2 - currentTimeMillis;
+                j9 = j8;
+                j5 = j13;
+                socketMessage = kP;
+                j11 = j7;
+                j12 = j6;
+            }
+            byte[] bArr2 = null;
+            if (cVar2.bodyOffset == 0 && cVar2.bodyLength == cVar2.body.length) {
+                bArr = null;
+            } else if (cVar2.bodyLength <= 0) {
+                cVar2.body = null;
+                bArr = null;
+            } else {
+                if (this.IZ.Jp.getHasExtraData()) {
                     try {
-                        if (socketResponsedMessage2 != null && bArr != null) {
-                            try {
-                                socketResponsedMessage2.decodeExtraDataInBackGround(i2, bArr);
-                            } catch (Exception e2) {
-                                com.baidu.adp.lib.stats.b.a.a(str2, i2, com.baidu.adp.lib.webSocket.h.oC().getUrl(), false, false, com.baidu.adp.lib.webSocket.h.oC().oI(), 0L, 0L, 0L, 0L, 0);
-                                throw new CoderException(h.CODEC_UNPACK_EXTRA_DATA_FAILED);
-                            }
-                        }
-                        long currentTimeMillis3 = System.currentTimeMillis() - currentTimeMillis2;
-                        if (socketResponsedMessage2 != null) {
-                            if (this.JA != null && this.Jz != null) {
-                                socketResponsedMessage2.setCostTime(System.currentTimeMillis() - this.JA.getStartSendTime());
-                                socketResponsedMessage2.setRetry(this.JA.getRetryConnectTimes());
-                                socketResponsedMessage2.performanceData.mQueneTime = j5;
-                                socketResponsedMessage2.performanceData.mNetRWTime = j8;
-                                socketResponsedMessage2.performanceData.mFirstByteReachTime = j7;
-                                socketResponsedMessage2.performanceData.mAllDataReadTime = j6;
-                                socketResponsedMessage2.performanceData.mTaskWaitTime = j3;
-                            }
-                            socketResponsedMessage2.setDownSize(i3);
-                            socketResponsedMessage2.performanceData.mAnalysisTime = currentTimeMillis3;
-                            socketResponsedMessage2.performanceData.mCompressTime = j4;
-                            socketResponsedMessage2.sequenceID = this.Jz.JP.getSequenceID();
-                            try {
-                                socketResponsedMessage2.beforeDispatchInBackGround(i2, cVar2.body);
-                            } catch (Exception e3) {
-                                BdLog.e(e3.getMessage());
-                            }
-                            com.baidu.adp.lib.stats.b.a.a(str2, i2, com.baidu.adp.lib.webSocket.h.oC().getUrl(), true, false, com.baidu.adp.lib.webSocket.h.oC().oI(), j8, currentTimeMillis3, j7, j6, 0);
-                        } else {
-                            com.baidu.adp.lib.stats.b.a.a(str2, i2, com.baidu.adp.lib.webSocket.h.oC().getUrl(), false, false, com.baidu.adp.lib.webSocket.h.oC().oI(), 0L, 0L, 0L, 0L, 0);
-                        }
-                    } catch (CoderException e4) {
-                        cVar = cVar2;
-                        socketResponsedMessage = socketResponsedMessage2;
-                        str = str2;
-                        i = i2;
-                        long j14 = -100;
-                        if (this.JA != null && this.JA.lt() != null) {
-                            j14 = this.JA.lt().getClientLogID();
-                        }
-                        BdStatisticsManager.getInstance().error("im", j14, String.valueOf(this.mSequenceId), "cmd", Integer.valueOf(i), BdStatsConstant.SubType.SEQID, Integer.valueOf(this.mSequenceId));
-                        i.debug("unpacker", i, j14, this.mSequenceId, "unpacktask", h.CODEC_UNPACK_BODY_FAILED, "onBinaryMesssage decodebody error");
-                        com.baidu.adp.lib.stats.b.a.a(str, i, com.baidu.adp.lib.webSocket.h.oC().getUrl(), false, false, com.baidu.adp.lib.webSocket.h.oC().oI(), 0L, 0L, 0L, 0L, 0);
-                        i2 = i;
-                        cVar2 = cVar;
-                        socketResponsedMessage2 = socketResponsedMessage;
-                        if (socketResponsedMessage2 != null) {
-                        }
-                        publishProgress(socketResponsedMessage2);
-                        if (socketResponsedMessage2 != null) {
-                        }
-                        return null;
+                        short s = ByteBuffer.wrap(cVar2.body, cVar2.bodyOffset, com.baidu.adp.framework.client.socket.coder.a.EXTRA_DATA_HEADER_LEN).getShort();
+                        int i4 = com.baidu.adp.framework.client.socket.coder.a.EXTRA_DATA_HEADER_LEN + s;
+                        bArr2 = ByteBuffer.allocateDirect(s).put(cVar2.body, cVar2.bodyOffset + com.baidu.adp.framework.client.socket.coder.a.EXTRA_DATA_HEADER_LEN, s).array();
+                        cVar2.bodyOffset += i4;
+                        cVar2.bodyLength -= i4;
+                    } catch (Exception e3) {
+                        throw new CoderException(h.CODEC_UNPACK_EXTRA_DATA_FAILED);
+                    }
+                }
+                cVar2.body = ByteBuffer.allocateDirect(cVar2.bodyLength).put(cVar2.body, cVar2.bodyOffset, cVar2.bodyLength).array();
+                bArr = bArr2;
+            }
+            socketResponsedMessage = com.baidu.adp.framework.client.socket.coder.b.kT().a(i3, cVar2.body, socketMessage, this.Jb, lcsSwitchHttp);
+            if (socketResponsedMessage != null && bArr != null) {
+                try {
+                    try {
+                        socketResponsedMessage.decodeExtraDataInBackGround(i3, bArr);
+                    } catch (Exception e4) {
+                        com.baidu.adp.lib.stats.b.a.a(str2, i3, com.baidu.adp.lib.webSocket.h.od().getUrl(), false, false, com.baidu.adp.lib.webSocket.h.od().oj(), 0L, 0L, 0L, 0L, 0);
+                        throw new CoderException(h.CODEC_UNPACK_EXTRA_DATA_FAILED);
                     }
                 } catch (CoderException e5) {
-                    i = i2;
-                    cVar = cVar2;
-                    socketResponsedMessage = null;
                     str = str2;
+                    i = i3;
+                    cVar = cVar2;
+                    socketResponsedMessage2 = socketResponsedMessage;
+                    j = -100;
+                    if (this.Ja != null && this.Ja.kP() != null) {
+                        j = this.Ja.kP().getClientLogID();
+                    }
+                    BdStatisticsManager.getInstance().error("im", j, String.valueOf(this.mSequenceId), "cmd", Integer.valueOf(i), BdStatsConstant.SubType.SEQID, Integer.valueOf(this.mSequenceId));
+                    i.debug("unpacker", i, j, this.mSequenceId, "unpacktask", h.CODEC_UNPACK_BODY_FAILED, "onBinaryMesssage decodebody error");
+                    com.baidu.adp.lib.stats.b.a.a(str, i, com.baidu.adp.lib.webSocket.h.od().getUrl(), false, false, com.baidu.adp.lib.webSocket.h.od().oj(), 0L, 0L, 0L, 0L, 0);
+                    i3 = i;
+                    cVar2 = cVar;
+                    socketResponsedMessage = socketResponsedMessage2;
+                    if (socketResponsedMessage != null) {
+                    }
+                    publishProgress(socketResponsedMessage);
+                    if (socketResponsedMessage != null) {
+                    }
+                    return null;
                 }
-            } catch (CoderException e6) {
-                i = i2;
-                cVar = cVar2;
-                socketResponsedMessage = null;
-                str = "other";
+            }
+            long currentTimeMillis3 = System.currentTimeMillis() - currentTimeMillis2;
+            if (socketResponsedMessage != null) {
+                if (this.Ja != null && this.IZ != null) {
+                    socketResponsedMessage.setCostTime(System.currentTimeMillis() - this.Ja.getStartSendTime());
+                    socketResponsedMessage.setRetry(this.Ja.getRetryConnectTimes());
+                    socketResponsedMessage.performanceData.mQueneTime = j4;
+                    socketResponsedMessage.performanceData.mNetRWTime = j5;
+                    socketResponsedMessage.performanceData.mFirstByteReachTime = j12;
+                    socketResponsedMessage.performanceData.mAllDataReadTime = j11;
+                    socketResponsedMessage.performanceData.mTaskWaitTime = j9;
+                }
+                socketResponsedMessage.setDownSize(i2);
+                socketResponsedMessage.performanceData.mAnalysisTime = currentTimeMillis3;
+                socketResponsedMessage.performanceData.mCompressTime = j10;
+                socketResponsedMessage.sequenceID = this.IZ.Jp.getSequenceID();
+                try {
+                    socketResponsedMessage.beforeDispatchInBackGround(i3, cVar2.body);
+                } catch (Exception e6) {
+                    BdLog.e(e6.getMessage());
+                }
+                com.baidu.adp.lib.stats.b.a.a(str2, i3, com.baidu.adp.lib.webSocket.h.od().getUrl(), true, false, com.baidu.adp.lib.webSocket.h.od().oj(), j5, currentTimeMillis3, j12, j11, 0);
+            } else {
+                com.baidu.adp.lib.stats.b.a.a(str2, i3, com.baidu.adp.lib.webSocket.h.od().getUrl(), false, false, com.baidu.adp.lib.webSocket.h.od().oj(), 0L, 0L, 0L, 0L, 0);
             }
         } catch (CoderException e7) {
-            str = "other";
-            i = i2;
-            cVar = null;
-            socketResponsedMessage = null;
+            str = str2;
+            i = i3;
+            cVar = cVar2;
+            j = -100;
+            if (this.Ja != null) {
+                j = this.Ja.kP().getClientLogID();
+            }
+            BdStatisticsManager.getInstance().error("im", j, String.valueOf(this.mSequenceId), "cmd", Integer.valueOf(i), BdStatsConstant.SubType.SEQID, Integer.valueOf(this.mSequenceId));
+            i.debug("unpacker", i, j, this.mSequenceId, "unpacktask", h.CODEC_UNPACK_BODY_FAILED, "onBinaryMesssage decodebody error");
+            com.baidu.adp.lib.stats.b.a.a(str, i, com.baidu.adp.lib.webSocket.h.od().getUrl(), false, false, com.baidu.adp.lib.webSocket.h.od().oj(), 0L, 0L, 0L, 0L, 0);
+            i3 = i;
+            cVar2 = cVar;
+            socketResponsedMessage = socketResponsedMessage2;
+            if (socketResponsedMessage != null) {
+            }
+            publishProgress(socketResponsedMessage);
+            if (socketResponsedMessage != null) {
+            }
+            return null;
         }
-        if (socketResponsedMessage2 != null) {
-            socketResponsedMessage2.setStartTime(System.currentTimeMillis());
+        if (socketResponsedMessage != null) {
+            socketResponsedMessage.setStartTime(System.currentTimeMillis());
         }
-        publishProgress(socketResponsedMessage2);
-        if (socketResponsedMessage2 != null) {
+        publishProgress(socketResponsedMessage);
+        if (socketResponsedMessage != null) {
             try {
-                socketResponsedMessage2.afterDispatchInBackGround(i2, cVar2.body);
+                socketResponsedMessage.afterDispatchInBackGround(i3, cVar2.body);
             } catch (Exception e8) {
                 BdLog.e(e8.getMessage());
             }
@@ -266,7 +293,7 @@ public class d extends BdAsyncTask<String, SocketResponsedMessage, SocketRespons
 
     private boolean a(SocketResponsedMessage socketResponsedMessage, e eVar) {
         if (this.mSequenceId != 0 && eVar != null && socketResponsedMessage == null) {
-            i.debug("unpacker", eVar.getCmd(), eVar.lt() == null ? -1L : eVar.lt().getClientLogID(), this.mSequenceId, "checkresponsedMessage", h.CODEC_UNPACK_EMPTY, "ack cont responsed");
+            i.debug("unpacker", eVar.getCmd(), eVar.kP() == null ? -1L : eVar.kP().getClientLogID(), this.mSequenceId, "checkresponsedMessage", h.CODEC_UNPACK_EMPTY, "ack cont responsed");
             return false;
         }
         return true;
@@ -292,26 +319,26 @@ public class d extends BdAsyncTask<String, SocketResponsedMessage, SocketRespons
     }
 
     private void a(SocketResponsedMessage socketResponsedMessage) {
-        if (this.Jy != null) {
-            boolean a2 = a(socketResponsedMessage, this.JA);
+        if (this.IY != null) {
+            boolean a2 = a(socketResponsedMessage, this.Ja);
             b bVar = new b();
-            bVar.JC = socketResponsedMessage;
+            bVar.Jc = socketResponsedMessage;
             if (!a2) {
-                bVar.JD = this.JA;
+                bVar.Jd = this.Ja;
             }
-            this.Jy.a(bVar);
+            this.IY.a(bVar);
         }
     }
 
-    public static BdUniqueId lr() {
-        return Jx;
+    public static BdUniqueId kN() {
+        return IX;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class b {
-        SocketResponsedMessage JC;
-        e JD;
+        SocketResponsedMessage Jc;
+        e Jd;
 
         b() {
         }

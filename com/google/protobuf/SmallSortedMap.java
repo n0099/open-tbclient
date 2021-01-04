@@ -14,7 +14,7 @@ import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V> {
     private List<SmallSortedMap<K, V>.Entry> entryList;
     private boolean isImmutable;
@@ -184,8 +184,7 @@ public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V
 
     private int binarySearchInArray(K k) {
         int i;
-        int i2;
-        int i3 = 0;
+        int i2 = 0;
         int size = this.entryList.size() - 1;
         if (size >= 0) {
             int compareTo = k.compareTo(this.entryList.get(size).getKey());
@@ -196,23 +195,20 @@ public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V
                 return size;
             }
         }
-        while (i3 <= size) {
-            int i4 = (i3 + size) / 2;
-            int compareTo2 = k.compareTo(this.entryList.get(i4).getKey());
+        while (i2 <= size) {
+            int i3 = (i2 + size) / 2;
+            int compareTo2 = k.compareTo(this.entryList.get(i3).getKey());
             if (compareTo2 < 0) {
-                i2 = i4 - 1;
-                i = i3;
+                i = i3 - 1;
             } else if (compareTo2 <= 0) {
-                return i4;
+                return i3;
             } else {
-                int i5 = size;
-                i = i4 + 1;
-                i2 = i5;
+                i2 = i3 + 1;
+                i = size;
             }
-            i3 = i;
-            size = i2;
+            size = i;
         }
-        return -(i3 + 1);
+        return -(i2 + 1);
     }
 
     @Override // java.util.AbstractMap, java.util.Map
@@ -246,7 +242,7 @@ public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     public class Entry implements Comparable<SmallSortedMap<K, V>.Entry>, Map.Entry<K, V> {
         private final K key;
         private V value;
@@ -314,7 +310,7 @@ public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     private class EntrySet extends AbstractSet<Map.Entry<K, V>> {
         private EntrySet() {
         }
@@ -366,7 +362,7 @@ public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     private class EntryIterator implements Iterator<Map.Entry<K, V>> {
         private Iterator<Map.Entry<K, V>> lazyOverflowIterator;
         private boolean nextCalledBeforeRemove;
@@ -416,7 +412,7 @@ public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     public static class EmptySet {
         private static final Iterator<Object> ITERATOR = new Iterator<Object>() { // from class: com.google.protobuf.SmallSortedMap.EmptySet.1
             @Override // java.util.Iterator

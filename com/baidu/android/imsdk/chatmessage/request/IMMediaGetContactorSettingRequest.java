@@ -3,7 +3,6 @@ package com.baidu.android.imsdk.chatmessage.request;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Pair;
-import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.chatmessage.IMediaContactorSettingListener;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.ListenerManager;
@@ -14,7 +13,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class IMMediaGetContactorSettingRequest extends IMMediaBaseHttpRequest {
     private static final String TAG = "IMMediaGetContactorSettingRequest";
     private long mContacter;
@@ -107,12 +106,9 @@ public class IMMediaGetContactorSettingRequest extends IMMediaBaseHttpRequest {
         LogUtils.d(TAG, "onSuccess resultContent = " + str2);
         try {
             JSONObject jSONObject = new JSONObject(str2);
-            int optInt = jSONObject.optInt("error_code", 0);
-            String optString = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG);
-            int optInt2 = jSONObject.optInt("status", -1);
-            i2 = optInt;
-            str = optString;
-            i3 = optInt2;
+            i2 = jSONObject.optInt("error_code", 0);
+            str = jSONObject.optString("error_msg");
+            i3 = jSONObject.optInt("status", -1);
         } catch (JSONException e) {
             LogUtils.e(TAG, "IMMediaGetContactorSettingRequest JSONException", e);
             i2 = 1010;

@@ -2,57 +2,57 @@ package com.baidu.ubs.analytics.d;
 
 import android.text.TextUtils;
 import android.util.Log;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public final class j {
-    private static int oIO = 1000;
-    private static boolean oIP = true;
+    private static int oOV = 1000;
+    private static boolean oOW = true;
 
     public static void c(boolean z) {
-        oIP = z;
+        oOW = z;
     }
 
     public static void I(String str) {
-        if (oIP) {
+        if (oOW) {
             a(5, "BaiDuAbSDK", str, null);
         }
     }
 
     public static void b(Throwable th) {
-        if (oIP) {
+        if (oOW) {
             a(4, "BaiDuAbSDK", "", th);
         }
     }
 
     public static void G(String str) {
-        if (oIP) {
+        if (oOW) {
             a(2, "BaiDuAbSDK", str, null);
         }
     }
 
     public static void a(Throwable th) {
-        if (oIP) {
+        if (oOW) {
             a(2, "BaiDuAbSDK", "", th);
         }
     }
 
     private static void a(int i, String str, String str2, Throwable th) {
         if (!TextUtils.isEmpty(str2)) {
-            if (str2.length() >= oIO) {
+            if (str2.length() >= oOV) {
                 switch (i) {
                     case 1:
-                        Log.v(str, str2.substring(0, oIO));
+                        Log.v(str, str2.substring(0, oOV));
                         break;
                     case 2:
-                        Log.d(str, str2.substring(0, oIO));
+                        Log.d(str, str2.substring(0, oOV));
                         break;
                     case 3:
-                        Log.i(str, str2.substring(0, oIO));
+                        Log.i(str, str2.substring(0, oOV));
                         break;
                     case 4:
-                        Log.w(str, str2.substring(0, oIO));
+                        Log.w(str, str2.substring(0, oOV));
                         break;
                     case 5:
-                        Log.e(str, str2.substring(0, oIO));
+                        Log.e(str, str2.substring(0, oOV));
                         break;
                 }
             } else {
@@ -79,23 +79,23 @@ public final class j {
             }
         }
         if (th != null) {
-            String i2 = i(th);
-            if (!TextUtils.isEmpty(i2)) {
+            String j = j(th);
+            if (!TextUtils.isEmpty(j)) {
                 switch (i) {
                     case 1:
-                        Log.v(str, i2);
+                        Log.v(str, j);
                         return;
                     case 2:
-                        Log.d(str, i2);
+                        Log.d(str, j);
                         return;
                     case 3:
-                        Log.i(str, i2);
+                        Log.i(str, j);
                         return;
                     case 4:
-                        Log.w(str, i2);
+                        Log.w(str, j);
                         return;
                     case 5:
-                        Log.e(str, i2);
+                        Log.e(str, j);
                         return;
                     default:
                         Log.d(str, str2);
@@ -113,18 +113,18 @@ public final class j {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    private static java.lang.String i(java.lang.Throwable r5) {
+    private static java.lang.String j(java.lang.Throwable r5) {
         /*
             r3 = 0
             java.lang.String r0 = ""
             java.io.StringWriter r4 = new java.io.StringWriter     // Catch: java.lang.Throwable -> L27
             r4.<init>()     // Catch: java.lang.Throwable -> L27
-            java.io.PrintWriter r2 = new java.io.PrintWriter     // Catch: java.lang.Throwable -> L57
-            r2.<init>(r4)     // Catch: java.lang.Throwable -> L57
-            r5.printStackTrace(r2)     // Catch: java.lang.Throwable -> L5b
-            r2.flush()     // Catch: java.lang.Throwable -> L5b
-            r4.flush()     // Catch: java.lang.Throwable -> L5b
-            java.lang.String r0 = r4.toString()     // Catch: java.lang.Throwable -> L5b
+            java.io.PrintWriter r2 = new java.io.PrintWriter     // Catch: java.lang.Throwable -> L55
+            r2.<init>(r4)     // Catch: java.lang.Throwable -> L55
+            r5.printStackTrace(r2)     // Catch: java.lang.Throwable -> L58
+            r2.flush()     // Catch: java.lang.Throwable -> L58
+            r4.flush()     // Catch: java.lang.Throwable -> L58
+            java.lang.String r0 = r4.toString()     // Catch: java.lang.Throwable -> L58
             r4.close()     // Catch: java.lang.Throwable -> L22
         L1e:
             r2.close()
@@ -137,55 +137,50 @@ public final class j {
         L27:
             r1 = move-exception
             r2 = r3
-        L29:
-            r1.printStackTrace()     // Catch: java.lang.Throwable -> L54
-            if (r3 == 0) goto L31
-            r3.close()     // Catch: java.lang.Throwable -> L37
-        L31:
+            r4 = r3
+        L2a:
+            r1.printStackTrace()     // Catch: java.lang.Throwable -> L53
+            if (r4 == 0) goto L32
+            r4.close()     // Catch: java.lang.Throwable -> L38
+        L32:
             if (r2 == 0) goto L21
             r2.close()
             goto L21
-        L37:
+        L38:
             r1 = move-exception
             r1.printStackTrace()
-            goto L31
-        L3c:
+            goto L32
+        L3d:
             r0 = move-exception
             r2 = r3
             r4 = r3
-        L3f:
-            if (r4 == 0) goto L44
-            r4.close()     // Catch: java.lang.Throwable -> L4a
-        L44:
-            if (r2 == 0) goto L49
+        L40:
+            if (r4 == 0) goto L45
+            r4.close()     // Catch: java.lang.Throwable -> L4b
+        L45:
+            if (r2 == 0) goto L4a
             r2.close()
-        L49:
-            throw r0
         L4a:
+            throw r0
+        L4b:
             r1 = move-exception
             r1.printStackTrace()
-            goto L44
-        L4f:
+            goto L45
+        L50:
             r0 = move-exception
             r2 = r3
-            goto L3f
-        L52:
+            goto L40
+        L53:
             r0 = move-exception
-            goto L3f
-        L54:
-            r0 = move-exception
-            r4 = r3
-            goto L3f
-        L57:
+            goto L40
+        L55:
             r1 = move-exception
             r2 = r3
-            r3 = r4
-            goto L29
-        L5b:
+            goto L2a
+        L58:
             r1 = move-exception
-            r3 = r4
-            goto L29
+            goto L2a
         */
-        throw new UnsupportedOperationException("Method not decompiled: com.baidu.ubs.analytics.d.j.i(java.lang.Throwable):java.lang.String");
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.ubs.analytics.d.j.j(java.lang.Throwable):java.lang.String");
     }
 }

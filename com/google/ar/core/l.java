@@ -1,25 +1,25 @@
 package com.google.ar.core;
 
 import android.content.Context;
-/* loaded from: classes17.dex */
+/* loaded from: classes3.dex */
 final class l extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Context f4045a;
+    private final Context f8159a;
     private volatile boolean c;
-    private final y ptp;
+    private final y pKr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(Context context, y yVar) {
-        this.f4045a = context;
-        this.ptp = yVar;
+        this.f8159a = context;
+        this.pKr = yVar;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public final void run() {
         while (!this.c) {
-            if (o.eyd().b(this.f4045a)) {
-                this.ptp.a(p.COMPLETED);
+            if (o.eBO().b(this.f8159a)) {
+                this.pKr.a(p.COMPLETED);
                 return;
             }
             try {

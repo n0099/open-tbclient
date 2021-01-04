@@ -14,14 +14,15 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.mapapi.walknavi.model.WalkNaviDisplayOption;
 import com.baidu.mapapi.walknavi.model.a;
-import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.baidu.tieba.R;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class d extends com.baidu.platform.comapi.walknavi.g.c.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private Activity f3097a;
-    private com.baidu.platform.comapi.walknavi.g.a b;
+    private Activity f4604a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private com.baidu.platform.comapi.walknavi.g.a f4605b;
     private ImageView c;
     private TextView d;
     private TextView e;
@@ -35,13 +36,13 @@ public class d extends com.baidu.platform.comapi.walknavi.g.c.b {
     private a.c m;
 
     public d(Context context, com.baidu.platform.comapi.walknavi.g.a aVar, View view) {
-        this.f3097a = (Activity) context;
-        this.b = aVar;
+        this.f4604a = (Activity) context;
+        this.f4605b = aVar;
         a(view);
     }
 
     private void a(View view) {
-        this.i = (RelativeLayout) view.findViewById(2131165272);
+        this.i = (RelativeLayout) view.findViewById(R.dimen.abc_dialog_fixed_height_minor);
         WalkNaviDisplayOption n = com.baidu.platform.comapi.walknavi.b.a().n();
         if (n == null || !n.getIsCustomWNaviGuideLayout()) {
             b(view);
@@ -73,11 +74,11 @@ public class d extends com.baidu.platform.comapi.walknavi.g.c.b {
             Log.e("CustomWNaviView", "TopGuide layout add failed.");
             return false;
         } else {
-            View inflate = LayoutInflater.from(this.f3097a).inflate(topGuideLayout, (ViewGroup) this.i, false);
+            View inflate = LayoutInflater.from(this.f4604a).inflate(topGuideLayout, (ViewGroup) this.i, false);
             if (inflate == null) {
                 Log.e("CustomWNaviView", "Load topGuide layout failed,please checking layout.");
                 return false;
-            } else if (!com.baidu.platform.comapi.walknavi.g.d.d.a().a(this.f3097a, 1, topGuideLayout, this)) {
+            } else if (!com.baidu.platform.comapi.walknavi.g.d.d.a().a(this.f4604a, 1, topGuideLayout, this)) {
                 Log.e("CustomWNaviView", "Parser topGuide layout failed,please checking layout.");
                 return false;
             } else if (this.m == null) {
@@ -88,14 +89,14 @@ public class d extends com.baidu.platform.comapi.walknavi.g.c.b {
                 return false;
             } else {
                 try {
-                    this.j = inflate.findViewById(Integer.parseInt(this.m.a().replace(UgcConstant.AT_RULE_TAG, "")));
-                    this.h = inflate.findViewById(Integer.parseInt(this.m.d().replace(UgcConstant.AT_RULE_TAG, "")));
-                    this.c = (ImageView) inflate.findViewById(Integer.parseInt(this.m.c().replace(UgcConstant.AT_RULE_TAG, "")));
-                    this.e = (TextView) inflate.findViewById(Integer.parseInt(this.m.e().replace(UgcConstant.AT_RULE_TAG, "")));
-                    this.d = (TextView) inflate.findViewById(Integer.parseInt(this.m.f().replace(UgcConstant.AT_RULE_TAG, "")));
-                    this.f = (TextView) inflate.findViewById(Integer.parseInt(this.m.f().replace(UgcConstant.AT_RULE_TAG, "")));
-                    this.g = (TextView) inflate.findViewById(Integer.parseInt(this.m.f().replace(UgcConstant.AT_RULE_TAG, "")));
-                    this.l = Integer.parseInt(this.m.b().replace(UgcConstant.AT_RULE_TAG, ""));
+                    this.j = inflate.findViewById(Integer.parseInt(this.m.a().replace("@", "")));
+                    this.h = inflate.findViewById(Integer.parseInt(this.m.d().replace("@", "")));
+                    this.c = (ImageView) inflate.findViewById(Integer.parseInt(this.m.c().replace("@", "")));
+                    this.e = (TextView) inflate.findViewById(Integer.parseInt(this.m.e().replace("@", "")));
+                    this.d = (TextView) inflate.findViewById(Integer.parseInt(this.m.f().replace("@", "")));
+                    this.f = (TextView) inflate.findViewById(Integer.parseInt(this.m.f().replace("@", "")));
+                    this.g = (TextView) inflate.findViewById(Integer.parseInt(this.m.f().replace("@", "")));
+                    this.l = Integer.parseInt(this.m.b().replace("@", ""));
                     if (this.d == null || this.j == null || this.c == null || this.h == null || this.e == null || this.l == 0 || this.f == null || this.g == null) {
                         Log.e("CustomWNaviView", "TopGuide layout control initialize failed,Missing other keywords like TAG attribute or ID attribute.");
                         return false;
@@ -118,12 +119,12 @@ public class d extends com.baidu.platform.comapi.walknavi.g.c.b {
 
     private void b(View view) {
         if (view != null) {
-            this.c = (ImageView) view.findViewById(2131165224);
-            this.d = (TextView) view.findViewById(2131165225);
-            this.e = (TextView) view.findViewById(2131165273);
-            this.h = view.findViewById(2131165221);
-            this.f = (TextView) view.findViewById(2131165222);
-            this.g = (TextView) view.findViewById(2131165223);
+            this.c = (ImageView) view.findViewById(R.dimen.M_W_X015);
+            this.d = (TextView) view.findViewById(R.dimen.M_W_X016);
+            this.e = (TextView) view.findViewById(R.dimen.abc_dialog_fixed_width_major);
+            this.h = view.findViewById(R.dimen.M_W_X012);
+            this.f = (TextView) view.findViewById(R.dimen.M_W_X013);
+            this.g = (TextView) view.findViewById(R.dimen.M_W_X014);
             this.h.setVisibility(8);
             a(com.baidu.platform.comapi.walknavi.b.a().n());
         }
@@ -134,7 +135,7 @@ public class d extends com.baidu.platform.comapi.walknavi.g.c.b {
             this.d.setVisibility(8);
             this.e.setVisibility(4);
             this.h.setVisibility(0);
-            Animation c = com.baidu.platform.comapi.wnplatform.p.a.a.c(this.f3097a, R.layout.abc_action_bar_title_item);
+            Animation c = com.baidu.platform.comapi.wnplatform.p.a.a.c(this.f4604a, R.attr.absListViewStyle);
             this.h.setAnimation(c);
             c.setAnimationListener(new e(this));
             c.start();
@@ -143,25 +144,25 @@ public class d extends com.baidu.platform.comapi.walknavi.g.c.b {
 
     public void d() {
         if (this.h.getVisibility() == 0) {
-            Animation c = com.baidu.platform.comapi.wnplatform.p.a.a.c(this.f3097a, R.layout.abc_action_menu_item_layout);
+            Animation c = com.baidu.platform.comapi.wnplatform.p.a.a.c(this.f4604a, R.attr.actionBarDivider);
             c.setAnimationListener(new f(this));
             this.h.startAnimation(c);
         }
     }
 
     public void a(int i, String str) {
-        if (i == R.drawable.abc_textfield_activated_mtrl_alpha) {
+        if (i == 2130837582) {
             this.d.setVisibility(8);
             this.e.setVisibility(4);
         } else {
             this.d.setVisibility(0);
         }
-        if (com.baidu.platform.comapi.bikenavi.a.a.f2828a) {
-            this.c.setImageDrawable(com.baidu.platform.comapi.wnplatform.p.a.a.a(this.f3097a, i));
+        if (com.baidu.platform.comapi.bikenavi.a.a.f4194a) {
+            this.c.setImageDrawable(com.baidu.platform.comapi.wnplatform.p.a.a.a(this.f4604a, i));
         } else {
             this.c.setImageResource(i);
         }
-        if (i == R.drawable.addresslist_item_bg || i == R.drawable.addresslist_item_bg_1) {
+        if (i == 2130837638 || i == 2130837639) {
             this.d.setText("步行导航开始");
         } else {
             this.d.setText(str);
@@ -197,7 +198,7 @@ public class d extends com.baidu.platform.comapi.walknavi.g.c.b {
         if (this.k && this.j != null && this.l != 0) {
             this.j.setBackgroundResource(this.l);
         } else {
-            this.i.setBackground(com.baidu.platform.comapi.wnplatform.p.a.a.a(this.f3097a, i));
+            this.i.setBackground(com.baidu.platform.comapi.wnplatform.p.a.a.a(this.f4604a, i));
         }
     }
 

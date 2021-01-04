@@ -2,7 +2,7 @@ package com.baidu.location.e;
 
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public abstract class f {
     public String h = null;
     public int i = 1;
@@ -15,8 +15,10 @@ public abstract class f {
     public static int g = a.g;
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f1953a = "10.0.0.172";
-    private static int b = 80;
+    private static String f2722a = "10.0.0.172";
+
+    /* renamed from: b  reason: collision with root package name */
+    private static int f2723b = 80;
     protected static int p = 0;
 
     public abstract void a();

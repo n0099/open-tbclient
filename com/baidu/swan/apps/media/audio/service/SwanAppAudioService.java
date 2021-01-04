@@ -8,14 +8,14 @@ import android.os.IBinder;
 import android.os.Looper;
 import android.os.RemoteCallbackList;
 import android.os.RemoteException;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.swan.apps.IAudioListener;
 import com.baidu.swan.apps.IAudioService;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import java.lang.ref.WeakReference;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public final class SwanAppAudioService extends Service implements com.baidu.swan.apps.media.audio.service.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final int INVALID_DURATION = -1;
@@ -26,7 +26,7 @@ public final class SwanAppAudioService extends Service implements com.baidu.swan
     private Handler mMainHandler = new Handler(Looper.getMainLooper());
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes25.dex */
+    /* loaded from: classes9.dex */
     public interface a<E extends IAudioListener> {
         void a(E e) throws RemoteException;
     }
@@ -97,7 +97,7 @@ public final class SwanAppAudioService extends Service implements com.baidu.swan
         this.mMainHandler.post(new Runnable() { // from class: com.baidu.swan.apps.media.audio.service.SwanAppAudioService.1
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.swan.apps.t.a.azA().a(str, SwanAppAudioService.this);
+                com.baidu.swan.apps.t.a.aAR().a(str, SwanAppAudioService.this);
             }
         });
     }
@@ -106,7 +106,7 @@ public final class SwanAppAudioService extends Service implements com.baidu.swan
         this.mMainHandler.post(new Runnable() { // from class: com.baidu.swan.apps.media.audio.service.SwanAppAudioService.12
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.swan.apps.t.a.azA().play();
+                com.baidu.swan.apps.t.a.aAR().play();
             }
         });
     }
@@ -115,7 +115,7 @@ public final class SwanAppAudioService extends Service implements com.baidu.swan
         this.mMainHandler.post(new Runnable() { // from class: com.baidu.swan.apps.media.audio.service.SwanAppAudioService.13
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.swan.apps.t.a.azA().pause();
+                com.baidu.swan.apps.t.a.aAR().pause();
             }
         });
     }
@@ -124,21 +124,21 @@ public final class SwanAppAudioService extends Service implements com.baidu.swan
         this.mMainHandler.post(new Runnable() { // from class: com.baidu.swan.apps.media.audio.service.SwanAppAudioService.14
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.swan.apps.t.a.azA().stop();
+                com.baidu.swan.apps.t.a.aAR().stop();
             }
         });
     }
 
     public void seek(int i) {
-        com.baidu.swan.apps.t.a.azA().seek(i);
+        com.baidu.swan.apps.t.a.aAR().seek(i);
     }
 
     public int getDuration() {
-        return com.baidu.swan.apps.t.a.azA().getDuration();
+        return com.baidu.swan.apps.t.a.aAR().getDuration();
     }
 
     public boolean isPlaying() {
-        return com.baidu.swan.apps.t.a.azA().isPlaying();
+        return com.baidu.swan.apps.t.a.aAR().isPlaying();
     }
 
     public void release() {
@@ -147,7 +147,7 @@ public final class SwanAppAudioService extends Service implements com.baidu.swan
             public void run() {
                 SwanAppAudioService.this.notifyEventOnStop();
                 SwanAppAudioService.this.stopSelf();
-                com.baidu.swan.apps.t.a.azA().onRelease();
+                com.baidu.swan.apps.t.a.aAR().onRelease();
             }
         });
     }
@@ -305,7 +305,7 @@ public final class SwanAppAudioService extends Service implements com.baidu.swan
         notifyEventOnError(i);
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes9.dex */
     static class AudioServiceStub extends IAudioService.Stub {
         private WeakReference<SwanAppAudioService> mAudioService;
 
@@ -387,7 +387,7 @@ public final class SwanAppAudioService extends Service implements com.baidu.swan
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes25.dex */
+    /* loaded from: classes9.dex */
     public class b<E extends IAudioListener> extends RemoteCallbackList<IAudioListener> {
         private b() {
         }

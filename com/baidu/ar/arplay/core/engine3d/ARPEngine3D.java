@@ -13,7 +13,7 @@ import com.baidu.ar.arplay.representation.Vector3f;
 import com.baidu.ar.arplay.representation.Vector4f;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class ARPEngine3D extends AbstractARPEngine3D {
     static void a(Vector3f vector3f, float f) {
         nativeSetMovePlane(vector3f.getX(), vector3f.getY(), vector3f.getZ(), f);

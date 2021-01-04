@@ -4,6 +4,7 @@ import android.os.Looper;
 import android.os.MessageQueue;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
+import com.baidu.adp.base.f;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.client.socket.h;
 import com.baidu.adp.framework.message.NetMessage;
@@ -13,31 +14,31 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.n.l;
+import com.baidu.tbadk.n.k;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.homepage.personalize.data.RecPersonalizeHttpResponse;
 import com.baidu.tieba.homepage.personalize.data.RecPersonalizeRequest;
 import com.baidu.tieba.homepage.personalize.data.RecPersonalizeSocketResponse;
 import tbclient.Personalized.DataRes;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class RecPersonalizePageModel extends BdBaseModel<BaseFragmentActivity> {
-    private boolean ePk;
-    private int ePl;
-    private com.baidu.adp.framework.listener.a ewJ;
-    private a jUX;
+    private com.baidu.adp.framework.listener.a eFZ;
+    private boolean eZj;
+    private int eZk;
+    private a kij;
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void a(DataRes dataRes, boolean z, boolean z2);
 
-        void aC(int i, String str);
+        void aE(int i, String str);
     }
 
-    public RecPersonalizePageModel(com.baidu.adp.base.e<BaseFragmentActivity> eVar, BdUniqueId bdUniqueId) {
-        super(eVar);
-        this.ePk = false;
-        this.ePl = 1;
-        this.ewJ = new com.baidu.adp.framework.listener.a(1003070, CmdConfigSocket.CMD_RECOMMEND_PERSONALIZED) { // from class: com.baidu.tieba.homepage.personalize.model.RecPersonalizePageModel.1
+    public RecPersonalizePageModel(f<BaseFragmentActivity> fVar, BdUniqueId bdUniqueId) {
+        super(fVar);
+        this.eZj = false;
+        this.eZk = 1;
+        this.eFZ = new com.baidu.adp.framework.listener.a(1003070, CmdConfigSocket.CMD_RECOMMEND_PERSONALIZED) { // from class: com.baidu.tieba.homepage.personalize.model.RecPersonalizePageModel.1
             /* JADX WARN: Removed duplicated region for block: B:19:0x0035  */
             /* JADX WARN: Removed duplicated region for block: B:25:0x006d  */
             /* JADX WARN: Removed duplicated region for block: B:28:0x007e  */
@@ -49,7 +50,7 @@ public class RecPersonalizePageModel extends BdBaseModel<BaseFragmentActivity> {
             public void onMessage(final ResponsedMessage<?> responsedMessage) {
                 boolean z;
                 final boolean z2;
-                if (responsedMessage != null && RecPersonalizePageModel.this.jUX != null) {
+                if (responsedMessage != null && RecPersonalizePageModel.this.kij != null) {
                     if (responsedMessage.getOrginalMessage() != null) {
                         Object extra = responsedMessage.getOrginalMessage().getExtra();
                         if (extra instanceof RecPersonalizeRequest) {
@@ -61,7 +62,7 @@ public class RecPersonalizePageModel extends BdBaseModel<BaseFragmentActivity> {
                                 if (TbSingleton.getInstance().needUploadMoreLog()) {
                                     com.baidu.tbadk.core.d.a.a("homePage", -1L, responsedMessage.getCmd(), "rec_personalized_error", responsedMessage.getError(), responsedMessage.getErrorString(), new Object[0]);
                                 }
-                                RecPersonalizePageModel.this.jUX.aC(responsedMessage.getError(), responsedMessage.getErrorString());
+                                RecPersonalizePageModel.this.kij.aE(responsedMessage.getError(), responsedMessage.getErrorString());
                             } else {
                                 DataRes dataRes = null;
                                 if (responsedMessage instanceof RecPersonalizeSocketResponse) {
@@ -69,7 +70,7 @@ public class RecPersonalizePageModel extends BdBaseModel<BaseFragmentActivity> {
                                 } else if (responsedMessage instanceof RecPersonalizeHttpResponse) {
                                     dataRes = ((RecPersonalizeHttpResponse) responsedMessage).getResultData();
                                 }
-                                RecPersonalizePageModel.this.jUX.a(dataRes, z2, z);
+                                RecPersonalizePageModel.this.kij.a(dataRes, z2, z);
                             }
                             if (!(responsedMessage instanceof RecPersonalizeSocketResponse)) {
                                 Looper.myQueue().addIdleHandler(new MessageQueue.IdleHandler() { // from class: com.baidu.tieba.homepage.personalize.model.RecPersonalizePageModel.1.1
@@ -104,13 +105,13 @@ public class RecPersonalizePageModel extends BdBaseModel<BaseFragmentActivity> {
             }
         };
         setUniqueId(bdUniqueId);
-        bse();
-        bsd();
-        registerListener(this.ewJ);
+        buG();
+        buF();
+        registerListener(this.eFZ);
     }
 
     public void a(a aVar) {
-        this.jUX = aVar;
+        this.kij = aVar;
     }
 
     public void f(int i, int i2, int i3, int i4, int i5) {
@@ -122,8 +123,8 @@ public class RecPersonalizePageModel extends BdBaseModel<BaseFragmentActivity> {
         recPersonalizeRequest.setPn(i4);
         recPersonalizeRequest.setSuggestCount(i5);
         recPersonalizeRequest.setNeedForumlist(0);
-        int i6 = this.ePl;
-        this.ePl = i6 + 1;
+        int i6 = this.eZk;
+        this.eZk = i6 + 1;
         recPersonalizeRequest.setRequestTime(i6);
         recPersonalizeRequest.setSourceFrom(TbSingleton.getInstance().getInvokeSource());
         recPersonalizeRequest.setSwitchToHttpStrategy(new NetMessage.a() { // from class: com.baidu.tieba.homepage.personalize.model.RecPersonalizePageModel.2
@@ -147,8 +148,8 @@ public class RecPersonalizePageModel extends BdBaseModel<BaseFragmentActivity> {
     @Override // com.baidu.adp.base.BdBaseModel
     protected boolean LoadData() {
         RecPersonalizeRequest recPersonalizeRequest = new RecPersonalizeRequest();
-        int i = this.ePl;
-        this.ePl = i + 1;
+        int i = this.eZk;
+        this.eZk = i + 1;
         recPersonalizeRequest.setRequestTime(i);
         recPersonalizeRequest.setSourceFrom(TbSingleton.getInstance().getInvokeSource());
         recPersonalizeRequest.setSwitchToHttpStrategy(new NetMessage.a() { // from class: com.baidu.tieba.homepage.personalize.model.RecPersonalizePageModel.3
@@ -176,7 +177,7 @@ public class RecPersonalizePageModel extends BdBaseModel<BaseFragmentActivity> {
         return false;
     }
 
-    private void bsd() {
+    private void buF() {
         com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(CmdConfigSocket.CMD_RECOMMEND_PERSONALIZED);
         bVar.setResponsedClass(RecPersonalizeSocketResponse.class);
         bVar.setNeedAck(true);
@@ -184,8 +185,8 @@ public class RecPersonalizePageModel extends BdBaseModel<BaseFragmentActivity> {
         MessageManager.getInstance().registerTask(bVar);
     }
 
-    private void bse() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003070, com.baidu.tieba.tbadkCore.a.a.bN(TbConfig.RECOMMEND_HOME_PAGE_ADDRESS, CmdConfigSocket.CMD_RECOMMEND_PERSONALIZED));
+    private void buG() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003070, com.baidu.tieba.tbadkCore.a.a.bU(TbConfig.RECOMMEND_HOME_PAGE_ADDRESS, CmdConfigSocket.CMD_RECOMMEND_PERSONALIZED));
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setResponsedClass(RecPersonalizeHttpResponse.class);
         tbHttpMessageTask.setPriority(4);
@@ -194,8 +195,8 @@ public class RecPersonalizePageModel extends BdBaseModel<BaseFragmentActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ResponsedMessage<?> responsedMessage, boolean z) {
-        if (!this.ePk) {
-            this.ePk = true;
+        if (!this.eZj) {
+            this.eZj = true;
             a(1, false, responsedMessage);
         }
         a(z, false, responsedMessage);
@@ -203,45 +204,45 @@ public class RecPersonalizePageModel extends BdBaseModel<BaseFragmentActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(ResponsedMessage<?> responsedMessage, boolean z) {
-        if (!this.ePk) {
-            this.ePk = true;
+        if (!this.eZj) {
+            this.eZj = true;
             a(1, true, responsedMessage);
         }
         a(z, true, responsedMessage);
     }
 
     public void a(boolean z, boolean z2, ResponsedMessage<?> responsedMessage) {
-        if (l.bFl().isSmallFlow()) {
-            long CD = com.baidu.tieba.homepage.framework.a.cOc().CD(1);
-            long createTime = com.baidu.tieba.homepage.framework.a.cOc().getCreateTime();
-            com.baidu.tbadk.n.d dVar = new com.baidu.tbadk.n.d(1005, z2, responsedMessage, 0L, createTime, com.baidu.tieba.homepage.framework.a.cOc().CC(1), false, CD + createTime);
+        if (k.bHF().isSmallFlow()) {
+            long CR = com.baidu.tieba.homepage.framework.a.cRi().CR(1);
+            long createTime = com.baidu.tieba.homepage.framework.a.cRi().getCreateTime();
+            com.baidu.tbadk.n.d dVar = new com.baidu.tbadk.n.d(1005, z2, responsedMessage, 0L, createTime, com.baidu.tieba.homepage.framework.a.cRi().CQ(1), false, CR + createTime);
             dVar.pageType = 1;
             if (z) {
-                dVar.fCv = CD;
-                dVar.kR(false);
+                dVar.fMa = CR;
+                dVar.ln(false);
                 return;
             }
-            dVar.fCu = CD;
-            dVar.kR(true);
+            dVar.fLZ = CR;
+            dVar.ln(true);
         }
     }
 
     public void a(int i, boolean z, ResponsedMessage<?> responsedMessage) {
-        if (l.bFl().isSmallFlow() && com.baidu.tieba.homepage.framework.a.cOc().getCreateTime() > 0) {
-            long CD = com.baidu.tieba.homepage.framework.a.cOc().CD(1);
-            long createTime = com.baidu.tieba.homepage.framework.a.cOc().getCreateTime();
-            long CC = com.baidu.tieba.homepage.framework.a.cOc().CC(1);
-            long j = CD + createTime;
-            long CB = com.baidu.tieba.homepage.framework.a.cOc().CB(1);
-            if (CB > 0) {
-                j = System.currentTimeMillis() - CB;
+        if (k.bHF().isSmallFlow() && com.baidu.tieba.homepage.framework.a.cRi().getCreateTime() > 0) {
+            long CR = com.baidu.tieba.homepage.framework.a.cRi().CR(1);
+            long createTime = com.baidu.tieba.homepage.framework.a.cRi().getCreateTime();
+            long CQ = com.baidu.tieba.homepage.framework.a.cRi().CQ(1);
+            long j = CR + createTime;
+            long CP = com.baidu.tieba.homepage.framework.a.cRi().CP(1);
+            if (CP > 0) {
+                j = System.currentTimeMillis() - CP;
             }
-            com.baidu.tbadk.n.d dVar = new com.baidu.tbadk.n.d(1005, z, responsedMessage, 0L, createTime, CC, false, j);
+            com.baidu.tbadk.n.d dVar = new com.baidu.tbadk.n.d(1005, z, responsedMessage, 0L, createTime, CQ, false, j);
             if (dVar != null) {
                 dVar.pageType = i;
-                dVar.bFi();
+                dVar.bHC();
             }
-            com.baidu.tieba.homepage.framework.a.cOc().setCreateTime(0L);
+            com.baidu.tieba.homepage.framework.a.cRi().setCreateTime(0L);
         }
     }
 }

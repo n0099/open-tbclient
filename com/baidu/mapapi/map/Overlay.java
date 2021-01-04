@@ -7,7 +7,7 @@ import com.baidu.mapapi.model.LatLng;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public abstract class Overlay {
     int A;
     boolean B;
@@ -16,7 +16,7 @@ public abstract class Overlay {
     public com.baidu.mapsdkplatform.comapi.map.i type;
     String z = System.currentTimeMillis() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + hashCode();
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     interface a {
         void a(Overlay overlay);
 

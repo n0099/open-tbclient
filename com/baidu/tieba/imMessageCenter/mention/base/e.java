@@ -1,84 +1,72 @@
 package com.baidu.tieba.imMessageCenter.mention.base;
 
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.adp.widget.ListView.ab;
-import com.baidu.adp.widget.ListView.ac;
-import com.baidu.adp.widget.ListView.q;
-import com.baidu.tbadk.TbPageContext;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-/* loaded from: classes22.dex */
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.adp.base.f;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
+import com.baidu.tieba.R;
+/* loaded from: classes2.dex */
 public class e {
-    private BdTypeRecyclerView Yf;
-    private List<com.baidu.adp.widget.ListView.a> bnf = new LinkedList();
-    private ArrayList<q> isF;
-    private b kKE;
-    private b kKF;
-    private b kKG;
-    private b kKH;
-    private b kKI;
-
-    public e(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
-        if (tbPageContext != null && bdTypeRecyclerView != null) {
-            this.Yf = bdTypeRecyclerView;
-            x(tbPageContext);
-        }
-    }
-
-    private void x(TbPageContext tbPageContext) {
-        this.kKE = new b(tbPageContext, a.kKo);
-        this.kKF = new b(tbPageContext, a.kKp);
-        this.kKG = new b(tbPageContext, a.kKs);
-        this.kKH = new b(tbPageContext, a.kKr);
-        this.kKI = new b(tbPageContext, a.kKq);
-        this.bnf.add(this.kKE);
-        this.bnf.add(this.kKF);
-        this.bnf.add(this.kKG);
-        this.bnf.add(this.kKH);
-        this.bnf.add(this.kKI);
-        this.Yf.addAdapters(this.bnf);
-    }
-
-    public void onDestory() {
-        for (com.baidu.adp.widget.ListView.a aVar : this.bnf) {
-        }
-    }
-
-    public void setData(ArrayList<q> arrayList) {
-        this.Yf.setData(arrayList);
-        this.isF = arrayList;
-    }
-
-    public void notifyDataSetChanged() {
-        this.Yf.getAdapter().notifyDataSetChanged();
-    }
-
-    public void EY(int i) {
-        if (this.Yf != null) {
-            this.Yf.removeItem(i);
-        }
-    }
-
-    public void e(ab abVar) {
-        for (com.baidu.adp.widget.ListView.a aVar : this.bnf) {
-            if (aVar != null) {
-                aVar.a(abVar);
+    private ImageView ghE;
+    private TextView kPV;
+    private TBSpecificationBtn kPW;
+    private a kPX;
+    private f mContext;
+    private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.base.e.1
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            if (view.getId() == e.this.kPW.getId()) {
+                com.baidu.tbadk.coreExtra.c.a.f(e.this.mContext);
+                TiebaStatic.log(new aq("c13705").an("obj_type", 1));
+            } else if (view.getId() == e.this.ghE.getId()) {
+                com.baidu.tbadk.core.sharedPref.b.bvq().putLong("key_im_open_notification_close_time", System.currentTimeMillis());
+                if (e.this.kPX != null) {
+                    e.this.kPX.onClose();
+                }
+                TiebaStatic.log(new aq("c13705").an("obj_type", 2));
             }
         }
+    };
+    private View mView;
+
+    /* loaded from: classes2.dex */
+    public interface a {
+        void onClose();
     }
 
-    public void a(ac acVar) {
-        for (com.baidu.adp.widget.ListView.a aVar : this.bnf) {
-            if (aVar != null) {
-                aVar.a(acVar);
-            }
-        }
+    public e(f fVar) {
+        this.mContext = fVar;
+        this.mView = LayoutInflater.from(this.mContext.getPageActivity()).inflate(R.layout.open_notification_view, (ViewGroup) null);
+        this.ghE = (ImageView) this.mView.findViewById(R.id.img_close);
+        this.ghE.setOnClickListener(this.mOnClickListener);
+        this.kPV = (TextView) this.mView.findViewById(R.id.open_desc);
+        this.kPW = (TBSpecificationBtn) this.mView.findViewById(R.id.btn_open);
+        this.kPW.setConfig(new com.baidu.tbadk.core.view.commonBtn.b());
+        this.kPW.setText(fVar.getString(R.string.go_to_open));
+        this.kPW.setOnClickListener(this.mOnClickListener);
+        TiebaStatic.log("c13704");
+        onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void setOnCardSubClickListener(com.baidu.tieba.card.ab abVar) {
-        this.kKI.setOnCardSubClickListener(abVar);
-        this.kKH.setOnCardSubClickListener(abVar);
-        this.kKG.setOnCardSubClickListener(abVar);
+    public View getView() {
+        return this.mView;
+    }
+
+    public void onChangeSkinType(int i) {
+        ao.setBackgroundColor(this.mView, R.color.CAM_X0206);
+        SvgManager.bwq().a(this.ghE, R.drawable.icon_pure_close16_n_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        ao.setViewTextColor(this.kPV, R.color.CAM_X0107);
+    }
+
+    public void a(a aVar) {
+        this.kPX = aVar;
     }
 }

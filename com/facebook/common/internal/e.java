@@ -1,7 +1,7 @@
 package com.facebook.common.internal;
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 public class e {
-    public static int r(int... iArr) {
+    public static int s(int... iArr) {
         g.checkArgument(iArr.length > 0);
         int i = iArr[0];
         for (int i2 = 1; i2 < iArr.length; i2++) {

@@ -3,15 +3,15 @@ package com.baidu.mapapi.http;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 class b implements HostnameVerifier {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ HttpClient f1996a;
+    final /* synthetic */ HttpClient f2788a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(HttpClient httpClient) {
-        this.f1996a = httpClient;
+        this.f2788a = httpClient;
     }
 
     @Override // javax.net.ssl.HostnameVerifier

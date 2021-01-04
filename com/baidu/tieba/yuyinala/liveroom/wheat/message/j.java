@@ -1,9 +1,12 @@
 package com.baidu.tieba.yuyinala.liveroom.wheat.message;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class j extends HttpMessage {
-    public j() {
-        super(1031036);
+    public j(String str, String str2, String str3) {
+        super(1031012);
+        addParam("room_id", str);
+        addParam("uk", str2);
+        addParam("status", str3);
     }
 }

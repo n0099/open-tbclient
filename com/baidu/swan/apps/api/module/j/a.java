@@ -1,9 +1,9 @@
 package com.baidu.swan.apps.api.module.j;
 
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
+import androidx.annotation.NonNull;
 import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.swan.apps.api.a.b;
@@ -14,13 +14,13 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class a extends d {
     public a(@NonNull b bVar) {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b mg(String str) {
+    public com.baidu.swan.apps.api.c.b lZ(String str) {
         if (DEBUG) {
             Log.d("Api-Subscription", "subscribe with json string:  " + str);
         }
@@ -44,18 +44,18 @@ public class a extends d {
     }
 
     private Pair<Request, Integer> a(@NonNull e eVar, @NonNull JSONObject jSONObject) {
-        RequestBody b = b(eVar, jSONObject);
-        if (b == null) {
+        RequestBody b2 = b(eVar, jSONObject);
+        if (b2 == null) {
             return new Pair<>(null, 202);
         }
-        return new Pair<>(new Request.Builder().url(com.baidu.swan.apps.t.a.azF().akd()).post(b).build(), 0);
+        return new Pair<>(new Request.Builder().url(com.baidu.swan.apps.t.a.aAW().all()).post(b2).build(), 0);
     }
 
     private void a(@NonNull Request request, final String str) {
         com.baidu.swan.a.b.a aVar = new com.baidu.swan.a.b.a(request.url().toString(), request.body(), new ResponseCallback() { // from class: com.baidu.swan.apps.api.module.j.a.2
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             public Object parseResponse(Response response, int i) throws Exception {
-                a.this.a(str, a.this.b(response));
+                a.this.a(str, a.this.c(response));
                 return response;
             }
 
@@ -65,14 +65,14 @@ public class a extends d {
 
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             public void onFail(Exception exc) {
-                a.this.bn(str, exc == null ? "" : exc.getMessage());
+                a.this.bm(str, exc == null ? "" : exc.getMessage());
             }
         });
         aVar.tag = request.tag();
-        aVar.emE = true;
-        aVar.emF = true;
-        aVar.emG = true;
-        com.baidu.swan.a.c.a.bdi().b(aVar);
+        aVar.ewn = true;
+        aVar.ewo = true;
+        aVar.ewp = true;
+        com.baidu.swan.a.c.a.bfE().b(aVar);
     }
 
     private RequestBody b(@NonNull e eVar, @NonNull JSONObject jSONObject) {
@@ -85,7 +85,7 @@ public class a extends d {
         return new FormBody.Builder().add("appkey", appKey).add("uniq_id", optString).add("type", jSONObject.optString("type", "query")).add("template_id", optString2).build();
     }
 
-    public com.baidu.swan.apps.api.c.b b(Response response) {
+    public com.baidu.swan.apps.api.c.b c(Response response) {
         if (response == null || response.body() == null) {
             return new com.baidu.swan.apps.api.c.b(500106, "response body is null");
         }
@@ -110,7 +110,7 @@ public class a extends d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bn(@NonNull String str, String str2) {
+    public void bm(@NonNull String str, String str2) {
         a(str, new com.baidu.swan.apps.api.c.b(500106, str2));
     }
 }

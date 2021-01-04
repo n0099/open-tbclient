@@ -19,45 +19,45 @@ import com.baidu.live.tieba.horizonallist.widget.AdapterView;
 import com.baidu.live.view.AlphaGradientHListView;
 import com.baidu.tieba.ala.liveroom.challenge.adapter.b;
 import com.baidu.tieba.ala.liveroom.challenge.message.GetChallengeMvpToastInfoResponseMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a {
-    private int aND;
+    private int aOh;
     private long anchorId;
-    private Dialog biC;
+    private Dialog bkh;
     private long challengeId;
     private Context context;
-    private CountDownTimer gEo;
-    private GetChallengeMvpToastInfoResponseMessage hmQ;
-    private b hmR;
-    private i hmS;
+    private CountDownTimer gPY;
+    private GetChallengeMvpToastInfoResponseMessage hyL;
+    private b hyM;
+    private i hyN;
     private long liveId;
 
     public a(Context context, long j, long j2, long j3, i iVar, GetChallengeMvpToastInfoResponseMessage getChallengeMvpToastInfoResponseMessage) {
-        this.aND = 10;
+        this.aOh = 10;
         this.context = context;
         this.liveId = j;
         this.anchorId = j2;
         this.challengeId = j3;
-        this.hmS = iVar;
-        this.hmQ = getChallengeMvpToastInfoResponseMessage;
-        if (com.baidu.live.ae.a.RB().brA != null) {
-            this.aND = com.baidu.live.ae.a.RB().brA.aND;
-            if (this.aND == 0) {
-                this.aND = 10;
+        this.hyN = iVar;
+        this.hyL = getChallengeMvpToastInfoResponseMessage;
+        if (com.baidu.live.af.a.SE().bwi != null) {
+            this.aOh = com.baidu.live.af.a.SE().bwi.aOh;
+            if (this.aOh == 0) {
+                this.aOh = 10;
             }
         }
     }
 
-    public void RU() {
-        if (this.context != null && this.hmQ != null) {
+    public void SY() {
+        if (this.context != null && this.hyL != null) {
             View inflate = LayoutInflater.from(this.context).inflate(a.g.dialog_mvp_choose_punish, (ViewGroup) null);
-            this.biC = new Dialog(this.context, a.i.sdk_TransparentDialog);
-            this.biC.requestWindowFeature(1);
-            this.biC.setCancelable(false);
-            this.biC.setContentView(inflate);
-            this.biC.setCanceledOnTouchOutside(false);
-            this.biC.getWindow().getAttributes().width = this.context.getResources().getDimensionPixelSize(a.d.sdk_ds582);
-            this.biC.getWindow().getAttributes().height = -2;
+            this.bkh = new Dialog(this.context, a.i.sdk_TransparentDialog);
+            this.bkh.requestWindowFeature(1);
+            this.bkh.setCancelable(false);
+            this.bkh.setContentView(inflate);
+            this.bkh.setCanceledOnTouchOutside(false);
+            this.bkh.getWindow().getAttributes().width = this.context.getResources().getDimensionPixelSize(a.d.sdk_ds582);
+            this.bkh.getWindow().getAttributes().height = -2;
             ImageView imageView = (ImageView) inflate.findViewById(a.f.close_imageView);
             TextView textView = (TextView) inflate.findViewById(a.f.desc_textView);
             AlphaGradientHListView alphaGradientHListView = (AlphaGradientHListView) inflate.findViewById(a.f.punish_listView);
@@ -67,10 +67,10 @@ public class a {
             TextView textView4 = (TextView) inflate.findViewById(a.f.know_textView);
             LinearLayout linearLayout2 = (LinearLayout) inflate.findViewById(a.f.countdown_layout);
             final TextView textView5 = (TextView) inflate.findViewById(a.f.countdown_textView);
-            if (!TextUtils.isEmpty(this.hmQ.toast)) {
-                textView.setText(this.hmQ.toast);
+            if (!TextUtils.isEmpty(this.hyL.toast)) {
+                textView.setText(this.hyL.toast);
             }
-            if (this.hmQ.type == 0) {
+            if (this.hyL.type == 0) {
                 imageView.setVisibility(8);
                 alphaGradientHListView.setVisibility(8);
                 linearLayout.setVisibility(8);
@@ -79,7 +79,7 @@ public class a {
                 textView4.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.c.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        a.this.ID();
+                        a.this.If();
                     }
                 });
             } else {
@@ -89,52 +89,52 @@ public class a {
                 textView4.setVisibility(8);
                 linearLayout2.setVisibility(0);
                 textView2.setEnabled(false);
-                textView5.setText(this.aND + "s");
+                textView5.setText(this.aOh + "s");
                 alphaGradientHListView.setDividerWidth(this.context.getResources().getDimensionPixelSize(a.d.sdk_ds18));
                 alphaGradientHListView.setSelector(this.context.getResources().getDrawable(a.e.sdk_transparent_bg));
-                this.hmR = new b(this.context, this.hmQ.hjU);
-                alphaGradientHListView.setAdapter((ListAdapter) this.hmR);
+                this.hyM = new b(this.context, this.hyL.hvP);
+                alphaGradientHListView.setAdapter((ListAdapter) this.hyM);
                 alphaGradientHListView.setOnItemClickListener(new AdapterView.c() { // from class: com.baidu.tieba.ala.liveroom.challenge.c.a.2
                     @Override // com.baidu.live.tieba.horizonallist.widget.AdapterView.c
                     public void a(AdapterView<?> adapterView, View view, int i, long j) {
                         com.baidu.tieba.ala.liveroom.challenge.a.b bVar;
-                        if (a.this.hmR != null && (bVar = (com.baidu.tieba.ala.liveroom.challenge.a.b) a.this.hmR.getItem(i)) != null) {
-                            if (TextUtils.equals(a.this.hmR.hju, bVar.id)) {
-                                a.this.hmR.hju = "";
+                        if (a.this.hyM != null && (bVar = (com.baidu.tieba.ala.liveroom.challenge.a.b) a.this.hyM.getItem(i)) != null) {
+                            if (TextUtils.equals(a.this.hyM.hvp, bVar.id)) {
+                                a.this.hyM.hvp = "";
                                 textView2.setEnabled(false);
                             } else {
-                                a.this.hmR.hju = bVar.id;
+                                a.this.hyM.hvp = bVar.id;
                                 textView2.setEnabled(true);
                             }
-                            a.this.hmR.notifyDataSetChanged();
+                            a.this.hyM.notifyDataSetChanged();
                         }
                     }
                 });
                 textView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.c.a.3
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        a.this.bg(3, a.this.hmR.hju);
+                        a.this.bi(3, a.this.hyM.hvp);
                         a.this.release();
                     }
                 });
                 textView3.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.c.a.4
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        a.this.bg(2, "0");
+                        a.this.bi(2, "0");
                         a.this.release();
                     }
                 });
                 imageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.c.a.5
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        a.this.bg(1, "0");
+                        a.this.bi(1, "0");
                         a.this.release();
                     }
                 });
-                if (this.gEo != null) {
-                    this.gEo.cancel();
+                if (this.gPY != null) {
+                    this.gPY.cancel();
                 }
-                this.gEo = new CountDownTimer(this.aND * 1000, 200L) { // from class: com.baidu.tieba.ala.liveroom.challenge.c.a.6
+                this.gPY = new CountDownTimer(this.aOh * 1000, 200L) { // from class: com.baidu.tieba.ala.liveroom.challenge.c.a.6
                     @Override // android.os.CountDownTimer
                     public void onTick(long j) {
                         textView5.setText((j / 1000) + "s");
@@ -142,20 +142,20 @@ public class a {
 
                     @Override // android.os.CountDownTimer
                     public void onFinish() {
-                        a.this.bg(1, "0");
-                        a.this.ID();
+                        a.this.bi(1, "0");
+                        a.this.If();
                     }
                 };
-                this.gEo.start();
+                this.gPY.start();
             }
-            this.biC.show();
+            this.bkh.show();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ID() {
-        if (this.biC != null && this.biC.isShowing()) {
-            Context context = this.biC.getContext();
+    public void If() {
+        if (this.bkh != null && this.bkh.isShowing()) {
+            Context context = this.bkh.getContext();
             if (context != null && (context instanceof Activity)) {
                 Activity activity = (Activity) context;
                 if (Build.VERSION.SDK_INT >= 17) {
@@ -167,25 +167,25 @@ public class a {
                 }
             }
             try {
-                this.biC.dismiss();
+                this.bkh.dismiss();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-        this.biC = null;
+        this.bkh = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bg(int i, String str) {
-        if (this.hmS != null) {
-            this.hmS.a(this.challengeId, this.liveId, this.anchorId, i, str);
+    public void bi(int i, String str) {
+        if (this.hyN != null) {
+            this.hyN.a(this.challengeId, this.liveId, this.anchorId, i, str);
         }
     }
 
     public void release() {
-        if (this.gEo != null) {
-            this.gEo.cancel();
+        if (this.gPY != null) {
+            this.gPY.cancel();
         }
-        ID();
+        If();
     }
 }

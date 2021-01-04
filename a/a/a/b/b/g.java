@@ -9,7 +9,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.Executor;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class g implements a.InterfaceC0000a, b.a, com.baidu.cloudbase.download.a.d {
     public Executor c;
     public String d;
@@ -34,7 +34,7 @@ public class g implements a.InterfaceC0000a, b.a, com.baidu.cloudbase.download.a
 
     public final void a() {
         c cVar = this.zr;
-        File file = new File(cVar.b, cVar.f956a);
+        File file = new File(cVar.f1038b, cVar.f1037a);
         if (file.exists() && file.isFile()) {
             file.delete();
         }
@@ -216,7 +216,7 @@ public class g implements a.InterfaceC0000a, b.a, com.baidu.cloudbase.download.a
         this.g = 101;
         a aVar = this.zo;
         aVar.zl.setStatus(101);
-        aVar.zl.uJ().onStarted();
+        aVar.zl.ui().onStarted();
         this.zs = new b(this.zn.getUri(), this);
         this.c.execute(this.zs);
     }

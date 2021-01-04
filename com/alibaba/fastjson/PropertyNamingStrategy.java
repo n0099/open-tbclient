@@ -1,5 +1,5 @@
 package com.alibaba.fastjson;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public enum PropertyNamingStrategy {
     CamelCase,
     PascalCase,

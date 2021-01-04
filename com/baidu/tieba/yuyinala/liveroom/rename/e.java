@@ -6,60 +6,59 @@ import com.baidu.live.adp.base.BdBaseModel;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.HttpMessageListener;
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
-import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class e extends BdBaseModel {
-    private Context bJK;
-    private BdUniqueId brR = BdUniqueId.gen();
-    private final HttpMessageListener bxC;
-    private a opN;
+    private final HttpMessageListener bCn;
+    private Context bOy;
+    private BdUniqueId bwz = BdUniqueId.gen();
+    private a ote;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void a(AlaGetRoomNameRenameHttpResponseMessage alaGetRoomNameRenameHttpResponseMessage);
 
-        void p(int i, String str, String str2);
+        void n(int i, String str, String str2);
     }
 
     public void a(a aVar) {
-        this.opN = aVar;
+        this.ote = aVar;
     }
 
     public e(Context context) {
-        this.bJK = context;
-        setUniqueId(this.brR);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031020, TbConfig.SERVER_ADDRESS + "ala/audio/room/modify");
+        this.bOy = context;
+        setUniqueId(this.bwz);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031020, com.baidu.live.a.aAH + "ala/audio/room/modify");
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(AlaGetRoomNameRenameHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        this.bxC = new HttpMessageListener(1031020) { // from class: com.baidu.tieba.yuyinala.liveroom.rename.e.1
+        this.bCn = new HttpMessageListener(1031020) { // from class: com.baidu.tieba.yuyinala.liveroom.rename.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetRoomNameRenameHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == e.this.getUniqueId() && e.this.opN != null) {
+                if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetRoomNameRenameHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == e.this.getUniqueId() && e.this.ote != null) {
                     AlaGetRoomNameRenameHttpResponseMessage alaGetRoomNameRenameHttpResponseMessage = (AlaGetRoomNameRenameHttpResponseMessage) httpResponsedMessage;
                     if (alaGetRoomNameRenameHttpResponseMessage.getError() != 0 || !alaGetRoomNameRenameHttpResponseMessage.isSuccess()) {
-                        e.this.opN.p(alaGetRoomNameRenameHttpResponseMessage.getError(), alaGetRoomNameRenameHttpResponseMessage.getErrorString(), alaGetRoomNameRenameHttpResponseMessage.edS().usermsg);
+                        e.this.ote.n(alaGetRoomNameRenameHttpResponseMessage.getError(), alaGetRoomNameRenameHttpResponseMessage.getErrorString(), alaGetRoomNameRenameHttpResponseMessage.edk().usermsg);
                     } else {
-                        e.this.opN.a(alaGetRoomNameRenameHttpResponseMessage);
+                        e.this.ote.a(alaGetRoomNameRenameHttpResponseMessage);
                     }
                 }
             }
         };
-        registerListener(this.bxC);
+        registerListener(this.bCn);
     }
 
     public void e(String str, int i, String str2, String str3) {
         com.baidu.tieba.yuyinala.liveroom.rename.a aVar = new com.baidu.tieba.yuyinala.liveroom.rename.a(str, i, str2, str3);
-        aVar.setTag(this.brR);
+        aVar.setTag(this.bwz);
         sendMessage(aVar);
     }
 
     public void f(String str, int i, String str2, String str3) {
         com.baidu.tieba.yuyinala.liveroom.rename.a aVar = new com.baidu.tieba.yuyinala.liveroom.rename.a(str, i, str2, str3);
-        aVar.setTag(this.brR);
+        aVar.setTag(this.bwz);
         sendMessage(aVar);
     }
 

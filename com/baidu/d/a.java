@@ -2,7 +2,7 @@ package com.baidu.d;
 
 import android.app.Activity;
 import android.os.Build;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbPageContextSupport;
@@ -13,9 +13,9 @@ import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
-    private static C0116a abB = new C0116a();
+    private static C0108a acn = new C0108a();
     private MethodChannel channel;
 
     @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
@@ -25,7 +25,7 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
     }
 
     @Override // io.flutter.plugin.common.MethodChannel.MethodCallHandler
-    public void onMethodCall(@NonNull MethodCall methodCall, @NonNull MethodChannel.Result result) {
+    public void onMethodCall(MethodCall methodCall, MethodChannel.Result result) {
         String str = methodCall.method;
         char c = 65535;
         switch (str.hashCode()) {
@@ -64,14 +64,14 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
             case 0:
                 Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
                 if (currentActivity instanceof TbPageContextSupport) {
-                    abB.a(((TbPageContextSupport) currentActivity).getPageContext(), (String) methodCall.argument("page_name"));
+                    acn.a(((TbPageContextSupport) currentActivity).getPageContext(), (String) methodCall.argument("page_name"));
                 }
                 result.success(true);
                 return;
             case 1:
                 Activity currentActivity2 = TbadkCoreApplication.getInst().getCurrentActivity();
                 if (currentActivity2 instanceof TbPageContextSupport) {
-                    abB.b(((TbPageContextSupport) currentActivity2).getPageContext(), (String) methodCall.argument("page_name"));
+                    acn.b(((TbPageContextSupport) currentActivity2).getPageContext(), (String) methodCall.argument("page_name"));
                 }
                 result.success(true);
                 return;
@@ -82,14 +82,14 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
                 VoiceData.VoiceModel voiceModel = new VoiceData.VoiceModel();
                 voiceModel.voiceId = (String) methodCall.argument("url");
                 voiceModel.duration = Integer.valueOf((String) methodCall.argument("duration")).intValue();
-                if (!abB.isPlaying(voiceModel)) {
-                    abB.a(voiceModel);
-                    abB.sj();
+                if (!acn.isPlaying(voiceModel)) {
+                    acn.a(voiceModel);
+                    acn.rK();
                 }
                 result.success(true);
                 return;
             case 4:
-                abB.abD.stopPlay();
+                acn.acp.stopPlay();
                 result.success(true);
                 return;
             default:
@@ -104,47 +104,47 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
     }
 
     /* renamed from: com.baidu.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes12.dex */
-    private static class C0116a implements VoiceManager.b {
-        String abC;
-        VoiceManager abD;
-        VoiceData.VoiceModel abE;
+    /* loaded from: classes15.dex */
+    private static class C0108a implements VoiceManager.b {
+        String aco;
+        VoiceManager acp;
+        VoiceData.VoiceModel acq;
 
-        private C0116a() {
-            this.abC = "";
-            this.abD = VoiceManager.instance();
+        private C0108a() {
+            this.aco = "";
+            this.acp = VoiceManager.instance();
         }
 
         void a(VoiceData.VoiceModel voiceModel) {
-            this.abE = voiceModel;
+            this.acq = voiceModel;
         }
 
         boolean isPlaying(VoiceData.VoiceModel voiceModel) {
-            return this.abD.isPlaying(voiceModel);
+            return this.acp.isPlaying(voiceModel);
         }
 
-        boolean da(String str) {
-            return this.abC != null && this.abC.equals(str);
+        boolean cT(String str) {
+            return this.aco != null && this.aco.equals(str);
         }
 
         boolean a(TbPageContext tbPageContext, String str) {
-            if (da(str)) {
+            if (cT(str)) {
                 return false;
             }
-            this.abC = str;
-            this.abD.onCreate(tbPageContext);
+            this.aco = str;
+            this.acp.onCreate(tbPageContext);
             return true;
         }
 
         void b(TbPageContext tbPageContext, String str) {
-            if (da(str)) {
-                this.abD.onDestory(tbPageContext);
-                this.abC = null;
+            if (cT(str)) {
+                this.acp.onDestory(tbPageContext);
+                this.aco = null;
             }
         }
 
         @Override // com.baidu.tbadk.core.voice.VoiceManager.b
-        public void si() {
+        public void rJ() {
         }
 
         @Override // com.baidu.tbadk.core.voice.VoiceManager.b
@@ -161,7 +161,7 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
 
         @Override // com.baidu.tbadk.core.voice.VoiceManager.b
         public VoiceData.VoiceModel getVoiceModel() {
-            return this.abE;
+            return this.acq;
         }
 
         @Override // com.baidu.tbadk.core.voice.VoiceManager.b
@@ -169,8 +169,8 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
             return null;
         }
 
-        void sj() {
-            this.abD.startPlay(this);
+        void rK() {
+            this.acp.startPlay(this);
         }
     }
 }

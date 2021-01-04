@@ -1,6 +1,7 @@
 package com.baidu.tbadk.mutiprocess.sync;
 
 import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.a.c;
 import com.baidu.tbadk.mutiprocess.b;
 /* loaded from: classes.dex */
 public class a implements b<SyncDataEvent> {
@@ -11,7 +12,8 @@ public class a implements b<SyncDataEvent> {
             return false;
         }
         TbSingleton.getInstance().setSampleId(syncDataEvent.sampleId);
-        com.baidu.tbadk.util.a.bFV().a(syncDataEvent.abtestExtraData);
+        com.baidu.tbadk.util.a.bIq().a(syncDataEvent.abtestExtraData);
+        c.bmq().Ak(syncDataEvent.ubsABTest);
         return true;
     }
 }

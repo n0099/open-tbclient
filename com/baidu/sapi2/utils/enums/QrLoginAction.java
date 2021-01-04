@@ -1,7 +1,7 @@
 package com.baidu.sapi2.utils.enums;
 
 import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public enum QrLoginAction {
     NOTICE("notice"),
     LOGIN(OneKeyLoginSdkCall.k),
@@ -9,13 +9,13 @@ public enum QrLoginAction {
     
 
     /* renamed from: a  reason: collision with root package name */
-    private String f3554a;
+    private String f5406a;
 
     QrLoginAction(String str) {
-        this.f3554a = str;
+        this.f5406a = str;
     }
 
     public String getName() {
-        return this.f3554a;
+        return this.f5406a;
     }
 }

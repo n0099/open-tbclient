@@ -4,58 +4,58 @@ import com.baidu.android.common.others.IStringUtil;
 import kotlin.collections.z;
 import kotlin.jvm.internal.o;
 @kotlin.e
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public class i implements Iterable<Long> {
-    public static final a pKZ = new a(null);
-    private final long pKW;
-    private final long pKX;
-    private final long pKY;
+    public static final a qmC = new a(null);
+    private final long qmA;
+    private final long qmB;
+    private final long qmz;
 
     public i(long j, long j2, long j3) {
         if (j3 == 0) {
             throw new IllegalArgumentException("Step must be non-zero");
         }
-        this.pKW = j;
-        this.pKX = kotlin.internal.d.j(j, j2, j3);
-        this.pKY = j3;
+        this.qmz = j;
+        this.qmA = kotlin.internal.d.j(j, j2, j3);
+        this.qmB = j3;
     }
 
-    public final long eEn() {
-        return this.pKW;
+    public final long eMv() {
+        return this.qmz;
     }
 
-    public final long eEo() {
-        return this.pKX;
+    public final long eMw() {
+        return this.qmA;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Iterable
-    /* renamed from: eEp */
+    /* renamed from: eMx */
     public z iterator() {
-        return new j(this.pKW, this.pKX, this.pKY);
+        return new j(this.qmz, this.qmA, this.qmB);
     }
 
     public boolean isEmpty() {
-        return this.pKY > 0 ? this.pKW > this.pKX : this.pKW < this.pKX;
+        return this.qmB > 0 ? this.qmz > this.qmA : this.qmz < this.qmA;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof i) && ((isEmpty() && ((i) obj).isEmpty()) || (this.pKW == ((i) obj).pKW && this.pKX == ((i) obj).pKX && this.pKY == ((i) obj).pKY));
+        return (obj instanceof i) && ((isEmpty() && ((i) obj).isEmpty()) || (this.qmz == ((i) obj).qmz && this.qmA == ((i) obj).qmA && this.qmB == ((i) obj).qmB));
     }
 
     public int hashCode() {
         if (isEmpty()) {
             return -1;
         }
-        return (int) ((31 * ((31 * (this.pKW ^ (this.pKW >>> 32))) + (this.pKX ^ (this.pKX >>> 32)))) + (this.pKY ^ (this.pKY >>> 32)));
+        return (int) ((31 * ((31 * (this.qmz ^ (this.qmz >>> 32))) + (this.qmA ^ (this.qmA >>> 32)))) + (this.qmB ^ (this.qmB >>> 32)));
     }
 
     public String toString() {
-        return this.pKY > 0 ? "" + this.pKW + IStringUtil.TOP_PATH + this.pKX + " step " + this.pKY : "" + this.pKW + " downTo " + this.pKX + " step " + (-this.pKY);
+        return this.qmB > 0 ? "" + this.qmz + IStringUtil.TOP_PATH + this.qmA + " step " + this.qmB : "" + this.qmz + " downTo " + this.qmA + " step " + (-this.qmB);
     }
 
     @kotlin.e
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
         private a() {
         }

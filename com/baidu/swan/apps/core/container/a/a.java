@@ -10,49 +10,49 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class a implements i {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private volatile boolean cOs;
-    private volatile boolean cOt;
-    private int cOu;
-    private InterfaceC0430a cOv;
-    private WebKitFactory.IForceInitZeusListener cOw;
+    private volatile boolean cTn;
+    private volatile boolean cTo;
+    private int cTp;
+    private InterfaceC0422a cTq;
+    private WebKitFactory.IForceInitZeusListener cTr;
     private ArrayList<com.baidu.swan.apps.core.container.a.b> mListeners;
     private final Lock mLock;
 
     /* renamed from: com.baidu.swan.apps.core.container.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes25.dex */
-    public interface InterfaceC0430a {
-        void aiM();
+    /* loaded from: classes9.dex */
+    public interface InterfaceC0422a {
+        void ajU();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes25.dex */
+    /* loaded from: classes9.dex */
     public static class b {
-        public static final a cOy = new a();
+        public static final a cTt = new a();
     }
 
     private a() {
         this.mListeners = new ArrayList<>();
         this.mLock = new ReentrantLock();
-        this.cOs = false;
-        this.cOt = false;
-        this.cOu = -1;
-        this.cOv = new InterfaceC0430a() { // from class: com.baidu.swan.apps.core.container.a.a.1
-            @Override // com.baidu.swan.apps.core.container.a.a.InterfaceC0430a
-            public void aiM() {
+        this.cTn = false;
+        this.cTo = false;
+        this.cTp = -1;
+        this.cTq = new InterfaceC0422a() { // from class: com.baidu.swan.apps.core.container.a.a.1
+            @Override // com.baidu.swan.apps.core.container.a.a.InterfaceC0422a
+            public void ajU() {
                 try {
                     a.this.mLock.lock();
-                    a.this.cOt = true;
-                    a.this.aqh();
-                    a.this.aqk();
+                    a.this.cTo = true;
+                    a.this.art();
+                    a.this.arw();
                 } finally {
                     a.this.mLock.unlock();
                 }
             }
         };
-        this.cOw = new WebKitFactory.IForceInitZeusListener() { // from class: com.baidu.swan.apps.core.container.a.a.2
+        this.cTr = new WebKitFactory.IForceInitZeusListener() { // from class: com.baidu.swan.apps.core.container.a.a.2
             @Override // com.baidu.webkit.sdk.WebKitFactory.IForceInitZeusListener
             public void onForceInitZeusStart() {
                 if (a.DEBUG) {
@@ -64,40 +64,40 @@ public class a implements i {
             public void onForceInitZeusFinish(boolean z) {
                 try {
                     a.this.mLock.lock();
-                    a.this.cOs = true;
-                    a.this.aqk();
+                    a.this.cTn = true;
+                    a.this.arw();
                     a.this.mLock.unlock();
-                    BdSailor.getInstance().removeForceInitListener(a.this.cOw);
+                    BdSailor.getInstance().removeForceInitListener(a.this.cTr);
                 } catch (Throwable th) {
                     a.this.mLock.unlock();
                     throw th;
                 }
             }
         };
-        BdSailor.addForceInitListener(this.cOw);
-        com.baidu.swan.apps.t.a.azx().a(this.cOv);
+        BdSailor.addForceInitListener(this.cTr);
+        com.baidu.swan.apps.t.a.aAO().a(this.cTq);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void aqh() {
-        if (this.cOu == -1) {
-            this.cOu = com.baidu.swan.apps.t.a.azd().getSwitch("swan_enable_file_in_io", 0);
+    public synchronized void art() {
+        if (this.cTp == -1) {
+            this.cTp = com.baidu.swan.apps.t.a.aAu().getSwitch("swan_enable_file_in_io", 0);
         }
-        if (!ProcessUtils.isMainProcess() && this.cOu == 1) {
+        if (!ProcessUtils.isMainProcess() && this.cTp == 1) {
             WebSettingsGlobalBlink.setFileInIOEnabled(true);
         }
     }
 
-    public static a aqi() {
-        return b.cOy;
+    public static a aru() {
+        return b.cTt;
     }
 
-    public void aqj() {
-        eY(false);
+    public void arv() {
+        fh(false);
     }
 
-    public void eY(boolean z) {
-        com.baidu.swan.apps.t.a.azx().eB(z);
+    public void fh(boolean z) {
+        com.baidu.swan.apps.t.a.aAO().eJ(z);
     }
 
     @Override // com.baidu.swan.apps.adaptation.b.i
@@ -109,7 +109,7 @@ public class a implements i {
                     this.mListeners.add(bVar);
                 }
                 if (isLoaded()) {
-                    aqk();
+                    arw();
                 }
             }
         } finally {
@@ -130,7 +130,7 @@ public class a implements i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aqk() {
+    public void arw() {
         try {
             this.mLock.lock();
             if (isLoaded()) {
@@ -138,7 +138,7 @@ public class a implements i {
                 while (it.hasNext()) {
                     com.baidu.swan.apps.core.container.a.b next = it.next();
                     if (next != null) {
-                        next.aiM();
+                        next.ajU();
                     }
                 }
                 this.mListeners.clear();
@@ -159,11 +159,11 @@ public class a implements i {
         try {
             this.mLock.lock();
             if (DEBUG) {
-                Log.d("NgWebViewInitHelper", "isLoaded() mIsBlinkInited: " + this.cOt);
-                Log.d("NgWebViewInitHelper", "isLoaded() mIsZeusForceInited: " + this.cOs + " ,isZeusForceInited: " + isZeusForceInited());
+                Log.d("NgWebViewInitHelper", "isLoaded() mIsBlinkInited: " + this.cTo);
+                Log.d("NgWebViewInitHelper", "isLoaded() mIsZeusForceInited: " + this.cTn + " ,isZeusForceInited: " + isZeusForceInited());
             }
-            if (this.cOt) {
-                if (!this.cOs) {
+            if (this.cTo) {
+                if (!this.cTn) {
                 }
                 z = true;
                 return z;

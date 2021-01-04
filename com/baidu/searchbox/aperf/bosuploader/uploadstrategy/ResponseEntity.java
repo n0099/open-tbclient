@@ -1,6 +1,9 @@
 package com.baidu.searchbox.aperf.bosuploader.uploadstrategy;
-/* loaded from: classes16.dex */
+
+import androidx.annotation.Nullable;
+/* loaded from: classes5.dex */
 public class ResponseEntity {
+    @Nullable
     private String mResponseMessage;
     private boolean mSuccess;
 
@@ -26,6 +29,7 @@ public class ResponseEntity {
         return this.mSuccess;
     }
 
+    @Nullable
     public String getMessage() {
         return this.mResponseMessage;
     }

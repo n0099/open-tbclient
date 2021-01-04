@@ -1,7 +1,7 @@
 package com.baidu.android.imrtc.utils;
 
 import com.baidu.android.imsdk.IMListener;
-/* loaded from: classes12.dex */
+/* loaded from: classes6.dex */
 public interface IStatusListener extends IMListener {
     void onResult(int i, String str);
 }

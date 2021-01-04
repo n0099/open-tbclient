@@ -1,43 +1,44 @@
 package com.baidu.yuyinala.more;
 
 import com.baidu.live.adp.lib.util.BdLog;
-import com.baidu.live.data.w;
+import com.baidu.live.data.x;
 import com.baidu.live.tbadk.TbPageContext;
+import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.live.tbadk.ubc.UbcStatisticItem;
 import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
 import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a {
-    private static a oKL;
+    private static a oQY;
     private TbPageContext mPageContext;
-    private AlaMoreFunctionDialogData oKM = new AlaMoreFunctionDialogData();
-    private b oKN;
+    private AlaMoreFunctionDialogData oQZ = new AlaMoreFunctionDialogData();
+    private b oRa;
 
     private a() {
     }
 
-    public static a ekG() {
-        if (oKL == null) {
+    public static a ekP() {
+        if (oQY == null) {
             synchronized (a.class) {
-                if (oKL == null) {
-                    oKL = new a();
+                if (oQY == null) {
+                    oQY = new a();
                 }
             }
         }
-        return oKL;
+        return oQY;
     }
 
-    public void aC(w wVar) {
-        if (wVar != null) {
-            if (this.oKN == null || !this.oKN.isShowing()) {
-                this.oKM.parseData(wVar.aKJ);
-                this.oKM.setLiveId(wVar.mLiveInfo == null ? null : String.valueOf(wVar.mLiveInfo.live_id));
-                this.oKM.setRoomId(wVar.aKL == null ? null : wVar.aKL.aUg);
-                this.oKM.setCustomRoomId(wVar.aKL == null ? null : wVar.aKL.croom_id);
-                this.oKM.setGroupId(wVar.mLiveInfo != null ? String.valueOf(wVar.mLiveInfo.group_id) : null);
+    public void aP(x xVar) {
+        if (xVar != null) {
+            if (this.oRa == null || !this.oRa.isShowing()) {
+                this.oQZ.parseData(xVar.aLj);
+                this.oQZ.setLiveId(xVar.mLiveInfo == null ? null : String.valueOf(xVar.mLiveInfo.live_id));
+                this.oQZ.setRoomId(xVar.aLl == null ? null : xVar.aLl.aVu);
+                this.oQZ.setCustomRoomId(xVar.aLl == null ? null : xVar.aLl.croom_id);
+                this.oQZ.setGroupId(xVar.mLiveInfo != null ? String.valueOf(xVar.mLiveInfo.group_id) : null);
             }
         }
     }
@@ -45,25 +46,27 @@ public class a {
     public void a(TbPageContext tbPageContext, com.baidu.live.e.c cVar) {
         if (this.mPageContext != tbPageContext) {
             this.mPageContext = tbPageContext;
-            this.oKN = null;
+            this.oRa = null;
         }
-        if (this.oKN == null) {
-            this.oKN = new b(tbPageContext, this.oKM);
-            this.oKN.a(cVar);
-        } else {
-            this.oKN.a((b) this.oKM);
+        if (this.oQZ != null && !ListUtils.isEmpty(this.oQZ.getGroupList())) {
+            if (this.oRa == null) {
+                this.oRa = new b(tbPageContext, this.oQZ);
+                this.oRa.a(cVar);
+            } else {
+                this.oRa.a((b) this.oQZ);
+            }
+            this.oRa.show();
+            ekQ();
         }
-        this.oKN.show();
-        ekH();
     }
 
-    private void ekH() {
+    private void ekQ() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_SUBPAGE, "moretab");
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            if (this.oKM != null) {
-                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.oKM.getCustomRoomId());
+            if (this.oQZ != null) {
+                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.oQZ.getCustomRoomId());
             }
         } catch (JSONException e) {
             BdLog.e(e);
@@ -71,13 +74,13 @@ public class a {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", UbcStatConstant.Page.VOICE_ROOM, "moretab_show").setContentExt(jSONObject));
     }
 
-    public void aD(boolean z, boolean z2) {
-        this.oKM.setShowFirstCharge(z, z2);
+    public void aG(boolean z, boolean z2) {
+        this.oQZ.setShowFirstCharge(z, z2);
     }
 
-    public void ID() {
-        if (this.oKN != null && this.oKN.isShowing()) {
-            this.oKN.dismiss();
+    public void If() {
+        if (this.oRa != null && this.oRa.isShowing()) {
+            this.oRa.dismiss();
         }
     }
 }

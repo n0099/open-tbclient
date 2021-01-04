@@ -1,7 +1,7 @@
 package com.google.zxing.datamatrix.encoder;
 
 import java.util.Arrays;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class DefaultPlacement {
     private final byte[] bits;
     private final CharSequence codewords;
@@ -73,29 +73,30 @@ public class DefaultPlacement {
                     break;
                 }
             } while (i2 < this.numcols);
-            int i5 = i3 + 1;
-            int i6 = i2 + 3;
+            int i5 = i2 + 3;
+            int i6 = i3 + 1;
             int i7 = i4;
             while (true) {
-                if (i5 < 0 || i6 >= this.numcols || hasBit(i6, i5)) {
+                if (i6 < 0 || i5 >= this.numcols || hasBit(i5, i6)) {
                     i4 = i7;
                 } else {
                     i4 = i7 + 1;
-                    utah(i5, i6, i7);
+                    utah(i6, i5, i7);
                 }
-                i5 += 2;
-                i = i6 - 2;
-                if (i5 >= this.numrows || i < 0) {
+                i6 += 2;
+                i = i5 - 2;
+                if (i6 >= this.numrows || i < 0) {
                     break;
                 }
-                i6 = i;
+                i5 = i;
                 i7 = i4;
             }
-            i3 = i5 + 3;
+            int i8 = i6 + 3;
             i2 = i + 1;
-            if (i3 >= this.numrows && i2 >= this.numcols) {
+            if (i8 >= this.numrows && i2 >= this.numcols) {
                 break;
             }
+            i3 = i8;
         }
         if (!hasBit(this.numcols - 1, this.numrows - 1)) {
             setBit(this.numcols - 1, this.numrows - 1, true);

@@ -1,14 +1,14 @@
 package com.baidu.tieba.yuyinala.liveroom.wheat.message;
 
-import com.baidu.live.data.m;
+import com.baidu.live.data.n;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaGetInviteConnectionWheatListHttpResponseMessage extends BaseJsonHttpResponsedMessage {
     private int count;
-    private List<m> oxe;
+    private List<n> oDZ;
 
     public AlaGetInviteConnectionWheatListHttpResponseMessage() {
         super(1031014);
@@ -18,10 +18,10 @@ public class AlaGetInviteConnectionWheatListHttpResponseMessage extends BaseJson
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && i == 1031014) {
-            if (this.oxe == null) {
-                this.oxe = new ArrayList();
+            if (this.oDZ == null) {
+                this.oDZ = new ArrayList();
             }
-            this.oxe.clear();
+            this.oDZ.clear();
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null) {
                 JSONArray optJSONArray = optJSONObject.optJSONArray("list");
@@ -32,9 +32,9 @@ public class AlaGetInviteConnectionWheatListHttpResponseMessage extends BaseJson
                         if (i3 >= optJSONArray.length()) {
                             break;
                         }
-                        m mVar = new m();
-                        mVar.parseJson((JSONObject) optJSONArray.get(i3));
-                        this.oxe.add(mVar);
+                        n nVar = new n();
+                        nVar.parseJson((JSONObject) optJSONArray.get(i3));
+                        this.oDZ.add(nVar);
                         i2 = i3 + 1;
                     }
                 }
@@ -43,8 +43,8 @@ public class AlaGetInviteConnectionWheatListHttpResponseMessage extends BaseJson
         }
     }
 
-    public List<m> efS() {
-        return this.oxe;
+    public List<n> egc() {
+        return this.oDZ;
     }
 
     public int getCount() {

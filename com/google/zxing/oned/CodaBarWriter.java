@@ -1,5 +1,5 @@
 package com.google.zxing.oned;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class CodaBarWriter extends OneDimensionalCodeWriter {
     private static final char[] START_END_CHARS = {'A', 'B', 'C', 'D'};
     private static final char[] ALT_START_END_CHARS = {'T', 'N', '*', 'E'};
@@ -75,22 +75,23 @@ public final class CodaBarWriter extends OneDimensionalCodeWriter {
             int i7 = 0;
             int i8 = 0;
             boolean z = true;
+            int i9 = i4;
             while (i7 < 7) {
-                zArr[i4] = z;
-                int i9 = i4 + 1;
+                zArr[i9] = z;
+                i9++;
                 if (((i >> (6 - i7)) & 1) == 0 || i8 == 1) {
                     i7++;
                     i8 = 0;
                     z = !z;
-                    i4 = i9;
                 } else {
                     i8++;
-                    i4 = i9;
                 }
             }
             if (i5 < str.length() - 1) {
-                zArr[i4] = false;
-                i4++;
+                zArr[i9] = false;
+                i4 = i9 + 1;
+            } else {
+                i4 = i9;
             }
         }
         return zArr;

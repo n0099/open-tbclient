@@ -1,20 +1,20 @@
 package com.baidu.tieba.ala.alasquare.live_tab.c;
 
-import com.baidu.adp.widget.ListView.q;
+import com.baidu.adp.widget.ListView.n;
 import com.baidu.ala.data.SdkLiveInfoData;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.ala.alasquare.live_tab.b.e;
 import com.baidu.tieba.ala.alasquare.live_tab.b.j;
 import com.baidu.tieba.ala.alasquare.live_tab.message.AlaTabLiveResponsedMessage;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class a {
     private boolean hasMore = false;
-    private List<String> guA = new ArrayList();
-    private List<SdkLiveInfoData> guB = new ArrayList();
-    private List<q> guC = new ArrayList();
+    private List<String> gFz = new ArrayList();
+    private List<SdkLiveInfoData> gFA = new ArrayList();
+    private List<n> gFB = new ArrayList();
 
     public a(AlaTabLiveResponsedMessage alaTabLiveResponsedMessage) {
         a(alaTabLiveResponsedMessage.tabAllLiveInfo);
@@ -24,17 +24,17 @@ public class a {
         if (jVar == null) {
             return false;
         }
-        boolean b = b(jVar);
+        boolean b2 = b(jVar);
         this.hasMore = jVar.hasMore;
-        return b;
+        return b2;
     }
 
     private boolean b(j jVar) {
         if (jVar == null) {
             return false;
         }
-        ArrayList<SdkLiveInfoData> arrayList = jVar.grG;
-        if (y.isEmpty(arrayList)) {
+        ArrayList<SdkLiveInfoData> arrayList = jVar.gCF;
+        if (x.isEmpty(arrayList)) {
             return false;
         }
         ArrayList arrayList2 = new ArrayList();
@@ -43,37 +43,37 @@ public class a {
             SdkLiveInfoData next = it.next();
             if (next != null && com.baidu.tieba.ala.alasquare.live_tab.c.a(next)) {
                 String str = next.liveId;
-                if (!this.guA.contains(str)) {
+                if (!this.gFz.contains(str)) {
                     arrayList2.add(next);
-                    this.guA.add(str);
+                    this.gFz.add(str);
                 }
             }
         }
-        if (y.isEmpty(arrayList2)) {
+        if (x.isEmpty(arrayList2)) {
             return false;
         }
-        this.guB.addAll(arrayList2);
-        this.guC = ce(this.guB);
-        return !y.isEmpty(this.guC);
+        this.gFA.addAll(arrayList2);
+        this.gFB = cl(this.gFA);
+        return !x.isEmpty(this.gFB);
     }
 
-    private ArrayList<q> ce(List<SdkLiveInfoData> list) {
-        ArrayList<q> arrayList = new ArrayList<>();
+    private ArrayList<n> cl(List<SdkLiveInfoData> list) {
+        ArrayList<n> arrayList = new ArrayList<>();
         int size = list.size();
         for (int i = 0; i < size; i += 2) {
             e eVar = new e();
             com.baidu.tieba.ala.alasquare.a.a aVar = new com.baidu.tieba.ala.alasquare.a.a();
-            aVar.gpE = list.get(i);
+            aVar.gAu = list.get(i);
             aVar.isLeft = true;
-            eVar.grK = aVar;
+            eVar.gCJ = aVar;
             if (i + 1 < size) {
                 com.baidu.tieba.ala.alasquare.a.a aVar2 = new com.baidu.tieba.ala.alasquare.a.a();
-                aVar2.gpE = list.get(i + 1);
-                eVar.grL = aVar2;
+                aVar2.gAu = list.get(i + 1);
+                eVar.gCK = aVar2;
                 aVar2.isRight = true;
             } else {
                 aVar.isLeft = false;
-                aVar.gpF = true;
+                aVar.gAv = true;
             }
             arrayList.add(eVar);
         }
@@ -84,24 +84,24 @@ public class a {
         return this.hasMore;
     }
 
-    public List<q> getData() {
+    public List<n> getData() {
         ArrayList arrayList = new ArrayList();
-        if (!y.isEmpty(this.guC)) {
-            arrayList.addAll(this.guC);
+        if (!x.isEmpty(this.gFB)) {
+            arrayList.addAll(this.gFB);
         }
         return arrayList;
     }
 
     public void clear() {
         this.hasMore = false;
-        if (this.guA != null) {
-            this.guA.clear();
+        if (this.gFz != null) {
+            this.gFz.clear();
         }
-        if (this.guB != null) {
-            this.guB.clear();
+        if (this.gFA != null) {
+            this.gFA.clear();
         }
-        if (this.guC != null) {
-            this.guC.clear();
+        if (this.gFB != null) {
+            this.gFB.clear();
         }
     }
 }

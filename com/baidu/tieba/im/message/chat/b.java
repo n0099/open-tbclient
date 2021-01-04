@@ -4,19 +4,19 @@ import com.baidu.tieba.im.message.chat.a;
 /* loaded from: classes.dex */
 public class b implements com.baidu.tbadk.mvc.b.a {
     private long createTime;
-    private boolean kAB;
-    private a.C0782a kAC;
-    private com.baidu.tieba.im.db.pojo.a kAD;
-    private int kAE;
+    private boolean kFP;
+    private a.C0766a kFQ;
+    private com.baidu.tieba.im.db.pojo.a kFR;
+    private int kFS;
 
-    public static b a(ChatMessage chatMessage, a.C0782a c0782a) {
+    public static b a(ChatMessage chatMessage, a.C0766a c0766a) {
         b bVar = new b();
         if (chatMessage == null) {
             return bVar;
         }
-        c0782a.kAy /= 100;
-        bVar.Ez(chatMessage.getReadCountPv());
-        bVar.a(c0782a);
+        c0766a.kFM /= 100;
+        bVar.Es(chatMessage.getReadCountPv());
+        bVar.a(c0766a);
         bVar.setCreateTime(chatMessage.getTime());
         if (chatMessage.getObjContent() instanceof com.baidu.tieba.im.db.pojo.a) {
             bVar.a((com.baidu.tieba.im.db.pojo.a) chatMessage.getObjContent());
@@ -24,28 +24,28 @@ public class b implements com.baidu.tbadk.mvc.b.a {
         return bVar;
     }
 
-    public boolean cZa() {
-        return this.kAB;
+    public boolean cYM() {
+        return this.kFP;
     }
 
     public void sQ(boolean z) {
-        this.kAB = z;
+        this.kFP = z;
     }
 
-    public a.C0782a cZb() {
-        return this.kAC;
+    public a.C0766a cYN() {
+        return this.kFQ;
     }
 
-    public void a(a.C0782a c0782a) {
-        this.kAC = c0782a;
+    public void a(a.C0766a c0766a) {
+        this.kFQ = c0766a;
     }
 
-    public com.baidu.tieba.im.db.pojo.a cZc() {
-        return this.kAD;
+    public com.baidu.tieba.im.db.pojo.a cYO() {
+        return this.kFR;
     }
 
     public void a(com.baidu.tieba.im.db.pojo.a aVar) {
-        this.kAD = aVar;
+        this.kFR = aVar;
     }
 
     public long getCreateTime() {
@@ -56,11 +56,11 @@ public class b implements com.baidu.tbadk.mvc.b.a {
         this.createTime = j;
     }
 
-    public int cZd() {
-        return this.kAE;
+    public int cYP() {
+        return this.kFS;
     }
 
-    public void Ez(int i) {
-        this.kAE = i;
+    public void Es(int i) {
+        this.kFS = i;
     }
 }

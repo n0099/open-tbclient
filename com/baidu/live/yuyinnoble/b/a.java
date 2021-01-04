@@ -2,40 +2,40 @@ package com.baidu.live.yuyinnoble.b;
 
 import com.baidu.live.noble.b.b;
 import com.baidu.live.noble.data.NobleUserInfo;
-import com.baidu.live.yuyinnoble.d.d;
-/* loaded from: classes4.dex */
+import com.baidu.live.yuyinnoble.c.d;
+/* loaded from: classes11.dex */
 public class a implements com.baidu.live.noble.b.b {
-    private b.a bXG;
-    private com.baidu.live.yuyinnoble.d.a bXH;
+    private b.a ces;
+    private com.baidu.live.yuyinnoble.c.a cet;
 
     @Override // com.baidu.live.noble.b.b
     public void a(b.a aVar) {
-        this.bXG = aVar;
+        this.ces = aVar;
     }
 
     @Override // com.baidu.live.noble.b.b
-    public void aE(String str, String str2) {
-        if (this.bXH == null) {
-            this.bXH = new com.baidu.live.yuyinnoble.d.b();
-            this.bXH.a(new d() { // from class: com.baidu.live.yuyinnoble.b.a.1
-                @Override // com.baidu.live.yuyinnoble.d.d, com.baidu.live.yuyinnoble.d.c
+    public void aC(String str, String str2) {
+        if (this.cet == null) {
+            this.cet = new com.baidu.live.yuyinnoble.c.b();
+            this.cet.a(new d() { // from class: com.baidu.live.yuyinnoble.b.a.1
+                @Override // com.baidu.live.yuyinnoble.c.d, com.baidu.live.yuyinnoble.c.c
                 public void b(NobleUserInfo nobleUserInfo) {
                     super.b(nobleUserInfo);
-                    if (a.this.bXG != null) {
-                        a.this.bXG.a(nobleUserInfo);
+                    if (a.this.ces != null) {
+                        a.this.ces.a(nobleUserInfo);
                     }
                 }
             });
         }
-        this.bXH.bb(str, str2);
+        this.cet.ba(str, str2);
     }
 
     @Override // com.baidu.live.noble.b.b
     public void release() {
-        this.bXG = null;
-        if (this.bXH != null) {
-            this.bXH.release();
-            this.bXH = null;
+        this.ces = null;
+        if (this.cet != null) {
+            this.cet.release();
+            this.cet = null;
         }
     }
 }

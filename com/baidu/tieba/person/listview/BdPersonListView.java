@@ -11,7 +11,7 @@ import android.widget.AbsListView;
 import android.widget.Scroller;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class BdPersonListView extends BdTypeListView {
     private float currentX;
     private float currentY;
@@ -20,21 +20,21 @@ public class BdPersonListView extends BdTypeListView {
     private final Context mContext;
     private View mExpandView;
     private final Scroller mScroller;
-    private final Scroller mje;
-    private View mjf;
-    private b mjg;
-    private b mjh;
-    public a mji;
-    private boolean mjj;
-    private boolean mjk;
-    private boolean mjl;
+    private final Scroller mom;
+    private View moo;
+    private b mop;
+    private b moq;
+    public a mor;
+    private boolean mos;
+    private boolean mot;
+    private boolean mou;
     private float startX;
     private float startY;
     private final int touchSlop;
     public static int ExpandListView_expandDistance = 1;
-    public static final int[] ExpandListView = {R.attr.underline_color, R.attr.underline_gravity};
+    public static final int[] ExpandListView = {R.anim.anim_alpha_0_to_1_duration_200_accelerate, R.anim.anim_alpha_0_to_1_duration_300};
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void onExpandingDegree(float f);
 
@@ -46,12 +46,12 @@ public class BdPersonListView extends BdTypeListView {
     public BdPersonListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.isExpanding = false;
-        this.mjj = true;
-        this.mjk = false;
-        this.mjl = false;
+        this.mos = true;
+        this.mot = false;
+        this.mou = false;
         this.mContext = context;
         this.mScroller = new Scroller(this.mContext);
-        this.mje = new Scroller(this.mContext);
+        this.mom = new Scroller(this.mContext);
         this.touchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ExpandListView);
         this.expandDis = obtainStyledAttributes.getDimensionPixelSize(ExpandListView_expandDistance, 0);
@@ -59,7 +59,7 @@ public class BdPersonListView extends BdTypeListView {
     }
 
     public void setNeedConsumeTouchEvent(boolean z) {
-        this.mjl = z;
+        this.mou = z;
     }
 
     public void setExpandView(View view) {
@@ -67,16 +67,16 @@ public class BdPersonListView extends BdTypeListView {
     }
 
     public void setOuterExpandView(View view) {
-        this.mjf = view;
+        this.moo = view;
     }
 
     public View getOuterExpandView() {
-        return this.mjf;
+        return this.moo;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (this.mExpandView == null || !this.mjj) {
+        if (this.mExpandView == null || !this.mos) {
             return super.dispatchTouchEvent(motionEvent);
         }
         int action = motionEvent.getAction();
@@ -87,19 +87,19 @@ public class BdPersonListView extends BdTypeListView {
                     int height = this.mExpandView.getHeight();
                     this.startY = this.currentY;
                     this.startX = this.currentX;
-                    this.mjg = new b(0, height, 0, this.expandDis + height);
-                    int height2 = this.mjf.getHeight();
-                    this.mjh = new b(0, height2, 0, this.expandDis + height2);
+                    this.mop = new b(0, height, 0, this.expandDis + height);
+                    int height2 = this.moo.getHeight();
+                    this.moq = new b(0, height2, 0, this.expandDis + height2);
                     break;
                 case 1:
                 case 3:
                     if (this.isExpanding) {
                         scrollCallback();
-                        if (this.mjk) {
+                        if (this.mot) {
                             return true;
                         }
                     } else {
-                        this.mji.onNotExpanding();
+                        this.mor.onNotExpanding();
                         break;
                     }
                     break;
@@ -107,25 +107,25 @@ public class BdPersonListView extends BdTypeListView {
                     float f = this.currentX - this.startX;
                     float f2 = this.currentY - this.startY;
                     this.startX = this.currentX;
-                    if (this.mExpandView.getParent() == this && this.mjg != null && this.mExpandView.isShown() && this.mExpandView.getTop() >= 0 && Math.abs(f2) >= this.touchSlop && Math.abs(f) < this.touchSlop) {
-                        int scrollY = this.mjg.getScrollY(this.currentY - this.startY);
-                        if (scrollY > this.mjg.startY && scrollY <= this.mjg.endY) {
+                    if (this.mExpandView.getParent() == this && this.mop != null && this.mExpandView.isShown() && this.mExpandView.getTop() >= 0 && Math.abs(f2) >= this.touchSlop && Math.abs(f) < this.touchSlop) {
+                        int scrollY = this.mop.getScrollY(this.currentY - this.startY);
+                        if (scrollY > this.mop.startY && scrollY <= this.mop.endY) {
                             this.isExpanding = true;
                             this.mExpandView.setLayoutParams(new AbsListView.LayoutParams(this.mExpandView.getWidth(), scrollY));
-                            if (this.mjf != null) {
-                                int scrollY2 = this.mjh.getScrollY(this.currentY - this.startY);
-                                ViewGroup.LayoutParams layoutParams = this.mjf.getLayoutParams();
+                            if (this.moo != null) {
+                                int scrollY2 = this.moq.getScrollY(this.currentY - this.startY);
+                                ViewGroup.LayoutParams layoutParams = this.moo.getLayoutParams();
                                 if (layoutParams != null) {
                                     layoutParams.height = scrollY2;
-                                    this.mjf.setLayoutParams(layoutParams);
+                                    this.moo.setLayoutParams(layoutParams);
                                 }
                             }
-                            controllTheStaticProgress(scrollY - this.mjg.startY);
+                            controllTheStaticProgress(scrollY - this.mop.startY);
                             break;
-                        } else if (scrollY <= this.mjg.startY) {
+                        } else if (scrollY <= this.mop.startY) {
                             this.isExpanding = false;
                             break;
-                        } else if (scrollY > this.mjg.endY) {
+                        } else if (scrollY > this.mop.endY) {
                             this.isExpanding = true;
                             break;
                         } else {
@@ -153,34 +153,34 @@ public class BdPersonListView extends BdTypeListView {
 
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (!this.isExpanding || this.mjl) {
+        if (!this.isExpanding || this.mou) {
             return super.onTouchEvent(motionEvent);
         }
         return true;
     }
 
     private void scrollCallback() {
-        if (this.mjg != null) {
-            if (this.mExpandView.getHeight() >= this.mjg.endY - (this.expandDis / 2)) {
+        if (this.mop != null) {
+            if (this.mExpandView.getHeight() >= this.mop.endY - (this.expandDis / 2)) {
                 doRefresh();
             } else {
-                this.mji.onNotExpanding();
+                this.mor.onNotExpanding();
             }
-            this.mScroller.startScroll(0, this.mExpandView.getHeight(), 0, this.mjg.startY - this.mExpandView.getHeight(), 200);
-            this.mje.startScroll(0, this.mjf.getHeight(), 0, this.mjh.startY - this.mjf.getHeight(), 200);
+            this.mScroller.startScroll(0, this.mExpandView.getHeight(), 0, this.mop.startY - this.mExpandView.getHeight(), 200);
+            this.mom.startScroll(0, this.moo.getHeight(), 0, this.moq.startY - this.moo.getHeight(), 200);
             invalidate();
             this.isExpanding = false;
         }
     }
 
     public void doRefresh() {
-        if (this.mji != null) {
-            this.mji.onRefresh();
+        if (this.mor != null) {
+            this.mor.onRefresh();
         }
     }
 
     public void setPersonListRefreshListener(a aVar) {
-        this.mji = aVar;
+        this.mor = aVar;
     }
 
     @Override // android.view.View
@@ -191,20 +191,20 @@ public class BdPersonListView extends BdTypeListView {
         } else {
             super.computeScroll();
         }
-        if (this.mje.computeScrollOffset()) {
-            int currY = this.mje.getCurrY();
-            if (this.mjf != null && (layoutParams = this.mjf.getLayoutParams()) != null) {
+        if (this.mom.computeScrollOffset()) {
+            int currY = this.mom.getCurrY();
+            if (this.moo != null && (layoutParams = this.moo.getLayoutParams()) != null) {
                 layoutParams.height = currY;
-                this.mjf.setLayoutParams(layoutParams);
+                this.moo.setLayoutParams(layoutParams);
             }
         }
     }
 
     private void controllTheStaticProgress(float f) {
-        this.mji.onExpandingDegree(360.0f - ((f * 360.0f) / this.expandDis));
+        this.mor.onExpandingDegree(360.0f - ((f * 360.0f) / this.expandDis));
     }
 
-    /* loaded from: classes22.dex */
+    /* loaded from: classes2.dex */
     public static class b {
         public int endX;
         public int endY;

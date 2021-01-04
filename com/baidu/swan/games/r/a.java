@@ -3,7 +3,7 @@ package com.baidu.swan.games.r;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.http.callback.ResponseCallback;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class a extends com.baidu.swan.games.bdtls.b.a {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -12,11 +12,11 @@ public class a extends com.baidu.swan.games.bdtls.b.a {
             Log.d("requestWithUrlAndBody", "url:" + str + "\nbody:" + str2);
         }
         if (!TextUtils.isEmpty(str)) {
-            if (com.baidu.swan.games.bdtls.c.aVw().isEnable() && com.baidu.swan.games.bdtls.c.aVw().wT(str)) {
+            if (com.baidu.swan.games.bdtls.c.aXQ().isEnable() && com.baidu.swan.games.bdtls.c.aXQ().wS(str)) {
                 b(str, str2, responseCallback);
                 return;
             }
-            com.baidu.swan.a.c.a.bdi().postStringRequest().url(str).cookieManager(com.baidu.swan.apps.t.a.azz().akJ()).mediaType("application/json;charset=utf-8").content(str2).build().executeAsync(responseCallback);
+            com.baidu.swan.a.c.a.bfE().postStringRequest().url(str).cookieManager(com.baidu.swan.apps.t.a.aAQ().alT()).mediaType("application/json;charset=utf-8").content(str2).build().executeAsync(responseCallback);
         }
     }
 }

@@ -10,45 +10,33 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final b f2861a = new b();
-    private c b = new c(com.baidu.platform.comapi.b.e(), "res.json");
+    public static final b f4234a = new b();
+
+    /* renamed from: b  reason: collision with root package name */
+    private c f4235b = new c(com.baidu.platform.comapi.b.e(), "res.json");
 
     private b() {
     }
 
     private boolean a(AssetManager assetManager, byte[] bArr, String str, String str2) {
-        InputStream inputStream;
-        Throwable th;
-        InputStream inputStream2;
-        InputStream inputStream3 = null;
+        InputStream inputStream = null;
         try {
             if (TextUtils.isEmpty(str) || !str.endsWith(".dir")) {
-                inputStream3 = assetManager.open(str);
-                try {
-                    File file = new File(str2);
-                    File parentFile = file.getParentFile();
-                    if (parentFile != null && !parentFile.isDirectory()) {
-                        parentFile.mkdirs();
-                    }
-                    if (file.exists()) {
-                        file.delete();
-                    }
-                    file.createNewFile();
-                    a.a(inputStream3, new FileOutputStream(file), bArr);
-                } catch (Exception e) {
-                    inputStream2 = inputStream3;
-                    a.a(inputStream2);
-                    return false;
-                } catch (Throwable th2) {
-                    inputStream = inputStream3;
-                    th = th2;
-                    a.a(inputStream);
-                    throw th;
+                inputStream = assetManager.open(str);
+                File file = new File(str2);
+                File parentFile = file.getParentFile();
+                if (parentFile != null && !parentFile.isDirectory()) {
+                    parentFile.mkdirs();
                 }
+                if (file.exists()) {
+                    file.delete();
+                }
+                file.createNewFile();
+                a.a(inputStream, new FileOutputStream(file), bArr);
             } else {
                 String substring = str.substring(0, str.indexOf(".dir"));
                 String substring2 = str2.substring(0, str2.indexOf(".dir"));
@@ -66,13 +54,14 @@ public class b {
                     }
                 }
             }
-            a.a(inputStream3);
+            a.a(inputStream);
             return true;
-        } catch (Exception e2) {
-            inputStream2 = null;
-        } catch (Throwable th3) {
-            inputStream = null;
-            th = th3;
+        } catch (Exception e) {
+            a.a(null);
+            return false;
+        } catch (Throwable th) {
+            a.a(null);
+            throw th;
         }
     }
 
@@ -149,64 +138,60 @@ public class b {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:14:0x005c A[ADDED_TO_REGION] */
-    /* JADX WARN: Removed duplicated region for block: B:35:? A[ADDED_TO_REGION, RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public void a() {
         File file;
+        byte[] bArr;
         boolean z;
-        boolean z2;
-        File file2;
-        byte[] bArr = null;
-        boolean z3 = true;
+        String[] b2;
+        boolean z2 = true;
+        boolean z3 = false;
         Context e = com.baidu.platform.comapi.b.e();
         try {
-            String b = b();
-            file = new File(b, "/ver.dat");
+            String b3 = b();
+            file = new File(b3, "/ver.dat");
             try {
-                bArr = this.b.a();
-                z = a(file, bArr);
-                if (z) {
-                    try {
-                        AssetManager assets = e.getAssets();
-                        String[] b2 = this.b.b();
-                        byte[] bArr2 = new byte[65536];
-                        int length = b2.length;
-                        int i = 0;
-                        while (i < length) {
-                            String str = b2[i];
-                            i++;
-                            z3 = a(assets, bArr2, str, b + "/" + str);
-                        }
-                    } catch (RuntimeException e2) {
-                        file2 = file;
-                        z2 = z;
-                        z = z2;
-                        file = file2;
-                        z3 = false;
-                        if (z) {
+                byte[] a2 = this.f4235b.a();
+                try {
+                    z = a(file, a2);
+                    if (z) {
+                        try {
+                            AssetManager assets = e.getAssets();
+                            byte[] bArr2 = new byte[65536];
+                            for (String str : this.f4235b.b()) {
+                                z2 = a(assets, bArr2, str, b3 + "/" + str);
+                            }
+                        } catch (RuntimeException e2) {
+                            bArr = a2;
+                            z2 = z;
+                            z = z2;
+                            if (z) {
+                                return;
+                            }
                             return;
-                        }
-                        return;
-                    } catch (Exception e3) {
-                        z3 = false;
-                        if (z) {
+                        } catch (Exception e3) {
+                            bArr = a2;
                         }
                     }
+                    bArr = a2;
+                    z3 = z2;
+                } catch (RuntimeException e4) {
+                    bArr = a2;
+                } catch (Exception e5) {
+                    bArr = a2;
+                    z = true;
                 }
-            } catch (RuntimeException e4) {
-                z2 = true;
-                file2 = file;
-            } catch (Exception e5) {
+            } catch (RuntimeException e6) {
+                bArr = null;
+            } catch (Exception e7) {
+                bArr = null;
                 z = true;
             }
-        } catch (RuntimeException e6) {
-            z2 = true;
-            file2 = null;
-        } catch (Exception e7) {
+        } catch (RuntimeException e8) {
             file = null;
+            bArr = null;
+        } catch (Exception e9) {
+            file = null;
+            bArr = null;
             z = true;
         }
         if (z || !z3) {

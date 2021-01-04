@@ -1,13 +1,13 @@
 package com.baidu.live.view;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-/* loaded from: classes4.dex */
+import androidx.annotation.Nullable;
+/* loaded from: classes11.dex */
 public class AlaDoubleStateImageView extends ImageView {
-    private int bOJ;
-    private int bOK;
+    private int bTy;
+    private int bTz;
     private boolean isSelected;
 
     public AlaDoubleStateImageView(Context context) {
@@ -27,20 +27,20 @@ public class AlaDoubleStateImageView extends ImageView {
 
     public void setImageSrc(int i, int i2) {
         if (i > 0 && i2 > 0) {
-            this.bOJ = i;
-            this.bOK = i2;
-            setImageResource(this.bOJ);
+            this.bTy = i;
+            this.bTz = i2;
+            setImageResource(this.bTy);
         }
     }
 
     public void setSelect(boolean z) {
         this.isSelected = z;
         if (z) {
-            if (this.bOK > 0) {
-                setImageResource(this.bOK);
+            if (this.bTz > 0) {
+                setImageResource(this.bTz);
             }
-        } else if (this.bOJ > 0) {
-            setImageResource(this.bOJ);
+        } else if (this.bTy > 0) {
+            setImageResource(this.bTy);
         }
     }
 

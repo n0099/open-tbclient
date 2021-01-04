@@ -12,7 +12,7 @@ import java.lang.ref.SoftReference;
 import java.lang.reflect.Array;
 import java.util.AbstractList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DefaultMp4SampleList extends AbstractList<Sample> {
     SoftReference<Sample>[] cache;
     int[] chunkNumsStartSampleNum;
@@ -24,11 +24,8 @@ public class DefaultMp4SampleList extends AbstractList<Sample> {
 
     public DefaultMp4SampleList(long j, Container container) {
         int i;
-        long j2;
         int i2;
         int i3;
-        int i4;
-        int i5;
         this.trackBox = null;
         this.cache = null;
         this.topLevel = container;
@@ -45,81 +42,69 @@ public class DefaultMp4SampleList extends AbstractList<Sample> {
         this.ssb = this.trackBox.getSampleTableBox().getSampleSizeBox();
         List<SampleToChunkBox.Entry> entries = this.trackBox.getSampleTableBox().getSampleToChunkBox().getEntries();
         SampleToChunkBox.Entry[] entryArr = (SampleToChunkBox.Entry[]) entries.toArray(new SampleToChunkBox.Entry[entries.size()]);
+        int i4 = 1;
         SampleToChunkBox.Entry entry = entryArr[0];
+        int i5 = 0;
         long firstChunk = entry.getFirstChunk();
         int l2i = CastUtils.l2i(entry.getSamplesPerChunk());
         int size = size();
-        int i6 = 0;
+        int i6 = 1;
         int i7 = 0;
-        int i8 = 1;
-        int i9 = 1;
         while (true) {
-            i = i7 + 1;
-            if (i != firstChunk) {
-                int i10 = l2i;
-                j2 = firstChunk;
-                i2 = i6;
-                i3 = i8;
-                i4 = i10;
-            } else if (entryArr.length > i8) {
-                SampleToChunkBox.Entry entry2 = entryArr[i8];
-                i4 = CastUtils.l2i(entry2.getSamplesPerChunk());
-                long firstChunk2 = entry2.getFirstChunk();
-                i2 = l2i;
-                i3 = i8 + 1;
-                j2 = firstChunk2;
+            i7++;
+            if (i7 != firstChunk) {
+                i = l2i;
+                i2 = i4;
+            } else if (entryArr.length > i4) {
+                i2 = i4 + 1;
+                SampleToChunkBox.Entry entry2 = entryArr[i4];
+                i = CastUtils.l2i(entry2.getSamplesPerChunk());
+                firstChunk = entry2.getFirstChunk();
+                i5 = l2i;
             } else {
-                i4 = -1;
-                i2 = l2i;
-                i3 = i8;
-                j2 = Long.MAX_VALUE;
+                i = -1;
+                firstChunk = Long.MAX_VALUE;
+                i5 = l2i;
+                i2 = i4;
             }
-            int i11 = i9 + i2;
-            if (i11 > size) {
+            i6 += i5;
+            if (i6 > size) {
                 break;
             }
-            i9 = i11;
-            i8 = i3;
-            long j3 = j2;
-            i7 = i;
-            l2i = i4;
-            i6 = i2;
-            firstChunk = j3;
+            l2i = i;
+            i4 = i2;
         }
-        this.chunkNumsStartSampleNum = new int[i + 1];
+        this.chunkNumsStartSampleNum = new int[i7 + 1];
         SampleToChunkBox.Entry entry3 = entryArr[0];
-        int i12 = 0;
-        int i13 = 0;
-        long firstChunk3 = entry3.getFirstChunk();
+        int i8 = 0;
+        long firstChunk2 = entry3.getFirstChunk();
         int l2i2 = CastUtils.l2i(entry3.getSamplesPerChunk());
-        int i14 = 1;
-        int i15 = 1;
+        int i9 = 1;
+        int i10 = 0;
+        int i11 = 1;
         while (true) {
-            int i16 = i12 + 1;
-            this.chunkNumsStartSampleNum[i12] = i14;
-            if (i16 != firstChunk3) {
-                i5 = i15;
-            } else if (entryArr.length > i15) {
-                i5 = i15 + 1;
-                SampleToChunkBox.Entry entry4 = entryArr[i15];
-                int l2i3 = CastUtils.l2i(entry4.getSamplesPerChunk());
-                firstChunk3 = entry4.getFirstChunk();
-                i13 = l2i2;
-                l2i2 = l2i3;
+            int i12 = i8 + 1;
+            this.chunkNumsStartSampleNum[i8] = i9;
+            if (i12 != firstChunk2) {
+                i3 = l2i2;
+            } else if (entryArr.length > i11) {
+                SampleToChunkBox.Entry entry4 = entryArr[i11];
+                i3 = CastUtils.l2i(entry4.getSamplesPerChunk());
+                firstChunk2 = entry4.getFirstChunk();
+                i10 = l2i2;
+                i11++;
             } else {
-                firstChunk3 = Long.MAX_VALUE;
-                i5 = i15;
-                int i17 = l2i2;
-                l2i2 = -1;
-                i13 = i17;
+                i3 = -1;
+                firstChunk2 = Long.MAX_VALUE;
+                i10 = l2i2;
             }
-            i14 += i13;
-            if (i14 > size) {
-                this.chunkNumsStartSampleNum[i16] = Integer.MAX_VALUE;
+            i9 += i10;
+            if (i9 > size) {
+                this.chunkNumsStartSampleNum[i12] = Integer.MAX_VALUE;
                 return;
             } else {
-                i15 = i5;
-                i12 = i16;
+                l2i2 = i3;
+                i8 = i12;
             }
         }
     }

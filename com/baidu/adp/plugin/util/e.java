@@ -15,7 +15,7 @@ import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 /* loaded from: classes.dex */
 public final class e {
-    private static WeakReference<byte[]> VI;
+    private static WeakReference<byte[]> VK;
     private static Object mSync = new Object();
 
     public static Signature[] a(String str, Util.a aVar) throws CertificateEncodingException, IOException {
@@ -29,9 +29,9 @@ public final class e {
             return null;
         }
         synchronized (mSync) {
-            WeakReference<byte[]> weakReference2 = VI;
+            WeakReference<byte[]> weakReference2 = VK;
             if (weakReference2 != null) {
-                VI = null;
+                VK = null;
                 bArr = weakReference2.get();
             } else {
                 bArr = null;
@@ -110,7 +110,7 @@ public final class e {
             aVar.step = 8;
             jarFile.close();
             synchronized (mSync) {
-                VI = weakReference;
+                VK = weakReference;
             }
             aVar.step = 9;
             if (certificateArr2 != null && certificateArr2.length > 0) {
@@ -136,43 +136,39 @@ public final class e {
     }
 
     private static Certificate[] a(JarFile jarFile, JarEntry jarEntry, byte[] bArr, Util.a aVar) throws IOException {
-        Throwable th;
-        RuntimeException e;
-        IOException e2;
-        BufferedInputStream bufferedInputStream;
         try {
             try {
-                bufferedInputStream = new BufferedInputStream(jarFile.getInputStream(jarEntry));
-            } catch (Throwable th2) {
-                th = th2;
+                BufferedInputStream bufferedInputStream = new BufferedInputStream(jarFile.getInputStream(jarEntry));
+                try {
+                    aVar.step = 3;
+                    do {
+                    } while (bufferedInputStream.read(bArr, 0, bArr.length) != -1);
+                    aVar.step = 4;
+                    Certificate[] certificates = jarEntry != null ? jarEntry.getCertificates() : null;
+                    com.baidu.adp.lib.f.a.close((InputStream) bufferedInputStream);
+                    return certificates;
+                } catch (IOException e) {
+                    e = e;
+                    BdLog.e("Exception reading " + jarEntry.getName() + " in " + jarFile.getName() + "----" + e.getMessage());
+                    throw e;
+                } catch (RuntimeException e2) {
+                    e = e2;
+                    BdLog.e("Exception reading " + jarEntry.getName() + " in " + jarFile.getName() + "----" + e.getMessage());
+                    throw e;
+                }
+            } catch (Throwable th) {
+                th = th;
                 com.baidu.adp.lib.f.a.close((InputStream) null);
                 throw th;
             }
         } catch (IOException e3) {
-            e2 = e3;
+            e = e3;
         } catch (RuntimeException e4) {
             e = e4;
-        } catch (Throwable th3) {
-            th = th3;
+        } catch (Throwable th2) {
+            th = th2;
             com.baidu.adp.lib.f.a.close((InputStream) null);
             throw th;
-        }
-        try {
-            aVar.step = 3;
-            do {
-            } while (bufferedInputStream.read(bArr, 0, bArr.length) != -1);
-            aVar.step = 4;
-            Certificate[] certificates = jarEntry != null ? jarEntry.getCertificates() : null;
-            com.baidu.adp.lib.f.a.close((InputStream) bufferedInputStream);
-            return certificates;
-        } catch (IOException e5) {
-            e2 = e5;
-            BdLog.e("Exception reading " + jarEntry.getName() + " in " + jarFile.getName() + "----" + e2.getMessage());
-            throw e2;
-        } catch (RuntimeException e6) {
-            e = e6;
-            BdLog.e("Exception reading " + jarEntry.getName() + " in " + jarFile.getName() + "----" + e.getMessage());
-            throw e;
         }
     }
 }

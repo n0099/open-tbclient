@@ -18,7 +18,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class JavaBeanSerializer extends SerializeFilterable implements ObjectSerializer {
     protected SerializeBeanInfo beanInfo;
     protected final FieldSerializer[] getters;
@@ -402,31 +402,25 @@ public class JavaBeanSerializer extends SerializeFilterable implements ObjectSer
     public FieldSerializer getFieldSerializer(long j) {
         PropertyNamingStrategy[] propertyNamingStrategyArr;
         int binarySearch;
-        int i;
         if (this.hashArray == null) {
             PropertyNamingStrategy[] values = PropertyNamingStrategy.values();
             long[] jArr = new long[this.sortedGetters.length * values.length];
-            int i2 = 0;
-            for (int i3 = 0; i3 < this.sortedGetters.length; i3++) {
-                String str = this.sortedGetters[i3].fieldInfo.name;
-                jArr[i2] = TypeUtils.fnv1a_64(str);
-                i2++;
-                int i4 = 0;
-                while (i4 < values.length) {
-                    String translate = values[i4].translate(str);
-                    if (str.equals(translate)) {
-                        i = i2;
-                    } else {
-                        i = i2 + 1;
-                        jArr[i2] = TypeUtils.fnv1a_64(translate);
+            int i = 0;
+            for (int i2 = 0; i2 < this.sortedGetters.length; i2++) {
+                String str = this.sortedGetters[i2].fieldInfo.name;
+                jArr[i] = TypeUtils.fnv1a_64(str);
+                i++;
+                for (PropertyNamingStrategy propertyNamingStrategy : values) {
+                    String translate = propertyNamingStrategy.translate(str);
+                    if (!str.equals(translate)) {
+                        jArr[i] = TypeUtils.fnv1a_64(translate);
+                        i++;
                     }
-                    i4++;
-                    i2 = i;
                 }
             }
-            Arrays.sort(jArr, 0, i2);
-            this.hashArray = new long[i2];
-            System.arraycopy(jArr, 0, this.hashArray, 0, i2);
+            Arrays.sort(jArr, 0, i);
+            this.hashArray = new long[i];
+            System.arraycopy(jArr, 0, this.hashArray, 0, i);
             propertyNamingStrategyArr = values;
         } else {
             propertyNamingStrategyArr = null;
@@ -441,16 +435,16 @@ public class JavaBeanSerializer extends SerializeFilterable implements ObjectSer
             }
             short[] sArr = new short[this.hashArray.length];
             Arrays.fill(sArr, (short) -1);
-            for (int i5 = 0; i5 < this.sortedGetters.length; i5++) {
-                String str2 = this.sortedGetters[i5].fieldInfo.name;
+            for (int i3 = 0; i3 < this.sortedGetters.length; i3++) {
+                String str2 = this.sortedGetters[i3].fieldInfo.name;
                 int binarySearch3 = Arrays.binarySearch(this.hashArray, TypeUtils.fnv1a_64(str2));
                 if (binarySearch3 >= 0) {
-                    sArr[binarySearch3] = (short) i5;
+                    sArr[binarySearch3] = (short) i3;
                 }
-                for (PropertyNamingStrategy propertyNamingStrategy : propertyNamingStrategyArr) {
-                    String translate2 = propertyNamingStrategy.translate(str2);
+                for (PropertyNamingStrategy propertyNamingStrategy2 : propertyNamingStrategyArr) {
+                    String translate2 = propertyNamingStrategy2.translate(str2);
                     if (!str2.equals(translate2) && (binarySearch = Arrays.binarySearch(this.hashArray, TypeUtils.fnv1a_64(translate2))) >= 0) {
-                        sArr[binarySearch] = (short) i5;
+                        sArr[binarySearch] = (short) i3;
                     }
                 }
             }

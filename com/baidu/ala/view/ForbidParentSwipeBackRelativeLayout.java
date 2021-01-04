@@ -1,14 +1,14 @@
 package com.baidu.ala.view;
 
 import android.content.Context;
-import android.support.v4.view.MotionEventCompat;
-import android.support.v4.view.ViewConfigurationCompat;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 import android.widget.RelativeLayout;
+import androidx.core.view.MotionEventCompat;
+import androidx.core.view.ViewConfigurationCompat;
 import com.baidu.adp.widget.SwipeBackLayout;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class ForbidParentSwipeBackRelativeLayout extends RelativeLayout {
     private static final int INVALID_POINTER = -1;
     private boolean isIntercept;

@@ -3,7 +3,7 @@ package com.baidu.platform.comapi.map;
 import android.view.MotionEvent;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public interface ag {
     void a();
 

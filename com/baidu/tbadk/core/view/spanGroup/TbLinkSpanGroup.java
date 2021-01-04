@@ -1,29 +1,29 @@
 package com.baidu.tbadk.core.view.spanGroup;
 
-import android.support.annotation.NonNull;
 import android.text.Editable;
+import androidx.annotation.NonNull;
 import com.baidu.adp.lib.util.k;
 import com.baidu.searchbox.config.QuickPersistConfigConst;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.u;
 import com.baidu.tbadk.core.elementsMaven.span.EMRichTextAnyIconSpan;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.R;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
-    private static final String fgW = TbadkCoreApplication.getInst().getString(R.string.web_page_link);
-    private String amY;
-    private u fgV;
-    private LINK_TYPE fgX;
-    private CharSequence fgY;
-    private CharSequence fgZ;
-    private String fha;
-    private String fhb;
-    private int fhc;
-    private int mShowType;
+    private static final String fqF = TbadkCoreApplication.getInst().getString(R.string.web_page_link);
+    private String anD;
+    private u fqE;
+    private LINK_TYPE fqG;
+    private int fqH;
+    private CharSequence fqI;
+    private CharSequence fqJ;
+    private String fqK;
+    private String fqL;
+    private int fqM;
 
     /* loaded from: classes.dex */
     public enum LINK_TYPE {
@@ -35,85 +35,85 @@ public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
     }
 
     private TbLinkSpanGroup() {
-        this.mShowType = 0;
-        this.fgX = LINK_TYPE.DEAULT;
+        this.fqH = 0;
+        this.fqG = LINK_TYPE.DEAULT;
     }
 
     public static TbLinkSpanGroup a(@NonNull TbLinkSpanGroup tbLinkSpanGroup, @NonNull Editable editable) {
         TbLinkSpanGroup tbLinkSpanGroup2 = new TbLinkSpanGroup();
         tbLinkSpanGroup2.a(tbLinkSpanGroup);
-        tbLinkSpanGroup2.b(editable);
+        tbLinkSpanGroup2.c(editable);
         return tbLinkSpanGroup2;
     }
 
     public TbLinkSpanGroup(@NonNull LINK_TYPE link_type) {
-        this.mShowType = 0;
-        this.fgX = link_type;
+        this.fqH = 0;
+        this.fqG = link_type;
     }
 
     public void build() {
         setValid(true);
-        if (this.fgX == LINK_TYPE.PARSED_EXTERNAL_LINK) {
-            bwu();
+        if (this.fqG == LINK_TYPE.PARSED_EXTERNAL_LINK) {
+            byN();
         } else {
-            bwt();
+            byM();
         }
     }
 
     @Override // com.baidu.tbadk.core.view.spanGroup.a
     public void a(Editable editable, int i, int i2, int i3) {
         super.a(editable, i, i2, i3);
-        if (this.fgX == LINK_TYPE.PARSED_EXTERNAL_LINK) {
-            this.fgZ = " ";
+        if (this.fqG == LINK_TYPE.PARSED_EXTERNAL_LINK) {
+            this.fqJ = " ";
             return;
         }
-        this.fgY = editable.subSequence(i, i2 - 1);
-        this.fgZ = editable.subSequence(i2 - 1, i2);
+        this.fqI = editable.subSequence(i, i2 - 1);
+        this.fqJ = editable.subSequence(i2 - 1, i2);
     }
 
-    public void bwt() {
-        if (this.mShowType != 1) {
-            this.mShowType = 1;
-            this.fhb = fgW;
-            String str = "[p]" + fgW + ((Object) this.fgZ);
-            this.fhc = str.length();
+    public void byM() {
+        if (this.fqH != 1) {
+            this.fqH = 1;
+            this.fqL = fqF;
+            String str = "[p]" + fqF + ((Object) this.fqJ);
+            this.fqM = str.length();
             o(str);
             EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.icon_pure_post_link16, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
             eMRichTextAnyIconSpan.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
-            b(eMRichTextAnyIconSpan, getStart(), getStart() + "[p]".length(), 33);
-            b(new TbLinkForegroundColorSpan(ap.getColor(R.color.CAM_X0304)), getStart() + "[p]".length(), getEnd(), 33);
+            setSpan(eMRichTextAnyIconSpan, getStart(), getStart() + "[p]".length(), 33);
+            setSpan(new TbLinkForegroundColorSpan(ao.getColor(R.color.CAM_X0304)), getStart() + "[p]".length(), getEnd(), 33);
         }
     }
 
     @Override // com.baidu.tbadk.core.view.spanGroup.a
     public void a(Editable editable, int i) {
         String str;
-        if (this.fgV == null) {
-            String str2 = au.isEmpty(this.amY) ? "0" : this.amY;
-            if (this.fgX == LINK_TYPE.INTERNAL_LINK && au.isEmpty(this.fha)) {
+        if (this.fqE == null) {
+            String str2 = at.isEmpty(this.anD) ? "0" : this.anD;
+            if (this.fqG == LINK_TYPE.INTERNAL_LINK && at.isEmpty(this.fqK)) {
                 str = "";
             } else {
-                str = this.fhb;
+                str = this.fqL;
             }
             StringBuilder sb = new StringBuilder();
-            sb.append("#(url,").append(str2).append(",").append(k.getUrlEncode(this.fgY.toString())).append(",").append(k.getUrlEncode(str)).append(")").append(this.fgZ);
+            sb.append("#(url,").append(str2).append(",").append(k.getUrlEncode(this.fqI.toString())).append(",").append(k.getUrlEncode(str)).append(")").append(this.fqJ);
             o(sb);
-        } else if (this.fgX == LINK_TYPE.INTERNAL_LINK || this.fgX == LINK_TYPE.PARSABLE_EXTERNAL_LINK) {
-            String str3 = this.fhb;
+        } else if (this.fqG == LINK_TYPE.INTERNAL_LINK || this.fqG == LINK_TYPE.PARSABLE_EXTERNAL_LINK) {
+            String str3 = this.fqL;
             StringBuilder sb2 = new StringBuilder();
-            sb2.append("#(url,0,").append(k.getUrlEncode(this.fgY.toString())).append(",").append(k.getUrlEncode(str3)).append(",").append(k.getUrlEncode(this.fgV.eFz)).append(",").append(this.fgV.mIcon).append(",").append(k.getUrlEncode(this.fgV.mPrice)).append(",").append(i).append(",").append(this.fgV.eFC).append(")").append(this.fgZ);
+            sb2.append("#(url,0,").append(k.getUrlEncode(this.fqI.toString())).append(",").append(k.getUrlEncode(str3)).append(",").append(k.getUrlEncode(this.fqE.ePp)).append(",").append(this.fqE.mIcon).append(",").append(k.getUrlEncode(this.fqE.mPrice)).append(",").append(i).append(",").append(this.fqE.ePs).append(")").append(this.fqJ);
             o(sb2);
-        } else if (this.fgX == LINK_TYPE.PARSED_EXTERNAL_LINK) {
+        } else if (this.fqG == LINK_TYPE.PARSED_EXTERNAL_LINK) {
             try {
                 JSONObject jSONObject = new JSONObject();
                 JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("goods_id", this.fgV.eFA);
+                jSONObject2.put("goods_id", this.fqE.ePq);
                 jSONObject2.put(QuickPersistConfigConst.KEY_SPLASH_SORT, i);
-                jSONObject2.put("title", this.fgV.mContent);
-                jSONObject2.put("url", this.fgV.eFy);
+                jSONObject2.put("title", this.fqE.mContent);
+                jSONObject2.put("url", this.fqE.ePo);
                 StringBuilder sb3 = new StringBuilder();
                 jSONObject.put("goods", jSONObject2);
-                sb3.append("#(goods,").append(k.getUrlEncode(jSONObject.toString())).append(")").append(this.fgZ);
+                sb3.append("#(goods,").append(k.getUrlEncode(jSONObject.toString())).append(")").append(this.fqJ);
                 o(sb3);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -122,18 +122,18 @@ public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
     }
 
     @Override // com.baidu.tbadk.core.view.spanGroup.a
-    public void a(Editable editable) {
-        if (this.fgV != null && this.fgV.mType == 2) {
-            if (this.fgV.eFv != null) {
+    public void b(Editable editable) {
+        if (this.fqE != null && this.fqE.mType == 2) {
+            if (this.fqE.ePl != null) {
                 StringBuilder sb = new StringBuilder();
-                sb.append("#(commodity,commo_").append(this.fgV.eFv).append("_commo)");
+                sb.append("#(commodity,commo_").append(this.fqE.ePl).append("_commo)");
                 o(sb);
                 return;
             }
             return;
         }
         StringBuilder sb2 = new StringBuilder();
-        sb2.append(this.fgY).append(this.fgZ);
+        sb2.append(this.fqI).append(this.fqJ);
         o(sb2);
     }
 
@@ -143,63 +143,63 @@ public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
     /* renamed from: b */
     public void a(TbLinkSpanGroup tbLinkSpanGroup) {
         super.a(tbLinkSpanGroup);
-        this.fgX = tbLinkSpanGroup.fgX;
-        this.mShowType = tbLinkSpanGroup.mShowType;
-        this.fgY = tbLinkSpanGroup.fgY;
-        this.fgZ = tbLinkSpanGroup.fgZ;
-        this.amY = tbLinkSpanGroup.amY;
-        this.fha = tbLinkSpanGroup.fha;
-        this.fhb = tbLinkSpanGroup.fhb;
-        this.fgV = tbLinkSpanGroup.fgV;
+        this.fqG = tbLinkSpanGroup.fqG;
+        this.fqH = tbLinkSpanGroup.fqH;
+        this.fqI = tbLinkSpanGroup.fqI;
+        this.fqJ = tbLinkSpanGroup.fqJ;
+        this.anD = tbLinkSpanGroup.anD;
+        this.fqK = tbLinkSpanGroup.fqK;
+        this.fqL = tbLinkSpanGroup.fqL;
+        this.fqE = tbLinkSpanGroup.fqE;
     }
 
-    public void bwu() {
-        if (this.mShowType != 2 && !au.isEmpty(this.fha)) {
-            this.mShowType = 2;
-            this.fhb = au.am(this.fha, 40);
-            String str = "[p]" + this.fhb + ((Object) this.fgZ);
-            this.fhc = str.length();
+    public void byN() {
+        if (this.fqH != 2 && !at.isEmpty(this.fqK)) {
+            this.fqH = 2;
+            this.fqL = at.ao(this.fqK, 40);
+            String str = "[p]" + this.fqL + ((Object) this.fqJ);
+            this.fqM = str.length();
             o(str);
             EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.icon_pure_post_link16, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
             eMRichTextAnyIconSpan.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
-            b(eMRichTextAnyIconSpan, getStart(), getStart() + "[p]".length(), 33);
-            b(new TbLinkForegroundColorSpan(ap.getColor(R.color.CAM_X0304)), getStart() + "[p]".length(), getEnd(), 33);
+            setSpan(eMRichTextAnyIconSpan, getStart(), getStart() + "[p]".length(), 33);
+            setSpan(new TbLinkForegroundColorSpan(ao.getColor(R.color.CAM_X0304)), getStart() + "[p]".length(), getEnd(), 33);
         }
     }
 
-    public u bwv() {
-        return this.fgV;
+    public u byO() {
+        return this.fqE;
     }
 
-    public LINK_TYPE bww() {
-        return this.fgX;
+    public LINK_TYPE byP() {
+        return this.fqG;
     }
 
     public void setTid(String str) {
-        this.amY = str;
+        this.anD = str;
     }
 
     public String getTid() {
-        return this.amY;
+        return this.anD;
     }
 
-    public void CG(String str) {
-        this.fha = str;
+    public void CE(String str) {
+        this.fqK = str;
     }
 
     public void setUrl(String str) {
-        this.fgY = str;
+        this.fqI = str;
     }
 
     public void b(u uVar) {
-        this.fgV = uVar;
+        this.fqE = uVar;
     }
 
     public void a(LINK_TYPE link_type) {
-        this.fgX = link_type;
+        this.fqG = link_type;
     }
 
-    public int bwx() {
-        return this.fhc;
+    public int byQ() {
+        return this.fqM;
     }
 }

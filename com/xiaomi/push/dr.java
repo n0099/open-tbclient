@@ -3,7 +3,7 @@ package com.xiaomi.push;
 import android.content.Context;
 import android.content.IntentFilter;
 import com.xiaomi.push.mpcd.receivers.BroadcastActionsReceiver;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class dr {
     private static IntentFilter a() {
         IntentFilter intentFilter = new IntentFilter();
@@ -18,14 +18,14 @@ public class dr {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private static dw m226a() {
+    private static dw m252a() {
         return new ds();
     }
 
     public static void a(Context context) {
-        dx.a(context).m227a();
+        dx.a(context).m253a();
         try {
-            context.registerReceiver(new BroadcastActionsReceiver(m226a()), a());
+            context.registerReceiver(new BroadcastActionsReceiver(m252a()), a());
         } catch (Throwable th) {
             com.xiaomi.channel.commonutils.logger.b.a(th);
         }

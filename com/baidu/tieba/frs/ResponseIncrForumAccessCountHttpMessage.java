@@ -3,7 +3,7 @@ package com.baidu.tieba.frs;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.IncrForumAccessCount.IncrForumAccessCountResIdl;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class ResponseIncrForumAccessCountHttpMessage extends TbHttpResponsedMessage {
     private IncrForumAccessCountResIdl mResponseData;
 

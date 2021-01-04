@@ -4,10 +4,10 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public final class bt {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     public static class a {
         public static String a(byte[] bArr) {
             try {
@@ -18,7 +18,7 @@ public final class bt {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     public static class b {
         public static String a(byte[] bArr) {
             try {
@@ -46,49 +46,51 @@ public final class bt {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [87=4] */
     /* JADX INFO: Access modifiers changed from: private */
     public static String b(MessageDigest messageDigest, File file) {
+        Throwable th;
         FileInputStream fileInputStream;
+        FileInputStream fileInputStream2;
         if (file.isFile()) {
-            FileInputStream fileInputStream2 = null;
             try {
-                fileInputStream = new FileInputStream(file);
-                try {
-                    byte[] bArr = new byte[4048];
-                    while (true) {
-                        int read = fileInputStream.read(bArr);
-                        if (read == -1) {
-                            break;
-                        }
-                        messageDigest.update(bArr, 0, read);
-                    }
-                    if (fileInputStream != null) {
-                        try {
-                            fileInputStream.close();
-                        } catch (Exception e) {
-                        }
-                    }
-                } catch (Exception e2) {
-                    if (fileInputStream != null) {
-                        try {
-                            fileInputStream.close();
-                        } catch (Exception e3) {
-                        }
-                    }
-                    return a(messageDigest.digest());
-                } catch (Throwable th) {
-                    fileInputStream2 = fileInputStream;
-                    th = th;
-                    if (fileInputStream2 != null) {
-                        try {
-                            fileInputStream2.close();
-                        } catch (Exception e4) {
-                        }
-                    }
-                    throw th;
-                }
-            } catch (Exception e5) {
-                fileInputStream = null;
+                fileInputStream2 = new FileInputStream(file);
+            } catch (Exception e) {
+                fileInputStream2 = null;
             } catch (Throwable th2) {
                 th = th2;
+                fileInputStream = null;
+            }
+            try {
+                byte[] bArr = new byte[4048];
+                while (true) {
+                    int read = fileInputStream2.read(bArr);
+                    if (read == -1) {
+                        break;
+                    }
+                    messageDigest.update(bArr, 0, read);
+                }
+                if (fileInputStream2 != null) {
+                    try {
+                        fileInputStream2.close();
+                    } catch (Exception e2) {
+                    }
+                }
+            } catch (Exception e3) {
+                if (fileInputStream2 != null) {
+                    try {
+                        fileInputStream2.close();
+                    } catch (Exception e4) {
+                    }
+                }
+                return a(messageDigest.digest());
+            } catch (Throwable th3) {
+                th = th3;
+                fileInputStream = fileInputStream2;
+                if (fileInputStream != null) {
+                    try {
+                        fileInputStream.close();
+                    } catch (Exception e5) {
+                    }
+                }
+                throw th;
             }
             return a(messageDigest.digest());
         }

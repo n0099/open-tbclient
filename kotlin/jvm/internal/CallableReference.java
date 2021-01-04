@@ -8,23 +8,23 @@ import java.util.Map;
 import kotlin.jvm.KotlinReflectionNotSupportedError;
 import kotlin.reflect.KParameter;
 import kotlin.reflect.KVisibility;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public abstract class CallableReference implements Serializable, kotlin.reflect.b {
-    public static final Object NO_RECEIVER = NoReceiver.pKD;
+    public static final Object NO_RECEIVER = NoReceiver.qmg;
     protected final Object receiver;
     private transient kotlin.reflect.b reflected;
 
     protected abstract kotlin.reflect.b computeReflected();
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     private static class NoReceiver implements Serializable {
-        private static final NoReceiver pKD = new NoReceiver();
+        private static final NoReceiver qmg = new NoReceiver();
 
         private NoReceiver() {
         }
 
         private Object readResolve() throws ObjectStreamException {
-            return pKD;
+            return qmg;
         }
     }
 

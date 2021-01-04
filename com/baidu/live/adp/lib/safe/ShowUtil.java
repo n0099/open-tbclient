@@ -7,7 +7,7 @@ import android.os.IBinder;
 import android.view.View;
 import android.widget.PopupWindow;
 import com.baidu.live.adp.base.BdPageContext;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class ShowUtil {
     public static int windowCount = 0;
 
@@ -63,11 +63,19 @@ public class ShowUtil {
     }
 
     public static final boolean dismissPopupWindow(PopupWindow popupWindow) {
-        if (popupWindow == null || isActivityFinishing(popupWindow.getContentView().getContext()) || !isTokenValid(popupWindow.getContentView())) {
-            return false;
+        if (popupWindow != null) {
+            try {
+                if (!isActivityFinishing(popupWindow.getContentView().getContext()) && isTokenValid(popupWindow.getContentView())) {
+                    popupWindow.dismiss();
+                    return true;
+                }
+                return false;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
         }
-        popupWindow.dismiss();
-        return true;
+        return false;
     }
 
     public static final boolean dismissPopupWindow(PopupWindow popupWindow, Activity activity) {

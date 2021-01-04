@@ -8,7 +8,7 @@ import com.baidu.ar.arplay.c.e;
 import com.baidu.ar.arplay.core.engine.ARPEngine;
 import com.baidu.ar.arplay.core.message.ARPMessage;
 import com.baidu.ar.arplay.core.message.ARPMessageType;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.down.manage.DownloadConstants;
 import java.util.HashMap;
@@ -17,7 +17,7 @@ import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class e {
     public static final String TAG = e.class.getSimpleName();
     private static e dD;
@@ -39,12 +39,12 @@ public class e {
     };
     private Map<String, Integer> dF = new Hashtable();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes6.dex */
     public interface a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes6.dex */
     public static class b {
         String dK;
         SurfaceTexture dL;
@@ -163,7 +163,7 @@ public class e {
                             bVar2.dg.ea = "buffer_start";
                             e.a(bVar2);
                             return false;
-                        case CyberPlayerManager.MEDIA_INFO_BUFFERING_END /* 702 */:
+                        case 702:
                             bVar2.dg.ea = "buffer_end";
                             e.a(bVar2);
                             return false;
@@ -193,7 +193,7 @@ public class e {
         hashMap.put("id", Integer.valueOf((int) ARPMessageType.MSG_TYPE_VIDEO));
         HashMap hashMap2 = new HashMap();
         hashMap2.put("action_id", String.valueOf(bVar2.dT));
-        hashMap2.put("platform", "android");
+        hashMap2.put("platform", HttpConstants.OS_TYPE_VALUE);
         hashMap2.put("type", bVar2.dX);
         HashMap hashMap3 = new HashMap();
         hashMap3.put("error_code", Integer.valueOf(bVar2.dY));

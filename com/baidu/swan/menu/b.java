@@ -1,13 +1,13 @@
 package com.baidu.swan.menu;
 
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public interface b {
-    boolean a(i iVar);
+    boolean a(h hVar);
 
-    void f(int i, List<i> list);
+    void f(int i, List<h> list);
 
-    void g(int i, List<i> list);
+    void g(int i, List<h> list);
 
-    void h(int i, List<i> list);
+    void h(int i, List<h> list);
 }

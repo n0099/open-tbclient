@@ -1,7 +1,7 @@
 package com.baidu.swan.menu.viewpager;
 
-import com.baidu.swan.menu.i;
-/* loaded from: classes14.dex */
+import com.baidu.swan.menu.h;
+/* loaded from: classes5.dex */
 public interface b {
-    boolean c(i iVar);
+    boolean c(h hVar);
 }

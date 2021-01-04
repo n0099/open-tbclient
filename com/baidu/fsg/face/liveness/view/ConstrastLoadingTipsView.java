@@ -11,12 +11,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.fsg.face.liveness.datamodel.UploadContrastPortraitModel;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class ConstrastLoadingTipsView extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextView f1739a;
-    private LinearLayout b;
+    private TextView f2371a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private LinearLayout f2372b;
     private b c;
     private TextView d;
     private TextView e;
@@ -25,7 +27,7 @@ public class ConstrastLoadingTipsView extends LinearLayout {
     private TextView h;
     private a i;
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a();
 
@@ -39,15 +41,15 @@ public class ConstrastLoadingTipsView extends LinearLayout {
 
     private void a() {
         LayoutInflater.from(getContext()).inflate(R.layout.rim_face_result_tips_pages, this);
-        this.f1739a = (TextView) findViewById(R.id.rim_face_result_tips_time_tv);
-        this.b = (LinearLayout) findViewById(R.id.rim_face_result_tips_btn_ll);
+        this.f2371a = (TextView) findViewById(R.id.rim_face_result_tips_time_tv);
+        this.f2372b = (LinearLayout) findViewById(R.id.rim_face_result_tips_btn_ll);
         this.d = (TextView) findViewById(R.id.rim_face_result_tips_confirm);
         this.e = (TextView) findViewById(R.id.rim_face_result_tips_cancel);
         this.f = (ImageView) findViewById(R.id.rim_face_result_tips_pages_img);
         this.h = (TextView) findViewById(R.id.rim_face_result_tips_pages_tips_msg);
         this.g = (TextView) findViewById(R.id.rim_face_result_tips_pages_tips_title);
-        this.f1739a.setVisibility(0);
-        this.b.setVisibility(8);
+        this.f2371a.setVisibility(0);
+        this.f2372b.setVisibility(8);
         this.d.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.view.ConstrastLoadingTipsView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -75,7 +77,7 @@ public class ConstrastLoadingTipsView extends LinearLayout {
         if (!TextUtils.isEmpty(confirmBean.cancel_msg)) {
             this.e.setText(confirmBean.cancel_msg);
         }
-        this.f1739a.setText(confirmBean.tips_sec + "");
+        this.f2371a.setText(confirmBean.tips_sec + "");
         if (!uploadContrastPortraitModel.isContrastPass()) {
             this.f.setVisibility(8);
         }
@@ -96,7 +98,7 @@ public class ConstrastLoadingTipsView extends LinearLayout {
         this.i = aVar;
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes6.dex */
     private class b extends CountDownTimer {
         public b(long j, long j2) {
             super(j, j2);
@@ -104,13 +106,13 @@ public class ConstrastLoadingTipsView extends LinearLayout {
 
         @Override // android.os.CountDownTimer
         public void onTick(long j) {
-            ConstrastLoadingTipsView.this.f1739a.setText((j / 1000) + "");
+            ConstrastLoadingTipsView.this.f2371a.setText((j / 1000) + "");
         }
 
         @Override // android.os.CountDownTimer
         public void onFinish() {
-            ConstrastLoadingTipsView.this.f1739a.setVisibility(8);
-            ConstrastLoadingTipsView.this.b.setVisibility(0);
+            ConstrastLoadingTipsView.this.f2371a.setVisibility(8);
+            ConstrastLoadingTipsView.this.f2372b.setVisibility(0);
         }
     }
 

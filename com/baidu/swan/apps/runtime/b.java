@@ -7,21 +7,21 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes25.dex */
-public final class b implements com.baidu.swan.apps.ap.e.b<i.a> {
+/* loaded from: classes9.dex */
+public final class b implements com.baidu.swan.apps.ao.e.b<i.a> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final Map<String, com.baidu.swan.apps.ap.e.b<i.a>> dxN = new HashMap();
-    private final List<com.baidu.swan.apps.ap.e.c<i.a, Boolean>> dxO = new ArrayList();
+    private final Map<String, com.baidu.swan.apps.ao.e.b<i.a>> dGs = new HashMap();
+    private final List<com.baidu.swan.apps.ao.e.c<i.a, Boolean>> dGt = new ArrayList();
 
-    public b a(final com.baidu.swan.apps.ap.e.b<i.a> bVar, String... strArr) {
+    public b a(final com.baidu.swan.apps.ao.e.b<i.a> bVar, String... strArr) {
         if (bVar != null && strArr != null && strArr.length > 0) {
-            com.baidu.swan.apps.ap.e.a.a(new com.baidu.swan.apps.ap.e.b<String>() { // from class: com.baidu.swan.apps.runtime.b.1
+            com.baidu.swan.apps.ao.e.a.a(new com.baidu.swan.apps.ao.e.b<String>() { // from class: com.baidu.swan.apps.runtime.b.1
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.swan.apps.ap.e.b
+                @Override // com.baidu.swan.apps.ao.e.b
                 /* renamed from: onCallback */
-                public void M(String str) {
+                public void L(String str) {
                     if (!TextUtils.isEmpty(str)) {
-                        b.this.dxN.put(str, bVar);
+                        b.this.dGs.put(str, bVar);
                     }
                 }
             }, strArr);
@@ -29,37 +29,37 @@ public final class b implements com.baidu.swan.apps.ap.e.b<i.a> {
         return this;
     }
 
-    public b x(String... strArr) {
+    public b E(String... strArr) {
         if (strArr != null && strArr.length > 0) {
-            com.baidu.swan.apps.ap.e.a.a(new com.baidu.swan.apps.ap.e.b<String>() { // from class: com.baidu.swan.apps.runtime.b.2
+            com.baidu.swan.apps.ao.e.a.a(new com.baidu.swan.apps.ao.e.b<String>() { // from class: com.baidu.swan.apps.runtime.b.2
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.swan.apps.ap.e.b
+                @Override // com.baidu.swan.apps.ao.e.b
                 /* renamed from: onCallback */
-                public void M(String str) {
-                    b.this.dxN.remove(str);
+                public void L(String str) {
+                    b.this.dGs.remove(str);
                 }
             }, strArr);
         }
         return this;
     }
 
-    public b a(com.baidu.swan.apps.ap.e.c<i.a, Boolean> cVar) {
+    public b a(com.baidu.swan.apps.ao.e.c<i.a, Boolean> cVar) {
         if (cVar != null) {
-            this.dxO.add(cVar);
+            this.dGt.add(cVar);
         }
         return this;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.swan.apps.ap.e.b
+    @Override // com.baidu.swan.apps.ao.e.b
     /* renamed from: b */
-    public void M(i.a aVar) {
-        com.baidu.swan.apps.ap.e.b<i.a> bVar;
+    public void L(i.a aVar) {
+        com.baidu.swan.apps.ao.e.b<i.a> bVar;
         if (DEBUG) {
             Log.i("EventHandler", "handle: " + aVar);
         }
-        if (h(aVar) && (bVar = this.dxN.get(aVar.id)) != null) {
-            bVar.M(aVar);
+        if (h(aVar) && (bVar = this.dGs.get(aVar.id)) != null) {
+            bVar.L(aVar);
         }
     }
 
@@ -67,8 +67,8 @@ public final class b implements com.baidu.swan.apps.ap.e.b<i.a> {
         if (aVar == null) {
             return false;
         }
-        for (com.baidu.swan.apps.ap.e.c<i.a, Boolean> cVar : this.dxO) {
-            if (cVar != null && !cVar.N(aVar).booleanValue()) {
+        for (com.baidu.swan.apps.ao.e.c<i.a, Boolean> cVar : this.dGt) {
+            if (cVar != null && !cVar.M(aVar).booleanValue()) {
                 return false;
             }
         }

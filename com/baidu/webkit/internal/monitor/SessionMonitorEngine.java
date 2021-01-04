@@ -24,7 +24,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public class SessionMonitorEngine implements INoProGuard {
     private static final boolean DEBUG = false;
     private static final String LOG_TAG = SessionMonitorEngine.class.getSimpleName();
@@ -40,14 +40,14 @@ public class SessionMonitorEngine implements INoProGuard {
     private a sFrameworkBehaviorProvider;
     private WeakReference<IPrototype> sImplement;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public interface IExtraInfoCollector extends INoProGuard {
         JSONObject onPageSessionFinished(WebView webView, String str);
 
         void onPageSessionStarted(WebView webView, String str, boolean z, boolean z2, boolean z3);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public interface IPrototype extends INoProGuard {
         void notifyPageActive(String str, WebView webView, boolean z);
 
@@ -159,7 +159,7 @@ public class SessionMonitorEngine implements INoProGuard {
 
     public long getSearchButtonClickedTimeStamp() {
         if (this.sExtraInterfaceProvider != null) {
-            return this.sExtraInterfaceProvider.f3945a;
+            return this.sExtraInterfaceProvider.f5974a;
         }
         return -1L;
     }
@@ -172,6 +172,7 @@ public class SessionMonitorEngine implements INoProGuard {
     }
 
     public final JSONArray notifyCollectorPageSessionFinished(WebView webView, String str) {
+        Throwable th;
         JSONArray jSONArray;
         JSONArray jSONArray2 = null;
         Log.i("linhua-collector", "notifyCollectorPageSessionFinished: " + str);
@@ -184,22 +185,27 @@ public class SessionMonitorEngine implements INoProGuard {
                         try {
                             JSONObject onPageSessionFinished = iExtraInfoCollector.onPageSessionFinished(webView, str);
                             if (onPageSessionFinished != null) {
-                                if (jSONArray2 == null) {
-                                    jSONArray2 = new JSONArray();
+                                jSONArray = jSONArray2 == null ? new JSONArray() : jSONArray2;
+                                try {
+                                    Log.i("linhua-collector", "get something: " + onPageSessionFinished);
+                                    jSONArray.put(onPageSessionFinished);
+                                    jSONArray2 = jSONArray;
+                                } catch (Throwable th2) {
+                                    th = th2;
+                                    try {
+                                        Log.printStackTrace(th);
+                                        jSONArray2 = jSONArray;
+                                    } catch (Throwable th3) {
+                                        th = th3;
+                                        jSONArray2 = jSONArray;
+                                        Log.printStackTrace(th);
+                                        return jSONArray2;
+                                    }
                                 }
-                                Log.i("linhua-collector", "get something: " + onPageSessionFinished);
-                                jSONArray2.put(onPageSessionFinished);
                             }
-                        } catch (Throwable th) {
+                        } catch (Throwable th4) {
+                            th = th4;
                             jSONArray = jSONArray2;
-                            try {
-                                Log.printStackTrace(th);
-                            } catch (Throwable th2) {
-                                jSONArray2 = jSONArray;
-                                th = th2;
-                                Log.printStackTrace(th);
-                                return jSONArray2;
-                            }
                         }
                     } else {
                         jSONArray = jSONArray2;
@@ -207,8 +213,8 @@ public class SessionMonitorEngine implements INoProGuard {
                     jSONArray2 = jSONArray;
                 }
             }
-        } catch (Throwable th3) {
-            th = th3;
+        } catch (Throwable th5) {
+            th = th5;
         }
         return jSONArray2;
     }
@@ -286,30 +292,30 @@ public class SessionMonitorEngine implements INoProGuard {
 
     public void recordFrameworkBehaviorValue(int i, Object obj) {
         a aVar = this.sFrameworkBehaviorProvider;
-        if (aVar.f3943a == null) {
-            aVar.f3943a = new a.C0953a(aVar, (byte) 0);
+        if (aVar.f5971a == null) {
+            aVar.f5971a = new a.C0929a(aVar, (byte) 0);
         }
         if (i == 9) {
-            aVar.f3943a.a();
-            aVar.f3943a.f = true;
+            aVar.f5971a.a();
+            aVar.f5971a.f = true;
         }
-        if (aVar.f3943a.f) {
+        if (aVar.f5971a.f) {
             switch (i) {
                 case 7:
-                    aVar.f3943a.f3944a = ((Boolean) obj).booleanValue();
+                    aVar.f5971a.f5972a = ((Boolean) obj).booleanValue();
                     return;
                 case 8:
-                    aVar.f3943a.b = ((Boolean) obj).booleanValue();
+                    aVar.f5971a.f5973b = ((Boolean) obj).booleanValue();
                     return;
                 case 9:
-                    aVar.f3943a.c = ((Long) obj).longValue();
+                    aVar.f5971a.c = ((Long) obj).longValue();
                     return;
                 case 10:
-                    aVar.f3943a.d = ((Long) obj).longValue();
-                    aVar.f3943a.f = true;
+                    aVar.f5971a.d = ((Long) obj).longValue();
+                    aVar.f5971a.f = true;
                     return;
                 case 11:
-                    aVar.f3943a.e = ((Boolean) obj).booleanValue();
+                    aVar.f5971a.e = ((Boolean) obj).booleanValue();
                     return;
                 default:
                     return;
@@ -319,8 +325,8 @@ public class SessionMonitorEngine implements INoProGuard {
 
     public void recordFrameworkBehaviorValue(String str, long j) {
         a aVar = this.sFrameworkBehaviorProvider;
-        if (aVar.f3943a != null) {
-            aVar.f3943a.g.put(str, Long.valueOf((aVar.f3943a.g.containsKey(str) ? aVar.f3943a.g.get(str).longValue() : 0L) + j));
+        if (aVar.f5971a != null) {
+            aVar.f5971a.g.put(str, Long.valueOf((aVar.f5971a.g.containsKey(str) ? aVar.f5971a.g.get(str).longValue() : 0L) + j));
         }
     }
 
@@ -366,10 +372,10 @@ public class SessionMonitorEngine implements INoProGuard {
             b bVar = this.sExtraInterfaceProvider;
             switch (i) {
                 case 1:
-                    bVar.f3945a = j;
+                    bVar.f5974a = j;
                     return;
                 case 2:
-                    bVar.b = j;
+                    bVar.f5975b = j;
                     return;
                 case 3:
                     bVar.c = j;
@@ -429,16 +435,16 @@ public class SessionMonitorEngine implements INoProGuard {
 
     public void startFrameworkBehaviorMonitor() {
         a aVar = this.sFrameworkBehaviorProvider;
-        if (aVar.f3943a == null) {
-            aVar.f3943a = new a.C0953a(aVar, (byte) 0);
+        if (aVar.f5971a == null) {
+            aVar.f5971a = new a.C0929a(aVar, (byte) 0);
         }
-        if (aVar.f3943a.c == -1) {
-            aVar.f3943a.a();
+        if (aVar.f5971a.c == -1) {
+            aVar.f5971a.a();
         }
-        if (aVar.f3943a.f) {
+        if (aVar.f5971a.f) {
             return;
         }
-        aVar.f3943a.f = true;
+        aVar.f5971a.f = true;
     }
 
     public void updateCuidIfNeeded() {

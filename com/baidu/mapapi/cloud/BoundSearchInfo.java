@@ -7,15 +7,15 @@ import com.baidu.mapapi.http.HttpClient;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class BoundSearchInfo extends BaseCloudSearchInfo {
     public String bound;
 
     public BoundSearchInfo() {
         if (HttpClient.isHttpsEnable) {
-            this.f1985a = "https://api.map.baidu.com/geosearch/v2/bound";
+            this.f2770a = "https://api.map.baidu.com/geosearch/v2/bound";
         } else {
-            this.f1985a = "http://api.map.baidu.com/geosearch/v2/bound";
+            this.f2770a = "http://api.map.baidu.com/geosearch/v2/bound";
         }
     }
 

@@ -1,5 +1,6 @@
 package okhttp3.internal.cache2;
 
+import com.baidu.live.tbadk.log.LogConfig;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
@@ -8,7 +9,7 @@ import okio.Buffer;
 import okio.ByteString;
 import okio.Source;
 import okio.Timeout;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 final class Relay {
     private static final long FILE_HEADER_SIZE = 32;
     static final ByteString PREFIX_CLEAN = ByteString.encodeUtf8("OkHttp cache v1\n");
@@ -105,7 +106,7 @@ final class Relay {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     class RelaySource implements Source {
         private FileOperator fileOperator;
         private long sourcePos;
@@ -213,7 +214,7 @@ final class Relay {
         public long read(Buffer buffer, long j) throws IOException {
             char c;
             if (this.fileOperator == null) {
-                throw new IllegalStateException("closed");
+                throw new IllegalStateException(LogConfig.TYPE_CLOSED);
             }
             synchronized (Relay.this) {
                 while (true) {

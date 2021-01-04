@@ -1,7 +1,7 @@
 package com.baidu.tieba.write.write.model;
 
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes8.dex */
 public interface a {
-    void gv(List<String> list);
+    void go(List<String> list);
 }

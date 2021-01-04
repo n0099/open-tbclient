@@ -1,35 +1,47 @@
 package com.baidu.live.data;
 
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class ae {
-    public String aJj;
-    public n aLq;
-    public ac aLr;
-    private int aLs;
-    public String msg;
+    private boolean aLP;
+    private String aLQ;
+    private String aLR;
+    private int height;
+    private int position;
+    private int width;
 
-    public boolean Fu() {
-        return this.aLs == 1;
+    public void parseJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            this.position = jSONObject.optInt("position");
+            this.height = jSONObject.optInt("high");
+            this.width = jSONObject.optInt("wide");
+            this.aLP = jSONObject.optInt("is_show") == 1;
+            this.aLQ = jSONObject.optString("pk_url");
+            this.aLR = jSONObject.optString("pk_data");
+        }
     }
 
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.msg = jSONObject.optString("msg");
-            this.aJj = jSONObject.optString(BigdayActivityConfig.JUMP_URL);
-            JSONObject optJSONObject = jSONObject.optJSONObject("super_king");
-            if (optJSONObject != null) {
-                this.aLq = new n();
-                this.aLq.iconUrl = optJSONObject.optString("icon_url");
-                this.aLq.msg = optJSONObject.optString("msg");
-            }
-            this.aLs = jSONObject.optInt("is_season_over", 0);
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("division");
-            if (optJSONObject2 != null) {
-                this.aLr = new ac();
-                this.aLr.parserJson(optJSONObject2);
-            }
-        }
+    public int getHeight() {
+        return this.height;
+    }
+
+    public String EH() {
+        return this.aLQ;
+    }
+
+    public String EI() {
+        return this.aLR;
+    }
+
+    public int getWidth() {
+        return this.width;
+    }
+
+    public boolean EJ() {
+        return this.aLP;
+    }
+
+    public String toString() {
+        return "AlaPkPanelInfo{position=" + this.position + ", height=" + this.height + ", width=" + this.width + ", isOpenAction=" + this.aLP + ", pkUrl='" + this.aLQ + "', urlDataParams='" + this.aLR + "'}";
     }
 }

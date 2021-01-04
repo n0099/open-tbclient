@@ -1,12 +1,12 @@
 package com.baidu.tieba.image;
 
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.au;
-/* loaded from: classes21.dex */
+import com.baidu.tbadk.core.util.at;
+/* loaded from: classes8.dex */
 public class b {
-    public static String Oe(String str) {
+    public static String NL(String str) {
         int indexOf;
-        String urlDecode = au.getUrlDecode(str);
+        String urlDecode = at.getUrlDecode(str);
         if (urlDecode != null) {
             int lastIndexOf = urlDecode.lastIndexOf("/");
             if (lastIndexOf != -1 && (indexOf = urlDecode.indexOf(".", lastIndexOf)) != -1) {
@@ -17,11 +17,11 @@ public class b {
         return urlDecode;
     }
 
-    public static boolean Of(String str) {
+    public static boolean NM(String str) {
         if (StringUtils.isNull(str)) {
             return false;
         }
-        String urlDecode = au.getUrlDecode(str);
+        String urlDecode = at.getUrlDecode(str);
         return !StringUtils.isNull(urlDecode) && urlDecode.contains("?t=");
     }
 }

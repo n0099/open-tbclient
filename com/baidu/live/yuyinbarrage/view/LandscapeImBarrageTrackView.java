@@ -1,21 +1,21 @@
 package com.baidu.live.yuyinbarrage.view;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
 import com.baidu.live.sdk.a;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class LandscapeImBarrageTrackView extends FrameLayout {
-    private int aGG;
-    private int aGH;
-    private boolean aGI;
-    private List<View> aGT;
-    private a bSP;
+    private int aGX;
+    private int aGY;
+    private boolean aGZ;
+    private List<View> aHk;
+    private a bYw;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface a {
     }
 
@@ -25,17 +25,17 @@ public class LandscapeImBarrageTrackView extends FrameLayout {
     }
 
     public void setCallback(a aVar) {
-        this.bSP = aVar;
+        this.bYw = aVar;
     }
 
     public void setCanAddNext() {
-        this.aGI = true;
+        this.aGZ = true;
     }
 
     private void init() {
         setBackgroundColor(0);
-        this.aGT = new ArrayList();
-        this.aGG = getResources().getDimensionPixelOffset(a.d.sdk_ds110);
-        this.aGH = getResources().getDimensionPixelOffset(a.d.sdk_ds120);
+        this.aHk = new ArrayList();
+        this.aGX = getResources().getDimensionPixelOffset(a.d.sdk_ds110);
+        this.aGY = getResources().getDimensionPixelOffset(a.d.sdk_ds120);
     }
 }

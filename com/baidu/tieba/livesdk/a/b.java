@@ -5,21 +5,21 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.i.a.a.c;
+import com.baidu.j.a.a.c;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.data.AccountData;
-/* loaded from: classes4.dex */
-public class b implements com.baidu.i.a.a.a {
-    private c kXX;
+/* loaded from: classes10.dex */
+public class b implements com.baidu.j.a.a.a {
+    private c ldB;
     private CustomMessageListener mAccountChangedListener = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.livesdk.a.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && b.this.kXX != null) {
-                b.this.kXX.onLoginStatusChanged(false, false);
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && b.this.ldB != null) {
+                b.this.ldB.onLoginStatusChanged(false, false);
             }
         }
     };
@@ -28,32 +28,32 @@ public class b implements com.baidu.i.a.a.a {
         MessageManager.getInstance().registerListener(this.mAccountChangedListener);
     }
 
-    @Override // com.baidu.i.a.a.a
+    @Override // com.baidu.j.a.a.a
     public boolean isLogin() {
         return TbadkCoreApplication.isLogin();
     }
 
-    @Override // com.baidu.i.a.a.a
+    @Override // com.baidu.j.a.a.a
     public void login() {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) TbadkCoreApplication.getInst(), true)));
     }
 
-    @Override // com.baidu.i.a.a.a
-    public com.baidu.i.a.a.b ZY() {
+    @Override // com.baidu.j.a.a.a
+    public com.baidu.j.a.a.b abL() {
         AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
         if (currentAccountInfo != null) {
-            com.baidu.i.a.a.b bVar = new com.baidu.i.a.a.b();
+            com.baidu.j.a.a.b bVar = new com.baidu.j.a.a.b();
             bVar.setUid(currentAccountInfo.getID());
             bVar.setBduss(currentAccountInfo.getBDUSS());
             bVar.setDisplayname(currentAccountInfo.getAccountNameShow());
-            bVar.jB(TbConfig.getBigPhotoAdress() + currentAccountInfo.getPortrait());
+            bVar.ju(TbConfig.getBigPhotoAdress() + currentAccountInfo.getPortrait());
             return bVar;
         }
         return null;
     }
 
-    @Override // com.baidu.i.a.a.a
+    @Override // com.baidu.j.a.a.a
     public void a(c cVar) {
-        this.kXX = cVar;
+        this.ldB = cVar;
     }
 }

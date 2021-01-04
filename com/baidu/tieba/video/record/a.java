@@ -6,11 +6,12 @@ import android.content.pm.PackageManager;
 import android.hardware.Camera;
 import android.os.Build;
 import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
+import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes23.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static boolean yM(boolean z) {
         int numberOfCameras = Camera.getNumberOfCameras();
@@ -91,55 +92,48 @@ public class a {
             case 2:
                 return 180;
             case 3:
-                return 270;
+                return SubsamplingScaleImageView.ORIENTATION_270;
         }
     }
 
-    public static Camera.Size c(Camera camera, int i, int i2) {
-        int i3;
+    public static Camera.Size a(Camera camera, int i, int i2) {
         Camera.Size size;
-        boolean z;
         List<Camera.Size> supportedPreviewSizes = camera.getParameters().getSupportedPreviewSizes();
-        Collections.sort(supportedPreviewSizes, new C0883a());
+        Collections.sort(supportedPreviewSizes, new C0866a());
         if (supportedPreviewSizes == null || supportedPreviewSizes.size() <= 0) {
             return null;
         }
+        boolean z = false;
         Iterator<Camera.Size> it = supportedPreviewSizes.iterator();
-        int i4 = -1;
+        int i3 = -1;
         while (true) {
             if (!it.hasNext()) {
-                i3 = i4;
                 size = null;
-                z = false;
                 break;
             }
-            Camera.Size next = it.next();
-            i4++;
-            if (next != null && next.width >= i2 && next.height >= i) {
+            size = it.next();
+            i3++;
+            if (size != null && size.width >= i2 && size.height >= i) {
                 z = true;
-                size = next;
-                i3 = i4;
                 break;
             }
         }
         if (!z) {
-            int size2 = supportedPreviewSizes.size() - 1;
-            size = supportedPreviewSizes.get(size2);
-            i3 = size2;
+            i3 = supportedPreviewSizes.size() - 1;
+            size = supportedPreviewSizes.get(i3);
         }
-        int i5 = 1080 * ((int) (1080 * ((i2 * 1.0f) / i)));
-        while (size.width * size.height > i5 && i3 > 0) {
-            int i6 = i3 - 1;
-            size = supportedPreviewSizes.get(i6);
-            i3 = i6;
+        int i4 = 1080 * ((int) (1080 * ((i2 * 1.0f) / i)));
+        while (size.width * size.height > i4 && i3 > 0) {
+            i3--;
+            size = supportedPreviewSizes.get(i3);
         }
         return size;
     }
 
     /* renamed from: com.baidu.tieba.video.record.a$a  reason: collision with other inner class name */
-    /* loaded from: classes23.dex */
-    private static class C0883a implements Comparator<Camera.Size> {
-        private C0883a() {
+    /* loaded from: classes8.dex */
+    private static class C0866a implements Comparator<Camera.Size> {
+        private C0866a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */

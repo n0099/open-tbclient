@@ -1,0 +1,38 @@
+package com.bytedance.sdk.openadsdk;
+
+import com.bytedance.sdk.openadsdk.core.i;
+import com.bytedance.sdk.openadsdk.core.k;
+import com.bytedance.sdk.openadsdk.core.p;
+import java.util.HashMap;
+import java.util.Map;
+/* loaded from: classes4.dex */
+public abstract class TTSecAbs {
+    public abstract String NM_pullSg();
+
+    public abstract String NM_pullVer(String str);
+
+    public abstract void NM_reportNow(String str);
+
+    public abstract void NM_setParams(String str);
+
+    public String NM_getAppKey() {
+        return "df979cdb-05a7-448c-bece-92d5005a1247";
+    }
+
+    public String NM_getDeviceId() {
+        return k.a(p.a());
+    }
+
+    public String NM_getInstallId() {
+        return null;
+    }
+
+    public Map<String, Object> NM_getCustomInfo() {
+        if (i.c().e() != null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("app_id", i.c().e());
+            return hashMap;
+        }
+        return null;
+    }
+}

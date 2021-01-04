@@ -1,15 +1,15 @@
 package com.google.zxing.oned;
 
 import com.baidu.android.imsdk.IMConstants;
-import com.baidu.android.imsdk.ResponseCode;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.down.manage.DownloadConstants;
 import com.baidu.platform.comapi.UIMsg;
 import com.baidu.tieba.recapp.lego.model.FormCard;
 import com.google.zxing.client.result.ExpandedProductParsedResult;
+import com.qq.e.comm.constants.ErrorCode;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 final class EANManufacturerOrgSupport {
     private final List<int[]> ranges = new ArrayList();
     private final List<String> countryIdentifiers = new ArrayList();
@@ -81,8 +81,8 @@ final class EANManufacturerOrgSupport {
             add(new int[]{594}, "RO");
             add(new int[]{599}, "HU");
             add(new int[]{600, 601}, "ZA");
-            add(new int[]{ResponseCode.TFE_IMMGR_KVACCESS_NOT_EXIST}, "GH");
-            add(new int[]{608}, "BH");
+            add(new int[]{603}, "GH");
+            add(new int[]{ErrorCode.OtherError.SKIP_VIEW_SIZE_ERROR}, "BH");
             add(new int[]{609}, "MU");
             add(new int[]{611}, "MA");
             add(new int[]{613}, "DZ");
@@ -99,7 +99,7 @@ final class EANManufacturerOrgSupport {
             add(new int[]{629}, "AE");
             add(new int[]{640, 649}, "FI");
             add(new int[]{690, 695}, "CN");
-            add(new int[]{CyberPlayerManager.MEDIA_INFO_VIDEO_TRACK_LAGGING, 709}, "NO");
+            add(new int[]{700, 709}, "NO");
             add(new int[]{729}, "IL");
             add(new int[]{730, 739}, "SE");
             add(new int[]{740}, "GT");
@@ -140,7 +140,7 @@ final class EANManufacturerOrgSupport {
             add(new int[]{893}, "VN");
             add(new int[]{896}, "PK");
             add(new int[]{899}, "ID");
-            add(new int[]{CyberPlayerManager.MEDIA_INFO_TIMED_TEXT_ERROR, CyberPlayerManager.MEDIA_INFO_CONNECT_BEGIN}, "AT");
+            add(new int[]{900, CyberPlayerManager.MEDIA_INFO_CONNECT_BEGIN}, "AT");
             add(new int[]{930, CyberPlayerManager.MEDIA_INFO_VIDEO_BITRATE}, "AU");
             add(new int[]{CyberPlayerManager.MEDIA_INFO_VIDEO_FRAMERATE, 949}, "AZ");
             add(new int[]{CyberPlayerManager.MEDIA_INFO_LOOP_REPLAYED}, "MY");

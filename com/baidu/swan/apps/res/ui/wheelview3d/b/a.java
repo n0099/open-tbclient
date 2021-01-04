@@ -1,5 +1,5 @@
 package com.baidu.swan.apps.res.ui.wheelview3d.b;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public interface a {
-    String getPickerViewText();
+    String aLg();
 }

@@ -14,23 +14,25 @@ import android.graphics.RectF;
 import android.graphics.Xfermode;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.internal.view.SupportMenu;
-import android.support.v4.view.InputDeviceCompat;
 import android.util.AttributeSet;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.FrameLayout;
-/* loaded from: classes17.dex */
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.internal.view.SupportMenu;
+import androidx.core.view.InputDeviceCompat;
+/* loaded from: classes6.dex */
 public class LivenessXfordView extends FrameLayout {
     public static final String PROGRESS_PROPERTY = "progress";
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int f1766a = 12;
+    private static final int f2411a = 12;
     private AnimatorSet A;
     private float B;
     private float C;
-    private float b;
+
+    /* renamed from: b  reason: collision with root package name */
+    private float f2412b;
     private Xfermode c;
     private RectF d;
     private RectF e;
@@ -59,7 +61,7 @@ public class LivenessXfordView extends FrameLayout {
 
     public LivenessXfordView(@NonNull Context context) {
         super(context);
-        this.b = -90.0f;
+        this.f2412b = -90.0f;
         this.m = true;
         this.z = true;
         a();
@@ -67,7 +69,7 @@ public class LivenessXfordView extends FrameLayout {
 
     public LivenessXfordView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.b = -90.0f;
+        this.f2412b = -90.0f;
         this.m = true;
         this.z = true;
         a();
@@ -152,7 +154,7 @@ public class LivenessXfordView extends FrameLayout {
             canvas.drawCircle(this.h, this.i, this.f, this.w);
             canvas.restoreToCount(saveLayer);
             canvas.drawCircle(this.h, this.i, this.g, this.s);
-            canvas.drawArc(this.e, this.b, this.progress, false, this.r);
+            canvas.drawArc(this.e, this.f2412b, this.progress, false, this.r);
             if (this.n != null) {
                 this.x.setColor(-16776961);
                 canvas.drawRect(this.n, this.x);

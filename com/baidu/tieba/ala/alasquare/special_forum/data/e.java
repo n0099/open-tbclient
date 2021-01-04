@@ -2,13 +2,13 @@ package com.baidu.tieba.ala.alasquare.special_forum.data;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.card.data.BaseCardInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class e extends BaseCardInfo {
-    public static final BdUniqueId gtn = BdUniqueId.gen();
+    public static final BdUniqueId gEm = BdUniqueId.gen();
     public int followStatus;
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return gtn;
+        return gEm;
     }
 }

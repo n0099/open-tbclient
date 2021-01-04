@@ -1,7 +1,7 @@
 package com.baidu.ar.arplay.representation;
 
 import android.util.Log;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class Number3D {
     public static final int M00 = 0;
     public static final int M01 = 4;
@@ -24,7 +24,7 @@ public class Number3D {
     public float y;
     public float z;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes6.dex */
     public enum Axis {
         X,
         Y,
@@ -136,7 +136,7 @@ public class Number3D {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public Number3D m15clone() {
+    public Number3D m14clone() {
         return new Number3D(this.x, this.y, this.z);
     }
 

@@ -12,7 +12,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 /* loaded from: classes.dex */
 public class a {
-    private static boolean eOz = false;
+    private static boolean eYy = false;
     private static Handler sHandler = new Handler() { // from class: com.baidu.tbadk.core.diskCache.a.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
@@ -32,7 +32,7 @@ public class a {
     }
 
     public static void setIsSuccess(boolean z) {
-        eOz = z;
+        eYy = z;
     }
 
     public static void init() {
@@ -42,7 +42,7 @@ public class a {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage instanceof BackgroundSwitchMessage) {
                     if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                        if (!a.eOz) {
+                        if (!a.eYy) {
                             a.sHandler.sendEmptyMessageDelayed(1, 10000L);
                             return;
                         }

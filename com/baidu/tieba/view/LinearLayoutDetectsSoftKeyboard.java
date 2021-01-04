@@ -10,21 +10,21 @@ import com.baidu.adp.lib.util.l;
 import com.compatible.menukey.MenuKeyUtils;
 /* loaded from: classes.dex */
 public class LinearLayoutDetectsSoftKeyboard extends LinearLayout {
-    Rect bHi;
-    private a nQe;
+    private a nTA;
+    Rect rect;
 
     /* loaded from: classes.dex */
     public interface a {
-        void db(boolean z);
+        void de(boolean z);
     }
 
     public LinearLayoutDetectsSoftKeyboard(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bHi = new Rect();
+        this.rect = new Rect();
     }
 
     public void setOnSoftKeyBoardShownListener(a aVar) {
-        this.nQe = aVar;
+        this.nTA = aVar;
     }
 
     @Override // android.widget.LinearLayout, android.view.View
@@ -32,23 +32,23 @@ public class LinearLayoutDetectsSoftKeyboard extends LinearLayout {
         boolean z;
         int size = View.MeasureSpec.getSize(i2);
         Activity activity = (Activity) getContext();
-        activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(this.bHi);
-        int height = (activity.getWindowManager().getDefaultDisplay().getHeight() - this.bHi.top) - size;
-        if (this.nQe != null) {
+        activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(this.rect);
+        int height = (activity.getWindowManager().getDefaultDisplay().getHeight() - this.rect.top) - size;
+        if (this.nTA != null) {
             if (MenuKeyUtils.hasSmartBar()) {
                 if (height > l.dip2px(activity, 48.0f) + 128) {
                     z = true;
-                    this.nQe.db(z);
+                    this.nTA.de(z);
                 }
                 z = false;
-                this.nQe.db(z);
+                this.nTA.de(z);
             } else {
                 if (height > 128) {
                     z = true;
-                    this.nQe.db(z);
+                    this.nTA.de(z);
                 }
                 z = false;
-                this.nQe.db(z);
+                this.nTA.de(z);
             }
         }
         super.onMeasure(i, i2);

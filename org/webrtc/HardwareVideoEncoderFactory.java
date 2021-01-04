@@ -3,13 +3,14 @@ package org.webrtc;
 import android.media.MediaCodecInfo;
 import android.media.MediaCodecList;
 import android.os.Build;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.webrtc.EglBase;
 import org.webrtc.EglBase14;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class HardwareVideoEncoderFactory implements VideoEncoderFactory {
     private static final List<String> H264_HW_EXCEPTION_MODELS = Arrays.asList("SAMSUNG-SGH-I337", "Nexus 7", "Nexus 4");
     private static final int QCOM_VP8_KEY_FRAME_INTERVAL_ANDROID_L_MS = 15000;
@@ -68,13 +69,13 @@ public class HardwareVideoEncoderFactory implements VideoEncoderFactory {
     private int getForcedKeyFrameIntervalMs(VideoCodecType videoCodecType, String str) {
         if (videoCodecType == VideoCodecType.VP8 && str.startsWith("OMX.qcom.")) {
             if (Build.VERSION.SDK_INT == 21 || Build.VERSION.SDK_INT == 22) {
-                return 15000;
+                return BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL;
             }
             if (Build.VERSION.SDK_INT == 23) {
                 return 20000;
             }
             if (Build.VERSION.SDK_INT > 23) {
-                return 15000;
+                return BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL;
             }
         }
         return 0;

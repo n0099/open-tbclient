@@ -5,7 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.PointF;
 import android.graphics.Rect;
 import android.widget.ImageView;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class CommonDrawer extends AbsDrawer {
     private Rect mTemp = new Rect();
 

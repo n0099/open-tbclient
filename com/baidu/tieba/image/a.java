@@ -7,83 +7,83 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.coreExtra.view.ImagePagerAdapter;
 import com.baidu.tbadk.widget.DragImageView;
 import com.baidu.tieba.recapp.r;
-/* loaded from: classes21.dex */
+/* loaded from: classes8.dex */
 public class a implements ImagePagerAdapter.a {
-    private TbPageContext<?> eNx;
-    private boolean fpu;
-    private DragImageView.d frg;
-    private int kKZ = 0;
-    private AdvertAppInfo kLa;
-    private boolean kLb;
-    private com.baidu.tieba.recapp.h kLc;
+    private TbPageContext<?> eXu;
+    private DragImageView.d fAM;
+    private boolean fzb;
+    private int kQi = 0;
+    private AdvertAppInfo kQj;
+    private boolean kQk;
+    private com.baidu.tieba.recapp.h kQl;
     private String mForumId;
     private String mPostId;
 
     public a(boolean z, boolean z2, TbPageContext<?> tbPageContext, String str, String str2) {
-        this.fpu = false;
-        this.kLb = false;
-        this.fpu = z;
-        this.kLb = z2;
-        this.eNx = tbPageContext;
+        this.fzb = false;
+        this.kQk = false;
+        this.fzb = z;
+        this.kQk = z2;
+        this.eXu = tbPageContext;
         this.mForumId = str;
         this.mPostId = str2;
     }
 
     public void a(AdvertAppInfo advertAppInfo, int i) {
-        this.kLa = advertAppInfo;
-        this.kLa.page = "PIC_PAGE";
-        this.kKZ = i;
+        this.kQj = advertAppInfo;
+        this.kQj.page = "PIC_PAGE";
+        this.kQi = i;
     }
 
-    public boolean dbT() {
-        if (!this.kLb || this.kLa == null) {
+    public boolean dbx() {
+        if (!this.kQk || this.kQj == null) {
             return false;
         }
-        return this.kLa.bmF() || this.kLa.bmE();
+        return this.kQj.bpg() || this.kQj.bpf();
     }
 
     public String getAdId() {
-        if (this.kLa != null) {
-            return this.kLa.eEd;
+        if (this.kQj != null) {
+            return this.kQj.eNT;
         }
         return null;
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.ImagePagerAdapter.a
-    public View l(ViewGroup viewGroup, int i) {
-        if (this.eNx == null || this.kLa == null) {
+    public View p(ViewGroup viewGroup, int i) {
+        if (this.eXu == null || this.kQj == null) {
             return null;
         }
-        if (EZ(i)) {
-            this.kLc = r.dFg().a(this.eNx, this.kLa.legoCard, 99, this.fpu, this.mForumId, this.mPostId);
-            if (this.kLc == null) {
+        if (ER(i)) {
+            this.kQl = r.dEV().a(this.eXu, this.kQj.legoCard, 99, this.fzb, this.mForumId, this.mPostId);
+            if (this.kQl == null) {
                 return null;
             }
-            this.kLc.setDragToExitListener(this.frg);
-            View deF = this.kLc.deF();
-            viewGroup.addView(deF);
-            return deF;
+            this.kQl.setDragToExitListener(this.fAM);
+            View deq = this.kQl.deq();
+            viewGroup.addView(deq);
+            return deq;
         }
         return null;
     }
 
-    private boolean EZ(int i) {
-        return dbT() && this.kKZ != 0 && i == this.kKZ;
+    private boolean ER(int i) {
+        return dbx() && this.kQi != 0 && i == this.kQi;
     }
 
     public void setDragToExitListener(DragImageView.d dVar) {
-        this.frg = dVar;
+        this.fAM = dVar;
     }
 
     public void onDestroy() {
-        if (this.kLc != null) {
-            this.kLc.onDestroy();
+        if (this.kQl != null) {
+            this.kQl.onDestroy();
         }
     }
 
     public void onAdShow() {
-        if (this.kLc != null) {
-            this.kLc.onAdShow();
+        if (this.kQl != null) {
+            this.kQl.onAdShow();
         }
     }
 }

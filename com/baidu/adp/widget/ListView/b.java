@@ -1,17 +1,18 @@
 package com.baidu.adp.widget.ListView;
 
 import android.view.View;
-import com.baidu.adp.widget.ListView.af;
 /* loaded from: classes.dex */
-public class b<T extends View> extends af.a {
-    protected T Wz;
+public abstract class b {
+    protected View mView = null;
 
-    public b(T t) {
-        super(t);
-        this.Wz = t;
-    }
+    public abstract View createView();
 
-    public T qR() {
-        return this.Wz;
+    public abstract void onClick();
+
+    public final View getView() {
+        if (this.mView == null) {
+            this.mView = createView();
+        }
+        return this.mView;
     }
 }

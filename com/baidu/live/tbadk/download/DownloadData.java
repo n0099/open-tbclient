@@ -1,8 +1,12 @@
 package com.baidu.live.tbadk.download;
 
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class DownloadData implements Serializable, Cloneable {
+    public static final int FILE_DOWNLOAD_PRIORITY_ENTEREFFECT = 128;
+    public static final int FILE_DOWNLOAD_PRIORITY_FORCE = 255;
+    public static final int FILE_DOWNLOAD_PRIORITY_GIFT = 160;
+    public static final int FILE_DOWNLOAD_PRIORITY_NORMAL = 128;
     public static final int FILE_DOWNLOAD_STATUS_CANCEL = 4;
     public static final int FILE_DOWNLOAD_STATUS_CANCEL_STORAGE_OPT = 6;
     public static final int FILE_DOWNLOAD_STATUS_DOWNLOADING = 1;
@@ -15,7 +19,7 @@ public class DownloadData implements Serializable, Cloneable {
     public static final int FILE_DOWNLOAD_STATUS_WAITING = 9;
     public static final int FILE_DOWNLOAD_TYPE_ALA_IM_RECORD = 16;
     public static final int FILE_DOWNLOAD_TYPE_APP = 12;
-    public static final int FILE_DOWNLOAD_TYPE_DATING_ANIM = 23;
+    public static final int FILE_DOWNLOAD_TYPE_AUDIOROOM_ANIM = 23;
     public static final int FILE_DOWNLOAD_TYPE_DYNAMIC = 19;
     public static final int FILE_DOWNLOAD_TYPE_EMOYION_APCKAGE = 11;
     public static final int FILE_DOWNLOAD_TYPE_ENTER_EFFECT = 20;
@@ -27,6 +31,7 @@ public class DownloadData implements Serializable, Cloneable {
     public static final int FILE_DOWNLOAD_TYPE_PENDANT = 18;
     public static final int FILE_DOWNLOAD_TYPE_PK_RANK_START = 21;
     public static final int FILE_DOWNLOAD_TYPE_POKE_START = 22;
+    public static final int FILE_DOWNLOAD_TYPE_VIDEO_BG = 24;
     private static final long serialVersionUID = 1402749061179345930L;
     private String action;
     private String app_icon;
@@ -46,6 +51,7 @@ public class DownloadData implements Serializable, Cloneable {
     private int notifyId;
     private String path;
     private int position;
+    private int priority;
     private long size;
     private int status;
     private String statusMsg;
@@ -90,6 +96,7 @@ public class DownloadData implements Serializable, Cloneable {
     public DownloadData() {
         this.status = 5;
         this.type = 10;
+        this.priority = 128;
         this.length = 0L;
         this.size = 1L;
         this.width = 0;
@@ -106,6 +113,7 @@ public class DownloadData implements Serializable, Cloneable {
     public DownloadData(String str) {
         this.status = 5;
         this.type = 10;
+        this.priority = 128;
         this.length = 0L;
         this.size = 1L;
         this.width = 0;
@@ -123,6 +131,7 @@ public class DownloadData implements Serializable, Cloneable {
     public DownloadData(String str, String str2) {
         this.status = 5;
         this.type = 10;
+        this.priority = 128;
         this.length = 0L;
         this.size = 1L;
         this.width = 0;
@@ -141,6 +150,7 @@ public class DownloadData implements Serializable, Cloneable {
     public DownloadData(String str, String str2, String str3, FileDownloadCallBack fileDownloadCallBack) {
         this.status = 5;
         this.type = 10;
+        this.priority = 128;
         this.length = 0L;
         this.size = 1L;
         this.width = 0;
@@ -213,6 +223,14 @@ public class DownloadData implements Serializable, Cloneable {
 
     public void setType(int i) {
         this.type = i;
+    }
+
+    public int getPriority() {
+        return this.priority;
+    }
+
+    public void setPriority(int i) {
+        this.priority = i;
     }
 
     public long getLength() {

@@ -4,30 +4,30 @@ import android.webkit.JavascriptInterface;
 import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.ap.ak;
+import com.baidu.swan.apps.ao.ak;
 import com.baidu.swan.apps.v.f;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class d {
-    private b efh;
+    private b eoj;
 
     public d(JsObject jsObject) {
-        this.efh = b.l(com.baidu.swan.games.binding.model.c.e(jsObject));
-        a.aZN().a(this);
+        this.eoj = b.l(com.baidu.swan.games.binding.model.c.e(jsObject));
+        a.bch().a(this);
     }
 
     @JavascriptInterface
     public boolean applyUpdate() {
-        final SwanAppActivity aBZ = f.aCp().aBZ();
-        if (aBZ == null) {
+        final SwanAppActivity aDq = f.aDG().aDq();
+        if (aDq == null) {
             com.baidu.swan.apps.console.c.e("UpdateManagerApi", "applyUpdate activity is null");
             return false;
-        } else if (aBZ.isDestroyed() || aBZ.getIntent() == null) {
+        } else if (aDq.isDestroyed() || aDq.getIntent() == null) {
             return false;
         } else {
             ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.aa.d.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    com.baidu.swan.games.utils.a.n(aBZ);
+                    com.baidu.swan.games.utils.a.n(aDq);
                 }
             });
             return true;
@@ -43,7 +43,7 @@ public class d {
     */
     public void c(c cVar) {
         boolean z = false;
-        if (this.efh != null && JSEvent.isValid(cVar)) {
+        if (this.eoj != null && JSEvent.isValid(cVar)) {
             com.baidu.swan.apps.console.c.i("UpdateManagerApi", String.format("dispatchEvent : eventType = %s; hasUpdate = %s", cVar.type, Boolean.valueOf(cVar.hasUpdate)));
             String str = cVar.type;
             switch (str.hashCode()) {
@@ -69,13 +69,13 @@ public class d {
             }
             switch (z) {
                 case false:
-                    this.efh.b(cVar);
+                    this.eoj.b(cVar);
                     return;
                 case true:
-                    this.efh.aZP();
+                    this.eoj.bcj();
                     return;
                 case true:
-                    this.efh.aZQ();
+                    this.eoj.bck();
                     return;
                 default:
                     return;

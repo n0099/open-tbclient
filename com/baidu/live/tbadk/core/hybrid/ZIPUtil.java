@@ -8,7 +8,7 @@ import java.io.OutputStream;
 import java.util.Enumeration;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class ZIPUtil {
     public static boolean unZipFiles(String str, String str2) {
         return unZipFiles(new File(str), str2);
@@ -17,22 +17,19 @@ public class ZIPUtil {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [64=4, 65=4, 66=4, 59=5, 60=4, 61=4] */
     /* JADX WARN: Removed duplicated region for block: B:117:0x00c0 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:125:0x00bb A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:129:0x0063 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:127:0x0063 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static boolean unZipFiles(File file, String str) {
         ZipFile zipFile;
-        InputStream inputStream;
         FileOutputStream fileOutputStream;
-        InputStream inputStream2;
+        InputStream inputStream;
+        FileOutputStream fileOutputStream2;
         boolean z;
         ZipEntry nextElement;
         File file2;
-        FileOutputStream fileOutputStream2;
         ZipFile zipFile2 = null;
-        r3 = null;
-        FileOutputStream fileOutputStream3 = null;
         File file3 = new File(str);
         if (file3.exists() || file3.mkdirs()) {
             boolean z2 = true;
@@ -41,24 +38,25 @@ public class ZIPUtil {
                 try {
                     Enumeration<? extends ZipEntry> entries = zipFile.entries();
                     while (entries.hasMoreElements()) {
-                        InputStream inputStream3 = null;
+                        InputStream inputStream2 = null;
                         OutputStream outputStream = null;
                         try {
                             nextElement = entries.nextElement();
                             file2 = new File(str, nextElement.getName());
                         } catch (Exception e) {
                             e = e;
-                            fileOutputStream = null;
-                            inputStream2 = null;
+                            fileOutputStream2 = null;
+                            inputStream = null;
                         } catch (Throwable th) {
                             th = th;
+                            fileOutputStream = null;
                             inputStream = null;
                         }
                         if (nextElement.isDirectory()) {
                             file2.mkdirs();
                             if (0 != 0) {
                                 try {
-                                    inputStream3.close();
+                                    inputStream2.close();
                                 } catch (IOException e2) {
                                     e2.printStackTrace();
                                 }
@@ -73,13 +71,13 @@ public class ZIPUtil {
                         } else {
                             inputStream = zipFile.getInputStream(nextElement);
                             try {
-                                fileOutputStream2 = new FileOutputStream(file2);
+                                fileOutputStream = new FileOutputStream(file2);
                             } catch (Exception e4) {
                                 e = e4;
-                                fileOutputStream = null;
-                                inputStream2 = inputStream;
+                                fileOutputStream2 = null;
                             } catch (Throwable th2) {
                                 th = th2;
+                                fileOutputStream = null;
                             }
                             try {
                                 byte[] bArr = new byte[1024];
@@ -88,9 +86,9 @@ public class ZIPUtil {
                                     if (read <= 0) {
                                         break;
                                     }
-                                    fileOutputStream2.write(bArr, 0, read);
+                                    fileOutputStream.write(bArr, 0, read);
                                 }
-                                fileOutputStream2.flush();
+                                fileOutputStream.flush();
                                 if (inputStream != null) {
                                     try {
                                         inputStream.close();
@@ -98,9 +96,9 @@ public class ZIPUtil {
                                         e5.printStackTrace();
                                     }
                                 }
-                                if (fileOutputStream2 != null) {
+                                if (fileOutputStream != null) {
                                     try {
-                                        fileOutputStream2.close();
+                                        fileOutputStream.close();
                                     } catch (IOException e6) {
                                         e6.printStackTrace();
                                         z = z2;
@@ -109,20 +107,19 @@ public class ZIPUtil {
                                 z = z2;
                             } catch (Exception e7) {
                                 e = e7;
-                                fileOutputStream = fileOutputStream2;
-                                inputStream2 = inputStream;
+                                fileOutputStream2 = fileOutputStream;
                                 try {
                                     e.printStackTrace();
-                                    if (inputStream2 != null) {
+                                    if (inputStream != null) {
                                         try {
-                                            inputStream2.close();
+                                            inputStream.close();
                                         } catch (IOException e8) {
                                             e8.printStackTrace();
                                         }
                                     }
-                                    if (fileOutputStream != null) {
+                                    if (fileOutputStream2 != null) {
                                         try {
-                                            fileOutputStream.close();
+                                            fileOutputStream2.close();
                                         } catch (IOException e9) {
                                             e9.printStackTrace();
                                             z = false;
@@ -132,8 +129,7 @@ public class ZIPUtil {
                                     z2 = z;
                                 } catch (Throwable th3) {
                                     th = th3;
-                                    fileOutputStream3 = fileOutputStream;
-                                    inputStream = inputStream2;
+                                    fileOutputStream = fileOutputStream2;
                                     if (inputStream != null) {
                                         try {
                                             inputStream.close();
@@ -141,9 +137,9 @@ public class ZIPUtil {
                                             e10.printStackTrace();
                                         }
                                     }
-                                    if (fileOutputStream3 != null) {
+                                    if (fileOutputStream != null) {
                                         try {
-                                            fileOutputStream3.close();
+                                            fileOutputStream.close();
                                         } catch (IOException e11) {
                                             e11.printStackTrace();
                                         }
@@ -152,10 +148,9 @@ public class ZIPUtil {
                                 }
                             } catch (Throwable th4) {
                                 th = th4;
-                                fileOutputStream3 = fileOutputStream2;
                                 if (inputStream != null) {
                                 }
-                                if (fileOutputStream3 != null) {
+                                if (fileOutputStream != null) {
                                 }
                                 throw th;
                             }

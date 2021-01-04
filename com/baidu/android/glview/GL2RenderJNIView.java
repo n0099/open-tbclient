@@ -12,7 +12,7 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLContext;
 import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public class GL2RenderJNIView extends GLSurfaceView {
     private static final boolean DEBUG = false;
     public static final int DISPLAY_AR_16_9 = 1;
@@ -33,7 +33,7 @@ public class GL2RenderJNIView extends GLSurfaceView {
     private boolean mloaded;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     public static class ConfigChooser implements GLSurfaceView.EGLConfigChooser {
         private static int EGL_OPENGL_ES2_BIT = 4;
         private static int[] s_configAttribs2 = {12324, 4, 12323, 4, 12322, 4, 12352, EGL_OPENGL_ES2_BIT, 12344};
@@ -115,7 +115,7 @@ public class GL2RenderJNIView extends GLSurfaceView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     public static class ContextFactory implements GLSurfaceView.EGLContextFactory {
         private static int EGL_CONTEXT_CLIENT_VERSION = 12440;
 
@@ -138,7 +138,7 @@ public class GL2RenderJNIView extends GLSurfaceView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     public class Renderer implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView.Renderer {
         public boolean mAllocSurfaceTex;
         protected GL2RenderJNIView m_SurfaceView;
@@ -262,24 +262,25 @@ public class GL2RenderJNIView extends GLSurfaceView {
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         float x;
+        float y;
         if (!this.mfixed) {
-            float f = 0.0f;
             float x2 = motionEvent.getX(0);
-            float y = motionEvent.getY(0);
+            float y2 = motionEvent.getY(0);
             int action = motionEvent.getAction() & 255;
             if (action == 5 || action == 6) {
                 this.mActionState = action;
             }
             if (this.mActionState == 5 || action == 6) {
                 x = motionEvent.getX(1);
-                f = motionEvent.getY(1);
+                y = motionEvent.getY(1);
             } else {
+                y = 0.0f;
                 x = 0.0f;
             }
             if (this.mActionState == 6) {
                 this.mActionState = 0;
             }
-            GL2JNILib.transform(this.mRender.m_hRender, x2, x, y, f, motionEvent.getAction() & 255);
+            GL2JNILib.transform(this.mRender.m_hRender, x2, x, y2, y, motionEvent.getAction() & 255);
         }
         return false;
     }

@@ -1,11 +1,11 @@
 package de.simolus3.fluttie;
 
 import android.graphics.Canvas;
-import android.support.annotation.RequiresApi;
+import androidx.annotation.RequiresApi;
 import com.baidu.adp.lib.util.BdLog;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes5.dex */
 public class RenderingThreads implements Runnable {
     private List<Thread> threads = new ArrayList();
     private RenderingQueue queue = new RenderingQueue();
@@ -45,44 +45,33 @@ public class RenderingThreads implements Runnable {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [89=5, 90=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [89=4, 90=4] */
     @Override // java.lang.Runnable
     @RequiresApi(api = 15)
     public void run() {
-        FluttieAnimation fluttieAnimation;
-        Throwable th;
-        FluttieAnimation waitAndObtain;
         while (true) {
+            FluttieAnimation fluttieAnimation = null;
             try {
-                try {
-                    waitAndObtain = this.queue.waitAndObtain();
-                } catch (InterruptedException e) {
-                    if (0 != 0) {
-                        this.queue.markCompleted(null);
-                    }
-                }
-                try {
-                    Canvas lockCanvas = waitAndObtain.lockCanvas();
-                    if (lockCanvas != null) {
-                        waitAndObtain.drawFrame(lockCanvas);
-                        waitAndObtain.unlockCanvasAndPost(lockCanvas);
-                        if (waitAndObtain != null) {
-                            this.queue.markCompleted(waitAndObtain);
-                        }
-                    } else if (waitAndObtain != null) {
-                        this.queue.markCompleted(waitAndObtain);
-                    }
-                } catch (Throwable th2) {
-                    fluttieAnimation = waitAndObtain;
-                    th = th2;
+                fluttieAnimation = this.queue.waitAndObtain();
+                Canvas lockCanvas = fluttieAnimation.lockCanvas();
+                if (lockCanvas != null) {
+                    fluttieAnimation.drawFrame(lockCanvas);
+                    fluttieAnimation.unlockCanvasAndPost(lockCanvas);
                     if (fluttieAnimation != null) {
                         this.queue.markCompleted(fluttieAnimation);
                     }
-                    throw th;
+                } else if (fluttieAnimation != null) {
+                    this.queue.markCompleted(fluttieAnimation);
                 }
-            } catch (Throwable th3) {
-                fluttieAnimation = null;
-                th = th3;
+            } catch (InterruptedException e) {
+                if (fluttieAnimation != null) {
+                    this.queue.markCompleted(fluttieAnimation);
+                }
+            } catch (Throwable th) {
+                if (fluttieAnimation != null) {
+                    this.queue.markCompleted(fluttieAnimation);
+                }
+                throw th;
             }
         }
     }

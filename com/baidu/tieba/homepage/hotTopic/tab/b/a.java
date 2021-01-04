@@ -1,12 +1,12 @@
 package com.baidu.tieba.homepage.hotTopic.tab.b;
 
 import com.baidu.adp.BdUniqueId;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public interface a {
-    public static final BdUniqueId jQm = BdUniqueId.gen();
-    public static final BdUniqueId jQn = BdUniqueId.gen();
-    public static final BdUniqueId jQo = BdUniqueId.gen();
-    public static final BdUniqueId jQp = BdUniqueId.gen();
-    public static final BdUniqueId jQq = BdUniqueId.gen();
-    public static final BdUniqueId jQr = BdUniqueId.gen();
+    public static final BdUniqueId kdA = BdUniqueId.gen();
+    public static final BdUniqueId kdB = BdUniqueId.gen();
+    public static final BdUniqueId kdC = BdUniqueId.gen();
+    public static final BdUniqueId kdD = BdUniqueId.gen();
+    public static final BdUniqueId kdE = BdUniqueId.gen();
+    public static final BdUniqueId kdF = BdUniqueId.gen();
 }

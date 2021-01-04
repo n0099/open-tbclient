@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class IMMediaDeleteMsgHttpRequest extends IMMediaBaseHttpRequest {
     private static final String TAG = "IMMediaDeleteMsgHttpRequest";
     private long mContactor;

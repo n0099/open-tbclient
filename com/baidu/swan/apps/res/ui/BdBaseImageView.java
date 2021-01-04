@@ -4,63 +4,63 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-import com.baidu.swan.apps.ap.z;
-/* loaded from: classes25.dex */
+import androidx.annotation.Nullable;
+import com.baidu.swan.apps.ao.z;
+/* loaded from: classes9.dex */
 public class BdBaseImageView extends ImageView {
-    private int mColorFilter;
-    private boolean mFlagShouldDecorate;
+    private int don;
+    private boolean dxd;
 
     public BdBaseImageView(Context context) {
         super(context);
-        this.mFlagShouldDecorate = true;
-        this.mColorFilter = 0;
+        this.dxd = true;
+        this.don = 0;
     }
 
     public BdBaseImageView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mFlagShouldDecorate = true;
-        this.mColorFilter = 0;
+        this.dxd = true;
+        this.don = 0;
     }
 
     public BdBaseImageView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mFlagShouldDecorate = true;
-        this.mColorFilter = 0;
+        this.dxd = true;
+        this.don = 0;
     }
 
     @Override // android.widget.ImageView
     public void setImageDrawable(@Nullable Drawable drawable) {
-        this.mFlagShouldDecorate = true;
+        this.dxd = true;
         super.setImageDrawable(drawable);
     }
 
     @Override // android.view.View
     public void draw(Canvas canvas) {
-        if (shouldDecorate()) {
-            z.decorateSrcATopMode(getContext(), getDrawable());
-            this.mColorFilter = z.getUiCoverLayerColor(getContext());
-            this.mFlagShouldDecorate = false;
+        if (aJW()) {
+            z.a(getContext(), getDrawable());
+            this.don = z.dd(getContext());
+            this.dxd = false;
         }
         super.draw(canvas);
     }
 
     @Override // android.widget.ImageView
     public void setImageAlpha(int i) {
-        if (hasDecorateColorFilter()) {
-            z.decorateSrcATopMode(getContext(), getDrawable(), i);
+        if (aJX()) {
+            z.a(getContext(), getDrawable(), i);
         } else {
             super.setImageAlpha(i);
         }
     }
 
-    private boolean shouldDecorate() {
-        return this.mFlagShouldDecorate || this.mColorFilter != z.getUiCoverLayerColor(getContext());
+    private boolean aJW() {
+        return this.dxd || this.don != z.dd(getContext());
     }
 
-    private boolean hasDecorateColorFilter() {
-        return Color.alpha(z.getUiCoverLayerColor(getContext())) != 0;
+    private boolean aJX() {
+        return Color.alpha(z.dd(getContext())) != 0;
     }
 }

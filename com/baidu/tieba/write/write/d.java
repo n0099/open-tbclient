@@ -9,12 +9,13 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.u;
 import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.core.view.spanGroup.TbLinkSpanGroup;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
@@ -22,18 +23,18 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes8.dex */
 public class d extends BaseAdapter {
-    private LinkedList<u> itL = new LinkedList<>();
+    private LinkedList<u> iFY = new LinkedList<>();
     private TbPageContext mPageContext;
-    private LinkedList<com.baidu.tbadk.core.view.spanGroup.a> obw;
-    private a obx;
+    private LinkedList<com.baidu.tbadk.core.view.spanGroup.a> odH;
+    private a odI;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes8.dex */
     public interface a {
-        void MY(int i);
+        void MK(int i);
 
-        void gs(List<u> list);
+        void gl(List<u> list);
     }
 
     public d(TbPageContext tbPageContext) {
@@ -42,28 +43,28 @@ public class d extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.itL == null) {
+        if (this.iFY == null) {
             return 0;
         }
-        return this.itL.size();
+        return this.iFY.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.itL == null || this.itL.size() <= i) {
+        if (this.iFY == null || this.iFY.size() <= i) {
             return null;
         }
-        return this.itL.get(i);
+        return this.iFY.get(i);
     }
 
-    public LinkedList<u> eai() {
-        return this.itL;
+    public LinkedList<u> dZr() {
+        return this.iFY;
     }
 
-    public com.baidu.tbadk.core.view.spanGroup.a MX(int i) {
+    public com.baidu.tbadk.core.view.spanGroup.a MJ(int i) {
         long itemId = getItemId(i);
-        if (itemId != 0 && this.obw != null) {
-            Iterator<com.baidu.tbadk.core.view.spanGroup.a> it = this.obw.iterator();
+        if (itemId != 0 && this.odH != null) {
+            Iterator<com.baidu.tbadk.core.view.spanGroup.a> it = this.odH.iterator();
             while (it.hasNext()) {
                 com.baidu.tbadk.core.view.spanGroup.a next = it.next();
                 if (next.getId() == itemId) {
@@ -77,8 +78,8 @@ public class d extends BaseAdapter {
     @Override // android.widget.Adapter
     public long getItemId(int i) {
         int i2 = 0;
-        if (this.itL != null && this.itL.size() > i && this.itL.get(i) != null) {
-            i2 = this.itL.get(i).mId;
+        if (this.iFY != null && this.iFY.size() > i && this.iFY.get(i) != null) {
+            i2 = this.iFY.get(i).mId;
         }
         return i2;
     }
@@ -94,104 +95,104 @@ public class d extends BaseAdapter {
             view = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.item_commodity_link, (ViewGroup) null);
             b bVar2 = new b();
             bVar2.mRootView = view.findViewById(R.id.commodity_root_view);
-            bVar2.kTH = view.findViewById(R.id.commodity_main_view);
-            bVar2.fca = (TbImageView) view.findViewById(R.id.commodity_link_icon);
-            bVar2.fca.setConrers(15);
-            bVar2.fca.setRadius(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10));
-            bVar2.fca.setPlaceHolderAutoChangeSkinType(1);
-            bVar2.fca.setGifIconSupport(false);
-            bVar2.fca.setLongIconSupport(false);
-            bVar2.fca.setDrawBorder(true);
-            bVar2.fca.setBorderWidth(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
-            bVar2.fca.setBorderColor(ap.getColor(R.color.CAM_X0401));
+            bVar2.bVM = view.findViewById(R.id.commodity_main_view);
+            bVar2.flJ = (TbImageView) view.findViewById(R.id.commodity_link_icon);
+            bVar2.flJ.setConrers(15);
+            bVar2.flJ.setRadius(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10));
+            bVar2.flJ.setPlaceHolderAutoChangeSkinType(1);
+            bVar2.flJ.setGifIconSupport(false);
+            bVar2.flJ.setLongIconSupport(false);
+            bVar2.flJ.setDrawBorder(true);
+            bVar2.flJ.setBorderWidth(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+            bVar2.flJ.setBorderColor(ao.getColor(R.color.CAM_X0401));
             bVar2.mTitle = (TextView) view.findViewById(R.id.commodity_link_content);
-            bVar2.obA = (ImageView) view.findViewById(R.id.commodity_link_close_button);
-            bVar2.obz = view.findViewById(R.id.extra_info_container);
-            bVar2.fcc = (TextView) view.findViewById(R.id.commodity_price);
-            bVar2.obB = (TextView) view.findViewById(R.id.commodity_extra_infos);
-            bVar2.obC = view.findViewById(R.id.commodity_tail_text_mask);
+            bVar2.odL = (ImageView) view.findViewById(R.id.commodity_link_close_button);
+            bVar2.odK = view.findViewById(R.id.extra_info_container);
+            bVar2.flL = (TextView) view.findViewById(R.id.commodity_price);
+            bVar2.odM = (TextView) view.findViewById(R.id.commodity_extra_infos);
+            bVar2.odN = view.findViewById(R.id.commodity_tail_text_mask);
             view.setTag(bVar2);
             bVar = bVar2;
         } else {
             bVar = (b) view.getTag();
         }
-        bVar.fca.startLoad(uVar.mIcon, 10, false);
+        bVar.flJ.startLoad(uVar.mIcon, 10, false);
         if (TextUtils.isEmpty(uVar.mPrice)) {
-            bVar.obz.setVisibility(8);
+            bVar.odK.setVisibility(8);
             bVar.mTitle.setMaxLines(2);
         } else {
-            bVar.obz.setVisibility(0);
+            bVar.odK.setVisibility(0);
             bVar.mTitle.setMaxLines(1);
         }
         if (TextUtils.isEmpty(uVar.mPrice)) {
-            bVar.fcc.setVisibility(8);
+            bVar.flL.setVisibility(8);
         } else {
-            bVar.fcc.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.commodity_price_prefix), uVar.mPrice));
-            bVar.fcc.setVisibility(0);
+            bVar.flL.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.commodity_price_prefix), uVar.mPrice));
+            bVar.flL.setVisibility(0);
         }
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        if (!TextUtils.isEmpty(uVar.eFz)) {
-            spannableStringBuilder.append((CharSequence) uVar.eFz);
-            int dimens = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.L_X01);
-            int dimens2 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10);
+        if (!TextUtils.isEmpty(uVar.ePp)) {
+            spannableStringBuilder.append((CharSequence) uVar.ePp);
+            int dimens = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.L_X01);
+            int dimens2 = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10);
             int i2 = R.color.CAM_X0305;
             int i3 = R.color.CAM_X0305;
-            int dimens3 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.T_X10);
-            int dimens4 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
-            int dimens5 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds2);
-            int dimens6 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X003);
-            com.baidu.tbadk.core.view.b bVar3 = new com.baidu.tbadk.core.view.b(dimens, -1, i2, dimens3, i3, dimens4, com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds38));
-            bVar3.qC(dimens2);
-            bVar3.qA(dimens5);
+            int dimens3 = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.T_X10);
+            int dimens4 = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
+            int dimens5 = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds2);
+            int dimens6 = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X003);
+            com.baidu.tbadk.core.view.b bVar3 = new com.baidu.tbadk.core.view.b(dimens, -1, i2, dimens3, i3, dimens4, l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds38));
+            bVar3.qN(dimens2);
+            bVar3.qL(dimens5);
             bVar3.setMarginRight(dimens6);
-            spannableStringBuilder.setSpan(bVar3, 0, uVar.eFz.length(), 17);
+            spannableStringBuilder.setSpan(bVar3, 0, uVar.ePp.length(), 17);
         }
-        if (uVar.eFB || uVar.mType == 2 || uVar.eFw) {
+        if (uVar.ePr || uVar.mType == 2 || uVar.ePm) {
             if (uVar.mTitle != null) {
                 spannableStringBuilder.append((CharSequence) uVar.mTitle);
             }
         } else {
-            if (uVar.eFu != null) {
-                spannableStringBuilder.append((CharSequence) uVar.eFu);
+            if (uVar.ePk != null) {
+                spannableStringBuilder.append((CharSequence) uVar.ePk);
             }
             bVar.mTitle.setMaxLines(1);
         }
         bVar.mTitle.setText(spannableStringBuilder);
-        bVar.obA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.d.1
+        bVar.odL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.d.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                com.baidu.tbadk.core.view.spanGroup.a MX = d.this.MX(i);
-                if (MX != null) {
-                    if (d.this.obx != null) {
-                        d.this.obx.MY(MX.getId());
+                com.baidu.tbadk.core.view.spanGroup.a MJ = d.this.MJ(i);
+                if (MJ != null) {
+                    if (d.this.odI != null) {
+                        d.this.odI.MK(MJ.getId());
                     }
-                    if (d.this.obx != null) {
-                        d.this.obx.gs(d.this.itL);
+                    if (d.this.odI != null) {
+                        d.this.odI.gl(d.this.iFY);
                     }
                 }
             }
         });
-        com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10);
-        ap.d(bVar.mRootView, 0, R.color.CAM_X0205, R.color.CAM_X0205);
-        com.baidu.tbadk.core.elementsMaven.c.bm(bVar.kTH).pA(R.string.J_X05).setBackGroundColor(R.color.CAM_X0206);
-        bVar.obA.setImageDrawable(WebPManager.a(R.drawable.icon_mask_post_image_delete16, WebPManager.ResourceStateType.NORMAL));
-        ap.setViewTextColor(bVar.mTitle, R.color.CAM_X0105);
-        ap.setViewTextColor(bVar.fcc, R.color.CAM_X0305);
-        ap.setViewTextColor(bVar.obB, R.color.CAM_X0109);
-        ap.a(bVar.obC, R.color.CAM_X0206, GradientDrawable.Orientation.RIGHT_LEFT);
+        l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10);
+        ao.d(bVar.mRootView, 0, R.color.CAM_X0205, R.color.CAM_X0205);
+        com.baidu.tbadk.core.elementsMaven.c.bv(bVar.bVM).pK(R.string.J_X05).setBackGroundColor(R.color.CAM_X0206);
+        bVar.odL.setImageDrawable(WebPManager.a(R.drawable.icon_mask_post_image_delete16, WebPManager.ResourceStateType.NORMAL));
+        ao.setViewTextColor(bVar.mTitle, R.color.CAM_X0105);
+        ao.setViewTextColor(bVar.flL, R.color.CAM_X0305);
+        ao.setViewTextColor(bVar.odM, R.color.CAM_X0109);
+        ao.a(bVar.odN, R.color.CAM_X0206, GradientDrawable.Orientation.RIGHT_LEFT);
         return view;
     }
 
     public void h(LinkedList<com.baidu.tbadk.core.view.spanGroup.a> linkedList) {
-        this.obw = linkedList;
+        this.odH = linkedList;
     }
 
-    public LinkedList<com.baidu.tbadk.core.view.spanGroup.a> eaj() {
-        return this.obw;
+    public LinkedList<com.baidu.tbadk.core.view.spanGroup.a> dZs() {
+        return this.odH;
     }
 
     public void refreshData() {
-        eal();
+        dZu();
         notifyDataSetChanged();
     }
 
@@ -199,14 +200,14 @@ public class d extends BaseAdapter {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public boolean eak() {
-        if (y.isEmpty(this.itL)) {
+    public boolean dZt() {
+        if (x.isEmpty(this.iFY)) {
             return true;
         }
-        Iterator<u> it = this.itL.iterator();
+        Iterator<u> it = this.iFY.iterator();
         while (it.hasNext()) {
             u next = it.next();
-            if (next.mType == 2 || !next.eFw) {
+            if (next.mType == 2 || !next.ePm) {
                 return false;
             }
             while (it.hasNext()) {
@@ -215,40 +216,40 @@ public class d extends BaseAdapter {
         return true;
     }
 
-    private void eal() {
-        this.itL.clear();
-        if (!y.isEmpty(this.obw)) {
-            Iterator<com.baidu.tbadk.core.view.spanGroup.a> it = this.obw.iterator();
+    private void dZu() {
+        this.iFY.clear();
+        if (!x.isEmpty(this.odH)) {
+            Iterator<com.baidu.tbadk.core.view.spanGroup.a> it = this.odH.iterator();
             while (it.hasNext()) {
                 com.baidu.tbadk.core.view.spanGroup.a next = it.next();
                 if (next.isValid() && (next instanceof TbLinkSpanGroup)) {
                     TbLinkSpanGroup tbLinkSpanGroup = (TbLinkSpanGroup) next;
-                    if (tbLinkSpanGroup.bwv() != null) {
-                        u bwv = tbLinkSpanGroup.bwv();
-                        bwv.eFD = tbLinkSpanGroup.getStart();
-                        this.itL.add(bwv);
+                    if (tbLinkSpanGroup.byO() != null) {
+                        u byO = tbLinkSpanGroup.byO();
+                        byO.ePt = tbLinkSpanGroup.getStart();
+                        this.iFY.add(byO);
                     }
                 }
             }
-            Collections.sort(this.itL);
+            Collections.sort(this.iFY);
         }
     }
 
     public void a(a aVar) {
-        this.obx = aVar;
+        this.odI = aVar;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes8.dex */
     private class b {
-        TbImageView fca;
-        TextView fcc;
-        View kTH;
+        View bVM;
+        TbImageView flJ;
+        TextView flL;
         View mRootView;
         TextView mTitle;
-        ImageView obA;
-        TextView obB;
-        View obC;
-        View obz;
+        View odK;
+        ImageView odL;
+        TextView odM;
+        View odN;
 
         private b() {
         }

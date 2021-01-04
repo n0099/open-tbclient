@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONException;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaMoreFunctionDialogData implements IBaseDialogData {
     private String mCustomRoomId;
     private String mGroupId;
@@ -58,17 +58,17 @@ public class AlaMoreFunctionDialogData implements IBaseDialogData {
             Iterator<com.baidu.yuyinala.more.b.b> it = this.mGroupList.iterator();
             while (it.hasNext()) {
                 com.baidu.yuyinala.more.b.b next = it.next();
-                if (next == null || ListUtils.isEmpty(next.ekO())) {
+                if (next == null || ListUtils.isEmpty(next.ekX())) {
                     it.remove();
                 } else {
-                    Iterator<com.baidu.yuyinala.more.b.a> it2 = next.ekO().iterator();
+                    Iterator<com.baidu.yuyinala.more.b.a> it2 = next.ekX().iterator();
                     while (it2.hasNext()) {
                         com.baidu.yuyinala.more.b.a next2 = it2.next();
                         if (next2 == null) {
                             it2.remove();
                         } else if (TextUtils.equals(next2.getAction(), str)) {
                             it2.remove();
-                            if (ListUtils.isEmpty(next.ekO())) {
+                            if (ListUtils.isEmpty(next.ekX())) {
                                 it.remove();
                                 return;
                             }
@@ -83,7 +83,6 @@ public class AlaMoreFunctionDialogData implements IBaseDialogData {
 
     private void sendRedNodeAndMoreShowMsg() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501017, Boolean.valueOf(mergeRedNodeFunctionId(this.mGroupList))));
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501016, Boolean.valueOf(!ListUtils.isEmpty(this.mGroupList))));
     }
 
     public List<com.baidu.yuyinala.more.b.b> getGroupList() {
@@ -129,7 +128,7 @@ public class AlaMoreFunctionDialogData implements IBaseDialogData {
             this.mShowSuperCharge = false;
             return;
         }
-        if (z && com.baidu.live.ae.a.RB().RG()) {
+        if (z && com.baidu.live.af.a.SE().SJ()) {
             z3 = true;
         }
         this.mShowFirstCharge = z3;
@@ -160,10 +159,10 @@ public class AlaMoreFunctionDialogData implements IBaseDialogData {
     }
 
     public static void saveClickedId(com.baidu.yuyinala.more.b.a aVar) {
-        if (aVar != null && aVar.ekM()) {
-            Set<String> stringSet = d.BM().getStringSet("audio_more_red_node_clicked_function", new HashSet());
+        if (aVar != null && aVar.ekV()) {
+            Set<String> stringSet = d.Ba().getStringSet("audio_more_red_node_clicked_function", new HashSet());
             if (stringSet.add(aVar.getId())) {
-                d.BM().putStringSet("audio_more_red_node_clicked_function", stringSet);
+                d.Ba().putStringSet("audio_more_red_node_clicked_function", stringSet);
             }
         }
     }
@@ -172,7 +171,7 @@ public class AlaMoreFunctionDialogData implements IBaseDialogData {
         if (ListUtils.isEmpty(list)) {
             return false;
         }
-        Set<String> stringSet = d.BM().getStringSet("audio_more_red_node_clicked_function", new HashSet());
+        Set<String> stringSet = d.Ba().getStringSet("audio_more_red_node_clicked_function", new HashSet());
         Set<String> redNodeFuncIdsFromData = getRedNodeFuncIdsFromData(list);
         initNeedShowRedNode(list, stringSet);
         HashSet hashSet = new HashSet();
@@ -180,16 +179,16 @@ public class AlaMoreFunctionDialogData implements IBaseDialogData {
         hashSet.addAll(stringSet);
         hashSet.removeAll(redNodeFuncIdsFromData);
         if (stringSet.removeAll(hashSet)) {
-            d.BM().putStringSet("audio_more_red_node_clicked_function", stringSet);
+            d.Ba().putStringSet("audio_more_red_node_clicked_function", stringSet);
         }
         return !stringSet.containsAll(redNodeFuncIdsFromData);
     }
 
     private static void initNeedShowRedNode(List<com.baidu.yuyinala.more.b.b> list, Set<String> set) {
         for (com.baidu.yuyinala.more.b.b bVar : list) {
-            if (bVar != null && bVar.ekO() != null) {
-                for (com.baidu.yuyinala.more.b.a aVar : bVar.ekO()) {
-                    if (aVar.ekM()) {
+            if (bVar != null && bVar.ekX() != null) {
+                for (com.baidu.yuyinala.more.b.a aVar : bVar.ekX()) {
+                    if (aVar.ekV()) {
                         if (set.contains(aVar.getId())) {
                             aVar.At(false);
                         } else {
@@ -204,9 +203,9 @@ public class AlaMoreFunctionDialogData implements IBaseDialogData {
     private static Set<String> getRedNodeFuncIdsFromData(List<com.baidu.yuyinala.more.b.b> list) {
         HashSet hashSet = new HashSet();
         for (com.baidu.yuyinala.more.b.b bVar : list) {
-            if (bVar != null && bVar.ekO() != null) {
-                for (com.baidu.yuyinala.more.b.a aVar : bVar.ekO()) {
-                    if (aVar.ekM()) {
+            if (bVar != null && bVar.ekX() != null) {
+                for (com.baidu.yuyinala.more.b.a aVar : bVar.ekX()) {
+                    if (aVar.ekV()) {
                         hashSet.add(aVar.getId());
                     }
                 }

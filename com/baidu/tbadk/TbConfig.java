@@ -40,6 +40,7 @@ public class TbConfig {
     public static final int AUTO_PLAY_IN_WIFI = 0;
     public static final int AUTO_PLAY_UNSET = -1;
     public static final String AVATAR_PENDANT = "c/e/theme/getPendantByCategory";
+    public static final String BAWUTEAME_ADDRESS = "http://tieba.baidu.com/mo/q/bawuteam";
     public static final String BIGDAY_IMAGE_CACHE_DIR_NAME = "bigday_images";
     public static final int BIG_IMAGE_MIN_CAPACITY = 10000;
     public static final int BIG_IMAGE_MIN_SIZE = 80;
@@ -639,10 +640,10 @@ public class TbConfig {
     public static final int VALUE_COMMON_FONT_SIZE_BIG = getDimens(R.dimen.T_X05);
     public static final int VALUE_COMMON_FONT_SIZE_MID = getDimens(R.dimen.T_X06);
     public static final int VALUE_COMMON_FONT_SIZE_SMALL = getDimens(R.dimen.T_X07);
-    public static final int VALUE_COMMON_FONT_LINE_SPACE_XLAGRE = getDimens(R.dimen.tbds29);
-    public static final int VALUE_COMMON_FONT_LINE_SPACE_BIG = getDimens(R.dimen.tbds29);
-    public static final int VALUE_COMMON_FONT_LINE_SPACE_MID = getDimens(R.dimen.tbds29);
-    public static final int VALUE_COMMON_FONT_LINE_SPACE_SMALL = getDimens(R.dimen.tbds29);
+    public static final int VALUE_COMMON_FONT_LINE_SPACE_XLAGRE = getDimens(R.dimen.tbds25);
+    public static final int VALUE_COMMON_FONT_LINE_SPACE_BIG = getDimens(R.dimen.tbds25);
+    public static final int VALUE_COMMON_FONT_LINE_SPACE_MID = getDimens(R.dimen.tbds25);
+    public static final int VALUE_COMMON_FONT_LINE_SPACE_SMALL = getDimens(R.dimen.tbds25);
     public static final int VALUE_POST_FONT_LINE_SPACE_XLAGRE = getDimens(R.dimen.tbds21);
     public static final int VALUE_POST_FONT_LINE_SPACE_BIG = getDimens(R.dimen.tbds21);
     public static final int VALUE_POST_FONT_LINE_SPACE_MID = getDimens(R.dimen.tbds21);
@@ -794,7 +795,7 @@ public class TbConfig {
             i = 60;
         }
         if (MAX_PHOTO_MEMORY_CACHE != i) {
-            c.bDV().setPhotoMaxNum(i);
+            c.bGp().setPhotoMaxNum(i);
         }
         MAX_PHOTO_MEMORY_CACHE = i;
     }

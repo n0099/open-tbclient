@@ -4,21 +4,21 @@ import android.content.Context;
 import android.graphics.SurfaceTexture;
 import android.view.Surface;
 import android.view.TextureView;
+import com.baidu.ala.adp.lib.util.BdLog;
+import com.baidu.ala.adp.lib.util.BdNetTypeUtil;
 import com.baidu.ala.helper.StreamConfig;
 import com.baidu.ala.ndk.AlaNDKPKPlayerAdapter;
 import com.baidu.ala.ndk.AudioProcessModule;
 import com.baidu.ala.player.AlaAudioPlayer;
 import com.baidu.ala.player.CallStateReceiver;
 import com.baidu.ala.recorder.video.RecorderHandler;
-import com.baidu.live.adp.lib.util.BdLog;
-import com.baidu.live.adp.lib.util.BdNetTypeUtil;
 import java.lang.ref.WeakReference;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class AlaLivePKPlayer {
     private static final int JNI_NOTIFY_MESSAGE_NO_VIDEO_FRAME = 2;
     private static final int JNI_NOTIFY_MESSAGE_RENDER_VIDEO_FRAME = 1;
@@ -234,7 +234,7 @@ public class AlaLivePKPlayer {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes15.dex */
     public class AlaLivePKVideoPlayer extends TextureView implements TextureView.SurfaceTextureListener {
         private int mIndex;
         private Surface mSurface;

@@ -1,6 +1,7 @@
 package okio;
 
 import com.baidu.android.common.others.IStringUtil;
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -18,7 +19,7 @@ import java.util.Arrays;
 import javax.annotation.Nullable;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class ByteString implements Serializable, Comparable<ByteString> {
     private static final long serialVersionUID = 1;
     final byte[] data;
@@ -99,7 +100,7 @@ public class ByteString implements Serializable, Comparable<ByteString> {
     }
 
     public ByteString md5() {
-        return digest("MD5");
+        return digest(EncryptUtils.ENCRYPT_MD5);
     }
 
     public ByteString sha1() {
@@ -163,14 +164,18 @@ public class ByteString implements Serializable, Comparable<ByteString> {
     }
 
     public String hex() {
-        byte[] bArr;
         char[] cArr = new char[this.data.length * 2];
+        byte[] bArr = this.data;
+        int length = bArr.length;
         int i = 0;
-        for (byte b : this.data) {
-            int i2 = i + 1;
-            cArr[i] = HEX_DIGITS[(b >> 4) & 15];
-            i = i2 + 1;
-            cArr[i2] = HEX_DIGITS[b & 15];
+        int i2 = 0;
+        while (i < length) {
+            byte b2 = bArr[i];
+            int i3 = i2 + 1;
+            cArr[i2] = HEX_DIGITS[(b2 >> 4) & 15];
+            cArr[i3] = HEX_DIGITS[b2 & 15];
+            i++;
+            i2 = i3 + 1;
         }
         return new String(cArr);
     }
@@ -226,16 +231,16 @@ public class ByteString implements Serializable, Comparable<ByteString> {
         while (true) {
             int i2 = i;
             if (i2 < this.data.length) {
-                byte b = this.data[i2];
-                if (b < 65 || b > 90) {
+                byte b2 = this.data[i2];
+                if (b2 < 65 || b2 > 90) {
                     i = i2 + 1;
                 } else {
                     byte[] bArr = (byte[]) this.data.clone();
-                    bArr[i2] = (byte) (b + 32);
+                    bArr[i2] = (byte) (b2 + 32);
                     for (int i3 = i2 + 1; i3 < bArr.length; i3++) {
-                        byte b2 = bArr[i3];
-                        if (b2 >= 65 && b2 <= 90) {
-                            bArr[i3] = (byte) (b2 + 32);
+                        byte b3 = bArr[i3];
+                        if (b3 >= 65 && b3 <= 90) {
+                            bArr[i3] = (byte) (b3 + 32);
                         }
                     }
                     return new ByteString(bArr);
@@ -251,16 +256,16 @@ public class ByteString implements Serializable, Comparable<ByteString> {
         while (true) {
             int i2 = i;
             if (i2 < this.data.length) {
-                byte b = this.data[i2];
-                if (b < 97 || b > 122) {
+                byte b2 = this.data[i2];
+                if (b2 < 97 || b2 > 122) {
                     i = i2 + 1;
                 } else {
                     byte[] bArr = (byte[]) this.data.clone();
-                    bArr[i2] = (byte) (b - 32);
+                    bArr[i2] = (byte) (b2 - 32);
                     for (int i3 = i2 + 1; i3 < bArr.length; i3++) {
-                        byte b2 = bArr[i3];
-                        if (b2 >= 97 && b2 <= 122) {
-                            bArr[i3] = (byte) (b2 - 32);
+                        byte b3 = bArr[i3];
+                        if (b3 >= 97 && b3 <= 122) {
+                            bArr[i3] = (byte) (b3 - 32);
                         }
                     }
                     return new ByteString(bArr);
@@ -450,19 +455,19 @@ public class ByteString implements Serializable, Comparable<ByteString> {
     }
 
     static int codePointIndexToCharIndex(String str, int i) {
-        int i2 = 0;
         int length = str.length();
+        int i2 = 0;
         int i3 = 0;
-        while (i2 < length) {
-            if (i3 != i) {
-                int codePointAt = str.codePointAt(i2);
+        while (i3 < length) {
+            if (i2 != i) {
+                int codePointAt = str.codePointAt(i3);
                 if ((Character.isISOControl(codePointAt) && codePointAt != 10 && codePointAt != 13) || codePointAt == 65533) {
                     return -1;
                 }
-                i3++;
-                i2 += Character.charCount(codePointAt);
+                i2++;
+                i3 += Character.charCount(codePointAt);
             } else {
-                return i2;
+                return i3;
             }
         }
         return str.length();

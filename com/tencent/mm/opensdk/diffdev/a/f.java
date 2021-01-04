@@ -6,14 +6,14 @@ import com.tencent.mm.opensdk.diffdev.OAuthListener;
 import com.tencent.mm.opensdk.utils.Log;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public final class f extends AsyncTask<Void, Void, a> {
     private OAuthListener l;
     private String o;
     private int u;
     private String url;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     static class a {
         public OAuthErrCode n;
         public String v;
@@ -91,22 +91,22 @@ public final class f extends AsyncTask<Void, Void, a> {
             long currentTimeMillis = System.currentTimeMillis();
             byte[] a2 = e.a(str, 60000);
             long currentTimeMillis2 = System.currentTimeMillis();
-            a b = a.b(a2);
-            Log.d("MicroMsg.SDK.NoopingTask", String.format("nooping, url = %s, errCode = %s, uuidStatusCode = %d, time consumed = %d(ms)", str, b.n.toString(), Integer.valueOf(b.w), Long.valueOf(currentTimeMillis2 - currentTimeMillis)));
-            if (b.n != OAuthErrCode.WechatAuth_Err_OK) {
-                Log.e("MicroMsg.SDK.NoopingTask", String.format("nooping fail, errCode = %s, uuidStatusCode = %d", b.n.toString(), Integer.valueOf(b.w)));
-                return b;
+            a b2 = a.b(a2);
+            Log.d("MicroMsg.SDK.NoopingTask", String.format("nooping, url = %s, errCode = %s, uuidStatusCode = %d, time consumed = %d(ms)", str, b2.n.toString(), Integer.valueOf(b2.w), Long.valueOf(currentTimeMillis2 - currentTimeMillis)));
+            if (b2.n != OAuthErrCode.WechatAuth_Err_OK) {
+                Log.e("MicroMsg.SDK.NoopingTask", String.format("nooping fail, errCode = %s, uuidStatusCode = %d", b2.n.toString(), Integer.valueOf(b2.w)));
+                return b2;
             }
-            this.u = b.w;
-            if (b.w == g.UUID_SCANED.getCode()) {
+            this.u = b2.w;
+            if (b2.w == g.UUID_SCANED.getCode()) {
                 this.l.onQrcodeScanned();
-            } else if (b.w != g.UUID_KEEP_CONNECT.getCode() && b.w == g.UUID_CONFIRM.getCode()) {
-                if (b.v == null || b.v.length() == 0) {
+            } else if (b2.w != g.UUID_KEEP_CONNECT.getCode() && b2.w == g.UUID_CONFIRM.getCode()) {
+                if (b2.v == null || b2.v.length() == 0) {
                     Log.e("MicroMsg.SDK.NoopingTask", "nooping fail, confirm with an empty code!!!");
-                    b.n = OAuthErrCode.WechatAuth_Err_NormalErr;
-                    return b;
+                    b2.n = OAuthErrCode.WechatAuth_Err_NormalErr;
+                    return b2;
                 }
-                return b;
+                return b2;
             }
         }
         Log.i("MicroMsg.SDK.NoopingTask", "IDiffDevOAuth.stopAuth / detach invoked");

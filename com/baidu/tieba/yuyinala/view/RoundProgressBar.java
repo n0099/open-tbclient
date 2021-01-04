@@ -5,14 +5,14 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.RectF;
-import android.support.v4.internal.view.SupportMenu;
 import android.util.AttributeSet;
 import android.view.View;
+import androidx.core.internal.view.SupportMenu;
 import com.baidu.live.sdk.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class RoundProgressBar extends View {
-    private float bcp;
-    private int bcq;
+    private float bdX;
+    private int bdY;
     private int max;
     private Paint paint;
     private int progress;
@@ -36,10 +36,10 @@ public class RoundProgressBar extends View {
         this.roundColor = obtainStyledAttributes.getColor(a.j.RoundProgressBar_srp_roundColor, SupportMenu.CATEGORY_MASK);
         this.roundWidth = obtainStyledAttributes.getDimension(a.j.RoundProgressBar_srp_roundWidth, 5.0f);
         this.progressColor = obtainStyledAttributes.getColor(a.j.RoundProgressBar_srp_progressColor, -16711936);
-        this.bcp = obtainStyledAttributes.getDimension(a.j.RoundProgressBar_srp_progressWidth, this.roundWidth);
+        this.bdX = obtainStyledAttributes.getDimension(a.j.RoundProgressBar_srp_progressWidth, this.roundWidth);
         this.max = obtainStyledAttributes.getInteger(a.j.RoundProgressBar_srp_max, 100);
         this.style = obtainStyledAttributes.getInt(a.j.RoundProgressBar_srp_style, 0);
-        this.bcq = obtainStyledAttributes.getInt(a.j.RoundProgressBar_srp_startAngle, 90);
+        this.bdY = obtainStyledAttributes.getInt(a.j.RoundProgressBar_srp_startAngle, 90);
         obtainStyledAttributes.recycle();
     }
 
@@ -61,7 +61,7 @@ public class RoundProgressBar extends View {
                 break;
         }
         canvas.drawCircle(width, width, i, this.paint);
-        this.paint.setStrokeWidth(this.bcp);
+        this.paint.setStrokeWidth(this.bdX);
         this.paint.setColor(this.progressColor);
         RectF rectF = new RectF(width - i, width - i, width + i, width + i);
         float f2 = (float) ((360.0d * this.progress) / this.max);
@@ -71,10 +71,10 @@ public class RoundProgressBar extends View {
         switch (this.style) {
             case 0:
                 this.paint.setStrokeCap(Paint.Cap.ROUND);
-                canvas.drawArc(rectF, this.bcq, f, false, this.paint);
+                canvas.drawArc(rectF, this.bdY, f, false, this.paint);
                 return;
             case 1:
-                canvas.drawArc(rectF, this.bcq, f, true, this.paint);
+                canvas.drawArc(rectF, this.bdY, f, true, this.paint);
                 return;
             default:
                 return;

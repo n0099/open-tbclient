@@ -2,37 +2,37 @@ package com.airbnb.lottie.d;
 
 import android.graphics.Path;
 import android.graphics.PointF;
-import android.support.annotation.FloatRange;
+import androidx.annotation.FloatRange;
 import com.airbnb.lottie.a.a.j;
 import com.airbnb.lottie.model.content.h;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class e {
-    public static PointF a(PointF pointF, PointF pointF2) {
+    public static PointF b(PointF pointF, PointF pointF2) {
         return new PointF(pointF.x + pointF2.x, pointF.y + pointF2.y);
     }
 
     public static void a(h hVar, Path path) {
         path.reset();
-        PointF kn = hVar.kn();
-        path.moveTo(kn.x, kn.y);
-        PointF pointF = new PointF(kn.x, kn.y);
+        PointF jM = hVar.jM();
+        path.moveTo(jM.x, jM.y);
+        PointF pointF = new PointF(jM.x, jM.y);
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= hVar.ko().size()) {
+            if (i2 >= hVar.jN().size()) {
                 break;
             }
-            com.airbnb.lottie.model.a aVar = hVar.ko().get(i2);
-            PointF ju = aVar.ju();
-            PointF jv = aVar.jv();
-            PointF jw = aVar.jw();
-            if (ju.equals(pointF) && jv.equals(jw)) {
-                path.lineTo(jw.x, jw.y);
+            com.airbnb.lottie.model.a aVar = hVar.jN().get(i2);
+            PointF iT = aVar.iT();
+            PointF iU = aVar.iU();
+            PointF iV = aVar.iV();
+            if (iT.equals(pointF) && iU.equals(iV)) {
+                path.lineTo(iV.x, iV.y);
             } else {
-                path.cubicTo(ju.x, ju.y, jv.x, jv.y, jw.x, jw.y);
+                path.cubicTo(iT.x, iT.y, iU.x, iU.y, iV.x, iV.y);
             }
-            pointF.set(jw.x, jw.y);
+            pointF.set(iV.x, iV.y);
             i = i2 + 1;
         }
         if (hVar.isClosed()) {
@@ -80,7 +80,7 @@ public class e {
 
     public static void a(com.airbnb.lottie.model.e eVar, int i, List<com.airbnb.lottie.model.e> list, com.airbnb.lottie.model.e eVar2, j jVar) {
         if (eVar.j(jVar.getName(), i)) {
-            list.add(eVar2.bn(jVar.getName()).a(jVar));
+            list.add(eVar2.bk(jVar.getName()).a(jVar));
         }
     }
 }

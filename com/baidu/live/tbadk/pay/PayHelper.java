@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.live.tbadk.pay.channel.PayChannelManager;
 import com.baidu.live.tbadk.pay.channel.interfaces.IPayChannel;
 import com.baidu.live.tbadk.pay.channel.interfaces.PayChannelType;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class PayHelper {
     public static final int PAY_CANCEL = 1;
     public static final int PAY_FAIL_GET_ORDER = 3;

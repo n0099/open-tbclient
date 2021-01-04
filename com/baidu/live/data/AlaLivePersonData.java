@@ -4,7 +4,7 @@ import com.baidu.tieba.ala.live.walletconfig.CashierData;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaLivePersonData implements Serializable {
     public AlaAvtsConfigInfo mAvtsConfigInfo;
     public AlaAvtsData mAvtsData;

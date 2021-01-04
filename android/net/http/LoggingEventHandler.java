@@ -1,5 +1,5 @@
 package android.net.http;
-/* loaded from: classes11.dex */
+/* loaded from: classes6.dex */
 public class LoggingEventHandler implements EventHandler {
     public LoggingEventHandler() {
         throw new RuntimeException("Stub!");

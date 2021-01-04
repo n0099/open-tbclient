@@ -1,10 +1,10 @@
 package com.baidu.swan.support.v4.app;
 
 import android.os.Bundle;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public abstract class o {
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes6.dex */
     public interface a<D> {
         void a(com.baidu.swan.support.v4.a.d<D> dVar);
 

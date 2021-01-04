@@ -10,8 +10,8 @@ import com.baidu.android.imsdk.internal.IMSettings;
 import com.baidu.android.imsdk.mcast.McastConfig;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.h.a;
-/* loaded from: classes9.dex */
+import com.baidu.i.a;
+/* loaded from: classes4.dex */
 public class IMReceiver extends BroadcastReceiver {
     private static final String TAG = "IMReceiver";
 
@@ -43,7 +43,7 @@ public class IMReceiver extends BroadcastReceiver {
         Intent intent = new Intent(context, a.class);
         intent.setAction(Constants.ACTION_START);
         try {
-            a.aq(context).e(context, intent);
+            a.ap(context).e(context, intent);
         } catch (Exception e) {
             LogUtils.e(TAG, "Exception ", e);
         }
@@ -56,7 +56,7 @@ public class IMReceiver extends BroadcastReceiver {
         }
         intent.setClass(context, a.class);
         try {
-            a.aq(context).e(context, intent);
+            a.ap(context).e(context, intent);
         } catch (Exception e) {
             LogUtils.e(TAG, "Exception ", e);
         }

@@ -1,87 +1,87 @@
 package com.baidu.tieba.homepage.gamevideo;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationConstants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.y;
-import com.baidu.tbadk.util.z;
-import com.baidu.tieba.frs.ap;
+import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.util.y;
+import com.baidu.tieba.frs.am;
 import com.baidu.tieba.homepage.gamevideo.b.c;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes22.dex */
-public class GameVideoFragment extends BaseFragment implements ap {
-    private c jOt;
+/* loaded from: classes2.dex */
+public class GameVideoFragment extends BaseFragment implements am {
+    private c kbH;
 
-    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (this.jOt == null) {
-            this.jOt = new c(getPageContext(), getUniqueId());
+        if (this.kbH == null) {
+            this.kbH = new c(getPageContext(), getUniqueId());
         }
-        this.jOt.init();
+        this.kbH.init();
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        if (this.jOt == null || this.jOt.getView() == null) {
+        if (this.kbH == null || this.kbH.getView() == null) {
             return super.onCreateView(layoutInflater, viewGroup, bundle);
         }
-        if (this.jOt.getView().getParent() instanceof ViewGroup) {
-            ((ViewGroup) this.jOt.getView().getParent()).removeView(this.jOt.getView());
+        if (this.kbH.getView().getParent() instanceof ViewGroup) {
+            ((ViewGroup) this.kbH.getView().getParent()).removeView(this.kbH.getView());
         }
-        return this.jOt.getView();
+        return this.kbH.getView();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
         super.onLazyLoad();
-        if (this.jOt != null) {
-            this.jOt.loadData();
+        if (this.kbH != null) {
+            this.kbH.loadData();
         }
     }
 
-    @Override // com.baidu.tieba.frs.ap
-    public void VC() {
-        if (this.jOt != null) {
-            this.jOt.VC();
+    @Override // com.baidu.tieba.frs.am
+    public void WE() {
+        if (this.kbH != null) {
+            this.kbH.WE();
         }
     }
 
-    @Override // com.baidu.tieba.frs.ap
-    public void bSh() {
+    @Override // com.baidu.tieba.frs.am
+    public void bUJ() {
     }
 
-    @Override // com.baidu.tieba.frs.ap
-    public void bSi() {
+    @Override // com.baidu.tieba.frs.am
+    public void bUK() {
     }
 
-    @Override // com.baidu.tieba.frs.ap
-    public void setRecommendFrsNavigationAnimDispatcher(z zVar) {
+    @Override // com.baidu.tieba.frs.am
+    public void setRecommendFrsNavigationAnimDispatcher(y yVar) {
     }
 
-    @Override // com.baidu.tieba.frs.ap
+    @Override // com.baidu.tieba.frs.am
     public void showFloatingView() {
     }
 
-    @Override // com.baidu.tieba.frs.ap
-    public void bvt() {
+    @Override // com.baidu.tieba.frs.am
+    public void bxO() {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.jOt != null) {
-            this.jOt.bvt();
+        if (this.kbH != null) {
+            this.kbH.bxO();
         }
     }
 
@@ -91,24 +91,24 @@ public class GameVideoFragment extends BaseFragment implements ap {
         if (isPrimary()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921400, false));
         }
-        if (this.jOt != null) {
-            this.jOt.setPrimary(isPrimary());
+        if (this.kbH != null) {
+            this.kbH.setPrimary(isPrimary());
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onPause() {
         super.onPause();
-        if (this.jOt != null) {
-            this.jOt.onPause();
+        if (this.kbH != null) {
+            this.kbH.onPause();
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.jOt != null) {
-            this.jOt.onDestroy();
+        if (this.kbH != null) {
+            this.kbH.onDestroy();
         }
     }
 
@@ -120,7 +120,7 @@ public class GameVideoFragment extends BaseFragment implements ap {
         } else {
             arrayList = new ArrayList();
         }
-        if (!PageStayDurationConstants.PageName.HOMEPAGE.equals(y.getItem(arrayList, arrayList.size() - 1))) {
+        if (!PageStayDurationConstants.PageName.HOMEPAGE.equals(x.getItem(arrayList, arrayList.size() - 1))) {
             arrayList.add(PageStayDurationConstants.PageName.HOMEPAGE);
         }
         return arrayList;

@@ -3,11 +3,11 @@ package com.meizu.flyme.openidsdk;
 import android.content.Context;
 import android.util.Log;
 import java.lang.reflect.Method;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static String a(Context context) {
-        e ezy = e.ezy();
-        return ezy.a(context.getApplicationContext(), ezy.pyf);
+        e eDp = e.eDp();
+        return eDp.a(context.getApplicationContext(), eDp.pQL);
     }
 
     public static final boolean a() {
@@ -23,21 +23,21 @@ public class b {
         if (context == null) {
             return false;
         }
-        return e.ezy().a(context, false);
+        return e.eDp().a(context, false);
     }
 
     public static String b(Context context) {
-        e ezy = e.ezy();
-        return ezy.a(context.getApplicationContext(), ezy.pyg);
+        e eDp = e.eDp();
+        return eDp.a(context.getApplicationContext(), eDp.pQM);
     }
 
     public static String c(Context context) {
-        e ezy = e.ezy();
-        return ezy.a(context.getApplicationContext(), ezy.pyi);
+        e eDp = e.eDp();
+        return eDp.a(context.getApplicationContext(), eDp.pQO);
     }
 
     public static String d(Context context) {
-        e ezy = e.ezy();
-        return ezy.a(context.getApplicationContext(), ezy.pyh);
+        e eDp = e.eDp();
+        return eDp.a(context.getApplicationContext(), eDp.pQN);
     }
 }

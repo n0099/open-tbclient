@@ -4,21 +4,21 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.af;
-import com.baidu.adp.widget.ListView.af.a;
-import com.baidu.adp.widget.ListView.v;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
+import com.baidu.adp.widget.ListView.s;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.core.data.by;
-/* loaded from: classes22.dex */
-public abstract class a<T, V extends af.a> extends com.baidu.adp.widget.ListView.a<T, V> {
-    protected com.baidu.tbadk.h.f ajQ;
-    protected v amH;
+import com.baidu.tbadk.core.data.bz;
+/* loaded from: classes2.dex */
+public abstract class a<T, V extends TypeAdapter.ViewHolder> extends com.baidu.adp.widget.ListView.a<T, V> {
+    protected com.baidu.tbadk.h.f aks;
+    protected s anl;
     protected boolean mIsFromCDN;
     protected TbPageContext<?> mPageContext;
 
     public void setOnItemCoverListener(com.baidu.tbadk.h.f fVar) {
-        this.ajQ = fVar;
+        this.aks = fVar;
     }
 
     @Override // com.baidu.adp.widget.ListView.a
@@ -26,8 +26,8 @@ public abstract class a<T, V extends af.a> extends com.baidu.adp.widget.ListView
         this.mPageId = bdUniqueId;
     }
 
-    public void a(v vVar) {
-        this.amH = vVar;
+    public void a(s sVar) {
+        this.anl = sVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -59,15 +59,15 @@ public abstract class a<T, V extends af.a> extends com.baidu.adp.widget.ListView
         return view;
     }
 
-    public void a(View view, by byVar, int i, long j) {
-        if (this.ajQ != null) {
-            this.ajQ.b(view, byVar, i, j);
+    public void a(View view, bz bzVar, int i, long j) {
+        if (this.aks != null) {
+            this.aks.b(view, bzVar, i, j);
         }
     }
 
-    public void f(View view, by byVar) {
-        if (this.ajQ != null) {
-            this.ajQ.a(view, byVar, byVar.position, byVar.position);
+    public void f(View view, bz bzVar) {
+        if (this.aks != null) {
+            this.aks.a(view, bzVar, bzVar.position, bzVar.position);
         }
     }
 

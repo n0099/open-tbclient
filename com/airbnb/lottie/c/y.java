@@ -4,23 +4,23 @@ import android.graphics.PointF;
 import android.util.JsonReader;
 import android.util.JsonToken;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class y implements aj<PointF> {
-    public static final y HQ = new y();
+    public static final y Hz = new y();
 
     private y() {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.airbnb.lottie.c.aj
-    /* renamed from: k */
-    public PointF b(JsonReader jsonReader, float f) throws IOException {
+    /* renamed from: p */
+    public PointF g(JsonReader jsonReader, float f) throws IOException {
         JsonToken peek = jsonReader.peek();
         if (peek == JsonToken.BEGIN_ARRAY) {
-            return p.g(jsonReader, f);
+            return p.l(jsonReader, f);
         }
         if (peek == JsonToken.BEGIN_OBJECT) {
-            return p.g(jsonReader, f);
+            return p.l(jsonReader, f);
         }
         if (peek == JsonToken.NUMBER) {
             PointF pointF = new PointF(((float) jsonReader.nextDouble()) * f, ((float) jsonReader.nextDouble()) * f);

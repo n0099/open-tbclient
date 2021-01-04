@@ -2,7 +2,7 @@ package com.baidu.live.personmanager;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class FollowHttpResponseMessage extends JsonHttpResponsedMessage {
     public FollowHttpResponseMessage() {
         super(1031045);

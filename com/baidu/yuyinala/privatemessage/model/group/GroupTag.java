@@ -2,19 +2,19 @@ package com.baidu.yuyinala.privatemessage.model.group;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class GroupTag implements Parcelable {
     public static final Parcelable.Creator<GroupTag> CREATOR = new Parcelable.Creator<GroupTag>() { // from class: com.baidu.yuyinala.privatemessage.model.group.GroupTag.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: al */
+        /* renamed from: am */
         public GroupTag createFromParcel(Parcel parcel) {
             return new GroupTag(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Pz */
+        /* renamed from: Pn */
         public GroupTag[] newArray(int i) {
             return new GroupTag[i];
         }

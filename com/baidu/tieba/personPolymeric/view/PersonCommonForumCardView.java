@@ -2,57 +2,57 @@ package com.baidu.tieba.personPolymeric.view;
 
 import android.content.Context;
 import android.view.ViewGroup;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.widget.layout.FlowLayout;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes24.dex */
+/* loaded from: classes8.dex */
 public class PersonCommonForumCardView extends FlowLayout {
+    private List<com.baidu.tieba.personPolymeric.c.f> mAG;
+    private List<PersonCommonForumItemView> mAH;
+    private com.baidu.adp.lib.d.b<PersonCommonForumItemView> mAI;
     private Context mContext;
-    private List<com.baidu.tieba.personPolymeric.c.f> mvt;
-    private List<PersonCommonForumItemView> mvu;
-    private com.baidu.adp.lib.d.b<PersonCommonForumItemView> mvv;
 
     public PersonCommonForumCardView(Context context) {
         super(context);
-        this.mvu = new ArrayList();
+        this.mAH = new ArrayList();
         this.mContext = context;
     }
 
     public void setData(List<com.baidu.tieba.personPolymeric.c.f> list) {
-        this.mvt = list;
+        this.mAG = list;
         bindDataToView();
     }
 
     private void bindDataToView() {
-        if (!y.isEmpty(this.mvt)) {
-            for (com.baidu.tieba.personPolymeric.c.f fVar : this.mvt) {
+        if (!x.isEmpty(this.mAG)) {
+            for (com.baidu.tieba.personPolymeric.c.f fVar : this.mAG) {
                 if (fVar != null) {
-                    PersonCommonForumItemView borrowObject = this.mvv.borrowObject();
+                    PersonCommonForumItemView borrowObject = this.mAI.borrowObject();
                     borrowObject.setData(fVar);
                     addView(borrowObject, new ViewGroup.LayoutParams(((com.baidu.adp.lib.util.l.getEquipmentWidth(this.mContext) - com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds88)) - com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds96)) / 2, -2));
-                    this.mvu.add(borrowObject);
+                    this.mAH.add(borrowObject);
                 }
             }
         }
     }
 
     public void recycle() {
-        if (!y.isEmpty(this.mvu)) {
-            for (PersonCommonForumItemView personCommonForumItemView : this.mvu) {
-                this.mvv.returnObject(personCommonForumItemView);
+        if (!x.isEmpty(this.mAH)) {
+            for (PersonCommonForumItemView personCommonForumItemView : this.mAH) {
+                this.mAI.returnObject(personCommonForumItemView);
             }
             removeAllViews();
         }
     }
 
     public void setForumItemViewBdObjectPool(com.baidu.adp.lib.d.b<PersonCommonForumItemView> bVar) {
-        this.mvv = bVar;
+        this.mAI = bVar;
     }
 
     public void onChangeSkinType() {
-        for (PersonCommonForumItemView personCommonForumItemView : this.mvu) {
+        for (PersonCommonForumItemView personCommonForumItemView : this.mAH) {
             if (personCommonForumItemView != null) {
                 personCommonForumItemView.onChangeSkinType();
             }

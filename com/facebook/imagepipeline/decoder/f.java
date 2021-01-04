@@ -1,33 +1,33 @@
 package com.facebook.imagepipeline.decoder;
 
-import android.support.v7.widget.ActivityChooserView;
+import androidx.appcompat.widget.ActivityChooserView;
 import com.facebook.common.internal.g;
 import com.facebook.imagepipeline.f.h;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes5.dex */
 public class f implements d {
-    private final b pni;
+    private final b pCL;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes5.dex */
     public interface b {
-        List<Integer> evr();
+        List<Integer> eza();
 
-        int evs();
+        int ezb();
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes5.dex */
     private static class a implements b {
         private a() {
         }
 
         @Override // com.facebook.imagepipeline.decoder.f.b
-        public List<Integer> evr() {
+        public List<Integer> eza() {
             return Collections.EMPTY_LIST;
         }
 
         @Override // com.facebook.imagepipeline.decoder.f.b
-        public int evs() {
+        public int ezb() {
             return 0;
         }
     }
@@ -37,23 +37,23 @@ public class f implements d {
     }
 
     public f(b bVar) {
-        this.pni = (b) g.checkNotNull(bVar);
+        this.pCL = (b) g.checkNotNull(bVar);
     }
 
     @Override // com.facebook.imagepipeline.decoder.d
-    public int QF(int i) {
-        List<Integer> evr = this.pni.evr();
-        if (evr == null || evr.isEmpty()) {
+    public int QC(int i) {
+        List<Integer> eza = this.pCL.eza();
+        if (eza == null || eza.isEmpty()) {
             return i + 1;
         }
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 < evr.size()) {
-                if (evr.get(i3).intValue() <= i) {
+            if (i3 < eza.size()) {
+                if (eza.get(i3).intValue() <= i) {
                     i2 = i3 + 1;
                 } else {
-                    return evr.get(i3).intValue();
+                    return eza.get(i3).intValue();
                 }
             } else {
                 return ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
@@ -62,7 +62,7 @@ public class f implements d {
     }
 
     @Override // com.facebook.imagepipeline.decoder.d
-    public h QG(int i) {
-        return com.facebook.imagepipeline.f.g.k(i, i >= this.pni.evs(), false);
+    public h QD(int i) {
+        return com.facebook.imagepipeline.f.g.k(i, i >= this.pCL.ezb(), false);
     }
 }

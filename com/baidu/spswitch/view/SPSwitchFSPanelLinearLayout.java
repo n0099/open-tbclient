@@ -1,13 +1,13 @@
 package com.baidu.spswitch.view;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
+import androidx.annotation.Nullable;
 import com.baidu.spswitch.a.a;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class SPSwitchFSPanelLinearLayout extends LinearLayout {
-    private a czl;
+    private a cEe;
 
     public SPSwitchFSPanelLinearLayout(Context context) {
         this(context, null);
@@ -23,6 +23,6 @@ public class SPSwitchFSPanelLinearLayout extends LinearLayout {
     }
 
     private void init() {
-        this.czl = new a(this);
+        this.cEe = new a(this);
     }
 }

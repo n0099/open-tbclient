@@ -6,7 +6,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class SubscriptionArbiter extends AtomicInteger implements d {
     private static final long serialVersionUID = -2189523197179400958L;
     d actual;
@@ -52,9 +52,9 @@ public class SubscriptionArbiter extends AtomicInteger implements d {
             if (get() == 0 && compareAndSet(0, 1)) {
                 long j2 = this.requested;
                 if (j2 != Long.MAX_VALUE) {
-                    long N = b.N(j2, j);
-                    this.requested = N;
-                    if (N == Long.MAX_VALUE) {
+                    long S = b.S(j2, j);
+                    this.requested = S;
+                    if (S == Long.MAX_VALUE) {
                         this.unbounded = true;
                     }
                 }
@@ -114,7 +114,6 @@ public class SubscriptionArbiter extends AtomicInteger implements d {
     final void drainLoop() {
         d dVar;
         long j;
-        long N;
         long j2 = 0;
         d dVar2 = null;
         int i = 1;
@@ -136,22 +135,20 @@ public class SubscriptionArbiter extends AtomicInteger implements d {
                 if (dVar != null) {
                     dVar.cancel();
                     dVar = dVar2;
-                    N = j2;
                 }
                 dVar = dVar2;
-                N = j2;
             } else {
                 long j5 = this.requested;
                 if (j5 != Long.MAX_VALUE) {
-                    long N2 = b.N(j5, andSet);
-                    if (N2 != Long.MAX_VALUE) {
-                        j = N2 - andSet2;
+                    long S = b.S(j5, andSet);
+                    if (S != Long.MAX_VALUE) {
+                        j = S - andSet2;
                         if (j < 0) {
                             SubscriptionHelper.reportMoreProduced(j);
                             j = 0;
                         }
                     } else {
-                        j = N2;
+                        j = S;
                     }
                     this.requested = j;
                 } else {
@@ -163,29 +160,26 @@ public class SubscriptionArbiter extends AtomicInteger implements d {
                     }
                     this.actual = dVar;
                     if (j != 0) {
-                        N = b.N(j2, j);
+                        j2 = b.S(j2, j);
                     }
                     dVar = dVar2;
-                    N = j2;
                 } else {
                     if (dVar3 != null && andSet != 0) {
-                        N = b.N(j2, andSet);
+                        j2 = b.S(j2, andSet);
                         dVar = dVar3;
                     }
                     dVar = dVar2;
-                    N = j2;
                 }
             }
             int addAndGet = addAndGet(-i);
             if (addAndGet == 0) {
                 break;
             }
-            j2 = N;
-            i = addAndGet;
             dVar2 = dVar;
+            i = addAndGet;
         }
-        if (N != 0) {
-            dVar.request(N);
+        if (j2 != 0) {
+            dVar.request(j2);
         }
     }
 

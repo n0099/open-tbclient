@@ -3,29 +3,29 @@ package com.baidu.swan.apps.u.a;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.LruCache;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final LruCache<String, Object> ddw;
+    private final LruCache<String, Object> dip;
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes9.dex */
     private static class a {
-        static final b ddx = new b();
+        static final b diq = new b();
     }
 
     private b() {
-        this.ddw = new LruCache<>(10);
+        this.dip = new LruCache<>(10);
     }
 
-    public static b aAL() {
-        return a.ddx;
+    public static b aCc() {
+        return a.diq;
     }
 
-    public synchronized <RESULT> RESULT pB(String str) {
+    public synchronized <RESULT> RESULT pu(String str) {
         RESULT result = null;
         synchronized (this) {
             if (!TextUtils.isEmpty(str)) {
-                Object obj = this.ddw.get(str);
+                Object obj = this.dip.get(str);
                 if (obj == null) {
                     if (DEBUG) {
                         Log.d("SwanAppLaunchCache", "doesn't hit the cache result, key = " + str);
@@ -52,22 +52,22 @@ public final class b {
             if (DEBUG) {
                 Log.d("SwanAppLaunchCache", "putConfig key: " + str);
             }
-            this.ddw.put(str, result);
+            this.dip.put(str, result);
         }
     }
 
-    public synchronized void pC(String str) {
+    public synchronized void pv(String str) {
         if (!TextUtils.isEmpty(str)) {
             if (DEBUG) {
                 Log.d("SwanAppLaunchCache", "removeConfig key: " + str);
             }
-            this.ddw.remove(str);
+            this.dip.remove(str);
         }
     }
 
     public synchronized void clear() {
-        if (this.ddw != null) {
-            this.ddw.evictAll();
+        if (this.dip != null) {
+            this.dip.evictAll();
         }
     }
 }

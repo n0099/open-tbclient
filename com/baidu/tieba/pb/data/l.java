@@ -1,22 +1,22 @@
 package com.baidu.tieba.pb.data;
 
-import android.support.annotation.DrawableRes;
+import androidx.annotation.DrawableRes;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.tbadkCore.data.PostData;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class l extends PostData {
-    public static final BdUniqueId Yt = BdUniqueId.gen();
-    public int grv;
+    public static final BdUniqueId Yr = BdUniqueId.gen();
+    public int gCu;
     @DrawableRes
-    public int lBU;
-    public String lBV;
-    public int lBW;
-    public int lBX;
+    public int lHa;
+    public String lHb;
+    public int lHc;
+    public int lHd;
     private int position = 0;
-    public int lBY = 0;
+    public int lHe = 0;
 
-    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return Yt;
+        return Yr;
     }
 }

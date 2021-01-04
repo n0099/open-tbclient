@@ -26,7 +26,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class FileSerialDownLoader {
     private static final int CMD_BET_MSG_RESULT = 18;
     private static final int CMD_NET_MSG_GETLENTH = 17;
@@ -40,7 +40,7 @@ public class FileSerialDownLoader {
     public static final int DOWNLOAD_PROCESS_SUCESS = 0;
     private static FileSerialDownLoader _instance = new FileSerialDownLoader();
     private static DownloadData mRun = null;
-    private static List<DownloadData> mTaskList = Collections.synchronizedList(new LinkedList());
+    private static volatile List<DownloadData> mTaskList = Collections.synchronizedList(new LinkedList());
     private AsyFileDownLoadTask mTask = null;
     private int max = 20;
     @SuppressLint({"HandlerLeak"})
@@ -128,26 +128,40 @@ public class FileSerialDownLoader {
                 }
                 return;
             }
+            if (downloadData.isForceDownload()) {
+                downloadData.setPriority(downloadData.getPriority() + 255);
+            }
+            Iterator<DownloadData> it = mTaskList.iterator();
             int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 < mTaskList.size()) {
-                    try {
-                        DownloadData downloadData2 = mTaskList.get(i2);
-                        if (downloadData2 != null && downloadData2.getUrl() != null && downloadData.getUrl() != null && downloadData2.getUrl().equals(downloadData.getUrl()) && downloadData2.getId() != null && downloadData.getId() != null && downloadData2.getId().equals(downloadData.getId())) {
+            int i2 = -1;
+            while (it.hasNext()) {
+                DownloadData next = it.next();
+                if (next == null) {
+                    i++;
+                } else {
+                    if (i2 == -1 && downloadData.getPriority() > next.getPriority()) {
+                        i2 = i;
+                    }
+                    if (next.getUrl() != null && downloadData.getUrl() != null && next.getUrl().equals(downloadData.getUrl()) && next.getId() != null && downloadData.getId() != null && next.getId().equals(downloadData.getId()) && next.getType() == downloadData.getType()) {
+                        if (next.getPriority() != downloadData.getPriority()) {
+                            it.remove();
+                            if (i2 >= 0) {
+                                break;
+                            }
+                        } else {
                             return;
                         }
-                    } catch (Exception e) {
-                        e.printStackTrace();
                     }
-                    i = i2 + 1;
-                } else {
-                    downloadData.setStatus(9);
-                    mTaskList.add(downloadData);
-                    startQueue();
-                    return;
+                    i++;
                 }
             }
+            downloadData.setStatus(9);
+            if (i2 >= 0) {
+                mTaskList.add(i2, downloadData);
+            } else {
+                mTaskList.add(downloadData);
+            }
+            startQueue();
         }
     }
 
@@ -164,33 +178,25 @@ public class FileSerialDownLoader {
                 }
                 return;
             }
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 < mTaskList.size()) {
-                    try {
-                        DownloadData downloadData2 = mTaskList.get(i2);
-                        if (downloadData2 != null && downloadData2.getUrl() != null && downloadData.getUrl() != null && downloadData2.getUrl().equals(downloadData.getUrl()) && downloadData2.getId() != null && downloadData.getId() != null && downloadData2.getId().equals(downloadData.getId())) {
-                            return;
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
+            for (int i = 0; i < mTaskList.size(); i++) {
+                try {
+                    DownloadData downloadData2 = mTaskList.get(i);
+                    if (downloadData2 != null && downloadData2.getUrl() != null && downloadData.getUrl() != null && downloadData2.getUrl().equals(downloadData.getUrl()) && downloadData2.getId() != null && downloadData.getId() != null && downloadData2.getId().equals(downloadData.getId())) {
+                        return;
                     }
-                    i = i2 + 1;
-                } else {
-                    downloadData.setStatus(9);
-                    if (downloadData.getCallback() != null) {
-                        downloadData.getCallback().onFileUpdateProgress(downloadData);
-                    }
-                    if (mTaskList.isEmpty()) {
-                        mTaskList.add(downloadData);
-                    } else {
-                        mTaskList.add(1, downloadData);
-                    }
-                    startQueue();
-                    return;
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
+            downloadData.setStatus(9);
+            if (downloadData.getCallback() != null) {
+                downloadData.getCallback().onFileUpdateProgress(downloadData);
+            }
+            if (!mTaskList.isEmpty()) {
+                downloadData.setPriority(Math.max(downloadData.getPriority(), mTaskList.get(0).getPriority()));
+            }
+            mTaskList.add(0, downloadData);
+            startQueue();
         }
     }
 
@@ -198,7 +204,7 @@ public class FileSerialDownLoader {
     public void startQueue() {
         if (mRun == null && !mTaskList.isEmpty()) {
             try {
-                mRun = mTaskList.get(0);
+                mRun = mTaskList.remove(0);
                 if (mRun != null) {
                     this.mTask = new AsyFileDownLoadTask();
                     this.mTask.execute(mRun);
@@ -333,6 +339,42 @@ public class FileSerialDownLoader {
         mTaskList.clear();
     }
 
+    public boolean isDownloading(String str, int i) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
+        }
+        if (mRun != null && str.equals(mRun.getUrl()) && i == mRun.getType()) {
+            return true;
+        }
+        if (mTaskList == null || mTaskList.isEmpty()) {
+            return false;
+        }
+        for (DownloadData downloadData : mTaskList) {
+            if (downloadData != null && str.equals(downloadData.getUrl()) && i == downloadData.getType()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean isDownloading(String str, String str2, int i) {
+        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+            return false;
+        }
+        if (mRun != null && str.equals(mRun.getId()) && str2.equals(mRun.getUrl()) && i == mRun.getType()) {
+            return true;
+        }
+        if (mTaskList == null || mTaskList.isEmpty()) {
+            return false;
+        }
+        for (DownloadData downloadData : mTaskList) {
+            if (downloadData != null && str.equals(downloadData.getId()) && str2.equals(downloadData.getUrl()) && i == downloadData.getType()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public List<DownloadData> getDownloadList() {
         return mTaskList;
     }
@@ -390,13 +432,6 @@ public class FileSerialDownLoader {
                     mRun.getCallback().onFileDownloadFailed(mRun, i, string);
                 }
             }
-            if (!mTaskList.isEmpty() && mTaskList.contains(mRun)) {
-                try {
-                    mTaskList.remove(0);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
             mRun = null;
             startQueue();
         }
@@ -404,7 +439,7 @@ public class FileSerialDownLoader {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @SuppressLint({"DefaultLocale"})
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public class AsyFileDownLoadTask extends BdAsyncTask<DownloadData, Object, Object> {
         private NetWork mNetWork = new NetWork();
 
@@ -428,9 +463,6 @@ public class FileSerialDownLoader {
                 FileSerialDownLoader.mRun.setStatusMsg(null);
                 if (FileSerialDownLoader.mRun.getCallback() != null) {
                     FileSerialDownLoader.mRun.getCallback().onFileUpdateProgress(FileSerialDownLoader.mRun);
-                }
-                if (!FileSerialDownLoader.mTaskList.isEmpty() && FileSerialDownLoader.mTaskList.contains(FileSerialDownLoader.mRun)) {
-                    FileSerialDownLoader.mTaskList.remove(0);
                 }
                 DownloadData unused = FileSerialDownLoader.mRun = null;
                 FileSerialDownLoader.this.startQueue();
@@ -464,7 +496,7 @@ public class FileSerialDownLoader {
                             Log.d("FileSerialDownLoader", "download: " + downloadDataArr[0].getUrl());
                             this.mNetWork.setUrl(downloadDataArr[0].getUrl());
                             this.mNetWork.downloadFile(FileHelper.getCacheFilePath(downloadDataArr[0].getId() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + downloadDataArr[0].getName() + ".tmp"), FileSerialDownLoader.this.mFileHandler, 17, 3, new NetWork.DownloadResultCallback() { // from class: com.baidu.live.tbadk.download.FileSerialDownLoader.AsyFileDownLoadTask.1
-                                /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [576=4, 572=5, 574=4, 575=4] */
+                                /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [655=5, 657=4, 658=4, 659=4] */
                                 /* JADX DEBUG: Failed to insert an additional move for type inference into block B:55:0x0141 */
                                 /* JADX DEBUG: Failed to insert an additional move for type inference into block B:57:0x0143 */
                                 /* JADX DEBUG: Failed to insert an additional move for type inference into block B:61:? */
@@ -610,20 +642,19 @@ public class FileSerialDownLoader {
                                 @Override // com.baidu.live.tbadk.core.util.NetWork.DownloadResultCallback
                                 public void onFail(int i, String str) {
                                     JSONObject jSONObject2;
-                                    Exception e2;
                                     Log.e("FileSerialDownLoader", "download failed! errorCod: " + i + " Exception: " + str);
                                     try {
                                         jSONObject2 = new JSONObject();
-                                    } catch (Exception e3) {
+                                    } catch (Exception e2) {
+                                        e = e2;
                                         jSONObject2 = null;
-                                        e2 = e3;
                                     }
                                     try {
                                         jSONObject2.put("err_code", i);
                                         jSONObject2.put("exception", str);
-                                    } catch (Exception e4) {
-                                        e2 = e4;
-                                        e2.printStackTrace();
+                                    } catch (Exception e3) {
+                                        e = e3;
+                                        e.printStackTrace();
                                         AsyFileDownLoadTask.this.sendResultMsg(3, jSONObject2);
                                     }
                                     AsyFileDownLoadTask.this.sendResultMsg(3, jSONObject2);

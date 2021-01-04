@@ -3,7 +3,7 @@ package com.alibaba.fastjson.util;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.Arrays;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class ParameterizedTypeImpl implements ParameterizedType {
     private final Type[] actualTypeArguments;
     private final Type ownerType;

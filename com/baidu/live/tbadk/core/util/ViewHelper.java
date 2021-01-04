@@ -8,7 +8,7 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.atomdata.RegisterActivityConfig;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class ViewHelper {
     public static void skipToRegisterActivity(Context context) {
         if (context != null) {
@@ -16,7 +16,13 @@ public class ViewHelper {
         }
     }
 
+    @Deprecated
     public static void skipToLoginActivity(Context context) {
+        MessageManager.getInstance().sendMessage(new CustomMessage(CmdConfigCustom.METHOD_ACCOUNT_START_LOGIN));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.METHOD_ACCOUNT_START_LOGIN));
+    }
+
+    public static void skipToLoginActivity() {
         MessageManager.getInstance().sendMessage(new CustomMessage(CmdConfigCustom.METHOD_ACCOUNT_START_LOGIN));
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.METHOD_ACCOUNT_START_LOGIN));
     }

@@ -7,10 +7,12 @@ import android.view.SurfaceView;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.concurrent.Semaphore;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class al implements ad {
     private static final Semaphore e = new Semaphore(1);
-    protected boolean b;
+
+    /* renamed from: b  reason: collision with root package name */
+    protected boolean f4301b;
     private int c;
     private a d;
     private WeakReference<SurfaceView> h;
@@ -18,12 +20,14 @@ public class al implements ad {
     private final WeakReference<al> g = new WeakReference<>(this);
 
     /* renamed from: a  reason: collision with root package name */
-    protected ak f2898a = null;
+    protected ak f4300a = null;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public class a extends Thread {
-        private WeakReference<al> b;
+
+        /* renamed from: b  reason: collision with root package name */
+        private WeakReference<al> f4303b;
         private boolean d;
         private boolean f;
         private ak k;
@@ -38,14 +42,14 @@ public class al implements ad {
         private int i = 1;
 
         public a(WeakReference<al> weakReference) {
-            this.b = weakReference;
+            this.f4303b = weakReference;
             al alVar = weakReference.get();
-            this.k = alVar.f2898a;
+            this.k = alVar.f4300a;
             this.l = alVar.a();
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:37:0x006e, code lost:
-            if (r6 == false) goto L58;
+            if (r2 == false) goto L58;
          */
         /* JADX WARN: Code restructure failed: missing block: B:38:0x0070, code lost:
             r4 = true;
@@ -61,22 +65,22 @@ public class al implements ad {
             if (r2 == false) goto L57;
          */
         /* JADX WARN: Code restructure failed: missing block: B:42:0x0077, code lost:
-            r12.k.a(r12.l, r7, r8, 1);
+            r11.k.a(r11.l, r7, r8, 1);
             r4 = false;
          */
         /* JADX WARN: Code restructure failed: missing block: B:43:0x0080, code lost:
             if (r0 == false) goto L56;
          */
         /* JADX WARN: Code restructure failed: missing block: B:44:0x0082, code lost:
-            r12.k.a(r7, r8);
+            r11.k.a(r7, r8);
             r2 = false;
          */
         /* JADX WARN: Code restructure failed: missing block: B:46:0x008a, code lost:
-            if (r12.n == null) goto L55;
+            if (r11.n == null) goto L55;
          */
         /* JADX WARN: Code restructure failed: missing block: B:47:0x008c, code lost:
-            r0 = r12.n;
-            r12.n = null;
+            r0 = r11.n;
+            r11.n = null;
          */
         /* JADX WARN: Code restructure failed: missing block: B:48:0x0091, code lost:
             if (r7 <= 0) goto L54;
@@ -85,7 +89,7 @@ public class al implements ad {
             if (r8 <= 0) goto L53;
          */
         /* JADX WARN: Code restructure failed: missing block: B:50:0x0095, code lost:
-            r12.k.a(r12);
+            r11.k.a(r11);
          */
         /* JADX WARN: Code restructure failed: missing block: B:51:0x009a, code lost:
             if (r0 == null) goto L52;
@@ -93,27 +97,26 @@ public class al implements ad {
         /* JADX WARN: Code restructure failed: missing block: B:52:0x009c, code lost:
             r0.run();
          */
-        /* JADX WARN: Code restructure failed: missing block: B:54:0x00a2, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:54:0x00a3, code lost:
             r0 = null;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:55:0x00a4, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:55:0x00a5, code lost:
             r2 = r0;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:56:0x00a6, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:56:0x00a7, code lost:
             r4 = r2;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:57:0x00a8, code lost:
-            r11 = r2;
-            r2 = r4;
-            r4 = r11;
+        /* JADX WARN: Code restructure failed: missing block: B:57:0x00a9, code lost:
+            r2 = r6;
          */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
         private void f() throws InterruptedException {
             boolean z;
-            boolean z2 = true;
+            boolean z2;
             boolean z3 = true;
+            boolean z4 = true;
             while (true) {
                 try {
                     if (this.c) {
@@ -127,7 +130,7 @@ public class al implements ad {
                             }
                             h.run();
                         }
-                        boolean z4 = this.d;
+                        boolean z5 = this.d;
                         while (g()) {
                             if (!this.e && !this.f) {
                                 this.f = true;
@@ -138,17 +141,18 @@ public class al implements ad {
                         if (this.c) {
                             break;
                         }
-                        boolean z5 = al.this.f;
+                        boolean z6 = al.this.f;
                         int i = this.g;
                         int i2 = this.h;
                         al.this.f = false;
                         this.j = false;
                         if (this.e && this.f) {
                             this.f = false;
-                            z5 = true;
+                            z6 = true;
                         }
                     }
-                    z2 = z;
+                    z3 = z2;
+                    z4 = z;
                 } finally {
                     Log.i("VulkanSurfaceView", "destroySurface");
                 }
@@ -317,7 +321,7 @@ public class al implements ad {
     @Override // com.baidu.platform.comapi.map.ad
     public void a(ak akVar) {
         c();
-        this.f2898a = akVar;
+        this.f4300a = akVar;
         this.d = new a(this.g);
         this.d.start();
     }
@@ -369,7 +373,7 @@ public class al implements ad {
 
     @Override // com.baidu.platform.comapi.map.ad
     public void i() {
-        if (this.b && this.f2898a != null) {
+        if (this.f4301b && this.f4300a != null) {
             int a2 = this.d != null ? this.d.a() : 1;
             this.d = new a(this.g);
             if (a2 != 1) {
@@ -377,7 +381,7 @@ public class al implements ad {
             }
             this.d.start();
         }
-        this.b = false;
+        this.f4301b = false;
     }
 
     @Override // com.baidu.platform.comapi.map.ad
@@ -385,7 +389,7 @@ public class al implements ad {
         if (this.d != null) {
             this.d.e();
         }
-        this.b = true;
+        this.f4301b = true;
     }
 
     @Override // android.view.SurfaceHolder.Callback

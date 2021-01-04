@@ -3,7 +3,7 @@ package com.baidu.tbadk.pageExtra;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.x;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -11,21 +11,21 @@ import java.util.List;
 public class e {
     public static String b(ArrayList<String> arrayList, String str, int i) {
         ArrayList arrayList2 = new ArrayList();
-        if (!y.isEmpty(arrayList)) {
+        if (!x.isEmpty(arrayList)) {
             arrayList2.addAll(arrayList);
         }
         if (!TextUtils.isEmpty(str)) {
             arrayList2.add(str);
         }
         List<String> trimToSize = trimToSize(arrayList2, i);
-        if (y.isEmpty(trimToSize)) {
+        if (x.isEmpty(trimToSize)) {
             return null;
         }
         return toSourceTraceString(trimToSize);
     }
 
     public static String toSourceTraceString(List<String> list) {
-        if (y.getCount(list) <= 0) {
+        if (x.getCount(list) <= 0) {
             return null;
         }
         StringBuilder sb = new StringBuilder();
@@ -52,9 +52,9 @@ public class e {
     }
 
     public static List<String> trimToSize(List<String> list, int i) {
-        int count = y.getCount(list);
+        int count = x.getCount(list);
         if (count > 0 && i >= 0 && count > i) {
-            return y.subList(list, count - i, count);
+            return x.subList(list, count - i, count);
         }
         return list;
     }

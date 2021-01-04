@@ -1,6 +1,6 @@
 package com.google.zxing.pdf417.decoder.ec;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class ModulusPoly {
     private final int[] coefficients;
     private final ModulusGF field;
@@ -49,34 +49,28 @@ public final class ModulusPoly {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int evaluateAt(int i) {
-        int i2 = 0;
         if (i == 0) {
             return getCoefficient(0);
         }
         if (i == 1) {
-            int[] iArr = this.coefficients;
-            int length = iArr.length;
-            int i3 = 0;
-            while (i2 < length) {
-                i2++;
-                i3 = this.field.add(i3, iArr[i2]);
+            int i2 = 0;
+            for (int i3 : this.coefficients) {
+                i2 = this.field.add(i2, i3);
             }
-            return i3;
+            return i2;
         }
         int i4 = this.coefficients[0];
-        int length2 = this.coefficients.length;
-        int i5 = i4;
-        int i6 = 1;
-        while (i6 < length2) {
-            int add = this.field.add(this.field.multiply(i, i5), this.coefficients[i6]);
-            i6++;
-            i5 = add;
+        int length = this.coefficients.length;
+        for (int i5 = 1; i5 < length; i5++) {
+            i4 = this.field.add(this.field.multiply(i, i4), this.coefficients[i5]);
         }
-        return i5;
+        return i4;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ModulusPoly add(ModulusPoly modulusPoly) {
+        int[] iArr;
+        int[] iArr2;
         if (!this.field.equals(modulusPoly.field)) {
             throw new IllegalArgumentException("ModulusPolys do not have same ModulusGF field");
         }
@@ -84,19 +78,22 @@ public final class ModulusPoly {
             if (modulusPoly.isZero()) {
                 return this;
             }
-            int[] iArr = this.coefficients;
-            int[] iArr2 = modulusPoly.coefficients;
-            if (iArr.length <= iArr2.length) {
-                iArr2 = iArr;
-                iArr = iArr2;
+            int[] iArr3 = this.coefficients;
+            int[] iArr4 = modulusPoly.coefficients;
+            if (iArr3.length > iArr4.length) {
+                iArr = iArr3;
+                iArr2 = iArr4;
+            } else {
+                iArr = iArr4;
+                iArr2 = iArr3;
             }
-            int[] iArr3 = new int[iArr.length];
+            int[] iArr5 = new int[iArr.length];
             int length = iArr.length - iArr2.length;
-            System.arraycopy(iArr, 0, iArr3, 0, length);
+            System.arraycopy(iArr, 0, iArr5, 0, length);
             for (int i = length; i < iArr.length; i++) {
-                iArr3[i] = this.field.add(iArr2[i - length], iArr[i]);
+                iArr5[i] = this.field.add(iArr2[i - length], iArr[i]);
             }
-            return new ModulusPoly(this.field, iArr3);
+            return new ModulusPoly(this.field, iArr5);
         }
         return modulusPoly;
     }

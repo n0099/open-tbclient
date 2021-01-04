@@ -5,56 +5,55 @@ import com.baidu.live.adp.base.BdBaseModel;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.HttpMessageListener;
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
-import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.yuyinala.liveroom.wheat.message.AlaAcceptConnectionWheatHttpResponseMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a extends BdBaseModel {
     private TbPageContext mPageContext;
-    private InterfaceC0944a oxD;
+    private InterfaceC0920a oEt;
     private HttpMessageListener messageListener = new HttpMessageListener(1031009) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.model.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaAcceptConnectionWheatHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == a.this.brR && a.this.oxD != null) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaAcceptConnectionWheatHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == a.this.bwz && a.this.oEt != null) {
                 AlaAcceptConnectionWheatHttpResponseMessage alaAcceptConnectionWheatHttpResponseMessage = (AlaAcceptConnectionWheatHttpResponseMessage) httpResponsedMessage;
                 if (alaAcceptConnectionWheatHttpResponseMessage.getError() != 0 || !alaAcceptConnectionWheatHttpResponseMessage.isSuccess()) {
-                    a.this.oxD.b(alaAcceptConnectionWheatHttpResponseMessage);
+                    a.this.oEt.b(alaAcceptConnectionWheatHttpResponseMessage);
                 } else {
-                    a.this.oxD.a(alaAcceptConnectionWheatHttpResponseMessage);
+                    a.this.oEt.a(alaAcceptConnectionWheatHttpResponseMessage);
                 }
             }
         }
     };
-    private BdUniqueId brR = BdUniqueId.gen();
+    private BdUniqueId bwz = BdUniqueId.gen();
 
     /* renamed from: com.baidu.tieba.yuyinala.liveroom.wheat.model.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public interface InterfaceC0944a {
+    /* loaded from: classes11.dex */
+    public interface InterfaceC0920a {
         void a(AlaAcceptConnectionWheatHttpResponseMessage alaAcceptConnectionWheatHttpResponseMessage);
 
         void b(AlaAcceptConnectionWheatHttpResponseMessage alaAcceptConnectionWheatHttpResponseMessage);
     }
 
-    public a(TbPageContext tbPageContext, InterfaceC0944a interfaceC0944a) {
-        setUniqueId(this.brR);
+    public a(TbPageContext tbPageContext, InterfaceC0920a interfaceC0920a) {
+        setUniqueId(this.bwz);
         this.mPageContext = tbPageContext;
-        this.oxD = interfaceC0944a;
-        bjQ();
+        this.oEt = interfaceC0920a;
+        bmf();
         registerListener(this.messageListener);
     }
 
-    private void bjQ() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031009, TbConfig.SERVER_ADDRESS + "ala/audio/link/accept");
+    private void bmf() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031009, com.baidu.live.a.aAH + "ala/audio/link/accept");
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(AlaAcceptConnectionWheatHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void aQ(String str, String str2, String str3) {
-        sendMessage(new com.baidu.tieba.yuyinala.liveroom.wheat.message.a(str, str2, str3));
+    public void aU(String str, String str2, String str3) {
+        sendMessage(new com.baidu.tieba.yuyinala.liveroom.wheat.message.b(str, str2, str3));
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel

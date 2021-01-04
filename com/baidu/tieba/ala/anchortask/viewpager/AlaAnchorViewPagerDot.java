@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import com.baidu.live.sdk.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaAnchorViewPagerDot extends LinearLayout {
     private Context mContext;
 
@@ -30,7 +30,7 @@ public class AlaAnchorViewPagerDot extends LinearLayout {
         setGravity(1);
     }
 
-    public void vq(int i) {
+    public void vB(int i) {
         if (getChildCount() > 0) {
             for (int i2 = 0; i2 < getChildCount(); i2++) {
                 if (i2 == i) {
@@ -42,7 +42,7 @@ public class AlaAnchorViewPagerDot extends LinearLayout {
         }
     }
 
-    public void vr(int i) {
+    public void vC(int i) {
         if (i >= 0) {
             removeAllViews();
             if (i == 1) {

@@ -15,9 +15,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class g {
-    private String OV;
-    private String OW;
-    private Map<String, String> OX;
+    private String OY;
+    private String OZ;
+    private Map<String, String> Pa;
     private String mAction;
     private c mCommonData;
     private String mErrorCode;
@@ -29,8 +29,8 @@ public class g {
         this.mCommonData = cVar;
     }
 
-    public void cd(String str) {
-        this.OV = str;
+    public void bW(String str) {
+        this.OY = str;
     }
 
     public void setAction(String str) {
@@ -46,13 +46,13 @@ public class g {
     }
 
     public void y(String str, String str2) {
-        if (this.OX == null) {
-            this.OX = new HashMap();
+        if (this.Pa == null) {
+            this.Pa = new HashMap();
         }
-        this.OX.put(str, str2);
+        this.Pa.put(str, str2);
     }
 
-    public JSONObject no() {
+    public JSONObject mQ() {
         JSONObject jSONObject = new JSONObject();
         try {
             JSONObject jSONObject2 = new JSONObject();
@@ -60,7 +60,7 @@ public class g {
                 jSONObject2.put("app_version", this.mCommonData.mAppVersion);
                 jSONObject2.put("client_timestamp", Long.toString(System.currentTimeMillis()));
                 jSONObject2.put("cuid", this.mCommonData.mCuid);
-                jSONObject2.put(AdExtParam.KEY_SHOUBAI_CUID, this.mCommonData.Or);
+                jSONObject2.put(AdExtParam.KEY_SHOUBAI_CUID, this.mCommonData.Op);
                 jSONObject2.put("from", this.mCommonData.mChannel);
                 jSONObject2.put("uid", this.mCommonData.mUid);
             }
@@ -70,12 +70,12 @@ public class g {
             jSONObject2.put(Constants.PHONE_BRAND, Build.BRAND);
             jSONObject2.put(HttpConstants.HTTP_OS_TYPE, AlaLiveBaseInfo.mOSType);
             jSONObject2.put("os_version", Build.VERSION.RELEASE);
-            jSONObject2.put("active_id", f.nm());
-            jSONObject2.put("mission_id", f.nn());
+            jSONObject2.put("active_id", f.getActivityId());
+            jSONObject2.put("mission_id", f.mP());
             jSONObject.put("base_info", jSONObject2);
             JSONObject jSONObject3 = new JSONObject();
-            if (this.OV != null) {
-                jSONObject3.put(BdStatsConstant.StatsKey.TYPE, this.OV);
+            if (this.OY != null) {
+                jSONObject3.put(BdStatsConstant.StatsKey.TYPE, this.OY);
             }
             if (this.mAction != null) {
                 jSONObject3.put("action", this.mAction);
@@ -86,9 +86,9 @@ public class g {
             if (this.mErrorMessage != null) {
                 jSONObject3.put("error_message", this.mErrorMessage);
             }
-            if (this.OX != null) {
+            if (this.Pa != null) {
                 StringBuilder sb = new StringBuilder();
-                for (Map.Entry<String, String> entry : this.OX.entrySet()) {
+                for (Map.Entry<String, String> entry : this.Pa.entrySet()) {
                     sb.append(entry.getKey());
                     sb.append(":");
                     sb.append(entry.getValue());
@@ -105,8 +105,8 @@ public class g {
             if (this.mTitle != null) {
                 jSONObject3.put("title", this.mTitle);
             }
-            if (this.OW != null) {
-                jSONObject3.put("abstract", this.OW);
+            if (this.OZ != null) {
+                jSONObject3.put("abstract", this.OZ);
             }
             jSONObject.put(AlaRecorderLog.KEY_DEBUG_INFO, jSONObject3);
             jSONObject.put("kpi", new JSONObject());

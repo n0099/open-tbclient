@@ -13,7 +13,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public class ZeusWebViewPreloadClass {
     private static final String CLOUD_SETTINGS_KEY = "preload_webview_class";
     private static final int CLOUD_SETTINGS_VALUE_CLOSE = 0;
@@ -151,11 +151,14 @@ public class ZeusWebViewPreloadClass {
         }
         this.mStartFlushClassesData = true;
         ZeusThreadPoolUtil.execute(new Runnable() { // from class: com.baidu.webkit.sdk.ZeusWebViewPreloadClass.1
+            /* JADX WARN: Removed duplicated region for block: B:52:0x0080 A[EXC_TOP_SPLITTER, SYNTHETIC] */
             @Override // java.lang.Runnable
+            /*
+                Code decompiled incorrectly, please refer to instructions dump.
+            */
             public void run() {
-                File file;
-                File file2;
                 BufferedWriter bufferedWriter;
+                File file;
                 BufferedWriter bufferedWriter2 = null;
                 synchronized (ZeusWebViewPreloadClass.this.mSavingClassesFileLock) {
                     String savingClassesFilePath = ZeusWebViewPreloadClass.this.getSavingClassesFilePath();
@@ -164,62 +167,67 @@ public class ZeusWebViewPreloadClass {
                     }
                     try {
                         try {
-                            file2 = new File(savingClassesFilePath);
+                            file = new File(savingClassesFilePath);
                             try {
-                                if (file2.exists()) {
-                                    file2.delete();
+                                if (file.exists()) {
+                                    file.delete();
                                 }
-                                file2.createNewFile();
-                                bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file2)));
+                                file.createNewFile();
+                                bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
                             } catch (IOException e) {
                                 e = e;
-                                file = file2;
+                                bufferedWriter = null;
                             }
                         } catch (IOException e2) {
                             e = e2;
+                            bufferedWriter = null;
                             file = null;
                         }
                     } catch (Throwable th) {
                         th = th;
-                    }
-                    try {
-                        Iterator it = ZeusWebViewPreloadClass.this.mZeusClassLoadList.iterator();
-                        while (it.hasNext()) {
-                            bufferedWriter.write((String) it.next());
-                            bufferedWriter.newLine();
-                        }
-                        bufferedWriter.flush();
-                        try {
-                            bufferedWriter.close();
-                        } catch (IOException e3) {
-                            e3.printStackTrace();
-                        }
-                        ZeusWebViewPreloadClass.this.destroy();
-                    } catch (IOException e4) {
-                        e = e4;
-                        bufferedWriter2 = bufferedWriter;
-                        file = file2;
-                        if (file != null) {
-                            file.delete();
-                        }
-                        e.printStackTrace();
                         if (bufferedWriter2 != null) {
                             try {
                                 bufferedWriter2.close();
-                            } catch (IOException e5) {
-                                e5.printStackTrace();
+                            } catch (IOException e3) {
+                                e3.printStackTrace();
                             }
                         }
                         ZeusWebViewPreloadClass.this.destroy();
+                        throw th;
+                    }
+                    try {
+                        try {
+                            Iterator it = ZeusWebViewPreloadClass.this.mZeusClassLoadList.iterator();
+                            while (it.hasNext()) {
+                                bufferedWriter.write((String) it.next());
+                                bufferedWriter.newLine();
+                            }
+                            bufferedWriter.flush();
+                            try {
+                                bufferedWriter.close();
+                            } catch (IOException e4) {
+                                e4.printStackTrace();
+                            }
+                            ZeusWebViewPreloadClass.this.destroy();
+                        } catch (IOException e5) {
+                            e = e5;
+                            if (file != null) {
+                                file.delete();
+                            }
+                            e.printStackTrace();
+                            if (bufferedWriter != null) {
+                                try {
+                                    bufferedWriter.close();
+                                } catch (IOException e6) {
+                                    e6.printStackTrace();
+                                }
+                            }
+                            ZeusWebViewPreloadClass.this.destroy();
+                        }
                     } catch (Throwable th2) {
                         th = th2;
                         bufferedWriter2 = bufferedWriter;
                         if (bufferedWriter2 != null) {
-                            try {
-                                bufferedWriter2.close();
-                            } catch (IOException e6) {
-                                e6.printStackTrace();
-                            }
                         }
                         ZeusWebViewPreloadClass.this.destroy();
                         throw th;
@@ -245,11 +253,13 @@ public class ZeusWebViewPreloadClass {
             return;
         }
         ZeusThreadPoolUtil.execute(new Runnable() { // from class: com.baidu.webkit.sdk.ZeusWebViewPreloadClass.2
+            /* JADX WARN: Not initialized variable reg: 3, insn: 0x0083: MOVE  (r2 I:??[OBJECT, ARRAY]) = (r3 I:??[OBJECT, ARRAY]), block:B:57:0x0083 */
             @Override // java.lang.Runnable
             public void run() {
-                File file;
                 BufferedReader bufferedReader;
-                BufferedReader bufferedReader2 = null;
+                File file;
+                BufferedReader bufferedReader2;
+                BufferedReader bufferedReader3 = null;
                 synchronized (ZeusWebViewPreloadClass.this.mSavingClassesFileLock) {
                     String savingClassesFilePath = ZeusWebViewPreloadClass.this.getSavingClassesFilePath();
                     try {
@@ -257,83 +267,87 @@ public class ZeusWebViewPreloadClass {
                             return;
                         }
                         try {
-                            file = new File(savingClassesFilePath);
                             try {
-                                if (file.exists()) {
-                                    bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
-                                    while (true) {
+                                file = new File(savingClassesFilePath);
+                                try {
+                                    if (file.exists()) {
+                                        bufferedReader2 = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
+                                        while (true) {
+                                            try {
+                                                String readLine = bufferedReader2.readLine();
+                                                if (readLine == null) {
+                                                    break;
+                                                } else if (classLoader != null) {
+                                                    classLoader.loadClass(readLine);
+                                                }
+                                            } catch (IOException e) {
+                                                e = e;
+                                                if (file != null) {
+                                                    file.delete();
+                                                }
+                                                e.printStackTrace();
+                                                if (bufferedReader2 != null) {
+                                                    try {
+                                                        bufferedReader2.close();
+                                                    } catch (IOException e2) {
+                                                        e2.printStackTrace();
+                                                    }
+                                                }
+                                            } catch (ClassNotFoundException e3) {
+                                                e = e3;
+                                                if (file != null) {
+                                                    file.delete();
+                                                }
+                                                e.printStackTrace();
+                                                if (bufferedReader2 != null) {
+                                                    try {
+                                                        bufferedReader2.close();
+                                                    } catch (IOException e4) {
+                                                        e4.printStackTrace();
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    } else {
+                                        bufferedReader2 = null;
+                                    }
+                                    if (bufferedReader2 != null) {
                                         try {
-                                            String readLine = bufferedReader.readLine();
-                                            if (readLine == null) {
-                                                break;
-                                            } else if (classLoader != null) {
-                                                classLoader.loadClass(readLine);
-                                            }
-                                        } catch (IOException e) {
-                                            e = e;
-                                            bufferedReader2 = bufferedReader;
-                                            if (file != null) {
-                                                file.delete();
-                                            }
-                                            e.printStackTrace();
-                                            if (bufferedReader2 != null) {
-                                                try {
-                                                    bufferedReader2.close();
-                                                } catch (IOException e2) {
-                                                    e2.printStackTrace();
-                                                }
-                                            }
-                                        } catch (ClassNotFoundException e3) {
-                                            e = e3;
-                                            bufferedReader2 = bufferedReader;
-                                            if (file != null) {
-                                                file.delete();
-                                            }
-                                            e.printStackTrace();
-                                            if (bufferedReader2 != null) {
-                                                try {
-                                                    bufferedReader2.close();
-                                                } catch (IOException e4) {
-                                                    e4.printStackTrace();
-                                                }
-                                            }
-                                        } catch (Throwable th) {
-                                            th = th;
-                                            bufferedReader2 = bufferedReader;
-                                            if (bufferedReader2 != null) {
-                                                try {
-                                                    bufferedReader2.close();
-                                                } catch (IOException e5) {
-                                                    e5.printStackTrace();
-                                                }
-                                            }
-                                            throw th;
+                                            bufferedReader2.close();
+                                        } catch (IOException e5) {
+                                            e5.printStackTrace();
                                         }
                                     }
-                                } else {
-                                    bufferedReader = null;
+                                } catch (IOException e6) {
+                                    e = e6;
+                                    bufferedReader2 = null;
+                                } catch (ClassNotFoundException e7) {
+                                    e = e7;
+                                    bufferedReader2 = null;
                                 }
-                                if (bufferedReader != null) {
+                            } catch (Throwable th) {
+                                th = th;
+                                if (bufferedReader3 != null) {
                                     try {
-                                        bufferedReader.close();
-                                    } catch (IOException e6) {
-                                        e6.printStackTrace();
+                                        bufferedReader3.close();
+                                    } catch (IOException e8) {
+                                        e8.printStackTrace();
                                     }
                                 }
-                            } catch (IOException e7) {
-                                e = e7;
-                            } catch (ClassNotFoundException e8) {
-                                e = e8;
+                                throw th;
                             }
                         } catch (IOException e9) {
                             e = e9;
                             file = null;
+                            bufferedReader2 = null;
                         } catch (ClassNotFoundException e10) {
                             e = e10;
                             file = null;
+                            bufferedReader2 = null;
                         }
                     } catch (Throwable th2) {
                         th = th2;
+                        bufferedReader3 = bufferedReader;
                     }
                 }
             }

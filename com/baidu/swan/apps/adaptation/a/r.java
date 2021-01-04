@@ -1,81 +1,81 @@
 package com.baidu.swan.apps.adaptation.a;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import com.baidu.searchbox.http.request.HttpRequest;
 import java.util.Map;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public interface r {
-    boolean ajD();
+    boolean akL();
 
-    String ajE();
+    String akM();
 
-    String ajF();
+    String akN();
 
-    String ajG();
+    String akO();
 
-    String ajH();
+    String akP();
 
-    String ajI();
+    String akQ();
 
-    String ajJ();
+    String akR();
 
-    String ajK();
+    String akS();
 
-    String ajL();
+    String akT();
 
-    String ajM();
+    String akU();
 
-    String ajN();
+    String akV();
 
-    String ajO();
+    String akW();
 
-    String ajP();
+    String akX();
 
-    String ajQ();
+    String akY();
 
-    String ajR();
+    String akZ();
 
-    String ajS();
+    void alI();
 
-    String ajT();
+    void alJ();
 
-    String ajU();
+    String alK();
+
+    String alL();
+
+    boolean alM();
+
+    int alN();
+
+    String alO();
+
+    String alP();
+
+    String alQ();
+
+    String alR();
+
+    String alS();
+
+    String ala();
+
+    String alb();
+
+    String alc();
 
     @Nullable
-    String ajV();
+    String ald();
 
-    long ajW();
+    long ale();
 
-    String ajX();
+    String alf();
 
-    String ajY();
+    String alg();
 
-    String ajZ();
+    String alh();
 
-    String akA();
-
-    String akB();
-
-    boolean akC();
-
-    int akD();
-
-    String akE();
-
-    String akF();
-
-    String akG();
-
-    String akH();
-
-    String akI();
-
-    void aky();
-
-    void akz();
-
-    String bY(Context context);
+    String cf(Context context);
 
     HttpRequest e(Context context, Map<String, String> map);
 
@@ -93,5 +93,5 @@ public interface r {
 
     HttpRequest k(Context context, Map<String, String> map);
 
-    String kW(String str);
+    String kP(String str);
 }

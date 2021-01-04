@@ -1,69 +1,69 @@
 package bolts;
 
+import com.baidu.ar.constants.HttpConstants;
 import java.util.Locale;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
-/* loaded from: classes10.dex */
+/* loaded from: classes5.dex */
 final class b {
-    private static final b Bk = new b();
-    private final ExecutorService Bl;
-    private final ScheduledExecutorService Bm;
-    private final Executor Bn;
+    private static final b zC = new b();
+    private final ExecutorService zD;
+    private final ScheduledExecutorService zE;
+    private final Executor zF;
 
-    private static boolean ia() {
+    private static boolean ht() {
         String property = System.getProperty("java.runtime.name");
         if (property == null) {
             return false;
         }
-        return property.toLowerCase(Locale.US).contains("android");
+        return property.toLowerCase(Locale.US).contains(HttpConstants.OS_TYPE_VALUE);
     }
 
     private b() {
-        this.Bl = !ia() ? Executors.newCachedThreadPool() : bolts.a.hY();
-        this.Bm = Executors.newSingleThreadScheduledExecutor();
-        this.Bn = new a();
+        this.zD = !ht() ? Executors.newCachedThreadPool() : bolts.a.hr();
+        this.zE = Executors.newSingleThreadScheduledExecutor();
+        this.zF = new a();
     }
 
-    public static ExecutorService ib() {
-        return Bk.Bl;
+    public static ExecutorService hu() {
+        return zC.zD;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static Executor ic() {
-        return Bk.Bn;
+    public static Executor hv() {
+        return zC.zF;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes5.dex */
     private static class a implements Executor {
-        private ThreadLocal<Integer> Bo;
+        private ThreadLocal<Integer> zG;
 
         private a() {
-            this.Bo = new ThreadLocal<>();
+            this.zG = new ThreadLocal<>();
         }
 
-        private int ie() {
-            Integer num = this.Bo.get();
+        private int hw() {
+            Integer num = this.zG.get();
             if (num == null) {
                 num = 0;
             }
             int intValue = num.intValue() + 1;
-            this.Bo.set(Integer.valueOf(intValue));
+            this.zG.set(Integer.valueOf(intValue));
             return intValue;
         }
 
-        /* renamed from: if  reason: not valid java name */
-        private int m6if() {
-            Integer num = this.Bo.get();
+        private int hx() {
+            Integer num = this.zG.get();
             if (num == null) {
                 num = 0;
             }
             int intValue = num.intValue() - 1;
             if (intValue == 0) {
-                this.Bo.remove();
+                this.zG.remove();
             } else {
-                this.Bo.set(Integer.valueOf(intValue));
+                this.zG.set(Integer.valueOf(intValue));
             }
             return intValue;
         }
@@ -71,13 +71,13 @@ final class b {
         @Override // java.util.concurrent.Executor
         public void execute(Runnable runnable) {
             try {
-                if (ie() <= 15) {
+                if (hw() <= 15) {
                     runnable.run();
                 } else {
-                    b.ib().execute(runnable);
+                    b.hu().execute(runnable);
                 }
             } finally {
-                m6if();
+                hx();
             }
         }
     }

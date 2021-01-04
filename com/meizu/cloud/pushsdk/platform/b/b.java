@@ -11,18 +11,20 @@ import com.meizu.cloud.pushsdk.platform.message.RegisterStatus;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class b extends c<RegisterStatus> {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Handler f4210a;
-    protected ScheduledExecutorService b;
+    protected Handler f11654a;
+
+    /* renamed from: b  reason: collision with root package name */
+    protected ScheduledExecutorService f11655b;
     protected int c;
 
     public b(Context context, com.meizu.cloud.pushsdk.platform.a.a aVar, ScheduledExecutorService scheduledExecutorService) {
         this(context, null, null, aVar, scheduledExecutorService);
-        this.b = (ScheduledExecutorService) com.meizu.cloud.pushsdk.c.b.a.b.a();
-        this.f4210a = new Handler(context.getMainLooper()) { // from class: com.meizu.cloud.pushsdk.platform.b.b.1
+        this.f11655b = (ScheduledExecutorService) com.meizu.cloud.pushsdk.c.b.a.b.a();
+        this.f11654a = new Handler(context.getMainLooper()) { // from class: com.meizu.cloud.pushsdk.platform.b.b.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 switch (message.what) {
@@ -47,11 +49,11 @@ public class b extends c<RegisterStatus> {
     }
 
     protected void a(long j) {
-        this.b.schedule(new Runnable() { // from class: com.meizu.cloud.pushsdk.platform.b.b.2
+        this.f11655b.schedule(new Runnable() { // from class: com.meizu.cloud.pushsdk.platform.b.b.2
             @Override // java.lang.Runnable
             public void run() {
                 b.this.o();
-                b.this.f4210a.sendEmptyMessage(0);
+                b.this.f11654a.sendEmptyMessage(0);
             }
         }, j, TimeUnit.SECONDS);
     }
@@ -120,12 +122,12 @@ public class b extends c<RegisterStatus> {
     public RegisterStatus e() {
         RegisterStatus registerStatus = new RegisterStatus();
         String a2 = com.meizu.cloud.pushsdk.util.b.a(this.e, this.h);
-        int b = com.meizu.cloud.pushsdk.util.b.b(this.e, this.h);
-        if (!a(a2, b)) {
+        int b2 = com.meizu.cloud.pushsdk.util.b.b(this.e, this.h);
+        if (!a(a2, b2)) {
             registerStatus.setCode(BasicPushStatus.SUCCESS_CODE);
             registerStatus.setMessage("already register PushId,dont register frequently");
             registerStatus.setPushId(a2);
-            registerStatus.setExpireTime((int) (b - (System.currentTimeMillis() / 1000)));
+            registerStatus.setExpireTime((int) (b2 - (System.currentTimeMillis() / 1000)));
             return registerStatus;
         }
         com.meizu.cloud.pushsdk.util.b.g(this.e, "", this.h);

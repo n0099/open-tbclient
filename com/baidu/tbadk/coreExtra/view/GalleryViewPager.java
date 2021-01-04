@@ -9,8 +9,8 @@ import com.baidu.tbadk.widget.DragImageView;
 import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
 public class GalleryViewPager extends BaseViewPager {
-    private PointF fpe;
-    private DragImageView fpf;
+    private PointF fyM;
+    private DragImageView fyN;
 
     public GalleryViewPager(Context context) {
         super(context);
@@ -21,11 +21,11 @@ public class GalleryViewPager extends BaseViewPager {
     }
 
     public void setCurrentView(DragImageView dragImageView) {
-        this.fpf = dragImageView;
+        this.fyN = dragImageView;
     }
 
     public DragImageView getCurrentView() {
-        return this.fpf;
+        return this.fyN;
     }
 
     private float[] F(MotionEvent motionEvent) {
@@ -33,37 +33,37 @@ public class GalleryViewPager extends BaseViewPager {
             case 1:
             case 2:
                 PointF pointF = new PointF(motionEvent.getX(), motionEvent.getY());
-                return new float[]{pointF.x - this.fpe.x, pointF.y - this.fpe.y};
+                return new float[]{pointF.x - this.fyM.x, pointF.y - this.fyM.y};
             case 0:
-                this.fpe = new PointF(motionEvent.getX(), motionEvent.getY());
+                this.fyM = new PointF(motionEvent.getX(), motionEvent.getY());
                 break;
         }
         return null;
     }
 
-    @Override // com.baidu.tbadk.core.view.BaseViewPager, com.baidu.tbadk.widget.TbViewPager, android.support.v4.view.ViewPager, android.view.View
+    @Override // com.baidu.tbadk.core.view.BaseViewPager, com.baidu.tbadk.widget.TbViewPager, androidx.viewpager.widget.ViewPager, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         if ((motionEvent.getAction() & CompatibleUtile.getActionMask()) == 1) {
             super.onTouchEvent(motionEvent);
-            if (this.fpf != null) {
-                this.fpf.actionUp();
+            if (this.fyN != null) {
+                this.fyN.actionUp();
             }
         }
-        if (this.fpf == null) {
+        if (this.fyN == null) {
             return super.onTouchEvent(motionEvent);
         }
         float[] F = F(motionEvent);
-        if (this.fpf.pagerCantScroll()) {
+        if (this.fyN.pagerCantScroll()) {
             return super.onTouchEvent(motionEvent);
         }
-        if (F != null && this.fpf.onRightSide() && F[0] < 0.0f) {
+        if (F != null && this.fyN.onRightSide() && F[0] < 0.0f) {
             return super.onTouchEvent(motionEvent);
         }
-        if (F != null && this.fpf.onLeftSide() && F[0] > 0.0f) {
+        if (F != null && this.fyN.onLeftSide() && F[0] > 0.0f) {
             return super.onTouchEvent(motionEvent);
         }
         if (F == null) {
-            if (this.fpf.onLeftSide() || this.fpf.onRightSide()) {
+            if (this.fyN.onLeftSide() || this.fyN.onRightSide()) {
                 return super.onTouchEvent(motionEvent);
             }
             return false;
@@ -71,26 +71,26 @@ public class GalleryViewPager extends BaseViewPager {
         return false;
     }
 
-    @Override // com.baidu.tbadk.widget.TbViewPager, android.support.v4.view.ViewPager, android.view.ViewGroup
+    @Override // com.baidu.tbadk.widget.TbViewPager, androidx.viewpager.widget.ViewPager, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         if ((motionEvent.getAction() & CompatibleUtile.getActionMask()) == 1) {
             super.onInterceptTouchEvent(motionEvent);
         }
         float[] F = F(motionEvent);
-        if (this.fpf == null) {
+        if (this.fyN == null) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (this.fpf.pagerCantScroll()) {
+        if (this.fyN.pagerCantScroll()) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (F != null && this.fpf.onRightSide() && F[0] < 0.0f) {
+        if (F != null && this.fyN.onRightSide() && F[0] < 0.0f) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (F != null && this.fpf.onLeftSide() && F[0] > 0.0f) {
+        if (F != null && this.fyN.onLeftSide() && F[0] > 0.0f) {
             return super.onInterceptTouchEvent(motionEvent);
         }
         if (F == null) {
-            if (this.fpf.onLeftSide() || this.fpf.onRightSide()) {
+            if (this.fyN.onLeftSide() || this.fyN.onRightSide()) {
                 return super.onInterceptTouchEvent(motionEvent);
             }
             return false;

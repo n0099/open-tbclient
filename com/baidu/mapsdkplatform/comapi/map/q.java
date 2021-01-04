@@ -1,16 +1,16 @@
 package com.baidu.mapsdkplatform.comapi.map;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class q {
 
     /* renamed from: a  reason: collision with root package name */
-    public p f2239a;
+    public p f3193a;
 
     public p a() {
-        return this.f2239a;
+        return this.f3193a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(p pVar) {
-        this.f2239a = pVar;
+        this.f3193a = pVar;
     }
 }

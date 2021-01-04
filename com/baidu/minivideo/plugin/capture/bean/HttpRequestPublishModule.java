@@ -4,18 +4,18 @@ import android.text.TextUtils;
 import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 public class HttpRequestPublishModule {
     private static final int HTTP_NO_ERROR = 0;
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     public static class ImageData {
         public int height;
         public String url;
         public int width;
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     public static class VideoUploadModel {
         public String coverUrl;
         public String duration;
@@ -25,7 +25,7 @@ public class HttpRequestPublishModule {
         public String width;
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     public class PublishResultInfo {
         public String msg;
         public PopInfoDaLiBao popInfoDaLiBao;
@@ -41,7 +41,7 @@ public class HttpRequestPublishModule {
         }
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     public static class PopInfoDaLiBao implements Jsonable {
         public boolean enabled = false;
         public int points;
@@ -51,7 +51,6 @@ public class HttpRequestPublishModule {
         @Override // com.baidu.minivideo.plugin.capture.bean.Jsonable
         public JSONObject toJson() {
             JSONObject jSONObject;
-            Exception e;
             try {
                 jSONObject = new JSONObject();
                 try {
@@ -59,14 +58,14 @@ public class HttpRequestPublishModule {
                     jSONObject.put("text", this.text);
                     jSONObject.put("time", this.time);
                     jSONObject.put("points", this.points);
-                } catch (Exception e2) {
-                    e = e2;
+                } catch (Exception e) {
+                    e = e;
                     e.printStackTrace();
                     return jSONObject;
                 }
-            } catch (Exception e3) {
+            } catch (Exception e2) {
+                e = e2;
                 jSONObject = null;
-                e = e3;
             }
             return jSONObject;
         }
@@ -89,7 +88,7 @@ public class HttpRequestPublishModule {
         }
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     public class PublishData {
         public String coverImg;
         public String duration;
@@ -106,7 +105,7 @@ public class HttpRequestPublishModule {
         }
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     public class ShareData implements Jsonable {
         public String content;
         public String icon;
@@ -120,12 +119,11 @@ public class HttpRequestPublishModule {
         @Override // com.baidu.minivideo.plugin.capture.bean.Jsonable
         public JSONObject toJson() {
             JSONObject jSONObject;
-            Exception e;
             try {
                 jSONObject = new JSONObject();
-            } catch (Exception e2) {
+            } catch (Exception e) {
+                e = e;
                 jSONObject = null;
-                e = e2;
             }
             try {
                 jSONObject.put("title", this.title);
@@ -133,8 +131,8 @@ public class HttpRequestPublishModule {
                 jSONObject.put("link", this.link);
                 jSONObject.put(AlaStaticKeys.ALA_STATIC_VALUE_ICON, this.icon);
                 jSONObject.put("shareText", this.shareText);
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e2) {
+                e = e2;
                 e.printStackTrace();
                 return jSONObject;
             }

@@ -1,53 +1,32 @@
 package com.baidu.live.data;
 
-import com.baidu.live.tbadk.core.util.ListUtils;
-import java.util.ArrayList;
-import java.util.Iterator;
-import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class ao {
-    public int aOZ;
-    public ArrayList<an> aPa;
+    private int aPw;
+    private int aPx;
+    private int aPy;
 
-    public void parserJson(JSONObject jSONObject) {
-        this.aOZ = jSONObject.optInt("received");
-        this.aPa = new ArrayList<>();
-        JSONArray optJSONArray = jSONObject.optJSONArray("task_list");
-        if (optJSONArray != null) {
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                if (optJSONObject != null) {
-                    an anVar = new an();
-                    anVar.parseJson(optJSONObject);
-                    this.aPa.add(anVar);
-                }
-            }
+    public void parseJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            this.aPw = jSONObject.optInt("category_select_switch", 0);
+            this.aPx = jSONObject.optInt("im_audience_watch_switch", 0);
+            this.aPy = jSONObject.optInt("im_audience_watch_time", 60);
         }
     }
 
-    public boolean FJ() {
-        if (!ListUtils.isEmpty(this.aPa)) {
-            Iterator<an> it = this.aPa.iterator();
-            while (it.hasNext()) {
-                if (it.next().FI()) {
-                    return true;
-                }
-            }
-        }
-        return false;
+    public static boolean ET() {
+        return (com.baidu.live.af.a.SE().bwi == null || com.baidu.live.af.a.SE().bwi.aPl == null || com.baidu.live.af.a.SE().bwi.aPl.aPw != 1) ? false : true;
     }
 
-    public an FK() {
-        if (!ListUtils.isEmpty(this.aPa)) {
-            Iterator<an> it = this.aPa.iterator();
-            while (it.hasNext()) {
-                an next = it.next();
-                if (next.FG()) {
-                    return next;
-                }
-            }
+    public static boolean EU() {
+        return (com.baidu.live.af.a.SE().bwi == null || com.baidu.live.af.a.SE().bwi.aPl == null || com.baidu.live.af.a.SE().bwi.aPl.aPx != 1) ? false : true;
+    }
+
+    public static int EV() {
+        if (com.baidu.live.af.a.SE().bwi == null || com.baidu.live.af.a.SE().bwi.aPl == null) {
+            return 0;
         }
-        return null;
+        return com.baidu.live.af.a.SE().bwi.aPl.aPy;
     }
 }

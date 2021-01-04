@@ -10,20 +10,20 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class n {
-    private static volatile n erH;
-    private com.baidu.swan.ubc.d eqY;
-    private ExecutorService erI;
-    private com.baidu.swan.ubc.c erJ;
-    private int erK;
-    private boolean erL = false;
+    private static volatile n eBr;
+    private com.baidu.swan.ubc.d eAJ;
+    private ExecutorService eBs;
+    private com.baidu.swan.ubc.c eBt;
+    private int eBu;
+    private boolean eBv = false;
     private Context mContext;
     private ExecutorService mExecutorService;
 
     static /* synthetic */ int d(n nVar) {
-        int i = nVar.erK;
-        nVar.erK = i + 1;
+        int i = nVar.eBu;
+        nVar.eBu = i + 1;
         return i;
     }
 
@@ -31,15 +31,15 @@ public class n {
         init(com.baidu.swan.ubc.e.getContext());
     }
 
-    public static n bgm() {
-        if (erH == null) {
+    public static n biJ() {
+        if (eBr == null) {
             synchronized (n.class) {
-                if (erH == null) {
-                    erH = new n();
+                if (eBr == null) {
+                    eBr = new n();
                 }
             }
         }
-        return erH;
+        return eBr;
     }
 
     private void init(Context context) {
@@ -49,45 +49,45 @@ public class n {
             } else {
                 this.mContext = context.getApplicationContext();
             }
-            this.erK = com.baidu.swan.config.b.aRj().getInt(QuickPersistConfigConst.KEY_FLOW_HANDLE, 0);
-            if (this.erK > 1073741823) {
-                this.erK -= 1073741823;
+            this.eBu = com.baidu.swan.config.b.aTE().getInt(QuickPersistConfigConst.KEY_FLOW_HANDLE, 0);
+            if (this.eBu > 1073741823) {
+                this.eBu -= 1073741823;
             } else {
-                this.erK = 1073741823 + this.erK;
+                this.eBu = 1073741823 + this.eBu;
             }
-            if (com.baidu.swan.ubc.e.bfQ() == null || com.baidu.swan.ubc.e.bfQ().akr() == null) {
+            if (com.baidu.swan.ubc.e.bin() == null || com.baidu.swan.ubc.e.bin().alz() == null) {
                 this.mExecutorService = Executors.newSingleThreadExecutor();
             } else {
-                this.mExecutorService = com.baidu.swan.ubc.e.bfQ().akr();
+                this.mExecutorService = com.baidu.swan.ubc.e.bin().alz();
             }
             this.mExecutorService.execute(new g());
-            this.erI = Executors.newSingleThreadExecutor();
+            this.eBs = Executors.newSingleThreadExecutor();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(String str, JSONObject jSONObject, int i) {
-        if (!ai(str, i)) {
+        if (!ak(str, i)) {
             b bVar = new b(str, jSONObject, i);
-            if (this.eqY != null && this.eqY.zu(str)) {
-                bVar.iq(true);
+            if (this.eAJ != null && this.eAJ.zt(str)) {
+                bVar.iL(true);
             }
             this.mExecutorService.execute(bVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void l(String str, String str2, int i) {
-        if (!ai(str, i)) {
+    public void o(String str, String str2, int i) {
+        if (!ak(str, i)) {
             b bVar = new b(str, str2, i);
-            if (this.eqY != null && this.eqY.zu(str)) {
-                bVar.iq(true);
+            if (this.eAJ != null && this.eAJ.zt(str)) {
+                bVar.iL(true);
             }
             this.mExecutorService.execute(bVar);
         }
     }
 
-    boolean ai(String str, int i) {
+    boolean ak(String str, int i) {
         return TextUtils.equals(str, "834") && new Random().nextInt(100) >= 20;
     }
 
@@ -102,32 +102,32 @@ public class n {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized Flow k(String str, String str2, int i) {
-        Flow aj;
-        aj = aj(str, i);
-        if (aj != null && aj.getValid()) {
-            d dVar = new d(aj, str2);
-            if (this.eqY != null && this.eqY.zu(str)) {
-                dVar.iq(true);
+    public synchronized Flow n(String str, String str2, int i) {
+        Flow al;
+        al = al(str, i);
+        if (al != null && al.getValid()) {
+            d dVar = new d(al, str2);
+            if (this.eAJ != null && this.eAJ.zt(str)) {
+                dVar.iL(true);
             }
             this.mExecutorService.execute(dVar);
         }
-        return aj;
+        return al;
     }
 
-    Flow aj(String str, int i) {
-        Flow flow = new Flow(str, this.erK, i);
-        if (this.eqY != null && !this.eqY.ah(str, i)) {
+    Flow al(String str, int i) {
+        Flow flow = new Flow(str, this.eBu, i);
+        if (this.eAJ != null && !this.eAJ.aj(str, i)) {
             flow.setValid(false);
-        } else if ((i & 16) != 0 && !com.baidu.swan.ubc.e.bfQ().re(str)) {
+        } else if ((i & 16) != 0 && !com.baidu.swan.ubc.e.bin().qX(str)) {
             flow.setValid(false);
         } else {
-            if (this.eqY != null && this.eqY.zs(str) > 0) {
-                if (new Random().nextInt(100) >= this.eqY.zs(str)) {
-                    flow.ir(true);
+            if (this.eAJ != null && this.eAJ.zr(str) > 0) {
+                if (new Random().nextInt(100) >= this.eAJ.zr(str)) {
+                    flow.iM(true);
                 }
             }
-            if (this.eqY != null && this.eqY.zt(str)) {
+            if (this.eAJ != null && this.eAJ.zs(str)) {
                 flow.setValid(false);
             }
         }
@@ -145,19 +145,19 @@ public class n {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void L(String str, int i) {
+    public void M(String str, int i) {
         this.mExecutorService.execute(new c(str, i));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void upload() {
-        if (!this.erL) {
-            this.erL = true;
+        if (!this.eBv) {
+            this.eBv = true;
             this.mExecutorService.execute(new Runnable() { // from class: com.baidu.swan.ubc.n.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (n.this.erJ != null) {
-                        n.this.erJ.bfH();
+                    if (n.this.eBt != null) {
+                        n.this.eBt.bie();
                     }
                 }
             });
@@ -171,11 +171,11 @@ public class n {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void d(final JSONArray jSONArray, final String str) {
         s.M(jSONArray);
-        this.erI.execute(new Runnable() { // from class: com.baidu.swan.ubc.n.2
+        this.eBs.execute(new Runnable() { // from class: com.baidu.swan.ubc.n.2
             @Override // java.lang.Runnable
             public void run() {
-                if (n.this.erJ != null) {
-                    n.this.erJ.d(jSONArray, str);
+                if (n.this.eBt != null) {
+                    n.this.eBt.d(jSONArray, str);
                 }
             }
         });
@@ -184,23 +184,23 @@ public class n {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void L(final JSONArray jSONArray) {
         s.M(jSONArray);
-        this.erI.execute(new Runnable() { // from class: com.baidu.swan.ubc.n.3
+        this.eBs.execute(new Runnable() { // from class: com.baidu.swan.ubc.n.3
             @Override // java.lang.Runnable
             public void run() {
-                if (n.this.erJ != null) {
-                    n.this.erJ.L(jSONArray);
+                if (n.this.eBt != null) {
+                    n.this.eBt.L(jSONArray);
                 }
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void bfK() {
+    public void bih() {
         this.mExecutorService.execute(new Runnable() { // from class: com.baidu.swan.ubc.n.4
             @Override // java.lang.Runnable
             public void run() {
-                if (n.this.erJ != null) {
-                    n.this.erJ.bfK();
+                if (n.this.eBt != null) {
+                    n.this.eBt.bih();
                 }
             }
         });
@@ -211,11 +211,11 @@ public class n {
         this.mExecutorService.execute(new Runnable() { // from class: com.baidu.swan.ubc.n.5
             @Override // java.lang.Runnable
             public void run() {
-                if (n.this.erJ != null) {
+                if (n.this.eBt != null) {
                     if (z) {
-                        n.this.erJ.zm(str);
+                        n.this.eBt.zl(str);
                     } else {
-                        n.this.erJ.zn(str);
+                        n.this.eBt.zm(str);
                     }
                 }
             }
@@ -223,7 +223,7 @@ public class n {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes6.dex */
     public class g implements Runnable {
         private g() {
         }
@@ -231,155 +231,155 @@ public class n {
         @Override // java.lang.Runnable
         public void run() {
             Process.setThreadPriority(10);
-            n.this.eqY = com.baidu.swan.ubc.d.bfM();
-            n.this.erJ = new com.baidu.swan.ubc.c(n.this.mContext);
-            n.this.erJ.bfL();
+            n.this.eAJ = com.baidu.swan.ubc.d.bij();
+            n.this.eBt = new com.baidu.swan.ubc.c(n.this.mContext);
+            n.this.eBt.bii();
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes6.dex */
     private class b implements Runnable {
-        private i erQ;
+        private i eBA;
 
         b(String str, String str2, int i) {
-            this.erQ = new i(str, str2, i);
+            this.eBA = new i(str, str2, i);
         }
 
         b(String str, JSONObject jSONObject, int i) {
-            this.erQ = new i(str, jSONObject, i);
+            this.eBA = new i(str, jSONObject, i);
         }
 
         b(String str, String str2, int i, String str3, int i2) {
-            this.erQ = new i(str, str2, i, str3, i2);
+            this.eBA = new i(str, str2, i, str3, i2);
         }
 
         b(String str, String str2, int i, String str3, long j, int i2) {
-            this.erQ = new i(str, str2, i, str3, j, i2);
+            this.eBA = new i(str, str2, i, str3, j, i2);
         }
 
-        public void iq(boolean z) {
-            if (this.erQ != null) {
-                this.erQ.iq(z);
+        public void iL(boolean z) {
+            if (this.eBA != null) {
+                this.eBA.iL(z);
             }
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (n.this.erJ != null) {
-                this.erQ.bgg();
-                if (!TextUtils.isEmpty(n.this.eqY.zr(this.erQ.getId()))) {
-                    this.erQ.setCategory(n.this.eqY.zr(this.erQ.getId()));
+            if (n.this.eBt != null) {
+                this.eBA.biD();
+                if (!TextUtils.isEmpty(n.this.eAJ.zq(this.eBA.getId()))) {
+                    this.eBA.setCategory(n.this.eAJ.zq(this.eBA.getId()));
                 }
-                if ((this.erQ.getOption() & 8) != 0) {
-                    n.this.erJ.b(this.erQ);
+                if ((this.eBA.getOption() & 8) != 0) {
+                    n.this.eBt.b(this.eBA);
                 } else {
-                    n.this.erJ.a(this.erQ);
+                    n.this.eBt.a(this.eBA);
                 }
             }
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes6.dex */
     private class d implements Runnable {
-        private k erR;
+        private k eBB;
 
         d(Flow flow, String str) {
-            this.erR = new k(flow.getId(), flow.getHandle(), str, flow.getOption(), flow.bgi());
-            this.erR.dw(flow.getStartTime());
-            this.erR.zA("1");
+            this.eBB = new k(flow.getId(), flow.getHandle(), str, flow.getOption(), flow.biF());
+            this.eBB.dw(flow.getStartTime());
+            this.eBB.zz("1");
             n.d(n.this);
         }
 
-        public void iq(boolean z) {
-            if (this.erR != null) {
-                this.erR.iq(z);
+        public void iL(boolean z) {
+            if (this.eBB != null) {
+                this.eBB.iL(z);
             }
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (n.this.erJ != null) {
-                this.erR.bgg();
-                if (!TextUtils.isEmpty(n.this.eqY.zr(this.erR.getId()))) {
-                    this.erR.setCategory(n.this.eqY.zr(this.erR.getId()));
+            if (n.this.eBt != null) {
+                this.eBB.biD();
+                if (!TextUtils.isEmpty(n.this.eAJ.zq(this.eBB.getId()))) {
+                    this.eBB.setCategory(n.this.eAJ.zq(this.eBB.getId()));
                 }
-                n.this.erJ.b(this.erR);
+                n.this.eBt.b(this.eBB);
             }
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes6.dex */
     private class f implements Runnable {
-        private String erA;
-        private int erB;
+        private String eBk;
+        private int eBl;
         private String mValue;
 
         f(String str, int i, String str2) {
-            this.erA = str;
-            this.erB = i;
+            this.eBk = str;
+            this.eBl = i;
             this.mValue = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (n.this.erJ != null) {
-                n.this.erJ.i(this.erA, this.erB, this.mValue);
+            if (n.this.eBt != null) {
+                n.this.eBt.i(this.eBk, this.eBl, this.mValue);
             }
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes6.dex */
     private class e implements Runnable {
-        private String erA;
-        private int erB;
-        private JSONArray erG;
+        private String eBk;
+        private int eBl;
+        private JSONArray eBq;
         private long mEndTime = System.currentTimeMillis();
 
         e(String str, int i, JSONArray jSONArray) {
-            this.erA = str;
-            this.erB = i;
-            this.erG = jSONArray;
+            this.eBk = str;
+            this.eBl = i;
+            this.eBq = jSONArray;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (n.this.erJ != null) {
-                n.this.erJ.a(this.erA, this.erB, this.mEndTime, this.erG);
+            if (n.this.eBt != null) {
+                n.this.eBt.a(this.eBk, this.eBl, this.mEndTime, this.eBq);
             }
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes6.dex */
     private class c implements Runnable {
-        private String erA;
-        private int erB;
+        private String eBk;
+        private int eBl;
 
         c(String str, int i) {
-            this.erA = str;
-            this.erB = i;
+            this.eBk = str;
+            this.eBl = i;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (n.this.erJ != null) {
-                n.this.erJ.L(this.erA, this.erB);
+            if (n.this.eBt != null) {
+                n.this.eBt.M(this.eBk, this.eBl);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes6.dex */
     public class a implements Runnable {
-        private q erP;
+        private q eBz;
 
         a(q qVar) {
-            this.erP = qVar;
+            this.eBz = qVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (n.this.erJ != null) {
-                n.this.erJ.a(this.erP);
+            if (n.this.eBt != null) {
+                n.this.eBt.a(this.eBz);
             }
         }
     }

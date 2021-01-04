@@ -3,12 +3,13 @@ package com.baidu.crabsdk.b;
 import android.content.Context;
 import android.provider.Settings;
 import android.text.TextUtils;
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public final class h {
-    public static String apA = null;
+    public static String apW = null;
     private static Context mContext = null;
 
     public static String a(String str) {
@@ -17,7 +18,7 @@ public final class h {
         }
         MessageDigest messageDigest = null;
         try {
-            messageDigest = MessageDigest.getInstance("MD5");
+            messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
             messageDigest.reset();
             messageDigest.update(str.getBytes("UTF-8"));
         } catch (UnsupportedEncodingException e) {
@@ -53,15 +54,15 @@ public final class h {
     }
 
     public static String z() {
-        if (apA != null) {
-            return apA;
+        if (apW != null) {
+            return apW;
         }
         try {
-            apA = a(Settings.Secure.getString(mContext.getContentResolver(), "android_id"));
+            apW = a(Settings.Secure.getString(mContext.getContentResolver(), "android_id"));
         } catch (Exception e) {
             com.baidu.crabsdk.c.a.a("getCUID failed!", e);
-            apA = "N/A";
+            apW = "N/A";
         }
-        return apA;
+        return apW;
     }
 }

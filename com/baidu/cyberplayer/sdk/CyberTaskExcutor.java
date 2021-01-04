@@ -7,34 +7,38 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public final class CyberTaskExcutor {
 
     /* renamed from: a  reason: collision with root package name */
-    private static CyberTaskExcutor f1346a;
-    private final int b = 0;
+    private static CyberTaskExcutor f1755a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private final int f1756b = 0;
     private final int c = 5;
     private final int d = 180;
     private ExecutorService e = new ThreadPoolExecutor(0, 5, 180, TimeUnit.SECONDS, new LinkedBlockingQueue(), new a("cyber-thread", 5));
     private ExecutorService f = new ThreadPoolExecutor(1, 1, 0, TimeUnit.SECONDS, new LinkedBlockingQueue(), new a("cyber-thread-Single", 5));
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes6.dex */
     public static class a implements ThreadFactory {
 
         /* renamed from: a  reason: collision with root package name */
-        private final AtomicInteger f1347a = new AtomicInteger(1);
-        private final String b;
+        private final AtomicInteger f1757a = new AtomicInteger(1);
+
+        /* renamed from: b  reason: collision with root package name */
+        private final String f1758b;
         private int c;
 
         a(String str, int i) {
             this.c = 5;
-            this.b = str + Constants.ACCEPT_TIME_SEPARATOR_SERVER;
+            this.f1758b = str + Constants.ACCEPT_TIME_SEPARATOR_SERVER;
             this.c = i;
         }
 
         @Override // java.util.concurrent.ThreadFactory
         public Thread newThread(Runnable runnable) {
-            Thread thread = new Thread(runnable, this.b + this.f1347a.getAndIncrement());
+            Thread thread = new Thread(runnable, this.f1758b + this.f1757a.getAndIncrement());
             if (thread.isDaemon()) {
                 thread.setDaemon(true);
             }
@@ -50,10 +54,10 @@ public final class CyberTaskExcutor {
     public static synchronized CyberTaskExcutor getInstance() {
         CyberTaskExcutor cyberTaskExcutor;
         synchronized (CyberTaskExcutor.class) {
-            if (f1346a == null) {
-                f1346a = new CyberTaskExcutor();
+            if (f1755a == null) {
+                f1755a = new CyberTaskExcutor();
             }
-            cyberTaskExcutor = f1346a;
+            cyberTaskExcutor = f1755a;
         }
         return cyberTaskExcutor;
     }

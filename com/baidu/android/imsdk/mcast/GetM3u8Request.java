@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.utils.LogUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class GetM3u8Request extends FileMessageHttpRequest {
     private static final String TAG = GetM3u8Request.class.getSimpleName();
     private String httpurl;

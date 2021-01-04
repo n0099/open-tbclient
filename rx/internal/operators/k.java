@@ -1,56 +1,195 @@
 package rx.internal.operators;
 
+import java.util.Queue;
+import java.util.concurrent.atomic.AtomicLong;
 import rx.d;
-/* loaded from: classes12.dex */
+import rx.exceptions.MissingBackpressureException;
+import rx.g;
+import rx.internal.util.a.ae;
+/* loaded from: classes15.dex */
 public final class k<T> implements d.b<T, T> {
-    final rx.functions.a action;
+    private final int bufferSize;
+    private final boolean delayError;
+    private final rx.g scheduler;
 
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
         return call((rx.j) ((rx.j) obj));
     }
 
-    public k(rx.functions.a aVar) {
-        if (aVar == null) {
-            throw new NullPointerException("Action can not be null");
-        }
-        this.action = aVar;
+    public k(rx.g gVar, boolean z, int i) {
+        this.scheduler = gVar;
+        this.delayError = z;
+        this.bufferSize = i <= 0 ? rx.internal.util.g.SIZE : i;
     }
 
-    /* JADX DEBUG: Type inference failed for r0v0. Raw type applied. Possible types: rx.j<T>, rx.j<? super T> */
-    public rx.j<? super T> call(final rx.j<? super T> jVar) {
-        return (rx.j<T>) new rx.j<T>(jVar) { // from class: rx.internal.operators.k.1
-            @Override // rx.e
-            public void onNext(T t) {
-                jVar.onNext(t);
-            }
+    public rx.j<? super T> call(rx.j<? super T> jVar) {
+        if (!(this.scheduler instanceof rx.internal.schedulers.e) && !(this.scheduler instanceof rx.internal.schedulers.j)) {
+            a aVar = new a(this.scheduler, jVar, this.delayError, this.bufferSize);
+            aVar.init();
+            return aVar;
+        }
+        return jVar;
+    }
 
-            @Override // rx.e
-            public void onError(Throwable th) {
-                try {
-                    jVar.onError(th);
-                } finally {
-                    eFK();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes15.dex */
+    public static final class a<T> extends rx.j<T> implements rx.functions.a {
+        final rx.j<? super T> child;
+        final boolean delayError;
+        long emitted;
+        Throwable error;
+        volatile boolean finished;
+        final int limit;
+        final g.a qtj;
+        final Queue<Object> queue;
+        final AtomicLong requested = new AtomicLong();
+        final AtomicLong qtk = new AtomicLong();
+
+        public a(rx.g gVar, rx.j<? super T> jVar, boolean z, int i) {
+            this.child = jVar;
+            this.qtj = gVar.createWorker();
+            this.delayError = z;
+            i = i <= 0 ? rx.internal.util.g.SIZE : i;
+            this.limit = i - (i >> 2);
+            if (ae.eOw()) {
+                this.queue = new rx.internal.util.a.q(i);
+            } else {
+                this.queue = new rx.internal.util.atomic.c(i);
+            }
+            request(i);
+        }
+
+        void init() {
+            rx.j<? super T> jVar = this.child;
+            jVar.setProducer(new rx.f() { // from class: rx.internal.operators.k.a.1
+                @Override // rx.f
+                public void request(long j) {
+                    if (j > 0) {
+                        rx.internal.operators.a.e(a.this.requested, j);
+                        a.this.schedule();
+                    }
+                }
+            });
+            jVar.add(this.qtj);
+            jVar.add(this);
+        }
+
+        @Override // rx.e
+        public void onNext(T t) {
+            if (!isUnsubscribed() && !this.finished) {
+                if (!this.queue.offer(NotificationLite.next(t))) {
+                    onError(new MissingBackpressureException());
+                } else {
+                    schedule();
                 }
             }
+        }
 
-            @Override // rx.e
-            public void onCompleted() {
-                try {
-                    jVar.onCompleted();
-                } finally {
-                    eFK();
+        @Override // rx.e
+        public void onCompleted() {
+            if (!isUnsubscribed() && !this.finished) {
+                this.finished = true;
+                schedule();
+            }
+        }
+
+        @Override // rx.e
+        public void onError(Throwable th) {
+            if (isUnsubscribed() || this.finished) {
+                rx.c.c.onError(th);
+                return;
+            }
+            this.error = th;
+            this.finished = true;
+            schedule();
+        }
+
+        protected void schedule() {
+            if (this.qtk.getAndIncrement() == 0) {
+                this.qtj.c(this);
+            }
+        }
+
+        @Override // rx.functions.a
+        public void call() {
+            long j;
+            long j2 = 1;
+            long j3 = this.emitted;
+            Queue<Object> queue = this.queue;
+            rx.j<? super T> jVar = this.child;
+            do {
+                long j4 = this.requested.get();
+                while (j4 != j3) {
+                    boolean z = this.finished;
+                    Object poll = queue.poll();
+                    boolean z2 = poll == null;
+                    if (!a(z, z2, jVar, queue)) {
+                        if (z2) {
+                            break;
+                        }
+                        jVar.onNext((Object) NotificationLite.getValue(poll));
+                        long j5 = j3 + 1;
+                        if (j5 == this.limit) {
+                            long c = rx.internal.operators.a.c(this.requested, j5);
+                            request(j5);
+                            j = c;
+                            j5 = 0;
+                        } else {
+                            j = j4;
+                        }
+                        j4 = j;
+                        j3 = j5;
+                    } else {
+                        return;
+                    }
+                }
+                if (j4 != j3 || !a(this.finished, queue.isEmpty(), jVar, queue)) {
+                    this.emitted = j3;
+                    j2 = this.qtk.addAndGet(-j2);
+                } else {
+                    return;
+                }
+            } while (j2 != 0);
+        }
+
+        boolean a(boolean z, boolean z2, rx.j<? super T> jVar, Queue<Object> queue) {
+            if (jVar.isUnsubscribed()) {
+                queue.clear();
+                return true;
+            }
+            if (z) {
+                if (this.delayError) {
+                    if (z2) {
+                        Throwable th = this.error;
+                        try {
+                            if (th != null) {
+                                jVar.onError(th);
+                            } else {
+                                jVar.onCompleted();
+                            }
+                        } finally {
+                        }
+                    }
+                } else {
+                    Throwable th2 = this.error;
+                    if (th2 != null) {
+                        queue.clear();
+                        try {
+                            jVar.onError(th2);
+                            return true;
+                        } finally {
+                        }
+                    } else if (z2) {
+                        try {
+                            jVar.onCompleted();
+                            return true;
+                        } finally {
+                        }
+                    }
                 }
             }
-
-            void eFK() {
-                try {
-                    k.this.action.call();
-                } catch (Throwable th) {
-                    rx.exceptions.a.J(th);
-                    rx.c.c.onError(th);
-                }
-            }
-        };
+            return false;
+        }
     }
 }

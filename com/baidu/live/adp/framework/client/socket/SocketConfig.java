@@ -8,7 +8,7 @@ import com.baidu.live.adp.framework.MessageConfig;
 import com.baidu.sapi2.ecommerce.callback.AddressManageCallback;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class SocketConfig {
     public static final int ERR_UN_ONLINE = 110004;
     public static final int LCS_SWITCH_HTTP_ERR_NO = 110005;

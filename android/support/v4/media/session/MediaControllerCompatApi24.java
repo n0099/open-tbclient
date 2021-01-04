@@ -3,16 +3,13 @@ package android.support.v4.media.session;
 import android.media.session.MediaController;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
-import android.support.v4.media.session.MediaControllerCompatApi23;
+import androidx.annotation.RequiresApi;
 @RequiresApi(24)
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 class MediaControllerCompatApi24 {
-    MediaControllerCompatApi24() {
-    }
 
-    /* loaded from: classes19.dex */
-    public static class TransportControls extends MediaControllerCompatApi23.TransportControls {
+    /* loaded from: classes3.dex */
+    public static class TransportControls {
         public static void prepare(Object obj) {
             ((MediaController.TransportControls) obj).prepare();
         }
@@ -28,5 +25,11 @@ class MediaControllerCompatApi24 {
         public static void prepareFromUri(Object obj, Uri uri, Bundle bundle) {
             ((MediaController.TransportControls) obj).prepareFromUri(uri, bundle);
         }
+
+        private TransportControls() {
+        }
+    }
+
+    private MediaControllerCompatApi24() {
     }
 }

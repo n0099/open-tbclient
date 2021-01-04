@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.dynamic;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import tbclient.StarTrends.StarTrendsResIdl;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class FrsDynamicSocketResponsedMessage extends MvcSocketResponsedMessage<a, StarTrendsResIdl> {
     public a responseData;
 
@@ -20,13 +20,13 @@ public class FrsDynamicSocketResponsedMessage extends MvcSocketResponsedMessage<
     @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage, com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         this.responseData = new a();
-        StarTrendsResIdl ah = this.responseData.ah(bArr);
-        if (ah != null && ah.error != null) {
-            if (ah.error.errorno != null) {
-                setError(ah.error.errorno.intValue());
-                this.responseData.mErrorNo = ah.error.errorno.intValue();
+        StarTrendsResIdl ae = this.responseData.ae(bArr);
+        if (ae != null && ae.error != null) {
+            if (ae.error.errorno != null) {
+                setError(ae.error.errorno.intValue());
+                this.responseData.mErrorNo = ae.error.errorno.intValue();
             }
-            setErrorString(ah.error.usermsg);
+            setErrorString(ae.error.usermsg);
         }
         setData(this.responseData);
     }

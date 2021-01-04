@@ -1,12 +1,10 @@
 package com.opensource.svgaplayer;
 @kotlin.e
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public interface a {
-    void aia();
+    void clr();
 
-    void aib();
+    void d(int i, double d);
 
-    void b(int i, double d);
-
-    void onPause();
+    void eDr();
 }

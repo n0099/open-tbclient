@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 final class a implements Cloneable {
     private static a wl;
     private static final Object wk = new Object();
@@ -189,11 +189,11 @@ final class a implements Cloneable {
     }
 
     public String gg() {
-        String b = b(this);
-        if (b == null) {
+        String b2 = b(this);
+        if (b2 == null) {
             return null;
         }
-        return com.baidu.ar.h.l.aT(b);
+        return com.baidu.ar.h.l.aT(b2);
     }
 
     public JSONObject gh() {

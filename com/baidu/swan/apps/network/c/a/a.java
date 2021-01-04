@@ -1,5 +1,5 @@
 package com.baidu.swan.apps.network.c.a;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public interface a {
-    void aFo();
+    void aGI();
 }

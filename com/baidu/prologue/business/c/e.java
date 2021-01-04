@@ -7,9 +7,9 @@ import android.widget.RelativeLayout;
 import com.baidu.prologue.a.c.m;
 import com.baidu.prologue.business.data.SplashStyleRecorder;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class e {
-    public static final boolean DEBUG = com.baidu.prologue.a.a.a.GLOBAL_DEBUG;
+    public static final boolean DEBUG = com.baidu.prologue.a.a.a.ctc;
 
     private static void a(RelativeLayout.LayoutParams layoutParams, int i) {
         if (i > 0) {
@@ -30,8 +30,8 @@ public final class e {
 
     private static void a(ViewGroup.MarginLayoutParams marginLayoutParams, int[] iArr) {
         if (iArr != null && iArr.length == 4) {
-            Context aei = com.baidu.prologue.a.b.a.clZ.get().aei();
-            marginLayoutParams.setMargins(m.dip2px(aei, iArr[0]), m.dip2px(aei, iArr[1]), m.dip2px(aei, iArr[2]), m.dip2px(aei, iArr[3]));
+            Context age = com.baidu.prologue.a.b.a.ctd.get().age();
+            marginLayoutParams.setMargins(m.dip2px(age, iArr[0]), m.dip2px(age, iArr[1]), m.dip2px(age, iArr[2]), m.dip2px(age, iArr[3]));
         }
     }
 
@@ -39,9 +39,9 @@ public final class e {
         JSONObject a2 = SplashStyleRecorder.a(splashElements, z);
         if (view != null) {
             ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
-            JSONObject b = a2 == null ? SplashStyleRecorder.b(splashElements, z) : a2;
+            JSONObject b2 = a2 == null ? SplashStyleRecorder.b(splashElements, z) : a2;
             if (layoutParams instanceof RelativeLayout.LayoutParams) {
-                a((RelativeLayout.LayoutParams) layoutParams, b);
+                a((RelativeLayout.LayoutParams) layoutParams, b2);
             }
             view.setLayoutParams(layoutParams);
         }
@@ -49,10 +49,10 @@ public final class e {
 
     private static void a(RelativeLayout.LayoutParams layoutParams, JSONObject jSONObject) {
         if (jSONObject != null) {
-            int at = SplashStyleRecorder.at(jSONObject);
-            int[] au = SplashStyleRecorder.au(jSONObject);
-            a(layoutParams, at);
-            a(layoutParams, au);
+            int aB = SplashStyleRecorder.aB(jSONObject);
+            int[] aC = SplashStyleRecorder.aC(jSONObject);
+            a(layoutParams, aB);
+            a(layoutParams, aC);
         }
     }
 }

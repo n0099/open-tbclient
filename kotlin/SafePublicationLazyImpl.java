@@ -6,31 +6,31 @@ import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.p;
 /* JADX INFO: Access modifiers changed from: package-private */
 @e
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class SafePublicationLazyImpl<T> implements Serializable, c<T> {
     public static final a Companion = new a(null);
-    private static final AtomicReferenceFieldUpdater<SafePublicationLazyImpl<?>, Object> pJY = AtomicReferenceFieldUpdater.newUpdater(SafePublicationLazyImpl.class, Object.class, "_value");
+    private static final AtomicReferenceFieldUpdater<SafePublicationLazyImpl<?>, Object> qlB = AtomicReferenceFieldUpdater.newUpdater(SafePublicationLazyImpl.class, Object.class, "_value");
     private volatile Object _value;
 
     /* renamed from: final  reason: not valid java name */
-    private final Object f945final;
+    private final Object f1023final;
     private volatile kotlin.jvm.a.a<? extends T> initializer;
 
     public SafePublicationLazyImpl(kotlin.jvm.a.a<? extends T> aVar) {
         p.o(aVar, "initializer");
         this.initializer = aVar;
-        this._value = g.pJZ;
-        this.f945final = g.pJZ;
+        this._value = g.qlC;
+        this.f1023final = g.qlC;
     }
 
     @Override // kotlin.c
     public T getValue() {
         T t = (T) this._value;
-        if (t == g.pJZ) {
+        if (t == g.qlC) {
             kotlin.jvm.a.a<? extends T> aVar = this.initializer;
             if (aVar != null) {
                 T invoke = aVar.invoke();
-                if (Companion.eDE().compareAndSet(this, g.pJZ, invoke)) {
+                if (Companion.eLM().compareAndSet(this, g.qlC, invoke)) {
                     this.initializer = null;
                     return invoke;
                 }
@@ -41,7 +41,7 @@ public final class SafePublicationLazyImpl<T> implements Serializable, c<T> {
     }
 
     public boolean isInitialized() {
-        return this._value != g.pJZ;
+        return this._value != g.qlC;
     }
 
     public String toString() {
@@ -53,7 +53,7 @@ public final class SafePublicationLazyImpl<T> implements Serializable, c<T> {
     }
 
     @e
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
         private a() {
         }
@@ -63,8 +63,8 @@ public final class SafePublicationLazyImpl<T> implements Serializable, c<T> {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public final AtomicReferenceFieldUpdater<SafePublicationLazyImpl<?>, Object> eDE() {
-            return SafePublicationLazyImpl.pJY;
+        public final AtomicReferenceFieldUpdater<SafePublicationLazyImpl<?>, Object> eLM() {
+            return SafePublicationLazyImpl.qlB;
         }
     }
 }

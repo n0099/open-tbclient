@@ -2,7 +2,7 @@ package alaim;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public final class LiveSessionInfo extends Message {
     public static final String DEFAULT_DEFAULT_LINE = "";
     public static final String DEFAULT_FLVURL = "";
@@ -73,7 +73,7 @@ public final class LiveSessionInfo extends Message {
         this.L4 = builder.L4;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder extends Message.Builder<LiveSessionInfo> {
         public LiveTranscodeSessionInfo L1;
         public LiveTranscodeSessionInfo L2;

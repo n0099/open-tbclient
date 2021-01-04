@@ -1,37 +1,37 @@
 package com.baidu.swan.apps.t.b;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.widget.FrameLayout;
-/* loaded from: classes25.dex */
+import androidx.annotation.NonNull;
+/* loaded from: classes9.dex */
 public interface j {
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void b(j jVar);
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes9.dex */
     public interface b {
         boolean a(j jVar, int i, int i2);
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes9.dex */
     public interface c {
         void e(j jVar);
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes9.dex */
     public interface d {
         void a(j jVar);
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes9.dex */
     public interface e {
         void c(j jVar);
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes9.dex */
     public interface f {
         void d(j jVar);
     }
@@ -54,23 +54,23 @@ public interface j {
 
     void a(f fVar);
 
-    void aAH();
+    void aBY();
 
     void b(com.baidu.swan.apps.media.b.c cVar);
 
     void f(FrameLayout frameLayout);
 
-    void fK(boolean z);
+    void fT(boolean z);
 
     int getCurrentPosition();
 
     int getDuration();
 
+    void i(boolean z, int i);
+
     boolean isEnd();
 
     boolean isPlaying();
-
-    void j(boolean z, int i);
 
     void mute(boolean z);
 
@@ -82,7 +82,7 @@ public interface j {
 
     void pause();
 
-    void py(String str);
+    void pr(String str);
 
     void resume();
 

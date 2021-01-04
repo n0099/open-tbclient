@@ -6,7 +6,7 @@ import com.baidu.tieba.im.d;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.e;
 import java.util.List;
-/* loaded from: classes26.dex */
+/* loaded from: classes8.dex */
 public class b extends com.baidu.adp.framework.b.a {
     public b() {
         super(CmdConfigCustom.MEMORY_REQUEST_MEMORY_LIST);
@@ -17,13 +17,13 @@ public class b extends com.baidu.adp.framework.b.a {
     /* renamed from: k */
     public CustomResponsedMessage a(CustomResponsedMessage customResponsedMessage) {
         List<ImMessageCenterPojo> data;
-        ImMessageCenterPojo imMessageCenterPojo = null;
         if (customResponsedMessage == null) {
             return null;
         }
         if (customResponsedMessage instanceof ResponsedMemoryListMessage) {
             ResponsedMemoryListMessage responsedMemoryListMessage = (ResponsedMemoryListMessage) customResponsedMessage;
             if (responsedMemoryListMessage.getType() == 1 && (data = responsedMemoryListMessage.getData()) != null) {
+                ImMessageCenterPojo imMessageCenterPojo = null;
                 ImMessageCenterPojo imMessageCenterPojo2 = null;
                 for (ImMessageCenterPojo imMessageCenterPojo3 : data) {
                     if (imMessageCenterPojo3 != null && imMessageCenterPojo3.getCustomGroupType() == -8) {

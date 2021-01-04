@@ -6,7 +6,7 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class ForEachWhileSubscriber<T> extends AtomicReference<d> implements io.reactivex.disposables.b, j<T> {
     private static final long serialVersionUID = -4403180040475402120L;
     boolean done;
@@ -36,7 +36,7 @@ public final class ForEachWhileSubscriber<T> extends AtomicReference<d> implemen
                     onComplete();
                 }
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.J(th);
+                io.reactivex.exceptions.a.O(th);
                 dispose();
                 onError(th);
             }
@@ -53,7 +53,7 @@ public final class ForEachWhileSubscriber<T> extends AtomicReference<d> implemen
         try {
             this.onError.accept(th);
         } catch (Throwable th2) {
-            io.reactivex.exceptions.a.J(th2);
+            io.reactivex.exceptions.a.O(th2);
             io.reactivex.d.a.onError(new CompositeException(th, th2));
         }
     }
@@ -65,7 +65,7 @@ public final class ForEachWhileSubscriber<T> extends AtomicReference<d> implemen
             try {
                 this.onComplete.run();
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.J(th);
+                io.reactivex.exceptions.a.O(th);
                 io.reactivex.d.a.onError(th);
             }
         }

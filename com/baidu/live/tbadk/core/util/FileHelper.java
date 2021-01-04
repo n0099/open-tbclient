@@ -30,7 +30,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class FileHelper {
     private static final String DIR_DOWNLOAD = "download";
     public static final String DIR_ROOT = "tieba";
@@ -356,9 +356,9 @@ public class FileHelper {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [528=4, 529=4, 531=4, 532=4, 533=4] */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:43:0x01c8 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:43:0x01c6 */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:56:0x0196 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x0194 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r2v0, types: [java.lang.StringBuilder] */
     /* JADX WARN: Type inference failed for: r2v1 */
     /* JADX WARN: Type inference failed for: r2v4, types: [java.io.InputStream] */
@@ -367,9 +367,7 @@ public class FileHelper {
     */
     public static boolean isGif(String str, String str2) {
         FileInputStream fileInputStream;
-        IOException e;
         boolean z;
-        FileNotFoundException e2;
         String str3 = str != null ? EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + str + "/" : EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/";
         ?? sb = new StringBuilder();
         try {
@@ -382,10 +380,23 @@ public class FileHelper {
                         try {
                             fileInputStream.close();
                             fileInputStream = null;
-                        } catch (FileNotFoundException e3) {
-                            e2 = e3;
-                            e2.printStackTrace();
-                            TiebaInitialize.file(e2, BdStringHelper.join("FileHelper", ".", "isGif", " ", str, "/", str2));
+                        } catch (FileNotFoundException e) {
+                            e = e;
+                            e.printStackTrace();
+                            TiebaInitialize.file(e, BdStringHelper.join("FileHelper", ".", "isGif", " ", str, "/", str2));
+                            if (fileInputStream != null) {
+                                try {
+                                    fileInputStream.close();
+                                } catch (Exception e2) {
+                                    e2.printStackTrace();
+                                    TiebaInitialize.file(e2, BdStringHelper.join("FileHelper", ".", "isGif", " ", str, "/", str2));
+                                }
+                            }
+                            return z;
+                        } catch (IOException e3) {
+                            e = e3;
+                            e.printStackTrace();
+                            TiebaInitialize.file(e, BdStringHelper.join("FileHelper", "isGif", " ", str, "/", str2));
                             if (fileInputStream != null) {
                                 try {
                                     fileInputStream.close();
@@ -395,34 +406,21 @@ public class FileHelper {
                                 }
                             }
                             return z;
-                        } catch (IOException e5) {
-                            e = e5;
-                            e.printStackTrace();
-                            TiebaInitialize.file(e, BdStringHelper.join("FileHelper", "isGif", " ", str, "/", str2));
-                            if (fileInputStream != null) {
-                                try {
-                                    fileInputStream.close();
-                                } catch (Exception e6) {
-                                    e6.printStackTrace();
-                                    TiebaInitialize.file(e6, BdStringHelper.join("FileHelper", ".", "isGif", " ", str, "/", str2));
-                                }
-                            }
-                            return z;
                         }
                     }
                     if (fileInputStream != null) {
                         try {
                             fileInputStream.close();
-                        } catch (Exception e7) {
-                            e7.printStackTrace();
-                            TiebaInitialize.file(e7, BdStringHelper.join("FileHelper", ".", "isGif", " ", str, "/", str2));
+                        } catch (Exception e5) {
+                            e5.printStackTrace();
+                            TiebaInitialize.file(e5, BdStringHelper.join("FileHelper", ".", "isGif", " ", str, "/", str2));
                         }
                     }
-                } catch (FileNotFoundException e8) {
-                    e2 = e8;
+                } catch (FileNotFoundException e6) {
+                    e = e6;
                     z = false;
-                } catch (IOException e9) {
-                    e = e9;
+                } catch (IOException e7) {
+                    e = e7;
                     z = false;
                 }
             } catch (Throwable th) {
@@ -430,20 +428,20 @@ public class FileHelper {
                 if (sb != 0) {
                     try {
                         sb.close();
-                    } catch (Exception e10) {
-                        e10.printStackTrace();
-                        TiebaInitialize.file(e10, BdStringHelper.join("FileHelper", ".", "isGif", " ", str, "/", str2));
+                    } catch (Exception e8) {
+                        e8.printStackTrace();
+                        TiebaInitialize.file(e8, BdStringHelper.join("FileHelper", ".", "isGif", " ", str, "/", str2));
                     }
                 }
                 throw th;
             }
-        } catch (FileNotFoundException e11) {
+        } catch (FileNotFoundException e9) {
+            e = e9;
             fileInputStream = null;
-            e2 = e11;
             z = false;
-        } catch (IOException e12) {
+        } catch (IOException e10) {
+            e = e10;
             fileInputStream = null;
-            e = e12;
             z = false;
         } catch (Throwable th2) {
             th = th2;
@@ -851,11 +849,11 @@ public class FileHelper {
             r2 = 0
             java.lang.String r4 = getPrefixPath(r8, r10)
             java.lang.String r5 = getPrefixPath(r9, r10)
-            java.io.File r6 = new java.io.File     // Catch: java.lang.Throwable -> L221
-            r6.<init>(r4)     // Catch: java.lang.Throwable -> L221
-            java.io.File r7 = new java.io.File     // Catch: java.lang.Throwable -> L221
-            r7.<init>(r5)     // Catch: java.lang.Throwable -> L221
-            boolean r4 = r6.exists()     // Catch: java.lang.Throwable -> L221
+            java.io.File r6 = new java.io.File     // Catch: java.lang.Throwable -> L220
+            r6.<init>(r4)     // Catch: java.lang.Throwable -> L220
+            java.io.File r7 = new java.io.File     // Catch: java.lang.Throwable -> L220
+            r7.<init>(r5)     // Catch: java.lang.Throwable -> L220
+            boolean r4 = r6.exists()     // Catch: java.lang.Throwable -> L220
             if (r4 != 0) goto L85
             if (r3 == 0) goto L21
             r1.close()     // Catch: java.lang.Throwable -> L27
@@ -897,42 +895,41 @@ public class FileHelper {
             com.baidu.live.tbadk.core.util.TiebaInitialize.file(r1, r2)
             goto L26
         L85:
-            java.io.FileInputStream r4 = new java.io.FileInputStream     // Catch: java.lang.Throwable -> L221
-            r4.<init>(r6)     // Catch: java.lang.Throwable -> L221
+            java.io.FileInputStream r4 = new java.io.FileInputStream     // Catch: java.lang.Throwable -> L220
+            r4.<init>(r6)     // Catch: java.lang.Throwable -> L220
             java.io.FileOutputStream r2 = new java.io.FileOutputStream     // Catch: java.lang.Throwable -> L225
             r2.<init>(r7)     // Catch: java.lang.Throwable -> L225
             r1 = 1024(0x400, float:1.435E-42)
             byte[] r1 = new byte[r1]     // Catch: java.lang.Throwable -> L9e
         L93:
             int r5 = r4.read(r1)     // Catch: java.lang.Throwable -> L9e
-            if (r5 <= 0) goto L109
+            if (r5 <= 0) goto L108
             r6 = 0
             r2.write(r1, r6, r5)     // Catch: java.lang.Throwable -> L9e
             goto L93
         L9e:
             r1 = move-exception
-            r3 = r4
-        La0:
-            java.lang.String r4 = r1.toString()     // Catch: java.lang.Throwable -> L21f
-            com.baidu.live.adp.lib.util.BdLog.e(r4)     // Catch: java.lang.Throwable -> L21f
-            java.lang.String r1 = r1.getMessage()     // Catch: java.lang.Throwable -> L21f
-            java.lang.StringBuilder r4 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L21f
-            r4.<init>()     // Catch: java.lang.Throwable -> L21f
+        L9f:
+            java.lang.String r3 = r1.toString()     // Catch: java.lang.Throwable -> L21b
+            com.baidu.live.adp.lib.util.BdLog.e(r3)     // Catch: java.lang.Throwable -> L21b
+            java.lang.String r1 = r1.getMessage()     // Catch: java.lang.Throwable -> L21b
+            java.lang.StringBuilder r3 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L21b
+            r3.<init>()     // Catch: java.lang.Throwable -> L21b
             java.lang.String r5 = "FileHelper.copyFile2 "
-            java.lang.StringBuilder r4 = r4.append(r5)     // Catch: java.lang.Throwable -> L21f
-            java.lang.StringBuilder r4 = r4.append(r8)     // Catch: java.lang.Throwable -> L21f
+            java.lang.StringBuilder r3 = r3.append(r5)     // Catch: java.lang.Throwable -> L21b
+            java.lang.StringBuilder r3 = r3.append(r8)     // Catch: java.lang.Throwable -> L21b
             java.lang.String r5 = " to "
-            java.lang.StringBuilder r4 = r4.append(r5)     // Catch: java.lang.Throwable -> L21f
-            java.lang.StringBuilder r4 = r4.append(r9)     // Catch: java.lang.Throwable -> L21f
-            java.lang.String r4 = r4.toString()     // Catch: java.lang.Throwable -> L21f
-            com.baidu.live.tbadk.core.util.TiebaInitialize.file(r1, r4)     // Catch: java.lang.Throwable -> L21f
-            if (r3 == 0) goto Ld2
-            r3.close()     // Catch: java.lang.Throwable -> L17d
-        Ld2:
+            java.lang.StringBuilder r3 = r3.append(r5)     // Catch: java.lang.Throwable -> L21b
+            java.lang.StringBuilder r3 = r3.append(r9)     // Catch: java.lang.Throwable -> L21b
+            java.lang.String r3 = r3.toString()     // Catch: java.lang.Throwable -> L21b
+            com.baidu.live.tbadk.core.util.TiebaInitialize.file(r1, r3)     // Catch: java.lang.Throwable -> L21b
+            if (r4 == 0) goto Ld1
+            r4.close()     // Catch: java.lang.Throwable -> L17c
+        Ld1:
             if (r2 == 0) goto L26
-            r2.close()     // Catch: java.lang.Throwable -> Ld9
+            r2.close()     // Catch: java.lang.Throwable -> Ld8
             goto L26
-        Ld9:
+        Ld8:
             r1 = move-exception
             java.lang.String r2 = r1.toString()
             com.baidu.live.adp.lib.util.BdLog.e(r2)
@@ -948,19 +945,19 @@ public class FileHelper {
             java.lang.String r2 = r2.toString()
             com.baidu.live.tbadk.core.util.TiebaInitialize.file(r1, r2)
             goto L26
-        L109:
+        L108:
             r4.close()     // Catch: java.lang.Throwable -> L9e
             r1 = 0
-            r2.close()     // Catch: java.lang.Throwable -> L22a
+            r2.close()     // Catch: java.lang.Throwable -> L229
             r2 = 0
             r0 = 1
-            if (r3 == 0) goto L117
-            r1.close()     // Catch: java.lang.Throwable -> L14e
-        L117:
+            if (r3 == 0) goto L116
+            r1.close()     // Catch: java.lang.Throwable -> L14d
+        L116:
             if (r3 == 0) goto L26
-            r2.close()     // Catch: java.lang.Throwable -> L11e
+            r2.close()     // Catch: java.lang.Throwable -> L11d
             goto L26
-        L11e:
+        L11d:
             r1 = move-exception
             java.lang.String r2 = r1.toString()
             com.baidu.live.adp.lib.util.BdLog.e(r2)
@@ -976,7 +973,7 @@ public class FileHelper {
             java.lang.String r2 = r2.toString()
             com.baidu.live.tbadk.core.util.TiebaInitialize.file(r1, r2)
             goto L26
-        L14e:
+        L14d:
             r1 = move-exception
             java.lang.String r4 = r1.toString()
             com.baidu.live.adp.lib.util.BdLog.e(r4)
@@ -991,8 +988,8 @@ public class FileHelper {
             java.lang.StringBuilder r4 = r4.append(r9)
             java.lang.String r4 = r4.toString()
             com.baidu.live.tbadk.core.util.TiebaInitialize.file(r1, r4)
-            goto L117
-        L17d:
+            goto L116
+        L17c:
             r1 = move-exception
             java.lang.String r3 = r1.toString()
             com.baidu.live.adp.lib.util.BdLog.e(r3)
@@ -1007,13 +1004,14 @@ public class FileHelper {
             java.lang.StringBuilder r3 = r3.append(r9)
             java.lang.String r3 = r3.toString()
             com.baidu.live.tbadk.core.util.TiebaInitialize.file(r1, r3)
-            goto Ld2
-        L1ad:
+            goto Ld1
+        L1ac:
             r0 = move-exception
             r2 = r3
+            r4 = r3
         L1af:
-            if (r3 == 0) goto L1b4
-            r3.close()     // Catch: java.lang.Throwable -> L1ba
+            if (r4 == 0) goto L1b4
+            r4.close()     // Catch: java.lang.Throwable -> L1ba
         L1b4:
             if (r2 == 0) goto L1b9
             r2.close()     // Catch: java.lang.Throwable -> L1e9
@@ -1054,27 +1052,27 @@ public class FileHelper {
         L218:
             r0 = move-exception
             r2 = r3
-            r3 = r4
             goto L1af
-        L21c:
-            r0 = move-exception
-            r3 = r4
-            goto L1af
-        L21f:
+        L21b:
             r0 = move-exception
             goto L1af
-        L221:
+        L21d:
+            r0 = move-exception
+            r4 = r3
+            goto L1af
+        L220:
             r1 = move-exception
             r2 = r3
-            goto La0
+            r4 = r3
+            goto L9f
         L225:
             r1 = move-exception
             r2 = r3
-            r3 = r4
-            goto La0
-        L22a:
+            goto L9f
+        L229:
             r1 = move-exception
-            goto La0
+            r4 = r3
+            goto L9f
         */
         throw new UnsupportedOperationException("Method not decompiled: com.baidu.live.tbadk.core.util.FileHelper.copyFile2(java.lang.String, java.lang.String, boolean):boolean");
     }
@@ -1094,11 +1092,11 @@ public class FileHelper {
             r3 = 0
             r1 = 0
             r2 = 0
-            java.io.File r5 = new java.io.File     // Catch: java.lang.Throwable -> L219
-            r5.<init>(r7)     // Catch: java.lang.Throwable -> L219
-            java.io.File r6 = new java.io.File     // Catch: java.lang.Throwable -> L219
-            r6.<init>(r8)     // Catch: java.lang.Throwable -> L219
-            boolean r4 = r5.exists()     // Catch: java.lang.Throwable -> L219
+            java.io.File r5 = new java.io.File     // Catch: java.lang.Throwable -> L218
+            r5.<init>(r7)     // Catch: java.lang.Throwable -> L218
+            java.io.File r6 = new java.io.File     // Catch: java.lang.Throwable -> L218
+            r6.<init>(r8)     // Catch: java.lang.Throwable -> L218
+            boolean r4 = r5.exists()     // Catch: java.lang.Throwable -> L218
             if (r4 != 0) goto L7d
             if (r3 == 0) goto L19
             r1.close()     // Catch: java.lang.Throwable -> L1f
@@ -1140,42 +1138,41 @@ public class FileHelper {
             com.baidu.live.tbadk.core.util.TiebaInitialize.file(r1, r2)
             goto L1e
         L7d:
-            java.io.FileInputStream r4 = new java.io.FileInputStream     // Catch: java.lang.Throwable -> L219
-            r4.<init>(r5)     // Catch: java.lang.Throwable -> L219
+            java.io.FileInputStream r4 = new java.io.FileInputStream     // Catch: java.lang.Throwable -> L218
+            r4.<init>(r5)     // Catch: java.lang.Throwable -> L218
             java.io.FileOutputStream r2 = new java.io.FileOutputStream     // Catch: java.lang.Throwable -> L21d
             r2.<init>(r6)     // Catch: java.lang.Throwable -> L21d
             r1 = 1024(0x400, float:1.435E-42)
             byte[] r1 = new byte[r1]     // Catch: java.lang.Throwable -> L96
         L8b:
             int r5 = r4.read(r1)     // Catch: java.lang.Throwable -> L96
-            if (r5 <= 0) goto L101
+            if (r5 <= 0) goto L100
             r6 = 0
             r2.write(r1, r6, r5)     // Catch: java.lang.Throwable -> L96
             goto L8b
         L96:
             r1 = move-exception
-            r3 = r4
-        L98:
-            java.lang.String r4 = r1.toString()     // Catch: java.lang.Throwable -> L217
-            com.baidu.live.adp.lib.util.BdLog.e(r4)     // Catch: java.lang.Throwable -> L217
-            java.lang.String r1 = r1.getMessage()     // Catch: java.lang.Throwable -> L217
-            java.lang.StringBuilder r4 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L217
-            r4.<init>()     // Catch: java.lang.Throwable -> L217
+        L97:
+            java.lang.String r3 = r1.toString()     // Catch: java.lang.Throwable -> L213
+            com.baidu.live.adp.lib.util.BdLog.e(r3)     // Catch: java.lang.Throwable -> L213
+            java.lang.String r1 = r1.getMessage()     // Catch: java.lang.Throwable -> L213
+            java.lang.StringBuilder r3 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L213
+            r3.<init>()     // Catch: java.lang.Throwable -> L213
             java.lang.String r5 = "FileHelper.copyFile2 "
-            java.lang.StringBuilder r4 = r4.append(r5)     // Catch: java.lang.Throwable -> L217
-            java.lang.StringBuilder r4 = r4.append(r7)     // Catch: java.lang.Throwable -> L217
+            java.lang.StringBuilder r3 = r3.append(r5)     // Catch: java.lang.Throwable -> L213
+            java.lang.StringBuilder r3 = r3.append(r7)     // Catch: java.lang.Throwable -> L213
             java.lang.String r5 = " to "
-            java.lang.StringBuilder r4 = r4.append(r5)     // Catch: java.lang.Throwable -> L217
-            java.lang.StringBuilder r4 = r4.append(r8)     // Catch: java.lang.Throwable -> L217
-            java.lang.String r4 = r4.toString()     // Catch: java.lang.Throwable -> L217
-            com.baidu.live.tbadk.core.util.TiebaInitialize.file(r1, r4)     // Catch: java.lang.Throwable -> L217
-            if (r3 == 0) goto Lca
-            r3.close()     // Catch: java.lang.Throwable -> L175
-        Lca:
+            java.lang.StringBuilder r3 = r3.append(r5)     // Catch: java.lang.Throwable -> L213
+            java.lang.StringBuilder r3 = r3.append(r8)     // Catch: java.lang.Throwable -> L213
+            java.lang.String r3 = r3.toString()     // Catch: java.lang.Throwable -> L213
+            com.baidu.live.tbadk.core.util.TiebaInitialize.file(r1, r3)     // Catch: java.lang.Throwable -> L213
+            if (r4 == 0) goto Lc9
+            r4.close()     // Catch: java.lang.Throwable -> L174
+        Lc9:
             if (r2 == 0) goto L1e
-            r2.close()     // Catch: java.lang.Throwable -> Ld1
+            r2.close()     // Catch: java.lang.Throwable -> Ld0
             goto L1e
-        Ld1:
+        Ld0:
             r1 = move-exception
             java.lang.String r2 = r1.toString()
             com.baidu.live.adp.lib.util.BdLog.e(r2)
@@ -1191,19 +1188,19 @@ public class FileHelper {
             java.lang.String r2 = r2.toString()
             com.baidu.live.tbadk.core.util.TiebaInitialize.file(r1, r2)
             goto L1e
-        L101:
+        L100:
             r4.close()     // Catch: java.lang.Throwable -> L96
             r1 = 0
-            r2.close()     // Catch: java.lang.Throwable -> L222
+            r2.close()     // Catch: java.lang.Throwable -> L221
             r2 = 0
             r0 = 1
-            if (r3 == 0) goto L10f
-            r1.close()     // Catch: java.lang.Throwable -> L146
-        L10f:
+            if (r3 == 0) goto L10e
+            r1.close()     // Catch: java.lang.Throwable -> L145
+        L10e:
             if (r3 == 0) goto L1e
-            r2.close()     // Catch: java.lang.Throwable -> L116
+            r2.close()     // Catch: java.lang.Throwable -> L115
             goto L1e
-        L116:
+        L115:
             r1 = move-exception
             java.lang.String r2 = r1.toString()
             com.baidu.live.adp.lib.util.BdLog.e(r2)
@@ -1219,7 +1216,7 @@ public class FileHelper {
             java.lang.String r2 = r2.toString()
             com.baidu.live.tbadk.core.util.TiebaInitialize.file(r1, r2)
             goto L1e
-        L146:
+        L145:
             r1 = move-exception
             java.lang.String r4 = r1.toString()
             com.baidu.live.adp.lib.util.BdLog.e(r4)
@@ -1234,8 +1231,8 @@ public class FileHelper {
             java.lang.StringBuilder r4 = r4.append(r8)
             java.lang.String r4 = r4.toString()
             com.baidu.live.tbadk.core.util.TiebaInitialize.file(r1, r4)
-            goto L10f
-        L175:
+            goto L10e
+        L174:
             r1 = move-exception
             java.lang.String r3 = r1.toString()
             com.baidu.live.adp.lib.util.BdLog.e(r3)
@@ -1250,13 +1247,14 @@ public class FileHelper {
             java.lang.StringBuilder r3 = r3.append(r8)
             java.lang.String r3 = r3.toString()
             com.baidu.live.tbadk.core.util.TiebaInitialize.file(r1, r3)
-            goto Lca
-        L1a5:
+            goto Lc9
+        L1a4:
             r0 = move-exception
             r2 = r3
+            r4 = r3
         L1a7:
-            if (r3 == 0) goto L1ac
-            r3.close()     // Catch: java.lang.Throwable -> L1b2
+            if (r4 == 0) goto L1ac
+            r4.close()     // Catch: java.lang.Throwable -> L1b2
         L1ac:
             if (r2 == 0) goto L1b1
             r2.close()     // Catch: java.lang.Throwable -> L1e1
@@ -1297,27 +1295,27 @@ public class FileHelper {
         L210:
             r0 = move-exception
             r2 = r3
-            r3 = r4
             goto L1a7
-        L214:
-            r0 = move-exception
-            r3 = r4
-            goto L1a7
-        L217:
+        L213:
             r0 = move-exception
             goto L1a7
-        L219:
+        L215:
+            r0 = move-exception
+            r4 = r3
+            goto L1a7
+        L218:
             r1 = move-exception
             r2 = r3
-            goto L98
+            r4 = r3
+            goto L97
         L21d:
             r1 = move-exception
             r2 = r3
-            r3 = r4
-            goto L98
-        L222:
+            goto L97
+        L221:
             r1 = move-exception
-            goto L98
+            r4 = r3
+            goto L97
         */
         throw new UnsupportedOperationException("Method not decompiled: com.baidu.live.tbadk.core.util.FileHelper.copyFile(java.lang.String, java.lang.String):boolean");
     }
@@ -1338,7 +1336,6 @@ public class FileHelper {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1192=5] */
     public static String saveFile(String str, InputStream inputStream) {
         FileOutputStream fileOutputStream;
-        Throwable th;
         String str2 = null;
         if (!StringUtils.isNull(str) && inputStream != null) {
             File file = new File(str);
@@ -1374,8 +1371,8 @@ public class FileHelper {
                             CloseUtil.close((OutputStream) fileOutputStream);
                             return str2;
                         }
-                    } catch (Throwable th2) {
-                        th = th2;
+                    } catch (Throwable th) {
+                        th = th;
                         CloseUtil.close((OutputStream) fileOutputStream);
                         throw th;
                     }
@@ -1385,9 +1382,9 @@ public class FileHelper {
             } catch (IOException e2) {
                 e = e2;
                 fileOutputStream = null;
-            } catch (Throwable th3) {
+            } catch (Throwable th2) {
+                th = th2;
                 fileOutputStream = null;
-                th = th3;
                 CloseUtil.close((OutputStream) fileOutputStream);
                 throw th;
             }
@@ -1934,13 +1931,8 @@ public class FileHelper {
         if (!file.isDirectory()) {
             return file.length();
         }
-        File[] listFiles = file.listFiles();
-        int length = listFiles.length;
-        int i = 0;
-        while (i < length) {
-            long fileLength = getFileLength(listFiles[i]) + j;
-            i++;
-            j = fileLength;
+        for (File file2 : file.listFiles()) {
+            j += getFileLength(file2);
         }
         return j;
     }
@@ -2003,7 +1995,7 @@ public class FileHelper {
         return -1L;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public static class DataDir {
         public static final String PACKAGE_DATA_DIR = TbadkCoreApplication.getInst().getApp().getFileStreamPath("").getAbsolutePath();
         public static final String PACKAGE_VERSION_CUR_DIR = "/package.cur";
@@ -2078,8 +2070,8 @@ public class FileHelper {
                 File file = new File(PACKAGE_DATA_DIR + "/" + str);
                 if (file.exists() && file.isDirectory()) {
                     File[] listFiles = file.listFiles();
-                    int length = listFiles.length;
                     long j = 0;
+                    int length = listFiles.length;
                     for (int i = 0; i < length; i++) {
                         if (j > listFiles[i].lastModified()) {
                             j = listFiles[i].lastModified();

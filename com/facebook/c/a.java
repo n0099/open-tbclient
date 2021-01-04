@@ -4,98 +4,98 @@ import com.coremedia.iso.boxes.FileTypeBox;
 import com.facebook.c.c;
 import com.facebook.common.internal.g;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a implements c.a {
-    private static final byte[] piK = {-1, -40, -1};
-    private static final int piL = piK.length;
-    private static final byte[] piM = {-119, 80, 78, 71, 13, 10, 26, 10};
-    private static final int piN = piM.length;
-    private static final byte[] piO = e.Zj("GIF87a");
-    private static final byte[] piP = e.Zj("GIF89a");
-    private static final byte[] piQ = e.Zj("BM");
-    private static final int piR = piQ.length;
-    private static final String[] piS = {"heic", "heix", "hevc", "hevx"};
-    private static final int piT = e.Zj(FileTypeBox.TYPE + piS[0]).length;
-    final int piJ = com.facebook.common.internal.e.r(21, 20, piL, piN, 6, piR, piT);
+    private static final byte[] pyL = {-1, -40, -1};
+    private static final int pyM = pyL.length;
+    private static final byte[] pyN = {-119, 80, 78, 71, 13, 10, 26, 10};
+    private static final int pyO = pyN.length;
+    private static final byte[] pyP = e.Zu("GIF87a");
+    private static final byte[] pyQ = e.Zu("GIF89a");
+    private static final byte[] pyR = e.Zu("BM");
+    private static final int pyS = pyR.length;
+    private static final String[] pyT = {"heic", "heix", "hevc", "hevx"};
+    private static final int pyU = e.Zu(FileTypeBox.TYPE + pyT[0]).length;
+    final int pyK = com.facebook.common.internal.e.s(21, 20, pyM, pyO, 6, pyS, pyU);
 
     @Override // com.facebook.c.c.a
     public int getHeaderSize() {
-        return this.piJ;
+        return this.pyK;
     }
 
     @Override // com.facebook.c.c.a
     @Nullable
-    public final c q(byte[] bArr, int i) {
+    public final c p(byte[] bArr, int i) {
         g.checkNotNull(bArr);
-        if (com.facebook.common.g.c.x(bArr, 0, i)) {
-            return r(bArr, i);
+        if (com.facebook.common.g.c.z(bArr, 0, i)) {
+            return q(bArr, i);
+        }
+        if (r(bArr, i)) {
+            return b.pyV;
         }
         if (s(bArr, i)) {
-            return b.piU;
+            return b.pyW;
         }
         if (t(bArr, i)) {
-            return b.piV;
+            return b.pyX;
         }
         if (u(bArr, i)) {
-            return b.piW;
+            return b.pyY;
         }
         if (v(bArr, i)) {
-            return b.piX;
+            return b.pze;
         }
-        if (w(bArr, i)) {
-            return b.pjd;
-        }
-        return c.pje;
+        return c.pzf;
     }
 
-    private static c r(byte[] bArr, int i) {
-        g.checkArgument(com.facebook.common.g.c.x(bArr, 0, i));
+    private static c q(byte[] bArr, int i) {
+        g.checkArgument(com.facebook.common.g.c.z(bArr, 0, i));
+        if (com.facebook.common.g.c.m(bArr, 0)) {
+            return b.pyZ;
+        }
         if (com.facebook.common.g.c.n(bArr, 0)) {
-            return b.piY;
+            return b.pza;
         }
-        if (com.facebook.common.g.c.o(bArr, 0)) {
-            return b.piZ;
-        }
-        if (com.facebook.common.g.c.w(bArr, 0, i)) {
-            if (com.facebook.common.g.c.m(bArr, 0)) {
-                return b.pjc;
+        if (com.facebook.common.g.c.y(bArr, 0, i)) {
+            if (com.facebook.common.g.c.l(bArr, 0)) {
+                return b.pzd;
             }
-            if (com.facebook.common.g.c.p(bArr, 0)) {
-                return b.pjb;
+            if (com.facebook.common.g.c.o(bArr, 0)) {
+                return b.pzc;
             }
-            return b.pja;
+            return b.pzb;
         }
-        return c.pje;
+        return c.pzf;
+    }
+
+    private static boolean r(byte[] bArr, int i) {
+        return i >= pyL.length && e.g(bArr, pyL);
     }
 
     private static boolean s(byte[] bArr, int i) {
-        return i >= piK.length && e.e(bArr, piK);
+        return i >= pyN.length && e.g(bArr, pyN);
     }
 
     private static boolean t(byte[] bArr, int i) {
-        return i >= piM.length && e.e(bArr, piM);
-    }
-
-    private static boolean u(byte[] bArr, int i) {
         if (i < 6) {
             return false;
         }
-        return e.e(bArr, piO) || e.e(bArr, piP);
+        return e.g(bArr, pyP) || e.g(bArr, pyQ);
+    }
+
+    private static boolean u(byte[] bArr, int i) {
+        if (i < pyR.length) {
+            return false;
+        }
+        return e.g(bArr, pyR);
     }
 
     private static boolean v(byte[] bArr, int i) {
-        if (i < piQ.length) {
-            return false;
-        }
-        return e.e(bArr, piQ);
-    }
-
-    private static boolean w(byte[] bArr, int i) {
         String[] strArr;
-        if (i >= piT && bArr[3] >= 8) {
-            int length = piS.length;
+        if (i >= pyU && bArr[3] >= 8) {
+            int length = pyT.length;
             for (int i2 = 0; i2 < length; i2++) {
-                if (e.c(bArr, bArr.length, e.Zj(FileTypeBox.TYPE + strArr[i2]), piT) > -1) {
+                if (e.c(bArr, bArr.length, e.Zu(FileTypeBox.TYPE + strArr[i2]), pyU) > -1) {
                     return true;
                 }
             }

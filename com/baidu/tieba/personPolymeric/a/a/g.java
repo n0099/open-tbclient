@@ -4,51 +4,50 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.l;
-import com.baidu.adp.widget.ListView.q;
+import com.baidu.adp.widget.ListView.n;
+import com.baidu.card.ThreadCardViewHolder;
 import com.baidu.card.a.a;
-import com.baidu.card.aa;
 import com.baidu.card.ag;
 import com.baidu.card.ak;
 import com.baidu.card.am;
-import com.baidu.card.an;
-import com.baidu.card.au;
+import com.baidu.card.at;
 import com.baidu.card.s;
 import com.baidu.card.w;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.card.ab;
+import com.baidu.tieba.card.aa;
 import com.baidu.tieba.card.data.k;
-/* loaded from: classes24.dex */
-public class g extends com.baidu.adp.widget.ListView.a<k, am<k>> implements com.baidu.tieba.a.f {
-    private ab<k> agG;
-    private String aiw;
-    private boolean alo;
-    public BdUniqueId fzO;
-    private int hKN;
-    private com.baidu.adp.lib.d.b<ConstrainImageLayout> iZr;
-    private com.baidu.adp.lib.d.b<TbImageView> iZs;
+/* loaded from: classes8.dex */
+public class g extends com.baidu.adp.widget.ListView.a<k, ThreadCardViewHolder<k>> implements com.baidu.tieba.a.f {
+    private aa<k> ahf;
+    private String aji;
+    private boolean alQ;
+    public BdUniqueId fJu;
+    private int hWZ;
+    private com.baidu.adp.lib.d.b<ConstrainImageLayout> jlE;
+    private com.baidu.adp.lib.d.b<TbImageView> jlF;
     private boolean mIsHost;
     private TbPageContext<?> mPageContext;
-    private int mpZ;
-    private int mqa;
+    private int mvm;
+    private int mvn;
 
     public g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.alo = true;
-        this.mpZ = 0;
-        this.mqa = 0;
-        this.hKN = 0;
-        this.iZr = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.personPolymeric.a.a.g.1
+        this.alQ = true;
+        this.mvm = 0;
+        this.mvn = 0;
+        this.hWZ = 0;
+        this.jlE = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.personPolymeric.a.a.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cEP */
+            /* renamed from: cHK */
             public ConstrainImageLayout makeObject() {
                 return new ConstrainImageLayout(g.this.mPageContext.getPageActivity());
             }
@@ -74,14 +73,14 @@ public class g extends com.baidu.adp.widget.ListView.a<k, am<k>> implements com.
                 return constrainImageLayout;
             }
         }, 6, 0);
-        this.iZs = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<TbImageView>() { // from class: com.baidu.tieba.personPolymeric.a.a.g.2
+        this.jlF = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<TbImageView>() { // from class: com.baidu.tieba.personPolymeric.a.a.g.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: bvP */
+            /* renamed from: byk */
             public TbImageView makeObject() {
                 TbImageView tbImageView = new TbImageView(g.this.mPageContext.getPageActivity());
                 tbImageView.setDrawBorder(true);
-                tbImageView.setBorderColor(ap.getColor(R.color.common_color_10264));
+                tbImageView.setBorderColor(ao.getColor(R.color.common_color_10264));
                 tbImageView.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds1));
                 return tbImageView;
             }
@@ -110,16 +109,16 @@ public class g extends com.baidu.adp.widget.ListView.a<k, am<k>> implements com.
                 return tbImageView;
             }
         }, 12, 0);
-        this.agG = new ab<k>() { // from class: com.baidu.tieba.personPolymeric.a.a.g.3
+        this.ahf = new aa<k>() { // from class: com.baidu.tieba.personPolymeric.a.a.g.3
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.card.ab
+            @Override // com.baidu.tieba.card.aa
             public void a(View view, k kVar) {
-                if (view != null && kVar != null && kVar.bmn() != null) {
+                if (view != null && kVar != null && kVar.boO() != null) {
                     int id = view.getId();
                     if (id == R.id.thread_card_root) {
-                        ar Ju = kVar.Ju("c13543");
-                        Ju.al("obj_type", kVar.ag(kVar.eCR));
-                        TiebaStatic.log(Ju);
+                        aq Js = kVar.Js("c13543");
+                        Js.an("obj_type", kVar.ag(kVar.eMv));
+                        TiebaStatic.log(Js);
                         com.baidu.tieba.personPolymeric.a.a(view, kVar, 2);
                     } else if (id == R.id.forum_name_text) {
                         com.baidu.tieba.personPolymeric.a.a(view, kVar, 7);
@@ -130,121 +129,121 @@ public class g extends com.baidu.adp.widget.ListView.a<k, am<k>> implements com.
             }
         };
         this.mPageContext = tbPageContext;
-        cNQ();
+        cQW();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aR */
-    public am c(ViewGroup viewGroup) {
+    /* renamed from: bd */
+    public ThreadCardViewHolder e(ViewGroup viewGroup) {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity());
-        com.baidu.card.e eVar = new com.baidu.card.e(this.mPageContext.getPageActivity());
-        eVar.setPageUniqueId(this.fzO);
-        eVar.bt(1024);
-        eVar.bt(32768);
-        if (this.mpZ > 0) {
-            eVar.bs(this.mpZ);
+        com.baidu.card.d dVar = new com.baidu.card.d(this.mPageContext.getPageActivity());
+        dVar.setPageUniqueId(this.fJu);
+        dVar.bt(1024);
+        dVar.bt(32768);
+        if (this.mvm > 0) {
+            dVar.bs(this.mvm);
         }
-        eVar.aD(false);
-        eVar.aE(false);
-        aVar.a(eVar);
+        dVar.aC(false);
+        dVar.aD(false);
+        aVar.a(dVar);
         final w wVar = new w(this.mPageContext.getPageActivity());
         wVar.setFrom("index");
-        wVar.setConstrainLayoutPool(this.iZr);
-        wVar.setConstrainImagePool(this.iZs);
-        wVar.setFromCDN(this.alo);
+        wVar.setConstrainLayoutPool(this.jlE);
+        wVar.setConstrainImagePool(this.jlF);
+        wVar.setFromCDN(this.alQ);
         aVar.c(wVar);
-        aVar.tY().bz(l.getDimens(this.mContext, R.dimen.tbds25));
-        if (!aN(1) || !aN(2)) {
+        aVar.tx().bz(l.getDimens(this.mContext, R.dimen.tbds25));
+        if (!aO(1) || !aO(2)) {
             wVar.setPreloadSizeReadyCallback(new com.baidu.adp.widget.a.b() { // from class: com.baidu.tieba.personPolymeric.a.a.g.4
                 @Override // com.baidu.adp.widget.a.b
                 public void i(int i, int i2, int i3) {
                     g.this.h(i, i2, i3);
-                    if (g.this.aN(1) && g.this.aN(2)) {
+                    if (g.this.aO(1) && g.this.aO(2)) {
                         wVar.setPreloadSizeReadyCallback(null);
                     }
                 }
             });
         }
-        aVar.a((com.baidu.card.i) new s(this.mPageContext.getPageActivity()));
-        au auVar = new au(this.mPageContext.getPageActivity());
-        auVar.setPageContext(this.mPageContext);
-        auVar.setFromForPb(4);
-        aVar.a((com.baidu.card.i) auVar);
-        aVar.a((com.baidu.card.i) new ag(this.mPageContext.getPageActivity()));
-        aVar.a((com.baidu.card.i) new aa(this.mPageContext.getPageActivity()));
-        aVar.a((com.baidu.card.i) new com.baidu.card.k(this.mPageContext.getPageActivity()));
-        an anVar = new an(this.mPageContext.getPageActivity());
-        com.baidu.tbadk.core.data.d dVar = new com.baidu.tbadk.core.data.d();
-        dVar.eEJ = 3;
-        dVar.eEP = 3;
-        anVar.setAgreeStatisticData(dVar);
-        anVar.setFrom(8);
-        anVar.setShareReportFrom(6);
-        anVar.setFromForPb(4);
-        aVar.b(anVar);
-        ak tX = aVar.tX();
-        tX.setSourceForPb(4);
-        am amVar = new am(tX);
-        amVar.setPageId(this.fzO);
-        amVar.bE(this.mqa);
-        a(new com.baidu.adp.widget.ListView.ab() { // from class: com.baidu.tieba.personPolymeric.a.a.g.5
-            @Override // com.baidu.adp.widget.ListView.ab
-            public void a(View view, q qVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
-                if ((qVar instanceof k) && (view.getTag() instanceof am)) {
-                    am amVar2 = (am) view.getTag();
-                    k kVar = (k) qVar;
+        aVar.a((com.baidu.card.h) new s(this.mPageContext.getPageActivity()));
+        at atVar = new at(this.mPageContext.getPageActivity());
+        atVar.setPageContext(this.mPageContext);
+        atVar.setFromForPb(4);
+        aVar.a((com.baidu.card.h) atVar);
+        aVar.a((com.baidu.card.h) new ag(this.mPageContext.getPageActivity()));
+        aVar.a((com.baidu.card.h) new com.baidu.card.aa(this.mPageContext.getPageActivity()));
+        aVar.a((com.baidu.card.h) new com.baidu.card.k(this.mPageContext.getPageActivity()));
+        am amVar = new am(this.mPageContext.getPageActivity());
+        com.baidu.tbadk.core.data.d dVar2 = new com.baidu.tbadk.core.data.d();
+        dVar2.eOz = 3;
+        dVar2.eOF = 3;
+        amVar.setAgreeStatisticData(dVar2);
+        amVar.setFrom(8);
+        amVar.setShareReportFrom(6);
+        amVar.setFromForPb(4);
+        aVar.b(amVar);
+        ak tw = aVar.tw();
+        tw.setSourceForPb(4);
+        ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(tw);
+        threadCardViewHolder.setPageId(this.fJu);
+        threadCardViewHolder.bE(this.mvn);
+        a(new com.baidu.adp.widget.ListView.w() { // from class: com.baidu.tieba.personPolymeric.a.a.g.5
+            @Override // com.baidu.adp.widget.ListView.w
+            public void a(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
+                if ((nVar instanceof k) && (view.getTag() instanceof ThreadCardViewHolder)) {
+                    ThreadCardViewHolder threadCardViewHolder2 = (ThreadCardViewHolder) view.getTag();
+                    k kVar = (k) nVar;
                     kVar.objType = 1;
-                    if (g.this.agG != null) {
-                        g.this.agG.a(amVar2.getView(), kVar);
+                    if (g.this.ahf != null) {
+                        g.this.ahf.a(threadCardViewHolder2.getView(), kVar);
                     }
-                    az.a((com.baidu.tbadk.core.data.a) kVar, view.getContext(), 4, false);
-                    amVar2.tZ().b(new a.C0097a(1));
+                    ay.a((com.baidu.tbadk.core.data.a) kVar, view.getContext(), 4, false);
+                    threadCardViewHolder2.ty().b(new a.C0090a(1));
                 }
             }
         });
-        return amVar;
+        return threadCardViewHolder;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, k kVar, am<k> amVar) {
-        if (kVar == null || amVar == null || amVar.getView() == null || kVar.eCR == null) {
+    public View a(int i, View view, ViewGroup viewGroup, k kVar, ThreadCardViewHolder<k> threadCardViewHolder) {
+        if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || kVar.eMv == null) {
             return null;
         }
-        kVar.ym(kVar.position + 1);
-        amVar.tZ().setPage(this.aiw);
+        kVar.yA(kVar.position + 1);
+        threadCardViewHolder.ty().setPage(this.aji);
         if (!this.mIsHost) {
-            amVar.ub();
+            threadCardViewHolder.tA();
         }
-        amVar.b((am<k>) kVar);
-        amVar.tZ().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        amVar.tZ().a(this.agG);
+        threadCardViewHolder.b((ThreadCardViewHolder<k>) kVar);
+        threadCardViewHolder.ty().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        threadCardViewHolder.ty().a(this.ahf);
         com.baidu.tieba.personPolymeric.a.j(kVar);
-        return amVar.getView();
+        return threadCardViewHolder.getView();
     }
 
     @Override // com.baidu.tieba.a.f
-    public void Fo(String str) {
-        this.aiw = str;
+    public void Fm(String str) {
+        this.aji = str;
     }
 
-    public void Is(int i) {
-        this.mpZ = i;
+    public void Im(int i) {
+        this.mvm = i;
     }
 
-    public void Ir(int i) {
-        this.mqa = i;
+    public void Il(int i) {
+        this.mvn = i;
     }
 
-    private void cNQ() {
-        k.inm = "c13542";
+    private void cQW() {
+        k.izH = "c13542";
     }
 
     public void setTabType(int i) {
-        this.hKN = i;
+        this.hWZ = i;
     }
 
     public void setIsHost(boolean z) {

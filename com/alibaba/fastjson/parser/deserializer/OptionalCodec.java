@@ -11,7 +11,7 @@ import java.util.Optional;
 import java.util.OptionalDouble;
 import java.util.OptionalInt;
 import java.util.OptionalLong;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class OptionalCodec implements ObjectDeserializer, ObjectSerializer {
     public static OptionalCodec instance = new OptionalCodec();
 

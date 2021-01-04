@@ -5,7 +5,7 @@ import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
 import com.tencent.connect.common.Constants;
 import java.util.HashMap;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class ExpandedProductResultParser extends ResultParser {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.zxing.client.result.ResultParser
@@ -52,13 +52,13 @@ public final class ExpandedProductResultParser extends ResultParser {
                     }
                     break;
                 case 1567:
-                    if (findAIvalue.equals("10")) {
+                    if (findAIvalue.equals(Constants.VIA_REPORT_TYPE_SHARE_TO_QQ)) {
                         c = 2;
                         break;
                     }
                     break;
                 case 1568:
-                    if (findAIvalue.equals("11")) {
+                    if (findAIvalue.equals(Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE)) {
                         c = 3;
                         break;
                     }
@@ -76,7 +76,7 @@ public final class ExpandedProductResultParser extends ResultParser {
                     }
                     break;
                 case 1574:
-                    if (findAIvalue.equals("17")) {
+                    if (findAIvalue.equals(Constants.VIA_REPORT_TYPE_START_GROUP)) {
                         c = 6;
                         break;
                     }

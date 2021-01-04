@@ -15,7 +15,7 @@ import com.baidu.fsg.base.utils.LogUtil;
 import com.baidu.fsg.base.utils.ResUtils;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class BaiduRIM {
     public static final String METHODNAME_FOR_GET_TOKEN = "getRimToken";
     public static final String METHODNAME_FOR_LBS_VERIFY = "LBSVerify";

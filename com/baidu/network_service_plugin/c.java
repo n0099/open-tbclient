@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes15.dex */
 public class c {
     private static HashMap<String, Integer> platformImageNameMap = new HashMap<>();
 
@@ -38,7 +38,7 @@ public class c {
         platformImageNameMap.put(TbConfig.SERVER_ADDRESS + Config.FORUM_LIKE_ADDRESS, 1002002);
     }
 
-    public static int jT(String str) {
+    public static int jP(String str) {
         if (platformImageNameMap.containsKey(str)) {
             return platformImageNameMap.get(str).intValue();
         }
@@ -72,9 +72,9 @@ public class c {
         }
     }
 
-    public static FlutterNetModelAuto J(String str, int i) {
+    public static FlutterNetModelAuto L(String str, int i) {
         FlutterNetModelAuto flutterNetModelAuto = new FlutterNetModelAuto(str, FlutterNetModelAuto.NetModelType.TYPE_SOCKET);
-        flutterNetModelAuto.hd(i);
+        flutterNetModelAuto.hc(i);
         return flutterNetModelAuto;
     }
 
@@ -82,26 +82,26 @@ public class c {
         if (i == 104102) {
             FlutterNetModelAuto flutterNetModelAuto = new FlutterNetModelAuto(str, FlutterNetModelAuto.NetModelType.TYPE_SOCKET);
             flutterNetModelAuto.a(e(i, hashMap));
-            flutterNetModelAuto.he(i);
-            flutterNetModelAuto.p(RequestUpdateMaskInfoMessage.class);
+            flutterNetModelAuto.hd(i);
+            flutterNetModelAuto.i(RequestUpdateMaskInfoMessage.class);
             flutterNetModelAuto.setResponseDataClass(ResponseUpdateMaskInfoMessage.class);
             return flutterNetModelAuto;
         } else if (i == 107129) {
             FlutterNetModelAuto flutterNetModelAuto2 = new FlutterNetModelAuto(str, FlutterNetModelAuto.NetModelType.TYPE_SOCKET);
             flutterNetModelAuto2.a(e(i, hashMap));
             flutterNetModelAuto2.setNeedCompress(false);
-            flutterNetModelAuto2.dY(true);
-            flutterNetModelAuto2.he(i);
-            flutterNetModelAuto2.p(RequestGetLivableForumList.class);
+            flutterNetModelAuto2.ef(true);
+            flutterNetModelAuto2.hd(i);
+            flutterNetModelAuto2.i(RequestGetLivableForumList.class);
             flutterNetModelAuto2.setResponseDataClass(ResponseGetLivableForumList.class);
             return flutterNetModelAuto2;
         } else if (i == 304102) {
             FlutterNetModelAuto flutterNetModelAuto3 = new FlutterNetModelAuto(str, FlutterNetModelAuto.NetModelType.TYPE_SOCKET);
             flutterNetModelAuto3.a(e(i, hashMap));
             flutterNetModelAuto3.setNeedCompress(false);
-            flutterNetModelAuto3.dY(true);
-            flutterNetModelAuto3.he(i);
-            flutterNetModelAuto3.p(RequestDeleteFriendMessage.class);
+            flutterNetModelAuto3.ef(true);
+            flutterNetModelAuto3.hd(i);
+            flutterNetModelAuto3.i(RequestDeleteFriendMessage.class);
             flutterNetModelAuto3.setResponseDataClass(ResponseDeleteFriendMessage.class);
             return flutterNetModelAuto3;
         } else {

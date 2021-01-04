@@ -6,7 +6,7 @@ import com.baidu.sumeru.universalimageloader.core.assist.ImageSize;
 import com.baidu.sumeru.universalimageloader.core.imageaware.ImageAware;
 import java.util.concurrent.locks.ReentrantLock;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public final class ImageLoadingInfo {
     final ImageAware imageAware;
     final ImageLoadingListener listener;

@@ -1,145 +1,157 @@
 package com.baidu.tieba.newinterest.a;
 
-import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.adp.widget.ListView.BdRecyclerView;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.view.PbListView;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import java.util.ArrayList;
+import com.baidu.tieba.newinterest.adapter.InterestedForumAdapter;
+import com.baidu.tieba.newinterest.b.b;
+import com.baidu.tieba.newinterest.data.c;
+import com.baidu.tieba.newinterest.fragment.InterestedForumFragment;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
-/* loaded from: classes23.dex */
-public class a extends BaseAdapter {
-    private int lvs;
-    private final List<com.baidu.tieba.newinterest.data.b> lvt;
-    private b lvu;
-    private final Context mContext;
-
-    /* loaded from: classes23.dex */
-    public interface b {
-        void GF(int i);
-    }
-
-    public a(List<com.baidu.tieba.newinterest.data.b> list, Context context) {
-        this.lvt = list;
-        this.mContext = context;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        if (this.lvt == null) {
-            return 0;
-        }
-        return this.lvt.size();
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        return null;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return 0L;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(final int i, View view, ViewGroup viewGroup) {
-        final C0816a c0816a;
-        if (view == null) {
-            view = LayoutInflater.from(this.mContext).inflate(R.layout.list_item_interest_selection, viewGroup, false);
-            C0816a c0816a2 = new C0816a(view);
-            view.setTag(c0816a2);
-            c0816a = c0816a2;
-        } else {
-            c0816a = (C0816a) view.getTag();
-        }
-        final com.baidu.tieba.newinterest.data.b bVar = this.lvt.get(i);
-        if (bVar.getIcon() > 0) {
-            SvgManager.btW().a(c0816a.lvy, bVar.getIcon(), (SvgManager.SvgResourceStateType) null);
-        }
-        c0816a.lvz.setText(bVar.getText());
-        a(c0816a.lvA, bVar);
-        if (bVar.isSelected()) {
-            this.lvs++;
-        }
-        view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.newinterest.a.a.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                if (!bVar.isSelected() && a.this.lvs >= 10) {
-                    l.showToast(a.this.mContext.getApplicationContext(), a.this.mContext.getApplicationContext().getString(R.string.max_interest_select_num));
-                    return;
-                }
-                bVar.setSelected(!bVar.isSelected());
-                a.this.a(c0816a.lvA, bVar);
-                a.this.a(bVar);
-                if (a.this.lvu != null) {
-                    a.this.lvu.GF(a.this.lvs);
-                }
-                if (bVar.isSelected()) {
-                    ar arVar = new ar("c13682");
-                    arVar.al("obj_type", 2);
-                    arVar.al("obj_locate", 1);
-                    arVar.al("obj_source", i);
-                    TiebaStatic.log(arVar);
-                }
-            }
-        });
-        return view;
-    }
-
-    public List<com.baidu.tieba.newinterest.data.b> dls() {
-        ArrayList arrayList = new ArrayList();
-        for (com.baidu.tieba.newinterest.data.b bVar : this.lvt) {
-            if (bVar.isSelected()) {
-                arrayList.add(bVar);
+/* loaded from: classes8.dex */
+public class a implements View.OnClickListener, InterestedForumAdapter.a, b.a, b.InterfaceC0801b {
+    private BdListView.e WN = new BdListView.e() { // from class: com.baidu.tieba.newinterest.a.a.1
+        @Override // com.baidu.adp.widget.ListView.BdListView.e
+        public void onScrollToBottom() {
+            if (a.this.lBo.hasMore()) {
+                a.this.lBo.dln();
+                a.this.Zg();
             }
         }
-        return arrayList;
+    };
+    private PbListView gCf;
+    private final BdRecyclerView ioP;
+    private final InterestedForumFragment lBn;
+    private final b lBo;
+    private InterestedForumAdapter lBp;
+    private final TBSpecificationBtn lBq;
+    private final TBSpecificationBtn lBr;
+    private final TbPageContext<BaseFragmentActivity> mPageContext;
+
+    public a(InterestedForumFragment interestedForumFragment, BdRecyclerView bdRecyclerView, TBSpecificationBtn tBSpecificationBtn, TBSpecificationBtn tBSpecificationBtn2, TbPageContext<BaseFragmentActivity> tbPageContext, b bVar) {
+        this.lBn = interestedForumFragment;
+        this.ioP = bdRecyclerView;
+        this.lBo = bVar;
+        this.mPageContext = tbPageContext;
+        this.lBr = tBSpecificationBtn;
+        this.lBq = tBSpecificationBtn2;
+        initUI();
+        cJp();
     }
 
-    /* renamed from: com.baidu.tieba.newinterest.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes23.dex */
-    public static class C0816a {
-        public ImageView lvA;
-        public ImageView lvy;
-        public TextView lvz;
+    private void initUI() {
+        this.lBp = new InterestedForumAdapter();
+        this.ioP.setLayoutManager(new LinearLayoutManager(this.ioP.getContext()));
+        this.ioP.setAdapter(this.lBp);
+        this.gCf = new PbListView(this.ioP.getContext());
+        this.gCf.createView();
+        this.gCf.setContainerBackgroundColorResId(R.color.CAM_X0205);
+        this.gCf.setLineGone();
+        this.gCf.setTextColor(ao.getColor(R.color.CAM_X0109));
+        this.gCf.setTextSize(R.dimen.tbfontsize33);
+        this.gCf.setNoMoreTextColorId(R.color.CAM_X0110);
+        this.ioP.setNextPage(this.gCf);
+        Zg();
+    }
 
-        public C0816a(View view) {
-            this.lvy = (ImageView) view.findViewById(R.id.interest_icon);
-            this.lvz = (TextView) view.findViewById(R.id.interest_text);
-            this.lvA = (ImageView) view.findViewById(R.id.select_status_view);
-            ap.setViewTextColor(this.lvz, R.color.CAM_X0105);
-            ap.setBackgroundResource(view, R.drawable.bg_interest_item_selection);
+    private void cJp() {
+        this.ioP.setOnSrollToBottomListener(this.WN);
+        this.lBo.a((b.InterfaceC0801b) this);
+        this.lBo.a((b.a) this);
+        this.lBp.a(this);
+        this.lBr.setOnClickListener(this);
+    }
+
+    public void Zg() {
+        this.gCf.setTopExtraViewGone();
+        this.gCf.startLoadData();
+        this.gCf.setText(this.ioP.getContext().getString(R.string.list_loading));
+        this.gCf.showEmptyView(l.getDimens(this.ioP.getContext(), R.dimen.tbds217));
+    }
+
+    public void dlg() {
+        this.gCf.at(this.ioP.getContext().getString(R.string.interested_forum_list_no_more), l.getDimens(this.ioP.getContext(), R.dimen.tbds178));
+        this.gCf.setTextSize(R.dimen.tbds36);
+        this.gCf.setNoMoreTextColorId(R.color.CAM_X0109);
+        this.gCf.endLoadData();
+        this.gCf.showEmptyView(l.getDimens(this.ioP.getContext(), R.dimen.tbds217));
+    }
+
+    public void dle() {
+        this.lBp.dle();
+    }
+
+    public void ff(List<com.baidu.tieba.newinterest.data.b> list) {
+        this.lBo.fl(list);
+        this.lBo.dln();
+    }
+
+    @Override // com.baidu.tieba.newinterest.b.b.a
+    public void bWs() {
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(this.mPageContext.getPageActivity()).createNormalCfg(0)));
+    }
+
+    @Override // com.baidu.tieba.newinterest.b.b.InterfaceC0801b
+    public void a(c cVar) {
+        if (cVar != null && cVar.lBu != null && !x.isEmpty(cVar.lBu)) {
+            if (this.ioP.getVisibility() == 8) {
+                this.ioP.setVisibility(0);
+            }
+            this.lBp.cA(cVar.lBu);
+            this.lBn.dlh();
+        }
+        if (!this.lBo.hasMore()) {
+            dlg();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(ImageView imageView, com.baidu.tieba.newinterest.data.b bVar) {
-        if (bVar.isSelected()) {
-            SvgManager.btW().a(imageView, R.drawable.ic_icon_pure_guide_select_svg, SvgManager.SvgResourceStateType.NORMAL);
-        } else {
-            SvgManager.btW().a(imageView, R.drawable.ic_icon_mask_module_unselect_svg, SvgManager.SvgResourceStateType.NORMAL);
-        }
+    @Override // com.baidu.tieba.newinterest.b.b.InterfaceC0801b
+    public void onError(int i, String str) {
+        this.lBn.onError(str);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(com.baidu.tieba.newinterest.data.b bVar) {
-        if (bVar.isSelected()) {
-            this.lvs++;
-        } else {
-            this.lvs--;
+    @Override // com.baidu.tieba.newinterest.adapter.InterestedForumAdapter.a
+    public void ac(int i, boolean z) {
+        if (i > 0 && !this.lBr.isEnabled()) {
+            this.lBr.setEnabled(true);
+            this.lBr.setText(this.ioP.getResources().getString(R.string.start_the_trip));
+        } else if (i == 0) {
+            this.lBr.setEnabled(false);
+            this.lBr.setText(this.ioP.getResources().getString(R.string.try_to_select));
         }
+        com.baidu.tbadk.core.view.commonBtn.b bVar = new com.baidu.tbadk.core.view.commonBtn.b();
+        if (!z) {
+            this.lBq.setText(this.mPageContext.getString(R.string.select_all));
+            this.lBq.setConfig(bVar);
+            return;
+        }
+        this.lBq.setText(this.mPageContext.getString(R.string.unselect_all));
+        bVar.ru(R.color.CAM_X0109);
+        this.lBq.setConfig(bVar);
     }
 
-    public void a(b bVar) {
-        this.lvu = bVar;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (view == this.lBr) {
+            try {
+                this.lBo.fj(this.lBp.dld());
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

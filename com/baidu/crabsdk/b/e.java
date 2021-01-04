@@ -4,45 +4,43 @@ import android.os.Process;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public final class e {
     public static String x() {
-        FileReader fileReader;
+        Throwable th;
         BufferedReader bufferedReader;
-        BufferedReader bufferedReader2 = null;
-        bufferedReader2 = null;
-        FileReader fileReader2 = null;
+        FileReader fileReader;
+        BufferedReader bufferedReader2;
         StringBuilder sb = new StringBuilder();
         try {
             fileReader = new FileReader("/proc/" + Process.myPid() + "/stat");
             try {
-                bufferedReader = new BufferedReader(fileReader, 8192);
+                bufferedReader2 = new BufferedReader(fileReader, 8192);
                 while (true) {
                     try {
-                        String readLine = bufferedReader.readLine();
+                        String readLine = bufferedReader2.readLine();
                         if (readLine == null) {
                             break;
                         }
                         sb.append(readLine).append("\n");
                     } catch (Exception e) {
-                        fileReader2 = fileReader;
-                        if (bufferedReader != null) {
+                        if (bufferedReader2 != null) {
                             try {
-                                bufferedReader.close();
+                                bufferedReader2.close();
                             } catch (IOException e2) {
                                 e2.printStackTrace();
                             }
                         }
-                        if (fileReader2 != null) {
-                            fileReader2.close();
+                        if (fileReader != null) {
+                            fileReader.close();
                         }
                         return sb.toString();
-                    } catch (Throwable th) {
-                        bufferedReader2 = bufferedReader;
-                        th = th;
-                        if (bufferedReader2 != null) {
+                    } catch (Throwable th2) {
+                        th = th2;
+                        bufferedReader = bufferedReader2;
+                        if (bufferedReader != null) {
                             try {
-                                bufferedReader2.close();
+                                bufferedReader.close();
                             } catch (IOException e3) {
                                 e3.printStackTrace();
                                 throw th;
@@ -54,24 +52,26 @@ public final class e {
                         throw th;
                     }
                 }
-                bufferedReader.close();
+                bufferedReader2.close();
                 fileReader.close();
                 try {
-                    bufferedReader.close();
+                    bufferedReader2.close();
                     fileReader.close();
                 } catch (IOException e4) {
                     e4.printStackTrace();
                 }
             } catch (Exception e5) {
+                bufferedReader2 = null;
+            } catch (Throwable th3) {
+                th = th3;
                 bufferedReader = null;
-                fileReader2 = fileReader;
-            } catch (Throwable th2) {
-                th = th2;
             }
         } catch (Exception e6) {
+            bufferedReader2 = null;
+            fileReader = null;
+        } catch (Throwable th4) {
+            th = th4;
             bufferedReader = null;
-        } catch (Throwable th3) {
-            th = th3;
             fileReader = null;
         }
         return sb.toString();

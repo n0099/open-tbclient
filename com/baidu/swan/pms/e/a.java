@@ -1,9 +1,9 @@
 package com.baidu.swan.pms.e;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.swan.pms.d;
 import com.baidu.swan.pms.utils.AbiType;
@@ -11,44 +11,44 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public class a {
+    public final String ewI;
+    public final AbiType ewO;
+    public final String libName;
     private static final boolean DEBUG = d.DEBUG;
-    private static Map<String, a> eoP = new HashMap();
-    private static Map<String, Map<String, a>> eoQ = new HashMap();
-    public final String cXB;
-    public final String emZ;
-    public final AbiType eng;
+    private static Map<String, a> eyz = new HashMap();
+    private static Map<String, Map<String, a>> eyA = new HashMap();
 
     private a(@NonNull String str, @NonNull AbiType abiType) {
-        this.cXB = TextUtils.isEmpty(str) ? "" : str;
-        this.eng = abiType;
-        this.emZ = c(str, abiType);
+        this.libName = TextUtils.isEmpty(str) ? "" : str;
+        this.ewO = abiType;
+        this.ewI = c(str, abiType);
         if (DEBUG) {
-            Log.i("SoBundleId", "SoBundleId: " + this.emZ + " libName=" + str + " abi=" + abiType);
+            Log.i("SoBundleId", "SoBundleId: " + this.ewI + " libName=" + str + " abi=" + abiType);
         }
     }
 
     @NonNull
     public String toString() {
-        return this.emZ;
+        return this.ewI;
     }
 
     @Nullable
     public static synchronized a b(String str, AbiType abiType) {
-        a dy;
+        a dx;
         synchronized (a.class) {
-            dy = dy(str, c(str, abiType));
+            dx = dx(str, c(str, abiType));
         }
-        return dy;
+        return dx;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:19:0x0078, code lost:
-        if (android.text.TextUtils.equals(r6, r0.cXB) == false) goto L21;
+        if (android.text.TextUtils.equals(r6, r0.libName) == false) goto L21;
      */
     @Nullable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static synchronized a dy(String str, String str2) {
+    public static synchronized a dx(String str, String str2) {
         a aVar;
         synchronized (a.class) {
             if (DEBUG) {
@@ -57,8 +57,8 @@ public class a {
             if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                 aVar = null;
             } else {
-                zf(str);
-                aVar = eoP.get(str2);
+                ze(str);
+                aVar = eyz.get(str2);
                 if (DEBUG) {
                     Log.i("SoBundleId", "of: end libName=" + str + " soBundleId=" + aVar);
                 }
@@ -70,27 +70,27 @@ public class a {
         return aVar;
     }
 
-    public static synchronized Map<String, a> ze(@NonNull String str) {
+    public static synchronized Map<String, a> zd(@NonNull String str) {
         HashMap hashMap;
         synchronized (a.class) {
-            hashMap = new HashMap(zf(str));
+            hashMap = new HashMap(ze(str));
         }
         return hashMap;
     }
 
-    private static synchronized Map<String, a> zf(@NonNull String str) {
+    private static synchronized Map<String, a> ze(@NonNull String str) {
         Map<String, a> map;
         synchronized (a.class) {
-            map = eoQ.get(str);
+            map = eyA.get(str);
             if (map == null) {
                 map = new HashMap<>();
                 if (!TextUtils.isEmpty(str)) {
                     for (AbiType abiType : AbiType.values()) {
                         a aVar = new a(str, abiType);
-                        map.put(aVar.emZ, aVar);
+                        map.put(aVar.ewI, aVar);
                     }
-                    eoP.putAll(map);
-                    eoQ.put(str, map);
+                    eyz.putAll(map);
+                    eyA.put(str, map);
                 }
             }
         }

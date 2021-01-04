@@ -1,5 +1,5 @@
 package com.baidu.ubc;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public interface r {
-    boolean dLX();
+    boolean dLP();
 }

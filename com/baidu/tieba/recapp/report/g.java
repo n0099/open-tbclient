@@ -1,240 +1,35 @@
 package com.baidu.tieba.recapp.report;
 
-import android.support.annotation.NonNull;
-import android.text.TextUtils;
-import com.baidu.afd.ParseError;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.tbadkCore.data.AppData;
-import com.baidu.tieba.tbadkCore.data.n;
+import androidx.collection.ArrayMap;
 /* loaded from: classes.dex */
 public class g {
-    public static c c(AdvertAppInfo advertAppInfo, int i, int i2) {
-        if (advertAppInfo == null) {
-            return null;
-        }
-        c cVar = new c();
-        cVar.Jq(i);
-        cVar.Sq(advertAppInfo.price);
-        cVar.setExtInfo(advertAppInfo.extensionInfo);
-        if ("PB_BANNER".equals(advertAppInfo.page)) {
-            cVar.Jr(-1);
-            cVar.setPageNumber(-1);
-        } else if ("NEWINDEX".equals(advertAppInfo.page)) {
-            cVar.Jr(advertAppInfo.eEh);
-            cVar.setPageNumber(i2);
-        } else {
-            cVar.Jr(com.baidu.adp.lib.f.b.toInt(advertAppInfo.adPosition, 0));
-            cVar.setPageNumber(i2);
-        }
-        cVar.St(advertAppInfo.eEp);
-        cVar.Su(advertAppInfo.eEq);
-        cVar.Sv(advertAppInfo.eEr);
-        cVar.Sw(advertAppInfo.page);
-        return cVar;
-    }
+    public static final ArrayMap<Integer, String> mSK = new ArrayMap<>();
 
-    public static c a(AdvertAppInfo advertAppInfo, String str, int i, int i2) {
-        if (advertAppInfo == null) {
-            return null;
-        }
-        c cVar = new c();
-        cVar.Jq(i);
-        cVar.setExtInfo(advertAppInfo.extensionInfo);
-        if ("PB_BANNER".equals(advertAppInfo.page)) {
-            cVar.Jr(-1);
-            cVar.setPageNumber(-1);
-        } else if ("NEWINDEX".equals(advertAppInfo.page)) {
-            cVar.Jr(advertAppInfo.eEh);
-            cVar.setPageNumber(i2);
-        } else {
-            cVar.Jr(com.baidu.adp.lib.f.b.toInt(advertAppInfo.adPosition, 0));
-            cVar.setPageNumber(i2);
-        }
-        cVar.Sx(str);
-        cVar.Sw(advertAppInfo.page);
-        return cVar;
-    }
-
-    public static c a(com.baidu.afd.d dVar, int i, int i2) {
-        if (dVar == null) {
-            return null;
-        }
-        return c(dVar.rs(), i, i2);
-    }
-
-    public static c d(AdvertAppInfo advertAppInfo, int i, int i2) {
-        if (advertAppInfo == null) {
-            return null;
-        }
-        c cVar = new c();
-        cVar.Jq(i);
-        cVar.Sq(advertAppInfo.price);
-        cVar.setExtInfo(advertAppInfo.extensionInfo);
-        if ("PB_BANNER".equals(advertAppInfo.page)) {
-            cVar.Jr(-1);
-            cVar.setPageNumber(-1);
-        } else {
-            cVar.Jr(advertAppInfo.eEh);
-            cVar.setPageNumber(i2);
-        }
-        cVar.St(advertAppInfo.eEp);
-        cVar.Su(advertAppInfo.eEq);
-        cVar.Sv(advertAppInfo.eEr);
-        cVar.Sw(advertAppInfo.page);
-        return cVar;
-    }
-
-    public static c a(DownloadStaticsData downloadStaticsData, int i, int i2) {
-        if (downloadStaticsData == null) {
-            return null;
-        }
-        c cVar = new c();
-        cVar.setDownloadStaticsData(downloadStaticsData);
-        cVar.Jq(i);
-        cVar.setPageNumber(i2);
-        return cVar;
-    }
-
-    public static c ab(int i, int i2, int i3) {
-        c cVar = new c();
-        cVar.Jq(i);
-        cVar.Jr(i2);
-        cVar.setPageNumber(i3);
-        return cVar;
-    }
-
-    public static c c(n nVar, int i) {
-        if (nVar == null || nVar.dOV() == null) {
-            return null;
-        }
-        AppData dOV = nVar.dOV();
-        c cVar = new c();
-        cVar.setExtInfo(dOV.ext_info);
-        if (nVar.nlG) {
-            cVar.Jr(-1);
-            cVar.setPageNumber(-1);
-        } else {
-            cVar.Jr(com.baidu.adp.lib.f.b.toInt(dOV.pos_name, 0));
-            cVar.setPageNumber(nVar.pageNumber);
-        }
-        cVar.Jq(i);
-        cVar.Sq(dOV.price);
-        cVar.St(nVar.eEp);
-        cVar.Su(nVar.eEq);
-        cVar.Sv(nVar.forumId);
-        cVar.Sw(nVar.dOY());
-        return cVar;
-    }
-
-    public static c a(AdvertAppInfo advertAppInfo, int i, int i2, int i3, int i4, int i5, int i6) {
-        c c = c(advertAppInfo, i, i2);
-        c.Js(i3);
-        c.Jt(i5);
-        c.Ju(i4);
-        if (i6 != -1 && i == 32) {
-            c.Jw(i6);
-        }
-        c.Sw(advertAppInfo.page);
-        if (i == 2) {
-            c.Ss("video");
-        }
-        return c;
-    }
-
-    public static c a(com.baidu.afd.d dVar, int i, int i2, int i3, int i4, int i5, int i6) {
-        c a2 = a(dVar, i, i2);
-        a2.Js(i3);
-        a2.Jt(i5);
-        a2.Ju(i4);
-        if (i6 != -1 && i == 32) {
-            a2.Jw(i6);
-        }
-        if (dVar != null) {
-            a2.Sw(dVar.rs().page);
-        }
-        if (i == 2) {
-            a2.Ss("video");
-        }
-        return a2;
-    }
-
-    public static c u(String str, int i, String str2) {
-        return d(str, i, str2, "");
-    }
-
-    public static c d(String str, int i, String str2, String str3) {
-        c cVar = new c();
-        cVar.Jq(i);
-        cVar.Sp(str2);
-        cVar.Sw("HOMEPAGE");
-        cVar.setExtInfo(str);
-        cVar.Sx(str3);
-        return cVar;
-    }
-
-    public static c a(AdvertAppInfo advertAppInfo, int i, int i2, int i3) {
-        c c = c(advertAppInfo, i, i2);
-        c.Js(i3);
-        return c;
-    }
-
-    public static c b(AdvertAppInfo advertAppInfo, int i, int i2, int i3) {
-        c d = d(advertAppInfo, i, i2);
-        d.Js(i3);
-        return d;
-    }
-
-    public static c a(com.baidu.afd.d dVar, ParseError parseError) {
-        if (dVar == null || parseError == null) {
-            return null;
-        }
-        c a2 = a(dVar, 5, dVar.getPageNum());
-        a2.Js(parseError.errorCode);
-        return a2;
-    }
-
-    public static c o(@NonNull com.baidu.afd.videopaster.b.a aVar) {
-        c cVar = new c();
-        cVar.Jq(aVar.aaN);
-        cVar.Jr(aVar.aaP);
-        cVar.Sw(aVar.aaO);
-        cVar.setExtInfo(aVar.extraParam);
-        return cVar;
-    }
-
-    public static c p(@NonNull com.baidu.afd.videopaster.b.a aVar) {
-        c cVar = new c();
-        cVar.Jq(aVar.aaN);
-        cVar.Jr(aVar.aaP);
-        cVar.Sw(aVar.aaO);
-        cVar.setExtInfo(aVar.extraParam);
-        cVar.Js(aVar.aaC);
-        if (!TextUtils.isEmpty(aVar.tplName)) {
-            cVar.Sr(aVar.tplName);
-        }
-        cVar.Ju(aVar.aaD);
-        return cVar;
-    }
-
-    public static c q(@NonNull com.baidu.afd.videopaster.b.a aVar) {
-        c cVar = new c();
-        cVar.Jq(aVar.aaN);
-        cVar.Jr(aVar.aaP);
-        cVar.Sw(aVar.aaO);
-        cVar.setExtInfo(aVar.extraParam);
-        cVar.Js(0);
-        cVar.Jt(aVar.aaR);
-        cVar.Ju(aVar.aaQ);
-        cVar.Jv(aVar.startPosition);
-        return cVar;
-    }
-
-    public static c r(@NonNull com.baidu.afd.videopaster.b.a aVar) {
-        c cVar = new c();
-        cVar.Jq(aVar.aaN);
-        cVar.Jr(aVar.aaP);
-        cVar.Sw(aVar.aaO);
-        cVar.setExtInfo(aVar.extraParam);
-        return cVar;
+    static {
+        mSK.put(0, "未被抛弃");
+        mSK.put(1, "间隔楼层不足");
+        mSK.put(2, "当页楼层不足， 不足以插入广告");
+        mSK.put(3, "app 下载安装过， 被抛弃");
+        mSK.put(10, "内容校验错误");
+        mSK.put(11, "非lego广告， 8.6开始被抛弃");
+        mSK.put(12, "card_type=12广告， 8.6开始被抛弃");
+        mSK.put(21, "给Android返回IOS广告或者不识别的类型");
+        mSK.put(22, "给IOS返回了Android广告或者不识别的类型");
+        mSK.put(23, "数据格式错误_adposition为空");
+        mSK.put(24, "数据格式错误_广告id为空");
+        mSK.put(25, "数据格式错误_goodsInfo为空");
+        mSK.put(26, "返回APP广告数据有问题");
+        mSK.put(27, "返回URL广告数据有问题");
+        mSK.put(28, "lego的开关没打开");
+        mSK.put(29, "广告数据位置重复被丢弃");
+        mSK.put(30, "广告ID重复被丢弃");
+        mSK.put(31, "广告插件未加载成功被丢弃");
+        mSK.put(32, "lego数据异常：包括json格式不合法、cardtype不识别、各种子类型数据不合法比如视频类型没有视频url等");
+        mSK.put(33, "客户端最后计算出的positon不合法");
+        mSK.put(34, "无图模式下需要丢弃有图广告");
+        mSK.put(35, "返回lego广告type有问题,客户端不识别");
+        mSK.put(36, "拉回了广告却没有拉回帖子");
+        mSK.put(37, "返回lego广告数据在该版本不支持");
+        mSK.put(100, "其他原因");
     }
 }

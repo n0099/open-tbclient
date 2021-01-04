@@ -1,9 +1,9 @@
 package com.baidu.adp.base;
 
+import android.app.Service;
 import android.content.Intent;
-import com.baidu.megapp.ma.MAService;
 /* loaded from: classes.dex */
-public abstract class BdBaseService extends MAService {
+public abstract class BdBaseService extends Service {
     private static com.baidu.adp.framework.client.socket.link.e sCallBack;
     public static int serviceStartFlag = 1;
 

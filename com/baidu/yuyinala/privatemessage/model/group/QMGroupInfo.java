@@ -3,19 +3,19 @@ package com.baidu.yuyinala.privatemessage.model.group;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.android.imsdk.group.GroupInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class QMGroupInfo implements Parcelable {
     public static final Parcelable.Creator<QMGroupInfo> CREATOR = new Parcelable.Creator<QMGroupInfo>() { // from class: com.baidu.yuyinala.privatemessage.model.group.QMGroupInfo.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: am */
+        /* renamed from: an */
         public QMGroupInfo createFromParcel(Parcel parcel) {
             return new QMGroupInfo(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: PA */
+        /* renamed from: Po */
         public QMGroupInfo[] newArray(int i) {
             return new QMGroupInfo[i];
         }

@@ -8,69 +8,69 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.live.data.p;
 import com.baidu.live.data.q;
+import com.baidu.live.data.r;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.live.tbadk.core.view.HeadImageView;
-import com.baidu.live.utils.l;
+import com.baidu.live.utils.m;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a extends BaseAdapter {
-    private List<p> aKb;
+    private List<q> aKA;
     private Context mContext;
 
     public a(Context context) {
         this.mContext = context;
     }
 
-    public void d(q qVar) {
-        this.aKb = new ArrayList();
-        if (qVar != null && qVar.getList() != null && !qVar.getList().isEmpty()) {
-            for (p pVar : qVar.getList()) {
-                if (pVar != null && pVar.aJV != null) {
-                    this.aKb.add(pVar);
+    public void d(r rVar) {
+        this.aKA = new ArrayList();
+        if (rVar != null && rVar.getList() != null && !rVar.getList().isEmpty()) {
+            for (q qVar : rVar.getList()) {
+                if (qVar != null && qVar.aKu != null) {
+                    this.aKA.add(qVar);
                 }
             }
         }
     }
 
-    public boolean b(p pVar) {
-        if (pVar == null || pVar.aJV == null) {
+    public boolean b(q qVar) {
+        if (qVar == null || qVar.aKu == null) {
             return false;
         }
-        if (this.aKb == null) {
+        if (this.aKA == null) {
             return false;
         }
-        if (this.aKb.size() == 0) {
-            this.aKb.add(pVar);
+        if (this.aKA.size() == 0) {
+            this.aKA.add(qVar);
             return true;
         }
-        for (p pVar2 : this.aKb) {
-            if (pVar2 != null && pVar2.aJV != null && pVar.aJV.userId == pVar2.aJV.userId) {
+        for (q qVar2 : this.aKA) {
+            if (qVar2 != null && qVar2.aKu != null && qVar.aKu.userId == qVar2.aKu.userId) {
                 return false;
             }
         }
-        this.aKb.add(pVar);
+        this.aKA.add(qVar);
         return true;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.aKb == null) {
+        if (this.aKA == null) {
             return 0;
         }
-        return this.aKb.size();
+        return this.aKA.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.aKb == null) {
+        if (this.aKA == null) {
             return null;
         }
-        return this.aKb.get(i);
+        return this.aKA.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -80,67 +80,67 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0680a c0680a;
+        C0672a c0672a;
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.g.ala_live_audience_header_image, (ViewGroup) null);
-            C0680a c0680a2 = new C0680a(view);
+            C0672a c0672a2 = new C0672a(view);
             if (TbadkCoreApplication.getInst().isHaokan()) {
-                c0680a2.hhW.setDefaultResource(a.e.sdk_icon_default_avatar100_hk);
+                c0672a2.htT.setDefaultResource(a.e.sdk_icon_default_avatar100_hk);
             } else {
-                c0680a2.hhW.setDefaultResource(a.e.sdk_icon_default_avatar100);
+                c0672a2.htT.setDefaultResource(a.e.sdk_icon_default_avatar100);
             }
-            c0680a2.hhW.setIsRound(true);
-            c0680a2.hhW.setDrawBorder(true);
-            c0680a2.hhW.setBorderColor(this.mContext.getResources().getColor(a.c.sdk_cp_bg_line_k_alpha10_1));
-            c0680a2.hhW.setAutoChangeStyle(false);
-            c0680a2.hhW.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            c0680a2.hhX.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-            view.setTag(c0680a2);
-            c0680a = c0680a2;
+            c0672a2.htT.setIsRound(true);
+            c0672a2.htT.setDrawBorder(true);
+            c0672a2.htT.setBorderColor(this.mContext.getResources().getColor(a.c.sdk_cp_bg_line_k_alpha10_1));
+            c0672a2.htT.setAutoChangeStyle(false);
+            c0672a2.htT.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            c0672a2.htU.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+            view.setTag(c0672a2);
+            c0672a = c0672a2;
         } else {
-            c0680a = (C0680a) view.getTag();
+            c0672a = (C0672a) view.getTag();
         }
-        p pVar = (p) getItem(i);
-        c0680a.hhW.setDrawBorder(true);
-        if (pVar.aJY == 1 && pVar.aJV.totalPrice > 0) {
-            c0680a.hhX.setVisibility(0);
-            c0680a.hhX.setImageResource(a.e.pic_live_top1);
-            c0680a.hhY.setBackgroundResource(a.e.round_header_day_list_bg_1);
-        } else if (pVar.aJY == 2 && pVar.aJV.totalPrice > 0) {
-            c0680a.hhX.setVisibility(0);
-            c0680a.hhX.setImageResource(a.e.pic_live_top2);
-            c0680a.hhY.setBackgroundResource(a.e.round_header_day_list_bg_2);
-        } else if (pVar.aJY == 3 && pVar.aJV.totalPrice > 0) {
-            c0680a.hhX.setVisibility(0);
-            c0680a.hhX.setImageResource(a.e.pic_live_top3);
-            c0680a.hhY.setBackgroundResource(a.e.round_header_day_list_bg_3);
+        q qVar = (q) getItem(i);
+        c0672a.htT.setDrawBorder(true);
+        if (qVar.aKx == 1 && qVar.aKu.totalPrice > 0) {
+            c0672a.htU.setVisibility(0);
+            c0672a.htU.setImageResource(a.e.pic_live_top1);
+            c0672a.htV.setBackgroundResource(a.e.round_header_day_list_bg_1);
+        } else if (qVar.aKx == 2 && qVar.aKu.totalPrice > 0) {
+            c0672a.htU.setVisibility(0);
+            c0672a.htU.setImageResource(a.e.pic_live_top2);
+            c0672a.htV.setBackgroundResource(a.e.round_header_day_list_bg_2);
+        } else if (qVar.aKx == 3 && qVar.aKu.totalPrice > 0) {
+            c0672a.htU.setVisibility(0);
+            c0672a.htU.setImageResource(a.e.pic_live_top3);
+            c0672a.htV.setBackgroundResource(a.e.round_header_day_list_bg_3);
         } else {
-            c0680a.hhX.setVisibility(8);
-            c0680a.hhY.setBackgroundResource(a.e.round_header_day_list_bg_normal);
+            c0672a.htU.setVisibility(8);
+            c0672a.htV.setBackgroundResource(a.e.round_header_day_list_bg_normal);
         }
-        c0680a.hhY.setText(StringHelper.formatForHeaderDayCharmValue(pVar.aJV.totalPrice));
-        if (pVar.aJV.totalPrice <= 0) {
-            c0680a.hhY.setVisibility(4);
+        c0672a.htV.setText(StringHelper.formatForHeaderDayCharmValue(qVar.aKu.totalPrice));
+        if (qVar.aKu.totalPrice <= 0) {
+            c0672a.htV.setVisibility(4);
         } else {
-            c0680a.hhY.setVisibility(0);
+            c0672a.htV.setVisibility(0);
         }
-        l.a(c0680a.hhW, pVar.aJV.portrait, true, !StringUtils.isNull(pVar.aJV.appId));
+        m.a(c0672a.htT, qVar.aKu.portrait, true, !StringUtils.isNull(qVar.aKu.appId));
         return view;
     }
 
     /* renamed from: com.baidu.tieba.ala.liveroom.audiencelist.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class C0680a {
-        public HeadImageView hhW;
-        public ImageView hhX;
-        public TextView hhY;
+    /* loaded from: classes11.dex */
+    public static class C0672a {
+        public HeadImageView htT;
+        public ImageView htU;
+        public TextView htV;
         public View rootView;
 
-        public C0680a(View view) {
+        public C0672a(View view) {
             this.rootView = view;
-            this.hhW = (HeadImageView) view.findViewById(a.f.ala_live_room_audience_header_img);
-            this.hhX = (ImageView) view.findViewById(a.f.ala_live_room_audience_pendant);
-            this.hhY = (TextView) view.findViewById(a.f.ala_live_room_audience_charm_count);
+            this.htT = (HeadImageView) view.findViewById(a.f.ala_live_room_audience_header_img);
+            this.htU = (ImageView) view.findViewById(a.f.ala_live_room_audience_pendant);
+            this.htV = (TextView) view.findViewById(a.f.ala_live_room_audience_charm_count);
         }
     }
 }

@@ -3,6 +3,7 @@ package com.baidu.fsg.face.liveness.beans;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.fsg.base.EnvConfig;
 import com.baidu.fsg.base.restnet.RestNameValuePair;
 import com.baidu.fsg.base.restnet.beans.business.UploadBean;
@@ -16,12 +17,14 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class m extends UploadBean {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1718a;
-    private String b;
+    private String f2330a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private String f2331b;
     private String c;
     private String d;
     private String e;
@@ -33,7 +36,7 @@ public class m extends UploadBean {
     }
 
     public void b(String str) {
-        this.b = str;
+        this.f2331b = str;
     }
 
     public void c(String str) {
@@ -41,7 +44,7 @@ public class m extends UploadBean {
     }
 
     public void d(String str) {
-        this.f1718a = str;
+        this.f2330a = str;
     }
 
     public m(Context context) {
@@ -64,11 +67,11 @@ public class m extends UploadBean {
             if (!TextUtils.isEmpty(a())) {
                 arrayList.add(new RestNameValuePair("atbc", a()));
             }
-            if (!TextUtils.isEmpty(this.f1718a)) {
-                arrayList.add(new RestNameValuePair(LogConfig.LOG_VIDEO_TYPE, this.f1718a));
+            if (!TextUtils.isEmpty(this.f2330a)) {
+                arrayList.add(new RestNameValuePair(LogConfig.LOG_VIDEO_TYPE, this.f2330a));
             }
-            if (!TextUtils.isEmpty(this.b)) {
-                arrayList.add(new RestNameValuePair("callbackkey", this.b));
+            if (!TextUtils.isEmpty(this.f2331b)) {
+                arrayList.add(new RestNameValuePair("callbackkey", this.f2331b));
             }
             if (!TextUtils.isEmpty(this.c)) {
                 arrayList.add(new RestNameValuePair("image_callbackkey", this.c));
@@ -85,7 +88,7 @@ public class m extends UploadBean {
             }
             arrayList.add(new RestNameValuePair("type", "video"));
         }
-        arrayList.add(new RestNameValuePair("client", "android"));
+        arrayList.add(new RestNameValuePair("client", HttpConstants.OS_TYPE_VALUE));
         if (!TextUtils.isEmpty(this.e)) {
             arrayList.add(new RestNameValuePair("zid2", this.e));
         } else if (!TextUtils.isEmpty(this.d)) {

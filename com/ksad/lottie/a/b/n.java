@@ -1,0 +1,17 @@
+package com.ksad.lottie.a.b;
+
+import java.util.List;
+/* loaded from: classes5.dex */
+public class n extends f<com.ksad.lottie.model.b> {
+    public n(List<com.ksad.lottie.e.a<com.ksad.lottie.model.b>> list) {
+        super(list);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: package-private */
+    @Override // com.ksad.lottie.a.b.a
+    /* renamed from: b */
+    public com.ksad.lottie.model.b a(com.ksad.lottie.e.a<com.ksad.lottie.model.b> aVar, float f) {
+        return aVar.f8300a;
+    }
+}

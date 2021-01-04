@@ -2,7 +2,7 @@ package com.baidu.sumeru.universalimageloader.utils;
 
 import android.util.Log;
 import com.baidu.sumeru.universalimageloader.core.ImageLoader;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public final class L {
     private static volatile boolean DISABLED = false;
     private static final String LOG_FORMAT = "%1$s\n%2$s";

@@ -2,69 +2,69 @@ package com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a;
 
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class d {
-    private static d oRz;
-    private b oRA;
-    private b oRB;
-    private a oRC;
-    private String oRD = "";
-    private ConcurrentHashMap<String, c> oRE = new ConcurrentHashMap<>(4);
+    private static d oXE;
+    private b oXF;
+    private b oXG;
+    private a oXH;
+    private String oXI = "";
+    private ConcurrentHashMap<String, c> oXJ = new ConcurrentHashMap<>(4);
     private AtomicInteger mOpenCounter = new AtomicInteger();
 
-    public static d emA() {
-        if (oRz == null) {
+    public static d emC() {
+        if (oXE == null) {
             synchronized (d.class) {
-                if (oRz == null) {
-                    oRz = new d();
+                if (oXE == null) {
+                    oXE = new d();
                 }
             }
         }
-        return oRz;
+        return oXE;
     }
 
-    public c YK(String str) {
-        return this.oRE.get(str);
+    public c Yu(String str) {
+        return this.oXJ.get(str);
     }
 
-    public String emB() {
-        return this.oRD;
+    public String emD() {
+        return this.oXI;
     }
 
     public void a(String str, c cVar) {
-        this.oRD = str;
+        this.oXI = str;
         if (cVar != null) {
-            this.oRE.put(str, cVar);
+            this.oXJ.put(str, cVar);
         }
     }
 
-    public void YL(String str) {
-        if (this.oRE.containsKey(str)) {
-            this.oRE.remove(str);
+    public void Yv(String str) {
+        if (this.oXJ.containsKey(str)) {
+            this.oXJ.remove(str);
         }
     }
 
-    public b emC() {
-        return this.oRA;
+    public b emE() {
+        return this.oXF;
     }
 
     public void a(b bVar) {
-        this.oRA = bVar;
+        this.oXF = bVar;
     }
 
-    public b emD() {
-        return this.oRB;
+    public b emF() {
+        return this.oXG;
     }
 
     public void b(b bVar) {
-        this.oRB = bVar;
+        this.oXG = bVar;
     }
 
-    public static void emE() {
-        oRz = null;
+    public static void emG() {
+        oXE = null;
     }
 
-    public a emF() {
-        return this.oRC;
+    public a emH() {
+        return this.oXH;
     }
 }

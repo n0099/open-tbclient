@@ -2,7 +2,7 @@ package com.baidu.tieba.easterEgg;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes24.dex */
+/* loaded from: classes8.dex */
 public class RnSyncResponseMessage extends JsonHttpResponsedMessage {
     private com.baidu.tieba.easterEgg.a.a mData;
 

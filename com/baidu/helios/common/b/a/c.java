@@ -3,23 +3,12 @@ package com.baidu.helios.common.b.a;
 import android.database.Cursor;
 import java.io.Closeable;
 import java.util.zip.ZipFile;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class c {
     public static boolean a(ZipFile zipFile) {
         if (zipFile != null) {
             try {
                 zipFile.close();
-                return true;
-            } catch (Throwable th) {
-            }
-        }
-        return false;
-    }
-
-    public static boolean b(Closeable closeable) {
-        if (closeable != null) {
-            try {
-                closeable.close();
                 return true;
             } catch (Throwable th) {
             }
@@ -38,7 +27,18 @@ public class c {
         return false;
     }
 
-    public static boolean b(Cursor cursor) {
+    public static boolean d(Closeable closeable) {
+        if (closeable != null) {
+            try {
+                closeable.close();
+                return true;
+            } catch (Throwable th) {
+            }
+        }
+        return false;
+    }
+
+    public static boolean c(Cursor cursor) {
         if (cursor != null) {
             try {
                 cursor.close();

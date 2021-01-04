@@ -8,7 +8,7 @@ import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class UserCollectConfig {
     public static String ADD_USER_COLLECT_EMOTION_ACTION = "add_user_collect_emotoin";
     public static String IMAGE_URL = "image_url";
@@ -17,7 +17,7 @@ public class UserCollectConfig {
     public static String SHARP_TEXT_PREFIX = "#(meme,collect_";
     public static String SHARP_TEXT_PREFIX_SHORT = "meme,collect_";
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public static class ImageInfo {
         public String pkgId;
         public String url;

@@ -5,7 +5,7 @@ import java.io.IOException;
 import kotlin.jvm.internal.Lambda;
 import kotlin.jvm.internal.p;
 @kotlin.e
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 final class FilesKt__UtilsKt$copyRecursively$1 extends Lambda implements kotlin.jvm.a.c {
     public static final FilesKt__UtilsKt$copyRecursively$1 INSTANCE = new FilesKt__UtilsKt$copyRecursively$1();
 

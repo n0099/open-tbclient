@@ -10,7 +10,7 @@ import com.baidu.ar.bus.CallBack;
 import com.baidu.ar.c.c;
 import com.baidu.ar.mdl.ARMdlInterfaceJNI;
 import com.baidu.ar.statistic.StatisticApi;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class PoseDetector extends com.baidu.ar.b.a.a {
     private static final String TAG = PoseDetector.class.getSimpleName();
     static int[] tP = {2, 3, 4, 8, 9, 10, 14, 16};
@@ -64,7 +64,7 @@ public class PoseDetector extends com.baidu.ar.b.a.a {
                 }
                 float f = bundle.getFloat(PoseAR.MDL_MAGIC_FILTER_CUTOFFSLOPE, 1.0f);
                 float[] floatArray = bundle.getFloatArray(PoseAR.MDL_MAGIC_FILTER_MIN_CUTOFFFREQ);
-                return aVar.f1195tv ? ARMdlInterfaceJNI.initPoseFromAsset(strArr[0], strArr[1], strArr[2], 1, f, floatArray, floatArray) : ARMdlInterfaceJNI.initPose(strArr[0], strArr[1], strArr[2], 1, f, floatArray, floatArray);
+                return aVar.f1486tv ? ARMdlInterfaceJNI.initPoseFromAsset(strArr[0], strArr[1], strArr[2], 1, f, floatArray, floatArray) : ARMdlInterfaceJNI.initPose(strArr[0], strArr[1], strArr[2], 1, f, floatArray, floatArray);
             }
 
             @Override // com.baidu.ar.c.a

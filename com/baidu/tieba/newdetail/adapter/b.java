@@ -1,30 +1,30 @@
 package com.baidu.tieba.newdetail.adapter;
 
 import android.graphics.Typeface;
-import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.adp.lib.util.l;
-import com.baidu.adp.widget.ListView.af;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 import com.baidu.tieba.newdetail.a.c;
-/* loaded from: classes21.dex */
+/* loaded from: classes8.dex */
 public class b extends com.baidu.adp.widget.ListView.a<c, a> {
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.newdetail.a.a.lqh);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.newdetail.a.a.lvp);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cc */
-    public a c(ViewGroup viewGroup) {
+    /* renamed from: co */
+    public a e(ViewGroup viewGroup) {
         LinearLayout linearLayout = new LinearLayout(viewGroup.getContext());
         linearLayout.setOrientation(1);
         linearLayout.setPadding(l.getDimens(viewGroup.getContext(), R.dimen.tbds44), 0, l.getDimens(viewGroup.getContext(), R.dimen.tbds44), l.getDimens(viewGroup.getContext(), R.dimen.tbds12));
@@ -58,31 +58,31 @@ public class b extends com.baidu.adp.widget.ListView.a<c, a> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes21.dex */
-    public static class a extends af.a {
-        private TextView eAz;
-        private View eOv;
-        private int jQw;
+    /* loaded from: classes8.dex */
+    public static class a extends TypeAdapter.ViewHolder {
+        private View bUk;
+        private TextView eKc;
+        private int kdK;
 
         a(View view, TextView textView, View view2) {
             super(view);
-            this.jQw = 3;
-            this.eAz = textView;
-            this.eOv = view2;
+            this.kdK = 3;
+            this.eKc = textView;
+            this.bUk = view2;
         }
 
         void a(c cVar) {
             if (cVar != null) {
-                this.eAz.setText(cVar.title);
-                this.eOv.setVisibility(cVar.ldi ? 0 : 8);
+                this.eKc.setText(cVar.title);
+                this.bUk.setVisibility(cVar.liO ? 0 : 8);
             }
         }
 
         void onChangeSkinType(int i) {
-            if (this.jQw != i) {
-                ap.setViewTextColor(this.eAz, R.color.CAM_X0105);
-                ap.setBackgroundColor(this.eOv, R.color.CAM_X0204);
-                this.jQw = i;
+            if (this.kdK != i) {
+                ao.setViewTextColor(this.eKc, R.color.CAM_X0105);
+                ao.setBackgroundColor(this.bUk, R.color.CAM_X0204);
+                this.kdK = i;
             }
         }
     }

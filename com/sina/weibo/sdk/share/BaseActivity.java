@@ -23,7 +23,6 @@ public class BaseActivity extends Activity {
 
     private boolean isTranslucentOrFloating() {
         boolean z;
-        Exception e;
         try {
             TypedArray obtainStyledAttributes = obtainStyledAttributes((int[]) Class.forName("com.android.internal.R$styleable").getField("Window").get(null));
             Method method = ActivityInfo.class.getMethod("isTranslucentOrFloating", TypedArray.class);
@@ -31,14 +30,14 @@ public class BaseActivity extends Activity {
             z = ((Boolean) method.invoke(null, obtainStyledAttributes)).booleanValue();
             try {
                 method.setAccessible(false);
-            } catch (Exception e2) {
-                e = e2;
+            } catch (Exception e) {
+                e = e;
                 e.printStackTrace();
                 return z;
             }
-        } catch (Exception e3) {
+        } catch (Exception e2) {
+            e = e2;
             z = false;
-            e = e3;
         }
         return z;
     }

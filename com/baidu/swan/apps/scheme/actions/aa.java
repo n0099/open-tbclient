@@ -1,16 +1,16 @@
 package com.baidu.swan.apps.scheme.actions;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.Nullable;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public abstract class aa extends d<UnitedSchemeBaseDispatcher> {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -20,17 +20,17 @@ public abstract class aa extends d<UnitedSchemeBaseDispatcher> {
         super(unitedSchemeBaseDispatcher, str);
     }
 
-    public com.baidu.swan.apps.runtime.e aqC() {
-        return com.baidu.swan.apps.runtime.e.aJU();
+    public com.baidu.swan.apps.runtime.e arO() {
+        return com.baidu.swan.apps.runtime.e.aMk();
     }
 
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
         boolean d;
         try {
             if (TextUtils.equals(this.name, str)) {
-                d = a(context, unitedSchemeEntity, callbackHandler, aqC());
+                d = a(context, unitedSchemeEntity, callbackHandler, arO());
             } else {
-                d = d(context, unitedSchemeEntity, callbackHandler, str, aqC());
+                d = d(context, unitedSchemeEntity, callbackHandler, str, arO());
             }
             return d;
         } catch (Throwable th) {

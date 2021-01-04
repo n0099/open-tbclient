@@ -2,13 +2,13 @@ package com.airbnb.lottie.c;
 
 import android.util.JsonReader;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 class k {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static com.airbnb.lottie.model.c a(JsonReader jsonReader) throws IOException {
-        String str = null;
+    public static com.airbnb.lottie.model.c c(JsonReader jsonReader) throws IOException {
         float f = 0.0f;
         jsonReader.beginObject();
+        String str = null;
         String str2 = null;
         String str3 = null;
         while (jsonReader.hasNext()) {

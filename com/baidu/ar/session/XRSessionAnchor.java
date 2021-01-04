@@ -15,7 +15,7 @@ import com.baidu.smallgame.sdk.permission.PermissionProxy;
 import com.google.ar.core.ArCoreApk;
 import java.io.File;
 @NotProguard
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class XRSessionAnchor {
     private static final String TAG = "XRSessionAnchor";
     private static final String apkinfo = "com.google.ar.core";
@@ -57,16 +57,16 @@ public class XRSessionAnchor {
 
     public static boolean supportArCore(Context context) {
         try {
-            ArCoreApk.Availability hM = ArCoreApk.exV().hM(context);
-            return hM != null && (hM.isSupported() || hM.isTransient());
+            ArCoreApk.Availability ip = ArCoreApk.eBG().ip(context);
+            return ip != null && (ip.isSupported() || ip.isTransient());
         } catch (Exception e) {
             return true;
         }
     }
 
     public void requestCameraPermission() {
-        if (a.cxm != null) {
-            a.cxm.requestPermission(PermissionProxy.SCOPE_ID_CAMERA, new PermissionListener() { // from class: com.baidu.ar.session.XRSessionAnchor.2
+        if (a.cCg != null) {
+            a.cCg.requestPermission(PermissionProxy.SCOPE_ID_CAMERA, new PermissionListener() { // from class: com.baidu.ar.session.XRSessionAnchor.2
                 @Override // com.baidu.smallgame.sdk.permission.PermissionListener
                 public void onPermissionResult(String str, int i) {
                     if (i == 0) {
@@ -92,7 +92,7 @@ public class XRSessionAnchor {
     public void requestInstallArcore() {
         PackageInfo packageInfo;
         this.mContext = V8Engine.getAppContext();
-        this.mRotation = a.cxn;
+        this.mRotation = a.cCh;
         final String str = "";
         if (this.mContext != null) {
             str = this.mContext.getFilesDir() + "/aigames_folder/game_ar_resource/arcore";
@@ -118,15 +118,15 @@ public class XRSessionAnchor {
                     Log.i(XRSessionAnchor.TAG, "plugin manager install err code:" + installPackage);
                     if (installPackage != 1 && installPackage != -1) {
                         XRSessionAnchor.this.xRSessionCreateFail(XRSessionAnchor.this.mNativeSessionHandle, 1003);
-                    } else if (a.cxm == null) {
-                        XRSessionAnchor.this.xRSessionCreateSuccess(XRSessionAnchor.this.mNativeSessionHandle, a.cxn);
+                    } else if (a.cCg == null) {
+                        XRSessionAnchor.this.xRSessionCreateSuccess(XRSessionAnchor.this.mNativeSessionHandle, a.cCh);
                     } else {
-                        a.cxm.requestPermission(PermissionProxy.SCOPE_ID_CAMERA, new PermissionListener() { // from class: com.baidu.ar.session.XRSessionAnchor.3.1
+                        a.cCg.requestPermission(PermissionProxy.SCOPE_ID_CAMERA, new PermissionListener() { // from class: com.baidu.ar.session.XRSessionAnchor.3.1
                             @Override // com.baidu.smallgame.sdk.permission.PermissionListener
                             public void onPermissionResult(String str2, int i) {
                                 if (i == 0) {
                                     Log.i(XRSessionAnchor.TAG, "Permission ok!@ permissionState:" + i);
-                                    XRSessionAnchor.this.xRSessionCreateSuccess(XRSessionAnchor.this.mNativeSessionHandle, a.cxn);
+                                    XRSessionAnchor.this.xRSessionCreateSuccess(XRSessionAnchor.this.mNativeSessionHandle, a.cCh);
                                     XRSessionAnchor.this.mOrientationEventListener.enable();
                                     return;
                                 }

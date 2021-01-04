@@ -5,17 +5,17 @@ import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class h implements aj<com.airbnb.lottie.model.b> {
-    public static final h HJ = new h();
+    public static final h Hs = new h();
 
     private h() {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.airbnb.lottie.c.aj
-    /* renamed from: c */
-    public com.airbnb.lottie.model.b b(JsonReader jsonReader, float f) throws IOException {
+    /* renamed from: h */
+    public com.airbnb.lottie.model.b g(JsonReader jsonReader, float f) throws IOException {
         String str = null;
         String str2 = null;
         double d = 0.0d;
@@ -122,10 +122,10 @@ public class h implements aj<com.airbnb.lottie.model.b> {
                     d3 = jsonReader.nextDouble();
                     break;
                 case 7:
-                    i3 = p.b(jsonReader);
+                    i3 = p.d(jsonReader);
                     break;
                 case '\b':
-                    i4 = p.b(jsonReader);
+                    i4 = p.d(jsonReader);
                     break;
                 case '\t':
                     d4 = jsonReader.nextDouble();

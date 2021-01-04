@@ -1,12 +1,12 @@
 package com.baidu.swan.apps.inlinewidget.rtcroom.a.b;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class ad extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.inlinewidget.rtcroom.c.b> {
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
-    public String aya() {
+    public String azr() {
         return "unsubscribeRemoteStream";
     }
 
@@ -16,8 +16,8 @@ public class ad extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.i
         a(bVar, command.what, "" + command.obj, true);
         if (command.obj instanceof Long) {
             long longValue = ((Long) command.obj).longValue();
-            if (com.baidu.swan.apps.inlinewidget.rtcroom.b.a.cf(longValue)) {
-                bVar.ch(longValue);
+            if (com.baidu.swan.apps.inlinewidget.rtcroom.b.a.cg(longValue)) {
+                bVar.ci(longValue);
             }
         }
     }

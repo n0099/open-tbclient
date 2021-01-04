@@ -7,32 +7,34 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1267a;
-    private C0093a adV;
+    private Context f1610a;
+    private C0085a aeL;
 
     /* renamed from: com.baidu.b.e.a$a  reason: collision with other inner class name */
-    /* loaded from: classes26.dex */
-    public final class C0093a {
-        private C0093a aed;
-        private File b;
+    /* loaded from: classes15.dex */
+    public final class C0085a {
+        private C0085a aeR;
+
+        /* renamed from: b  reason: collision with root package name */
+        private File f1611b;
         private String c;
         private boolean e;
 
-        C0093a(File file) {
+        C0085a(File file) {
             this.e = false;
             this.e = true;
-            this.b = file;
+            this.f1611b = file;
             this.c = file.getName();
         }
 
-        C0093a(String str, C0093a c0093a) {
+        C0085a(String str, C0085a c0085a) {
             this.e = false;
             this.c = str;
-            this.aed = c0093a;
+            this.aeR = c0085a;
             this.e = false;
         }
 
@@ -44,11 +46,15 @@ public class a {
             b().mkdirs();
         }
 
+        public boolean a(String str, String str2, boolean z) {
+            return a.a(b(), str, str2, "UTF-8", z);
+        }
+
         public File b() {
-            File file = this.b;
+            File file = this.f1611b;
             if (file == null) {
-                file = this.aed == null ? new File(a.this.a(), this.c) : new File(this.aed.b(), this.c);
-                this.b = file;
+                file = this.aeR == null ? new File(a.this.a(), this.c) : new File(this.aeR.b(), this.c);
+                this.f1611b = file;
             }
             return file;
         }
@@ -57,49 +63,43 @@ public class a {
             return this.c;
         }
 
-        public boolean c(String str, String str2, boolean z) {
-            return a.a(b(), str, str2, "UTF-8", z);
+        public C0085a cV(String str) {
+            return new C0085a(str, this);
         }
 
-        public C0093a dc(String str) {
-            return new C0093a(str, this);
-        }
-
-        public C0093a i(File file) {
+        public C0085a i(File file) {
             if (this.e) {
                 throw new IllegalStateException("isolate session is not support");
             }
             ArrayList arrayList = new ArrayList();
-            C0093a c0093a = this;
+            C0085a c0085a = this;
             do {
-                arrayList.add(c0093a.c());
-                c0093a = c0093a.sS();
-            } while (c0093a != null);
+                arrayList.add(c0085a.c());
+                c0085a = c0085a.ss();
+            } while (c0085a != null);
             int size = arrayList.size() - 1;
             while (size >= 0) {
                 File file2 = new File(file, (String) arrayList.get(size));
                 size--;
                 file = file2;
             }
-            return new C0093a(file);
+            return new C0085a(file);
         }
 
-        public C0093a sS() {
-            return this.aed;
+        public C0085a ss() {
+            return this.aeR;
         }
     }
 
     public a(Context context) {
-        this.f1267a = context;
+        this.f1610a = context;
         c().mkdirs();
     }
 
     public static String a(File file, String str, String str2, boolean z) {
-        FileInputStream fileInputStream;
-        Throwable th;
         ByteArrayOutputStream byteArrayOutputStream;
-        FileInputStream fileInputStream2;
-        ByteArrayOutputStream byteArrayOutputStream2 = null;
+        FileInputStream fileInputStream;
+        ByteArrayOutputStream byteArrayOutputStream2;
         a(file);
         File file2 = new File(file, str);
         try {
@@ -107,44 +107,44 @@ public class a {
             try {
                 fileInputStream = new FileInputStream(file2);
             } catch (Exception e) {
-                fileInputStream2 = null;
                 byteArrayOutputStream2 = byteArrayOutputStream;
-            } catch (Throwable th2) {
                 fileInputStream = null;
-                th = th2;
+            } catch (Throwable th) {
+                th = th;
+                fileInputStream = null;
             }
-        } catch (Exception e2) {
-            fileInputStream2 = null;
-        } catch (Throwable th3) {
+            try {
+                byte[] bArr = new byte[8192];
+                while (true) {
+                    int read = fileInputStream.read(bArr);
+                    if (read <= 0) {
+                        break;
+                    }
+                    byteArrayOutputStream.write(bArr, 0, read);
+                }
+                byte[] byteArray = byteArrayOutputStream.toByteArray();
+                String str3 = new String(z ? new c().b(byteArray) : byteArray, str2);
+                com.baidu.b.f.c.a(fileInputStream);
+                com.baidu.b.f.c.a(byteArrayOutputStream);
+                return str3;
+            } catch (Exception e2) {
+                byteArrayOutputStream2 = byteArrayOutputStream;
+                com.baidu.b.f.c.a(fileInputStream);
+                com.baidu.b.f.c.a(byteArrayOutputStream2);
+                return "";
+            } catch (Throwable th2) {
+                th = th2;
+                com.baidu.b.f.c.a(fileInputStream);
+                com.baidu.b.f.c.a(byteArrayOutputStream);
+                throw th;
+            }
+        } catch (Exception e3) {
+            byteArrayOutputStream2 = null;
             fileInputStream = null;
+        } catch (Throwable th3) {
             th = th3;
             byteArrayOutputStream = null;
-        }
-        try {
-            byte[] bArr = new byte[8192];
-            while (true) {
-                int read = fileInputStream.read(bArr);
-                if (read <= 0) {
-                    break;
-                }
-                byteArrayOutputStream.write(bArr, 0, read);
-            }
-            byte[] byteArray = byteArrayOutputStream.toByteArray();
-            String str3 = new String(z ? new c().b(byteArray) : byteArray, str2);
-            com.baidu.b.f.c.a(fileInputStream);
-            com.baidu.b.f.c.a(byteArrayOutputStream);
-            return str3;
-        } catch (Exception e3) {
-            byteArrayOutputStream2 = byteArrayOutputStream;
-            fileInputStream2 = fileInputStream;
-            com.baidu.b.f.c.a(fileInputStream2);
-            com.baidu.b.f.c.a(byteArrayOutputStream2);
-            return "";
-        } catch (Throwable th4) {
-            th = th4;
-            com.baidu.b.f.c.a(fileInputStream);
-            com.baidu.b.f.c.a(byteArrayOutputStream);
-            throw th;
+            fileInputStream = null;
         }
     }
 
@@ -153,31 +153,33 @@ public class a {
     }
 
     public static boolean a(File file, String str, String str2, String str3, boolean z) {
-        FileOutputStream fileOutputStream;
         Throwable th;
+        FileOutputStream fileOutputStream;
+        FileOutputStream fileOutputStream2;
         a(file);
-        FileOutputStream fileOutputStream2 = null;
+        FileOutputStream fileOutputStream3 = null;
         try {
-            fileOutputStream = new FileOutputStream(new File(file, str));
+            fileOutputStream2 = new FileOutputStream(new File(file, str));
         } catch (Exception e) {
         } catch (Throwable th2) {
-            fileOutputStream = null;
             th = th2;
+            fileOutputStream = null;
         }
         try {
             if (z) {
-                fileOutputStream.write(new c().a(str2.getBytes()));
+                fileOutputStream2.write(new c().a(str2.getBytes()));
             } else {
-                fileOutputStream.write(str2.getBytes(str3));
+                fileOutputStream2.write(str2.getBytes(str3));
             }
-            com.baidu.b.f.c.a(fileOutputStream);
+            com.baidu.b.f.c.a(fileOutputStream2);
             return true;
         } catch (Exception e2) {
-            fileOutputStream2 = fileOutputStream;
-            com.baidu.b.f.c.a(fileOutputStream2);
+            fileOutputStream3 = fileOutputStream2;
+            com.baidu.b.f.c.a(fileOutputStream3);
             return false;
         } catch (Throwable th3) {
             th = th3;
+            fileOutputStream = fileOutputStream2;
             com.baidu.b.f.c.a(fileOutputStream);
             throw th;
         }
@@ -188,13 +190,13 @@ public class a {
     }
 
     public File a() {
-        return new File(this.f1267a.getApplicationInfo().dataDir);
+        return new File(this.f1610a.getApplicationInfo().dataDir);
     }
 
-    public synchronized C0093a sR() {
-        if (this.adV == null) {
-            this.adV = new C0093a(".cesium", null);
+    public synchronized C0085a sr() {
+        if (this.aeL == null) {
+            this.aeL = new C0085a(".cesium", null);
         }
-        return this.adV;
+        return this.aeL;
     }
 }

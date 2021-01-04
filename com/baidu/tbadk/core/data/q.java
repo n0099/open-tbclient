@@ -6,43 +6,43 @@ import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class q {
-    private boolean eFm;
-    private int eFn;
-    private int eFo;
-    private int eFp = 25;
-    private int eFq = 25;
-    private int eFr = 10;
+    private boolean ePc;
+    private int ePd;
+    private int ePe;
+    private int ePf = 25;
+    private int ePg = 25;
+    private int ePh = 10;
     private int time;
 
     public int getSuccRank() {
-        return this.eFp;
+        return this.ePf;
     }
 
     public int getErrRank() {
-        return this.eFq;
+        return this.ePg;
     }
 
     public int getSlowRank() {
-        return this.eFr;
+        return this.ePh;
     }
 
     public boolean ismSwitch() {
-        return this.eFm;
+        return this.ePc;
     }
 
     public void setmSwitch(boolean z) {
-        if (this.eFm != z) {
-            com.baidu.adp.lib.stats.a mT = com.baidu.tbadk.core.util.u.mT();
-            mT.append("act", "fallback");
-            mT.append("result", z ? "1" : "0");
-            mT.append("type", "switch");
-            BdStatisticsManager.getInstance().debug("img", mT);
+        if (this.ePc != z) {
+            com.baidu.adp.lib.stats.a pi = com.baidu.tbadk.core.util.t.pi();
+            pi.append("act", "fallback");
+            pi.append("result", z ? "1" : "0");
+            pi.append("type", "switch");
+            BdStatisticsManager.getInstance().debug("img", pi);
         }
-        this.eFm = z;
+        this.ePc = z;
     }
 
     public int getSlowNumber() {
-        return this.eFn;
+        return this.ePd;
     }
 
     public int getTime() {
@@ -50,7 +50,7 @@ public class q {
     }
 
     public int getErrNumber() {
-        return this.eFo;
+        return this.ePe;
     }
 
     public void parseJson(String str) {
@@ -59,7 +59,7 @@ public class q {
                 parseJson(new JSONObject(str));
             }
         } catch (Exception e) {
-            this.eFm = false;
+            this.ePc = false;
             BdLog.e(e.getMessage());
         }
     }
@@ -68,30 +68,30 @@ public class q {
         if (jSONObject != null) {
             try {
                 if (jSONObject.optInt("switch") == 1) {
-                    this.eFm = true;
+                    this.ePc = true;
                 } else {
-                    this.eFm = false;
+                    this.ePc = false;
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject("err");
                 if (optJSONObject != null) {
-                    this.eFo = optJSONObject.optInt("num");
+                    this.ePe = optJSONObject.optInt("num");
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("slow");
                 if (optJSONObject2 != null) {
                     this.time = optJSONObject2.optInt("time");
-                    this.eFn = optJSONObject2.optInt("num");
+                    this.ePd = optJSONObject2.optInt("num");
                 }
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("rank");
                 if (optJSONObject3 != null) {
-                    this.eFp = optJSONObject3.optInt("succ");
-                    this.eFq = optJSONObject3.optInt("err");
-                    this.eFr = optJSONObject3.optInt("slow");
+                    this.ePf = optJSONObject3.optInt("succ");
+                    this.ePg = optJSONObject3.optInt("err");
+                    this.ePh = optJSONObject3.optInt("slow");
                 }
-                if (this.time <= 0 || this.eFn <= 0 || this.eFo <= 0) {
-                    this.eFm = false;
+                if (this.time <= 0 || this.ePd <= 0 || this.ePe <= 0) {
+                    this.ePc = false;
                 }
             } catch (Exception e) {
-                this.eFm = false;
+                this.ePc = false;
                 BdLog.e(e.getMessage());
             }
         }

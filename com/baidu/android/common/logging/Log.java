@@ -12,7 +12,7 @@ import java.io.StringWriter;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public final class Log {
     public static final int FILE_LIMETE = 10485760;
     public static final int FILE_NUMBER = 2;
@@ -115,47 +115,34 @@ public final class Log {
     }
 
     private static String getProcessNameForPid(int i) {
-        String str;
-        Exception e;
-        BufferedReader bufferedReader;
-        String str2 = "/proc/" + i + "/status";
+        String str = "/proc/" + i + "/status";
+        String str2 = "";
         try {
-            BufferedReader bufferedReader2 = new BufferedReader(new FileReader(new File("/proc/" + i + "/cmdline")));
-            String readLine = bufferedReader2.readLine();
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(new File("/proc/" + i + "/cmdline")));
+            String readLine = bufferedReader.readLine();
             if (!TextUtils.isEmpty(readLine)) {
-                str = readLine.substring(0, readLine.indexOf(0));
-                bufferedReader = bufferedReader2;
+                str2 = readLine.substring(0, readLine.indexOf(0));
             } else {
-                BufferedReader bufferedReader3 = new BufferedReader(new FileReader(new File(str2)));
-                String readLine2 = bufferedReader3.readLine();
+                bufferedReader = new BufferedReader(new FileReader(new File(str)));
+                String readLine2 = bufferedReader.readLine();
                 while (true) {
                     if (readLine2 == null) {
                         break;
                     } else if (readLine2.startsWith("Name:")) {
                         int indexOf = readLine2.indexOf("\t");
                         if (indexOf >= 0) {
-                            str = readLine2.substring(indexOf + 1);
-                            bufferedReader = bufferedReader3;
+                            str2 = readLine2.substring(indexOf + 1);
                         }
                     } else {
-                        readLine2 = bufferedReader3.readLine();
+                        readLine2 = bufferedReader.readLine();
                     }
                 }
-                str = "";
-                bufferedReader = bufferedReader3;
             }
-        } catch (Exception e2) {
-            str = "";
-            e = e2;
-        }
-        try {
             bufferedReader.close();
-        } catch (Exception e3) {
-            e = e3;
+        } catch (Exception e) {
             e.printStackTrace();
-            return str;
         }
-        return str;
+        return str2;
     }
 
     public static void setLogEnabled(boolean z) {

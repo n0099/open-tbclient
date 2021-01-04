@@ -7,14 +7,15 @@ import android.media.MediaFormat;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.Surface;
+import com.baidu.ala.adp.lib.util.BdLog;
+import com.baidu.ala.ndk.AlaNdkAdapter;
 import com.baidu.ala.recorder.video.IVideoRecorder;
 import com.baidu.ala.recorder.video.hardware.EncoderOutputStream;
-import com.baidu.live.adp.lib.stats.BdStatisticsManager;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
-import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.core.data.ConstantData;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.searchbox.v8engine.util.TimeUtils;
-/* loaded from: classes9.dex */
+import com.kwai.video.player.KsMediaMeta;
+/* loaded from: classes15.dex */
 public class HardH264Encoder {
     private static final int CHECK_STREAM_DURATION = 5000;
     public static final int ENCODE_FPS = 25;
@@ -33,7 +34,7 @@ public class HardH264Encoder {
     private EncoderOutputStream mSteamProc = null;
     private boolean mIsStart = false;
     private byte[] mYUVBuffer = null;
-    private int mTranColorType = 16402;
+    private int mTranColorType = AlaNdkAdapter.CONVERT_TYPE_RGBA_YUV420SP;
     private Runnable mCheckStreamRun = new Runnable() { // from class: com.baidu.ala.recorder.video.hardware.HardH264Encoder.1
         @Override // java.lang.Runnable
         public void run() {
@@ -65,18 +66,17 @@ public class HardH264Encoder {
             int selectColorFormat = selectColorFormat(capabilitiesForType);
             int selectProfile = selectProfile(capabilitiesForType);
             this.mMediaFormat = MediaFormat.createVideoFormat("video/avc", this.mRecorder.getOutputWidth(), this.mRecorder.getOutputHeight());
-            this.mMediaFormat.setInteger("bitrate", this.mRecorder.getBitRate());
+            this.mMediaFormat.setInteger(KsMediaMeta.KSM_KEY_BITRATE, this.mRecorder.getBitRate());
             this.mMediaFormat.setInteger("frame-rate", 25);
             this.mMediaFormat.setInteger("color-format", selectColorFormat);
             this.mMediaFormat.setInteger("i-frame-interval", 2);
             if (!z) {
                 this.mMediaFormat.setInteger(ConstantData.VideoLocationType.PERSON_PROFILE, selectProfile);
-                this.mMediaFormat.setInteger("level", 256);
+                this.mMediaFormat.setInteger(MapBundleKey.MapObjKey.OBJ_LEVEL, 256);
             }
             mediaCodec.configure(this.mMediaFormat, (Surface) null, (MediaCrypto) null, 1);
             return true;
         } catch (Throwable th) {
-            BdStatisticsManager.getInstance().newDebug("AlaLiveEncoder", 0L, null, BdStatsConstant.StatsType.ERROR, "setMediaFormat exception" + th.getMessage());
             return false;
         }
     }
@@ -91,7 +91,6 @@ public class HardH264Encoder {
             }
             return false;
         } catch (Exception e) {
-            BdStatisticsManager.getInstance().newDebug("AlaLiveEncoder", 0L, null, BdStatsConstant.StatsType.ERROR, "initMediaParams exception:" + e.getMessage());
             BdLog.e(e);
             return false;
         }
@@ -121,7 +120,6 @@ public class HardH264Encoder {
             return true;
         } catch (Throwable th) {
             BdLog.e(th);
-            BdStatisticsManager.getInstance().newDebug("AlaLiveEncoder", 0L, null, BdStatsConstant.StatsType.ERROR, "start failed, exception:" + th.getMessage() + ", exceptionType:" + th.getClass().toString() + ", try count:" + i);
             return false;
         }
     }
@@ -175,31 +173,36 @@ public class HardH264Encoder {
     }
 
     private int selectProfile(MediaCodecInfo.CodecCapabilities codecCapabilities) {
-        boolean z = false;
+        boolean z;
+        int i = 0;
         boolean z2 = false;
-        for (int i = 0; i < codecCapabilities.profileLevels.length; i++) {
+        boolean z3 = false;
+        while (i < codecCapabilities.profileLevels.length) {
             if (codecCapabilities.profileLevels[i].profile == 8) {
-                z2 = true;
-            } else if (codecCapabilities.profileLevels[i].profile == 2) {
-                z = true;
+                z = z2;
+                z3 = true;
+            } else {
+                z = codecCapabilities.profileLevels[i].profile == 2 ? true : z2;
             }
+            i++;
+            z2 = z;
         }
-        if (z2) {
+        if (z3) {
             return 8;
         }
-        return z ? 2 : 1;
+        return z2 ? 2 : 1;
     }
 
     private boolean isRecognizedFormat(int i) {
         switch (i) {
             case 19:
             case 20:
-                this.mTranColorType = 81938;
+                this.mTranColorType = AlaNdkAdapter.CONVERT_TYPE_RGBA_YUV420P;
                 return true;
             case 21:
             case 39:
             case 2130706688:
-                this.mTranColorType = 16402;
+                this.mTranColorType = AlaNdkAdapter.CONVERT_TYPE_RGBA_YUV420SP;
                 return true;
             default:
                 return false;

@@ -1,8 +1,8 @@
 package com.baidu.searchbox.player.event;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.player.annotation.PublicMethod;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class PlayerEvent extends VideoEvent {
     public static final String ACTION_BUFFER_UPDATE = "player_event_buffer_update";
     public static final String ACTION_EVENT_AD_SHOW = "layer_event_ad_show";

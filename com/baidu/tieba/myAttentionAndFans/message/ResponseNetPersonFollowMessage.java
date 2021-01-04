@@ -3,14 +3,13 @@ package com.baidu.tieba.myAttentionAndFans.message;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.lib.cache.l;
-import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.tbadk.core.c.a;
 import com.baidu.tbadk.core.data.be;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.myAttentionAndFans.PersonListModel;
 import org.json.JSONObject;
-/* loaded from: classes23.dex */
+/* loaded from: classes8.dex */
 public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
     private be data;
     private int mErrCode;
@@ -45,7 +44,7 @@ public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
         int error = getError();
         if (statusCode == 200 && error == 0) {
             this.mErrCode = jSONObject.optInt("error_code");
-            this.mErrMsg = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG);
+            this.mErrMsg = jSONObject.optString("error_msg");
             this.data = new be();
             this.data.parserJson(jSONObject);
         }
@@ -59,9 +58,9 @@ public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
             BdUniqueId tag = ((HttpMessage) getOrginalMessage()).getTag();
             boolean z = tag != null && tag.equals(PersonListModel.FOLLOWME);
             String str = new String(bArr);
-            l<String> Bo = a.brq().Bo("tb.my_pages");
-            if (Bo != null) {
-                Bo.set((z ? "personal_followme" : "personal_myfollow") + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.mModel.getId(), str, 604800000L);
+            l<String> Bn = a.btS().Bn("tb.my_pages");
+            if (Bn != null) {
+                Bn.set((z ? "personal_followme" : "personal_myfollow") + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.mModel.getId(), str, 604800000L);
             }
         }
     }

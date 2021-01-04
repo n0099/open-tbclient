@@ -14,32 +14,32 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 public class StatFsHelper {
-    private static StatFsHelper pcr;
-    private static final long pcs = TimeUnit.MINUTES.toMillis(2);
-    private volatile File pcu;
-    private volatile File pcw;
+    private static StatFsHelper ptx;
+    private static final long pty = TimeUnit.MINUTES.toMillis(2);
+    private volatile File ptA;
+    private volatile File ptC;
     @GuardedBy("lock")
-    private long pcx;
-    private volatile StatFs pct = null;
-    private volatile StatFs pcv = null;
+    private long ptD;
+    private volatile StatFs ptz = null;
+    private volatile StatFs ptB = null;
     private volatile boolean mInitialized = false;
     private final Lock lock = new ReentrantLock();
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     public enum StorageType {
         INTERNAL,
         EXTERNAL
     }
 
-    public static synchronized StatFsHelper eqi() {
+    public static synchronized StatFsHelper euk() {
         StatFsHelper statFsHelper;
         synchronized (StatFsHelper.class) {
-            if (pcr == null) {
-                pcr = new StatFsHelper();
+            if (ptx == null) {
+                ptx = new StatFsHelper();
             }
-            statFsHelper = pcr;
+            statFsHelper = ptx;
         }
         return statFsHelper;
     }
@@ -52,9 +52,9 @@ public class StatFsHelper {
             this.lock.lock();
             try {
                 if (!this.mInitialized) {
-                    this.pcu = Environment.getDataDirectory();
-                    this.pcw = Environment.getExternalStorageDirectory();
-                    eqk();
+                    this.ptA = Environment.getDataDirectory();
+                    this.ptC = Environment.getExternalStorageDirectory();
+                    eum();
                     this.mInitialized = true;
                 }
             } finally {
@@ -74,8 +74,8 @@ public class StatFsHelper {
         long blockSize;
         long availableBlocks;
         ensureInitialized();
-        eqj();
-        StatFs statFs = storageType == StorageType.INTERNAL ? this.pct : this.pcv;
+        eul();
+        StatFs statFs = storageType == StorageType.INTERNAL ? this.ptz : this.ptB;
         if (statFs != null) {
             if (Build.VERSION.SDK_INT >= 18) {
                 blockSize = statFs.getBlockSizeLong();
@@ -89,11 +89,11 @@ public class StatFsHelper {
         return 0L;
     }
 
-    private void eqj() {
+    private void eul() {
         if (this.lock.tryLock()) {
             try {
-                if (SystemClock.uptimeMillis() - this.pcx > pcs) {
-                    eqk();
+                if (SystemClock.uptimeMillis() - this.ptD > pty) {
+                    eum();
                 }
             } finally {
                 this.lock.unlock();
@@ -102,10 +102,10 @@ public class StatFsHelper {
     }
 
     @GuardedBy("lock")
-    private void eqk() {
-        this.pct = a(this.pct, this.pcu);
-        this.pcv = a(this.pcv, this.pcw);
-        this.pcx = SystemClock.uptimeMillis();
+    private void eum() {
+        this.ptz = a(this.ptz, this.ptA);
+        this.ptB = a(this.ptB, this.ptC);
+        this.ptD = SystemClock.uptimeMillis();
     }
 
     private StatFs a(@Nullable StatFs statFs, @Nullable File file) {
@@ -114,7 +114,7 @@ public class StatFsHelper {
         }
         try {
             if (statFs == null) {
-                statFs = Zi(file.getAbsolutePath());
+                statFs = Zt(file.getAbsolutePath());
             } else {
                 statFs.restat(file.getAbsolutePath());
             }
@@ -122,11 +122,11 @@ public class StatFsHelper {
         } catch (IllegalArgumentException e) {
             return null;
         } catch (Throwable th) {
-            throw l.v(th);
+            throw l.t(th);
         }
     }
 
-    protected static StatFs Zi(String str) {
+    protected static StatFs Zt(String str) {
         return new StatFs(str);
     }
 }

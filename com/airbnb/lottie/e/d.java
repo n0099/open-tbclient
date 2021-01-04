@@ -1,12 +1,12 @@
 package com.airbnb.lottie.e;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class d {
-    private final float Ir;
-    private final float Is;
+    private final float Ia;
+    private final float Ib;
 
     public d(float f, float f2) {
-        this.Ir = f;
-        this.Is = f2;
+        this.Ia = f;
+        this.Ib = f2;
     }
 
     public d() {
@@ -14,11 +14,11 @@ public class d {
     }
 
     public float getScaleX() {
-        return this.Ir;
+        return this.Ia;
     }
 
     public float getScaleY() {
-        return this.Is;
+        return this.Ib;
     }
 
     public String toString() {

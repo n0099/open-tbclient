@@ -15,11 +15,11 @@ public class z {
         }
     }
 
-    public static boolean ax(Activity activity) {
+    public static boolean aA(Activity activity) {
         if (Build.VERSION.SDK_INT < 23) {
             return true;
         }
-        boolean checkWriteExternalStorage = com.baidu.tbadk.core.util.ae.checkWriteExternalStorage(activity);
+        boolean checkWriteExternalStorage = com.baidu.tbadk.core.util.ad.checkWriteExternalStorage(activity);
         if (activity.getApplicationInfo().targetSdkVersion < 23 && Environment.getExternalStorageState().equals("unmounted")) {
             return false;
         }

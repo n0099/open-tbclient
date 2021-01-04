@@ -11,7 +11,7 @@ public abstract class BdBaseModel<T> extends OrmObject {
     public static final int MODE_INVALID = 0;
     protected int mErrorCode;
     protected String mErrorString;
-    protected d mLoadDataCallBack;
+    protected e mLoadDataCallBack;
     protected int mLoadDataMode;
     protected BdUniqueId unique_id;
 
@@ -32,19 +32,19 @@ public abstract class BdBaseModel<T> extends OrmObject {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public BdBaseModel(e<T> eVar) {
+    public BdBaseModel(f<T> fVar) {
         this.mLoadDataMode = 0;
         this.unique_id = null;
         this.mLoadDataCallBack = null;
         this.mErrorCode = 0;
         this.mErrorString = null;
-        if (eVar != null) {
-            this.unique_id = eVar.getUniqueId();
+        if (fVar != null) {
+            this.unique_id = fVar.getUniqueId();
         }
     }
 
-    public void setLoadDataCallBack(d dVar) {
-        this.mLoadDataCallBack = dVar;
+    public void setLoadDataCallBack(e eVar) {
+        this.mLoadDataCallBack = eVar;
     }
 
     public int getErrorCode() {

@@ -8,17 +8,17 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
 import com.baidu.tieba.R;
-/* loaded from: classes21.dex */
-public class w extends b<com.baidu.tbadk.core.data.a> {
-    private com.baidu.tbadk.core.data.a agJ;
-    private MultiImgLayout ahG;
+/* loaded from: classes.dex */
+public class w extends a<com.baidu.tbadk.core.data.a> {
+    private com.baidu.tbadk.core.data.a ahi;
+    private MultiImgLayout ait;
     private String mFrom;
     private int mSkinType;
 
     public w(Context context) {
         super(context);
         this.mSkinType = 3;
-        this.ahG = new MultiImgLayout(context);
+        this.ait = new MultiImgLayout(context);
     }
 
     public void setFrom(String str) {
@@ -26,44 +26,44 @@ public class w extends b<com.baidu.tbadk.core.data.a> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.card.b
+    @Override // com.baidu.card.a
     public View getView() {
-        return this.ahG;
+        return this.ait;
     }
 
-    @Override // com.baidu.card.b
-    public void setOnCardSubClickListener(com.baidu.tieba.card.ab<com.baidu.tbadk.core.data.a> abVar) {
-        this.ahG.setSubClickListener(abVar);
+    @Override // com.baidu.card.a
+    public void setOnCardSubClickListener(com.baidu.tieba.card.aa<com.baidu.tbadk.core.data.a> aaVar) {
+        this.ait.setSubClickListener(aaVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.p
     /* renamed from: b */
-    public void H(com.baidu.tbadk.core.data.a aVar) {
-        this.agJ = aVar;
-        this.ahG.setFrom(this.mFrom);
-        this.ahG.H(aVar);
+    public void D(com.baidu.tbadk.core.data.a aVar) {
+        this.ahi = aVar;
+        this.ait.setFrom(this.mFrom);
+        this.ait.D(aVar);
     }
 
     @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
-            com.baidu.tbadk.core.util.ap.setBackgroundResource(getView(), R.drawable.addresslist_item_bg);
-            this.ahG.alC.onChangeSkinType();
+            com.baidu.tbadk.core.util.ao.setBackgroundResource(getView(), R.drawable.addresslist_item_bg);
+            this.ait.ame.onChangeSkinType();
         }
         this.mSkinType = i;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.card.b
-    public void tD() {
+    @Override // com.baidu.card.a
+    public void tb() {
         a(1, new a.b() { // from class: com.baidu.card.w.1
             @Override // com.baidu.card.a.a.b
-            public boolean a(a.C0097a c0097a) {
-                if (w.this.agJ != null && w.this.agJ.bmn() != null) {
-                    com.baidu.tieba.card.n.Jq(w.this.agJ.bmn().getId());
-                    com.baidu.tieba.card.n.a(w.this.ahG.mTitle, w.this.agJ.bmn().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    com.baidu.tieba.card.n.a(w.this.ahG.ahp, w.this.agJ.bmn().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+            public boolean a(a.C0090a c0090a) {
+                if (w.this.ahi != null && w.this.ahi.boO() != null) {
+                    com.baidu.tieba.card.m.Jo(w.this.ahi.boO().getId());
+                    com.baidu.tieba.card.m.a(w.this.ait.mTitle, w.this.ahi.boO().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    com.baidu.tieba.card.m.a(w.this.ait.aia, w.this.ahi.boO().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -71,26 +71,26 @@ public class w extends b<com.baidu.tbadk.core.data.a> {
     }
 
     public void setConstrainLayoutPool(com.baidu.adp.lib.d.b<ConstrainImageLayout> bVar) {
-        if (this.ahG != null) {
-            this.ahG.setConstrainLayoutPool(bVar);
+        if (this.ait != null) {
+            this.ait.setConstrainLayoutPool(bVar);
         }
     }
 
     public void setConstrainImagePool(com.baidu.adp.lib.d.b<TbImageView> bVar) {
-        if (this.ahG != null) {
-            this.ahG.setConstrainImagePool(bVar);
+        if (this.ait != null) {
+            this.ait.setConstrainImagePool(bVar);
         }
     }
 
     public void setFromCDN(boolean z) {
-        this.ahG.setFromCDN(z);
+        this.ait.setFromCDN(z);
     }
 
     public void setPreloadSizeReadyCallback(com.baidu.adp.widget.a.b bVar) {
-        this.ahG.setPreloadSizeReadyCallback(bVar);
+        this.ait.setPreloadSizeReadyCallback(bVar);
     }
 
     public void setNeedFrsTabName(boolean z) {
-        this.ahG.setNeedFrsTabName(z);
+        this.ait.setNeedFrsTabName(z);
     }
 }

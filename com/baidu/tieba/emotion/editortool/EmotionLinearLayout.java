@@ -5,9 +5,9 @@ import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
-/* loaded from: classes13.dex */
+/* loaded from: classes8.dex */
 public class EmotionLinearLayout extends LinearLayout {
-    private View fxT;
+    private View fHA;
     private boolean visible;
 
     public EmotionLinearLayout(Context context) {
@@ -21,8 +21,8 @@ public class EmotionLinearLayout extends LinearLayout {
     @Override // android.widget.LinearLayout, android.view.View
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        if (this.fxT != null) {
-            this.fxT.measure(getChildMeasureSpec(i, 0, this.fxT.getLayoutParams().width), getChildMeasureSpec(i2, 0, this.fxT.getLayoutParams().height));
+        if (this.fHA != null) {
+            this.fHA.measure(getChildMeasureSpec(i, 0, this.fHA.getLayoutParams().width), getChildMeasureSpec(i2, 0, this.fHA.getLayoutParams().height));
         }
     }
 
@@ -30,14 +30,14 @@ public class EmotionLinearLayout extends LinearLayout {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         View childAt = getChildAt(0);
-        if (this.fxT != null && childAt != null) {
-            int measuredWidth = childAt.getMeasuredWidth() - this.fxT.getMeasuredWidth();
-            this.fxT.layout(measuredWidth, 0, this.fxT.getMeasuredWidth() + measuredWidth, this.fxT.getMeasuredHeight());
+        if (this.fHA != null && childAt != null) {
+            int measuredWidth = childAt.getMeasuredWidth() - this.fHA.getMeasuredWidth();
+            this.fHA.layout(measuredWidth, 0, this.fHA.getMeasuredWidth() + measuredWidth, this.fHA.getMeasuredHeight());
         }
     }
 
     public void setNewView(View view) {
-        this.fxT = view;
+        this.fHA = view;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -45,8 +45,8 @@ public class EmotionLinearLayout extends LinearLayout {
         super.dispatchDraw(canvas);
         if (this.visible) {
             canvas.save();
-            canvas.translate(this.fxT.getLeft(), this.fxT.getTop());
-            this.fxT.draw(canvas);
+            canvas.translate(this.fHA.getLeft(), this.fHA.getTop());
+            this.fHA.draw(canvas);
             canvas.restore();
         }
     }

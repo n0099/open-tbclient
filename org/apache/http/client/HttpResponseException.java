@@ -1,6 +1,6 @@
 package org.apache.http.client;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes6.dex */
 public class HttpResponseException extends ClientProtocolException {
     public HttpResponseException(int i, String str) {
         throw new RuntimeException("Stub!");

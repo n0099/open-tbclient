@@ -7,35 +7,35 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class d {
-    private TextView haA;
-    private LinearLayout haz;
+    private LinearLayout hmn;
+    private TextView hmo;
     protected Context mContext;
     private View mRootView;
 
     public d(Context context) {
         this.mContext = context;
-        an(bYA());
+        ap(cbf());
     }
 
-    public View bYA() {
+    public View cbf() {
         if (this.mRootView == null) {
             this.mRootView = LayoutInflater.from(this.mContext).inflate(a.g.sdk_prc_person_center_guardian_header, (ViewGroup) null);
         }
         return this.mRootView;
     }
 
-    private void an(View view) {
-        this.haz = (LinearLayout) view.findViewById(a.f.ala_guardian_header_root);
-        this.haA = (TextView) view.findViewById(a.f.ala_guardian_header_title);
+    private void ap(View view) {
+        this.hmn = (LinearLayout) view.findViewById(a.f.ala_guardian_header_root);
+        this.hmo = (TextView) view.findViewById(a.f.ala_guardian_header_title);
     }
 
     public void HS(String str) {
-        this.haA.setText(str);
+        this.hmo.setText(str);
     }
 
     public void a(AlaGuardianListActivity alaGuardianListActivity, int i) {
-        alaGuardianListActivity.getLayoutMode().onModeChanged(this.haz);
+        alaGuardianListActivity.getLayoutMode().onModeChanged(this.hmn);
     }
 }

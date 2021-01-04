@@ -4,8 +4,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-/* loaded from: classes24.dex */
-public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPolymeric.c.o, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.n>> {
+import com.baidu.tieba.card.holder.CardViewHolder;
+/* loaded from: classes8.dex */
+public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPolymeric.c.o, CardViewHolder<com.baidu.tieba.personPolymeric.view.n>> {
     private View.OnClickListener mOnClickListener;
     private TbPageContext mPageContext;
 
@@ -17,23 +18,23 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aL */
-    public com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.n> c(ViewGroup viewGroup) {
-        return new com.baidu.tieba.card.a.a<>(new com.baidu.tieba.personPolymeric.view.n(this.mPageContext));
+    /* renamed from: aX */
+    public CardViewHolder<com.baidu.tieba.personPolymeric.view.n> e(ViewGroup viewGroup) {
+        return new CardViewHolder<>(new com.baidu.tieba.personPolymeric.view.n(this.mPageContext));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personPolymeric.c.o oVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.n> aVar) {
-        if (oVar == null || aVar == null || aVar.csN() == null) {
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personPolymeric.c.o oVar, CardViewHolder<com.baidu.tieba.personPolymeric.view.n> cardViewHolder) {
+        if (oVar == null || cardViewHolder == null || cardViewHolder.cvG() == null) {
             return null;
         }
-        aVar.csN().a(oVar);
-        if (aVar.csN().getView() != null) {
-            aVar.csN().getView().setOnClickListener(this.mOnClickListener);
+        cardViewHolder.cvG().a(oVar);
+        if (cardViewHolder.cvG().getView() != null) {
+            cardViewHolder.cvG().getView().setOnClickListener(this.mOnClickListener);
         }
-        return aVar.csN().getView();
+        return cardViewHolder.cvG().getView();
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {

@@ -2,23 +2,23 @@ package com.baidu.tieba.ext.bdplayer.floating;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class c {
-    private JSONObject gKj;
-    private JSONObject gKo;
+    private JSONObject gVV;
+    private JSONObject gWa;
     public String roomId = null;
     public String cover = null;
     public String extra = null;
 
-    public JSONObject cxK() {
-        return this.gKj;
+    public JSONObject cAD() {
+        return this.gVV;
     }
 
-    public JSONObject cxL() {
-        return this.gKo;
+    public JSONObject cAE() {
+        return this.gWa;
     }
 
-    public static c JS(String str) {
+    public static c JQ(String str) {
         JSONObject jSONObject;
         try {
             jSONObject = new JSONObject(str);
@@ -26,25 +26,25 @@ public class c {
             e.printStackTrace();
             jSONObject = null;
         }
-        return dT(jSONObject);
+        return eh(jSONObject);
     }
 
-    public static c dT(JSONObject jSONObject) {
+    public static c eh(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
         c cVar = new c();
-        cVar.gKj = jSONObject.optJSONObject("extra");
-        cVar.gKo = jSONObject.optJSONObject("src");
+        cVar.gVV = jSONObject.optJSONObject("extra");
+        cVar.gWa = jSONObject.optJSONObject("src");
         try {
-            JSONObject cxL = cVar.cxL();
-            if (cxL != null) {
-                cVar.roomId = cxL.optString("room_id");
-                cVar.cover = cxL.optString("cover");
+            JSONObject cAE = cVar.cAE();
+            if (cAE != null) {
+                cVar.roomId = cAE.optString("room_id");
+                cVar.cover = cAE.optString("cover");
             }
-            JSONObject cxK = cVar.cxK();
-            if (cxK != null) {
-                cVar.extra = cxK.toString();
+            JSONObject cAD = cVar.cAD();
+            if (cAD != null) {
+                cVar.extra = cAD.toString();
                 return cVar;
             }
             return cVar;

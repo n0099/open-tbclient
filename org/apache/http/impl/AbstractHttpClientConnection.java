@@ -16,7 +16,7 @@ import org.apache.http.io.SessionInputBuffer;
 import org.apache.http.io.SessionOutputBuffer;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes6.dex */
 public abstract class AbstractHttpClientConnection implements HttpClientConnection {
     protected abstract void assertOpen() throws IllegalStateException;
 

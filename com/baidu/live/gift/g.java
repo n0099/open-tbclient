@@ -6,41 +6,41 @@ import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.atomData.AlaPersonCenterFansActivityConfig;
 import com.baidu.tbadk.core.atomData.MangaCategoryActivityConfig;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class g {
-    private String aVC;
-    private String aVD;
-    private String aVE;
-    private String aVF;
-    private int aVG;
-    private int aVH;
-    private String aVI;
-    private int aVJ;
-    private int aVK;
-    private int aVL;
-    private int aVM;
-    private String aVN;
-    private String aVO;
-    public int aVP;
-    private String aVQ;
-    private String aVR;
-    private String aVS;
-    private boolean aVT;
-    private boolean aVU;
-    private int aVV;
-    private int aVW;
-    private int aVX;
-    public boolean aVY;
-    public b aVZ;
-    public boolean aWa;
-    public String aWb;
-    public String aWc;
-    public a aWd;
-    public int aWe;
-    public long aWf;
-    public k aWg;
-    public String aWh;
-    public int aWi;
+    private boolean aXA;
+    private int aXB;
+    private int aXC;
+    private int aXD;
+    public boolean aXE;
+    public b aXF;
+    public boolean aXG;
+    public String aXH;
+    public String aXI;
+    public a aXJ;
+    public int aXK;
+    public long aXL;
+    public k aXM;
+    public String aXN;
+    public int aXO;
+    private String aXi;
+    private String aXj;
+    private String aXk;
+    private String aXl;
+    private int aXm;
+    private int aXn;
+    private String aXo;
+    private int aXp;
+    private int aXq;
+    private int aXr;
+    private int aXs;
+    private String aXt;
+    private String aXu;
+    public int aXv;
+    private String aXw;
+    private String aXx;
+    private String aXy;
+    private boolean aXz;
     private int animationType;
     private String category_name;
     private String create_time;
@@ -61,298 +61,302 @@ public class g {
     }
 
     public g() {
-        this.aVG = 0;
-        this.aVT = false;
-        this.aWi = -1;
+        this.aXm = 0;
+        this.aXz = false;
+        this.aXO = -1;
     }
 
     public g(g gVar) {
-        this.aVG = 0;
-        this.aVT = false;
-        this.aWi = -1;
+        this.aXm = 0;
+        this.aXz = false;
+        this.aXO = -1;
         if (gVar != null) {
-            this.aVC = gVar.aVC;
+            this.aXi = gVar.aXi;
             this.category_name = gVar.category_name;
-            this.aVD = gVar.aVD;
+            this.aXj = gVar.aXj;
             this.gift_name = gVar.gift_name;
             this.thumbnail_url = gVar.thumbnail_url;
             this.price = gVar.price;
-            this.aVE = gVar.aVE;
+            this.aXk = gVar.aXk;
             this.gift_desc = gVar.gift_desc;
-            this.aVJ = gVar.aVJ;
+            this.aXp = gVar.aXp;
             this.mark_url = gVar.mark_url;
-            this.aVK = gVar.aVK;
-            this.aVL = gVar.aVL;
-            this.aVM = gVar.aVM;
-            this.aVN = gVar.aVN;
+            this.aXq = gVar.aXq;
+            this.aXr = gVar.aXr;
+            this.aXs = gVar.aXs;
+            this.aXt = gVar.aXt;
             this.end_time = gVar.end_time;
-            this.aVO = gVar.aVO;
+            this.aXu = gVar.aXu;
             this.create_time = gVar.create_time;
-            this.aVQ = gVar.aVQ;
+            this.aXw = gVar.aXw;
             this.discount = gVar.discount;
-            this.aVR = gVar.aVR;
-            this.aVS = gVar.aVS;
+            this.aXx = gVar.aXx;
+            this.aXy = gVar.aXy;
             this.selected = gVar.selected;
-            this.aVP = gVar.aVP;
+            this.aXv = gVar.aXv;
             this.scene_from = gVar.getSceneFrom();
             this.animationType = gVar.animationType;
-            if (gVar.aWg != null) {
-                this.aWg = gVar.aWg.clone();
+            if (gVar.aXM != null) {
+                this.aXM = gVar.aXM.clone();
             }
-            this.aVV = gVar.aVV;
-            this.aVW = gVar.aVW;
-            this.aVT = gVar.aVT;
-            this.aVF = gVar.aVF;
-            this.aVU = gVar.aVU;
-            this.aWa = gVar.aWa;
-            this.aWb = gVar.aWb;
-            this.aWc = gVar.aWc;
-            this.aVG = gVar.aVG;
-            this.aVH = gVar.aVH;
+            this.aXB = gVar.aXB;
+            this.aXC = gVar.aXC;
+            this.aXz = gVar.aXz;
+            this.aXl = gVar.aXl;
+            this.aXA = gVar.aXA;
+            this.aXG = gVar.aXG;
+            this.aXH = gVar.aXH;
+            this.aXI = gVar.aXI;
+            this.aXm = gVar.aXm;
+            this.aXn = gVar.aXn;
             this.originalPrice = gVar.originalPrice;
-            this.aVI = gVar.aVI;
-            this.aWh = gVar.aWh;
+            this.aXo = gVar.aXo;
+            this.aXN = gVar.aXN;
         }
     }
 
     public boolean isRed() {
-        return this.aVU;
+        return this.aXA;
     }
 
-    public void bB(boolean z) {
-        this.aVU = z;
+    public void bz(boolean z) {
+        this.aXA = z;
     }
 
-    public String GX() {
-        return this.aVD;
+    public String Gx() {
+        return this.aXj;
     }
 
-    public String GY() {
+    public String Gy() {
         return this.gift_name;
     }
 
-    public String GZ() {
+    public String Gz() {
         return this.gift_desc;
     }
 
     public String getPrice() {
-        return Hk() ? this.aVI : this.price;
+        return GL() ? this.aXo : this.price;
+    }
+
+    public boolean GA() {
+        return GH();
     }
 
     public String getThumbnail_url() {
         return this.thumbnail_url;
     }
 
-    public void gV(String str) {
-        this.aVQ = str;
+    public void gG(String str) {
+        this.aXw = str;
     }
 
-    public String Ha() {
-        return this.aVQ;
+    public String GB() {
+        return this.aXw;
     }
 
-    public int Hb() {
+    public int GC() {
         return this.animationType;
     }
 
-    public void gW(String str) {
-        this.aVD = str;
+    public void gH(String str) {
+        this.aXj = str;
     }
 
     public void setGiftName(String str) {
         this.gift_name = str;
     }
 
-    public void gX(String str) {
-        this.aVQ = str;
+    public void gI(String str) {
+        this.aXw = str;
     }
 
     public void setThumbnailUrl(String str) {
         this.thumbnail_url = str;
     }
 
-    public int Hc() {
-        return this.aVJ;
+    public int GD() {
+        return this.aXp;
     }
 
-    public String Hd() {
-        return this.aVC;
+    public String GE() {
+        return this.aXi;
     }
 
     public void setSceneFrom(String str) {
         this.scene_from = str;
     }
 
-    public void A(JSONObject jSONObject) {
+    public void H(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aVZ = new b(jSONObject);
+            this.aXF = new b(jSONObject);
         }
     }
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aVD = jSONObject.optString(LogConfig.LOG_GIFT_ID);
+            this.aXj = jSONObject.optString(LogConfig.LOG_GIFT_ID);
             this.gift_name = jSONObject.optString("gift_name");
             this.price = jSONObject.optString("price");
             this.thumbnail_url = jSONObject.optString("thumbnail_url");
-            this.aVE = jSONObject.optString("ios_price");
+            this.aXk = jSONObject.optString("ios_price");
             this.create_time = jSONObject.optString("create_time");
-            this.aVQ = jSONObject.optString("gift_count");
+            this.aXw = jSONObject.optString("gift_count");
             this.gift_desc = jSONObject.optString("gift_desc");
-            this.aVJ = jSONObject.optInt(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE);
+            this.aXp = jSONObject.optInt(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE);
             this.mark_url = jSONObject.optString("mark_url");
-            this.aVK = jSONObject.optInt("mark_pic_width");
-            this.aVL = jSONObject.optInt("mark_pic_height");
-            this.aVM = jSONObject.optInt("is_time_limit_gift");
-            this.aVO = jSONObject.optString("gift_tip_text");
-            this.aVN = jSONObject.optString("begin_time");
+            this.aXq = jSONObject.optInt("mark_pic_width");
+            this.aXr = jSONObject.optInt("mark_pic_height");
+            this.aXs = jSONObject.optInt("is_time_limit_gift");
+            this.aXu = jSONObject.optString("gift_tip_text");
+            this.aXt = jSONObject.optString("begin_time");
             this.end_time = jSONObject.optString("end_time");
             this.discount = jSONObject.optString("discount");
-            this.aVR = jSONObject.optString("ios_discount");
+            this.aXx = jSONObject.optString("ios_discount");
             this.selected = jSONObject.optString("pitch_on");
-            this.aVS = jSONObject.optString("proportion");
-            this.aVP = jSONObject.optInt("is_combo");
+            this.aXy = jSONObject.optString("proportion");
+            this.aXv = jSONObject.optInt("is_combo");
             this.animationType = jSONObject.optInt("animation_type");
-            this.aVV = jSONObject.optInt("is_dynamic_gift");
-            this.aVW = jSONObject.optInt("is_broadcast_gift");
+            this.aXB = jSONObject.optInt("is_dynamic_gift");
+            this.aXC = jSONObject.optInt("is_broadcast_gift");
             this.gift_type = jSONObject.optInt("gift_type");
-            this.aVF = jSONObject.optString("gift_tag");
-            this.aVG = jSONObject.optInt("gift_tag_type", 0);
-            this.aVH = jSONObject.optInt("is_discount", 0);
+            this.aXl = jSONObject.optString("gift_tag");
+            this.aXm = jSONObject.optInt("gift_tag_type", 0);
+            this.aXn = jSONObject.optInt("is_discount", 0);
             this.originalPrice = jSONObject.optString("original_price");
-            this.aVI = jSONObject.optString("discount_price");
-            this.aVT = jSONObject.optInt("is_lock") == 1;
+            this.aXo = jSONObject.optString("discount_price");
+            this.aXz = jSONObject.optInt("is_lock") == 1;
             JSONObject optJSONObject = jSONObject.optJSONObject("category_id");
             if (optJSONObject != null) {
-                this.aVC = optJSONObject.optString("category_id");
+                this.aXi = optJSONObject.optString("category_id");
                 this.category_name = optJSONObject.optString(MangaCategoryActivityConfig.CATEGORY_NAME);
             }
-            this.aWa = jSONObject.optInt("is_toast_gift", -1) == 1;
-            this.aWb = jSONObject.optString("toast_text");
-            this.aWc = jSONObject.optString("toast_jump_url");
-            this.aWh = jSONObject.optString("benefit_info");
-            this.aVX = jSONObject.optInt("is_pk_gift", 0);
-            this.aVY = jSONObject.optInt("is_toutiao", 0) == 1;
-            this.aWe = jSONObject.optInt("max_send_num", Opcodes.NEWARRAY);
-            this.aWf = jSONObject.optLong("luck_draw_id", 188L);
+            this.aXG = jSONObject.optInt("is_toast_gift", -1) == 1;
+            this.aXH = jSONObject.optString("toast_text");
+            this.aXI = jSONObject.optString("toast_jump_url");
+            this.aXN = jSONObject.optString("benefit_info");
+            this.aXD = jSONObject.optInt("is_pk_gift", 0);
+            this.aXE = jSONObject.optInt("is_toutiao", 0) == 1;
+            this.aXK = jSONObject.optInt("max_send_num", Opcodes.NEWARRAY);
+            this.aXL = jSONObject.optLong("luck_draw_id", 188L);
         }
     }
 
-    public void B(JSONObject jSONObject) {
+    public void I(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aWd = new a(jSONObject);
+            this.aXJ = new a(jSONObject);
         }
     }
 
-    public boolean He() {
-        return this.aVP == 1;
+    public boolean GF() {
+        return this.aXv == 1;
     }
 
-    public boolean Hf() {
-        return this.aVJ == 7;
+    public boolean GG() {
+        return this.aXp == 7;
     }
 
     @Deprecated
-    public boolean Hg() {
-        return this.aVJ == 9;
+    public boolean GH() {
+        return this.aXp == 9;
     }
 
-    public String Hh() {
-        return this.aVO;
+    public String GI() {
+        return this.aXu;
     }
 
-    public void ej(int i) {
-        this.aVJ = i;
+    public void eh(int i) {
+        this.aXp = i;
         if (i == 1) {
-            this.aVP = 1;
+            this.aXv = 1;
         }
     }
 
-    public boolean Hi() {
-        return this.aVJ == 6;
+    public boolean GJ() {
+        return this.aXp == 6;
     }
 
     public String getSceneFrom() {
         return this.scene_from;
     }
 
-    public boolean Hj() {
-        return this.aVV == 1;
+    public boolean GK() {
+        return this.aXB == 1;
     }
 
-    private boolean Hk() {
-        return this.aVH == 1;
+    private boolean GL() {
+        return this.aXn == 1;
     }
 
-    public boolean Hl() {
-        return this.aVG > 0;
+    public boolean GM() {
+        return this.aXm > 0;
     }
 
-    public boolean Hm() {
-        return this.aVG == 3;
+    public boolean GN() {
+        return this.aXm == 3;
     }
 
-    public boolean Hn() {
-        return this.aVG == 1;
+    public boolean GO() {
+        return this.aXm == 1;
     }
 
-    public boolean Ho() {
-        return this.aVG == 4;
+    public boolean GP() {
+        return this.aXm == 4;
     }
 
-    public boolean Hp() {
-        return this.aVG == 5;
+    public boolean GQ() {
+        return this.aXm == 5;
     }
 
-    public boolean Hq() {
-        return this.aVG == 6;
+    public boolean GR() {
+        return this.aXm == 6;
     }
 
-    public boolean Hr() {
-        return this.aVX == 1;
+    public boolean GS() {
+        return this.aXD == 1;
     }
 
-    public boolean Hs() {
-        return this.aVG == 2;
+    public boolean GT() {
+        return this.aXm == 2;
     }
 
     @Deprecated
-    public boolean Ht() {
-        return this.aVW > 0;
+    public boolean GU() {
+        return this.aXC > 0;
     }
 
-    public int Hu() {
+    public int GV() {
         return this.gift_type;
     }
 
-    public boolean Hv() {
-        return this.aVT;
+    public boolean GW() {
+        return this.aXz;
     }
 
-    public String Hw() {
-        return this.aVF;
+    public String GX() {
+        return this.aXl;
     }
 
     @Deprecated
-    public boolean Hx() {
+    public boolean GY() {
         return this.gift_type == 81;
     }
 
-    public boolean Hy() {
-        return this.aVJ == 10;
+    public boolean GZ() {
+        return this.aXp == 10;
     }
 
-    public boolean Hz() {
+    public boolean Ha() {
         return this.gift_type >= 2 && this.gift_type <= 12;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public class b {
-        public String aWn;
-        public int aWo;
-        public long aWp;
-        public String aWq;
-        public a aWr;
+        public String aXT;
+        public int aXU;
+        public long aXV;
+        public String aXW;
+        public a aXX;
 
         public b(JSONObject jSONObject) {
             parseJson(jSONObject);
@@ -360,17 +364,17 @@ public class g {
 
         private void parseJson(JSONObject jSONObject) {
             if (jSONObject != null) {
-                this.aWn = jSONObject.optString("item_type");
-                this.aWo = jSONObject.optInt("gift_balance");
-                this.aWp = jSONObject.optLong("recent_expire_time");
-                this.aWq = jSONObject.optString("recent_gain_channel");
-                this.aWr = new a(jSONObject.optJSONObject("type"));
+                this.aXT = jSONObject.optString("item_type");
+                this.aXU = jSONObject.optInt("gift_balance");
+                this.aXV = jSONObject.optLong("recent_expire_time");
+                this.aXW = jSONObject.optString("recent_gain_channel");
+                this.aXX = new a(jSONObject.optJSONObject("type"));
             }
         }
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes11.dex */
         public class a {
-            public JSONObject aWs;
+            public JSONObject aXY;
             public int key;
 
             public a(JSONObject jSONObject) {
@@ -380,17 +384,17 @@ public class g {
             private void parseJson(JSONObject jSONObject) {
                 if (jSONObject != null) {
                     this.key = jSONObject.optInt("key");
-                    this.aWs = jSONObject.optJSONObject(Config.EVENT_ATTR);
+                    this.aXY = jSONObject.optJSONObject(Config.EVENT_ATTR);
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public class a {
-        public boolean aWj;
-        public String aWk;
-        public int aWl;
+        public boolean aXP;
+        public String aXQ;
+        public int aXR;
         public String detailUrl;
         public boolean enabled;
 
@@ -401,9 +405,9 @@ public class g {
         private void parseJson(JSONObject jSONObject) {
             if (jSONObject != null) {
                 this.enabled = jSONObject.optInt("bol_long_press", 0) == 1;
-                this.aWj = jSONObject.optInt("bol_dynamic", 0) == 1;
-                this.aWk = jSONObject.optString("dynamic_text");
-                this.aWl = jSONObject.optInt("screen_type");
+                this.aXP = jSONObject.optInt("bol_dynamic", 0) == 1;
+                this.aXQ = jSONObject.optString("dynamic_text");
+                this.aXR = jSONObject.optInt("screen_type");
                 this.detailUrl = jSONObject.optString("screen_url");
             }
         }

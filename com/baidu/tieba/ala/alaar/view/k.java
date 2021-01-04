@@ -5,50 +5,50 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class k extends j implements View.OnClickListener {
-    private View goC;
-    private TextView goD;
-    private ImageView goE;
+    private View gyZ;
+    private TextView gza;
+    private ImageView gzb;
     private String mTitle;
 
     @Override // com.baidu.tieba.ala.alaar.view.j
     protected void a(ValueAnimator valueAnimator) {
         float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-        this.goC.setTranslationY(this.goC.getMeasuredHeight() * floatValue);
-        this.goD.setAlpha(1.0f - floatValue);
-        this.goE.setAlpha(1.0f - floatValue);
+        this.gyZ.setTranslationY(this.gyZ.getMeasuredHeight() * floatValue);
+        this.gza.setAlpha(1.0f - floatValue);
+        this.gzb.setAlpha(1.0f - floatValue);
     }
 
     @Override // com.baidu.tieba.ala.alaar.view.j
-    protected void lR(boolean z) {
+    protected void mo(boolean z) {
         if (z) {
-            this.goC.setVisibility(0);
-            this.goE.setVisibility(0);
-            this.goD.setVisibility(0);
+            this.gyZ.setVisibility(0);
+            this.gzb.setVisibility(0);
+            this.gza.setVisibility(0);
             return;
         }
-        this.goC.setVisibility(4);
-        this.goE.setVisibility(4);
-        this.goD.setVisibility(4);
+        this.gyZ.setVisibility(4);
+        this.gzb.setVisibility(4);
+        this.gza.setVisibility(4);
     }
 
-    public void ce(View view) {
-        this.goC = view.findViewById(a.f.detail_content);
-        this.goD = (TextView) view.findViewById(a.f.thin_face_text_view);
-        this.goE = (ImageView) view.findViewById(a.f.thin_face_shrink);
-        this.goE.setOnClickListener(this);
-        lR(isShowing());
+    public void cn(View view) {
+        this.gyZ = view.findViewById(a.f.detail_content);
+        this.gza = (TextView) view.findViewById(a.f.thin_face_text_view);
+        this.gzb = (ImageView) view.findViewById(a.f.thin_face_shrink);
+        this.gzb.setOnClickListener(this);
+        mo(isShowing());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.ala.alaar.view.j
-    public void QM() {
-        super.QM();
+    public void onShow() {
+        super.onShow();
         if (this.mTitle == null) {
             this.mTitle = "";
         }
-        this.goD.setText(this.mTitle);
+        this.gza.setText(this.mTitle);
     }
 
     public void setTitle(String str) {
@@ -57,8 +57,8 @@ public class k extends j implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.goE && this.goy != null) {
-            this.goy.a(this, view);
+        if (view == this.gzb && this.gyV != null) {
+            this.gyV.a(this, view);
         }
     }
 }

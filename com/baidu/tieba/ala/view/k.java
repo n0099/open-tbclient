@@ -9,37 +9,37 @@ import com.baidu.tieba.ala.data.PkInfoData;
 import com.baidu.tieba.ala.data.PropsInfoData;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class k {
-    PkRankInView hYV;
-    public ArrayList<PropsInfoData> hYW;
-    public ArrayList<PropsInfoData> hYX;
     Handler handler;
+    PkRankInView ilu;
+    public ArrayList<PropsInfoData> ilv;
+    public ArrayList<PropsInfoData> ilw;
 
     public k(final PkRankInView pkRankInView) {
-        this.hYV = pkRankInView;
+        this.ilu = pkRankInView;
         this.handler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.ala.view.k.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 switch (message.what) {
                     case 1:
-                        k.this.m(false);
-                        pkRankInView.cpS();
+                        k.this.n(false);
+                        pkRankInView.csL();
                         return;
                     case 2:
-                        pkRankInView.oG(true);
+                        pkRankInView.pf(true);
                         return;
                     case 3:
-                        pkRankInView.oG(false);
+                        pkRankInView.pf(false);
                         return;
                     case 10:
-                        pkRankInView.cpW();
+                        pkRankInView.csP();
                         return;
                     case 20:
-                        pkRankInView.oH(true);
+                        pkRankInView.pg(true);
                         return;
                     case 30:
-                        pkRankInView.oH(false);
+                        pkRankInView.pg(false);
                         return;
                     default:
                         return;
@@ -49,45 +49,45 @@ public class k {
     }
 
     public void f(PkInfoData pkInfoData) {
-        this.hYW = pkInfoData.myPkData.propsInfos;
-        this.hYX = pkInfoData.otherPkData.propsInfos;
-        if (this.hYW != null && this.hYW.size() > 0) {
-            Iterator<PropsInfoData> it = this.hYW.iterator();
+        this.ilv = pkInfoData.myPkData.propsInfos;
+        this.ilw = pkInfoData.otherPkData.propsInfos;
+        if (this.ilv != null && this.ilv.size() > 0) {
+            Iterator<PropsInfoData> it = this.ilv.iterator();
             while (it.hasNext()) {
                 PropsInfoData next = it.next();
                 if (next.propsType.equals(String.valueOf(1))) {
-                    m(true);
-                    this.hYV.cpR();
+                    n(true);
+                    this.ilu.csK();
                     w(1, next.endTime - next.nowTime);
                 } else if (next.propsType.equals(String.valueOf(2))) {
                     PropsInfoData.a aVar = null;
                     Iterator<PropsInfoData.a> it2 = next.propsUserDataList.iterator();
                     while (it2.hasNext()) {
                         PropsInfoData.a next2 = it2.next();
-                        if (!this.hYV.gHV.isHost && next2.gJn != this.hYV.gHV.aLD.aKr.userId) {
+                        if (!this.ilu.gTH.isHost && next2.gVa != this.ilu.gTH.aMh.aKQ.userId) {
                             next2 = aVar;
                         }
                         aVar = next2;
                     }
                     if (aVar != null) {
-                        this.hYV.cpT();
+                        this.ilu.csM();
                         w(2, aVar.endTime - next.nowTime);
                     } else {
-                        this.hYV.cpU();
+                        this.ilu.csN();
                     }
                     w(3, next.endTime - next.nowTime);
                 }
             }
         }
-        if (this.hYX != null && this.hYX.size() > 0) {
-            Iterator<PropsInfoData> it3 = this.hYX.iterator();
+        if (this.ilw != null && this.ilw.size() > 0) {
+            Iterator<PropsInfoData> it3 = this.ilw.iterator();
             while (it3.hasNext()) {
                 PropsInfoData next3 = it3.next();
                 if (next3.propsType.equals(String.valueOf(1))) {
-                    this.hYV.cpV();
+                    this.ilu.csO();
                     w(10, next3.endTime - next3.nowTime);
                 } else if (next3.propsType.equals(String.valueOf(2))) {
-                    this.hYV.cpX();
+                    this.ilu.csQ();
                     w(30, next3.endTime - next3.nowTime);
                 }
             }
@@ -106,11 +106,11 @@ public class k {
     }
 
     public void onDestroy() {
-        m(false);
+        n(false);
         this.handler.removeCallbacksAndMessages(null);
     }
 
-    public void m(Boolean bool) {
+    public void n(Boolean bool) {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913238, bool));
     }
 }

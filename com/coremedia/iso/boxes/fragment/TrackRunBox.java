@@ -12,29 +12,29 @@ import java.util.ArrayList;
 import java.util.List;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class TrackRunBox extends AbstractFullBox {
     public static final String TYPE = "trun";
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_10 = null;
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_11 = null;
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_12 = null;
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_13 = null;
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_14 = null;
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_15 = null;
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_16 = null;
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_17 = null;
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_18 = null;
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_19 = null;
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_8 = null;
-    private static final /* synthetic */ a.InterfaceC1056a ajc$tjp_9 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_10 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_11 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_12 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_13 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_14 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_15 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_16 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_17 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_18 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_19 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_9 = null;
     private int dataOffset;
     private List<Entry> entries;
     private SampleFlags firstSampleFlags;
@@ -72,7 +72,7 @@ public class TrackRunBox extends AbstractFullBox {
         return this.entries;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Entry {
         private long sampleCompositionTimeOffset;
         private long sampleDuration;
@@ -127,7 +127,7 @@ public class TrackRunBox extends AbstractFullBox {
     }
 
     public void setDataOffset(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.RZ(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.Ts(i)));
         if (i == -1) {
             setFlags(getFlags() & 16777214);
         } else {
@@ -284,7 +284,7 @@ public class TrackRunBox extends AbstractFullBox {
     }
 
     public void setDataOffsetPresent(boolean z) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_10, this, this, org.aspectj.a.a.a.Bq(z)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_10, this, this, org.aspectj.a.a.a.CI(z)));
         if (z) {
             setFlags(getFlags() | 1);
         } else {
@@ -293,7 +293,7 @@ public class TrackRunBox extends AbstractFullBox {
     }
 
     public void setSampleSizePresent(boolean z) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, this, this, org.aspectj.a.a.a.Bq(z)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, this, this, org.aspectj.a.a.a.CI(z)));
         if (z) {
             setFlags(getFlags() | 512);
         } else {
@@ -302,7 +302,7 @@ public class TrackRunBox extends AbstractFullBox {
     }
 
     public void setSampleDurationPresent(boolean z) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_12, this, this, org.aspectj.a.a.a.Bq(z)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_12, this, this, org.aspectj.a.a.a.CI(z)));
         if (z) {
             setFlags(getFlags() | 256);
         } else {
@@ -311,7 +311,7 @@ public class TrackRunBox extends AbstractFullBox {
     }
 
     public void setSampleFlagsPresent(boolean z) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_13, this, this, org.aspectj.a.a.a.Bq(z)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_13, this, this, org.aspectj.a.a.a.CI(z)));
         if (z) {
             setFlags(getFlags() | 1024);
         } else {
@@ -320,7 +320,7 @@ public class TrackRunBox extends AbstractFullBox {
     }
 
     public void setSampleCompositionTimeOffsetPresent(boolean z) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_14, this, this, org.aspectj.a.a.a.Bq(z)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_14, this, this, org.aspectj.a.a.a.CI(z)));
         if (z) {
             setFlags(getFlags() | 2048);
         } else {

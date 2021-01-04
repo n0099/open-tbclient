@@ -5,15 +5,15 @@ import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.SystemClock;
-import android.support.annotation.Nullable;
-import android.support.annotation.RestrictTo;
 import android.support.v4.media.session.PlaybackStateCompatApi21;
 import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 public final class PlaybackStateCompat implements Parcelable {
     public static final long ACTION_FAST_FORWARD = 64;
     public static final long ACTION_PAUSE = 2;
@@ -104,37 +104,37 @@ public final class PlaybackStateCompat implements Parcelable {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     public @interface Actions {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     public @interface ErrorCode {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     public @interface MediaKeyAction {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     public @interface RepeatMode {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     public @interface ShuffleMode {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     public @interface State {
     }
 
@@ -190,7 +190,7 @@ public final class PlaybackStateCompat implements Parcelable {
         this.mErrorMessage = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
         this.mCustomActions = parcel.createTypedArrayList(CustomAction.CREATOR);
         this.mActiveItemId = parcel.readLong();
-        this.mExtras = parcel.readBundle();
+        this.mExtras = parcel.readBundle(MediaSessionCompat.class.getClassLoader());
         this.mErrorCode = parcel.readInt();
     }
 
@@ -238,6 +238,15 @@ public final class PlaybackStateCompat implements Parcelable {
         return this.mPosition;
     }
 
+    public long getLastPositionUpdateTime() {
+        return this.mUpdateTime;
+    }
+
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    public long getCurrentPosition(Long l) {
+        return Math.max(0L, (((float) (l != null ? l.longValue() : SystemClock.elapsedRealtime() - this.mUpdateTime)) * this.mSpeed) + this.mPosition);
+    }
+
     public long getBufferedPosition() {
         return this.mBufferedPosition;
     }
@@ -260,10 +269,6 @@ public final class PlaybackStateCompat implements Parcelable {
 
     public CharSequence getErrorMessage() {
         return this.mErrorMessage;
-    }
-
-    public long getLastPositionUpdateTime() {
-        return this.mUpdateTime;
     }
 
     public long getActiveQueueItemId() {
@@ -316,7 +321,7 @@ public final class PlaybackStateCompat implements Parcelable {
         return this.mStateObj;
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     public static final class CustomAction implements Parcelable {
         public static final Parcelable.Creator<CustomAction> CREATOR = new Parcelable.Creator<CustomAction>() { // from class: android.support.v4.media.session.PlaybackStateCompat.CustomAction.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -350,7 +355,7 @@ public final class PlaybackStateCompat implements Parcelable {
             this.mAction = parcel.readString();
             this.mName = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
             this.mIcon = parcel.readInt();
-            this.mExtras = parcel.readBundle();
+            this.mExtras = parcel.readBundle(MediaSessionCompat.class.getClassLoader());
         }
 
         @Override // android.os.Parcelable
@@ -403,7 +408,7 @@ public final class PlaybackStateCompat implements Parcelable {
             return "Action:mName='" + ((Object) this.mName) + ", mIcon=" + this.mIcon + ", mExtras=" + this.mExtras;
         }
 
-        /* loaded from: classes19.dex */
+        /* loaded from: classes3.dex */
         public static final class Builder {
             private final String mAction;
             private Bundle mExtras;
@@ -436,7 +441,7 @@ public final class PlaybackStateCompat implements Parcelable {
         }
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     public static final class Builder {
         private long mActions;
         private long mActiveItemId;

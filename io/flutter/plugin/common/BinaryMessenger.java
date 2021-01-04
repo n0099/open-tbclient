@@ -1,22 +1,30 @@
 package io.flutter.plugin.common;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.UiThread;
 import java.nio.ByteBuffer;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public interface BinaryMessenger {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     public interface BinaryMessageHandler {
-        void onMessage(ByteBuffer byteBuffer, BinaryReply binaryReply);
+        @UiThread
+        void onMessage(@Nullable ByteBuffer byteBuffer, @NonNull BinaryReply binaryReply);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     public interface BinaryReply {
-        void reply(ByteBuffer byteBuffer);
+        @UiThread
+        void reply(@Nullable ByteBuffer byteBuffer);
     }
 
-    void send(String str, ByteBuffer byteBuffer);
+    @UiThread
+    void send(@NonNull String str, @Nullable ByteBuffer byteBuffer);
 
-    void send(String str, ByteBuffer byteBuffer, BinaryReply binaryReply);
+    @UiThread
+    void send(@NonNull String str, @Nullable ByteBuffer byteBuffer, @Nullable BinaryReply binaryReply);
 
-    void setMessageHandler(String str, BinaryMessageHandler binaryMessageHandler);
+    @UiThread
+    void setMessageHandler(@NonNull String str, @Nullable BinaryMessageHandler binaryMessageHandler);
 }

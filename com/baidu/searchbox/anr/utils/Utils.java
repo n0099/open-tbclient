@@ -15,153 +15,192 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes20.dex */
+/* loaded from: classes6.dex */
 public class Utils {
     private static final String KEY_ANR_LOG = "Wrote stack traces to ";
     private static final int LOG_MONITOR_TIMEOUT = 5000;
     private static final int THRESHOLD_TIME = 5;
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [104=5, 105=5, 108=5, 109=5, 114=5, 115=5] */
-    /* JADX WARN: Removed duplicated region for block: B:67:0x018d  */
-    /* JADX WARN: Removed duplicated region for block: B:74:0x019e  */
+    /* JADX WARN: Removed duplicated region for block: B:100:0x0183 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:103:0x0198 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:133:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:64:0x0188 A[Catch: IOException -> 0x01b1, TRY_LEAVE, TryCatch #4 {IOException -> 0x01b1, blocks: (B:62:0x0183, B:64:0x0188), top: B:100:0x0183 }] */
+    /* JADX WARN: Removed duplicated region for block: B:66:0x018d  */
+    /* JADX WARN: Removed duplicated region for block: B:72:0x019d A[Catch: IOException -> 0x01a6, TRY_LEAVE, TryCatch #9 {IOException -> 0x01a6, blocks: (B:70:0x0198, B:72:0x019d), top: B:103:0x0198 }] */
+    /* JADX WARN: Removed duplicated region for block: B:74:0x01a2  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static boolean storeIfRealANR(String str, int i) {
-        Process exec;
+        BufferedWriter bufferedWriter;
+        BufferedReader bufferedReader;
+        Process process;
         String[] split;
         long currentTimeMillis = System.currentTimeMillis();
-        Process process = null;
-        BufferedReader bufferedReader = null;
-        BufferedWriter bufferedWriter = null;
+        BufferedReader bufferedReader2 = null;
+        BufferedWriter bufferedWriter2 = null;
         try {
-            try {
-                if (Build.VERSION.SDK_INT <= 22) {
-                    Process exec2 = Runtime.getRuntime().exec("logcat -vtime -T " + i);
+            if (Build.VERSION.SDK_INT <= 22) {
+                process = Runtime.getRuntime().exec("logcat -vtime -T " + i);
+                try {
                     File file = new File(str);
                     if (!file.exists() && !file.createNewFile()) {
                         Log.i("ANR", "Create log file failed: " + file.getAbsolutePath());
                         if (0 != 0) {
                             try {
-                                bufferedWriter.close();
+                                bufferedWriter2.close();
                             } catch (IOException e) {
                             }
                         }
                         if (0 != 0) {
-                            bufferedReader.close();
+                            bufferedReader2.close();
                         }
-                        if (exec2 != null) {
-                            exec2.destroy();
+                        if (process != null) {
+                            process.destroy();
                             return false;
                         }
                         return false;
                     }
                     bufferedWriter = new BufferedWriter(new FileWriter(file));
-                    exec = exec2;
-                } else {
-                    exec = Runtime.getRuntime().exec(new String[]{"/system/bin/sh", "-c", "logcat -vtime -T " + i + " | tee " + str});
+                } catch (IOException e2) {
+                    e = e2;
+                    bufferedWriter = null;
+                    bufferedReader = null;
+                    e.printStackTrace();
+                    if (bufferedWriter != null) {
+                    }
+                    if (bufferedReader != null) {
+                    }
+                    if (process != null) {
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    bufferedWriter = null;
+                    bufferedReader = null;
+                    if (bufferedWriter != null) {
+                    }
+                    if (bufferedReader != null) {
+                    }
+                    if (process != null) {
+                    }
+                    throw th;
                 }
-                boolean z = false;
+            } else {
+                process = Runtime.getRuntime().exec(new String[]{"/system/bin/sh", "-c", "logcat -vtime -T " + i + " | tee " + str});
+                bufferedWriter = null;
+            }
+        } catch (IOException e3) {
+            e = e3;
+            bufferedWriter = null;
+            bufferedReader = null;
+            process = null;
+        } catch (Throwable th2) {
+            th = th2;
+            bufferedWriter = null;
+            bufferedReader = null;
+            process = null;
+        }
+        try {
+            bufferedReader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            boolean z = false;
+            while (System.currentTimeMillis() - currentTimeMillis < 5000) {
                 try {
-                    BufferedReader bufferedReader2 = new BufferedReader(new InputStreamReader(exec.getInputStream()));
-                    while (System.currentTimeMillis() - currentTimeMillis < 5000) {
-                        try {
-                            if (bufferedReader2.ready()) {
-                                if (!z) {
-                                    Log.i("ANR", "Ready time: " + (System.currentTimeMillis() - currentTimeMillis));
-                                    z = true;
-                                }
-                                String readLine = bufferedReader2.readLine();
-                                if (Build.VERSION.SDK_INT <= 22 && bufferedWriter != null && readLine != null) {
-                                    bufferedWriter.write(readLine + "\n");
-                                }
-                                if (readLine != null && readLine.contains(KEY_ANR_LOG) && (split = readLine.split(" ")) != null && split.length >= 2 && isRecentANR(split[1], 5)) {
-                                    Log.i("ANR", "Detect ANR time: " + (System.currentTimeMillis() - currentTimeMillis));
-                                    if (bufferedWriter != null) {
-                                        try {
-                                            bufferedWriter.close();
-                                        } catch (IOException e2) {
-                                        }
-                                    }
-                                    if (bufferedReader2 != null) {
-                                        bufferedReader2.close();
-                                    }
-                                    if (exec != null) {
-                                        exec.destroy();
-                                        return true;
-                                    }
-                                    return true;
-                                }
+                    try {
+                        if (bufferedReader.ready()) {
+                            if (!z) {
+                                Log.i("ANR", "Ready time: " + (System.currentTimeMillis() - currentTimeMillis));
+                                z = true;
                             }
-                        } catch (IOException e3) {
-                            e = e3;
-                            bufferedReader = bufferedReader2;
-                            process = exec;
-                            e.printStackTrace();
-                            if (bufferedWriter != null) {
-                                try {
-                                    bufferedWriter.close();
-                                } catch (IOException e4) {
-                                    if (process != null) {
-                                        process.destroy();
+                            String readLine = bufferedReader.readLine();
+                            if (Build.VERSION.SDK_INT <= 22 && bufferedWriter != null && readLine != null) {
+                                bufferedWriter.write(readLine + "\n");
+                            }
+                            if (readLine != null && readLine.contains(KEY_ANR_LOG) && (split = readLine.split(" ")) != null && split.length >= 2 && isRecentANR(split[1], 5)) {
+                                Log.i("ANR", "Detect ANR time: " + (System.currentTimeMillis() - currentTimeMillis));
+                                if (bufferedWriter != null) {
+                                    try {
+                                        bufferedWriter.close();
+                                    } catch (IOException e4) {
                                     }
-                                    return false;
+                                }
+                                if (bufferedReader != null) {
+                                    bufferedReader.close();
+                                }
+                                if (process != null) {
+                                    process.destroy();
+                                }
+                                return true;
+                            }
+                        }
+                    } catch (IOException e5) {
+                        e = e5;
+                        e.printStackTrace();
+                        if (bufferedWriter != null) {
+                            try {
+                                bufferedWriter.close();
+                            } catch (IOException e6) {
+                                if (process != null) {
                                 }
                             }
-                            if (bufferedReader != null) {
-                                bufferedReader.close();
-                            }
-                            if (process != null) {
-                            }
+                        }
+                        if (bufferedReader != null) {
+                            bufferedReader.close();
+                        }
+                        if (process != null) {
+                            process.destroy();
                             return false;
-                        } catch (Throwable th) {
-                            th = th;
-                            bufferedReader = bufferedReader2;
-                            process = exec;
-                            if (bufferedWriter != null) {
-                                try {
-                                    bufferedWriter.close();
-                                } catch (IOException e5) {
-                                    if (process != null) {
-                                        process.destroy();
-                                    }
-                                    throw th;
-                                }
-                            }
-                            if (bufferedReader != null) {
-                                bufferedReader.close();
-                            }
+                        }
+                        return false;
+                    }
+                } catch (Throwable th3) {
+                    th = th3;
+                    if (bufferedWriter != null) {
+                        try {
+                            bufferedWriter.close();
+                        } catch (IOException e7) {
                             if (process != null) {
                             }
                             throw th;
                         }
                     }
-                    if (bufferedWriter != null) {
-                        try {
-                            bufferedWriter.close();
-                        } catch (IOException e6) {
-                        }
+                    if (bufferedReader != null) {
+                        bufferedReader.close();
                     }
-                    if (bufferedReader2 != null) {
-                        bufferedReader2.close();
+                    if (process != null) {
+                        process.destroy();
                     }
-                    if (exec != null) {
-                        exec.destroy();
-                    }
-                } catch (IOException e7) {
-                    e = e7;
-                    process = exec;
-                } catch (Throwable th2) {
-                    th = th2;
-                    process = exec;
+                    throw th;
                 }
-            } catch (Throwable th3) {
-                th = th3;
             }
-        } catch (IOException e8) {
-            e = e8;
+            if (bufferedWriter != null) {
+                try {
+                    bufferedWriter.close();
+                } catch (IOException e8) {
+                }
+            }
+            if (bufferedReader != null) {
+                bufferedReader.close();
+            }
+            if (process != null) {
+                process.destroy();
+                return false;
+            }
+            return false;
+        } catch (IOException e9) {
+            e = e9;
+            bufferedReader = null;
+        } catch (Throwable th4) {
+            th = th4;
+            bufferedReader = null;
+            if (bufferedWriter != null) {
+            }
+            if (bufferedReader != null) {
+            }
+            if (process != null) {
+            }
+            throw th;
         }
-        return false;
     }
 
     private static boolean isRecentANR(String str, int i) {

@@ -2,7 +2,7 @@ package com.coremedia.iso.boxes;
 
 import com.googlecode.mp4parser.AbstractContainerBox;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MovieBox extends AbstractContainerBox {
     public static final String TYPE = "moov";
 

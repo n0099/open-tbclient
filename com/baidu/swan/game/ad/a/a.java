@@ -4,31 +4,31 @@ import android.net.Uri;
 import android.view.View;
 import com.baidu.swan.game.ad.entity.AdElementInfo;
 import com.baidu.swan.game.ad.jsbridge.CommandType;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public interface a {
 
     /* renamed from: com.baidu.swan.game.ad.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes14.dex */
-    public interface InterfaceC0526a {
+    /* loaded from: classes3.dex */
+    public interface InterfaceC0519a {
         void a(CommandType commandType, Uri uri);
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a(AdElementInfo adElementInfo);
 
-        void we(String str);
+        void wd(String str);
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public interface c {
-        void aL(View view);
+        void aU(View view);
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public interface d {
-        void aM(View view);
+        void aV(View view);
 
-        void cU(String str, String str2);
+        void cT(String str, String str2);
     }
 }

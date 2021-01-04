@@ -29,7 +29,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.lang.ref.WeakReference;
 @TargetApi(16)
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class FUCameraOperator implements IFaceUnityOperator, ICameraOperator {
     private static final int DEFAULT_ROTATE = 0;
     private static final String EFFECT_NONE = "none";

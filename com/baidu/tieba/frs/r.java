@@ -7,40 +7,40 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
-public class r extends k<s, t> {
-    private final int gms;
+/* loaded from: classes2.dex */
+public class r extends k<s, FrsNoListItemViewHolder> {
+    private final int itemHeight;
 
     public r(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.gms = (com.baidu.adp.lib.util.l.getEquipmentHeight(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds90);
+        this.itemHeight = (com.baidu.adp.lib.util.l.getEquipmentHeight(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds90);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: I */
-    public t c(ViewGroup viewGroup) {
+    /* renamed from: U */
+    public FrsNoListItemViewHolder e(ViewGroup viewGroup) {
         View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.frs_no_list_item_view, viewGroup, false);
         ViewGroup.LayoutParams generateLayoutParamsByParent = generateLayoutParamsByParent(viewGroup);
         generateLayoutParamsByParent.width = -1;
-        generateLayoutParamsByParent.height = this.gms;
+        generateLayoutParamsByParent.height = this.itemHeight;
         inflate.setLayoutParams(generateLayoutParamsByParent);
-        return new t(inflate, viewGroup);
+        return new FrsNoListItemViewHolder(inflate, viewGroup);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.k, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, s sVar, t tVar) {
-        super.a(i, view, viewGroup, (ViewGroup) sVar, (s) tVar);
-        if (sVar.cDU() == 6) {
-            tVar.iWw.setText(R.string.attention_no_post_tip);
+    public View a(int i, View view, ViewGroup viewGroup, s sVar, FrsNoListItemViewHolder frsNoListItemViewHolder) {
+        super.a(i, view, viewGroup, (ViewGroup) sVar, (s) frsNoListItemViewHolder);
+        if (sVar.cGP() == 6) {
+            frsNoListItemViewHolder.jiJ.setText(R.string.attention_no_post_tip);
         } else {
-            tVar.iWw.setText(R.string.no_data_common_txt);
+            frsNoListItemViewHolder.jiJ.setText(R.string.no_data_common_txt);
         }
-        com.baidu.tbadk.core.util.ap.setViewTextColor(tVar.iWw, R.color.CAM_X0107, 1);
-        com.baidu.tbadk.core.util.ap.setImageResource(tVar.iWx, R.drawable.new_pic_emotion_06);
+        com.baidu.tbadk.core.util.ao.setViewTextColor(frsNoListItemViewHolder.jiJ, R.color.CAM_X0107, 1);
+        com.baidu.tbadk.core.util.ao.setImageResource(frsNoListItemViewHolder.jiK, R.drawable.new_pic_emotion_06);
         return view;
     }
 }

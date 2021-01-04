@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import tbclient.SetCommonForumState.DataReq;
 import tbclient.SetCommonForumState.SetCommonForumStateReqIdl;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class RequestSetCommForumStateNetMessage extends NetMessage {
     private long mForumId;
     private int operation;
@@ -27,7 +27,7 @@ public class RequestSetCommForumStateNetMessage extends NetMessage {
         builder.forum_id = Long.valueOf(this.mForumId);
         builder.operation = Integer.valueOf(this.operation);
         if (z) {
-            com.baidu.tbadk.util.u.a(builder, true);
+            com.baidu.tbadk.util.t.b(builder, true);
         }
         SetCommonForumStateReqIdl.Builder builder2 = new SetCommonForumStateReqIdl.Builder();
         builder2.data = builder.build(false);

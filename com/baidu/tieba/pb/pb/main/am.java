@@ -1,27 +1,47 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.tbadkCore.data.PostData;
-/* loaded from: classes22.dex */
-public class am extends PostData {
-    public static final BdUniqueId lNA = BdUniqueId.gen();
-    public com.baidu.tbadk.core.data.ba lNB;
-    public com.baidu.tbadk.core.data.ba lNC;
-    public com.baidu.tbadk.core.data.ba lND;
+import android.net.Uri;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.data.bc;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+/* loaded from: classes2.dex */
+public class am {
+    private TbPageContext eXu;
+    private boolean lUi;
+    private bc lUj;
 
-    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.q
-    public BdUniqueId getType() {
-        return lNA;
+    public am(TbPageContext tbPageContext) {
+        Uri uri;
+        this.lUi = false;
+        this.eXu = tbPageContext;
+        if (this.eXu.getPageActivity() != null && this.eXu.getPageActivity().getIntent() != null && (uri = (Uri) this.eXu.getPageActivity().getIntent().getParcelableExtra(IntentConfig.KEY_URI)) != null) {
+            String queryParameter = uri.getQueryParameter("tid");
+            uri.getQueryParameter("eqid");
+            this.lUj = new bc();
+            this.lUj.tid = uri.getQueryParameter("tid");
+            this.lUj.eRo = uri.getQueryParameter("eqid");
+            if (!TextUtils.isEmpty(queryParameter) && com.baidu.adp.base.b.kC().getSize() <= 3) {
+                this.lUi = true;
+            }
+        }
     }
 
-    public boolean hasData() {
-        if (this.lNB == null || StringUtils.isNull(this.lNB.summary)) {
-            if (this.lNC == null || StringUtils.isNull(this.lNC.summary)) {
-                return (this.lND == null || StringUtils.isNull(this.lND.summary)) ? false : true;
+    public void h(PbModel pbModel) {
+        if (this.lUi && this.lUj != null && pbModel != null && pbModel.getPbData() != null && pbModel.getPbData().getForum() != null) {
+            ForumData forum = pbModel.getPbData().getForum();
+            this.lUj.firstDir = forum.getFirst_class();
+            this.lUj.secondDir = forum.getSecond_class();
+            TbSingleton.getInstance().setPbToHomeUpdateData(this.lUj);
+            if (com.baidu.adp.base.b.kC().bo("MainTabActivity")) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921455));
+            } else {
+                TbSingleton.getInstance().setForceRefreshHomeRecommend(true);
             }
-            return true;
         }
-        return true;
     }
 }

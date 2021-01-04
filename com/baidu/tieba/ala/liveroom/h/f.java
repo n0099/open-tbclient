@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.liveroom.h;
 
 import android.content.Context;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class f {
     public static int getScreenHeight(Context context) {
         return context.getResources().getDisplayMetrics().heightPixels;

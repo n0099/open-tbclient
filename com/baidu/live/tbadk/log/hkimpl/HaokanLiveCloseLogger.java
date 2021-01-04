@@ -6,7 +6,7 @@ import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.live.tbadk.log.LogManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class HaokanLiveCloseLogger implements ILiveCloseLogger {
     @Override // com.baidu.live.tbadk.log.ILiveCloseLogger
     public void doAccessLiveCloseGuestLog(String str, String str2, String str3, String str4) {
@@ -140,5 +140,30 @@ public class HaokanLiveCloseLogger implements ILiveCloseLogger {
 
     @Override // com.baidu.live.tbadk.log.ILiveCloseLogger
     public void doNoticeStaytimeLiveCloseGuestLog(String str, String str2, String str3, long j, String str4) {
+    }
+
+    @Override // com.baidu.live.tbadk.log.ILiveCloseLogger
+    public void doEnterLiveCloseGuestLog(String str, String str2, String str3, String str4, String str5) {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("live_id", str);
+            jSONObject.put("room_id", str2);
+            jSONObject.put("url", str4);
+            jSONObject.put("error_msg", "");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        JSONObject jSONObject2 = new JSONObject();
+        try {
+            jSONObject2.put("tab", LogConfig.TAB_LIVE_CLOSE_GUEST);
+            jSONObject2.put("k", "access");
+            jSONObject2.put("type", "live");
+            jSONObject2.put("value", LogConfig.TYPE_CLOSED);
+            jSONObject2.put("ext", jSONObject);
+            LogManager.attachHaoKanLiveOtherParams(jSONObject2, str5);
+        } catch (JSONException e2) {
+            e2.printStackTrace();
+        }
+        ExtraParamsManager.doLog(jSONObject2, 3);
     }
 }

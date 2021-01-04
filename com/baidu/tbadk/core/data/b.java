@@ -6,111 +6,111 @@ import org.json.JSONObject;
 import tbclient.ActInfo;
 /* loaded from: classes.dex */
 public class b {
-    private int aTU;
-    private int aVJ;
-    private int eDA;
-    private boolean eDB;
-    private String eDC;
-    private int eDD = 1;
-    private int eDE = 1;
-    private int eDF;
-    private bt eDG;
-    private int eDy;
-    private int eDz;
-    private int evJ;
+    private int aUT;
+    private int aXp;
+    private int eEZ;
+    private int eNl;
+    private int eNm;
+    private int eNn;
+    private boolean eNo;
+    private String eNp;
+    private int eNq = 1;
+    private int eNr = 1;
+    private int eNs;
+    private bu eNt;
     private int status;
     private int total_num;
     private String url;
 
-    public int bmy() {
-        return this.aVJ;
+    public int boZ() {
+        return this.aXp;
     }
 
     public int getStatus() {
         return this.status;
     }
 
-    public int bmz() {
-        return this.eDy;
+    public int bpa() {
+        return this.eNl;
     }
 
-    public int bmA() {
-        return this.aTU;
+    public int bpb() {
+        return this.aUT;
     }
 
     public String getUrl() {
         return this.url;
     }
 
-    public int bmB() {
+    public int bpc() {
         return this.total_num;
     }
 
-    public boolean bmC() {
-        return this.eDB;
+    public boolean bpd() {
+        return this.eNo;
     }
 
     public void a(ActInfo actInfo) {
         if (actInfo != null) {
-            this.aVJ = actInfo.activity_type != null ? actInfo.activity_type.intValue() : -1;
+            this.aXp = actInfo.activity_type != null ? actInfo.activity_type.intValue() : -1;
             this.status = actInfo.status != null ? actInfo.status.intValue() : -1;
-            this.eDy = actInfo.begin_time != null ? actInfo.begin_time.intValue() : -1;
-            this.aTU = actInfo.end_time != null ? actInfo.end_time.intValue() : -1;
+            this.eNl = actInfo.begin_time != null ? actInfo.begin_time.intValue() : -1;
+            this.aUT = actInfo.end_time != null ? actInfo.end_time.intValue() : -1;
             this.url = actInfo.url;
             this.total_num = actInfo.total_num != null ? actInfo.total_num.intValue() : -1;
-            this.evJ = actInfo.activity_id.intValue();
-            this.eDz = actInfo.award_act_id.intValue();
-            this.eDA = actInfo.component_id.intValue();
-            this.eDB = actInfo.is_senior.booleanValue();
-            this.eDC = actInfo.banner_img;
-            this.eDF = actInfo.show_total_num.intValue();
+            this.eEZ = actInfo.activity_id.intValue();
+            this.eNm = actInfo.award_act_id.intValue();
+            this.eNn = actInfo.component_id.intValue();
+            this.eNo = actInfo.is_senior.booleanValue();
+            this.eNp = actInfo.banner_img;
+            this.eNs = actInfo.show_total_num.intValue();
             String str = actInfo.banner_img_size;
-            if (!com.baidu.tbadk.core.util.au.isEmpty(str)) {
+            if (!com.baidu.tbadk.core.util.at.isEmpty(str)) {
                 try {
                     String[] split = str.split(",");
-                    this.eDD = com.baidu.adp.lib.f.b.toInt(split[0], 1);
-                    this.eDE = com.baidu.adp.lib.f.b.toInt(split[1], 1);
+                    this.eNq = com.baidu.adp.lib.f.b.toInt(split[0], 1);
+                    this.eNr = com.baidu.adp.lib.f.b.toInt(split[1], 1);
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                 }
             }
-            if (this.eDD <= 0) {
-                this.eDD = 1;
+            if (this.eNq <= 0) {
+                this.eNq = 1;
             }
-            if (this.eDE <= 0) {
-                this.eDE = 1;
+            if (this.eNr <= 0) {
+                this.eNr = 1;
             }
-            this.eDG = new bt();
-            this.eDG.a(actInfo.lottery_senior);
+            this.eNt = new bu();
+            this.eNt.a(actInfo.lottery_senior);
         }
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.aVJ = jSONObject.optInt(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE);
+                this.aXp = jSONObject.optInt(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE);
                 this.status = jSONObject.optInt("status");
-                this.eDy = jSONObject.optInt("begin_time");
-                this.aTU = jSONObject.optInt("end_time");
+                this.eNl = jSONObject.optInt("begin_time");
+                this.aUT = jSONObject.optInt("end_time");
                 this.url = jSONObject.optString("url");
                 this.total_num = jSONObject.optInt("total_num");
-                this.evJ = jSONObject.optInt("activity_id");
-                this.eDz = jSONObject.optInt("award_act_id");
-                this.eDA = jSONObject.optInt("component_id");
-                this.eDB = jSONObject.optBoolean("is_senior");
-                this.eDC = jSONObject.optString("banner_img");
-                this.eDF = jSONObject.optInt("show_total_num");
+                this.eEZ = jSONObject.optInt("activity_id");
+                this.eNm = jSONObject.optInt("award_act_id");
+                this.eNn = jSONObject.optInt("component_id");
+                this.eNo = jSONObject.optBoolean("is_senior");
+                this.eNp = jSONObject.optString("banner_img");
+                this.eNs = jSONObject.optInt("show_total_num");
                 String optString = jSONObject.optString("banner_img_size");
-                if (!com.baidu.tbadk.core.util.au.isEmpty(optString)) {
+                if (!com.baidu.tbadk.core.util.at.isEmpty(optString)) {
                     String[] split = optString.split(",");
-                    this.eDD = com.baidu.adp.lib.f.b.toInt(split[0], 1);
-                    this.eDE = com.baidu.adp.lib.f.b.toInt(split[1], 1);
+                    this.eNq = com.baidu.adp.lib.f.b.toInt(split[0], 1);
+                    this.eNr = com.baidu.adp.lib.f.b.toInt(split[1], 1);
                 }
-                if (this.eDD <= 0) {
-                    this.eDD = 1;
+                if (this.eNq <= 0) {
+                    this.eNq = 1;
                 }
-                if (this.eDE <= 0) {
-                    this.eDE = 1;
+                if (this.eNr <= 0) {
+                    this.eNr = 1;
                 }
             } catch (Exception e) {
                 BdLog.e(e.toString());

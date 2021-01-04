@@ -7,17 +7,17 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends f {
-    private int fMg;
-    ConstrainImageLayout.a fMh;
+    private int fVL;
+    ConstrainImageLayout.a fVM;
 
     public a(int i) {
         super(i);
-        this.fMg = 0;
-        this.fMh = new ConstrainImageLayout.a() { // from class: com.baidu.tbadk.widget.layout.a.1
+        this.fVL = 0;
+        this.fVM = new ConstrainImageLayout.a() { // from class: com.baidu.tbadk.widget.layout.a.1
             @Override // com.baidu.tbadk.widget.layout.ConstrainImageLayout.a
             public void a(TbImageView tbImageView, int i2, int i3) {
                 tbImageView.setRadiusById(R.string.J_X05);
-                tbImageView.bHt();
+                tbImageView.bJL();
                 tbImageView.setDrawCorner(true);
                 tbImageView.setConrers(0);
                 if (i3 == 1) {
@@ -35,8 +35,8 @@ public class a extends f {
 
     @Override // com.baidu.tbadk.widget.layout.f, com.baidu.tbadk.widget.layout.c
     public int a(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i, int i2) {
-        this.fMg = list.size() < this.fNw ? list.size() : this.fNw;
-        constrainImageLayout.setTbImageViewConfiguration(this.fMh);
+        this.fVL = list.size() < this.fXa ? list.size() : this.fXa;
+        constrainImageLayout.setTbImageViewConfiguration(this.fVM);
         return super.a(constrainImageLayout, list, i, i2);
     }
 }

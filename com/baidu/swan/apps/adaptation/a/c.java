@@ -3,13 +3,10 @@ package com.baidu.swan.apps.adaptation.a;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.swan.apps.api.module.a.b;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public interface c {
-    @NonNull
-    com.baidu.swan.apps.setting.oauth.a.c W(Context context, String str);
-
     @NonNull
     com.baidu.swan.apps.setting.oauth.a.a a(Activity activity, boolean z, String str, String str2);
 
@@ -23,8 +20,11 @@ public interface c {
     com.baidu.swan.apps.setting.oauth.a.g a(Activity activity, String str, String str2, boolean z, boolean z2);
 
     @NonNull
-    com.baidu.swan.apps.setting.oauth.a.e bS(Context context);
+    com.baidu.swan.apps.setting.oauth.a.c ac(Context context, String str);
 
     @NonNull
-    com.baidu.swan.apps.setting.oauth.a.d bT(Context context);
+    com.baidu.swan.apps.setting.oauth.a.e bZ(Context context);
+
+    @NonNull
+    com.baidu.swan.apps.setting.oauth.a.d ca(Context context);
 }

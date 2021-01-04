@@ -4,11 +4,11 @@ import com.sdk.base.framework.c.f;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Boolean f4230a = Boolean.valueOf(f.b);
+    private static final Boolean f13070a = Boolean.valueOf(f.f13118b);
 
     /* JADX WARN: Removed duplicated region for block: B:21:0x0053  */
     /* JADX WARN: Removed duplicated region for block: B:38:? A[RETURN, SYNTHETIC] */
@@ -16,6 +16,7 @@ public final class d {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static String a(HttpURLConnection httpURLConnection, c cVar, String str) {
+        Exception e;
         StringBuilder sb;
         StringBuilder sb2;
         if (httpURLConnection != null) {
@@ -42,15 +43,15 @@ public final class d {
                     if (cVar != null) {
                         cVar.a(contentLength, j, true);
                     }
-                } catch (Exception e) {
+                } catch (Exception e2) {
+                    e = e2;
                     sb = sb2;
-                    e = e;
-                    com.sdk.base.framework.a.a.c.b("StringDownloadHandler", e.getMessage(), f4230a);
+                    com.sdk.base.framework.a.a.c.b("StringDownloadHandler", e.getMessage(), f13070a);
                     if (sb == null) {
                     }
                 }
-            } catch (Exception e2) {
-                e = e2;
+            } catch (Exception e3) {
+                e = e3;
                 sb = null;
             }
         } else {

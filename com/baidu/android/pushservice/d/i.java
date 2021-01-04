@@ -3,12 +3,14 @@ package com.baidu.android.pushservice.d;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.text.TextUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1060a;
-    public String b;
+    public String f1264a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f1265b;
     public String c;
     public String d;
     public String e;
@@ -20,8 +22,8 @@ public class i {
     public boolean k;
 
     public i() {
-        this.f1060a = "";
-        this.b = "";
+        this.f1264a = "";
+        this.f1265b = "";
         this.c = "";
         this.d = "";
         this.e = "";
@@ -33,8 +35,8 @@ public class i {
     }
 
     public i(Intent intent) {
-        this.f1060a = "";
-        this.b = "";
+        this.f1264a = "";
+        this.f1265b = "";
         this.c = "";
         this.d = "";
         this.e = "";
@@ -52,8 +54,8 @@ public class i {
         }
         this.c = intent.getStringExtra("access_token");
         this.g = intent.getStringExtra("secret_key");
-        this.f1060a = intent.getStringExtra("method");
-        this.b = intent.getStringExtra("method_type");
+        this.f1264a = intent.getStringExtra("method");
+        this.f1265b = intent.getStringExtra("method_type");
         this.e = intent.getStringExtra("appid");
         this.h = intent.getBooleanExtra("bd_push_extra_is_baidu_app", false);
         this.i = intent.getStringExtra("push_proxy");
@@ -62,6 +64,6 @@ public class i {
     }
 
     public String toString() {
-        return "method=" + this.f1060a + ", accessToken=" + this.c + ", packageName=" + this.d + ", appId=" + this.e + ", userId=" + this.f;
+        return "method=" + this.f1264a + ", accessToken=" + this.c + ", packageName=" + this.d + ", appId=" + this.e + ", userId=" + this.f;
     }
 }

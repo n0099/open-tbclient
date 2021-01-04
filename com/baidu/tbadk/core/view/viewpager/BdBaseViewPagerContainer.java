@@ -8,15 +8,15 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.widget.IndicatorView;
-import com.baidu.adp.widget.ListView.q;
+import com.baidu.adp.widget.ListView.n;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes.dex */
 public class BdBaseViewPagerContainer extends RelativeLayout {
-    private a fhr;
-    private b fhs;
+    private BdBaseViewPagerContainerHolder frb;
+    private a frd;
 
     public BdBaseViewPagerContainer(Context context) {
         super(context);
@@ -29,62 +29,62 @@ public class BdBaseViewPagerContainer extends RelativeLayout {
     }
 
     private void a(Context context, ViewGroup viewGroup, boolean z) {
-        this.fhr = new a(LayoutInflater.from(context).inflate(R.layout.bd_base_viewpager_container, viewGroup, z), context);
-        a(this.fhr);
-        this.fhs = new b(context, this.fhr.fhx, this.fhr.fhv, this.fhr.fhu, 4, false, true);
+        this.frb = new BdBaseViewPagerContainerHolder(LayoutInflater.from(context).inflate(R.layout.bd_base_viewpager_container, viewGroup, z), context);
+        a(this.frb);
+        this.frd = new a(context, this.frb.fri, this.frb.frg, this.frb.frf, 4, false, true);
     }
 
-    private void a(a aVar) {
-        if (aVar != null) {
-            ap.setBackgroundColor(aVar.getView(), R.color.CAM_X0201);
-            ap.setViewTextColor(aVar.title, R.color.CAM_X0108, 1);
-            ap.setBackgroundColor(aVar.fhw, R.color.CAM_X0204);
-            ap.setViewTextColor(aVar.fhu, R.color.CAM_X0109, 1);
-            ap.setBackgroundColor(aVar.fhu, R.color.CAM_X0201);
-            aVar.fhu.setText(TbadkCoreApplication.getInst().getString(R.string.recommend_frs_hot_thread_more));
-            aVar.fhv.setSelector(ap.getDrawable(R.drawable.icon_choose_dot_s));
-            aVar.fhv.setDrawable(ap.getDrawable(R.drawable.icon_choose_dot_n));
+    private void a(BdBaseViewPagerContainerHolder bdBaseViewPagerContainerHolder) {
+        if (bdBaseViewPagerContainerHolder != null) {
+            ao.setBackgroundColor(bdBaseViewPagerContainerHolder.getView(), R.color.CAM_X0201);
+            ao.setViewTextColor(bdBaseViewPagerContainerHolder.title, R.color.CAM_X0108, 1);
+            ao.setBackgroundColor(bdBaseViewPagerContainerHolder.frh, R.color.CAM_X0204);
+            ao.setViewTextColor(bdBaseViewPagerContainerHolder.frf, R.color.CAM_X0109, 1);
+            ao.setBackgroundColor(bdBaseViewPagerContainerHolder.frf, R.color.CAM_X0201);
+            bdBaseViewPagerContainerHolder.frf.setText(TbadkCoreApplication.getInst().getString(R.string.recommend_frs_hot_thread_more));
+            bdBaseViewPagerContainerHolder.frg.setSelector(ao.getDrawable(R.drawable.icon_choose_dot_s));
+            bdBaseViewPagerContainerHolder.frg.setDrawable(ao.getDrawable(R.drawable.icon_choose_dot_n));
         }
     }
 
     @Override // android.view.View
     public View getRootView() {
-        return this.fhr.getView();
+        return this.frb.getView();
     }
 
     public BdBaseViewPager getViewPager() {
-        return this.fhr.fhx;
+        return this.frb.fri;
     }
 
     public IndicatorView getIndicatorView() {
-        return this.fhr.fhv;
+        return this.frb.frg;
     }
 
     public TextView getMoreView() {
-        return this.fhr.fhu;
+        return this.frb.frf;
     }
 
-    public a getViewHolder() {
-        return this.fhr;
+    public BdBaseViewPagerContainerHolder getViewHolder() {
+        return this.frb;
     }
 
     public void setMaxScrollCountLimit(int i) {
-        this.fhs.setMaxScrollCountLimit(i);
+        this.frd.setMaxScrollCountLimit(i);
     }
 
     public void setIsMaxScrollEnabled(boolean z) {
-        this.fhs.setIsMaxScrollEnabled(z);
+        this.frd.setIsMaxScrollEnabled(z);
     }
 
     public void setIsAutoScrollEnabled(boolean z) {
-        this.fhs.jN(z);
+        this.frd.kj(z);
     }
 
-    public void setDatas(List<q> list) {
-        this.fhs.setDatas(list);
+    public void setDatas(List<n> list) {
+        this.frd.setDatas(list);
     }
 
     public void setAutoScrollIntervalTime(long j) {
-        this.fhs.setAutoScrollIntervalTime(j);
+        this.frd.setAutoScrollIntervalTime(j);
     }
 }

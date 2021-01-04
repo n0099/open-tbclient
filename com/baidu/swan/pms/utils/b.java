@@ -1,5 +1,6 @@
 package com.baidu.swan.pms.utils;
 
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -9,13 +10,12 @@ import java.security.NoSuchAlgorithmException;
 /* loaded from: classes6.dex */
 public class b {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [61=5] */
-    public static String toMd5(File file, boolean z) {
-        Throwable th;
+    public static String e(File file, boolean z) {
         FileInputStream fileInputStream;
         String str = null;
         try {
             try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                MessageDigest messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
                 messageDigest.reset();
                 fileInputStream = new FileInputStream(file);
                 try {
@@ -51,8 +51,8 @@ public class b {
                     com.baidu.swan.c.d.closeSafely(fileInputStream);
                     return str;
                 }
-            } catch (Throwable th2) {
-                th = th2;
+            } catch (Throwable th) {
+                th = th;
                 com.baidu.swan.c.d.closeSafely(null);
                 throw th;
             }
@@ -65,8 +65,8 @@ public class b {
         } catch (NoSuchAlgorithmException e6) {
             e = e6;
             fileInputStream = null;
-        } catch (Throwable th3) {
-            th = th3;
+        } catch (Throwable th2) {
+            th = th2;
             com.baidu.swan.c.d.closeSafely(null);
             throw th;
         }
@@ -75,8 +75,8 @@ public class b {
 
     private static String toHexString(byte[] bArr, String str, boolean z) {
         StringBuilder sb = new StringBuilder();
-        for (byte b : bArr) {
-            String hexString = Integer.toHexString(b & 255);
+        for (byte b2 : bArr) {
+            String hexString = Integer.toHexString(b2 & 255);
             if (z) {
                 hexString = hexString.toUpperCase();
             }

@@ -38,14 +38,13 @@ import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class SubsamplingScaleImageView extends View {
     public static final int EASE_IN_OUT_QUAD = 2;
     public static final int EASE_OUT_QUAD = 1;
     private static final int MESSAGE_LONG_CLICK = 1;
     public static final int ORIENTATION_0 = 0;
     public static final int ORIENTATION_180 = 180;
-    public static final int ORIENTATION_270 = 270;
     public static final int ORIENTATION_90 = 90;
     public static final int ORIENTATION_USE_EXIF = -1;
     public static final int PAN_LIMIT_CENTER = 3;
@@ -121,13 +120,14 @@ public class SubsamplingScaleImageView extends View {
     private PointF vTranslateStart;
     private boolean zoomEnabled;
     private static final String TAG = SubsamplingScaleImageView.class.getSimpleName();
-    private static final List<Integer> VALID_ORIENTATIONS = Arrays.asList(0, 90, 180, 270, -1);
+    public static final int ORIENTATION_270 = 270;
+    private static final List<Integer> VALID_ORIENTATIONS = Arrays.asList(0, 90, 180, Integer.valueOf((int) ORIENTATION_270), -1);
     private static final List<Integer> VALID_ZOOM_STYLES = Arrays.asList(1, 2, 3, 4);
     private static final List<Integer> VALID_EASING_STYLES = Arrays.asList(2, 1);
     private static final List<Integer> VALID_PAN_LIMITS = Arrays.asList(1, 2, 3);
     private static final List<Integer> VALID_SCALE_TYPES = Arrays.asList(2, 1, 3);
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public interface OnImageEventListener {
         void onImageLoadError(Exception exc);
 
@@ -1048,62 +1048,56 @@ public class SubsamplingScaleImageView extends View {
 
     private void initialiseTileMap(Point point) {
         int i;
-        int i2;
         this.tileMap = new LinkedHashMap();
-        int i3 = this.fullImageSampleSize;
+        int i2 = this.fullImageSampleSize;
+        int i3 = 1;
         int i4 = 1;
-        int i5 = 1;
         while (true) {
-            int sWidth = sWidth() / i4;
-            int sHeight = sHeight() / i5;
-            int i6 = sWidth / i3;
-            int i7 = sHeight / i3;
+            int sWidth = sWidth() / i3;
+            int sHeight = sHeight() / i4;
+            int i5 = sWidth / i2;
+            int i6 = sHeight / i2;
             while (true) {
-                if (i6 + i4 + 1 <= point.x) {
-                    if (i6 <= getWidth() * 1.25d) {
-                        i = i7;
-                        i2 = sHeight;
+                if (i5 + i3 + 1 <= point.x) {
+                    if (i5 <= getWidth() * 1.25d) {
+                        i = i6;
                         break;
-                    } else if (i3 >= this.fullImageSampleSize) {
-                        i = i7;
-                        i2 = sHeight;
+                    } else if (i2 >= this.fullImageSampleSize) {
+                        i = i6;
                         break;
                     }
                 }
-                int i8 = i4 + 1;
-                int sWidth2 = sWidth() / i8;
-                i4 = i8;
-                sWidth = sWidth2;
-                i6 = sWidth2 / i3;
+                i3++;
+                sWidth = sWidth() / i3;
+                i5 = sWidth / i2;
             }
             while (true) {
-                if (i + i5 + 1 > point.y || (i > getHeight() * 1.25d && i3 < this.fullImageSampleSize)) {
-                    int i9 = i5 + 1;
-                    int sHeight2 = sHeight() / i9;
-                    i5 = i9;
-                    i2 = sHeight2;
-                    i = sHeight2 / i3;
+                if (i + i4 + 1 > point.y || (i > getHeight() * 1.25d && i2 < this.fullImageSampleSize)) {
+                    i4++;
+                    int sHeight2 = sHeight() / i4;
+                    i = sHeight2 / i2;
+                    sHeight = sHeight2;
                 }
             }
-            ArrayList arrayList = new ArrayList(i4 * i5);
-            int i10 = 0;
-            while (i10 < i4) {
-                int i11 = 0;
-                while (i11 < i5) {
+            ArrayList arrayList = new ArrayList(i3 * i4);
+            int i7 = 0;
+            while (i7 < i3) {
+                int i8 = 0;
+                while (i8 < i4) {
                     Tile tile = new Tile(null);
-                    tile.sampleSize = i3;
-                    tile.visible = i3 == this.fullImageSampleSize;
-                    tile.sRect = new Rect(i10 * sWidth, i11 * i2, i10 == i4 + (-1) ? sWidth() : (i10 + 1) * sWidth, i11 == i5 + (-1) ? sHeight() : (i11 + 1) * i2);
+                    tile.sampleSize = i2;
+                    tile.visible = i2 == this.fullImageSampleSize;
+                    tile.sRect = new Rect(i7 * sWidth, i8 * sHeight, i7 == i3 + (-1) ? sWidth() : (i7 + 1) * sWidth, i8 == i4 + (-1) ? sHeight() : (i8 + 1) * sHeight);
                     tile.vRect = new Rect(0, 0, 0, 0);
                     tile.fileSRect = new Rect(tile.sRect);
                     arrayList.add(tile);
-                    i11++;
+                    i8++;
                 }
-                i10++;
+                i7++;
             }
-            this.tileMap.put(Integer.valueOf(i3), arrayList);
-            if (i3 != 1) {
-                i3 /= 2;
+            this.tileMap.put(Integer.valueOf(i2), arrayList);
+            if (i2 != 1) {
+                i2 /= 2;
             } else {
                 return;
             }
@@ -1111,7 +1105,7 @@ public class SubsamplingScaleImageView extends View {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public static class TilesInitTask extends BdAsyncTask<Void, Void, int[]> {
         private final WeakReference<Context> contextRef;
         private ImageRegionDecoder decoder;
@@ -1145,13 +1139,14 @@ public class SubsamplingScaleImageView extends View {
                     int i4 = init.y;
                     int exifOrientation = subsamplingScaleImageView.getExifOrientation(uri);
                     if (subsamplingScaleImageView.sRegion != null) {
-                        i = subsamplingScaleImageView.sRegion.width();
-                        i2 = subsamplingScaleImageView.sRegion.height();
+                        int width = subsamplingScaleImageView.sRegion.width();
+                        i = subsamplingScaleImageView.sRegion.height();
+                        i2 = width;
                     } else {
-                        i = i3;
-                        i2 = i4;
+                        i = i4;
+                        i2 = i3;
                     }
-                    return new int[]{i, i2, exifOrientation};
+                    return new int[]{i2, i, exifOrientation};
                 }
             } catch (Exception e) {
                 Log.e(SubsamplingScaleImageView.TAG, "Failed to initialise bitmap decoder", e);
@@ -1199,7 +1194,7 @@ public class SubsamplingScaleImageView extends View {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public static class TileLoadTask extends BdAsyncTask<Void, Void, Bitmap> {
         private final WeakReference<ImageRegionDecoder> decoderRef;
         private Exception exception;
@@ -1282,7 +1277,7 @@ public class SubsamplingScaleImageView extends View {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public static class BitmapLoadTask extends BdAsyncTask<Void, Void, Integer> {
         private Bitmap bitmap;
         private final WeakReference<Context> contextRef;
@@ -1386,7 +1381,7 @@ public class SubsamplingScaleImageView extends View {
             return 0;
         }
         try {
-            int attributeInt = new ExifInterface(str.substring("file:///".length() - 1)).getAttributeInt(android.support.media.ExifInterface.TAG_ORIENTATION, 1);
+            int attributeInt = new ExifInterface(str.substring("file:///".length() - 1)).getAttributeInt("Orientation", 1);
             if (attributeInt == 1 || attributeInt == 0) {
                 return 0;
             }
@@ -1397,7 +1392,7 @@ public class SubsamplingScaleImageView extends View {
                 return 180;
             }
             if (attributeInt == 8) {
-                return 270;
+                return ORIENTATION_270;
             }
             Log.w(TAG, "Unsupported EXIF orientation: " + attributeInt);
             return 0;
@@ -1408,7 +1403,7 @@ public class SubsamplingScaleImageView extends View {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public static class Tile {
         private Bitmap bitmap;
         private Rect fileSRect;
@@ -1427,7 +1422,7 @@ public class SubsamplingScaleImageView extends View {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public static class Anim {
         private long duration;
         private int easing;
@@ -1454,7 +1449,7 @@ public class SubsamplingScaleImageView extends View {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public static class ScaleAndTranslate {
         private float scale;
         private PointF vTranslate;
@@ -1905,7 +1900,7 @@ public class SubsamplingScaleImageView extends View {
         return null;
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public final class AnimationBuilder {
         private long duration;
         private int easing;
@@ -2029,7 +2024,7 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes5.dex */
     public static class DefaultOnImageEventListener implements OnImageEventListener {
         @Override // com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView.OnImageEventListener
         public void onReady() {

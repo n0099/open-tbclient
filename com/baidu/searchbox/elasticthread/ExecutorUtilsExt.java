@@ -2,9 +2,10 @@ package com.baidu.searchbox.elasticthread;
 
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.elasticthread.scheduler.ElasticTaskScheduler;
 import java.util.concurrent.Executor;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class ExecutorUtilsExt {
     private static final boolean DEBUG = false;
     private static final String ELASTIC_TASK_NAME_PREFIX = "elastic_";
@@ -17,12 +18,12 @@ public class ExecutorUtilsExt {
     public static final int TASK_PRIORITY_USER_RELATED = 1;
 
     @Deprecated
-    public static Executor getSerialExecutor(String str) {
+    public static Executor getSerialExecutor(@NonNull String str) {
         return ElasticConfig.elasticExecutorDisabled() ? BackupExecutors.getInstance().getSerialExecutor() : new SerialExecutor(str);
     }
 
     @Deprecated
-    public static Executor getImmediateExecutor(String str) {
+    public static Executor getImmediateExecutor(@NonNull String str) {
         return ElasticConfig.elasticExecutorDisabled() ? BackupExecutors.getInstance().getThreadPoolExecutor() : getElasticExecutor(str, 0);
     }
 
@@ -31,11 +32,11 @@ public class ExecutorUtilsExt {
         return ElasticConfig.elasticExecutorDisabled() ? BackupExecutors.getInstance().getThreadPoolExecutor() : new ElasticExecutor(str, i);
     }
 
-    public static void postOnSerial(Runnable runnable, String str) {
+    public static void postOnSerial(@NonNull Runnable runnable, @NonNull String str) {
         delayPostOnSerial(runnable, str, 0L);
     }
 
-    public static void delayPostOnSerial(Runnable runnable, String str, long j) {
+    public static void delayPostOnSerial(@NonNull Runnable runnable, @NonNull String str, long j) {
         if (runnable == null) {
             Log.w(TAG, "received a null task ");
             return;
@@ -49,15 +50,15 @@ public class ExecutorUtilsExt {
     }
 
     @Deprecated
-    public static void postOnImmediate(Runnable runnable, String str) {
+    public static void postOnImmediate(@NonNull Runnable runnable, @NonNull String str) {
         postOnElastic(runnable, str, 0);
     }
 
-    public static void postOnElastic(Runnable runnable, String str, int i) {
+    public static void postOnElastic(@NonNull Runnable runnable, @NonNull String str, int i) {
         delayPostOnElastic(runnable, str, i, 0L);
     }
 
-    public static void delayPostOnElastic(Runnable runnable, String str, int i, long j) {
+    public static void delayPostOnElastic(@NonNull Runnable runnable, @NonNull String str, int i, long j) {
         int i2 = 3;
         if (runnable == null) {
             Log.w(TAG, "received a null task ");
@@ -76,7 +77,7 @@ public class ExecutorUtilsExt {
         }
     }
 
-    private static String getStandardTaskName(String str, String str2) {
+    private static String getStandardTaskName(@NonNull String str, @NonNull String str2) {
         if (TextUtils.isEmpty(str)) {
             str = "default";
             Log.w(TAG, "received an empty task name ");

@@ -2,10 +2,10 @@ package com.baidu.tieba.enterForum.hotuserrank.model;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.u;
+import com.baidu.tbadk.util.t;
 import tbclient.GetInfluenceRank.DataReq;
 import tbclient.GetInfluenceRank.GetInfluenceRankReqIdl;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class HotUserRankReqMsg extends NetMessage {
     public String category;
     public long forumId;
@@ -20,7 +20,7 @@ public class HotUserRankReqMsg extends NetMessage {
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         if (z) {
-            u.a(builder, true);
+            t.b(builder, true);
         }
         builder.tieba_name = this.category;
         builder.forum_id = Long.valueOf(this.forumId);

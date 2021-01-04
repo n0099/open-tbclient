@@ -38,32 +38,32 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes17.dex */
-    public static final class a implements InterfaceC0160b {
+    /* loaded from: classes5.dex */
+    public static final class a implements InterfaceC0152b {
 
         /* renamed from: a  reason: collision with root package name */
-        private final ByteBuffer f1827a;
+        private final ByteBuffer f2519a;
 
         public a(ByteBuffer byteBuffer) {
-            this.f1827a = byteBuffer.slice();
+            this.f2519a = byteBuffer.slice();
         }
 
-        @Override // com.baidu.helios.trusts.zone.verifier.b.InterfaceC0160b
+        @Override // com.baidu.helios.trusts.zone.verifier.b.InterfaceC0152b
         public long a() {
-            return this.f1827a.capacity();
+            return this.f2519a.capacity();
         }
 
-        @Override // com.baidu.helios.trusts.zone.verifier.b.InterfaceC0160b
+        @Override // com.baidu.helios.trusts.zone.verifier.b.InterfaceC0152b
         public void a(MessageDigest[] messageDigestArr, long j, int i) {
             ByteBuffer slice;
-            synchronized (this.f1827a) {
-                this.f1827a.position((int) j);
-                this.f1827a.limit(((int) j) + i);
-                slice = this.f1827a.slice();
+            synchronized (this.f2519a) {
+                this.f2519a.position((int) j);
+                this.f2519a.limit(((int) j) + i);
+                slice = this.f2519a.slice();
             }
             for (MessageDigest messageDigest : messageDigestArr) {
                 slice.position(0);
@@ -74,34 +74,36 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.helios.trusts.zone.verifier.b$b  reason: collision with other inner class name */
-    /* loaded from: classes17.dex */
-    public interface InterfaceC0160b {
+    /* loaded from: classes5.dex */
+    public interface InterfaceC0152b {
         long a();
 
         void a(MessageDigest[] messageDigestArr, long j, int i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes17.dex */
-    public static final class c implements InterfaceC0160b {
-        private final FileChannel ayM;
-        private final long b;
+    /* loaded from: classes5.dex */
+    public static final class c implements InterfaceC0152b {
+        private final FileChannel azd;
+
+        /* renamed from: b  reason: collision with root package name */
+        private final long f2520b;
         private final long c;
 
         public c(FileChannel fileChannel, long j, long j2) {
-            this.ayM = fileChannel;
-            this.b = j;
+            this.azd = fileChannel;
+            this.f2520b = j;
             this.c = j2;
         }
 
-        @Override // com.baidu.helios.trusts.zone.verifier.b.InterfaceC0160b
+        @Override // com.baidu.helios.trusts.zone.verifier.b.InterfaceC0152b
         public long a() {
             return this.c;
         }
 
-        @Override // com.baidu.helios.trusts.zone.verifier.b.InterfaceC0160b
+        @Override // com.baidu.helios.trusts.zone.verifier.b.InterfaceC0152b
         public void a(MessageDigest[] messageDigestArr, long j, int i) {
-            MappedByteBuffer map = this.ayM.map(FileChannel.MapMode.READ_ONLY, this.b + j, i);
+            MappedByteBuffer map = this.azd.map(FileChannel.MapMode.READ_ONLY, this.f2520b + j, i);
             for (MessageDigest messageDigest : messageDigestArr) {
                 map.position(0);
                 messageDigest.update(map);
@@ -110,30 +112,32 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     public static class d {
 
         /* renamed from: a  reason: collision with root package name */
-        private final ByteBuffer f1828a;
-        private final ByteBuffer ayN;
-        private final long b;
+        private final ByteBuffer f2521a;
+
+        /* renamed from: b  reason: collision with root package name */
+        private final long f2522b;
         private final long c;
         private final long d;
+        private final ByteBuffer e;
 
         private d(ByteBuffer byteBuffer, long j, long j2, long j3, ByteBuffer byteBuffer2) {
-            this.f1828a = byteBuffer;
-            this.b = j;
+            this.f2521a = byteBuffer;
+            this.f2522b = j;
             this.c = j2;
             this.d = j3;
-            this.ayN = byteBuffer2;
+            this.e = byteBuffer2;
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     public static class e extends Exception {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final long f1829a = 1;
+        private static final long f2523a = 1;
 
         public e(String str) {
             super(str);
@@ -145,161 +149,161 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     public static class f extends g {
 
         /* renamed from: a  reason: collision with root package name */
-        private byte[] f1830a;
+        private byte[] f2524a;
 
         public f(X509Certificate x509Certificate, byte[] bArr) {
             super(x509Certificate);
-            this.f1830a = bArr;
+            this.f2524a = bArr;
         }
 
         @Override // com.baidu.helios.trusts.zone.verifier.b.g, java.security.cert.Certificate
         public byte[] getEncoded() {
-            return this.f1830a;
+            return this.f2524a;
         }
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     private static class g extends X509Certificate {
 
         /* renamed from: a  reason: collision with root package name */
-        private final X509Certificate f1831a;
+        private final X509Certificate f2525a;
 
         public g(X509Certificate x509Certificate) {
-            this.f1831a = x509Certificate;
+            this.f2525a = x509Certificate;
         }
 
         @Override // java.security.cert.X509Certificate
         public void checkValidity() {
-            this.f1831a.checkValidity();
+            this.f2525a.checkValidity();
         }
 
         @Override // java.security.cert.X509Certificate
         public void checkValidity(Date date) {
-            this.f1831a.checkValidity(date);
+            this.f2525a.checkValidity(date);
         }
 
         @Override // java.security.cert.X509Certificate
         public int getBasicConstraints() {
-            return this.f1831a.getBasicConstraints();
+            return this.f2525a.getBasicConstraints();
         }
 
         @Override // java.security.cert.X509Extension
         public Set<String> getCriticalExtensionOIDs() {
-            return this.f1831a.getCriticalExtensionOIDs();
+            return this.f2525a.getCriticalExtensionOIDs();
         }
 
         @Override // java.security.cert.Certificate
         public byte[] getEncoded() {
-            return this.f1831a.getEncoded();
+            return this.f2525a.getEncoded();
         }
 
         @Override // java.security.cert.X509Extension
         public byte[] getExtensionValue(String str) {
-            return this.f1831a.getExtensionValue(str);
+            return this.f2525a.getExtensionValue(str);
         }
 
         @Override // java.security.cert.X509Certificate
         public Principal getIssuerDN() {
-            return this.f1831a.getIssuerDN();
+            return this.f2525a.getIssuerDN();
         }
 
         @Override // java.security.cert.X509Certificate
         public boolean[] getIssuerUniqueID() {
-            return this.f1831a.getIssuerUniqueID();
+            return this.f2525a.getIssuerUniqueID();
         }
 
         @Override // java.security.cert.X509Certificate
         public boolean[] getKeyUsage() {
-            return this.f1831a.getKeyUsage();
+            return this.f2525a.getKeyUsage();
         }
 
         @Override // java.security.cert.X509Extension
         public Set<String> getNonCriticalExtensionOIDs() {
-            return this.f1831a.getNonCriticalExtensionOIDs();
+            return this.f2525a.getNonCriticalExtensionOIDs();
         }
 
         @Override // java.security.cert.X509Certificate
         public Date getNotAfter() {
-            return this.f1831a.getNotAfter();
+            return this.f2525a.getNotAfter();
         }
 
         @Override // java.security.cert.X509Certificate
         public Date getNotBefore() {
-            return this.f1831a.getNotBefore();
+            return this.f2525a.getNotBefore();
         }
 
         @Override // java.security.cert.Certificate
         public PublicKey getPublicKey() {
-            return this.f1831a.getPublicKey();
+            return this.f2525a.getPublicKey();
         }
 
         @Override // java.security.cert.X509Certificate
         public BigInteger getSerialNumber() {
-            return this.f1831a.getSerialNumber();
+            return this.f2525a.getSerialNumber();
         }
 
         @Override // java.security.cert.X509Certificate
         public String getSigAlgName() {
-            return this.f1831a.getSigAlgName();
+            return this.f2525a.getSigAlgName();
         }
 
         @Override // java.security.cert.X509Certificate
         public String getSigAlgOID() {
-            return this.f1831a.getSigAlgOID();
+            return this.f2525a.getSigAlgOID();
         }
 
         @Override // java.security.cert.X509Certificate
         public byte[] getSigAlgParams() {
-            return this.f1831a.getSigAlgParams();
+            return this.f2525a.getSigAlgParams();
         }
 
         @Override // java.security.cert.X509Certificate
         public byte[] getSignature() {
-            return this.f1831a.getSignature();
+            return this.f2525a.getSignature();
         }
 
         @Override // java.security.cert.X509Certificate
         public Principal getSubjectDN() {
-            return this.f1831a.getSubjectDN();
+            return this.f2525a.getSubjectDN();
         }
 
         @Override // java.security.cert.X509Certificate
         public boolean[] getSubjectUniqueID() {
-            return this.f1831a.getSubjectUniqueID();
+            return this.f2525a.getSubjectUniqueID();
         }
 
         @Override // java.security.cert.X509Certificate
         public byte[] getTBSCertificate() {
-            return this.f1831a.getTBSCertificate();
+            return this.f2525a.getTBSCertificate();
         }
 
         @Override // java.security.cert.X509Certificate
         public int getVersion() {
-            return this.f1831a.getVersion();
+            return this.f2525a.getVersion();
         }
 
         @Override // java.security.cert.X509Extension
         public boolean hasUnsupportedCriticalExtension() {
-            return this.f1831a.hasUnsupportedCriticalExtension();
+            return this.f2525a.hasUnsupportedCriticalExtension();
         }
 
         @Override // java.security.cert.Certificate
         public String toString() {
-            return this.f1831a.toString();
+            return this.f2525a.toString();
         }
 
         @Override // java.security.cert.Certificate
         public void verify(PublicKey publicKey) {
-            this.f1831a.verify(publicKey);
+            this.f2525a.verify(publicKey);
         }
 
         @Override // java.security.cert.Certificate
         public void verify(PublicKey publicKey, String str) {
-            this.f1831a.verify(publicKey, str);
+            this.f2525a.verify(publicKey, str);
         }
     }
 
@@ -402,29 +406,29 @@ public class b {
     }
 
     private static void a(Map<Integer, byte[]> map, RandomAccessFile randomAccessFile, FileDescriptor fileDescriptor, long j, long j2, long j3, ByteBuffer byteBuffer) {
-        InterfaceC0160b aVar;
-        InterfaceC0160b interfaceC0160b;
+        InterfaceC0152b aVar;
+        InterfaceC0152b interfaceC0152b;
         if (map.isEmpty()) {
             throw new SecurityException("No digests provided");
         }
         if (j > 1048576) {
-            InterfaceC0160b cVar = new c(randomAccessFile.getChannel(), 0L, j);
+            InterfaceC0152b cVar = new c(randomAccessFile.getChannel(), 0L, j);
             aVar = new c(randomAccessFile.getChannel(), j2, j3 - j2);
-            interfaceC0160b = cVar;
+            interfaceC0152b = cVar;
         } else {
             ByteBuffer allocate = ByteBuffer.allocate((int) j);
             allocate.order(ByteOrder.LITTLE_ENDIAN);
             try {
                 randomAccessFile.seek(0L);
                 randomAccessFile.readFully(allocate.array(), allocate.arrayOffset(), allocate.capacity());
-                InterfaceC0160b aVar2 = new a(allocate);
+                InterfaceC0152b aVar2 = new a(allocate);
                 ByteBuffer allocate2 = ByteBuffer.allocate((int) (j3 - j2));
                 allocate2.order(ByteOrder.LITTLE_ENDIAN);
                 try {
                     randomAccessFile.seek(j2);
                     randomAccessFile.readFully(allocate2.array(), allocate2.arrayOffset(), allocate2.capacity());
                     aVar = new a(allocate2);
-                    interfaceC0160b = aVar2;
+                    interfaceC0152b = aVar2;
                 } catch (IOException e2) {
                     throw new SecurityException("Failed to get apk contents", e2);
                 }
@@ -448,7 +452,7 @@ public class b {
             i = i2 + 1;
         }
         try {
-            byte[][] a2 = a(iArr, new InterfaceC0160b[]{interfaceC0160b, aVar, aVar3});
+            byte[][] a2 = a(iArr, new InterfaceC0152b[]{interfaceC0152b, aVar, aVar3});
             int i3 = 0;
             while (true) {
                 int i4 = i3;
@@ -457,7 +461,7 @@ public class b {
                 }
                 int i5 = iArr[i4];
                 if (!MessageDigest.isEqual(map.get(Integer.valueOf(i5)), a2[i4])) {
-                    throw new SecurityException(du(i5) + " digest of contents did not verify");
+                    throw new SecurityException(c(i5) + " digest of contents did not verify");
                 }
                 i3 = i4 + 1;
             }
@@ -482,52 +486,50 @@ public class b {
     }
 
     private static X509Certificate[] a(ByteBuffer byteBuffer, Map<Integer, byte[]> map, CertificateFactory certificateFactory) {
+        int b2;
         byte[] g2;
         ByteBuffer a2 = a(byteBuffer);
         ByteBuffer a3 = a(byteBuffer);
         byte[] g3 = g(byteBuffer);
-        int i = 0;
-        int i2 = -1;
+        int i = -1;
         byte[] bArr = null;
         ArrayList arrayList = new ArrayList();
+        int i2 = 0;
         while (a3.hasRemaining()) {
-            int i3 = i + 1;
+            i2++;
             try {
                 ByteBuffer a4 = a(a3);
                 if (a4.remaining() < 8) {
                     throw new SecurityException("Signature record too short");
                 }
-                int i4 = a4.getInt();
-                arrayList.add(Integer.valueOf(i4));
-                if (a(i4)) {
-                    if (i2 == -1 || a(i4, i2) > 0) {
+                int i3 = a4.getInt();
+                arrayList.add(Integer.valueOf(i3));
+                if (a(i3)) {
+                    if (i == -1 || a(i3, i) > 0) {
                         g2 = g(a4);
                     } else {
                         g2 = bArr;
-                        i4 = i2;
+                        i3 = i;
                     }
                     bArr = g2;
-                    i2 = i4;
-                    i = i3;
-                } else {
                     i = i3;
                 }
             } catch (IOException | BufferUnderflowException e2) {
-                throw new SecurityException("Failed to parse signature record #" + i3, e2);
+                throw new SecurityException("Failed to parse signature record #" + i2, e2);
             }
         }
-        if (i2 == -1) {
-            if (i == 0) {
+        if (i == -1) {
+            if (i2 == 0) {
                 throw new SecurityException("No signatures found");
             }
             throw new SecurityException("No supported signatures found");
         }
-        String dv = dv(i2);
-        Pair<String, ? extends AlgorithmParameterSpec> dw = dw(i2);
-        String str = (String) dw.first;
-        AlgorithmParameterSpec algorithmParameterSpec = (AlgorithmParameterSpec) dw.second;
+        String e3 = e(i);
+        Pair<String, ? extends AlgorithmParameterSpec> dt = dt(i);
+        String str = (String) dt.first;
+        AlgorithmParameterSpec algorithmParameterSpec = (AlgorithmParameterSpec) dt.second;
         try {
-            PublicKey generatePublic = KeyFactory.getInstance(dv).generatePublic(new X509EncodedKeySpec(g3));
+            PublicKey generatePublic = KeyFactory.getInstance(e3).generatePublic(new X509EncodedKeySpec(g3));
             Signature signature = Signature.getInstance(str);
             signature.initVerify(generatePublic);
             if (algorithmParameterSpec != null) {
@@ -539,37 +541,35 @@ public class b {
                 a2.clear();
                 ByteBuffer a5 = a(a2);
                 ArrayList arrayList2 = new ArrayList();
-                int i5 = 0;
+                int i4 = 0;
                 while (a5.hasRemaining()) {
-                    int i6 = i5 + 1;
+                    i4++;
                     try {
                         ByteBuffer a6 = a(a5);
                         if (a6.remaining() < 8) {
                             throw new IOException("Record too short");
                         }
-                        int i7 = a6.getInt();
-                        arrayList2.add(Integer.valueOf(i7));
-                        bArr2 = i7 == i2 ? g(a6) : bArr2;
-                        i5 = i6;
-                    } catch (IOException | BufferUnderflowException e3) {
-                        throw new IOException("Failed to parse digest record #" + i6, e3);
+                        int i5 = a6.getInt();
+                        arrayList2.add(Integer.valueOf(i5));
+                        bArr2 = i5 == i ? g(a6) : bArr2;
+                    } catch (IOException | BufferUnderflowException e4) {
+                        throw new IOException("Failed to parse digest record #" + i4, e4);
                     }
                 }
                 if (arrayList.equals(arrayList2)) {
-                    int b = b(i2);
-                    byte[] put = map.put(Integer.valueOf(b), bArr2);
+                    byte[] put = map.put(Integer.valueOf(b(i)), bArr2);
                     if (put == null || MessageDigest.isEqual(put, bArr2)) {
                         ByteBuffer a7 = a(a2);
                         ArrayList arrayList3 = new ArrayList();
-                        int i8 = 0;
+                        int i6 = 0;
                         while (a7.hasRemaining()) {
-                            int i9 = i8 + 1;
+                            int i7 = i6 + 1;
                             byte[] g4 = g(a7);
                             try {
                                 arrayList3.add(new f((X509Certificate) certificateFactory.generateCertificate(new ByteArrayInputStream(g4)), g4));
-                                i8 = i9;
-                            } catch (CertificateException e4) {
-                                throw new SecurityException("Failed to decode certificate #" + i9, e4);
+                                i6 = i7;
+                            } catch (CertificateException e5) {
+                                throw new SecurityException("Failed to decode certificate #" + i7, e5);
                             }
                         }
                         if (arrayList3.isEmpty()) {
@@ -580,29 +580,21 @@ public class b {
                         }
                         throw new SecurityException("Public key mismatch between certificate and signature record");
                     }
-                    throw new SecurityException(du(b) + " contents digest does not match the digest specified by a preceding signer");
+                    throw new SecurityException(c(b2) + " contents digest does not match the digest specified by a preceding signer");
                 }
                 throw new SecurityException("Signature algorithms don't match between digests and signatures records");
             }
             throw new SecurityException(str + " signature did not verify");
-        } catch (InvalidAlgorithmParameterException | InvalidKeyException | NoSuchAlgorithmException | SignatureException | InvalidKeySpecException e5) {
-            throw new SecurityException("Failed to verify " + str + " signature", e5);
+        } catch (InvalidAlgorithmParameterException | InvalidKeyException | NoSuchAlgorithmException | SignatureException | InvalidKeySpecException e6) {
+            throw new SecurityException("Failed to verify " + str + " signature", e6);
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:45:0x0167, code lost:
-        r11 = r11 + 1;
-        r12 = r12 + 1;
-        r8 = r10;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private static byte[][] a(int[] iArr, InterfaceC0160b[] interfaceC0160bArr) {
+    private static byte[][] a(int[] iArr, InterfaceC0152b[] interfaceC0152bArr) {
         MessageDigest messageDigest;
         long j = 0;
-        for (InterfaceC0160b interfaceC0160b : interfaceC0160bArr) {
-            j += a(interfaceC0160b.a());
+        for (InterfaceC0152b interfaceC0152b : interfaceC0152bArr) {
+            j += a(interfaceC0152b.a());
         }
         if (j >= 2097151) {
             throw new DigestException("Too many chunks: " + j);
@@ -620,21 +612,36 @@ public class b {
         int i3 = 0;
         MessageDigest[] messageDigestArr = new MessageDigest[iArr.length];
         for (int i4 = 0; i4 < iArr.length; i4++) {
-            String du = du(iArr[i4]);
+            String c2 = c(iArr[i4]);
             try {
-                messageDigestArr[i4] = MessageDigest.getInstance(du);
+                messageDigestArr[i4] = MessageDigest.getInstance(c2);
             } catch (NoSuchAlgorithmException e2) {
-                throw new RuntimeException(du + " digest not supported", e2);
+                throw new RuntimeException(c2 + " digest not supported", e2);
             }
         }
-        int length = interfaceC0160bArr.length;
         int i5 = 0;
+        int length = interfaceC0152bArr.length;
         int i6 = 0;
-        while (i5 < length) {
-            InterfaceC0160b interfaceC0160b2 = interfaceC0160bArr[i5];
-            long a2 = interfaceC0160b2.a();
-            int i7 = i3;
+        while (true) {
+            int i7 = i6;
+            int i8 = i5;
+            if (i7 >= length) {
+                byte[][] bArr4 = new byte[iArr.length];
+                for (int i9 = 0; i9 < iArr.length; i9++) {
+                    int i10 = iArr[i9];
+                    byte[] bArr5 = bArr[i9];
+                    String c3 = c(i10);
+                    try {
+                        bArr4[i9] = MessageDigest.getInstance(c3).digest(bArr5);
+                    } catch (NoSuchAlgorithmException e3) {
+                        throw new RuntimeException(c3 + " digest not supported", e3);
+                    }
+                }
+                return bArr4;
+            }
+            InterfaceC0152b interfaceC0152b2 = interfaceC0152bArr[i7];
             long j2 = 0;
+            long a2 = interfaceC0152b2.a();
             while (true) {
                 long j3 = a2;
                 if (j3 > 0) {
@@ -644,37 +651,27 @@ public class b {
                         messageDigest2.update(bArr3);
                     }
                     try {
-                        interfaceC0160b2.a(messageDigestArr, j2, min);
-                        for (int i8 = 0; i8 < iArr.length; i8++) {
-                            int i9 = iArr[i8];
-                            byte[] bArr4 = bArr[i8];
-                            int d2 = d(i9);
-                            int digest = messageDigestArr[i8].digest(bArr4, (i7 * d2) + 5, d2);
+                        interfaceC0152b2.a(messageDigestArr, j2, min);
+                        for (int i11 = 0; i11 < iArr.length; i11++) {
+                            int i12 = iArr[i11];
+                            byte[] bArr6 = bArr[i11];
+                            int d2 = d(i12);
+                            int digest = messageDigestArr[i11].digest(bArr6, (i3 * d2) + 5, d2);
                             if (digest != d2) {
                                 throw new RuntimeException("Unexpected output size of " + messageDigest.getAlgorithm() + " digest: " + digest);
                             }
                         }
                         j2 += min;
                         a2 = j3 - min;
-                        i7++;
-                    } catch (IOException e3) {
-                        throw new DigestException("Failed to digest chunk #" + i7 + " of section #" + i6, e3);
+                        i3++;
+                    } catch (IOException e4) {
+                        throw new DigestException("Failed to digest chunk #" + i3 + " of section #" + i8, e4);
                     }
                 }
             }
+            i5 = i8 + 1;
+            i6 = i7 + 1;
         }
-        byte[][] bArr5 = new byte[iArr.length];
-        for (int i10 = 0; i10 < iArr.length; i10++) {
-            int i11 = iArr[i10];
-            byte[] bArr6 = bArr[i10];
-            String du2 = du(i11);
-            try {
-                bArr5[i10] = MessageDigest.getInstance(du2).digest(bArr6);
-            } catch (NoSuchAlgorithmException e4) {
-                throw new RuntimeException(du2 + " digest not supported", e4);
-            }
-        }
-        return bArr5;
     }
 
     private static X509Certificate[][] a(RandomAccessFile randomAccessFile, FileDescriptor fileDescriptor, d dVar) {
@@ -684,7 +681,7 @@ public class b {
         try {
             CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
             try {
-                ByteBuffer a2 = a(dVar.f1828a);
+                ByteBuffer a2 = a(dVar.f2521a);
                 while (a2.hasRemaining()) {
                     i++;
                     try {
@@ -699,7 +696,7 @@ public class b {
                 if (hashMap.isEmpty()) {
                     throw new SecurityException("No content digests found");
                 }
-                a(hashMap, randomAccessFile, fileDescriptor, dVar.b, dVar.c, dVar.d, dVar.ayN);
+                a(hashMap, randomAccessFile, fileDescriptor, dVar.f2522b, dVar.c, dVar.d, dVar.e);
                 return (X509Certificate[][]) arrayList.toArray(new X509Certificate[arrayList.size()]);
             } catch (IOException e3) {
                 throw new SecurityException("Failed to read list of signers", e3);
@@ -787,6 +784,17 @@ public class b {
         return new d(h((ByteBuffer) a3.first), ((Long) a3.second).longValue(), a2, longValue, byteBuffer);
     }
 
+    private static String c(int i) {
+        switch (i) {
+            case 1:
+                return "SHA-256";
+            case 2:
+                return "SHA-512";
+            default:
+                throw new IllegalArgumentException("Unknown content digest algorthm: " + i);
+        }
+    }
+
     private static int d(int i) {
         switch (i) {
             case 1:
@@ -812,35 +820,7 @@ public class b {
         }
     }
 
-    private static String du(int i) {
-        switch (i) {
-            case 1:
-                return "SHA-256";
-            case 2:
-                return "SHA-512";
-            default:
-                throw new IllegalArgumentException("Unknown content digest algorthm: " + i);
-        }
-    }
-
-    private static String dv(int i) {
-        switch (i) {
-            case 257:
-            case 258:
-            case 259:
-            case 260:
-                return RSAUtil.ALGORITHM_RSA;
-            case 513:
-            case 514:
-                return "EC";
-            case 769:
-                return "DSA";
-            default:
-                throw new IllegalArgumentException("Unknown signature algorithm: 0x" + Long.toHexString(i & (-1)));
-        }
-    }
-
-    private static Pair<String, ? extends AlgorithmParameterSpec> dw(int i) {
+    private static Pair<String, ? extends AlgorithmParameterSpec> dt(int i) {
         switch (i) {
             case 257:
                 return Pair.create("SHA256withRSA/PSS", new PSSParameterSpec("SHA-256", "MGF1", MGF1ParameterSpec.SHA256, 32, 1));
@@ -856,6 +836,23 @@ public class b {
                 return Pair.create("SHA512withECDSA", null);
             case 769:
                 return Pair.create("SHA256withDSA", null);
+            default:
+                throw new IllegalArgumentException("Unknown signature algorithm: 0x" + Long.toHexString(i & (-1)));
+        }
+    }
+
+    private static String e(int i) {
+        switch (i) {
+            case 257:
+            case 258:
+            case 259:
+            case 260:
+                return RSAUtil.ALGORITHM_RSA;
+            case 513:
+            case 514:
+                return "EC";
+            case 769:
+                return "DSA";
             default:
                 throw new IllegalArgumentException("Unknown signature algorithm: 0x" + Long.toHexString(i & (-1)));
         }
@@ -905,7 +902,7 @@ public class b {
         try {
             return b(randomAccessFile);
         } finally {
-            com.baidu.helios.common.b.a.c.c(randomAccessFile);
+            com.baidu.helios.common.b.a.c.d(randomAccessFile);
         }
     }
 }

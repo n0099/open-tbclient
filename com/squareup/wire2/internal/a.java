@@ -6,13 +6,13 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public final class a {
-    public static <T> List<T> eAT() {
+    public static <T> List<T> eEN() {
         return new MutableOnWriteList(Collections.emptyList());
     }
 
-    public static <K, V> Map<K, V> eAU() {
+    public static <K, V> Map<K, V> eEO() {
         return new LinkedHashMap();
     }
 
@@ -75,7 +75,7 @@ public final class a {
         return obj == obj2 || (obj != null && obj.equals(obj2));
     }
 
-    public static void gX(List<?> list) {
+    public static void gU(List<?> list) {
         if (list == null) {
             throw new NullPointerException("list == null");
         }
@@ -87,7 +87,7 @@ public final class a {
         }
     }
 
-    public static void L(Map<?, ?> map) {
+    public static void Q(Map<?, ?> map) {
         if (map == null) {
             throw new NullPointerException("map == null");
         }

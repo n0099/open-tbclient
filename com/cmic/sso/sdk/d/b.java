@@ -15,9 +15,9 @@ import com.sina.weibo.sdk.statistic.LogBuilder;
 import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class b {
-    private com.cmic.sso.sdk.a oZp;
+    private com.cmic.sso.sdk.a pqE;
 
     private static void a(a aVar, com.cmic.sso.sdk.a aVar2) {
         if (aVar != null && aVar2 != null) {
@@ -41,7 +41,7 @@ public class b {
             aVar.m(String.valueOf(aVar2.b("systemEndTime", 0L) - aVar2.b("systemStartTime", 0L)));
             aVar.c(aVar2.b("imsiState"));
             aVar.A(k.b("AID", ""));
-            aVar.Ya(j.eoI().f());
+            aVar.XJ(j.esU().f());
             c.a("SendLog", "traceId" + aVar2.b("traceId"));
         }
     }
@@ -49,7 +49,7 @@ public class b {
     public void b(Context context, String str, com.cmic.sso.sdk.a aVar) {
         try {
             a aVar2 = new a();
-            String b = f.b(context);
+            String b2 = f.b(context);
             aVar2.d(str);
             aVar2.x(aVar.b("loginMethod", ""));
             if (aVar.b("isCacheScrip", false)) {
@@ -58,16 +58,16 @@ public class b {
                 aVar2.s("pgw");
             }
             aVar2.j(f.a(context));
-            if (TextUtils.isEmpty(b)) {
-                b = "";
+            if (TextUtils.isEmpty(b2)) {
+                b2 = "";
             }
-            aVar2.k(b);
+            aVar2.k(b2);
             aVar2.b(aVar.b("hsaReadPhoneStatePermission", false) ? "1" : "0");
             a(aVar2, aVar);
             JSONArray jSONArray = null;
-            if (a.oZX.size() > 0) {
+            if (a.prm.size() > 0) {
                 JSONArray jSONArray2 = new JSONArray();
-                Iterator<Throwable> it = a.oZX.iterator();
+                Iterator<Throwable> it = a.prm.iterator();
                 while (it.hasNext()) {
                     Throwable next = it.next();
                     StringBuffer stringBuffer = new StringBuffer();
@@ -79,7 +79,7 @@ public class b {
                     jSONObject.put("stack", stringBuffer.toString());
                     jSONArray2.put(jSONObject);
                 }
-                a.oZX.clear();
+                a.prm.clear();
                 jSONArray = jSONArray2;
             }
             if (jSONArray != null && jSONArray.length() > 0) {
@@ -93,7 +93,7 @@ public class b {
     }
 
     private void a(final JSONObject jSONObject, com.cmic.sso.sdk.a aVar) {
-        this.oZp = aVar;
+        this.pqE = aVar;
         o.a(new o.a() { // from class: com.cmic.sso.sdk.d.b.1
             @Override // com.cmic.sso.sdk.e.o.a
             protected void a() {
@@ -104,21 +104,21 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(JSONObject jSONObject) {
-        if (q.m() == 0 || q.l() == 0 || System.currentTimeMillis() > k.P("logCloseTime", 0L) + q.m()) {
-            com.cmic.sso.sdk.c.c.a.eoD().a(jSONObject, this.oZp, new d() { // from class: com.cmic.sso.sdk.d.b.2
+        if (q.m() == 0 || q.l() == 0 || System.currentTimeMillis() > k.a("logCloseTime", 0L) + q.m()) {
+            com.cmic.sso.sdk.c.c.a.esP().a(jSONObject, this.pqE, new d() { // from class: com.cmic.sso.sdk.d.b.2
                 @Override // com.cmic.sso.sdk.c.c.d
-                public void j(String str, String str2, JSONObject jSONObject2) {
+                public void i(String str, String str2, JSONObject jSONObject2) {
                     if (!str.equals("103000")) {
                         if (q.m() != 0 && q.l() != 0) {
                             int a2 = k.a("logFailTimes", 0) + 1;
-                            k.a eoJ = k.eoJ();
+                            k.a esV = k.esV();
                             if (a2 >= q.l()) {
-                                eoJ.a("logFailTimes", 0);
-                                eoJ.a("logCloseTime", System.currentTimeMillis());
+                                esV.a("logFailTimes", 0);
+                                esV.a("logCloseTime", System.currentTimeMillis());
                             } else {
-                                eoJ.a("logFailTimes", a2);
+                                esV.a("logFailTimes", a2);
                             }
-                            eoJ.b();
+                            esV.b();
                         }
                         c.a("SendLog", "request failed , url : " + q.g() + ">>>>>errorMsg : " + jSONObject2.toString());
                         return;

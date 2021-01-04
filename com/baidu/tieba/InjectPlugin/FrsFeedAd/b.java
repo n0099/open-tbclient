@@ -2,58 +2,58 @@ package com.baidu.tieba.InjectPlugin.FrsFeedAd;
 
 import android.util.SparseArray;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.q;
+import com.baidu.adp.widget.ListView.n;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes21.dex */
-public class b implements q, com.baidu.tieba.InjectPlugin.a {
-    private static SparseArray<BdUniqueId> fUT = new SparseArray<>();
-    private Object fUU;
-    private int fUV;
+/* loaded from: classes8.dex */
+public class b implements n, com.baidu.tieba.InjectPlugin.a {
+    private static SparseArray<BdUniqueId> gez = new SparseArray<>();
+    private Object geA;
+    private int geB;
 
-    @Override // com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return fUT.get(this.fUV);
+        return gez.get(this.geB);
     }
 
     @Override // com.baidu.tieba.InjectPlugin.a
-    public Object bKv() {
-        return this.fUU;
+    public Object bMN() {
+        return this.geA;
     }
 
-    public void aA(Object obj) {
-        this.fUU = obj;
+    public void aC(Object obj) {
+        this.geA = obj;
     }
 
-    public int bKw() {
-        return this.fUV;
+    public int bMO() {
+        return this.geB;
     }
 
-    public void ua(int i) {
-        this.fUV = i;
+    public void um(int i) {
+        this.geB = i;
     }
 
-    public static void bK(List<Integer> list) {
-        if (fUT.size() <= 0 && list != null) {
+    public static void bR(List<Integer> list) {
+        if (gez.size() <= 0 && list != null) {
             for (Integer num : list) {
-                fUT.put(num.intValue(), BdUniqueId.gen());
+                gez.put(num.intValue(), BdUniqueId.gen());
             }
         }
     }
 
-    public static List<BdUniqueId> bKx() {
+    public static List<BdUniqueId> bMP() {
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < fUT.size(); i++) {
-            arrayList.add(fUT.valueAt(i));
+        for (int i = 0; i < gez.size(); i++) {
+            arrayList.add(gez.valueAt(i));
         }
         return arrayList;
     }
 
     public static int n(BdUniqueId bdUniqueId) {
         int indexOfValue;
-        if (fUT.size() == 0 || (indexOfValue = fUT.indexOfValue(bdUniqueId)) == -1 || fUT.size() <= indexOfValue) {
+        if (gez.size() == 0 || (indexOfValue = gez.indexOfValue(bdUniqueId)) == -1 || gez.size() <= indexOfValue) {
             return -1;
         }
-        return fUT.keyAt(indexOfValue);
+        return gez.keyAt(indexOfValue);
     }
 }

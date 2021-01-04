@@ -1,18 +1,19 @@
 package com.baidu.live.data;
 
 import android.text.TextUtils;
-import com.baidu.searchbox.ugc.utils.UgcUBCUtils;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaWheatInfoData implements Serializable, Cloneable {
     public String bg_img;
     public String bigPortrait;
     public String charmCount;
+    public boolean clearSelectFlag;
     public String customRoomId;
     public int fansCount;
     public String hatLevelIcon;
@@ -42,7 +43,7 @@ public class AlaWheatInfoData implements Serializable, Cloneable {
     public String startTime;
     public int status;
     public String subappType;
-    public long sum_charm_count;
+    public int sum_charm_count;
     public int[] together;
     public String token;
     public String uk;
@@ -59,7 +60,7 @@ public class AlaWheatInfoData implements Serializable, Cloneable {
         this.bigPortrait = jSONObject.optString("big_portrait", "");
         this.sex = jSONObject.optInt("sex", 0);
         this.fansCount = jSONObject.optInt("fans_count", 0);
-        this.level = jSONObject.optInt("level", 0);
+        this.level = jSONObject.optInt(MapBundleKey.MapObjKey.OBJ_LEVEL, 0);
         this.userIdentity = jSONObject.optInt(SubPbActivityConfig.KEY_USER_IDENTITY, 0);
         this.charmCount = jSONObject.optString("charm_count", "");
         this.startTime = jSONObject.optString("start_time", "");
@@ -68,9 +69,9 @@ public class AlaWheatInfoData implements Serializable, Cloneable {
         this.hatLevelIcon = jSONObject.optString("hat_level_icon", "");
         this.hatLowIcon = jSONObject.optString("hat_low_icon", "");
         this.select = jSONObject.optInt("select", 0);
-        this.publish = jSONObject.optInt(UgcUBCUtils.PUBLISH_PAGE, 0);
+        this.publish = jSONObject.optInt("publish", 0);
         this.other_publish = jSONObject.optInt("other_publish", 0);
-        this.sum_charm_count = jSONObject.optLong("sum_charm_count", 0L);
+        this.sum_charm_count = jSONObject.optInt("sum_charm_count", 0);
         this.bg_img = jSONObject.optString("bg_img", "");
         this.hat_level_icon = jSONObject.optString("hat_level_icon", "");
         this.hat_low_icon = jSONObject.optString("hat_low_icon", "");
@@ -144,5 +145,9 @@ public class AlaWheatInfoData implements Serializable, Cloneable {
 
     public boolean isNullData() {
         return TextUtils.isEmpty(this.uk);
+    }
+
+    public boolean isApplyRedTeam() {
+        return this.phone_order < 5;
     }
 }

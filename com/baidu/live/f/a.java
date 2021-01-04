@@ -2,33 +2,33 @@ package com.baidu.live.f;
 
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.live.data.w;
+import com.baidu.live.data.x;
 import com.baidu.live.im.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public interface a {
 
     /* renamed from: com.baidu.live.f.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public interface InterfaceC0183a {
+    /* loaded from: classes11.dex */
+    public interface InterfaceC0177a {
     }
 
-    boolean Em();
+    boolean DB();
 
-    void En();
+    void DC();
 
-    void Eo();
+    void DD();
 
-    void a(InterfaceC0183a interfaceC0183a);
+    void a(InterfaceC0177a interfaceC0177a);
 
     void a(d dVar, boolean z, boolean z2);
 
-    void b(w wVar);
+    void b(x xVar);
 
-    void br(boolean z);
+    void bo(boolean z);
 
-    void c(ViewGroup viewGroup, w wVar);
+    void c(ViewGroup viewGroup, x xVar);
 
-    void ea(int i);
+    void dX(int i);
 
     View getRootView();
 

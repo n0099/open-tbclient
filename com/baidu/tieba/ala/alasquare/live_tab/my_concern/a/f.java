@@ -3,48 +3,48 @@ package com.baidu.tieba.ala.alasquare.live_tab.my_concern.a;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.l;
-import com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.m;
-import com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.o;
-/* loaded from: classes6.dex */
-public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.c, l> {
-    private o gth;
-    private m gtm;
+import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernRecommendLineHolder;
+import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.h;
+import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.i;
+/* loaded from: classes10.dex */
+public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.c, LiveTabConcernRecommendLineHolder> {
+    private i gEg;
+    private h gEl;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public f(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.c.gtq);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.c.gEp);
         this.mPageContext = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: R */
-    public l c(ViewGroup viewGroup) {
-        this.gtm = new m(this.mPageContext, viewGroup);
-        if (this.gth != null) {
-            this.gtm.a(this.gth);
+    /* renamed from: ad */
+    public LiveTabConcernRecommendLineHolder e(ViewGroup viewGroup) {
+        this.gEl = new h(this.mPageContext, viewGroup);
+        if (this.gEg != null) {
+            this.gEl.a(this.gEg);
         }
-        return new l(this.gtm);
+        return new LiveTabConcernRecommendLineHolder(this.gEl);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.c cVar, l lVar) {
-        if (lVar == null || lVar.gtm == null) {
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.c cVar, LiveTabConcernRecommendLineHolder liveTabConcernRecommendLineHolder) {
+        if (liveTabConcernRecommendLineHolder == null || liveTabConcernRecommendLineHolder.gEl == null) {
             return null;
         }
-        lVar.gtm.a(cVar);
-        return lVar.getView();
+        liveTabConcernRecommendLineHolder.gEl.a(cVar);
+        return liveTabConcernRecommendLineHolder.getView();
     }
 
-    public void a(o oVar) {
-        this.gth = oVar;
-        if (this.gtm != null) {
-            this.gtm.a(this.gth);
+    public void a(i iVar) {
+        this.gEg = iVar;
+        if (this.gEl != null) {
+            this.gEl.a(this.gEg);
         }
     }
 }

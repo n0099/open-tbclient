@@ -1,7 +1,7 @@
 package com.baidu.sapi2.utils.enums;
 
 import com.baidu.android.util.io.FileUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public enum SocialType {
     UNKNOWN(0, FileUtils.UNKNOW),
     SINA_WEIBO_SSO(2, "新浪微博SSO"),
@@ -17,12 +17,14 @@ public enum SocialType {
     
 
     /* renamed from: a  reason: collision with root package name */
-    private int f3555a;
-    private String b;
+    private int f5407a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private String f5408b;
 
     SocialType(int i, String str) {
-        this.f3555a = i;
-        this.b = str;
+        this.f5407a = i;
+        this.f5408b = str;
     }
 
     public static SocialType getSocialType(int i) {
@@ -54,10 +56,10 @@ public enum SocialType {
     }
 
     public String getName() {
-        return this.b;
+        return this.f5408b;
     }
 
     public int getType() {
-        return this.f3555a;
+        return this.f5407a;
     }
 }

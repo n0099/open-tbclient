@@ -7,7 +7,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 class k {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static boolean a(JSONObject jSONObject, JSONObject jSONObject2, String str) {
@@ -32,7 +32,7 @@ class k {
         Collections.sort(arrayList, new Comparator<JSONObject>() { // from class: com.baidu.helios.a.a.k.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator
-            /* renamed from: c */
+            /* renamed from: a */
             public int compare(JSONObject jSONObject, JSONObject jSONObject2) {
                 return jSONObject.optString(str, "").compareTo(jSONObject2.optString(str, ""));
             }

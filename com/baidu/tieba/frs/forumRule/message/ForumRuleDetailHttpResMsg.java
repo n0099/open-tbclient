@@ -2,10 +2,10 @@ package com.baidu.tieba.frs.forumRule.message;
 
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.frs.forumRule.c.b;
+import com.baidu.tieba.frs.forumRule.b.b;
 import com.squareup.wire.Wire;
 import tbclient.ForumRuleDetail.ForumRuleDetailResIdl;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class ForumRuleDetailHttpResMsg extends HttpResponsedMessage {
     private b mForumRuleDetailData;
 

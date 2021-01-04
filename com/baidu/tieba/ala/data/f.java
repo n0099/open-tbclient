@@ -1,15 +1,15 @@
 package com.baidu.tieba.ala.data;
 
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class f {
-    public String gIB;
-    public String gIL;
+    public String gUn;
+    public String gUx;
     public String mGiftName;
 
     public void parserJson(JSONObject jSONObject) {
         this.mGiftName = jSONObject.optString("gift_name");
-        this.gIB = jSONObject.optString("gift_url");
-        this.gIL = jSONObject.optString("gift_num");
+        this.gUn = jSONObject.optString("gift_url");
+        this.gUx = jSONObject.optString("gift_num");
     }
 }

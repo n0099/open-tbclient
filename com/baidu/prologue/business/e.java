@@ -1,12 +1,12 @@
 package com.baidu.prologue.business;
 
 import android.content.Context;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class e {
     public static com.baidu.prologue.business.c.b a(Context context, com.baidu.prologue.business.data.e eVar, d dVar) {
         com.baidu.prologue.business.b.a cVar;
         com.baidu.prologue.business.c.b dVar2;
-        if (eVar.aeY()) {
+        if (eVar.agU()) {
             cVar = new com.baidu.prologue.business.b.b(context, eVar);
             dVar2 = new com.baidu.prologue.business.c.c(context);
         } else {

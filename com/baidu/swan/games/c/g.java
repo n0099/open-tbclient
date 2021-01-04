@@ -3,36 +3,36 @@ package com.baidu.swan.games.c;
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.core.c.c;
 import com.baidu.swan.games.c.d;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class g {
-    protected com.baidu.swan.games.f.b dWl;
+    protected com.baidu.swan.games.f.b efi;
 
     public g(com.baidu.swan.games.f.b bVar) {
-        this.dWl = bVar;
+        this.efi = bVar;
     }
 
     public void setEnableDebug(JsObject jsObject) {
         com.baidu.swan.games.binding.model.c e = com.baidu.swan.games.binding.model.c.e(jsObject);
         if (e != null) {
             boolean optBoolean = e.optBoolean("enableDebug");
-            com.baidu.swan.apps.runtime.e aJU = com.baidu.swan.apps.runtime.e.aJU();
-            if (aJU == null) {
-                a(e, false, wO("internal error"));
+            com.baidu.swan.apps.runtime.e aMk = com.baidu.swan.apps.runtime.e.aMk();
+            if (aMk == null) {
+                a(e, false, wN("internal error"));
                 return;
             }
-            SwanAppActivity aJO = aJU.aJO();
-            if (aJO == null) {
-                a(e, false, wO("internal error"));
-            } else if (optBoolean == com.baidu.swan.apps.console.a.anV()) {
+            SwanAppActivity aMe = aMk.aMe();
+            if (aMe == null) {
+                a(e, false, wN("internal error"));
+            } else if (optBoolean == com.baidu.swan.apps.console.a.apg()) {
                 a(e, true, "setEnableDebug:ok");
             } else {
-                a(aJU, aJO, e, optBoolean);
+                a(aMk, aMe, e, optBoolean);
             }
         }
     }
@@ -46,34 +46,34 @@ public class g {
                         g.this.a(context, cVar);
                         return;
                     }
-                    com.baidu.swan.apps.console.a.r(context, false);
+                    com.baidu.swan.apps.console.a.p(context, false);
                     g.this.a(cVar, true, "setEnableDebug:ok");
                     return;
                 }
-                com.baidu.swan.apps.core.c.c.ab(context, str);
-                g.this.a(cVar, false, g.this.wO(str));
+                com.baidu.swan.apps.core.c.c.ah(context, str);
+                g.this.a(cVar, false, g.this.wN(str));
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final Context context, final com.baidu.swan.games.binding.model.c cVar) {
-        d.aWN().a(new d.a() { // from class: com.baidu.swan.games.c.g.2
+        d.aZh().a(new d.a() { // from class: com.baidu.swan.games.c.g.2
             @Override // com.baidu.swan.games.c.d.a
-            public void eZ(boolean z) {
+            public void fi(boolean z) {
                 if (z) {
-                    com.baidu.swan.apps.console.a.r(context, true);
+                    com.baidu.swan.apps.console.a.p(context, true);
                     g.this.a(cVar, true, "setEnableDebug:ok");
                     return;
                 }
-                d.aWN().a((Activity) context, (DialogInterface.OnClickListener) null);
+                d.aZh().a((Activity) context, (DialogInterface.OnClickListener) null);
                 g.this.a(cVar, false, "internet error");
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String wO(String str) {
+    public String wN(String str) {
         return String.format("setEnableDebug:fail %s", str);
     }
 
@@ -84,14 +84,14 @@ public class g {
         com.baidu.swan.games.utils.b.a(cVar, z, bVar);
     }
 
-    public static void cr(JSONObject jSONObject) {
-        SwanAppActivity aJO;
+    public static void cz(JSONObject jSONObject) {
+        SwanAppActivity aMe;
         com.baidu.swan.games.f.a v8Engine;
-        com.baidu.swan.apps.runtime.e aJU = com.baidu.swan.apps.runtime.e.aJU();
-        if (aJU != null && aJU.aKn() && (aJO = aJU.aJO()) != null) {
-            com.baidu.swan.apps.framework.c aif = aJO.aif();
-            if ((aif instanceof com.baidu.swan.games.j.b) && (v8Engine = ((com.baidu.swan.games.j.b) aif).getV8Engine()) != null) {
-                v8Engine.dispatchEvent(a.cq(jSONObject));
+        com.baidu.swan.apps.runtime.e aMk = com.baidu.swan.apps.runtime.e.aMk();
+        if (aMk != null && aMk.aMD() && (aMe = aMk.aMe()) != null) {
+            com.baidu.swan.apps.framework.c ajl = aMe.ajl();
+            if ((ajl instanceof com.baidu.swan.games.j.b) && (v8Engine = ((com.baidu.swan.games.j.b) ajl).getV8Engine()) != null) {
+                v8Engine.dispatchEvent(a.cy(jSONObject));
             }
         }
     }

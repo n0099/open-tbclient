@@ -1,6 +1,6 @@
 package com.google.protobuf;
 
-import android.support.v7.widget.ActivityChooserView;
+import androidx.appcompat.widget.ActivityChooserView;
 import com.google.protobuf.ByteString;
 import java.io.IOException;
 import java.io.InputStream;
@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Stack;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class RopeByteString extends ByteString {
     private static final int[] minLengthByDepth;
     private int hash;
@@ -25,8 +25,8 @@ public class RopeByteString extends ByteString {
     private final int treeDepth;
 
     static {
-        int i = 1;
         ArrayList arrayList = new ArrayList();
+        int i = 1;
         int i2 = 1;
         while (i > 0) {
             arrayList.add(Integer.valueOf(i));
@@ -236,15 +236,14 @@ public class RopeByteString extends ByteString {
     }
 
     private boolean equalsFragments(ByteString byteString) {
-        int i;
         LiteralByteString literalByteString;
         PieceIterator pieceIterator = new PieceIterator(this);
         PieceIterator pieceIterator2 = new PieceIterator(byteString);
+        int i = 0;
         LiteralByteString next = pieceIterator2.next();
         int i2 = 0;
         LiteralByteString next2 = pieceIterator.next();
         int i3 = 0;
-        int i4 = 0;
         while (true) {
             int size = next2.size() - i3;
             int size2 = next.size() - i2;
@@ -252,9 +251,9 @@ public class RopeByteString extends ByteString {
             if (!(i3 == 0 ? next2.equalsRange(next, i2, min) : next.equalsRange(next2, i3, min))) {
                 return false;
             }
-            int i5 = i4 + min;
-            if (i5 >= this.totalLength) {
-                if (i5 == this.totalLength) {
+            int i4 = i + min;
+            if (i4 >= this.totalLength) {
+                if (i4 == this.totalLength) {
                     return true;
                 }
                 throw new IllegalStateException();
@@ -267,15 +266,13 @@ public class RopeByteString extends ByteString {
             }
             if (min == size2) {
                 literalByteString = pieceIterator2.next();
-                i = 0;
+                i2 = 0;
             } else {
-                LiteralByteString literalByteString2 = next;
-                i = i2 + min;
-                literalByteString = literalByteString2;
+                i2 += min;
+                literalByteString = next;
             }
-            i2 = i;
+            i = i4;
             next = literalByteString;
-            i4 = i5;
         }
     }
 
@@ -319,7 +316,7 @@ public class RopeByteString extends ByteString {
         return new RopeInputStream();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     private static class Balancer {
         private final Stack<ByteString> prefixesStack;
 
@@ -382,7 +379,7 @@ public class RopeByteString extends ByteString {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     public static class PieceIterator implements Iterator<LiteralByteString> {
         private final Stack<RopeByteString> breadCrumbs;
         private LiteralByteString next;
@@ -444,7 +441,7 @@ public class RopeByteString extends ByteString {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     public class RopeByteIterator implements ByteString.ByteIterator {
         private ByteString.ByteIterator bytes;
         int bytesRemaining;
@@ -485,7 +482,7 @@ public class RopeByteString extends ByteString {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     private class RopeInputStream extends InputStream {
         private LiteralByteString currentPiece;
         private int currentPieceIndex;

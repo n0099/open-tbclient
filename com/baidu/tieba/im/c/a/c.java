@@ -10,33 +10,33 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public abstract class c implements CustomMessageTask.CustomRunnable<LoadHistoryMessage.a> {
-    private com.baidu.tieba.im.db.a kDv;
+    private com.baidu.tieba.im.db.a kIQ;
     private int mCmd;
 
     public c(com.baidu.tieba.im.db.a aVar, int i) {
-        this.kDv = aVar;
+        this.kIQ = aVar;
         this.mCmd = i;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<LoadHistoryMessage.a> customMessage) {
-        if (customMessage == null || !(customMessage instanceof LoadHistoryMessage) || this.kDv == null) {
-            return EJ(this.mCmd);
+        if (customMessage == null || !(customMessage instanceof LoadHistoryMessage) || this.kIQ == null) {
+            return EC(this.mCmd);
         }
         LoadHistoryMessage.a data = customMessage.getData();
         LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(this.mCmd);
-        LinkedList<ChatMessage> b = this.kDv.b(com.baidu.adp.lib.f.b.toLong(data.id, 0L), data.kAi, data.kAj, data.limit);
-        if (b == null) {
-            return EJ(this.mCmd);
+        LinkedList<ChatMessage> b2 = this.kIQ.b(com.baidu.adp.lib.f.b.toLong(data.id, 0L), data.kFE, data.kFF, data.limit);
+        if (b2 == null) {
+            return EC(this.mCmd);
         }
         LoadHistoryResponsedMessage.a aVar = new LoadHistoryResponsedMessage.a();
-        if (data.kAi == null) {
+        if (data.kFE == null) {
             aVar.isFirst = true;
         } else {
             aVar.isFirst = false;
         }
         aVar.id = data.id;
-        aVar.msgList = b;
+        aVar.msgList = b2;
         try {
             loadHistoryResponsedMessage.decodeInBackGround(CmdConfigCustom.CMD_LOAD_HISTORY, aVar);
         } catch (Exception e) {
@@ -45,7 +45,7 @@ public abstract class c implements CustomMessageTask.CustomRunnable<LoadHistoryM
         return loadHistoryResponsedMessage;
     }
 
-    private LoadHistoryResponsedMessage EJ(int i) {
+    private LoadHistoryResponsedMessage EC(int i) {
         LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(i);
         loadHistoryResponsedMessage.setError(-18);
         return loadHistoryResponsedMessage;

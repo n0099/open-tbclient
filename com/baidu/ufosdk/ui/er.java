@@ -6,21 +6,23 @@ import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
-import android.support.v4.view.ViewCompat;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.core.view.ViewCompat;
 import com.baidu.tbadk.pay.PayConfig;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
+/* loaded from: classes8.dex */
 public final class er extends Dialog {
 
     /* renamed from: a */
-    private final int f3867a;
-    private final int b;
+    private final int f5856a;
+
+    /* renamed from: b */
+    private final int f5857b;
     private final int c;
     private final int d;
     private final int e;
@@ -33,13 +35,13 @@ public final class er extends Dialog {
 
     public er(Context context, String str) {
         super(context);
-        this.f3867a = R.xml.fileprovider_paths;
-        this.b = R.xml.live_filepaths;
-        this.c = R.xml.network_security_config;
-        this.d = R.xml.nfc_tech_filter;
-        this.e = R.xml.null_network_security_config;
-        this.f = R.xml.pass_sdk_file_provider;
-        this.g = R.xml.tieba_file_paths;
+        this.f5856a = R.dimen.L_X02;
+        this.f5857b = R.dimen.L_X03;
+        this.c = R.dimen.L_X04;
+        this.d = R.dimen.L_X05;
+        this.e = R.dimen.L_X06;
+        this.f = R.dimen.M_H_X001;
+        this.g = R.dimen.M_H_X002;
         this.k = "";
         this.h = context;
         this.k = str;
@@ -59,10 +61,10 @@ public final class er extends Dialog {
         gradientDrawable.setColor(com.baidu.ufosdk.b.A);
         gradientDrawable.setCornerRadius(com.baidu.ufosdk.f.i.a(this.h, 4.0f));
         RelativeLayout relativeLayout = new RelativeLayout(this.h);
-        relativeLayout.setId(R.xml.fileprovider_paths);
+        relativeLayout.setId(R.dimen.L_X02);
         relativeLayout.setBackgroundDrawable(gradientDrawable);
         TextView textView = new TextView(this.h);
-        textView.setId(R.xml.tieba_file_paths);
+        textView.setId(R.dimen.M_H_X002);
         textView.setTextColor(ViewCompat.MEASURED_STATE_MASK);
         textView.setTextSize(18.0f);
         textView.getPaint().setFakeBoldText(true);
@@ -73,7 +75,7 @@ public final class er extends Dialog {
         layoutParams.addRule(14);
         relativeLayout.addView(textView, layoutParams);
         TextView textView2 = new TextView(this.h);
-        textView2.setId(R.xml.live_filepaths);
+        textView2.setId(R.dimen.L_X03);
         textView2.setTextColor(ViewCompat.MEASURED_STATE_MASK);
         textView2.setTextSize(15.0f);
         textView2.setText(com.baidu.ufosdk.f.s.a("39"));
@@ -91,7 +93,7 @@ public final class er extends Dialog {
         gradientDrawable2.setCornerRadius(a2);
         gradientDrawable2.setStroke(1, parseColor);
         this.j = new EditText(this.h);
-        this.j.setId(R.xml.network_security_config);
+        this.j.setId(R.dimen.L_X04);
         this.j.setTextSize(15.0f);
         this.j.setTextColor(-13421773);
         if (this.k.length() > 0) {
@@ -106,12 +108,12 @@ public final class er extends Dialog {
         layoutParams3.setMargins(com.baidu.ufosdk.f.i.a(this.h, 25.0f), com.baidu.ufosdk.f.i.a(this.h, 10.0f), com.baidu.ufosdk.f.i.a(this.h, 25.0f), com.baidu.ufosdk.f.i.a(this.h, 5.0f));
         relativeLayout.addView(this.j, layoutParams3);
         LinearLayout linearLayout = new LinearLayout(this.h);
-        linearLayout.setId(R.xml.nfc_tech_filter);
+        linearLayout.setId(R.dimen.L_X05);
         linearLayout.setOrientation(0);
         linearLayout.setBackgroundColor(0);
         linearLayout.setGravity(17);
         TextView textView3 = new TextView(this.h);
-        textView3.setId(R.xml.null_network_security_config);
+        textView3.setId(R.dimen.L_X06);
         textView3.setText(com.baidu.ufosdk.f.s.a("36"));
         textView3.setTextColor(com.baidu.ufosdk.f.i.a(com.baidu.ufosdk.b.v, com.baidu.ufosdk.b.t, com.baidu.ufosdk.b.v, com.baidu.ufosdk.b.v));
         textView3.setBackgroundColor(0);
@@ -127,7 +129,7 @@ public final class er extends Dialog {
         view.setBackgroundColor(-6710887);
         linearLayout.addView(view, layoutParams5);
         TextView textView4 = new TextView(this.h);
-        textView4.setId(R.xml.pass_sdk_file_provider);
+        textView4.setId(R.dimen.M_H_X001);
         textView4.setText(com.baidu.ufosdk.f.s.a(PayConfig.PAYMENT_POS_KEY_MANGA));
         textView4.setTextColor(com.baidu.ufosdk.f.i.a(com.baidu.ufosdk.b.v, com.baidu.ufosdk.b.t, com.baidu.ufosdk.b.v, com.baidu.ufosdk.b.v));
         textView4.setBackgroundColor(0);

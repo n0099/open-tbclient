@@ -1,5 +1,5 @@
 package com.baidu.pass.biometrics.face.liveness.utils.enums;
-/* loaded from: classes12.dex */
+/* loaded from: classes7.dex */
 public enum PassFaceRecogType {
     RECOG_TYPE_BDUSS("recog_type_bduss", 1),
     RECOG_TYPE_AUTHTOKEN("recog_type_authtoken", 2),
@@ -7,16 +7,18 @@ public enum PassFaceRecogType {
     RECOG_TYPE_FACEDETECT("recog_type_facedetect", 4),
     RECOG_TYPE_OUTER("recog_type_outer", 5);
     
-    private String b;
+
+    /* renamed from: b  reason: collision with root package name */
+    private String f4083b;
     private int c;
 
     PassFaceRecogType(String str, int i) {
-        this.b = str;
+        this.f4083b = str;
         this.c = i;
     }
 
     public String getRecogTypeName() {
-        return this.b;
+        return this.f4083b;
     }
 
     public int getRecogTypeNum() {

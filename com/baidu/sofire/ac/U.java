@@ -9,12 +9,11 @@ import android.content.IntentFilter;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
-import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
+import androidx.core.app.NotificationCompat;
 import com.baidu.live.adp.lib.cache.BdKVCache;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.mobstat.Config;
-import com.baidu.searchbox.ugc.model.PublishType;
 import com.baidu.sofire.MyReceiver;
 import com.baidu.sofire.MyService;
 import com.baidu.sofire.b;
@@ -40,7 +39,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class U extends Thread {
     public static final int FROM_DAILY_ALARM = 6;
     public static final int FROM_DEFAULT = 0;
@@ -103,7 +102,7 @@ public class U extends Thread {
     private static boolean sSetRetrmAlarm = false;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes15.dex */
     public class UpgradeResult {
         int networkId;
         int resultId;
@@ -245,11 +244,11 @@ public class U extends Thread {
                         throw new NetworkErrorException("blocked by Huawei Input");
                     }
                     sLastCheckTime = System.currentTimeMillis();
-                    if (com.baidu.sofire.i.e.g != null && (sMonitorNetworkWhenUpgradeNoNet || com.baidu.sofire.i.e.f3634a)) {
+                    if (com.baidu.sofire.i.e.g != null && (sMonitorNetworkWhenUpgradeNoNet || com.baidu.sofire.i.e.f5536a)) {
                         this.context.getApplicationContext().unregisterReceiver(com.baidu.sofire.i.e.g);
                     }
                     sMonitorNetworkWhenUpgradeNoNet = false;
-                    com.baidu.sofire.i.e.f3634a = false;
+                    com.baidu.sofire.i.e.f5536a = false;
                     if (this.mFrom != 1) {
                         this.mWholeJson = com.baidu.sofire.i.e.o(this.context);
                     }
@@ -281,7 +280,7 @@ public class U extends Thread {
                     this.loadedPluginDB.d();
                     if (!sPidRegister) {
                         e eVar2 = this.preference;
-                        eVar2.c.putInt("pdcg", this.preference.f3624a.getInt("pdcg", 0) + 1);
+                        eVar2.c.putInt("pdcg", this.preference.f5520a.getInt("pdcg", 0) + 1);
                         eVar2.c.commit();
                         e eVar3 = this.preference;
                         long currentTimeMillis2 = System.currentTimeMillis();
@@ -289,7 +288,7 @@ public class U extends Thread {
                             eVar3.c.putString("pdcgts", "");
                             eVar3.c.commit();
                         } else {
-                            String string = eVar3.f3624a.getString("pdcgts", "");
+                            String string = eVar3.f5520a.getString("pdcgts", "");
                             if (TextUtils.isEmpty(string)) {
                                 str = String.valueOf(currentTimeMillis2);
                             } else if (string.split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).length < 20) {
@@ -303,7 +302,7 @@ public class U extends Thread {
                         sPidRegister = true;
                     }
                     e eVar4 = this.preference;
-                    eVar4.c.putInt("rtqe", this.preference.f3624a.getInt("rtqe", 0) + 1);
+                    eVar4.c.putInt("rtqe", this.preference.f5520a.getInt("rtqe", 0) + 1);
                     eVar4.c.commit();
                     List<ApkInfo> a2 = this.loadedPluginDB.a();
                     new StringBuilder("a=").append(a2);
@@ -347,7 +346,7 @@ public class U extends Thread {
                             int optInt2 = optJSONObject2.optInt("r");
                             if (z2) {
                                 e eVar5 = this.preference;
-                                if (optInt2 > eVar5.f3624a.getInt("opi", 0)) {
+                                if (optInt2 > eVar5.f5520a.getInt("opi", 0)) {
                                     eVar5.c.putInt("opi", optInt2);
                                     eVar5.c.commit();
                                 }
@@ -622,15 +621,15 @@ public class U extends Thread {
                 }
                 hashMap.put("8", jSONObject);
             }
-            Map<Integer, String> b = this.loadedPluginDB.b();
-            hashMap.put(PublishType.TYPE_VIDEO_SHARE, b.keySet());
-            hashMap.put("10", b.values());
-            hashMap.put("11", Integer.valueOf(this.mEndReason));
+            Map<Integer, String> b2 = this.loadedPluginDB.b();
+            hashMap.put("9", b2.keySet());
+            hashMap.put(com.tencent.connect.common.Constants.VIA_REPORT_TYPE_SHARE_TO_QQ, b2.values());
+            hashMap.put(com.tencent.connect.common.Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, Integer.valueOf(this.mEndReason));
             if (!TextUtils.isEmpty(str)) {
-                hashMap.put("12", str.replace("\n", "").replace("\t", "").replace("\r", ""));
+                hashMap.put(com.tencent.connect.common.Constants.VIA_REPORT_TYPE_SET_AVATAR, str.replace("\n", "").replace("\t", "").replace("\r", ""));
             }
             hashMap.put(com.tencent.connect.common.Constants.VIA_REPORT_TYPE_JOININ_GROUP, Integer.valueOf(this.mStartNetwork));
-            hashMap.put("14", Integer.valueOf(com.baidu.sofire.i.e.k(this.context)));
+            hashMap.put(com.tencent.connect.common.Constants.VIA_REPORT_TYPE_MAKE_FRIEND, Integer.valueOf(com.baidu.sofire.i.e.k(this.context)));
             com.baidu.sofire.i.e.a(this.context, "1003129", hashMap);
         } catch (Throwable th2) {
             com.baidu.sofire.i.e.a();
@@ -639,7 +638,7 @@ public class U extends Thread {
 
     private void handleThreadStart() {
         try {
-            long j = this.preference.f3624a.getLong("slruct", 0L);
+            long j = this.preference.f5520a.getLong("slruct", 0L);
             long currentTimeMillis = System.currentTimeMillis();
             if (j > 0 && currentTimeMillis - j > 86400000) {
                 HashMap hashMap = new HashMap();
@@ -755,7 +754,7 @@ public class U extends Thread {
                     }
                     Asc asc = new Asc();
                     byte[] bytes = apkInfo.signMD5.substring(0, apkInfo.signMD5.length() / 2).getBytes("utf-8");
-                    com.baidu.sofire.i.e.e("12");
+                    com.baidu.sofire.i.e.e(com.tencent.connect.common.Constants.VIA_REPORT_TYPE_SET_AVATAR);
                     if (com.baidu.sofire.i.a.a(file, file2, bytes) != 0) {
                         b.a();
                         if (file2.exists()) {
@@ -763,7 +762,7 @@ public class U extends Thread {
                         }
                         com.baidu.sofire.i.e.e(com.tencent.connect.common.Constants.VIA_REPORT_TYPE_JOININ_GROUP);
                         if (asc.df(file.getAbsolutePath(), file2.getAbsolutePath(), bytes) != 0) {
-                            com.baidu.sofire.i.e.e("14");
+                            com.baidu.sofire.i.e.e(com.tencent.connect.common.Constants.VIA_REPORT_TYPE_MAKE_FRIEND);
                             b.a();
                             if (this.mUpgradeResultMap != null && !this.mUpgradeResultMap.keySet().contains(Integer.valueOf(apkInfo.key))) {
                                 this.mUpgradeResultMap.put(Integer.valueOf(apkInfo.key), new UpgradeResult(i, 7));
@@ -816,7 +815,7 @@ public class U extends Thread {
         }
         long currentTimeMillis = System.currentTimeMillis();
         e eVar = this.preference;
-        long j = eVar.f3624a.getLong("pu_ap_fd", 0L);
+        long j = eVar.f5520a.getLong("pu_ap_fd", 0L);
         if (j == 0) {
             j = System.currentTimeMillis();
             eVar.d();
@@ -843,8 +842,14 @@ public class U extends Thread {
         file.delete();
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:83:0x0258 A[Catch: Throwable -> 0x012f, TryCatch #1 {Throwable -> 0x012f, blocks: (B:3:0x0007, B:5:0x002d, B:7:0x0037, B:9:0x003b, B:11:0x004d, B:13:0x005f, B:15:0x0067, B:16:0x006c, B:18:0x00cf, B:20:0x00db, B:22:0x00f9, B:24:0x00fd, B:26:0x010b, B:28:0x012a, B:70:0x0214, B:72:0x0221, B:74:0x022b, B:76:0x022f, B:78:0x0237, B:80:0x0241, B:81:0x024f, B:83:0x0258, B:85:0x0261, B:88:0x0269, B:90:0x0275, B:92:0x0282, B:93:0x0293, B:95:0x02a6, B:97:0x02bb, B:98:0x02c7, B:58:0x01d8, B:62:0x01ec, B:64:0x01fc, B:66:0x0209, B:57:0x01c0), top: B:112:0x0007 }] */
-    /* JADX WARN: Type inference failed for: r0v66, types: [com.baidu.sofire.ac.U$2] */
+    /* JADX WARN: Removed duplicated region for block: B:109:0x02ec  */
+    /* JADX WARN: Removed duplicated region for block: B:117:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x00f9 A[Catch: Throwable -> 0x012f, TryCatch #1 {Throwable -> 0x012f, blocks: (B:3:0x0007, B:5:0x002d, B:7:0x0037, B:9:0x003b, B:11:0x004d, B:13:0x005f, B:15:0x0067, B:16:0x006c, B:18:0x00cf, B:20:0x00db, B:22:0x00f9, B:24:0x00fd, B:26:0x010b, B:28:0x012a, B:71:0x0213, B:73:0x0220, B:75:0x022a, B:77:0x022e, B:79:0x0236, B:81:0x0240, B:82:0x024e, B:84:0x0257, B:86:0x0260, B:89:0x0268, B:91:0x0274, B:93:0x0281, B:94:0x0292, B:96:0x02a5, B:98:0x02ba, B:99:0x02c6, B:59:0x01d8, B:63:0x01ec, B:65:0x01fc, B:67:0x0209, B:57:0x01c0), top: B:112:0x0007 }] */
+    /* JADX WARN: Removed duplicated region for block: B:26:0x010b A[Catch: Throwable -> 0x012f, TryCatch #1 {Throwable -> 0x012f, blocks: (B:3:0x0007, B:5:0x002d, B:7:0x0037, B:9:0x003b, B:11:0x004d, B:13:0x005f, B:15:0x0067, B:16:0x006c, B:18:0x00cf, B:20:0x00db, B:22:0x00f9, B:24:0x00fd, B:26:0x010b, B:28:0x012a, B:71:0x0213, B:73:0x0220, B:75:0x022a, B:77:0x022e, B:79:0x0236, B:81:0x0240, B:82:0x024e, B:84:0x0257, B:86:0x0260, B:89:0x0268, B:91:0x0274, B:93:0x0281, B:94:0x0292, B:96:0x02a5, B:98:0x02ba, B:99:0x02c6, B:59:0x01d8, B:63:0x01ec, B:65:0x01fc, B:67:0x0209, B:57:0x01c0), top: B:112:0x0007 }] */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x012a A[Catch: Throwable -> 0x012f, TRY_LEAVE, TryCatch #1 {Throwable -> 0x012f, blocks: (B:3:0x0007, B:5:0x002d, B:7:0x0037, B:9:0x003b, B:11:0x004d, B:13:0x005f, B:15:0x0067, B:16:0x006c, B:18:0x00cf, B:20:0x00db, B:22:0x00f9, B:24:0x00fd, B:26:0x010b, B:28:0x012a, B:71:0x0213, B:73:0x0220, B:75:0x022a, B:77:0x022e, B:79:0x0236, B:81:0x0240, B:82:0x024e, B:84:0x0257, B:86:0x0260, B:89:0x0268, B:91:0x0274, B:93:0x0281, B:94:0x0292, B:96:0x02a5, B:98:0x02ba, B:99:0x02c6, B:59:0x01d8, B:63:0x01ec, B:65:0x01fc, B:67:0x0209, B:57:0x01c0), top: B:112:0x0007 }] */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x0211  */
+    /* JADX WARN: Removed duplicated region for block: B:84:0x0257 A[Catch: Throwable -> 0x012f, TryCatch #1 {Throwable -> 0x012f, blocks: (B:3:0x0007, B:5:0x002d, B:7:0x0037, B:9:0x003b, B:11:0x004d, B:13:0x005f, B:15:0x0067, B:16:0x006c, B:18:0x00cf, B:20:0x00db, B:22:0x00f9, B:24:0x00fd, B:26:0x010b, B:28:0x012a, B:71:0x0213, B:73:0x0220, B:75:0x022a, B:77:0x022e, B:79:0x0236, B:81:0x0240, B:82:0x024e, B:84:0x0257, B:86:0x0260, B:89:0x0268, B:91:0x0274, B:93:0x0281, B:94:0x0292, B:96:0x02a5, B:98:0x02ba, B:99:0x02c6, B:59:0x01d8, B:63:0x01ec, B:65:0x01fc, B:67:0x0209, B:57:0x01c0), top: B:112:0x0007 }] */
+    /* JADX WARN: Type inference failed for: r0v63, types: [com.baidu.sofire.ac.U$2] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -881,129 +886,132 @@ public class U extends Thread {
                     b.a();
                     z = false;
                     z2 = true;
-                } else {
-                    new StringBuilder().append(apkInfo.versionName).append(" exists! but mdf ");
-                    z = true;
-                    z2 = false;
-                    b.a();
-                }
-            } else {
-                z = true;
-                z2 = false;
-            }
-            if (!z) {
-                z3 = false;
-                z4 = z2;
-            } else if (apkInfo.isNextLoad) {
-                new Thread() { // from class: com.baidu.sofire.ac.U.2
-                    @Override // java.lang.Thread, java.lang.Runnable
-                    public void run() {
-                        try {
-                            boolean handlePluginDownload = U.this.handlePluginDownload(apkInfo, file2, file3, k);
-                            new StringBuilder().append(handlePluginDownload);
-                            b.a();
-                            if (!handlePluginDownload) {
-                                U.this.handlePluginDownError(apkInfo, file3, k, q);
-                                return;
+                    if (z) {
+                        z3 = false;
+                        z4 = z2;
+                    } else if (apkInfo.isNextLoad) {
+                        new Thread() { // from class: com.baidu.sofire.ac.U.2
+                            @Override // java.lang.Thread, java.lang.Runnable
+                            public void run() {
+                                try {
+                                    boolean handlePluginDownload = U.this.handlePluginDownload(apkInfo, file2, file3, k);
+                                    new StringBuilder().append(handlePluginDownload);
+                                    b.a();
+                                    if (!handlePluginDownload) {
+                                        U.this.handlePluginDownError(apkInfo, file3, k, q);
+                                        return;
+                                    }
+                                    apkInfo.pkgPath = file3.getAbsolutePath();
+                                    ApkInfo apkInfo2 = new ApkInfo(apkInfo);
+                                    apkInfo2.key += ABTestConstants.MAX_FATAL_ALLOCATION_FAILURE_SIZE_DEFAULT;
+                                    if (!TextUtils.isEmpty(apkInfo2.packageName)) {
+                                        apkInfo2.packageName = new StringBuilder(apkInfo2.packageName).reverse().toString();
+                                    }
+                                    b.a();
+                                    U.this.loadedPluginDB.a(apkInfo2);
+                                } catch (Throwable th) {
+                                    com.baidu.sofire.i.e.a();
+                                }
                             }
-                            apkInfo.pkgPath = file3.getAbsolutePath();
-                            ApkInfo apkInfo2 = new ApkInfo(apkInfo);
-                            apkInfo2.key += ABTestConstants.MAX_FATAL_ALLOCATION_FAILURE_SIZE_DEFAULT;
-                            if (!TextUtils.isEmpty(apkInfo2.packageName)) {
-                                apkInfo2.packageName = new StringBuilder(apkInfo2.packageName).reverse().toString();
+                        }.start();
+                        z3 = false;
+                        z4 = z2;
+                    } else {
+                        z4 = handlePluginDownload(apkInfo, file2, file3, k);
+                        new StringBuilder().append(z4);
+                        b.a();
+                        boolean z8 = !z4;
+                        if (a2 != null) {
+                            this.loadedPluginDB.h(a2.key + ABTestConstants.MAX_FATAL_ALLOCATION_FAILURE_SIZE_DEFAULT);
+                            if (!TextUtils.isEmpty(a2.pkgPath)) {
+                                File file4 = new File(a2.pkgPath);
+                                if (file4.exists()) {
+                                    file4.delete();
+                                }
                             }
-                            b.a();
-                            U.this.loadedPluginDB.a(apkInfo2);
-                        } catch (Throwable th) {
-                            com.baidu.sofire.i.e.a();
                         }
+                        z3 = z8;
                     }
-                }.start();
-                z3 = false;
-                z4 = z2;
-            } else {
-                boolean handlePluginDownload = handlePluginDownload(apkInfo, file2, file3, k);
-                new StringBuilder().append(handlePluginDownload);
-                b.a();
-                boolean z8 = !handlePluginDownload;
-                if (a2 != null) {
-                    this.loadedPluginDB.h(a2.key + ABTestConstants.MAX_FATAL_ALLOCATION_FAILURE_SIZE_DEFAULT);
-                    if (!TextUtils.isEmpty(a2.pkgPath)) {
-                        File file4 = new File(a2.pkgPath);
-                        if (file4.exists()) {
-                            file4.delete();
-                        }
-                    }
-                }
-                z3 = z8;
-                z4 = handlePluginDownload;
-            }
-            if (z4) {
-                new StringBuilder().append(apkInfo.versionName).append(" ").append(apkInfo.key);
-                b.a();
-                pluginUpdate(file3, apkInfo, k);
-            } else {
-                if (a2 != null) {
-                    b.a();
-                    ApkInfo a3 = this.loadedPluginDB.a(apkInfo.key);
-                    if (a3 != null) {
-                        if (com.baidu.sofire.i.e.b(a2.versionName, a3.versionName)) {
+                    if (!z4) {
+                        new StringBuilder().append(apkInfo.versionName).append(" ").append(apkInfo.key);
+                        b.a();
+                        pluginUpdate(file3, apkInfo, k);
+                    } else {
+                        if (a2 != null) {
                             b.a();
-                        } else {
-                            z6 = false;
-                            if (TextUtils.isEmpty(a2.versionName) && a2.versionName.equals(apkInfo.versionName)) {
-                                b.a();
-                                this.loadedPluginDB.a(a2.key + ABTestConstants.MAX_FATAL_ALLOCATION_FAILURE_SIZE_DEFAULT, a2.versionName);
-                                z7 = false;
-                            } else {
-                                z7 = z6;
+                            ApkInfo a3 = this.loadedPluginDB.a(apkInfo.key);
+                            if (a3 != null) {
+                                if (com.baidu.sofire.i.e.b(a2.versionName, a3.versionName)) {
+                                    b.a();
+                                } else {
+                                    z6 = false;
+                                    if (TextUtils.isEmpty(a2.versionName) && a2.versionName.equals(apkInfo.versionName)) {
+                                        b.a();
+                                        this.loadedPluginDB.a(a2.key + ABTestConstants.MAX_FATAL_ALLOCATION_FAILURE_SIZE_DEFAULT, a2.versionName);
+                                        z7 = false;
+                                    } else {
+                                        z7 = z6;
+                                    }
+                                    file = null;
+                                    if (!TextUtils.isEmpty(a2.pkgPath)) {
+                                        file = new File(a2.pkgPath);
+                                    }
+                                    if (file == null && file.exists() && z7) {
+                                        if (a2.apkMD5.equals(p.a(file))) {
+                                            a2.key -= ABTestConstants.MAX_FATAL_ALLOCATION_FAILURE_SIZE_DEFAULT;
+                                            if (!TextUtils.isEmpty(a2.packageName)) {
+                                                a2.packageName = new StringBuilder(a2.packageName).reverse().toString();
+                                            }
+                                            new StringBuilder().append(a2.versionName);
+                                            b.a();
+                                            pluginUpdate(file, a2, k);
+                                            z5 = true;
+                                        } else {
+                                            this.loadedPluginDB.a(a2.key + ABTestConstants.MAX_FATAL_ALLOCATION_FAILURE_SIZE_DEFAULT, a2.versionName);
+                                            file.delete();
+                                            z5 = false;
+                                        }
+                                    } else {
+                                        z5 = false;
+                                    }
+                                }
                             }
+                            z6 = true;
+                            if (TextUtils.isEmpty(a2.versionName)) {
+                            }
+                            z7 = z6;
                             file = null;
                             if (!TextUtils.isEmpty(a2.pkgPath)) {
-                                file = new File(a2.pkgPath);
                             }
-                            if (file == null && file.exists() && z7) {
-                                if (a2.apkMD5.equals(p.a(file))) {
-                                    a2.key -= ABTestConstants.MAX_FATAL_ALLOCATION_FAILURE_SIZE_DEFAULT;
-                                    if (!TextUtils.isEmpty(a2.packageName)) {
-                                        a2.packageName = new StringBuilder(a2.packageName).reverse().toString();
-                                    }
-                                    new StringBuilder().append(a2.versionName);
-                                    b.a();
-                                    pluginUpdate(file, a2, k);
-                                    z5 = true;
-                                } else {
-                                    this.loadedPluginDB.a(a2.key + ABTestConstants.MAX_FATAL_ALLOCATION_FAILURE_SIZE_DEFAULT, a2.versionName);
-                                    file.delete();
-                                    z5 = false;
-                                }
-                            } else {
-                                z5 = false;
+                            if (file == null) {
+                            }
+                            z5 = false;
+                        } else {
+                            z5 = false;
+                        }
+                        if (!z5) {
+                            b.a();
+                            if (f.a(this.context.getApplicationContext()).d(apkInfo.packageName) == null) {
+                                this.forHostAPP.a(apkInfo.key, apkInfo.versionName, null);
                             }
                         }
                     }
-                    z6 = true;
-                    if (TextUtils.isEmpty(a2.versionName)) {
+                    if (!z3) {
+                        handlePluginDownError(apkInfo, file3, k, q);
+                        return;
                     }
-                    z7 = z6;
-                    file = null;
-                    if (!TextUtils.isEmpty(a2.pkgPath)) {
-                    }
-                    if (file == null) {
-                    }
-                    z5 = false;
-                } else {
-                    z5 = false;
+                    return;
                 }
-                if (!z5) {
-                    b.a();
-                    if (f.a(this.context.getApplicationContext()).d(apkInfo.packageName) == null) {
-                        this.forHostAPP.a(apkInfo.key, apkInfo.versionName, null);
-                    }
-                }
+                new StringBuilder().append(apkInfo.versionName).append(" exists! but mdf ");
+                b.a();
             }
-            if (z3) {
-                handlePluginDownError(apkInfo, file3, k, q);
+            z = true;
+            z2 = false;
+            if (z) {
+            }
+            if (!z4) {
+            }
+            if (!z3) {
             }
         } catch (Throwable th) {
             com.baidu.sofire.i.e.a();

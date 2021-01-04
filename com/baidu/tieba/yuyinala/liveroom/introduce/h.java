@@ -1,6 +1,6 @@
 package com.baidu.tieba.yuyinala.liveroom.introduce;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class h {
-    public String onD;
-    public String onE;
+    public String oqS;
+    public String oqT;
 }

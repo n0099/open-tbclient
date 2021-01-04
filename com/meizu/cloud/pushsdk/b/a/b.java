@@ -20,11 +20,11 @@ import java.util.Map;
 import java.util.concurrent.Executor;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class b<T extends b> {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f4079a = b.class.getSimpleName();
+    private static final String f11423a = b.class.getSimpleName();
     private static final g w = g.a(AbstractBceClient.DEFAULT_CONTENT_TYPE);
     private static final g x = g.a("text/x-markdown; charset=utf-8");
     private static final Object z = new Object();
@@ -40,7 +40,9 @@ public class b<T extends b> {
     private Executor J;
     private String K;
     private Type L;
-    private int b;
+
+    /* renamed from: b  reason: collision with root package name */
+    private int f11424b;
     private com.meizu.cloud.pushsdk.b.a.d c;
     private int d;
     private String e;
@@ -63,9 +65,11 @@ public class b<T extends b> {
     private File v;
     private g y;
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes6.dex */
     public static class a<T extends a> {
-        private String b;
+
+        /* renamed from: b  reason: collision with root package name */
+        private String f11428b;
         private Object c;
         private String g;
         private String h;
@@ -73,14 +77,14 @@ public class b<T extends b> {
         private String k;
 
         /* renamed from: a  reason: collision with root package name */
-        private com.meizu.cloud.pushsdk.b.a.d f4082a = com.meizu.cloud.pushsdk.b.a.d.MEDIUM;
+        private com.meizu.cloud.pushsdk.b.a.d f11427a = com.meizu.cloud.pushsdk.b.a.d.MEDIUM;
         private HashMap<String, String> d = new HashMap<>();
         private HashMap<String, String> e = new HashMap<>();
         private HashMap<String, String> f = new HashMap<>();
         private int i = 0;
 
         public a(String str, String str2, String str3) {
-            this.b = str;
+            this.f11428b = str;
             this.g = str2;
             this.h = str3;
         }
@@ -91,9 +95,11 @@ public class b<T extends b> {
     }
 
     /* renamed from: com.meizu.cloud.pushsdk.b.a.b$b  reason: collision with other inner class name */
-    /* loaded from: classes16.dex */
-    public static class C1008b<T extends C1008b> {
-        private int b;
+    /* loaded from: classes6.dex */
+    public static class C1139b<T extends C1139b> {
+
+        /* renamed from: b  reason: collision with root package name */
+        private int f11430b;
         private String c;
         private Object d;
         private Bitmap.Config e;
@@ -104,15 +110,15 @@ public class b<T extends b> {
         private String m;
 
         /* renamed from: a  reason: collision with root package name */
-        private com.meizu.cloud.pushsdk.b.a.d f4083a = com.meizu.cloud.pushsdk.b.a.d.MEDIUM;
+        private com.meizu.cloud.pushsdk.b.a.d f11429a = com.meizu.cloud.pushsdk.b.a.d.MEDIUM;
         private HashMap<String, String> i = new HashMap<>();
         private HashMap<String, String> j = new HashMap<>();
         private HashMap<String, String> k = new HashMap<>();
 
-        public C1008b(String str) {
-            this.b = 0;
+        public C1139b(String str) {
+            this.f11430b = 0;
             this.c = str;
-            this.b = 0;
+            this.f11430b = 0;
         }
 
         public T a(HashMap<String, String> hashMap) {
@@ -129,16 +135,18 @@ public class b<T extends b> {
         }
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes6.dex */
     public static class c<T extends c> {
-        private String b;
+
+        /* renamed from: b  reason: collision with root package name */
+        private String f11432b;
         private Object c;
         private Executor j;
         private String k;
         private String l;
 
         /* renamed from: a  reason: collision with root package name */
-        private com.meizu.cloud.pushsdk.b.a.d f4084a = com.meizu.cloud.pushsdk.b.a.d.MEDIUM;
+        private com.meizu.cloud.pushsdk.b.a.d f11431a = com.meizu.cloud.pushsdk.b.a.d.MEDIUM;
         private HashMap<String, String> d = new HashMap<>();
         private HashMap<String, String> e = new HashMap<>();
         private HashMap<String, String> f = new HashMap<>();
@@ -147,7 +155,7 @@ public class b<T extends b> {
         private int i = 0;
 
         public c(String str) {
-            this.b = str;
+            this.f11432b = str;
         }
 
         public T a(String str, File file) {
@@ -169,9 +177,11 @@ public class b<T extends b> {
         }
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes6.dex */
     public static class d<T extends d> {
-        private int b;
+
+        /* renamed from: b  reason: collision with root package name */
+        private int f11434b;
         private String c;
         private Object d;
         private Executor o;
@@ -179,7 +189,7 @@ public class b<T extends b> {
         private String q;
 
         /* renamed from: a  reason: collision with root package name */
-        private com.meizu.cloud.pushsdk.b.a.d f4085a = com.meizu.cloud.pushsdk.b.a.d.MEDIUM;
+        private com.meizu.cloud.pushsdk.b.a.d f11433a = com.meizu.cloud.pushsdk.b.a.d.MEDIUM;
         private JSONObject e = null;
         private JSONArray f = null;
         private String g = null;
@@ -192,9 +202,9 @@ public class b<T extends b> {
         private HashMap<String, String> n = new HashMap<>();
 
         public d(String str) {
-            this.b = 1;
+            this.f11434b = 1;
             this.c = str;
-            this.b = 1;
+            this.f11434b = 1;
         }
 
         public T a(HashMap<String, String> hashMap) {
@@ -230,9 +240,9 @@ public class b<T extends b> {
         this.K = null;
         this.L = null;
         this.d = 1;
-        this.b = 0;
-        this.c = aVar.f4082a;
-        this.e = aVar.b;
+        this.f11424b = 0;
+        this.c = aVar.f11427a;
+        this.e = aVar.f11428b;
         this.g = aVar.c;
         this.p = aVar.g;
         this.q = aVar.h;
@@ -244,7 +254,7 @@ public class b<T extends b> {
         this.K = aVar.k;
     }
 
-    public b(C1008b c1008b) {
+    public b(C1139b c1139b) {
         this.i = new HashMap<>();
         this.j = new HashMap<>();
         this.k = new HashMap<>();
@@ -263,19 +273,19 @@ public class b<T extends b> {
         this.K = null;
         this.L = null;
         this.d = 0;
-        this.b = c1008b.b;
-        this.c = c1008b.f4083a;
-        this.e = c1008b.c;
-        this.g = c1008b.d;
-        this.i = c1008b.i;
-        this.F = c1008b.e;
-        this.H = c1008b.g;
-        this.G = c1008b.f;
-        this.I = c1008b.h;
-        this.m = c1008b.j;
-        this.n = c1008b.k;
-        this.J = c1008b.l;
-        this.K = c1008b.m;
+        this.f11424b = c1139b.f11430b;
+        this.c = c1139b.f11429a;
+        this.e = c1139b.c;
+        this.g = c1139b.d;
+        this.i = c1139b.i;
+        this.F = c1139b.e;
+        this.H = c1139b.g;
+        this.G = c1139b.f;
+        this.I = c1139b.h;
+        this.m = c1139b.j;
+        this.n = c1139b.k;
+        this.J = c1139b.l;
+        this.K = c1139b.m;
     }
 
     public b(c cVar) {
@@ -297,9 +307,9 @@ public class b<T extends b> {
         this.K = null;
         this.L = null;
         this.d = 2;
-        this.b = 1;
-        this.c = cVar.f4084a;
-        this.e = cVar.b;
+        this.f11424b = 1;
+        this.c = cVar.f11431a;
+        this.e = cVar.f11432b;
         this.g = cVar.c;
         this.i = cVar.d;
         this.m = cVar.f;
@@ -333,8 +343,8 @@ public class b<T extends b> {
         this.K = null;
         this.L = null;
         this.d = 0;
-        this.b = dVar.b;
-        this.c = dVar.f4085a;
+        this.f11424b = dVar.f11434b;
+        this.c = dVar.f11433a;
         this.e = dVar.c;
         this.g = dVar.d;
         this.i = dVar.j;
@@ -425,7 +435,7 @@ public class b<T extends b> {
     }
 
     public int d() {
-        return this.b;
+        return this.f11424b;
     }
 
     public String e() {
@@ -549,6 +559,6 @@ public class b<T extends b> {
     }
 
     public String toString() {
-        return "ANRequest{sequenceNumber='" + this.f + ", mMethod=" + this.b + ", mPriority=" + this.c + ", mRequestType=" + this.d + ", mUrl=" + this.e + '}';
+        return "ANRequest{sequenceNumber='" + this.f + ", mMethod=" + this.f11424b + ", mPriority=" + this.c + ", mRequestType=" + this.d + ", mUrl=" + this.e + '}';
     }
 }

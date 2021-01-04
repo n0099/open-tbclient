@@ -1,53 +1,53 @@
 package com.baidu.tieba.homepage.video;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationConstants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.y;
-import com.baidu.tbadk.util.z;
-import com.baidu.tieba.frs.ap;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.util.y;
+import com.baidu.tieba.frs.am;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes22.dex */
-public class VideoTabFragment extends BaseFragment implements ap {
-    private a kaC;
-    private boolean kaD = false;
+/* loaded from: classes2.dex */
+public class VideoTabFragment extends BaseFragment implements am {
+    private a knN;
+    private boolean knO = false;
 
-    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (this.kaC == null) {
-            this.kaC = new a(getPageContext(), getUniqueId());
+        if (this.knN == null) {
+            this.knN = new a(getPageContext(), getUniqueId());
         }
-        this.kaC.init();
+        this.knN.init();
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        if (this.kaC == null || this.kaC.getView() == null) {
+        if (this.knN == null || this.knN.getView() == null) {
             return super.onCreateView(layoutInflater, viewGroup, bundle);
         }
-        if (this.kaC.getView().getParent() instanceof ViewGroup) {
-            ((ViewGroup) this.kaC.getView().getParent()).removeView(this.kaC.getView());
+        if (this.knN.getView().getParent() instanceof ViewGroup) {
+            ((ViewGroup) this.knN.getView().getParent()).removeView(this.knN.getView());
         }
-        return this.kaC.getView();
+        return this.knN.getView();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
         super.onLazyLoad();
-        if (this.kaC != null) {
-            this.kaC.loadData();
+        if (this.knN != null) {
+            this.knN.loadData();
         }
     }
 
@@ -55,50 +55,50 @@ public class VideoTabFragment extends BaseFragment implements ap {
     public void onPrimary() {
         super.onPrimary();
         if (isPrimary()) {
-            if (!this.kaD) {
-                this.kaD = true;
-                TiebaStatic.log(new ar("c13579"));
+            if (!this.knO) {
+                this.knO = true;
+                TiebaStatic.log(new aq("c13579"));
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921400, false));
         }
-        if (this.kaC != null) {
-            this.kaC.setPrimary(isPrimary());
+        if (this.knN != null) {
+            this.knN.setPrimary(isPrimary());
         }
     }
 
-    @Override // com.baidu.tieba.frs.ap
-    public void VC() {
-        if (this.kaC != null) {
-            this.kaC.VC();
+    @Override // com.baidu.tieba.frs.am
+    public void WE() {
+        if (this.knN != null) {
+            this.knN.WE();
         }
     }
 
-    @Override // com.baidu.tieba.frs.ap
-    public void bSh() {
+    @Override // com.baidu.tieba.frs.am
+    public void bUJ() {
     }
 
-    @Override // com.baidu.tieba.frs.ap
-    public void bSi() {
+    @Override // com.baidu.tieba.frs.am
+    public void bUK() {
     }
 
-    @Override // com.baidu.tieba.frs.ap
-    public void setRecommendFrsNavigationAnimDispatcher(z zVar) {
+    @Override // com.baidu.tieba.frs.am
+    public void setRecommendFrsNavigationAnimDispatcher(y yVar) {
     }
 
-    @Override // com.baidu.tieba.frs.ap
+    @Override // com.baidu.tieba.frs.am
     public void showFloatingView() {
     }
 
-    @Override // com.baidu.tieba.frs.ap
-    public void bvt() {
+    @Override // com.baidu.tieba.frs.am
+    public void bxO() {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.kaC != null) {
-            this.kaC.bvt();
+        if (this.knN != null) {
+            this.knN.bxO();
         }
     }
 
@@ -110,25 +110,25 @@ public class VideoTabFragment extends BaseFragment implements ap {
         } else {
             arrayList = new ArrayList();
         }
-        if (!PageStayDurationConstants.PageName.HOMEPAGE.equals(y.getItem(arrayList, arrayList.size() - 1))) {
+        if (!PageStayDurationConstants.PageName.HOMEPAGE.equals(x.getItem(arrayList, arrayList.size() - 1))) {
             arrayList.add(PageStayDurationConstants.PageName.HOMEPAGE);
         }
         return arrayList;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onPause() {
         super.onPause();
-        if (this.kaC != null) {
-            this.kaC.onPause();
+        if (this.knN != null) {
+            this.knN.onPause();
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.kaC != null) {
-            this.kaC.onDestroy();
+        if (this.knN != null) {
+            this.knN.onDestroy();
         }
     }
 

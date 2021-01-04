@@ -5,35 +5,35 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class b {
-    private String fFV;
-    private final SharedPreferences fUB = TbadkCoreApplication.getInst().getSharedPreferences("youngster_tip_sp", 0);
+    private String fPy;
+    private final SharedPreferences gef = TbadkCoreApplication.getInst().getSharedPreferences("youngster_tip_sp", 0);
     private String mUid;
 
     public b(String str, String str2) {
         this.mUid = str;
-        this.fFV = str2;
+        this.fPy = str2;
     }
 
-    public long bKi() {
-        if (ej(this.mUid, this.fFV)) {
-            return this.fUB.getLong(this.mUid + '_' + this.fFV + "_youngster_tip_time", 0L);
+    public long bMA() {
+        if (ei(this.mUid, this.fPy)) {
+            return this.gef.getLong(this.mUid + '_' + this.fPy + "_youngster_tip_time", 0L);
         }
         return 0L;
     }
 
-    public int bKj() {
-        if (ej(this.mUid, this.fFV)) {
-            return this.fUB.getInt(this.mUid + '_' + this.fFV + "_youngster_tip_times", 0);
+    public int bMB() {
+        if (ei(this.mUid, this.fPy)) {
+            return this.gef.getInt(this.mUid + '_' + this.fPy + "_youngster_tip_times", 0);
         }
         return 0;
     }
 
     public void eK(long j) {
-        if (ej(this.mUid, this.fFV)) {
-            String str = this.mUid + '_' + this.fFV + "_youngster_tip_times";
-            String str2 = this.mUid + '_' + this.fFV + "_youngster_tip_time";
-            int i = this.fUB.getInt(str, 0);
-            SharedPreferences.Editor edit = this.fUB.edit();
+        if (ei(this.mUid, this.fPy)) {
+            String str = this.mUid + '_' + this.fPy + "_youngster_tip_times";
+            String str2 = this.mUid + '_' + this.fPy + "_youngster_tip_time";
+            int i = this.gef.getInt(str, 0);
+            SharedPreferences.Editor edit = this.gef.edit();
             if (i + 1 <= 10) {
                 i++;
             }
@@ -43,7 +43,7 @@ public class b {
         }
     }
 
-    private boolean ej(String str, String str2) {
+    private boolean ei(String str, String str2) {
         return (StringUtils.isNull(str) || StringUtils.isNull(str2) || "0".equals(str) || "0".equals(str2)) ? false : true;
     }
 }

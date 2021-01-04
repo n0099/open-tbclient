@@ -5,11 +5,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
-import android.support.annotation.Keep;
 import android.util.Log;
+import androidx.annotation.Keep;
 import com.asus.msa.a.a;
 @Keep
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class SupplementaryDIDManager {
     public static boolean DEBUG = false;
     public static final String TAG = "SupplementaryDIDManager";
@@ -23,7 +23,7 @@ public class SupplementaryDIDManager {
             if (SupplementaryDIDManager.DEBUG) {
                 Log.i(SupplementaryDIDManager.TAG, "did service binded");
             }
-            SupplementaryDIDManager.this.mDidService = a.AbstractBinderC0014a.a(iBinder);
+            SupplementaryDIDManager.this.mDidService = a.AbstractBinderC0008a.a(iBinder);
             SupplementaryDIDManager.this.notifyAllListeners(true);
         }
 

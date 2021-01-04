@@ -150,11 +150,7 @@ public class ImageUtils {
 
     private static Bitmap safeDecodeBimtapFile(String str, BitmapFactory.Options options) {
         BitmapFactory.Options options2;
-        Bitmap bitmap;
-        OutOfMemoryError outOfMemoryError;
         FileInputStream fileInputStream;
-        FileInputStream fileInputStream2;
-        FileInputStream fileInputStream3 = null;
         if (options == null) {
             options2 = new BitmapFactory.Options();
             options2.inSampleSize = 1;
@@ -162,44 +158,40 @@ public class ImageUtils {
             options2 = options;
         }
         int i = 0;
-        Bitmap bitmap2 = null;
+        FileInputStream fileInputStream2 = null;
         while (i < 5) {
             try {
                 try {
-                    fileInputStream2 = new FileInputStream(str);
-                } catch (OutOfMemoryError e) {
-                    bitmap = bitmap2;
-                    outOfMemoryError = e;
-                    fileInputStream = fileInputStream3;
-                }
-                try {
-                    Bitmap decodeStream = BitmapFactory.decodeStream(fileInputStream2, null, options);
+                    fileInputStream = new FileInputStream(str);
                     try {
-                        fileInputStream2.close();
-                    } catch (IOException e2) {
-                        e2.printStackTrace();
+                        Bitmap decodeStream = BitmapFactory.decodeStream(fileInputStream, null, options);
+                        try {
+                            fileInputStream.close();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        return decodeStream;
+                    } catch (OutOfMemoryError e2) {
+                        e = e2;
+                        e.printStackTrace();
+                        options2.inSampleSize *= 2;
+                        try {
+                            fileInputStream.close();
+                        } catch (IOException e3) {
+                            e3.printStackTrace();
+                        }
+                        i++;
+                        fileInputStream2 = fileInputStream;
                     }
-                    return decodeStream;
-                } catch (OutOfMemoryError e3) {
+                } catch (OutOfMemoryError e4) {
+                    e = e4;
                     fileInputStream = fileInputStream2;
-                    bitmap = bitmap2;
-                    outOfMemoryError = e3;
-                    outOfMemoryError.printStackTrace();
-                    options2.inSampleSize *= 2;
-                    try {
-                        fileInputStream.close();
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
-                    }
-                    i++;
-                    fileInputStream3 = fileInputStream;
-                    bitmap2 = bitmap;
                 }
             } catch (FileNotFoundException e5) {
-                return bitmap2;
+                return null;
             }
         }
-        return bitmap2;
+        return null;
     }
 
     private static void delete(File file) {

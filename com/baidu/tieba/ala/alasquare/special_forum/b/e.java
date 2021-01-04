@@ -2,10 +2,10 @@ package com.baidu.tieba.ala.alasquare.special_forum.b;
 
 import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class e {
-    public a gzp;
-    private int gzq = -1;
+    public a gKs;
+    private int gKt = -1;
     private TbPageContext mTbPageContext;
 
     public e(TbPageContext tbPageContext) {
@@ -14,95 +14,95 @@ public class e {
 
     public void a(com.baidu.tieba.ala.alasquare.special_forum.data.a aVar, boolean z) {
         if (aVar == null) {
-            this.gzq = -1;
-            this.gzp = new b(this.mTbPageContext);
+            this.gKt = -1;
+            this.gKs = new b(this.mTbPageContext);
         } else if (z) {
-            this.gzq = aVar.gxy;
-            switch (aVar.gxy) {
+            this.gKt = aVar.gIB;
+            switch (aVar.gIB) {
                 case 1:
-                    this.gzp = new d(this.mTbPageContext);
+                    this.gKs = new d(this.mTbPageContext);
                     break;
                 case 2:
-                    this.gzp = new f(this.mTbPageContext);
+                    this.gKs = new f(this.mTbPageContext);
                     break;
                 case 3:
-                    this.gzp = new c(this.mTbPageContext);
+                    this.gKs = new c(this.mTbPageContext);
                     break;
                 default:
-                    this.gzp = new b(this.mTbPageContext);
+                    this.gKs = new b(this.mTbPageContext);
                     break;
             }
         }
-        if (this.gzp.b(aVar)) {
+        if (this.gKs.b(aVar)) {
             if (z) {
-                this.gzp.init();
+                this.gKs.init();
             }
-            this.gzp.a(aVar);
+            this.gKs.a(aVar);
             return;
         }
-        this.gzq = -1;
-        this.gzp = new b(this.mTbPageContext);
+        this.gKt = -1;
+        this.gKs = new b(this.mTbPageContext);
         if (z) {
-            this.gzp.init();
+            this.gKs.init();
         }
-        this.gzp.a(aVar);
+        this.gKs.a(aVar);
     }
 
     public boolean c(com.baidu.tieba.ala.alasquare.special_forum.data.a aVar) {
-        return aVar == null || this.gzq != aVar.gxy;
+        return aVar == null || this.gKt != aVar.gIB;
     }
 
     public void pause() {
-        if (this.gzp != null) {
-            this.gzp.pause();
+        if (this.gKs != null) {
+            this.gKs.pause();
         }
     }
 
     public void resume() {
-        if (this.gzp != null) {
-            this.gzp.resume();
+        if (this.gKs != null) {
+            this.gKs.resume();
         }
     }
 
-    public void lX(boolean z) {
-        if (this.gzp != null) {
-            this.gzp.lX(z);
+    public void mu(boolean z) {
+        if (this.gKs != null) {
+            this.gKs.mu(z);
         }
     }
 
-    public void Z(ViewGroup viewGroup) {
-        if (this.gzp != null) {
-            this.gzp.Z(viewGroup);
+    public void al(ViewGroup viewGroup) {
+        if (this.gKs != null) {
+            this.gKs.al(viewGroup);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.gzp != null) {
-            this.gzp.onChangeSkinType(i);
+        if (this.gKs != null) {
+            this.gKs.onChangeSkinType(i);
         }
     }
 
     public void startPlay() {
-        if (this.gzp != null) {
-            this.gzp.startPlay();
+        if (this.gKs != null) {
+            this.gKs.startPlay();
         }
     }
 
     public void stopPlay() {
-        if (this.gzp != null) {
-            this.gzp.stopPlay();
+        if (this.gKs != null) {
+            this.gKs.stopPlay();
         }
     }
 
-    public void bTd() {
-        if (this.gzp != null) {
-            this.gzp.bTd();
+    public void bVH() {
+        if (this.gKs != null) {
+            this.gKs.bVH();
         }
     }
 
     public void onDestroy() {
-        if (this.gzp != null) {
-            this.gzp.onDestroy();
+        if (this.gKs != null) {
+            this.gKs.onDestroy();
         }
     }
 }

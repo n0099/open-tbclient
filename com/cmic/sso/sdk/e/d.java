@@ -1,9 +1,10 @@
 package com.cmic.sso.sdk.e;
 
 import android.text.TextUtils;
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class d {
     public static String a(String str) {
         if (TextUtils.isEmpty(str)) {
@@ -21,7 +22,7 @@ public class d {
             return "";
         }
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            MessageDigest messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
             messageDigest.update(bArr);
             return s.a(messageDigest.digest());
         } catch (Exception e) {

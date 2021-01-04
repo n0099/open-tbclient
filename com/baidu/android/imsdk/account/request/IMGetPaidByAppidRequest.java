@@ -3,7 +3,6 @@ package com.baidu.android.imsdk.account.request;
 import android.content.Context;
 import android.util.Log;
 import android.util.Pair;
-import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.upload.action.IMTrack;
@@ -15,7 +14,7 @@ import java.util.Map;
 import org.apache.http.cookie.SM;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class IMGetPaidByAppidRequest extends BaseHttpRequest {
     private long mAppid;
     private String mBduss;
@@ -36,7 +35,6 @@ public class IMGetPaidByAppidRequest extends BaseHttpRequest {
         int i3;
         String str2 = new String(bArr);
         LogUtils.d("IMGetPaidByAppidRequest", str2);
-        String str3 = Constants.ERROR_MSG_SUCCESS;
         long j2 = -1;
         try {
             JSONObject jSONObject = new JSONObject(str2);
@@ -46,14 +44,13 @@ public class IMGetPaidByAppidRequest extends BaseHttpRequest {
                 if (i3 == 0) {
                     j2 = jSONObject2.getLong("pa_uid");
                 }
+                str = Constants.ERROR_MSG_SUCCESS;
             } else {
                 i3 = jSONObject.getInt("error_code");
-                str3 = jSONObject.getString(AlaRecorderLog.KEY_ERROR_MSG);
+                str = jSONObject.getString("error_msg");
             }
             j = j2;
-            String str4 = str3;
             i2 = i3;
-            str = str4;
         } catch (JSONException e) {
             LogUtils.e("IMGetPaidByAppidRequest", e.getMessage(), e);
             i2 = 1010;

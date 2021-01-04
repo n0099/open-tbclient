@@ -1,30 +1,16 @@
 package com.baidu.tieba.recommendlist.data;
 
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class d {
-    public int jFO;
-    public List<AlaRecommendLiveData> list;
-    public int total_count;
+import com.baidu.live.adp.BdUniqueId;
+import com.baidu.live.adp.widget.listview.IAdapterData;
+/* loaded from: classes11.dex */
+public class d implements IAdapterData {
+    public static BdUniqueId mWa = BdUniqueId.gen();
+    public AlaRecommendLiveData mWb;
+    public AlaRecommendLiveData mWc;
     public int type;
 
-    public void parserJson(JSONObject jSONObject) {
-        this.total_count = jSONObject.optInt("total_count");
-        this.jFO = jSONObject.optInt("has_more");
-        this.list = new ArrayList();
-        JSONArray optJSONArray = jSONObject.optJSONArray("list");
-        if (optJSONArray != null) {
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                if (optJSONObject != null) {
-                    AlaRecommendLiveData alaRecommendLiveData = new AlaRecommendLiveData();
-                    alaRecommendLiveData.parserJson(optJSONObject);
-                    this.list.add(alaRecommendLiveData);
-                }
-            }
-        }
+    @Override // com.baidu.live.adp.widget.listview.IAdapterData
+    public BdUniqueId getType() {
+        return mWa;
     }
 }

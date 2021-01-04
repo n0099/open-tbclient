@@ -8,14 +8,14 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import java.util.LinkedHashMap;
 /* loaded from: classes.dex */
 public class n {
-    private static n myn = null;
-    private LinkedHashMap<String, Integer> myo = new LinkedHashMap<>(150, 0.75f, true);
+    private static n mDE = null;
+    private LinkedHashMap<String, Integer> mDF = new LinkedHashMap<>(150, 0.75f, true);
     private CustomMessageListener mAccountChangedListener = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.play.n.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                n.this.myo.clear();
+                n.this.mDF.clear();
             }
         }
     };
@@ -24,31 +24,31 @@ public class n {
         MessageManager.getInstance().registerListener(this.mAccountChangedListener);
     }
 
-    public static n dCa() {
-        if (myn == null) {
+    public static n dBP() {
+        if (mDE == null) {
             synchronized (n.class) {
-                if (myn == null) {
-                    myn = new n();
+                if (mDE == null) {
+                    mDE = new n();
                 }
             }
         }
-        return myn;
+        return mDE;
     }
 
-    public void bD(String str, int i) {
-        if (i != 0 || !this.myo.containsKey(str)) {
-            this.myo.put(str, Integer.valueOf(i));
+    public void bK(String str, int i) {
+        if (i != 0 || !this.mDF.containsKey(str)) {
+            this.mDF.put(str, Integer.valueOf(i));
         }
     }
 
     public void remove(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.myo.remove(str);
+            this.mDF.remove(str);
         }
     }
 
-    public int Ro(String str) {
-        Integer num = this.myo.get(str);
+    public int QU(String str) {
+        Integer num = this.mDF.get(str);
         if (num != null) {
             return num.intValue();
         }
@@ -56,6 +56,6 @@ public class n {
     }
 
     public void clear() {
-        this.myo.clear();
+        this.mDF.clear();
     }
 }

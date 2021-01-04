@@ -2,15 +2,15 @@ package com.baidu.platform.comapi.map;
 
 import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.baidu.platform.comapi.map.MapController;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 class l implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MapController.a f2926a;
+    final /* synthetic */ MapController.a f4351a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(MapController.a aVar) {
-        this.f2926a = aVar;
+        this.f4351a = aVar;
     }
 
     @Override // java.lang.Runnable

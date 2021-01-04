@@ -3,7 +3,7 @@ package com.google.zxing.oned;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.common.BitArray;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class EAN8Reader extends UPCEANReader {
     private final int[] decodeMiddleCounters = new int[4];
 
@@ -17,28 +17,20 @@ public final class EAN8Reader extends UPCEANReader {
         iArr2[3] = 0;
         int size = bitArray.getSize();
         int i = iArr[1];
-        int i2 = 0;
-        while (i2 < 4 && i < size) {
+        for (int i2 = 0; i2 < 4 && i < size; i2++) {
             sb.append((char) (decodeDigit(bitArray, iArr2, i, L_PATTERNS) + 48));
-            int i3 = i;
-            for (int i4 : iArr2) {
-                i3 += i4;
+            for (int i3 : iArr2) {
+                i += i3;
             }
-            i2++;
-            i = i3;
         }
-        int i5 = findGuardPattern(bitArray, i, true, MIDDLE_PATTERN)[1];
-        int i6 = 0;
-        while (i6 < 4 && i5 < size) {
-            sb.append((char) (decodeDigit(bitArray, iArr2, i5, L_PATTERNS) + 48));
-            int i7 = i5;
-            for (int i8 : iArr2) {
-                i7 += i8;
+        int i4 = findGuardPattern(bitArray, i, true, MIDDLE_PATTERN)[1];
+        for (int i5 = 0; i5 < 4 && i4 < size; i5++) {
+            sb.append((char) (decodeDigit(bitArray, iArr2, i4, L_PATTERNS) + 48));
+            for (int i6 : iArr2) {
+                i4 += i6;
             }
-            i6++;
-            i5 = i7;
         }
-        return i5;
+        return i4;
     }
 
     @Override // com.google.zxing.oned.UPCEANReader

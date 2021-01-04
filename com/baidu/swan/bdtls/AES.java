@@ -1,13 +1,13 @@
 package com.baidu.swan.bdtls;
 
 import java.io.UnsupportedEncodingException;
-/* loaded from: classes17.dex */
+/* loaded from: classes3.dex */
 public class AES {
     private static native byte[] decrypt(byte[] bArr, byte[] bArr2);
 
     private static native byte[] encrypt(byte[] bArr, byte[] bArr2);
 
-    public static byte[] f(String str, byte[] bArr) {
+    public static byte[] h(String str, byte[] bArr) {
         if (str == null || str.length() <= 0) {
             return new byte[]{-1};
         }

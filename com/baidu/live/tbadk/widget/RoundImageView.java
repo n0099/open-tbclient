@@ -3,10 +3,10 @@ package com.baidu.live.tbadk.widget;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Path;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-/* loaded from: classes4.dex */
+import androidx.annotation.Nullable;
+/* loaded from: classes11.dex */
 public class RoundImageView extends ImageView {
     private int height;
     private boolean isTop;

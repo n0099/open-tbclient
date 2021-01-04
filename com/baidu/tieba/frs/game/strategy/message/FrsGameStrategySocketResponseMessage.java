@@ -2,17 +2,17 @@ package com.baidu.tieba.frs.game.strategy.message;
 
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.widget.ListView.q;
+import com.baidu.adp.widget.ListView.n;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tieba.frs.game.strategy.tab.e;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.GameForumGuideTab.GameForumGuideTabResIdl;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class FrsGameStrategySocketResponseMessage extends SocketResponsedMessage {
     private boolean mHasMore;
     private List<e> mTabList;
-    private List<q> mThreadList;
+    private List<n> mThreadList;
 
     public FrsGameStrategySocketResponseMessage() {
         super(CmdConfigSocket.CMD_FRS_GAME_STRATEGY);
@@ -28,8 +28,8 @@ public class FrsGameStrategySocketResponseMessage extends SocketResponsedMessage
                 setError(gameForumGuideTabResIdl.error.errorno.intValue());
                 setErrorString(gameForumGuideTabResIdl.error.errmsg);
             }
-            this.mTabList = a.ds(gameForumGuideTabResIdl.data.sub_tab_list);
-            this.mThreadList = a.dt(gameForumGuideTabResIdl.data.thread_list);
+            this.mTabList = a.dA(gameForumGuideTabResIdl.data.sub_tab_list);
+            this.mThreadList = a.dB(gameForumGuideTabResIdl.data.thread_list);
             this.mHasMore = gameForumGuideTabResIdl.data.has_more.intValue() == 1;
         }
     }
@@ -43,7 +43,7 @@ public class FrsGameStrategySocketResponseMessage extends SocketResponsedMessage
             frsGameStrategyRequestMessage = (FrsGameStrategyRequestMessage) orginalMessage.getExtra();
         }
         if (frsGameStrategyRequestMessage != null) {
-            new com.baidu.tieba.frs.game.strategy.a.a().b(String.valueOf(frsGameStrategyRequestMessage.getFid()), bArr, false);
+            new com.baidu.tieba.frs.game.strategy.a.a().c(String.valueOf(frsGameStrategyRequestMessage.getFid()), bArr, false);
         }
     }
 
@@ -51,7 +51,7 @@ public class FrsGameStrategySocketResponseMessage extends SocketResponsedMessage
         return this.mTabList;
     }
 
-    public List<q> getThreadList() {
+    public List<n> getThreadList() {
         return this.mThreadList;
     }
 

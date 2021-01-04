@@ -7,17 +7,17 @@ import java.util.Date;
 import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a {
-    private static d aBm;
+    private static d aBD;
     private static boolean isDebug = false;
-    private static StringBuilder aBl = new StringBuilder();
+    private static StringBuilder aBC = new StringBuilder();
 
     public static void a(d dVar) {
-        aBm = dVar;
+        aBD = dVar;
     }
 
-    public static void bh(boolean z) {
+    public static void be(boolean z) {
         isDebug = z;
     }
 
@@ -37,14 +37,14 @@ public class a {
         }
     }
 
-    public static void ak(String str, String str2) {
+    public static void aj(String str, String str2) {
         if (isDebug) {
             Log.d("blmsdk", str + str2);
         }
-        fY(str);
+        fI(str);
     }
 
-    public static void fY(String str) {
+    public static void fI(String str) {
         String f = f(4000, str);
         JSONObject jSONObject = new JSONObject();
         if (!TextUtils.isEmpty(f)) {
@@ -53,42 +53,42 @@ public class a {
             } catch (JSONException e) {
             }
         }
-        a(b.LOG_ID, b.aBn, b.aBo, b.aBp, jSONObject);
+        a(b.LOG_ID, b.aBE, b.aBF, b.aBG, jSONObject);
     }
 
     private static synchronized String f(int i, String str) {
-        String BX;
+        String Bo;
         synchronized (a.class) {
             try {
-                if (aBl == null) {
-                    aBl = new StringBuilder();
+                if (aBC == null) {
+                    aBC = new StringBuilder();
                 }
-                if (aBl.length() != 0) {
-                    aBl.append(",");
+                if (aBC.length() != 0) {
+                    aBC.append(",");
                 }
-                aBl.append("[").append(d(System.currentTimeMillis(), "HH:mm:ss.SSS")).append("|").append(i).append("|").append(str).append("]");
+                aBC.append("[").append(d(System.currentTimeMillis(), "HH:mm:ss.SSS")).append("|").append(i).append("|").append(str).append("]");
             } catch (Exception e) {
             }
-            BX = BX();
+            Bo = Bo();
         }
-        return BX;
+        return Bo;
     }
 
     private static String d(long j, String str) {
         return new SimpleDateFormat(str, Locale.getDefault()).format(new Date(j));
     }
 
-    private static synchronized String BX() {
+    private static synchronized String Bo() {
         String sb;
         synchronized (a.class) {
-            if (aBl == null) {
+            if (aBC == null) {
                 sb = "";
             } else {
-                sb = aBl.toString();
+                sb = aBC.toString();
                 try {
-                    aBl.delete(0, aBl.length());
+                    aBC.delete(0, aBC.length());
                 } catch (Exception e) {
-                    aBl = new StringBuilder();
+                    aBC = new StringBuilder();
                 }
             }
         }
@@ -97,7 +97,7 @@ public class a {
 
     private static synchronized void a(String str, String str2, String str3, String str4, JSONObject jSONObject) {
         synchronized (a.class) {
-            if (aBm != null) {
+            if (aBD != null) {
                 JSONObject jSONObject2 = new JSONObject();
                 try {
                     jSONObject2.put("type", str2);
@@ -108,14 +108,14 @@ public class a {
                     }
                 } catch (JSONException e) {
                 }
-                aBm.onLogReport(str, jSONObject2, jSONObject);
+                aBD.onLogReport(str, jSONObject2, jSONObject);
             }
         }
     }
 
     public static void release() {
-        if (aBm != null) {
-            aBm = null;
+        if (aBD != null) {
+            aBD = null;
         }
     }
 }

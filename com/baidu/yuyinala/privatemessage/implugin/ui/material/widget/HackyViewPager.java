@@ -2,11 +2,11 @@ package com.baidu.yuyinala.privatemessage.implugin.ui.material.widget;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+import androidx.viewpager.widget.ViewPager;
 import com.baidu.yuyinala.privatemessage.implugin.ui.theme.ThemeManager;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class HackyViewPager extends ViewPager {
     public HackyViewPager(Context context) {
         super(context);
@@ -16,7 +16,7 @@ public class HackyViewPager extends ViewPager {
         super(context, attributeSet);
     }
 
-    @Override // android.support.v4.view.ViewPager, android.view.ViewGroup
+    @Override // androidx.viewpager.widget.ViewPager, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         try {
             return super.onInterceptTouchEvent(motionEvent);
@@ -25,7 +25,7 @@ public class HackyViewPager extends ViewPager {
         }
     }
 
-    @Override // android.support.v4.view.ViewPager, android.view.View
+    @Override // androidx.viewpager.widget.ViewPager, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         try {
             return super.onTouchEvent(motionEvent);
@@ -35,10 +35,10 @@ public class HackyViewPager extends ViewPager {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.view.ViewPager, android.view.View
+    @Override // androidx.viewpager.widget.ViewPager, android.view.View
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (ThemeManager.enO() == ThemeManager.ThemeMode.NIGHT) {
+        if (ThemeManager.enQ() == ThemeManager.ThemeMode.NIGHT) {
             canvas.drawColor(2130706432);
         }
     }

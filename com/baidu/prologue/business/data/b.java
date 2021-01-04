@@ -1,44 +1,45 @@
 package com.baidu.prologue.business.data;
 
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.prologue.a.c.k;
 import com.baidu.prologue.service.network.Als;
 import com.baidu.prologue.service.network.i;
+import com.tencent.connect.common.Constants;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class b {
-    private final e cmr;
+    private final e ctw;
 
     public b(e eVar) {
-        this.cmr = eVar;
+        this.ctw = eVar;
     }
 
-    public void aeN() {
-        aeO();
-        aeP();
+    public void agJ() {
+        agK();
+        agL();
     }
 
     public void a(@NonNull Als.Area area, String str) {
         b(area, str);
-        aeQ();
+        agM();
     }
 
-    public void aeO() {
+    public void agK() {
         Als.a aVar = new Als.a(Als.Type.SHOW);
         aVar.a(Als.Page.NA_SPLASH);
-        aVar.ko(this.cmr.ext);
+        aVar.ki(this.ctw.ext);
         Als.a(aVar);
     }
 
     public void b(@NonNull Als.Area area, String str) {
         Als.a aVar = new Als.a(Als.Type.CLICK);
         aVar.a(Als.Page.NA_SPLASH);
-        aVar.ko(this.cmr.ext);
+        aVar.ki(this.ctw.ext);
         aVar.b(area);
         if (!TextUtils.isEmpty(str)) {
-            aVar.kr(str);
+            aVar.kl(str);
         }
         Als.a(aVar);
     }
@@ -46,33 +47,33 @@ public class b {
     public void i(String str, long j) {
         Als.a aVar = new Als.a(Als.Type.CLOSE);
         aVar.a(Als.Page.NA_SPLASH);
-        aVar.ko(this.cmr.ext);
-        aVar.kq(String.valueOf(j));
-        if (com.baidu.prologue.a.b.a.clZ.get().aeu()) {
-            aVar.kp("1");
+        aVar.ki(this.ctw.ext);
+        aVar.kk(String.valueOf(j));
+        if (com.baidu.prologue.a.b.a.ctd.get().agq()) {
+            aVar.kj("1");
         } else {
-            aVar.kp("0");
+            aVar.kj("0");
         }
-        aVar.kr(str);
+        aVar.kl(str);
         Als.a(aVar);
     }
 
-    public void bf(String str, String str2) {
+    public void be(String str, String str2) {
         Als.a aVar = new Als.a(Als.Type.DISCARD);
         aVar.a(Als.Page.NA_SPLASH);
-        aVar.ko(this.cmr.ext);
-        aVar.kp("10");
-        aVar.kq(str);
-        aVar.kr(str2);
+        aVar.ki(this.ctw.ext);
+        aVar.kj(Constants.VIA_REPORT_TYPE_SHARE_TO_QQ);
+        aVar.kk(str);
+        aVar.kl(str2);
         Als.a(aVar);
     }
 
-    public void aeP() {
+    public void agL() {
         String[] strArr;
-        for (String str : this.cmr.cmF) {
+        for (String str : this.ctw.ctL) {
             if (!TextUtils.isEmpty(str)) {
                 try {
-                    i.ks(new JSONObject(str).optString("url"));
+                    i.km(new JSONObject(str).optString("url"));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -82,12 +83,12 @@ public class b {
         }
     }
 
-    public void aeQ() {
+    public void agM() {
         String[] strArr;
-        for (String str : this.cmr.cmG) {
+        for (String str : this.ctw.ctM) {
             if (!TextUtils.isEmpty(str)) {
                 try {
-                    i.ks(new JSONObject(str).optString("url"));
+                    i.km(new JSONObject(str).optString("url"));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -97,12 +98,12 @@ public class b {
         }
     }
 
-    public static void aeR() {
+    public static void agN() {
         String string = k.getString("empty_ext_info", "");
         if (!TextUtils.isEmpty(string)) {
             Als.a aVar = new Als.a(Als.Type.SHOW);
             aVar.a(Als.Page.NA_SPLASH);
-            aVar.ko(string);
+            aVar.ki(string);
             Als.a(aVar);
         }
     }

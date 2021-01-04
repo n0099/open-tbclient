@@ -14,16 +14,16 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class FlowableFlattenIterable<T, R> extends a<T, R> {
     final h<? super T, ? extends Iterable<? extends R>> mapper;
     final int prefetch;
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super R> cVar) {
-        if (this.pFi instanceof Callable) {
+        if (this.qgK instanceof Callable) {
             try {
-                Object call = ((Callable) this.pFi).call();
+                Object call = ((Callable) this.qgK).call();
                 if (call == null) {
                     EmptySubscription.complete(cVar);
                     return;
@@ -32,20 +32,20 @@ public final class FlowableFlattenIterable<T, R> extends a<T, R> {
                     FlowableFromIterable.a(cVar, this.mapper.apply(call).iterator());
                     return;
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.J(th);
+                    io.reactivex.exceptions.a.O(th);
                     EmptySubscription.error(th, cVar);
                     return;
                 }
             } catch (Throwable th2) {
-                io.reactivex.exceptions.a.J(th2);
+                io.reactivex.exceptions.a.O(th2);
                 EmptySubscription.error(th2, cVar);
                 return;
             }
         }
-        this.pFi.a((j) new FlattenIterableSubscriber(cVar, this.mapper, this.prefetch));
+        this.qgK.a((j) new FlattenIterableSubscriber(cVar, this.mapper, this.prefetch));
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class FlattenIterableSubscriber<T, R> extends BasicIntQueueSubscription<R> implements j<T> {
         private static final long serialVersionUID = -3096000382929934955L;
         final org.a.c<? super R> actual;
@@ -145,16 +145,14 @@ public final class FlowableFlattenIterable<T, R> extends a<T, R> {
         }
 
         /* JADX WARN: Removed duplicated region for block: B:28:0x007f  */
-        /* JADX WARN: Removed duplicated region for block: B:57:0x00f1  */
-        /* JADX WARN: Removed duplicated region for block: B:82:0x00ea A[SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:57:0x00ef  */
+        /* JADX WARN: Removed duplicated region for block: B:82:0x00e8 A[SYNTHETIC] */
         /* JADX WARN: Removed duplicated region for block: B:83:0x0006 A[SYNTHETIC] */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
         void drain() {
             Iterator<? extends R> it;
-            int addAndGet;
-            long j;
             if (getAndIncrement() == 0) {
                 org.a.c<?> cVar = this.actual;
                 f<T> fVar = this.queue;
@@ -176,28 +174,26 @@ public final class FlowableFlattenIterable<T, R> extends a<T, R> {
                                         } else {
                                             this.current = it;
                                             if (it == null) {
-                                                long j2 = this.requested.get();
-                                                long j3 = 0;
+                                                long j = this.requested.get();
+                                                long j2 = 0;
                                                 while (true) {
-                                                    if (j3 == j2) {
-                                                        j = j3;
+                                                    if (j2 == j) {
                                                         it2 = it;
                                                         break;
                                                     } else if (!checkTerminated(this.done, false, cVar, fVar)) {
                                                         try {
                                                             cVar.onNext((Object) io.reactivex.internal.functions.a.m(it.next(), "The iterator returned a null value"));
                                                             if (!checkTerminated(this.done, false, cVar, fVar)) {
-                                                                j3++;
+                                                                j2++;
                                                                 try {
                                                                     if (!it.hasNext()) {
                                                                         consumedOne(z);
-                                                                        this.current = null;
-                                                                        j = j3;
                                                                         it2 = null;
+                                                                        this.current = null;
                                                                         break;
                                                                     }
                                                                 } catch (Throwable th) {
-                                                                    io.reactivex.exceptions.a.J(th);
+                                                                    io.reactivex.exceptions.a.O(th);
                                                                     this.current = null;
                                                                     this.s.cancel();
                                                                     ExceptionHelper.addThrowable(this.error, th);
@@ -208,7 +204,7 @@ public final class FlowableFlattenIterable<T, R> extends a<T, R> {
                                                                 return;
                                                             }
                                                         } catch (Throwable th2) {
-                                                            io.reactivex.exceptions.a.J(th2);
+                                                            io.reactivex.exceptions.a.O(th2);
                                                             this.current = null;
                                                             this.s.cancel();
                                                             ExceptionHelper.addThrowable(this.error, th2);
@@ -219,13 +215,13 @@ public final class FlowableFlattenIterable<T, R> extends a<T, R> {
                                                         return;
                                                     }
                                                 }
-                                                if (j == j2) {
+                                                if (j2 == j) {
                                                     if (checkTerminated(this.done, fVar.isEmpty() && it2 == null, cVar, fVar)) {
                                                         return;
                                                     }
                                                 }
-                                                if (j != 0 && j2 != Long.MAX_VALUE) {
-                                                    this.requested.addAndGet(-j);
+                                                if (j2 != 0 && j != Long.MAX_VALUE) {
+                                                    this.requested.addAndGet(-j2);
                                                 }
                                                 if (it2 != null) {
                                                     it = it2;
@@ -233,15 +229,14 @@ public final class FlowableFlattenIterable<T, R> extends a<T, R> {
                                                     continue;
                                                 }
                                             }
-                                            addAndGet = addAndGet(-i);
-                                            if (addAndGet != 0) {
+                                            i = addAndGet(-i);
+                                            if (i != 0) {
                                                 return;
                                             }
-                                            i = addAndGet;
                                             it2 = it;
                                         }
                                     } catch (Throwable th3) {
-                                        io.reactivex.exceptions.a.J(th3);
+                                        io.reactivex.exceptions.a.O(th3);
                                         this.s.cancel();
                                         ExceptionHelper.addThrowable(this.error, th3);
                                         cVar.onError(ExceptionHelper.terminate(this.error));
@@ -252,7 +247,7 @@ public final class FlowableFlattenIterable<T, R> extends a<T, R> {
                                 return;
                             }
                         } catch (Throwable th4) {
-                            io.reactivex.exceptions.a.J(th4);
+                            io.reactivex.exceptions.a.O(th4);
                             this.s.cancel();
                             ExceptionHelper.addThrowable(this.error, th4);
                             Throwable terminate = ExceptionHelper.terminate(this.error);
@@ -265,8 +260,8 @@ public final class FlowableFlattenIterable<T, R> extends a<T, R> {
                     it = it2;
                     if (it == null) {
                     }
-                    addAndGet = addAndGet(-i);
-                    if (addAndGet != 0) {
+                    i = addAndGet(-i);
+                    if (i != 0) {
                     }
                 }
             }

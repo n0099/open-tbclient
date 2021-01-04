@@ -1,18 +1,19 @@
 package okio;
 
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class HashingSource extends ForwardingSource {
     private final Mac mac;
     private final MessageDigest messageDigest;
 
     public static HashingSource md5(Source source) {
-        return new HashingSource(source, "MD5");
+        return new HashingSource(source, EncryptUtils.ENCRYPT_MD5);
     }
 
     public static HashingSource sha1(Source source) {
@@ -65,16 +66,20 @@ public final class HashingSource extends ForwardingSource {
                 segment = segment.prev;
                 j3 -= segment.limit - segment.pos;
             }
-            while (j3 < buffer.size) {
-                int i = (int) ((j2 + segment.pos) - j3);
+            while (true) {
+                long j4 = j2;
+                if (j3 >= buffer.size) {
+                    break;
+                }
+                int i = (int) ((segment.pos + j4) - j3);
                 if (this.messageDigest != null) {
                     this.messageDigest.update(segment.data, i, segment.limit - i);
                 } else {
                     this.mac.update(segment.data, i, segment.limit - i);
                 }
-                j3 += segment.limit - segment.pos;
+                j2 = (segment.limit - segment.pos) + j3;
                 segment = segment.next;
-                j2 = j3;
+                j3 = j2;
             }
         }
         return read;

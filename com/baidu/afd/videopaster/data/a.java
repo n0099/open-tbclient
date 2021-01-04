@@ -4,63 +4,63 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lego.card.b.b;
+import com.baidu.tieba.lego.card.a.b;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class a implements com.baidu.tieba.lego.card.b.b {
-    public String aaA;
-    public boolean aaB;
-    public int aaC;
-    public int aaD;
-    private b.a aaG;
-    public String aau;
-    public String aav;
-    public int aaw;
-    public String aax;
-    public String aay;
-    public String aaz;
+public class a implements com.baidu.tieba.lego.card.a.b {
+    public String abe;
+    public String abf;
+    public int abg;
+    public String abh;
+    public String abi;
+    public String abj;
+    public String abk;
+    public boolean abl;
+    public int abm;
+    public int abn;
+    private b.a abq;
     public String adid;
     public String extra;
     public String picUrl;
     public String tplName;
     public String videoUrl;
-    private int aat = 3;
-    public ArrayList<String> aaE = new ArrayList<>();
-    public ArrayList<String> aaF = new ArrayList<>();
+    private int abd = 3;
+    public ArrayList<String> abo = new ArrayList<>();
+    public ArrayList<String> abp = new ArrayList<>();
 
-    public void be(int i) {
-        this.aat = i;
+    public void setAdType(int i) {
+        this.abd = i;
     }
 
     public boolean isEmpty() {
-        return this.aat == 2;
+        return this.abd == 2;
     }
 
-    public int rV() {
-        return this.aat;
+    public int rw() {
+        return this.abd;
     }
 
     public boolean isValid() {
-        if (rV() == 0) {
+        if (rw() == 0) {
             return this.picUrl != null && (this.picUrl.startsWith("http://") || this.picUrl.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX));
-        } else if (rV() == 1) {
+        } else if (rw() == 1) {
             return this.videoUrl != null && (this.videoUrl.startsWith("http://") || this.videoUrl.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX));
         } else {
             return false;
         }
     }
 
-    public String rW() {
-        return StringUtils.isNull(this.aaz) ? TbadkCoreApplication.getInst().getResources().getString(R.string.check_detail) : this.aaz;
+    public String rx() {
+        return StringUtils.isNull(this.abj) ? TbadkCoreApplication.getInst().getResources().getString(R.string.check_detail) : this.abj;
     }
 
-    @Override // com.baidu.tieba.lego.card.b.b
+    @Override // com.baidu.tieba.lego.card.a.b
     public b.a getParallelCharge() {
-        if (this.aaG == null) {
-            this.aaG = new b.a();
-            this.aaG.kSr = this.aaE;
-            this.aaG.kSs = this.aaF;
+        if (this.abq == null) {
+            this.abq = new b.a();
+            this.abq.kXV = this.abo;
+            this.abq.kXW = this.abp;
         }
-        return this.aaG;
+        return this.abq;
     }
 }

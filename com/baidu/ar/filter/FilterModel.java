@@ -1,7 +1,7 @@
 package com.baidu.ar.filter;
 
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class FilterModel {
     private String hS;
     private String qn;

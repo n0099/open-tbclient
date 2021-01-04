@@ -12,32 +12,32 @@ import com.baidu.android.imrtc.send.BIMInviteRtcInfo;
 import com.baidu.android.imrtc.send.BIMKickRequestRtcInfo;
 import com.baidu.android.imrtc.utils.IStatusListener;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a {
-    private IStatusListener aDA;
-    private IStatusListener aDB;
-    private IStatusListener aDC;
-    private IStatusListener aDD;
-    private IStatusListener aDE;
-    private IStatusListener aDF;
-    private Handler aDw;
-    private BIMRtcTokenListener aDx;
-    private IStatusListener aDy;
-    private IStatusListener aDz;
-    private final int aDv = 3;
-    private boolean aDG = false;
+    private Handler aDN;
+    private BIMRtcTokenListener aDO;
+    private IStatusListener aDP;
+    private IStatusListener aDQ;
+    private IStatusListener aDR;
+    private IStatusListener aDS;
+    private IStatusListener aDT;
+    private IStatusListener aDU;
+    private IStatusListener aDV;
+    private IStatusListener aDW;
+    private final int aDM = 3;
+    private boolean aDX = false;
 
     public a(Handler handler) {
-        this.aDw = handler;
+        this.aDN = handler;
     }
 
     public void createRoom(final Context context, final String str, final BIMRtcTokenListener bIMRtcTokenListener) {
         final int[] iArr = {0};
-        this.aDx = new BIMRtcTokenListener() { // from class: com.baidu.live.alablmsdk.e.a.1
+        this.aDO = new BIMRtcTokenListener() { // from class: com.baidu.live.alablmsdk.e.a.1
             @Override // com.baidu.android.imrtc.request.BIMRtcTokenListener
             public void onResult(int i, String str2, BIMRtcTokenListener.BIMRTCGetTokeResult bIMRTCGetTokeResult) {
-                if (a.this.aDG) {
-                    com.baidu.live.alablmsdk.a.b.a.ak(" signal createRoom hasRelease , not callback", "");
+                if (a.this.aDX) {
+                    com.baidu.live.alablmsdk.a.b.a.aj(" signal createRoom hasRelease , not callback", "");
                 } else if (i == 0) {
                     if (bIMRtcTokenListener != null) {
                         bIMRtcTokenListener.onResult(i, str2, bIMRTCGetTokeResult);
@@ -46,7 +46,7 @@ public class a {
                     if (a.this.b(i, new Runnable() { // from class: com.baidu.live.alablmsdk.e.a.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            BIMRtcClient.createRoom(context, str, a.this.aDx);
+                            BIMRtcClient.createRoom(context, str, a.this.aDO);
                         }
                     })) {
                         int[] iArr2 = iArr;
@@ -59,167 +59,167 @@ public class a {
                 }
             }
         };
-        BIMRtcClient.createRoom(context, str, this.aDx);
+        BIMRtcClient.createRoom(context, str, this.aDO);
     }
 
     public void join(final Context context, final String str, final IStatusListener iStatusListener) {
         final AtomicInteger atomicInteger = new AtomicInteger(0);
-        this.aDy = new IStatusListener() { // from class: com.baidu.live.alablmsdk.e.a.2
+        this.aDP = new IStatusListener() { // from class: com.baidu.live.alablmsdk.e.a.2
             @Override // com.baidu.android.imrtc.utils.IStatusListener
             public void onResult(int i, String str2) {
-                if (!a.this.aDG) {
+                if (!a.this.aDX) {
                     a.this.a(i, str2, atomicInteger, iStatusListener, new Runnable() { // from class: com.baidu.live.alablmsdk.e.a.2.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            BIMRtcClient.join(context, str, a.this.aDy);
+                            BIMRtcClient.join(context, str, a.this.aDP);
                         }
                     });
                 } else {
-                    com.baidu.live.alablmsdk.a.b.a.ak(" signal join hasRelease , not callback", "");
+                    com.baidu.live.alablmsdk.a.b.a.aj(" signal join hasRelease , not callback", "");
                 }
             }
         };
-        BIMRtcClient.join(context, str, this.aDy);
+        BIMRtcClient.join(context, str, this.aDP);
     }
 
     public void cancelCall(final Context context, final BIMCancelRtcInfo bIMCancelRtcInfo, final IStatusListener iStatusListener) {
         final AtomicInteger atomicInteger = new AtomicInteger(0);
-        this.aDz = new IStatusListener() { // from class: com.baidu.live.alablmsdk.e.a.3
+        this.aDQ = new IStatusListener() { // from class: com.baidu.live.alablmsdk.e.a.3
             @Override // com.baidu.android.imrtc.utils.IStatusListener
             public void onResult(int i, String str) {
-                if (!a.this.aDG) {
+                if (!a.this.aDX) {
                     a.this.a(i, str, atomicInteger, iStatusListener, new Runnable() { // from class: com.baidu.live.alablmsdk.e.a.3.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            BIMRtcClient.cancelCall(context, bIMCancelRtcInfo, a.this.aDz);
+                            BIMRtcClient.cancelCall(context, bIMCancelRtcInfo, a.this.aDQ);
                         }
                     });
                 } else {
-                    com.baidu.live.alablmsdk.a.b.a.ak(" signal cancelCall hasRelease , not callback", "");
+                    com.baidu.live.alablmsdk.a.b.a.aj(" signal cancelCall hasRelease , not callback", "");
                 }
             }
         };
-        BIMRtcClient.cancelCall(context, bIMCancelRtcInfo, this.aDz);
+        BIMRtcClient.cancelCall(context, bIMCancelRtcInfo, this.aDQ);
     }
 
     public void invite(final Context context, final BIMInviteRtcInfo bIMInviteRtcInfo, final IStatusListener iStatusListener) {
         final AtomicInteger atomicInteger = new AtomicInteger(0);
-        this.aDA = new IStatusListener() { // from class: com.baidu.live.alablmsdk.e.a.4
+        this.aDR = new IStatusListener() { // from class: com.baidu.live.alablmsdk.e.a.4
             @Override // com.baidu.android.imrtc.utils.IStatusListener
             public void onResult(int i, String str) {
-                if (!a.this.aDG) {
+                if (!a.this.aDX) {
                     a.this.a(i, str, atomicInteger, iStatusListener, new Runnable() { // from class: com.baidu.live.alablmsdk.e.a.4.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            BIMRtcClient.invite(context, bIMInviteRtcInfo, a.this.aDA);
+                            BIMRtcClient.invite(context, bIMInviteRtcInfo, a.this.aDR);
                         }
                     });
                 } else {
-                    com.baidu.live.alablmsdk.a.b.a.ak(" signal invite hasRelease , not callback", "");
+                    com.baidu.live.alablmsdk.a.b.a.aj(" signal invite hasRelease , not callback", "");
                 }
             }
         };
-        BIMRtcClient.invite(context, bIMInviteRtcInfo, this.aDA);
+        BIMRtcClient.invite(context, bIMInviteRtcInfo, this.aDR);
     }
 
     public void answer(final Context context, final BIMAnswerRtcInfo bIMAnswerRtcInfo, final IStatusListener iStatusListener) {
         final AtomicInteger atomicInteger = new AtomicInteger(0);
-        this.aDB = new IStatusListener() { // from class: com.baidu.live.alablmsdk.e.a.5
+        this.aDS = new IStatusListener() { // from class: com.baidu.live.alablmsdk.e.a.5
             @Override // com.baidu.android.imrtc.utils.IStatusListener
             public void onResult(int i, String str) {
-                if (!a.this.aDG) {
+                if (!a.this.aDX) {
                     a.this.a(i, str, atomicInteger, iStatusListener, new Runnable() { // from class: com.baidu.live.alablmsdk.e.a.5.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            BIMRtcClient.answer(context, bIMAnswerRtcInfo, a.this.aDB);
+                            BIMRtcClient.answer(context, bIMAnswerRtcInfo, a.this.aDS);
                         }
                     });
                 } else {
-                    com.baidu.live.alablmsdk.a.b.a.ak(" signal answer hasRelease , not callback", "");
+                    com.baidu.live.alablmsdk.a.b.a.aj(" signal answer hasRelease , not callback", "");
                 }
             }
         };
-        BIMRtcClient.answer(context, bIMAnswerRtcInfo, this.aDB);
+        BIMRtcClient.answer(context, bIMAnswerRtcInfo, this.aDS);
     }
 
     public void kickoff(final Context context, final BIMKickRequestRtcInfo bIMKickRequestRtcInfo, final IStatusListener iStatusListener) {
         final AtomicInteger atomicInteger = new AtomicInteger(0);
-        this.aDC = new IStatusListener() { // from class: com.baidu.live.alablmsdk.e.a.6
+        this.aDT = new IStatusListener() { // from class: com.baidu.live.alablmsdk.e.a.6
             @Override // com.baidu.android.imrtc.utils.IStatusListener
             public void onResult(int i, String str) {
-                if (!a.this.aDG) {
+                if (!a.this.aDX) {
                     a.this.a(i, str, atomicInteger, iStatusListener, new Runnable() { // from class: com.baidu.live.alablmsdk.e.a.6.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            BIMRtcClient.kickoff(context, bIMKickRequestRtcInfo, a.this.aDC);
+                            BIMRtcClient.kickoff(context, bIMKickRequestRtcInfo, a.this.aDT);
                         }
                     });
                 } else {
-                    com.baidu.live.alablmsdk.a.b.a.ak(" signal kickoff hasRelease , not callback", "");
+                    com.baidu.live.alablmsdk.a.b.a.aj(" signal kickoff hasRelease , not callback", "");
                 }
             }
         };
-        BIMRtcClient.kickoff(context, bIMKickRequestRtcInfo, this.aDC);
+        BIMRtcClient.kickoff(context, bIMKickRequestRtcInfo, this.aDT);
     }
 
     public void hangout(final Context context, final String str, final IStatusListener iStatusListener) {
         final AtomicInteger atomicInteger = new AtomicInteger(0);
-        this.aDD = new IStatusListener() { // from class: com.baidu.live.alablmsdk.e.a.7
+        this.aDU = new IStatusListener() { // from class: com.baidu.live.alablmsdk.e.a.7
             @Override // com.baidu.android.imrtc.utils.IStatusListener
             public void onResult(int i, String str2) {
-                if (!a.this.aDG) {
+                if (!a.this.aDX) {
                     a.this.a(i, str2, atomicInteger, iStatusListener, new Runnable() { // from class: com.baidu.live.alablmsdk.e.a.7.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            BIMRtcClient.hangout(context, str, a.this.aDD);
+                            BIMRtcClient.hangout(context, str, a.this.aDU);
                         }
                     });
                 } else {
-                    com.baidu.live.alablmsdk.a.b.a.ak(" signal hangout hasRelease , not callback", "");
+                    com.baidu.live.alablmsdk.a.b.a.aj(" signal hangout hasRelease , not callback", "");
                 }
             }
         };
-        BIMRtcClient.hangout(context, str, this.aDD);
+        BIMRtcClient.hangout(context, str, this.aDU);
     }
 
     public void hangout(final Context context, final BIMRtcInfo bIMRtcInfo, final IStatusListener iStatusListener) {
         final AtomicInteger atomicInteger = new AtomicInteger(0);
-        this.aDE = new IStatusListener() { // from class: com.baidu.live.alablmsdk.e.a.8
+        this.aDV = new IStatusListener() { // from class: com.baidu.live.alablmsdk.e.a.8
             @Override // com.baidu.android.imrtc.utils.IStatusListener
             public void onResult(int i, String str) {
-                if (!a.this.aDG) {
+                if (!a.this.aDX) {
                     a.this.a(i, str, atomicInteger, iStatusListener, new Runnable() { // from class: com.baidu.live.alablmsdk.e.a.8.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            BIMRtcClient.hangout(context, bIMRtcInfo, a.this.aDE);
+                            BIMRtcClient.hangout(context, bIMRtcInfo, a.this.aDV);
                         }
                     });
                 } else {
-                    com.baidu.live.alablmsdk.a.b.a.ak(" signal hangout hasRelease , not callback", "");
+                    com.baidu.live.alablmsdk.a.b.a.aj(" signal hangout hasRelease , not callback", "");
                 }
             }
         };
-        BIMRtcClient.hangout(context, bIMRtcInfo, this.aDE);
+        BIMRtcClient.hangout(context, bIMRtcInfo, this.aDV);
     }
 
     public void closeRoom(final Context context, final BIMCloseRoomRtcInfo bIMCloseRoomRtcInfo, final IStatusListener iStatusListener) {
         final AtomicInteger atomicInteger = new AtomicInteger(0);
-        this.aDF = new IStatusListener() { // from class: com.baidu.live.alablmsdk.e.a.9
+        this.aDW = new IStatusListener() { // from class: com.baidu.live.alablmsdk.e.a.9
             @Override // com.baidu.android.imrtc.utils.IStatusListener
             public void onResult(int i, String str) {
-                if (!a.this.aDG) {
+                if (!a.this.aDX) {
                     a.this.a(i, str, atomicInteger, iStatusListener, new Runnable() { // from class: com.baidu.live.alablmsdk.e.a.9.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            BIMRtcClient.closeRoom(context, bIMCloseRoomRtcInfo, a.this.aDF);
+                            BIMRtcClient.closeRoom(context, bIMCloseRoomRtcInfo, a.this.aDW);
                         }
                     });
                 } else {
-                    com.baidu.live.alablmsdk.a.b.a.ak(" signal closeRoom hasRelease , not callback", "");
+                    com.baidu.live.alablmsdk.a.b.a.aj(" signal closeRoom hasRelease , not callback", "");
                 }
             }
         };
-        BIMRtcClient.closeRoom(context, bIMCloseRoomRtcInfo, this.aDF);
+        BIMRtcClient.closeRoom(context, bIMCloseRoomRtcInfo, this.aDW);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -243,43 +243,43 @@ public class a {
     public boolean b(int i, Runnable runnable) {
         switch (i) {
             case -1:
-                this.aDw.post(runnable);
+                this.aDN.post(runnable);
                 return true;
             case 1004:
-                this.aDw.post(runnable);
+                this.aDN.post(runnable);
                 return true;
             case 1005:
-                this.aDw.post(runnable);
+                this.aDN.post(runnable);
                 return true;
             case 5010:
-                this.aDw.post(runnable);
+                this.aDN.post(runnable);
                 return true;
             case 5011:
-                this.aDw.postDelayed(runnable, 1000L);
+                this.aDN.postDelayed(runnable, 1000L);
                 return true;
             case 5012:
-                this.aDw.postDelayed(runnable, 1000L);
+                this.aDN.postDelayed(runnable, 1000L);
                 return true;
             case 5013:
-                this.aDw.postDelayed(runnable, 1000L);
+                this.aDN.postDelayed(runnable, 1000L);
                 return true;
             case 5014:
-                this.aDw.post(runnable);
+                this.aDN.post(runnable);
                 return true;
             case 5015:
-                this.aDw.post(runnable);
+                this.aDN.post(runnable);
                 return true;
             case 5016:
-                this.aDw.post(runnable);
+                this.aDN.post(runnable);
                 return true;
             case 5017:
-                this.aDw.post(runnable);
+                this.aDN.post(runnable);
                 return true;
             case 5018:
-                this.aDw.post(runnable);
+                this.aDN.post(runnable);
                 return true;
             case 5022:
-                this.aDw.post(runnable);
+                this.aDN.post(runnable);
                 return true;
             default:
                 return false;
@@ -287,34 +287,34 @@ public class a {
     }
 
     public void release() {
-        com.baidu.live.alablmsdk.a.b.a.ak(" signal re try manager release", "");
-        this.aDG = true;
-        if (this.aDx != null) {
-            this.aDx = null;
+        com.baidu.live.alablmsdk.a.b.a.aj(" signal re try manager release", "");
+        this.aDX = true;
+        if (this.aDO != null) {
+            this.aDO = null;
         }
-        if (this.aDy != null) {
-            this.aDy = null;
+        if (this.aDP != null) {
+            this.aDP = null;
         }
-        if (this.aDz != null) {
-            this.aDz = null;
+        if (this.aDQ != null) {
+            this.aDQ = null;
         }
-        if (this.aDA != null) {
-            this.aDA = null;
+        if (this.aDR != null) {
+            this.aDR = null;
         }
-        if (this.aDB != null) {
-            this.aDB = null;
+        if (this.aDS != null) {
+            this.aDS = null;
         }
-        if (this.aDC != null) {
-            this.aDC = null;
+        if (this.aDT != null) {
+            this.aDT = null;
         }
-        if (this.aDD != null) {
-            this.aDD = null;
+        if (this.aDU != null) {
+            this.aDU = null;
         }
-        if (this.aDE != null) {
-            this.aDE = null;
+        if (this.aDV != null) {
+            this.aDV = null;
         }
-        if (this.aDF != null) {
-            this.aDF = null;
+        if (this.aDW != null) {
+            this.aDW = null;
         }
     }
 }

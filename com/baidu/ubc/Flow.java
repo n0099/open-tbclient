@@ -6,7 +6,7 @@ import com.baidu.searchbox.config.AppConfig;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class Flow implements Parcelable {
     private static final int INVALID_HANDLE = -1;
     public static final String TAG = "UBCFlow";
@@ -20,14 +20,14 @@ public class Flow implements Parcelable {
     public static final Parcelable.Creator<Flow> CREATOR = new Parcelable.Creator<Flow>() { // from class: com.baidu.ubc.Flow.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: OF */
+        /* renamed from: Ou */
         public Flow[] newArray(int i) {
             return new Flow[i];
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: aj */
+        /* renamed from: ak */
         public Flow createFromParcel(Parcel parcel) {
             return new Flow(parcel);
         }

@@ -1,10 +1,10 @@
 package com.baidu.tieba.ad.download;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import java.io.Serializable;
-/* loaded from: classes21.dex */
+/* loaded from: classes.dex */
 public class DownloadCacheKey implements Serializable {
     public final String mAdId;
     public String mDownloadUrl;

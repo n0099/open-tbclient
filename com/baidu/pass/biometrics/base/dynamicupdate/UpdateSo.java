@@ -36,20 +36,22 @@ import java.util.zip.ZipInputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class UpdateSo {
     public static String TAG = "UpdateSo";
 
     /* renamed from: a  reason: collision with root package name */
-    private Application f2701a;
-    private StatService b;
+    private Application f3991a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private StatService f3992b;
     private CountDownLatch c;
     private SdkConfigOptions d;
     private SdkConfigOptions e;
     private PassBiometricConfiguration f;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public interface LoadModuleEventListener {
         void onFailure(SdkConfigOptions.DistributedFile distributedFile);
 
@@ -57,15 +59,17 @@ public class UpdateSo {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes5.dex */
     public class StatService {
         public static final String HOST_VERSION = "host_version";
         public static final String STAT_NAME_LIVENESS_FACE = "sapi_bio_dynamic_update_so";
         public static final String ZIP_VERSION = "zip_version";
 
         /* renamed from: a  reason: collision with root package name */
-        private static final String f2707a = "get_config_success";
-        private static final String b = "download_zip_file_success";
+        private static final String f3999a = "get_config_success";
+
+        /* renamed from: b  reason: collision with root package name */
+        private static final String f4000b = "download_zip_file_success";
         private static final String c = "need_update";
         private static final String d = "update_from_net";
         private static final String e = "exception_info";
@@ -87,14 +91,14 @@ public class UpdateSo {
 
         /* JADX INFO: Access modifiers changed from: private */
         public void b() {
-            com.baidu.pass.biometrics.base.utils.StatService.onEvent(UpdateSo.this.f2701a, STAT_NAME_LIVENESS_FACE, a());
+            com.baidu.pass.biometrics.base.utils.StatService.onEvent(UpdateSo.this.f3991a, STAT_NAME_LIVENESS_FACE, a());
         }
 
         private Map<String, String> a() {
             HashMap hashMap = new HashMap();
             hashMap.put("host_version", SdkConfigOptions.HOST_VERSION);
             hashMap.put("zip_version", this.i);
-            hashMap.put(f2707a, this.j ? "1" : "-1");
+            hashMap.put(f3999a, this.j ? "1" : "-1");
             if (this.j) {
                 hashMap.put(g, this.p ? "1" : "-1");
                 hashMap.put(c, this.l ? "1" : "-1");
@@ -104,7 +108,7 @@ public class UpdateSo {
             }
             if (this.l) {
                 hashMap.put(d, this.n ? "1" : "-1");
-                hashMap.put(b, this.k ? "1" : "-1");
+                hashMap.put(f4000b, this.k ? "1" : "-1");
             }
             boolean z = this.q;
             if (z) {
@@ -117,9 +121,9 @@ public class UpdateSo {
 
     public void checkSoUpdate(PassBiometricConfiguration passBiometricConfiguration) {
         this.f = passBiometricConfiguration;
-        this.f2701a = passBiometricConfiguration.getApplication();
-        CheckDefaultSoExist.isExist(this.f2701a);
-        this.b = new StatService();
+        this.f3991a = passBiometricConfiguration.getApplication();
+        CheckDefaultSoExist.isExist(this.f3991a);
+        this.f3992b = new StatService();
         this.c = new CountDownLatch(1);
         ThreadPoolService.getInstance().run(new TPRunnable(new Runnable() { // from class: com.baidu.pass.biometrics.base.dynamicupdate.UpdateSo.1
             @Override // java.lang.Runnable
@@ -131,7 +135,7 @@ public class UpdateSo {
                     Object[] objArr = new Object[1];
                     objArr[0] = "begin stat service";
                     Log.i(str, objArr);
-                    UpdateSo.this.b.b();
+                    UpdateSo.this.f3992b.b();
                 } catch (InterruptedException e) {
                     Log.e(UpdateSo.TAG, e);
                 }
@@ -144,7 +148,7 @@ public class UpdateSo {
             Random random = new Random();
             random.setSeed(System.currentTimeMillis());
             sdkConfigOptions.grayThreshold = random.nextInt(100);
-            LocalConfigOptions.getInstance(this.f2701a).setBioOptions(sdkConfigOptions);
+            LocalConfigOptions.getInstance(this.f3991a).setBioOptions(sdkConfigOptions);
         }
         Log.i(TAG, "current gray = " + sdkConfigOptions.grayThreshold);
     }
@@ -159,17 +163,17 @@ public class UpdateSo {
             @Override // com.baidu.pass.biometrics.base.dynamicupdate.UpdateSo.LoadModuleEventListener
             public void onSuccess(SdkConfigOptions.DistributedFile distributedFile, byte[] bArr) {
                 UpdateSo updateSo = UpdateSo.this;
-                boolean b = updateSo.b(LocalConfigOptions.getInternalZipPath(updateSo.f2701a, sdkConfigOptions.zipVersion), bArr);
-                if (b) {
-                    UpdateSo.this.b.n = false;
+                boolean b2 = updateSo.b(LocalConfigOptions.getInternalZipPath(updateSo.f3991a, sdkConfigOptions.zipVersion), bArr);
+                if (b2) {
+                    UpdateSo.this.f3992b.n = false;
                     UpdateSo updateSo2 = UpdateSo.this;
-                    updateSo2.a(LocalConfigOptions.getInternalZipPath(updateSo2.f2701a, sdkConfigOptions.zipVersion), LocalConfigOptions.getInternalRootPath(UpdateSo.this.f2701a));
+                    updateSo2.a(LocalConfigOptions.getInternalZipPath(updateSo2.f3991a, sdkConfigOptions.zipVersion), LocalConfigOptions.getInternalRootPath(UpdateSo.this.f3991a));
                     sdkConfigOptions.updateFail = false;
-                    LocalConfigOptions.getInstance(UpdateSo.this.f2701a).setBioOptions(sdkConfigOptions);
+                    LocalConfigOptions.getInstance(UpdateSo.this.f3991a).setBioOptions(sdkConfigOptions);
                 } else {
                     UpdateSo.this.a(sdkConfigOptions);
                 }
-                Log.e(UpdateSo.TAG, "loadFileFromExternal writeFileSuccess:" + b);
+                Log.e(UpdateSo.TAG, "loadFileFromExternal writeFileSuccess:" + b2);
             }
         }, LocalConfigOptions.getExternalZipPath(sdkConfigOptions.zipVersion));
     }
@@ -179,15 +183,15 @@ public class UpdateSo {
         HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
         httpHashMapWrap.put("appid", this.f.appId);
         httpHashMapWrap.put("tpl", this.f.tpl);
-        new HttpClientWrap(this.f2701a).get("https://wappass.bdimg.com/static/appsapi/appdistribute/android.txt", httpHashMapWrap, null, new HttpHandlerWrap(true) { // from class: com.baidu.pass.biometrics.base.dynamicupdate.UpdateSo.2
+        new HttpClientWrap(this.f3991a).get("https://wappass.bdimg.com/static/appsapi/appdistribute/android.txt", httpHashMapWrap, null, new HttpHandlerWrap(true) { // from class: com.baidu.pass.biometrics.base.dynamicupdate.UpdateSo.2
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.pass.biometrics.base.http.HttpHandlerWrap
             public void onFailure(Throwable th, int i, String str) {
-                SdkConfigOptions bioOptions = LocalConfigOptions.getInstance(UpdateSo.this.f2701a).getBioOptions();
+                SdkConfigOptions bioOptions = LocalConfigOptions.getInstance(UpdateSo.this.f3991a).getBioOptions();
                 bioOptions.updateFail = true;
-                LocalConfigOptions.getInstance(UpdateSo.this.f2701a).setBioOptions(bioOptions);
-                UpdateSo.this.b.j = false;
-                UpdateSo.this.b.o = android.util.Log.getStackTraceString(th);
+                LocalConfigOptions.getInstance(UpdateSo.this.f3991a).setBioOptions(bioOptions);
+                UpdateSo.this.f3992b.j = false;
+                UpdateSo.this.f3992b.o = android.util.Log.getStackTraceString(th);
                 UpdateSo.this.c.countDown();
             }
 
@@ -231,7 +235,7 @@ public class UpdateSo {
     public void a(String str) {
         try {
             this.d = SdkConfigOptions.fromOnLineJSON(new JSONObject(str));
-            this.e = LocalConfigOptions.getInstance(this.f2701a).getBioOptions();
+            this.e = LocalConfigOptions.getInstance(this.f3991a).getBioOptions();
             String str2 = TAG;
             Object[] objArr = new Object[1];
             objArr[0] = "asyncDistributeConf() newOptions:" + this.d.toJSON();
@@ -241,50 +245,50 @@ public class UpdateSo {
             objArr2[0] = "asyncDistributeConf() oldOptions:" + this.e.toJSON();
             Log.e(str3, objArr2);
             if (!PassBioBaseUtil.listValueEqual(this.d.livenessConfigOption.illumList, this.e.livenessConfigOption.illumList)) {
-                LocalConfigOptions.getInstance(this.f2701a).setIllumValueGray(-1);
+                LocalConfigOptions.getInstance(this.f3991a).setIllumValueGray(-1);
             }
             this.e.globalEnable = this.d.globalEnable;
             this.e.enable = this.d.enable;
             this.e.livenessConfigOption = this.d.livenessConfigOption;
-            LocalConfigOptions.getInstance(this.f2701a).setBioOptions(this.e);
-            this.b.j = true;
-            this.b.i = this.d.zipVersion;
+            LocalConfigOptions.getInstance(this.f3991a).setBioOptions(this.e);
+            this.f3992b.j = true;
+            this.f3992b.i = this.d.zipVersion;
             if (Build.VERSION.SDK_INT <= 19) {
                 this.e.updateFail = true;
-                this.b.q = true;
+                this.f3992b.q = true;
                 this.c.countDown();
-                LocalConfigOptions.getInstance(this.f2701a).setBioOptions(this.e);
+                LocalConfigOptions.getInstance(this.f3991a).setBioOptions(this.e);
             } else if (!this.d.globalEnable || !this.d.enable) {
-                this.b.p = false;
-                this.b.l = false;
+                this.f3992b.p = false;
+                this.f3992b.l = false;
                 this.c.countDown();
                 this.e.updateFail = true;
-                LocalConfigOptions.getInstance(this.f2701a).setBioOptions(this.e);
+                LocalConfigOptions.getInstance(this.f3991a).setBioOptions(this.e);
             } else {
-                this.b.p = true;
+                this.f3992b.p = true;
                 c(this.e);
                 int i = this.d.grayThreshold;
                 this.d.grayThreshold = this.e.grayThreshold;
                 if (!a(i, this.e)) {
-                    this.b.m = false;
-                    this.b.l = false;
+                    this.f3992b.m = false;
+                    this.f3992b.l = false;
                     this.c.countDown();
                     this.e.updateFail = true;
-                    LocalConfigOptions.getInstance(this.f2701a).setBioOptions(this.e);
+                    LocalConfigOptions.getInstance(this.f3991a).setBioOptions(this.e);
                     return;
                 }
-                this.b.m = true;
+                this.f3992b.m = true;
                 if (SdkConfigOptions.HOST_VERSION.compareTo(this.d.zipVersion) > 0) {
-                    this.b.l = false;
+                    this.f3992b.l = false;
                     this.c.countDown();
                     this.e.updateFail = true;
-                    LocalConfigOptions.getInstance(this.f2701a).setBioOptions(this.e);
+                    LocalConfigOptions.getInstance(this.f3991a).setBioOptions(this.e);
                 } else if (a(this.d.distributedSdk, this.e.distributedSdk)) {
                     b(this.d);
-                    this.b.l = true;
+                    this.f3992b.l = true;
                 } else {
                     a(this.d.distributedSdk);
-                    this.b.l = false;
+                    this.f3992b.l = false;
                     this.c.countDown();
                 }
             }
@@ -299,17 +303,17 @@ public class UpdateSo {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(SdkConfigOptions sdkConfigOptions) {
-        this.b.n = true;
+        this.f3992b.n = true;
         Log.e(TAG, "loadFileFromExternal onFailure distributedSdk uri:" + sdkConfigOptions.distributedSdk.downloadUrl);
-        new HttpClientWrap(this.f2701a).get(sdkConfigOptions.distributedSdk.downloadUrl, new BinaryHttpHandlerWrap(true, new String[]{"application/octet-stream", "*/*", "application/apk", "application/vnd.android.package-archive", "application/zip"}) { // from class: com.baidu.pass.biometrics.base.dynamicupdate.UpdateSo.4
+        new HttpClientWrap(this.f3991a).get(sdkConfigOptions.distributedSdk.downloadUrl, new BinaryHttpHandlerWrap(true, new String[]{"application/octet-stream", "*/*", "application/apk", "application/vnd.android.package-archive", "application/zip"}) { // from class: com.baidu.pass.biometrics.base.dynamicupdate.UpdateSo.4
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.pass.biometrics.base.http.HttpHandlerWrap
             public void onFailure(Throwable th, int i, String str) {
                 Log.e(UpdateSo.TAG, "distributeFileDownload() onFailure" + th.toString());
                 UpdateSo.this.e.updateFail = true;
-                LocalConfigOptions.getInstance(UpdateSo.this.f2701a).setBioOptions(UpdateSo.this.e);
-                UpdateSo.this.b.k = false;
-                UpdateSo.this.b.o = android.util.Log.getStackTraceString(th);
+                LocalConfigOptions.getInstance(UpdateSo.this.f3991a).setBioOptions(UpdateSo.this.e);
+                UpdateSo.this.f3992b.k = false;
+                UpdateSo.this.f3992b.o = android.util.Log.getStackTraceString(th);
                 UpdateSo.this.c.countDown();
             }
 
@@ -326,23 +330,23 @@ public class UpdateSo {
         try {
             String str = TAG;
             Object[] objArr = new Object[1];
-            objArr[0] = "distributeFileDownload() onSuccess" + this.d.distributedSdk.downloadUrl + ",:" + LocalConfigOptions.getInternalZipPath(this.f2701a, this.d.zipVersion);
+            objArr[0] = "distributeFileDownload() onSuccess" + this.d.distributedSdk.downloadUrl + ",:" + LocalConfigOptions.getInternalZipPath(this.f3991a, this.d.zipVersion);
             Log.e(str, objArr);
             String md5 = SecurityUtil.md5(bArr, false);
             String decrypt = RSA.decrypt(this.d.distributedSdk.hash);
             if (decrypt != null && decrypt.equals(md5)) {
-                if (b(LocalConfigOptions.getInternalZipPath(this.f2701a, this.d.zipVersion), bArr)) {
-                    a(LocalConfigOptions.getInternalZipPath(this.f2701a, this.d.zipVersion), LocalConfigOptions.getInternalRootPath(this.f2701a));
+                if (b(LocalConfigOptions.getInternalZipPath(this.f3991a, this.d.zipVersion), bArr)) {
+                    a(LocalConfigOptions.getInternalZipPath(this.f3991a, this.d.zipVersion), LocalConfigOptions.getInternalRootPath(this.f3991a));
                     this.d.updateFail = false;
-                    LocalConfigOptions.getInstance(this.f2701a).setBioOptions(this.d);
+                    LocalConfigOptions.getInstance(this.f3991a).setBioOptions(this.d);
                 } else {
                     this.e.updateFail = true;
-                    LocalConfigOptions.getInstance(this.f2701a).setBioOptions(this.e);
-                    this.b.k = false;
-                    this.b.o = "zip file write internal fail";
+                    LocalConfigOptions.getInstance(this.f3991a).setBioOptions(this.e);
+                    this.f3992b.k = false;
+                    this.f3992b.o = "zip file write internal fail";
                     this.c.countDown();
                 }
-                if (PassBiometricUtil.checkRequestPermission(this.f2701a, "android.permission.WRITE_EXTERNAL_STORAGE")) {
+                if (PassBiometricUtil.checkRequestPermission(this.f3991a, "android.permission.WRITE_EXTERNAL_STORAGE")) {
                     String externalZipPath = LocalConfigOptions.getExternalZipPath(this.d.zipVersion);
                     if (PassBioFileUtils.isFileExist(externalZipPath)) {
                         PassBioFileUtils.deleteFile(externalZipPath);
@@ -353,16 +357,16 @@ public class UpdateSo {
                 return;
             }
             this.e.updateFail = true;
-            LocalConfigOptions.getInstance(this.f2701a).setBioOptions(this.e);
-            this.b.k = false;
-            this.b.o = "localMd5 is not equals onlineMd5";
+            LocalConfigOptions.getInstance(this.f3991a).setBioOptions(this.e);
+            this.f3992b.k = false;
+            this.f3992b.o = "localMd5 is not equals onlineMd5";
             this.c.countDown();
         } catch (Exception e) {
             Log.e(TAG, "distributeFileDownload() Exception " + e.toString());
             this.e.updateFail = true;
-            LocalConfigOptions.getInstance(this.f2701a).setBioOptions(this.e);
-            this.b.k = false;
-            this.b.o = android.util.Log.getStackTraceString(e);
+            LocalConfigOptions.getInstance(this.f3991a).setBioOptions(this.e);
+            this.f3992b.k = false;
+            this.f3992b.o = android.util.Log.getStackTraceString(e);
             this.c.countDown();
         }
     }
@@ -371,12 +375,12 @@ public class UpdateSo {
         a(distributedFile, new LoadModuleEventListener() { // from class: com.baidu.pass.biometrics.base.dynamicupdate.UpdateSo.5
             @Override // com.baidu.pass.biometrics.base.dynamicupdate.UpdateSo.LoadModuleEventListener
             public void onFailure(SdkConfigOptions.DistributedFile distributedFile2) {
-                String internalZipPath = LocalConfigOptions.getInternalZipPath(UpdateSo.this.f2701a, UpdateSo.this.d.zipVersion);
+                String internalZipPath = LocalConfigOptions.getInternalZipPath(UpdateSo.this.f3991a, UpdateSo.this.d.zipVersion);
                 String externalZipPath = LocalConfigOptions.getExternalZipPath(UpdateSo.this.d.zipVersion);
                 Log.e(UpdateSo.TAG, "asyncDistributeConf(), loadFileFromExternal failure internalFile:" + internalZipPath);
                 if (PassBioFileUtils.isFileExist(internalZipPath)) {
                     byte[] c = UpdateSo.this.c(internalZipPath);
-                    if (PassBiometricUtil.checkRequestPermission(UpdateSo.this.f2701a, "android.permission.WRITE_EXTERNAL_STORAGE")) {
+                    if (PassBiometricUtil.checkRequestPermission(UpdateSo.this.f3991a, "android.permission.WRITE_EXTERNAL_STORAGE")) {
                         if (PassBioFileUtils.isFileExist(externalZipPath)) {
                             PassBioFileUtils.deleteFile(externalZipPath);
                         }
@@ -396,15 +400,15 @@ public class UpdateSo {
         if (loadModuleEventListener != null) {
             try {
                 if ("mounted".equals(Environment.getExternalStorageState()) && new File(str).exists()) {
-                    byte[] b = b(str);
-                    String md5 = SecurityUtil.md5(b, false);
+                    byte[] b2 = b(str);
+                    String md5 = SecurityUtil.md5(b2, false);
                     String decrypt = RSA.decrypt(distributedFile.hash);
                     String str2 = TAG;
                     Object[] objArr = new Object[1];
                     objArr[0] = "loadFileFromExternal() localMd5:" + md5 + ",onlineMd5" + decrypt;
                     Log.e(str2, objArr);
                     if (decrypt != null && decrypt.equals(md5)) {
-                        loadModuleEventListener.onSuccess(distributedFile, b);
+                        loadModuleEventListener.onSuccess(distributedFile, b2);
                     } else {
                         loadModuleEventListener.onFailure(distributedFile);
                     }
@@ -490,25 +494,25 @@ public class UpdateSo {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [165=4, 172=4] */
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Removed duplicated region for block: B:87:0x019e A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:88:0x019f A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void a(String str, String str2) {
-        BufferedOutputStream bufferedOutputStream;
+        Throwable th;
         Exception e;
+        BufferedOutputStream bufferedOutputStream;
         byte[] bArr;
         String name;
         ZipInputStream zipInputStream = null;
-        BufferedOutputStream bufferedOutputStream2 = null;
-        zipInputStream = null;
-        this.b.k = true;
+        this.f3992b.k = true;
         this.c.countDown();
         Log.i(TAG, "thread name unZipApkSoToLibDir = " + Thread.currentThread().getName());
         Log.d(TAG, "unZipApkSoToLibDir(), zipFilePath:" + str + ",libDir:" + str2);
         try {
             try {
                 ZipInputStream zipInputStream2 = new ZipInputStream(new BufferedInputStream(new FileInputStream(str)));
+                BufferedOutputStream bufferedOutputStream2 = null;
                 while (true) {
                     try {
                         ZipEntry nextEntry = zipInputStream2.getNextEntry();
@@ -523,10 +527,10 @@ public class UpdateSo {
                             objArr[0] = "unZipApkSoToLibDir() entryName," + name;
                             Log.e(str3, objArr);
                         } catch (Exception e2) {
-                            bufferedOutputStream = bufferedOutputStream2;
                             e = e2;
-                        } catch (Throwable th) {
-                            th = th;
+                            bufferedOutputStream = bufferedOutputStream2;
+                        } catch (Throwable th2) {
+                            th = th2;
                         }
                         if (name.endsWith(PluginInstallerService.APK_LIB_SUFFIX)) {
                             String str4 = name.substring(name.lastIndexOf("/") + 1, name.lastIndexOf(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS)) + PluginInstallerService.APK_LIB_SUFFIX;
@@ -559,21 +563,21 @@ public class UpdateSo {
                                             break;
                                         }
                                         bufferedOutputStream.write(bArr, 0, read);
-                                    } catch (Throwable th2) {
-                                        bufferedOutputStream2 = bufferedOutputStream;
-                                        th = th2;
-                                        if (bufferedOutputStream2 != null) {
-                                            bufferedOutputStream2.close();
+                                    } catch (Exception e3) {
+                                        e = e3;
+                                        e.printStackTrace();
+                                        if (bufferedOutputStream != null) {
+                                            bufferedOutputStream.close();
                                         }
-                                        throw th;
+                                        bufferedOutputStream2 = bufferedOutputStream;
                                     }
-                                } catch (Exception e3) {
-                                    e = e3;
-                                    e.printStackTrace();
-                                    if (bufferedOutputStream != null) {
-                                        bufferedOutputStream.close();
-                                    }
+                                } catch (Throwable th3) {
+                                    th = th3;
                                     bufferedOutputStream2 = bufferedOutputStream;
+                                    if (bufferedOutputStream2 != null) {
+                                        bufferedOutputStream2.close();
+                                    }
+                                    throw th;
                                 }
                             }
                             bufferedOutputStream.flush();
@@ -591,8 +595,8 @@ public class UpdateSo {
                                 zipInputStream.close();
                             }
                             return;
-                        } catch (Throwable th3) {
-                            th = th3;
+                        } catch (Throwable th4) {
+                            th = th4;
                             if (zipInputStream != null) {
                                 try {
                                     zipInputStream.close();
@@ -602,8 +606,8 @@ public class UpdateSo {
                             }
                             throw th;
                         }
-                    } catch (Throwable th4) {
-                        th = th4;
+                    } catch (Throwable th5) {
+                        th = th5;
                         zipInputStream = zipInputStream2;
                         if (zipInputStream != null) {
                         }
@@ -616,8 +620,8 @@ public class UpdateSo {
             }
         } catch (Exception e7) {
             e = e7;
-        } catch (Throwable th5) {
-            th = th5;
+        } catch (Throwable th6) {
+            th = th6;
         }
     }
 }

@@ -12,24 +12,24 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.chatmessage.messages.TextMsg;
 import com.baidu.live.sdk.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class w extends e {
     public View mContentView;
     private Context mContext;
     public View mConvertView;
-    public TextView oNs;
+    public TextView oTA;
 
     @SuppressLint({"InflateParams"})
     public w(Context context, LayoutInflater layoutInflater) {
         this.mContext = context;
         this.mConvertView = layoutInflater.inflate(a.g.bd_im_chating_send_txt_item, (ViewGroup) null);
-        this.oMi = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_status);
-        this.oMj = this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_status_layout);
-        this.oMk = (ProgressBar) this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_progress);
-        this.oNs = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_txt);
-        this.oMf = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview);
-        this.oMh = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview_vip);
-        this.oMc = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
+        this.oSq = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_status);
+        this.oSr = this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_status_layout);
+        this.oSs = (ProgressBar) this.mConvertView.findViewById(a.f.bd_im_chating_msg_send_progress);
+        this.oTA = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_txt);
+        this.oSn = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview);
+        this.oSp = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview_vip);
+        this.oSk = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
         this.mContentView = this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_layout);
         this.mConvertView.setTag(this);
     }
@@ -51,14 +51,14 @@ public class w extends e {
     @Override // com.baidu.yuyinala.privatemessage.implugin.a.a.e
     public void b(Context context, ChatMsg chatMsg) {
         if (chatMsg instanceof TextMsg) {
-            this.oNs.setText(((TextMsg) chatMsg).getText());
-            Spannable c = com.baidu.yuyinala.privatemessage.implugin.util.f.c(context, this.oNs.getText());
+            this.oTA.setText(((TextMsg) chatMsg).getText());
+            Spannable c = com.baidu.yuyinala.privatemessage.implugin.util.f.c(context, this.oTA.getText());
             if (c != null) {
-                this.oNs.setText(c);
-                this.oNs.setMovementMethod(com.baidu.yuyinala.privatemessage.implugin.ui.common.a.elM());
-                this.oNs.setFocusable(false);
-                this.oNs.setClickable(false);
-                this.oNs.setLongClickable(false);
+                this.oTA.setText(c);
+                this.oTA.setMovementMethod(com.baidu.yuyinala.privatemessage.implugin.ui.common.a.elQ());
+                this.oTA.setFocusable(false);
+                this.oTA.setClickable(false);
+                this.oTA.setLongClickable(false);
             }
         }
         super.b(context, chatMsg);

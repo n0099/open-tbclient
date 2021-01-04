@@ -2,7 +2,7 @@ package com.airbnb.lottie.model.content;
 
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class j implements b {
     private final List<b> items;
     private final String name;
@@ -21,8 +21,8 @@ public class j implements b {
     }
 
     @Override // com.airbnb.lottie.model.content.b
-    public com.airbnb.lottie.a.a.b a(com.airbnb.lottie.g gVar, com.airbnb.lottie.model.layer.a aVar) {
-        return new com.airbnb.lottie.a.a.c(gVar, aVar, this);
+    public com.airbnb.lottie.a.a.b a(com.airbnb.lottie.f fVar, com.airbnb.lottie.model.layer.a aVar) {
+        return new com.airbnb.lottie.a.a.c(fVar, aVar, this);
     }
 
     public String toString() {

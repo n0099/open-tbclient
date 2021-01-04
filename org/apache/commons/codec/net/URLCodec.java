@@ -9,7 +9,7 @@ import org.apache.commons.codec.EncoderException;
 import org.apache.commons.codec.StringDecoder;
 import org.apache.commons.codec.StringEncoder;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes6.dex */
 public class URLCodec implements BinaryDecoder, BinaryEncoder, StringDecoder, StringEncoder {
     protected static byte ESCAPE_CHAR;
     protected static final BitSet WWW_FORM_URL = null;

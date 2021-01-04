@@ -3,7 +3,7 @@ package com.baidu.media.duplayer;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.tbadk.TbConfig;
 @Keep
-/* loaded from: classes18.dex */
+/* loaded from: classes15.dex */
 public class Prefetch {
     public static String TAG = "filecache-Prefetch";
 
@@ -15,12 +15,12 @@ public class Prefetch {
         if (str == null || str.length() <= 0) {
             return;
         }
-        String b = Utils.b();
-        if (b == null) {
-            b = "";
+        String b2 = Utils.b();
+        if (b2 == null) {
+            b2 = "";
         }
-        if (Utils.a() > Utils.b) {
-            nativeAdd(str, str2 != null ? str2 : "", str3 != null ? str3 : "", b, i, i2, i4, str4);
+        if (Utils.a() > Utils.f3234b) {
+            nativeAdd(str, str2 != null ? str2 : "", str3 != null ? str3 : "", b2, i, i2, i4, str4);
         }
     }
 
@@ -32,12 +32,12 @@ public class Prefetch {
         if (str == null || str.length() <= 0) {
             return;
         }
-        String b = Utils.b();
-        if (b == null) {
-            b = "";
+        String b2 = Utils.b();
+        if (b2 == null) {
+            b2 = "";
         }
-        if (Utils.a() > Utils.b) {
-            nativeAdd(str, str2 != null ? str2 : "", str3 != null ? str3 : "", b, i, 0, i3, str4);
+        if (Utils.a() > Utils.f3234b) {
+            nativeAdd(str, str2 != null ? str2 : "", str3 != null ? str3 : "", b2, i, 0, i3, str4);
         }
     }
 

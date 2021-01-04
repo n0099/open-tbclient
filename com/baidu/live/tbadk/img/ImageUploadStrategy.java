@@ -7,7 +7,7 @@ import com.baidu.live.tbadk.core.util.BitmapHelper;
 import com.baidu.live.tbadk.core.util.FileHelper;
 import com.baidu.live.tbadk.img.effect.ImageOperation;
 import java.util.LinkedList;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class ImageUploadStrategy {
     public static final long FILE_SIZE_10M = 10485760;
     public static final long FILE_SIZE_4M = 4194304;
@@ -119,18 +119,18 @@ public class ImageUploadStrategy {
         }
         Bitmap loadBitmap = BitmapHelper.loadBitmap(str);
         if (loadBitmap == null || loadBitmap.isRecycled()) {
-            int i3 = 0;
-            int i4 = 1;
+            int i3 = 1;
+            int i4 = 0;
             while (true) {
-                int i5 = i3;
+                int i5 = i4;
                 if (i5 >= 3) {
                     return null;
                 }
-                newSizeBitmapOptions.inSampleSize = i4 * 2;
+                newSizeBitmapOptions.inSampleSize = i3 * 2;
                 Bitmap loadBitmap2 = BitmapHelper.loadBitmap(str, newSizeBitmapOptions);
                 if (loadBitmap2 == null || loadBitmap2.isRecycled()) {
-                    i4++;
-                    i3 = i5 + 1;
+                    i3++;
+                    i4 = i5 + 1;
                 } else {
                     return loadBitmap2;
                 }

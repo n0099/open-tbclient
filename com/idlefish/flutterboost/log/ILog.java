@@ -1,19 +1,17 @@
 package com.idlefish.flutterboost.log;
-
-import android.support.media.ExifInterface;
-/* loaded from: classes19.dex */
+/* loaded from: classes7.dex */
 public interface ILog {
     void e(String str, String str2);
 
     void e(String str, String str2, Throwable th);
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes7.dex */
     public enum LogLevelEnum {
-        VERBOSE(0, ExifInterface.GPS_MEASUREMENT_INTERRUPTED),
+        VERBOSE(0, "V"),
         DEBUG(1, "D"),
         INFO(2, "I"),
-        WARNING(3, ExifInterface.LONGITUDE_WEST),
-        ERROR(4, ExifInterface.LONGITUDE_EAST);
+        WARNING(3, "W"),
+        ERROR(4, "E");
         
         private String logLevelName;
         private int loglevel;

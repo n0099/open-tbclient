@@ -9,7 +9,7 @@ import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class NetUtils {
     private static final String TAG = "NetUtils";
 

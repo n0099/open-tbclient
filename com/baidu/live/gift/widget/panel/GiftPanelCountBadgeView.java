@@ -1,19 +1,19 @@
 package com.baidu.live.gift.widget.panel;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.live.sdk.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class GiftPanelCountBadgeView extends FrameLayout {
-    private int bhH;
-    private boolean bhI;
+    private int bjq;
+    private boolean bjr;
     private ImageView mImageView;
     private TextView mTextView;
 
@@ -23,17 +23,17 @@ public class GiftPanelCountBadgeView extends FrameLayout {
     }
 
     public void setPlusThreshold(int i, boolean z) {
-        this.bhH = i;
-        this.bhI = z;
+        this.bjq = i;
+        this.bjr = z;
     }
 
     public void setCount(int i) {
-        boolean z = this.bhH > 0 && i > this.bhH;
-        if (this.mImageView != null && this.bhI) {
+        boolean z = this.bjq > 0 && i > this.bjq;
+        if (this.mImageView != null && this.bjr) {
             this.mImageView.setImageResource(z ? a.e.live_gift_panel_count_badge_large_icon : a.e.live_gift_panel_count_badge_small_icon);
         }
         if (this.mTextView != null) {
-            this.mTextView.setText(z ? this.bhH + "+" : String.valueOf(i));
+            this.mTextView.setText(z ? this.bjq + "+" : String.valueOf(i));
         }
     }
 

@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.CallBack;
 import com.baidu.android.imsdk.ChatObject;
 import com.baidu.android.imsdk.GetChatObjectInfoForRecordHandler;
 import com.baidu.android.imsdk.utils.LogUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class GetUserInfoForRecordHandler extends GetChatObjectInfoForRecordHandler {
     public GetUserInfoForRecordHandler(Context context) {
         super(context);

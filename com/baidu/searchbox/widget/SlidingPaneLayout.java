@@ -13,10 +13,6 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.v4.view.AccessibilityDelegateCompat;
-import android.support.v4.view.MotionEventCompat;
-import android.support.v4.view.ViewCompat;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -24,11 +20,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.view.accessibility.AccessibilityEvent;
+import androidx.core.view.AccessibilityDelegateCompat;
+import androidx.core.view.MotionEventCompat;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.baidu.searchbox.widget.ViewDragHelper;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public abstract class SlidingPaneLayout extends ViewGroup {
     private static final int DEFAULT_FADE_COLOR = -858993460;
     static final SlidingPanelLayoutImpl IMPL;
@@ -61,7 +61,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
     private double slideEdgeFactor;
     private double slideWidthFactor;
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes15.dex */
     public interface PanelSlideListener {
         void onPanelClosed(View view);
 
@@ -71,7 +71,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes15.dex */
     public interface SlidingPanelLayoutImpl {
         void invalidateChildRegion(SlidingPaneLayout slidingPaneLayout, View view);
     }
@@ -96,7 +96,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         this.mAutoSlide = z;
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes15.dex */
     public static class SimplePanelSlideListener implements PanelSlideListener {
         @Override // com.baidu.searchbox.widget.SlidingPaneLayout.PanelSlideListener
         public void onPanelSlide(View view, float f) {
@@ -211,8 +211,9 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         if (view != null && viewIsOpaque(view)) {
             i4 = view.getLeft();
             i3 = view.getRight();
-            i2 = view.getTop();
+            int top = view.getTop();
             i = view.getBottom();
+            i2 = top;
         } else {
             i = 0;
             i2 = 0;
@@ -275,16 +276,13 @@ public abstract class SlidingPaneLayout extends ViewGroup {
     protected void onMeasure(int i, int i2) {
         int i3;
         int i4;
-        int i5;
         int paddingTop;
         int makeMeasureSpec;
         int makeMeasureSpec2;
+        float f;
         int makeMeasureSpec3;
         int makeMeasureSpec4;
-        int i6;
-        int i7;
-        boolean z;
-        float f;
+        int i5;
         int mode = View.MeasureSpec.getMode(i);
         int size = View.MeasureSpec.getSize(i);
         int mode2 = View.MeasureSpec.getMode(i2);
@@ -320,54 +318,51 @@ public abstract class SlidingPaneLayout extends ViewGroup {
             i3 = size2;
             i4 = mode2;
         }
+        int i6 = 0;
         switch (i4) {
             case Integer.MIN_VALUE:
-                i5 = 0;
                 paddingTop = (i3 - getPaddingTop()) - getPaddingBottom();
                 break;
             case 1073741824:
-                i5 = (i3 - getPaddingTop()) - getPaddingBottom();
-                paddingTop = i5;
+                int paddingTop2 = (i3 - getPaddingTop()) - getPaddingBottom();
+                paddingTop = paddingTop2;
+                i6 = paddingTop2;
                 break;
             default:
-                i5 = 0;
                 paddingTop = -1;
                 break;
         }
-        boolean z2 = false;
+        float f2 = 0.0f;
+        boolean z = false;
         int paddingLeft = (size - getPaddingLeft()) - getPaddingRight();
         int childCount = getChildCount();
         if (childCount > 2) {
             Log.e(TAG, "onMeasure: More than two child views are not supported.");
         }
         this.mSlideableView = null;
-        int i8 = 0;
-        int i9 = i5;
-        float f2 = 0.0f;
-        while (i8 < childCount) {
-            View childAt = getChildAt(i8);
+        int i7 = 0;
+        int i8 = i6;
+        while (i7 < childCount) {
+            View childAt = getChildAt(i7);
             LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
             if (childAt.getVisibility() == 8) {
                 layoutParams.dimWhenOffset = false;
-                i6 = paddingLeft;
+                i5 = paddingLeft;
                 f = f2;
-                i7 = i9;
-                z = z2;
             } else {
                 if (layoutParams.weight > 0.0f) {
-                    f2 += layoutParams.weight;
+                    f = layoutParams.weight + f2;
                     if (layoutParams.width == 0) {
-                        i6 = paddingLeft;
-                        f = f2;
-                        i7 = i9;
-                        z = z2;
+                        i5 = paddingLeft;
                     }
+                } else {
+                    f = f2;
                 }
-                int i10 = layoutParams.leftMargin + layoutParams.rightMargin;
+                int i9 = layoutParams.leftMargin + layoutParams.rightMargin;
                 if (layoutParams.width == -2) {
-                    makeMeasureSpec3 = View.MeasureSpec.makeMeasureSpec(size - i10, Integer.MIN_VALUE);
+                    makeMeasureSpec3 = View.MeasureSpec.makeMeasureSpec(size - i9, Integer.MIN_VALUE);
                 } else if (layoutParams.width == -1) {
-                    makeMeasureSpec3 = View.MeasureSpec.makeMeasureSpec(size - i10, 1073741824);
+                    makeMeasureSpec3 = View.MeasureSpec.makeMeasureSpec(size - i9, 1073741824);
                 } else {
                     makeMeasureSpec3 = View.MeasureSpec.makeMeasureSpec(layoutParams.width, 1073741824);
                 }
@@ -381,40 +376,35 @@ public abstract class SlidingPaneLayout extends ViewGroup {
                 childAt.measure(makeMeasureSpec3, makeMeasureSpec4);
                 int measuredWidth = childAt.getMeasuredWidth();
                 int measuredHeight = childAt.getMeasuredHeight();
-                if (i4 == Integer.MIN_VALUE && measuredHeight > i9) {
-                    i9 = Math.min(measuredHeight, paddingTop);
+                if (i4 == Integer.MIN_VALUE && measuredHeight > i8) {
+                    i8 = Math.min(measuredHeight, paddingTop);
                 }
-                int i11 = paddingLeft - measuredWidth;
-                boolean z3 = i11 < 0;
-                layoutParams.slideable = z3;
-                boolean z4 = z3 | z2;
+                int i10 = paddingLeft - measuredWidth;
+                boolean z2 = i10 < 0;
+                layoutParams.slideable = z2;
+                boolean z3 = z2 | z;
                 if (layoutParams.slideable) {
                     this.mSlideableView = childAt;
                 }
-                i6 = i11;
-                i7 = i9;
-                float f3 = f2;
-                z = z4;
-                f = f3;
+                i5 = i10;
+                z = z3;
             }
-            i8++;
-            z2 = z;
-            i9 = i7;
+            i7++;
+            paddingLeft = i5;
             f2 = f;
-            paddingLeft = i6;
         }
-        if (z2 || f2 > 0.0f) {
-            int i12 = size - this.mOverhangSize;
-            for (int i13 = 0; i13 < childCount; i13++) {
-                View childAt2 = getChildAt(i13);
+        if (z || f2 > 0.0f) {
+            int i11 = size - this.mOverhangSize;
+            for (int i12 = 0; i12 < childCount; i12++) {
+                View childAt2 = getChildAt(i12);
                 if (childAt2.getVisibility() != 8) {
                     LayoutParams layoutParams2 = (LayoutParams) childAt2.getLayoutParams();
                     if (childAt2.getVisibility() != 8) {
-                        boolean z5 = layoutParams2.width == 0 && layoutParams2.weight > 0.0f;
-                        int measuredWidth2 = z5 ? 0 : childAt2.getMeasuredWidth();
-                        if (z2 && childAt2 != this.mSlideableView) {
-                            if (layoutParams2.width < 0 && (measuredWidth2 > i12 || layoutParams2.weight > 0.0f)) {
-                                if (z5) {
+                        boolean z4 = layoutParams2.width == 0 && layoutParams2.weight > 0.0f;
+                        int measuredWidth2 = z4 ? 0 : childAt2.getMeasuredWidth();
+                        if (z && childAt2 != this.mSlideableView) {
+                            if (layoutParams2.width < 0 && (measuredWidth2 > i11 || layoutParams2.weight > 0.0f)) {
+                                if (z4) {
                                     if (layoutParams2.height == -2) {
                                         makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(paddingTop, Integer.MIN_VALUE);
                                     } else if (layoutParams2.height == -1) {
@@ -425,7 +415,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
                                 } else {
                                     makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(childAt2.getMeasuredHeight(), 1073741824);
                                 }
-                                childAt2.measure(View.MeasureSpec.makeMeasureSpec(this.mAutoSlide ? i12 : size, 1073741824), makeMeasureSpec2);
+                                childAt2.measure(View.MeasureSpec.makeMeasureSpec(this.mAutoSlide ? i11 : size, 1073741824), makeMeasureSpec2);
                             }
                         } else if (layoutParams2.weight > 0.0f) {
                             if (layoutParams2.width == 0) {
@@ -439,10 +429,10 @@ public abstract class SlidingPaneLayout extends ViewGroup {
                             } else {
                                 makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(childAt2.getMeasuredHeight(), 1073741824);
                             }
-                            if (z2) {
-                                int i14 = size - (layoutParams2.rightMargin + layoutParams2.leftMargin);
-                                int makeMeasureSpec5 = View.MeasureSpec.makeMeasureSpec(i14, 1073741824);
-                                if (measuredWidth2 != i14) {
+                            if (z) {
+                                int i13 = size - (layoutParams2.rightMargin + layoutParams2.leftMargin);
+                                int makeMeasureSpec5 = View.MeasureSpec.makeMeasureSpec(i13, 1073741824);
+                                if (measuredWidth2 != i13) {
                                     childAt2.measure(makeMeasureSpec5, makeMeasureSpec);
                                 }
                             } else {
@@ -453,9 +443,9 @@ public abstract class SlidingPaneLayout extends ViewGroup {
                 }
             }
         }
-        setMeasuredDimension(size, i9);
-        this.mCanSlide = z2;
-        if (this.mDragHelper.getViewDragState() != 0 && !z2) {
+        setMeasuredDimension(size, i8);
+        this.mCanSlide = z;
+        if (this.mDragHelper.getViewDragState() != 0 && !z) {
             this.mDragHelper.abort();
         }
     }
@@ -474,32 +464,33 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
         int i8 = 0;
         int i9 = paddingLeft;
+        int i10 = paddingLeft;
         while (i8 < childCount) {
             View childAt = getChildAt(i8);
             if (childAt.getVisibility() == 8) {
-                i6 = i9;
+                i6 = i10;
             } else {
                 LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
                 int measuredWidth = childAt.getMeasuredWidth();
                 if (layoutParams.slideable) {
-                    int min = (Math.min(paddingLeft, (i7 - paddingRight) - this.mOverhangSize) - i9) - (layoutParams.leftMargin + layoutParams.rightMargin);
+                    int min = (Math.min(i9, (i7 - paddingRight) - this.mOverhangSize) - i10) - (layoutParams.leftMargin + layoutParams.rightMargin);
                     this.mSlideRange = min;
-                    layoutParams.dimWhenOffset = ((layoutParams.leftMargin + i9) + min) + (measuredWidth / 2) > i7 - paddingRight;
-                    i6 = layoutParams.leftMargin + ((int) (min * this.mSlideOffset)) + i9;
+                    layoutParams.dimWhenOffset = ((layoutParams.leftMargin + i10) + min) + (measuredWidth / 2) > i7 - paddingRight;
+                    i6 = i10 + layoutParams.leftMargin + ((int) (min * this.mSlideOffset));
                     i5 = 0;
                 } else if (!this.mCanSlide || this.mParallaxBy == 0) {
                     i5 = 0;
-                    i6 = paddingLeft;
+                    i6 = i9;
                 } else {
                     i5 = (int) ((1.0f - this.mSlideOffset) * this.mParallaxBy);
-                    i6 = paddingLeft;
+                    i6 = i9;
                 }
-                int i10 = i6 - i5;
-                childAt.layout(i10, paddingTop, i10 + measuredWidth, childAt.getMeasuredHeight() + paddingTop);
-                paddingLeft += childAt.getWidth();
+                int i11 = i6 - i5;
+                childAt.layout(i11, paddingTop, i11 + measuredWidth, childAt.getMeasuredHeight() + paddingTop);
+                i9 += childAt.getWidth();
             }
             i8++;
-            i9 = i6;
+            i10 = i6;
         }
         if (this.mFirstLayout) {
             if (this.mCanSlide) {
@@ -510,8 +501,8 @@ public abstract class SlidingPaneLayout extends ViewGroup {
                     dimChildView(this.mSlideableView, this.mSlideOffset, this.mSliderFadeColor);
                 }
             } else {
-                for (int i11 = 0; i11 < childCount; i11++) {
-                    dimChildView(getChildAt(i11), 0.0f, this.mSliderFadeColor);
+                for (int i12 = 0; i12 < childCount; i12++) {
+                    dimChildView(getChildAt(i12), 0.0f, this.mSliderFadeColor);
                 }
             }
             updateObscuredViewsVisibility(this.mSlideableView);
@@ -894,7 +885,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         this.mPreservedOpenState = savedState.isOpen;
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes15.dex */
     private class DragHelperCallback extends ViewDragHelper.Callback {
         private final int OFFSET_X;
         private int currX;
@@ -993,7 +984,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         this.slideWidthFactor = d;
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes15.dex */
     public static class LayoutParams extends ViewGroup.MarginLayoutParams {
         private static final int[] ATTRS = {16843137};
         Paint dimPaint;
@@ -1037,7 +1028,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes15.dex */
     public static class SavedState extends View.BaseSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: com.baidu.searchbox.widget.SlidingPaneLayout.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -1072,7 +1063,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes15.dex */
     static class SlidingPanelLayoutImplBase implements SlidingPanelLayoutImpl {
         SlidingPanelLayoutImplBase() {
         }
@@ -1083,7 +1074,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes15.dex */
     static class SlidingPanelLayoutImplJB extends SlidingPanelLayoutImplBase {
         private Method mGetDisplayList;
         private Field mRecreateDisplayList;
@@ -1118,7 +1109,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes15.dex */
     static class SlidingPanelLayoutImplJBMR1 extends SlidingPanelLayoutImplBase {
         SlidingPanelLayoutImplJBMR1() {
         }
@@ -1129,14 +1120,14 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes15.dex */
     class AccessibilityDelegate extends AccessibilityDelegateCompat {
         private final Rect mTmpRect = new Rect();
 
         AccessibilityDelegate() {
         }
 
-        @Override // android.support.v4.view.AccessibilityDelegateCompat
+        @Override // androidx.core.view.AccessibilityDelegateCompat
         public void onInitializeAccessibilityNodeInfo(View view, AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
             AccessibilityNodeInfoCompat obtain = AccessibilityNodeInfoCompat.obtain(accessibilityNodeInfoCompat);
             super.onInitializeAccessibilityNodeInfo(view, obtain);
@@ -1158,13 +1149,13 @@ public abstract class SlidingPaneLayout extends ViewGroup {
             }
         }
 
-        @Override // android.support.v4.view.AccessibilityDelegateCompat
+        @Override // androidx.core.view.AccessibilityDelegateCompat
         public void onInitializeAccessibilityEvent(View view, AccessibilityEvent accessibilityEvent) {
             super.onInitializeAccessibilityEvent(view, accessibilityEvent);
             accessibilityEvent.setClassName(SlidingPaneLayout.class.getName());
         }
 
-        @Override // android.support.v4.view.AccessibilityDelegateCompat
+        @Override // androidx.core.view.AccessibilityDelegateCompat
         public boolean onRequestSendAccessibilityEvent(ViewGroup viewGroup, View view, AccessibilityEvent accessibilityEvent) {
             if (filter(view)) {
                 return false;
@@ -1199,7 +1190,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes15.dex */
     public class DisableLayerRunnable implements Runnable {
         final View mChildView;
 

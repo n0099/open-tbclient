@@ -2,23 +2,25 @@ package com.baidu.pass.http;
 
 import android.content.Context;
 import android.os.Build;
-import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
+import androidx.appcompat.widget.ActivityChooserView;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class PassHttpClient implements com.baidu.pass.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final ThreadFactory f2791a = new a();
-    private static final ThreadPoolExecutor b = new ThreadPoolExecutor(6, (int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 60, TimeUnit.SECONDS, new LinkedBlockingQueue(), f2791a);
+    private static final ThreadFactory f4134a = new a();
+
+    /* renamed from: b  reason: collision with root package name */
+    private static final ThreadPoolExecutor f4135b = new ThreadPoolExecutor(6, (int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 60, TimeUnit.SECONDS, new LinkedBlockingQueue(), f4134a);
     private d c;
 
     static {
         if (Build.VERSION.SDK_INT >= 9) {
-            b.allowCoreThreadTimeOut(true);
+            f4135b.allowCoreThreadTimeOut(true);
         }
     }
 
@@ -60,6 +62,6 @@ public class PassHttpClient implements com.baidu.pass.a {
 
     private void a(Method method, Context context, PassHttpParamDTO passHttpParamDTO, HttpResponseHandler httpResponseHandler) {
         this.c = new d(method, context, passHttpParamDTO, httpResponseHandler);
-        b.submit(this.c);
+        f4135b.submit(this.c);
     }
 }

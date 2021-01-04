@@ -3,10 +3,10 @@ package okhttp3;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public interface Interceptor {
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public interface Chain {
         Call call();
 

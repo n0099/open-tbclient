@@ -1,5 +1,5 @@
 package com.google.zxing.common.detector;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class MathUtils {
     private MathUtils() {
     }
@@ -21,10 +21,13 @@ public final class MathUtils {
     }
 
     public static int sum(int[] iArr) {
+        int length = iArr.length;
         int i = 0;
-        for (int i2 : iArr) {
-            i += i2;
+        int i2 = 0;
+        while (i < length) {
+            i++;
+            i2 = iArr[i] + i2;
         }
-        return i;
+        return i2;
     }
 }

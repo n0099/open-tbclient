@@ -77,13 +77,12 @@ public class WeiboAppManager {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [140=5, 142=4, 143=4, 144=4] */
-    /* JADX WARN: Removed duplicated region for block: B:49:0x00a6 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x00a5 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private static WbAppInfo parseWbInfoByAsset(Context context, String str) {
         InputStream inputStream;
-        Throwable th;
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -143,8 +142,8 @@ public class WeiboAppManager {
                     }
                     return null;
                 }
-            } catch (Throwable th2) {
-                th = th2;
+            } catch (Throwable th) {
+                th = th;
                 if (inputStream != null) {
                     try {
                         inputStream.close();
@@ -157,9 +156,9 @@ public class WeiboAppManager {
         } catch (Exception e6) {
             e = e6;
             inputStream = null;
-        } catch (Throwable th3) {
+        } catch (Throwable th2) {
+            th = th2;
             inputStream = null;
-            th = th3;
             if (inputStream != null) {
             }
             throw th;

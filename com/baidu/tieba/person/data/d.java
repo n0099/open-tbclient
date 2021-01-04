@@ -1,31 +1,31 @@
 package com.baidu.tieba.person.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.q;
+import com.baidu.adp.widget.ListView.n;
 import java.util.List;
-/* loaded from: classes22.dex */
-public class d implements q {
-    public static final BdUniqueId miQ = BdUniqueId.gen();
-    public boolean gZt;
-    public String miR;
-    public String miS;
-    public String miT;
-    public String miU;
-    public int miV;
-    public List<b> miW;
+/* loaded from: classes2.dex */
+public class d implements n {
+    public static final BdUniqueId mnY = BdUniqueId.gen();
+    public boolean hli;
+    public String mnZ;
+    public String moa;
+    public String mob;
+    public String moc;
+    public int mod;
+    public List<b> moe;
 
     public d(boolean z, a aVar) {
-        this.gZt = z;
-        this.miS = aVar.icon;
-        this.miR = aVar.title;
-        this.miT = aVar.booktown;
-        this.miU = aVar.tip;
-        this.miW = aVar.miJ;
-        this.miV = aVar.miI;
+        this.hli = z;
+        this.moa = aVar.icon;
+        this.mnZ = aVar.title;
+        this.mob = aVar.booktown;
+        this.moc = aVar.tip;
+        this.moe = aVar.mnR;
+        this.mod = aVar.mnQ;
     }
 
-    @Override // com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return miQ;
+        return mnY;
     }
 }

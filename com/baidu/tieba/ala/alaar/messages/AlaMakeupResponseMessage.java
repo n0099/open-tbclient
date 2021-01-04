@@ -6,17 +6,17 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.ala.alaar.makeup.e;
 import com.baidu.tieba.ala.alaar.makeup.h;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaMakeupResponseMessage extends JsonHttpResponsedMessage {
-    private String gjR;
-    private com.baidu.tieba.ala.alaar.makeup.a.c gjT;
+    private String guq;
+    private com.baidu.tieba.ala.alaar.makeup.a.c gus;
 
     public AlaMakeupResponseMessage() {
         super(1021214);
     }
 
-    public com.baidu.tieba.ala.alaar.makeup.a.c bQb() {
-        return this.gjT;
+    public com.baidu.tieba.ala.alaar.makeup.a.c bSB() {
+        return this.gus;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -26,24 +26,24 @@ public class AlaMakeupResponseMessage extends JsonHttpResponsedMessage {
             h.d("MKNetLoader", "decodeLogicInBackGround: " + jSONObject);
         }
         if (jSONObject == null || hasError()) {
-            if (StringUtils.isNullObject(this.gjR)) {
-                this.gjR = com.baidu.live.d.BM().getString("sp_ar_makeup_result", "");
+            if (StringUtils.isNullObject(this.guq)) {
+                this.guq = com.baidu.live.d.Ba().getString("sp_ar_makeup_result", "");
             }
-            if (!TextUtils.isEmpty(this.gjR)) {
-                jSONObject = new JSONObject(this.gjR);
+            if (!TextUtils.isEmpty(this.guq)) {
+                jSONObject = new JSONObject(this.guq);
             }
         } else {
-            this.gjR = jSONObject.toString();
-            if (!TextUtils.isEmpty(this.gjR)) {
-                com.baidu.live.d.BM().putString("sp_ar_makeup_result", this.gjR);
+            this.guq = jSONObject.toString();
+            if (!TextUtils.isEmpty(this.guq)) {
+                com.baidu.live.d.Ba().putString("sp_ar_makeup_result", this.guq);
             }
         }
         JSONObject optJSONObject = jSONObject.optJSONObject("data");
         if (optJSONObject != null) {
-            this.gjT = new com.baidu.tieba.ala.alaar.makeup.a.c(e.bPX());
-            this.gjT.du(optJSONObject);
+            this.gus = new com.baidu.tieba.ala.alaar.makeup.a.c(e.bSx());
+            this.gus.dD(optJSONObject);
             if (h.isDebug()) {
-                h.d("MKNetLoader", "decodeLogicInBackGround-size: " + this.gjT.size());
+                h.d("MKNetLoader", "decodeLogicInBackGround-size: " + this.gus.size());
             }
         }
     }

@@ -1,11 +1,11 @@
 package com.baidu.e.c;
-/* loaded from: classes20.dex */
+/* loaded from: classes7.dex */
 public class a {
-    public static d uP() {
-        return com.baidu.tieba.write.b.a.b.dZi();
+    public static d uo() {
+        return com.baidu.tieba.q.f.dLI();
     }
 
-    public static e uQ() {
-        return com.baidu.tieba.r.f.dLR();
+    public static e up() {
+        return com.baidu.tieba.q.h.dLJ();
     }
 }

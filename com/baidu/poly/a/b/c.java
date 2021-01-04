@@ -10,26 +10,26 @@ import kotlin.jvm.internal.p;
 import kotlin.text.l;
 import org.apache.http.cookie.SM;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 public final class c {
     public static final void a(com.baidu.poly.a.a.c cVar) {
         if (cVar != null) {
             cVar.g("channel", "cashiersdk");
             cVar.g(CashierData.DEVICE_TYPE, "ANDROID");
             cVar.g(CommandMessage.SDK_VERSION, "2.7.4");
-            cVar.g("appVersion", adt());
+            cVar.g("appVersion", afp());
             cVar.g("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
         }
     }
 
-    private static final String adt() {
-        Context adQ = g.adQ();
-        p.n(adQ, "SdkRunTime.getAppContext()");
-        PackageManager packageManager = adQ.getPackageManager();
+    private static final String afp() {
+        Context afL = g.afL();
+        p.n(afL, "SdkRunTime.getAppContext()");
+        PackageManager packageManager = afL.getPackageManager();
         try {
-            Context adQ2 = g.adQ();
-            p.n(adQ2, "SdkRunTime.getAppContext()");
-            String str = packageManager.getPackageInfo(adQ2.getPackageName(), 0).versionName;
+            Context afL2 = g.afL();
+            p.n(afL2, "SdkRunTime.getAppContext()");
+            String str = packageManager.getPackageInfo(afL2.getPackageName(), 0).versionName;
             p.n(str, "packageInfo.versionName");
             return str;
         } catch (PackageManager.NameNotFoundException e) {
@@ -38,7 +38,7 @@ public final class c {
         }
     }
 
-    public static final com.baidu.poly.a.a.b ao(JSONObject jSONObject) {
+    public static final com.baidu.poly.a.a.b aw(JSONObject jSONObject) {
         com.baidu.poly.a.a.b bVar = new com.baidu.poly.a.a.b();
         if (jSONObject != null) {
             Iterator<String> keys = jSONObject.keys();

@@ -5,15 +5,17 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.concurrent.ConcurrentHashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class StatService {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1486a = "logsender";
-    private ConcurrentHashMap<String, Long> b;
+    private static final String f1978a = "logsender";
+
+    /* renamed from: b  reason: collision with root package name */
+    private ConcurrentHashMap<String, Long> f1979b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes6.dex */
     public enum ETag {
         in,
         out,
@@ -22,22 +24,22 @@ public class StatService {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static StatService f1487a = new StatService();
+        private static StatService f1980a = new StatService();
 
         private a() {
         }
     }
 
     private StatService() {
-        this.b = new ConcurrentHashMap<>();
+        this.f1979b = new ConcurrentHashMap<>();
     }
 
     static StatService a() {
-        return a.f1487a;
+        return a.f1980a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -80,7 +82,7 @@ public class StatService {
     }
 
     public static void a(String str) {
-        a().b.put(str, Long.valueOf(System.currentTimeMillis()));
+        a().f1979b.put(str, Long.valueOf(System.currentTimeMillis()));
     }
 
     public static void b(String str, String str2, Collection<String> collection) {
@@ -105,12 +107,12 @@ public class StatService {
 
     private static ArrayList<String> a(String str, String str2) {
         ArrayList<String> arrayList = new ArrayList<>();
-        Long l = a().b.get(str);
+        Long l = a().f1979b.get(str);
         if (l == null) {
             return null;
         }
         Long valueOf = Long.valueOf(System.currentTimeMillis() - l.longValue());
-        a().b.remove(str);
+        a().f1979b.remove(str);
         arrayList.add(Long.toString(valueOf.longValue()));
         arrayList.add(str2);
         return arrayList;

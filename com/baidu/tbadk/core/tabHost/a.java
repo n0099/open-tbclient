@@ -6,25 +6,25 @@ import android.util.Pair;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.base.e;
-import com.baidu.adp.base.i;
-import com.baidu.adp.lib.e.b;
+import com.baidu.adp.base.f;
+import com.baidu.adp.base.j;
 import com.baidu.adp.lib.e.c;
+import com.baidu.adp.lib.e.d;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class a {
-    private final b<com.baidu.adp.widget.ImageView.a> eRb = new b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.core.tabHost.a.1
+    private final c<com.baidu.adp.widget.ImageView.a> fba = new c<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.core.tabHost.a.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.e.b
+        @Override // com.baidu.adp.lib.e.c
         public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
             super.onLoaded((AnonymousClass1) aVar, str, i);
             if (a.this.mTabHost == null || aVar == null || !aVar.isValidNow()) {
-                a.this.bsT();
+                a.this.bvv();
                 return;
             }
             FragmentTabWidget fragmentTabWidget = a.this.mTabHost.getFragmentTabWidget();
@@ -33,8 +33,8 @@ public class a {
             if (fragmentTabWidget != null && fragmentViewPager != null) {
                 a.this.mTabHost.setNeedShowThemeStyle(false);
                 fragmentTabWidget.setBackGroundDrawableResId(R.color.black_alpha0);
-                ap.setBackgroundColor(tabWrapper, R.color.black_alpha0);
-                ap.setBackgroundColor(fragmentTabWidget, R.color.black_alpha0);
+                ao.setBackgroundColor(tabWrapper, R.color.black_alpha0);
+                ao.setBackgroundColor(fragmentTabWidget, R.color.black_alpha0);
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) fragmentViewPager.getLayoutParams();
                 layoutParams.bottomMargin = l.getDimens(a.this.mTabHost.getContext(), R.dimen.tbds100);
                 fragmentViewPager.setLayoutParams(layoutParams);
@@ -51,38 +51,38 @@ public class a {
         this.mBackgroundColorResId = i;
     }
 
-    public void d(Pair<String, String> pair) {
+    public void e(Pair<String, String> pair) {
         if (pair != null) {
             String str = (String) pair.first;
             String str2 = (String) pair.second;
             if ((TbadkCoreApplication.getInst().getSkinType() == 1) && !TextUtils.isEmpty(str2)) {
-                BG(str2);
+                BF(str2);
             } else if (!TextUtils.isEmpty(str)) {
-                BG(str);
+                BF(str);
             } else {
-                bsT();
+                bvv();
             }
         }
     }
 
-    private void BG(String str) {
-        c.mS().a(str, 10, this.eRb, getBdUniqueId());
+    private void BF(String str) {
+        d.mx().a(str, 10, this.fba, getBdUniqueId());
     }
 
     private BdUniqueId getBdUniqueId() {
-        e<?> J;
-        if (this.mTabHost == null || this.mTabHost.getContext() == null || (J = i.J(this.mTabHost.getContext())) == null) {
+        f<?> K;
+        if (this.mTabHost == null || this.mTabHost.getContext() == null || (K = j.K(this.mTabHost.getContext())) == null) {
             return null;
         }
-        return J.getUniqueId();
+        return K.getUniqueId();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bsT() {
+    public void bvv() {
         if (this.mTabHost != null && this.mTabHost.getFragmentTabWidget() != null) {
             this.mTabHost.getFragmentTabWidget().setBackGroundDrawableResId(this.mBackgroundColorResId);
-            ap.setBackgroundColor(this.mTabHost.getFragmentTabWidget(), this.mBackgroundColorResId);
-            ap.setBackgroundColor(this.mTabHost.getTabWrapper(), this.mBackgroundColorResId);
+            ao.setBackgroundColor(this.mTabHost.getFragmentTabWidget(), this.mBackgroundColorResId);
+            ao.setBackgroundColor(this.mTabHost.getTabWrapper(), this.mBackgroundColorResId);
         }
     }
 }

@@ -4,46 +4,46 @@ import tbclient.FrsPage.ForumBookInfo;
 /* loaded from: classes.dex */
 public class x {
     private String author;
-    private String eFJ;
-    private String eFK;
-    private String eFL;
-    private String eFM;
-    private String eFN;
-    private String eFO;
-    private String eFP;
-    private long eFQ;
-    private long eFR;
-    private long eFS;
-    private long eFT;
-    private long eFU;
-    private long eFV;
-    private int eFl;
+    private String ePA;
+    private String ePB;
+    private String ePC;
+    private String ePD;
+    private String ePE;
+    private String ePF;
+    private long ePG;
+    private long ePH;
+    private long ePI;
+    private long ePJ;
+    private long ePK;
+    private long ePL;
+    private int ePb;
+    private String ePz;
 
-    public String bmV() {
-        return this.eFJ;
+    public String bpu() {
+        return this.ePz;
     }
 
-    public int bmW() {
-        return this.eFl;
+    public int bpv() {
+        return this.ePb;
     }
 
     public void a(ForumBookInfo forumBookInfo) {
         if (forumBookInfo != null) {
-            this.eFJ = forumBookInfo.book_id;
-            this.eFl = forumBookInfo.book_type.intValue();
-            this.eFK = forumBookInfo.book_title;
-            this.eFL = forumBookInfo.book_cover;
+            this.ePz = forumBookInfo.book_id;
+            this.ePb = forumBookInfo.book_type.intValue();
+            this.ePA = forumBookInfo.book_title;
+            this.ePB = forumBookInfo.book_cover;
             this.author = forumBookInfo.author;
-            this.eFM = forumBookInfo.forum_pic;
-            this.eFN = forumBookInfo.show_chapter_id;
-            this.eFO = forumBookInfo.show_chapter_no;
-            this.eFP = forumBookInfo.show_chapter_title;
-            this.eFQ = forumBookInfo.history_page_id.longValue();
-            this.eFR = forumBookInfo.history_paragraph_id.longValue();
-            this.eFS = forumBookInfo.history_word_id.longValue();
-            this.eFT = forumBookInfo.history_percent.longValue();
-            this.eFU = forumBookInfo.show_page_id.longValue();
-            this.eFV = forumBookInfo.show_paragraph_id.longValue();
+            this.ePC = forumBookInfo.forum_pic;
+            this.ePD = forumBookInfo.show_chapter_id;
+            this.ePE = forumBookInfo.show_chapter_no;
+            this.ePF = forumBookInfo.show_chapter_title;
+            this.ePG = forumBookInfo.history_page_id.longValue();
+            this.ePH = forumBookInfo.history_paragraph_id.longValue();
+            this.ePI = forumBookInfo.history_word_id.longValue();
+            this.ePJ = forumBookInfo.history_percent.longValue();
+            this.ePK = forumBookInfo.show_page_id.longValue();
+            this.ePL = forumBookInfo.show_paragraph_id.longValue();
         }
     }
 }

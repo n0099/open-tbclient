@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.regex.Pattern;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class Utils {
     private static final String ALGORITHM = "MD5";
     private static final String VALID_JAVA_IDENTIFIER = "(\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*\\.)*\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*";
@@ -25,38 +25,37 @@ public class Utils {
     }
 
     public static void copyFile(String str, String str2, boolean z, Context context) throws IOException {
-        BufferedInputStream bufferedInputStream;
-        BufferedInputStream bufferedInputStream2;
         BufferedOutputStream bufferedOutputStream;
-        BufferedOutputStream bufferedOutputStream2 = null;
+        BufferedInputStream bufferedInputStream;
         try {
             if (z) {
-                bufferedInputStream2 = new BufferedInputStream(context.getAssets().open(str));
+                bufferedInputStream = new BufferedInputStream(context.getAssets().open(str));
             } else {
-                bufferedInputStream2 = new BufferedInputStream(new FileInputStream(str));
+                bufferedInputStream = new BufferedInputStream(new FileInputStream(str));
             }
             try {
                 bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(str2));
             } catch (Throwable th) {
                 th = th;
-                bufferedInputStream = bufferedInputStream2;
+                bufferedOutputStream = null;
             }
         } catch (Throwable th2) {
             th = th2;
+            bufferedOutputStream = null;
             bufferedInputStream = null;
         }
         try {
             byte[] bArr = new byte[8192];
             while (true) {
-                int read = bufferedInputStream2.read(bArr);
+                int read = bufferedInputStream.read(bArr);
                 if (read == -1) {
                     break;
                 }
                 bufferedOutputStream.write(bArr, 0, read);
             }
-            if (bufferedInputStream2 != null) {
+            if (bufferedInputStream != null) {
                 try {
-                    bufferedInputStream2.close();
+                    bufferedInputStream.close();
                 } catch (Exception e) {
                 }
             }
@@ -68,17 +67,15 @@ public class Utils {
             }
         } catch (Throwable th3) {
             th = th3;
-            bufferedOutputStream2 = bufferedOutputStream;
-            bufferedInputStream = bufferedInputStream2;
             if (bufferedInputStream != null) {
                 try {
                     bufferedInputStream.close();
                 } catch (Exception e3) {
                 }
             }
-            if (bufferedOutputStream2 != null) {
+            if (bufferedOutputStream != null) {
                 try {
-                    bufferedOutputStream2.close();
+                    bufferedOutputStream.close();
                 } catch (Exception e4) {
                 }
             }
@@ -177,9 +174,9 @@ public class Utils {
 
     private static String toHex(byte[] bArr) {
         StringBuilder sb = new StringBuilder();
-        for (byte b : bArr) {
-            sb.append(HEX[(b & 240) >> 4]);
-            sb.append(HEX[b & 15]);
+        for (byte b2 : bArr) {
+            sb.append(HEX[(b2 & 240) >> 4]);
+            sb.append(HEX[b2 & 15]);
         }
         return sb.toString();
     }

@@ -16,11 +16,11 @@ import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class c {
-    private static View.OnClickListener ezF = new View.OnClickListener() { // from class: com.baidu.tbadk.ala.c.1
+    private static View.OnClickListener eJi = new View.OnClickListener() { // from class: com.baidu.tbadk.ala.c.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view != null && view.getTag() != null && (view.getTag() instanceof a)) {
@@ -29,7 +29,7 @@ public class c {
                     return;
                 }
                 a aVar = (a) view.getTag();
-                AlaUserInfoData alaUserInfoData = aVar.ezB;
+                AlaUserInfoData alaUserInfoData = aVar.eJe;
                 if (alaUserInfoData != null) {
                     AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
                     if (alaUserInfoData.anchor_live != 0) {
@@ -45,23 +45,23 @@ public class c {
                     String currentAccount = TbadkCoreApplication.getCurrentAccount();
                     switch (i) {
                         case 1:
-                            TiebaStatic.log(new ar("c11850").dY("uid", currentAccount));
+                            TiebaStatic.log(new aq("c11850").dX("uid", currentAccount));
                             break;
                         case 2:
                         case 3:
                         case 4:
-                            TiebaStatic.log(new ar("c11851").dY("uid", currentAccount));
+                            TiebaStatic.log(new aq("c11851").dX("uid", currentAccount));
                             break;
                         case 5:
-                            TiebaStatic.log(new ar("c11852").dY("uid", currentAccount));
+                            TiebaStatic.log(new aq("c11852").dX("uid", currentAccount));
                             break;
                         case 7:
                             if (alaUserInfoData.ala_id != 0) {
-                                TiebaStatic.log(new ar("c11855").dY("uid", currentAccount).w("click_uid", alaUserInfoData.ala_id).al("live_status", alaUserInfoData.live_status));
+                                TiebaStatic.log(new aq("c11855").dX("uid", currentAccount).w("click_uid", alaUserInfoData.ala_id).an("live_status", alaUserInfoData.live_status));
                             }
-                            TiebaStatic.log(new ar("c12542"));
-                            if (aVar.ezC && !StringUtils.isNull(alaUserInfoData.sex)) {
-                                BdToast.a(view.getContext(), (CharSequence) String.format(view.getContext().getString(R.string.person_privacy_toast), alaUserInfoData.sex), R.drawable.icon_pure_toast_mistake40_svg, true).brB();
+                            TiebaStatic.log(new aq("c12542"));
+                            if (aVar.eJf && !StringUtils.isNull(alaUserInfoData.sex)) {
+                                BdToast.b(view.getContext(), String.format(view.getContext().getString(R.string.person_privacy_toast), alaUserInfoData.sex), R.drawable.icon_pure_toast_mistake40_svg, true).bud();
                                 return;
                             }
                             break;
@@ -78,12 +78,12 @@ public class c {
         }
     };
 
-    public static TextView ey(Context context) {
+    public static TextView eR(Context context) {
         if (context == null || MessageManager.getInstance().findTask(CmdConfigCustom.CMD_ALA_LIVE_ROOM_START) == null) {
             return null;
         }
         TextView textView = (TextView) LayoutInflater.from(context).inflate(R.layout.ala_tail_view_layout, (ViewGroup) null);
-        textView.setOnClickListener(ezF);
+        textView.setOnClickListener(eJi);
         return textView;
     }
 }

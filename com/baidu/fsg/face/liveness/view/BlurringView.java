@@ -12,12 +12,14 @@ import android.renderscript.RenderScript;
 import android.renderscript.ScriptIntrinsicBlur;
 import android.util.AttributeSet;
 import android.view.View;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class BlurringView extends View {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1738a;
-    private int b;
+    private int f2369a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private int f2370b;
     private View c;
     private int d;
     private int e;
@@ -61,11 +63,11 @@ public class BlurringView extends View {
                 blur();
                 canvas.save();
                 canvas.translate(this.c.getX() - getX(), this.c.getY() - getY());
-                canvas.scale(this.f1738a, this.f1738a);
+                canvas.scale(this.f2369a, this.f2369a);
                 canvas.drawBitmap(this.h, 0.0f, 0.0f, (Paint) null);
                 canvas.restore();
             }
-            canvas.drawColor(this.b);
+            canvas.drawColor(this.f2370b);
         }
     }
 
@@ -77,14 +79,14 @@ public class BlurringView extends View {
         if (i <= 0) {
             throw new IllegalArgumentException("Downsample factor must be greater than 0.");
         }
-        if (this.f1738a != i) {
-            this.f1738a = i;
+        if (this.f2369a != i) {
+            this.f2369a = i;
             this.f = true;
         }
     }
 
     public void setOverlayColor(int i) {
-        this.b = i;
+        this.f2370b = i;
     }
 
     private void a(Context context) {
@@ -99,8 +101,8 @@ public class BlurringView extends View {
             this.f = false;
             this.d = width;
             this.e = height;
-            int i = width / this.f1738a;
-            int i2 = height / this.f1738a;
+            int i = width / this.f2369a;
+            int i2 = height / this.f2369a;
             int i3 = (i - (i % 4)) + 4;
             int i4 = (i2 - (i2 % 4)) + 4;
             if (this.h == null || this.h.getWidth() != i3 || this.h.getHeight() != i4) {
@@ -114,7 +116,7 @@ public class BlurringView extends View {
                 }
             }
             this.i = new Canvas(this.g);
-            this.i.scale(1.0f / this.f1738a, 1.0f / this.f1738a);
+            this.i.scale(1.0f / this.f2369a, 1.0f / this.f2369a);
             this.l = Allocation.createFromBitmap(this.j, this.g, Allocation.MipmapControl.MIPMAP_NONE, 1);
             this.m = Allocation.createTyped(this.j, this.l.getType());
         }

@@ -1,9 +1,8 @@
 package com.baidu.ufosdk.f;
 
 import android.annotation.SuppressLint;
-import android.support.media.ExifInterface;
 import android.util.Base64;
-import com.baidu.searchbox.ugc.model.PublishType;
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.security.Key;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -12,13 +11,13 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 @SuppressLint({"InlinedApi"})
-/* loaded from: classes22.dex */
+/* loaded from: classes8.dex */
 public final class k {
     private static String a() {
         Random random = new Random();
         StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append(a(ExifInterface.LONGITUDE_WEST, false));
-        stringBuffer.append(a(PublishType.TYPE_VIDEO_SHARE, true));
+        stringBuffer.append(a("W", false));
+        stringBuffer.append(a("9", true));
         stringBuffer.append(random.nextInt(1) + 1);
         stringBuffer.append(a("Y", true));
         stringBuffer.append("abe");
@@ -82,7 +81,7 @@ public final class k {
     public static String c(String str) {
         MessageDigest messageDigest;
         try {
-            messageDigest = MessageDigest.getInstance("MD5");
+            messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
             messageDigest = null;
@@ -92,8 +91,8 @@ public final class k {
             messageDigest.update(str.getBytes());
             byte[] digest = messageDigest.digest();
             StringBuilder sb = new StringBuilder();
-            for (byte b : digest) {
-                sb.append(Integer.toHexString(b & 255));
+            for (byte b2 : digest) {
+                sb.append(Integer.toHexString(b2 & 255));
             }
             return sb.toString();
         }

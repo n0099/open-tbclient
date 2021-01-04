@@ -3,33 +3,33 @@ package com.xiaomi.push;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class jp extends js {
 
     /* renamed from: a  reason: collision with root package name */
-    protected InputStream f4778a;
+    protected InputStream f14480a;
 
     /* renamed from: a  reason: collision with other field name */
-    protected OutputStream f783a;
+    protected OutputStream f861a;
 
     protected jp() {
-        this.f4778a = null;
-        this.f783a = null;
+        this.f14480a = null;
+        this.f861a = null;
     }
 
     public jp(OutputStream outputStream) {
-        this.f4778a = null;
-        this.f783a = null;
-        this.f783a = outputStream;
+        this.f14480a = null;
+        this.f861a = null;
+        this.f861a = outputStream;
     }
 
     @Override // com.xiaomi.push.js
     public int a(byte[] bArr, int i, int i2) {
-        if (this.f4778a == null) {
+        if (this.f14480a == null) {
             throw new jt(1, "Cannot read from null inputStream");
         }
         try {
-            int read = this.f4778a.read(bArr, i, i2);
+            int read = this.f14480a.read(bArr, i, i2);
             if (read < 0) {
                 throw new jt(4);
             }
@@ -41,11 +41,11 @@ public class jp extends js {
 
     @Override // com.xiaomi.push.js
     public void a(byte[] bArr, int i, int i2) {
-        if (this.f783a == null) {
+        if (this.f861a == null) {
             throw new jt(1, "Cannot write to null outputStream");
         }
         try {
-            this.f783a.write(bArr, i, i2);
+            this.f861a.write(bArr, i, i2);
         } catch (IOException e) {
             throw new jt(0, e);
         }

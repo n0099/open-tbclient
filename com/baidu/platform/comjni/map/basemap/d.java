@@ -4,65 +4,57 @@ import android.os.Bundle;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReadWriteLock;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class d implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Bundle f3172a;
-    final /* synthetic */ NABaseMap b;
+    final /* synthetic */ Bundle f4728a;
+
+    /* renamed from: b  reason: collision with root package name */
+    final /* synthetic */ NABaseMap f4729b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(NABaseMap nABaseMap, Bundle bundle) {
-        this.b = nABaseMap;
-        this.f3172a = bundle;
+        this.f4729b = nABaseMap;
+        this.f4728a = bundle;
     }
 
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, IGET, INVOKE, INVOKE, INVOKE] complete} */
     @Override // java.lang.Runnable
     public void run() {
-        boolean b;
-        boolean z;
-        Throwable th;
+        boolean b2;
         ReadWriteLock readWriteLock;
         ReadWriteLock readWriteLock2;
         ReadWriteLock readWriteLock3;
-        long j;
         ReadWriteLock readWriteLock4;
-        b = this.b.b();
-        if (!b) {
-            return;
-        }
-        try {
+        long j;
+        b2 = this.f4729b.b();
+        if (b2) {
+            boolean z = false;
             try {
-                readWriteLock3 = this.b.c;
-                boolean tryLock = readWriteLock3.readLock().tryLock(2000L, TimeUnit.MILLISECONDS);
-                if (tryLock) {
-                    try {
-                        NABaseMap nABaseMap = this.b;
-                        j = this.b.b;
-                        nABaseMap.nativeAddOneOverlayItem(j, this.f3172a);
-                    } catch (Throwable th2) {
-                        z = tryLock;
-                        th = th2;
-                        if (z) {
-                            readWriteLock2 = this.b.c;
-                            readWriteLock2.readLock().unlock();
-                        }
-                        throw th;
-                    }
+                readWriteLock3 = this.f4729b.c;
+                z = readWriteLock3.readLock().tryLock(2000L, TimeUnit.MILLISECONDS);
+                if (z) {
+                    NABaseMap nABaseMap = this.f4729b;
+                    j = this.f4729b.f4723b;
+                    nABaseMap.nativeAddOneOverlayItem(j, this.f4728a);
                 }
-                if (tryLock) {
-                    readWriteLock4 = this.b.c;
+                if (z) {
+                    readWriteLock4 = this.f4729b.c;
                     readWriteLock4.readLock().unlock();
                 }
             } catch (Exception e) {
-                if (0 != 0) {
-                    readWriteLock = this.b.c;
+                if (z) {
+                    readWriteLock2 = this.f4729b.c;
+                    readWriteLock2.readLock().unlock();
+                }
+            } catch (Throwable th) {
+                if (z) {
+                    readWriteLock = this.f4729b.c;
                     readWriteLock.readLock().unlock();
                 }
+                throw th;
             }
-        } catch (Throwable th3) {
-            z = false;
-            th = th3;
         }
     }
 }

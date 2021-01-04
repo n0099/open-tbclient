@@ -1,5 +1,5 @@
 package com.baidu.cloudbase.download.exception;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class DownloadException extends Exception {
     public int errorCode;
     public String errorMessage;

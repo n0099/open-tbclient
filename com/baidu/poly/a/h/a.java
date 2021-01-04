@@ -4,63 +4,63 @@ import android.text.TextUtils;
 import com.baidu.android.util.io.BaseJsonData;
 import kotlin.jvm.internal.p;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 public final class a {
-    private static Long cht = 0L;
-    private static Long chu = 0L;
+    private static Long cow = 0L;
+    private static Long cox = 0L;
 
     public static final void E() {
-        Long l = chu;
+        Long l = cox;
         if (l != null) {
             if (l == null) {
-                p.eEa();
+                p.eMi();
             }
             if (l.longValue() > 0) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    Long l2 = chu;
+                    Long l2 = cox;
                     if (l2 == null) {
-                        p.eEa();
+                        p.eMi();
                     }
                     jSONObject.put("3", l2.longValue());
                     jSONObject.put("4", System.currentTimeMillis());
                 } catch (Exception e) {
                 }
-                d.a(new b("1000").ap(jSONObject));
-                chu = 0L;
+                d.a(new b("1000").ax(jSONObject));
+                cox = 0L;
             }
         }
     }
 
     public static final void F() {
-        Long l = cht;
+        Long l = cow;
         if (l != null) {
             if (l == null) {
-                p.eEa();
+                p.eMi();
             }
             if (l.longValue() > 0) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    Long l2 = cht;
+                    Long l2 = cow;
                     if (l2 == null) {
-                        p.eEa();
+                        p.eMi();
                     }
                     jSONObject.put("1", l2.longValue());
                     jSONObject.put("2", System.currentTimeMillis());
                 } catch (Exception e) {
                 }
-                d.a(new b("1000").ap(jSONObject));
-                cht = 0L;
+                d.a(new b("1000").ax(jSONObject));
+                cow = 0L;
             }
         }
     }
 
     public static final void a(Long l) {
-        cht = l;
+        cow = l;
     }
 
     public static final void d(Long l) {
-        chu = l;
+        cox = l;
     }
 
     public static final void i(String str) {
@@ -69,7 +69,7 @@ public final class a {
             jSONObject.put("exceptionCode", 1);
         } catch (Exception e) {
         }
-        d.a(new b(str).ap(jSONObject));
+        d.a(new b(str).ax(jSONObject));
     }
 
     public static final void j(String str) {
@@ -78,7 +78,7 @@ public final class a {
             jSONObject.put("exceptionCode", 0);
         } catch (Exception e) {
         }
-        d.a(new b(str).ap(jSONObject));
+        d.a(new b(str).ax(jSONObject));
     }
 
     public static final void a(String str, String str2, String str3) {
@@ -93,6 +93,6 @@ public final class a {
             }
         } catch (Exception e) {
         }
-        d.a(new b(str).ap(jSONObject));
+        d.a(new b(str).ax(jSONObject));
     }
 }

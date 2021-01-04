@@ -1,23 +1,23 @@
 package com.baidu.swan.apps.adaptation.b.a;
 
 import com.baidu.swan.apps.adaptation.b.j;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public final class c {
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes25.dex */
+    /* loaded from: classes9.dex */
     public static class a {
-        public static final c cAR = new c();
+        public static final c cFH = new c();
     }
 
     private c() {
     }
 
-    public static c als() {
-        return a.cAR;
+    public static c amC() {
+        return a.cFH;
     }
 
-    public j alt() {
+    public j amD() {
         return new com.baidu.swan.apps.adaptation.b.a.a();
     }
 }

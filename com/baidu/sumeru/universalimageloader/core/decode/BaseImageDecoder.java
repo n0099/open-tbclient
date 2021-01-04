@@ -5,7 +5,6 @@ import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.media.ExifInterface;
 import android.os.Build;
-import com.baidu.android.util.media.MimeType;
 import com.baidu.sumeru.universalimageloader.core.assist.ImageScaleType;
 import com.baidu.sumeru.universalimageloader.core.assist.ImageSize;
 import com.baidu.sumeru.universalimageloader.core.download.ImageDownloader;
@@ -14,7 +13,7 @@ import com.baidu.sumeru.universalimageloader.utils.IoUtils;
 import com.baidu.sumeru.universalimageloader.utils.L;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public class BaseImageDecoder implements ImageDecoder {
     protected static final String ERROR_CANT_DECODE_IMAGE = "Image can't be decoded [%s]";
     protected static final String LOG_FLIP_IMAGE = "Flip image horizontally [%s]";
@@ -63,23 +62,24 @@ public class BaseImageDecoder implements ImageDecoder {
     }
 
     private boolean canDefineExifParams(String str, String str2) {
-        return Build.VERSION.SDK_INT >= 5 && MimeType.Image.JPEG.equalsIgnoreCase(str2) && ImageDownloader.Scheme.ofUri(str) == ImageDownloader.Scheme.FILE;
+        return Build.VERSION.SDK_INT >= 5 && "image/jpeg".equalsIgnoreCase(str2) && ImageDownloader.Scheme.ofUri(str) == ImageDownloader.Scheme.FILE;
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     protected ExifInfo defineExifOrientation(String str) {
-        int i = 0;
+        int i;
         boolean z = true;
         try {
         } catch (IOException e) {
             L.w("Can't read EXIF tags from file [%s]", str);
         }
-        switch (new ExifInterface(ImageDownloader.Scheme.FILE.crop(str)).getAttributeInt(android.support.media.ExifInterface.TAG_ORIENTATION, 1)) {
+        switch (new ExifInterface(ImageDownloader.Scheme.FILE.crop(str)).getAttributeInt("Orientation", 1)) {
             case 1:
-            default:
                 z = false;
+                i = 0;
                 break;
             case 2:
+                i = 0;
                 break;
             case 3:
                 z = false;
@@ -101,6 +101,10 @@ public class BaseImageDecoder implements ImageDecoder {
             case 8:
                 z = false;
                 i = 270;
+                break;
+            default:
+                z = false;
+                i = 0;
                 break;
         }
         return new ExifInfo(i, z);
@@ -165,7 +169,7 @@ public class BaseImageDecoder implements ImageDecoder {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes3.dex */
     public static class ExifInfo {
         public final boolean flipHorizontal;
         public final int rotation;
@@ -182,7 +186,7 @@ public class BaseImageDecoder implements ImageDecoder {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes3.dex */
     public static class ImageFileInfo {
         public final ExifInfo exif;
         public final ImageSize imageSize;

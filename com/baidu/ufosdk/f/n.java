@@ -9,26 +9,28 @@ import android.text.style.ImageSpan;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.live.tbadk.statics.AlaStaticKeys;
-/* loaded from: classes22.dex */
+/* loaded from: classes8.dex */
 public final class n extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    ImageView f3724a;
-    Handler b;
+    ImageView f5671a;
+
+    /* renamed from: b  reason: collision with root package name */
+    Handler f5672b;
     Context c;
     TextView d;
 
     public n(Context context, ImageView imageView, Handler handler) {
         this.d = null;
-        this.f3724a = imageView;
-        this.b = handler;
+        this.f5671a = imageView;
+        this.f5672b = handler;
         this.c = context;
     }
 
     public n(Context context, TextView textView, Handler handler) {
         this.d = null;
         this.d = textView;
-        this.b = handler;
+        this.f5672b = handler;
         this.c = context;
     }
 
@@ -44,17 +46,17 @@ public final class n extends Handler {
                 this.d.setText(spannableString.toString());
                 return;
             }
-            this.f3724a.setImageBitmap(bitmap);
+            this.f5671a.setImageBitmap(bitmap);
             if (bitmap.getHeight() > bitmap.getWidth()) {
-                this.f3724a.setMaxWidth(i.a(this.c, 80.0f));
-                this.f3724a.setMaxHeight(i.a(this.c, 120.0f));
+                this.f5671a.setMaxWidth(i.a(this.c, 80.0f));
+                this.f5671a.setMaxHeight(i.a(this.c, 120.0f));
             } else {
-                this.f3724a.setMaxWidth(i.a(this.c, 120.0f));
-                this.f3724a.setMaxHeight(i.a(this.c, 80.0f));
+                this.f5671a.setMaxWidth(i.a(this.c, 120.0f));
+                this.f5671a.setMaxHeight(i.a(this.c, 80.0f));
             }
         }
-        if (this.b != null) {
-            this.b.obtainMessage(6).sendToTarget();
+        if (this.f5672b != null) {
+            this.f5672b.obtainMessage(6).sendToTarget();
         }
     }
 }

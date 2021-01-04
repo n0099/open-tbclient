@@ -12,7 +12,7 @@ import com.baidu.searchbox.ruka.ioc.IANRMonitor;
 import com.github.anrwatchdog.ANRError;
 import com.github.anrwatchdog.a;
 import java.io.File;
-/* loaded from: classes20.dex */
+/* loaded from: classes6.dex */
 public class ANRMonitor implements IANRMonitor {
     private static final int DEFAULT_WATCHDOG_ANR_TIMEOUT = 5000;
     public static String sANRTimeStamp = null;
@@ -44,7 +44,7 @@ public class ANRMonitor implements IANRMonitor {
                 this.mAnrWatchTimeOut = i;
             }
             this.mANRWatchDog = new a(this.mAnrWatchTimeOut);
-            this.mANRWatchDog.exE();
+            this.mANRWatchDog.eBp();
             this.mANRWatchDog.a(new ANRListenerImpl());
             if (AppConfig.isDebug()) {
                 Log.d("Ruka", "mANRWatchDog = " + this.mANRWatchDog.getName());
@@ -67,7 +67,7 @@ public class ANRMonitor implements IANRMonitor {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes20.dex */
+    /* loaded from: classes6.dex */
     public static class ANRListenerImpl implements a.b {
         private static final String DEFAULT_ALL_STACK_TRACES_NAME = "all_stack_traces.txt";
         private static final int DEFAULT_LOGCAT_MAX_LEN = 2000;

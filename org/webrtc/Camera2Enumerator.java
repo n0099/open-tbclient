@@ -11,14 +11,13 @@ import android.os.SystemClock;
 import android.util.AndroidException;
 import android.util.Range;
 import com.baidu.ar.arplay.core.pixel.PixelReadParams;
-import com.baidu.searchbox.ugc.model.UgcConstant;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.webrtc.CameraEnumerationAndroid;
 import org.webrtc.CameraVideoCapturer;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class Camera2Enumerator implements CameraEnumerator {
     private static final double NANO_SECONDS_PER_SECOND = 1.0E9d;
     private static final String TAG = "Camera2Enumerator";
@@ -102,7 +101,7 @@ public class Camera2Enumerator implements CameraEnumerator {
                     }
                     int round = j == 0 ? i : ((int) Math.round(NANO_SECONDS_PER_SECOND / j)) * 1000;
                     arrayList.add(new CameraEnumerationAndroid.CaptureFormat(size.width, size.height, 0, round));
-                    Logging.d(TAG, "Format: " + size.width + "x" + size.height + UgcConstant.AT_RULE_TAG + round);
+                    Logging.d(TAG, "Format: " + size.width + "x" + size.height + "@" + round);
                 }
                 cachedSupportedFormats.put(str, arrayList);
                 long elapsedRealtime2 = SystemClock.elapsedRealtime();

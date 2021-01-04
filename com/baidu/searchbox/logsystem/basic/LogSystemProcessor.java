@@ -4,11 +4,11 @@ import android.app.Service;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.util.io.Closeables;
 import com.baidu.android.util.io.FileUtils;
 import com.baidu.searchbox.logsystem.basic.LokiService;
@@ -30,6 +30,7 @@ import com.baidu.searchbox.logsystem.logsys.eventscene.handler.ForwardingDeviceE
 import com.baidu.searchbox.logsystem.logsys.eventscene.snapshot.DeviceSnapshotType;
 import com.baidu.searchbox.logsystem.util.LLog;
 import com.baidu.searchbox.logsystem.util.Utility;
+import com.kwad.sdk.collector.AppStatusRules;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -43,7 +44,7 @@ import java.util.Set;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class LogSystemProcessor {
     private static final int KEEP_ALIVE_TIME = 60000;
     protected static final String TAG = "LogSystemProcessor";
@@ -71,7 +72,7 @@ public class LogSystemProcessor {
         this.mForwardingEventSceneHandler.addEventHandleCallback(new OOMDeviceEventSceneSceneHandler());
         this.mForwardingEventSceneHandler.addEventHandleCallback(new SOEventSceneSceneHandler());
         this.mForwardingEventSceneHandler.addEventHandleCallback(new SQLiteFullSceneHandler());
-        this.mProcessExecutor = new ThreadPoolExecutor(1, 1, 60000L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
+        this.mProcessExecutor = new ThreadPoolExecutor(1, 1, AppStatusRules.DEFAULT_GRANULARITY, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
         if (list == null) {
             list = new LinkedList<>();
             list.add(new LogSystemUploaderStrategy());
@@ -240,20 +241,12 @@ public class LogSystemProcessor {
         this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.searchbox.logsystem.basic.LogSystemProcessor.3
             @Override // java.lang.Runnable
             public void run() {
-                boolean z;
-                int i2 = 0;
-                boolean z2 = true;
-                while (true) {
-                    if (i2 >= LogSystemProcessor.this.mUploaderStrategies.size()) {
-                        z = z2;
-                        break;
-                    }
-                    z = z2 && ((BaseUploaderStrategy) LogSystemProcessor.this.mUploaderStrategies.get(i2)).canStopService();
+                boolean z = true;
+                for (int i2 = 0; i2 < LogSystemProcessor.this.mUploaderStrategies.size(); i2++) {
+                    z = z && ((BaseUploaderStrategy) LogSystemProcessor.this.mUploaderStrategies.get(i2)).canStopService();
                     if (!z) {
                         break;
                     }
-                    i2++;
-                    z2 = z;
                 }
                 if (!z || LogSystemProcessor.this.mProcessExecutor.getQueue().size() != 0 || LogSystemProcessor.this.mProcessExecutor.getActiveCount() != 0) {
                     LogSystemProcessor.this.stopSelfIfNeed(service, i);
@@ -261,14 +254,13 @@ public class LogSystemProcessor {
                     service.stopSelf(i);
                 }
             }
-        }, 60000L);
+        }, AppStatusRules.DEFAULT_GRANULARITY);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     @Nullable
     public ArrayList<LogFile> obtainProcessLogFiles(@NonNull File file) {
         BufferedReader bufferedReader;
-        IOException e;
         LogFile logFile;
         if (file == null || !file.exists() || !file.isFile()) {
             return null;
@@ -300,8 +292,8 @@ public class LogSystemProcessor {
                             Closeables.closeSafely(bufferedReader);
                             return arrayList;
                         }
-                    } catch (IOException e2) {
-                        e = e2;
+                    } catch (IOException e) {
+                        e = e;
                         e.printStackTrace();
                         Closeables.closeSafely(bufferedReader);
                         return arrayList;
@@ -312,9 +304,9 @@ public class LogSystemProcessor {
                     throw th;
                 }
             }
-        } catch (IOException e3) {
+        } catch (IOException e2) {
+            e = e2;
             bufferedReader = null;
-            e = e3;
         } catch (Throwable th2) {
             th = th2;
             bufferedReader = null;

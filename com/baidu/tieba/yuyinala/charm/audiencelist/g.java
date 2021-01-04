@@ -3,102 +3,102 @@ package com.baidu.tieba.yuyinala.charm.audiencelist;
 import android.view.View;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class g implements com.baidu.live.liveroom.d.d {
-    private String aGk;
-    private String bdg;
-    private boolean bns;
-    private boolean bsP;
+    private String aGB;
+    private String beR;
+    private boolean boZ;
+    private boolean bxC;
     private String mLiveId;
-    private YuyinALaAudiencesActivity oie;
-    com.baidu.live.j.c oiv = null;
+    private YuyinALaAudiencesActivity ojN;
+    com.baidu.live.k.c okf = null;
 
     public g(YuyinALaAudiencesActivity yuyinALaAudiencesActivity) {
-        this.oie = yuyinALaAudiencesActivity;
+        this.ojN = yuyinALaAudiencesActivity;
     }
 
     public void createView() {
-        com.baidu.live.noble.data.d dVar = new com.baidu.live.noble.data.d();
-        dVar.mTbPageContext = this.oie.getPageContext();
-        dVar.mLiveId = this.mLiveId;
-        dVar.brl = this.aGk;
-        dVar.mIsHost = this.bns;
-        dVar.bsP = this.bsP;
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2501013, com.baidu.live.j.c.class, dVar);
+        com.baidu.live.noble.data.e eVar = new com.baidu.live.noble.data.e();
+        eVar.mTbPageContext = this.ojN.getPageContext();
+        eVar.mLiveId = this.mLiveId;
+        eVar.bvS = this.aGB;
+        eVar.mIsHost = this.boZ;
+        eVar.bxC = this.bxC;
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2501013, com.baidu.live.k.c.class, eVar);
         if (runTask != null && runTask.getData() != null) {
-            this.oiv = (com.baidu.live.j.c) runTask.getData();
+            this.okf = (com.baidu.live.k.c) runTask.getData();
         }
     }
 
-    public g Wj(String str) {
+    public g VJ(String str) {
         this.mLiveId = str;
         return this;
     }
 
-    public g zA(boolean z) {
-        this.bsP = z;
+    public g zy(boolean z) {
+        this.bxC = z;
         return this;
     }
 
-    public g zB(boolean z) {
-        this.bns = z;
+    public g zz(boolean z) {
+        this.boZ = z;
         return this;
     }
 
-    public g Wk(String str) {
-        this.aGk = str;
+    public g VK(String str) {
+        this.aGB = str;
         return this;
     }
 
-    public g Wl(String str) {
-        this.bdg = str;
+    public g VL(String str) {
+        this.beR = str;
         return this;
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public View getPanelView() {
-        if (this.oiv == null) {
+        if (this.okf == null) {
             return null;
         }
-        return this.oiv.getView();
+        return this.okf.getView();
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public String getTitle() {
-        if (this.oiv == null) {
+        if (this.okf == null) {
             return null;
         }
-        return this.oiv.getTitle();
+        return this.okf.getTitle();
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public String MK() {
+    public String Mh() {
         return null;
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public short ML() {
+    public short Mi() {
         return (short) 1;
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public void enterBackground() {
-        if (this.oiv != null) {
-            this.oiv.cb(false);
+        if (this.okf != null) {
+            this.okf.ca(false);
         }
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public void enterForeground() {
-        if (this.oiv != null) {
-            this.oiv.cb(true);
+        if (this.okf != null) {
+            this.okf.ca(true);
         }
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public void onDestroy() {
-        if (this.oiv != null) {
-            this.oiv.onDestroy();
+        if (this.okf != null) {
+            this.okf.onDestroy();
         }
     }
 
@@ -106,9 +106,9 @@ public class g implements com.baidu.live.liveroom.d.d {
     public void onChangeSkinType(int i) {
     }
 
-    public void loadData() {
-        if (this.oiv != null) {
-            this.oiv.Mf();
+    public void mH(boolean z) {
+        if (this.okf != null) {
+            this.okf.cb(z);
         }
     }
 }

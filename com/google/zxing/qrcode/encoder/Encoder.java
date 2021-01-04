@@ -1,6 +1,6 @@
 package com.google.zxing.qrcode.encoder;
 
-import android.support.v7.widget.ActivityChooserView;
+import androidx.appcompat.widget.ActivityChooserView;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitArray;
@@ -13,7 +13,7 @@ import com.google.zxing.qrcode.decoder.Version;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class Encoder {
     private static final int[] ALPHANUMERIC_TABLE = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 36, -1, -1, -1, 37, 38, -1, -1, -1, -1, 39, 40, -1, 41, 42, 43, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 44, -1, -1, -1, -1, -1, -1, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, -1, -1, -1, -1, -1};
     static final String DEFAULT_BYTE_MODE_ENCODING = "ISO-8859-1";
@@ -93,25 +93,30 @@ public final class Encoder {
     }
 
     private static Mode chooseMode(String str, String str2) {
+        boolean z;
         if ("Shift_JIS".equals(str2) && isOnlyDoubleByteKanji(str)) {
             return Mode.KANJI;
         }
-        boolean z = false;
+        int i = 0;
         boolean z2 = false;
-        for (int i = 0; i < str.length(); i++) {
+        boolean z3 = false;
+        while (i < str.length()) {
             char charAt = str.charAt(i);
             if (charAt >= '0' && charAt <= '9') {
-                z2 = true;
+                z = z2;
+                z3 = true;
             } else if (getAlphanumericCode(charAt) == -1) {
                 return Mode.BYTE;
             } else {
                 z = true;
             }
-        }
-        if (z) {
-            return Mode.ALPHANUMERIC;
+            i++;
+            z2 = z;
         }
         if (z2) {
+            return Mode.ALPHANUMERIC;
+        }
+        if (z3) {
             return Mode.NUMERIC;
         }
         return Mode.BYTE;
@@ -359,8 +364,8 @@ public final class Encoder {
 
     static void append8BitBytes(String str, BitArray bitArray, String str2) throws WriterException {
         try {
-            for (byte b : str.getBytes(str2)) {
-                bitArray.appendBits(b, 8);
+            for (byte b2 : str.getBytes(str2)) {
+                bitArray.appendBits(b2, 8);
             }
         } catch (UnsupportedEncodingException e) {
             throw new WriterException(e);

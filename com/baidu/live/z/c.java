@@ -1,5 +1,19 @@
 package com.baidu.live.z;
-/* loaded from: classes4.dex */
+
+import android.view.View;
+/* loaded from: classes11.dex */
 public interface c {
-    void cH(boolean z);
+    View RT();
+
+    b RU();
+
+    b RV();
+
+    void RW();
+
+    void RX();
+
+    void destory();
+
+    void setCanVisible(boolean z);
 }

@@ -1,8 +1,8 @@
 package com.baidu.searchbox.player;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.util.DisplayMetrics;
+import androidx.annotation.NonNull;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.searchbox.player.annotation.PublicMethod;
@@ -13,7 +13,7 @@ import com.baidu.searchbox.player.message.MessengerFactory;
 import com.baidu.searchbox.player.remote.BDRemotePlayerService;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class BDPlayerConfig {
     private static Context sApplication;
     private static IKernelFactory sKernelFactory;
@@ -76,8 +76,8 @@ public class BDPlayerConfig {
         return sIsDebugMode;
     }
 
-    @PublicMethod
     @NonNull
+    @PublicMethod
     public static IMessengerFactory getMessengerFactory() {
         if (sMessengerFactory == null) {
             sMessengerFactory = new MessengerFactory();
@@ -90,8 +90,8 @@ public class BDPlayerConfig {
         sMessengerFactory = iMessengerFactory;
     }
 
-    @PublicMethod
     @NonNull
+    @PublicMethod
     public static IKernelFactory getKernelFactory() {
         if (sKernelFactory == null) {
             sKernelFactory = new DefaultKernelFactory();

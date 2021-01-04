@@ -5,13 +5,13 @@ import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.sofire.e;
 import com.baidu.sofire.i.h;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public final class a {
     public static String a(Context context) {
         String str = "";
         try {
             e eVar = new e(context);
-            if (!TextUtils.isEmpty(eVar.b.getString("rpiiem", ""))) {
+            if (!TextUtils.isEmpty(eVar.f5521b.getString("rpiiem", ""))) {
                 eVar.d.putString("rpiiem", "");
                 eVar.d.commit();
             }
@@ -38,7 +38,7 @@ public final class a {
         String str = "";
         try {
             e eVar = new e(context);
-            str = eVar.b.getString("rpandid", "");
+            str = eVar.f5521b.getString("rpandid", "");
             if (TextUtils.isEmpty(str)) {
                 str = h.f(context);
                 if (!TextUtils.isEmpty(str)) {

@@ -25,7 +25,7 @@ import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 class j implements e {
     protected JSONObject a(JSONObject jSONObject, a aVar) {
         String gg = aVar.gg();
@@ -113,8 +113,8 @@ class j implements e {
         if (context == null || jSONObject == null) {
             return;
         }
-        jSONObject.put(HttpConstants.HTTP_OS_TYPE_OLD, "android");
-        jSONObject.put(HttpConstants.HTTP_OS_TYPE, "android");
+        jSONObject.put(HttpConstants.HTTP_OS_TYPE_OLD, HttpConstants.OS_TYPE_VALUE);
+        jSONObject.put(HttpConstants.HTTP_OS_TYPE, HttpConstants.OS_TYPE_VALUE);
         jSONObject.put(HttpConstants.HTTP_ENGINE_VERSION, com.baidu.ar.h.c.getVersionCode());
         jSONObject.put("app_id", com.baidu.ar.h.c.s(context));
         jSONObject.put("device_id", Build.MODEL);
@@ -162,7 +162,7 @@ class j implements e {
         jSONObject.put(HttpConstants.AIP_APP_ID, DuMixARConfig.getAipAppId());
         jSONObject.put("cuid", ARConfig.getCUID());
         a(context, jSONObject);
-        jSONObject.put(HttpConstants.HTTP_OS_TYPE, "android");
+        jSONObject.put(HttpConstants.HTTP_OS_TYPE, HttpConstants.OS_TYPE_VALUE);
         jSONObject.put("os_version", Build.MODEL);
         jSONObject.put(HttpConstants.DEVICE_TYPE, Build.BRAND);
         jSONObject.put("user_id", uuid);

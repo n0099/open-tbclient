@@ -2,10 +2,10 @@ package com.baidu.tieba.im.forum.detail;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.u;
+import com.baidu.tbadk.util.t;
 import tbclient.GetForumDetail.DataReq;
 import tbclient.GetForumDetail.GetForumDetailReqIdl;
-/* loaded from: classes26.dex */
+/* loaded from: classes8.dex */
 public class ForumDetailRequestMessage extends NetMessage {
     private long forumId;
 
@@ -22,7 +22,7 @@ public class ForumDetailRequestMessage extends NetMessage {
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         if (z) {
-            u.a(builder, true);
+            t.b(builder, true);
         }
         GetForumDetailReqIdl.Builder builder2 = new GetForumDetailReqIdl.Builder();
         builder.forum_id = Long.valueOf(this.forumId);

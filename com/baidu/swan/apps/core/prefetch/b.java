@@ -1,29 +1,29 @@
 package com.baidu.swan.apps.core.prefetch;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.swan.pms.model.PMSAppInfo;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private c cTB = c.cTC;
+    private c cYy = c.cYz;
 
     public void a(@NonNull PrefetchEvent prefetchEvent, @NonNull com.baidu.swan.apps.process.messaging.service.c cVar, @Nullable PMSAppInfo pMSAppInfo) {
         a(cVar, prefetchEvent, pMSAppInfo);
         cVar.g(prefetchEvent);
         if (DEBUG) {
             Log.d("PrefetchMessenger", "onPrefetchReady event: " + prefetchEvent);
-            Log.d("PrefetchMessenger", "onPrefetchReady client id: " + cVar.drv.index);
+            Log.d("PrefetchMessenger", "onPrefetchReady client id: " + cVar.dwt.index);
         }
     }
 
     public void d(@NonNull PrefetchEvent prefetchEvent) {
         com.baidu.swan.apps.process.messaging.service.c c = a.c(prefetchEvent);
         if (c != null) {
-            if ((c.aId() && TextUtils.equals(c.mAppId, prefetchEvent.appId)) || c.aIc()) {
+            if ((c.aJw() && TextUtils.equals(c.mAppId, prefetchEvent.appId)) || c.aJv()) {
                 a(c, prefetchEvent, (PMSAppInfo) null);
             }
         }
@@ -34,12 +34,12 @@ public final class b {
         bundle.setClassLoader(PrefetchEvent.class.getClassLoader());
         bundle.putParcelable("swan_app_bundle_prefetch", prefetchEvent);
         if (pMSAppInfo == null) {
-            pMSAppInfo = com.baidu.swan.pms.database.a.bdF().yO(prefetchEvent.appId);
+            pMSAppInfo = com.baidu.swan.pms.database.a.bgb().yN(prefetchEvent.appId);
         }
         if (pMSAppInfo != null) {
             bundle.putParcelable("swan_app_prefetch_pms_info", pMSAppInfo);
-            if (this.cTB.a(prefetchEvent, pMSAppInfo, bundle)) {
-                com.baidu.swan.apps.process.messaging.a.aHE().a(new com.baidu.swan.apps.process.messaging.c(120, bundle).a(cVar.drv).gx(true));
+            if (this.cYy.a(prefetchEvent, pMSAppInfo, bundle)) {
+                com.baidu.swan.apps.process.messaging.a.aIX().a(new com.baidu.swan.apps.process.messaging.c(120, bundle).a(cVar.dwt).gG(true));
             }
         }
     }

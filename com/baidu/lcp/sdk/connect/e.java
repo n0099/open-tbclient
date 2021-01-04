@@ -4,10 +4,10 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class e {
-    Boolean azA = false;
-    Boolean azB = false;
+    Boolean azQ = false;
+    Boolean azR = false;
     Socket socket = null;
     InputStream inputStream = null;
     OutputStream outputStream = null;

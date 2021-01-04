@@ -21,7 +21,6 @@ import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
 import com.baidu.live.tbadk.img.effect.RotateImageAction;
 import com.baidu.mapapi.VersionInfo;
-import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FilenameFilter;
@@ -30,15 +29,17 @@ import java.io.InputStream;
 import java.lang.reflect.Field;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f3141a = VersionInfo.getApiVersion();
-    private static final String b = "BaiduBikeNavi_Resource_v" + f3141a + ".jar";
-    private static final String c = "BaiduBikeNavi_Resource_v" + f3141a + ComboPraiseProvider.RES_NAME_PRAISE_NUMBER_SUFFIX;
+    private static final String f4676a = VersionInfo.getApiVersion();
+
+    /* renamed from: b  reason: collision with root package name */
+    private static final String f4677b = "BaiduBikeNavi_Resource_v" + f4676a + ".jar";
+    private static final String c = "BaiduBikeNavi_Resource_v" + f4676a + ".png";
     private static String d = Environment.getExternalStorageDirectory() + "/";
-    private static String e = d + b;
+    private static String e = d + f4677b;
     private static AssetManager f = null;
     private static Resources g = null;
     private static Resources h = null;
@@ -57,7 +58,7 @@ public class a {
             return false;
         }
         o = context;
-        if (com.baidu.platform.comapi.bikenavi.a.a.f2828a) {
+        if (com.baidu.platform.comapi.bikenavi.a.a.f4194a) {
             try {
                 z = b(context);
                 Log.d("tryret", "tryret" + z);
@@ -89,8 +90,7 @@ public class a {
     }
 
     public static View a(Activity activity, int i2, ViewGroup viewGroup) {
-        View view;
-        Throwable th;
+        View view = null;
         if (!n) {
             return LayoutInflater.from(activity).inflate(b().getXml(i2), viewGroup);
         }
@@ -99,23 +99,17 @@ public class a {
             boolean a2 = a(activity);
             view = LayoutInflater.from(activity).inflate(xml, viewGroup);
             if (a2) {
-                try {
-                    b(activity);
-                } catch (Throwable th2) {
-                    th = th2;
-                    try {
-                        th.printStackTrace();
-                        com.baidu.platform.comapi.wnplatform.d.a.a("ResUtils", "inflate", th);
-                        return view;
-                    } finally {
-                        xml.close();
-                    }
-                }
+                b(activity);
             }
             return view;
-        } catch (Throwable th3) {
-            view = null;
-            th = th3;
+        } catch (Throwable th) {
+            try {
+                th.printStackTrace();
+                com.baidu.platform.comapi.wnplatform.d.a.a("ResUtils", "inflate", th);
+                return view;
+            } finally {
+                xml.close();
+            }
         }
     }
 
@@ -145,14 +139,14 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.platform.comapi.wnplatform.p.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public static class C0306a implements FilenameFilter {
         C0306a() {
         }
 
         @Override // java.io.FilenameFilter
         public boolean accept(File file, String str) {
-            return str.startsWith("BaiduBikeNavi_Resource_v") && !str.endsWith(new StringBuilder().append(a.f3141a).append(".jar").toString());
+            return str.startsWith("BaiduBikeNavi_Resource_v") && !str.endsWith(new StringBuilder().append(a.f4676a).append(".jar").toString());
         }
     }
 
@@ -177,7 +171,7 @@ public class a {
                 return true;
             }
             d();
-            FileOutputStream fileOutputStream = new FileOutputStream(new File(d, b));
+            FileOutputStream fileOutputStream = new FileOutputStream(new File(d, f4677b));
             byte[] bArr = new byte[1024];
             while (true) {
                 int read = open.read(bArr);
@@ -196,26 +190,24 @@ public class a {
 
     private static void d(Context context) {
         d = context.getFilesDir().getAbsolutePath();
-        e = d + "/" + b;
+        e = d + "/" + f4677b;
     }
 
     private static AssetManager b(String str) {
         AssetManager assetManager;
-        Throwable th;
-        Class<?> cls;
         try {
-            cls = Class.forName("android.content.res.AssetManager");
+            Class<?> cls = Class.forName("android.content.res.AssetManager");
             assetManager = (AssetManager) cls.getConstructor(null).newInstance(null);
+            try {
+                cls.getDeclaredMethod("addAssetPath", String.class).invoke(assetManager, str);
+            } catch (Throwable th) {
+                th = th;
+                com.baidu.platform.comapi.wnplatform.d.a.a("", th.toString());
+                return assetManager;
+            }
         } catch (Throwable th2) {
-            assetManager = null;
             th = th2;
-        }
-        try {
-            cls.getDeclaredMethod("addAssetPath", String.class).invoke(assetManager, str);
-        } catch (Throwable th3) {
-            th = th3;
-            com.baidu.platform.comapi.wnplatform.d.a.a("", th.toString());
-            return assetManager;
+            assetManager = null;
         }
         return assetManager;
     }

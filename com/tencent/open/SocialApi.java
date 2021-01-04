@@ -4,29 +4,29 @@ import android.app.Activity;
 import android.os.Bundle;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.tauth.IUiListener;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public class SocialApi {
 
     /* renamed from: a  reason: collision with root package name */
-    private SocialApiIml f4337a;
+    private SocialApiIml f13656a;
 
     public SocialApi(QQToken qQToken) {
-        this.f4337a = new SocialApiIml(qQToken);
+        this.f13656a = new SocialApiIml(qQToken);
     }
 
     public void invite(Activity activity, Bundle bundle, IUiListener iUiListener) {
-        this.f4337a.invite(activity, bundle, iUiListener);
+        this.f13656a.invite(activity, bundle, iUiListener);
     }
 
     public void story(Activity activity, Bundle bundle, IUiListener iUiListener) {
-        this.f4337a.story(activity, bundle, iUiListener);
+        this.f13656a.story(activity, bundle, iUiListener);
     }
 
     public void gift(Activity activity, Bundle bundle, IUiListener iUiListener) {
-        this.f4337a.gift(activity, bundle, iUiListener);
+        this.f13656a.gift(activity, bundle, iUiListener);
     }
 
     public void ask(Activity activity, Bundle bundle, IUiListener iUiListener) {
-        this.f4337a.ask(activity, bundle, iUiListener);
+        this.f13656a.ask(activity, bundle, iUiListener);
     }
 }

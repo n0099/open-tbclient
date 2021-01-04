@@ -1,7 +1,11 @@
 package com.baidu.adp.widget.ListView;
-
-import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public interface q {
-    BdUniqueId getType();
+    void cancelRefresh();
+
+    o getAdapter();
+
+    int getFirstVisiblePosition();
+
+    int getLastVisiblePosition();
 }

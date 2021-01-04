@@ -1,15 +1,16 @@
 package com.cmic.sso.sdk.c.b;
 
 import com.baidu.ar.constants.HttpConstants;
-import com.baidu.searchbox.ugc.model.UgcConstant;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class a extends g {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4010a;
-    private String b;
+    private String f7997a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private String f7998b;
     private String c;
     private String d;
     private String e;
@@ -21,10 +22,10 @@ public class a extends g {
     private String k;
     private long l;
     private String m;
-    private JSONObject oZM;
+    private JSONObject prb;
 
     public void a(JSONObject jSONObject) {
-        this.oZM = jSONObject;
+        this.prb = jSONObject;
     }
 
     public void a(long j) {
@@ -52,11 +53,11 @@ public class a extends g {
     }
 
     public void f(String str) {
-        this.f4010a = str;
+        this.f7997a = str;
     }
 
     public void g(String str) {
-        this.b = str;
+        this.f7998b = str;
     }
 
     public void h(String str) {
@@ -92,35 +93,37 @@ public class a extends g {
     public JSONObject b() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("version", this.f4010a);
-            jSONObject.put("msgid", this.b);
+            jSONObject.put("version", this.f7997a);
+            jSONObject.put("msgid", this.f7998b);
             jSONObject.put("appid", this.c);
             jSONObject.put("scrip", this.d);
             jSONObject.put("sign", this.e);
             jSONObject.put("interfacever", this.f);
             jSONObject.put("userCapaid", this.g);
             jSONObject.put("clienttype", this.h);
-            jSONObject.put(UgcConstant.SOURCE_ID, this.i);
+            jSONObject.put("sourceid", this.i);
             jSONObject.put("authenticated_appid", this.j);
             jSONObject.put("genTokenByAppid", this.k);
-            jSONObject.put("rcData", this.oZM);
+            jSONObject.put("rcData", this.prb);
         } catch (JSONException e) {
             e.printStackTrace();
         }
         return jSONObject;
     }
 
-    public String YR(String str) {
-        return dR(this.f4010a + this.c + str + this.d);
+    public String Zc(String str) {
+        return dI(this.f7997a + this.c + str + this.d);
     }
 
     /* renamed from: com.cmic.sso.sdk.c.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static class C0985a {
+    /* loaded from: classes7.dex */
+    public static class C1014a {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f4011a;
-        private String b;
+        private String f7999a;
+
+        /* renamed from: b  reason: collision with root package name */
+        private String f8000b;
         private String c;
         private String d;
         private String e;
@@ -132,11 +135,11 @@ public class a extends g {
         private String k;
 
         public void a(String str) {
-            this.f4011a = str;
+            this.f7999a = str;
         }
 
         public void b(String str) {
-            this.b = str;
+            this.f8000b = str;
         }
 
         public void c(String str) {
@@ -178,8 +181,8 @@ public class a extends g {
         public JSONObject a() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("phone_id", this.f4011a);
-                jSONObject.put("os", this.b);
+                jSONObject.put("phone_id", this.f7999a);
+                jSONObject.put("os", this.f8000b);
                 jSONObject.put("dev_model", this.c);
                 jSONObject.put("dev_brand", this.d);
                 jSONObject.put("mnc", this.e);

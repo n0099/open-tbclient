@@ -3,11 +3,11 @@ package org.apache.commons.codec.language;
 import org.apache.commons.codec.EncoderException;
 import org.apache.commons.codec.StringEncoder;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes6.dex */
 public class DoubleMetaphone implements StringEncoder {
     protected int maxCodeLen;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes6.dex */
     public class DoubleMetaphoneResult {
         public DoubleMetaphoneResult(int i) {
             throw new RuntimeException("Stub!");

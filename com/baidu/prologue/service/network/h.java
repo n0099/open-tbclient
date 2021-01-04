@@ -15,46 +15,46 @@ import okhttp3.Response;
 import okhttp3.ResponseBody;
 import org.apache.http.protocol.HTTP;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class h implements e {
-    private OkHttpClient coh;
-    private final OkHttpClient coi;
-    private final OkHttpClient coj;
+    private OkHttpClient cvo;
+    private final OkHttpClient cvp;
+    private final OkHttpClient cvq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(Context context) {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
-        f fVar = f.clZ.get();
+        f fVar = f.ctd.get();
         if (fVar != null) {
             builder.cookieJar(fVar.cookieJar());
         }
         builder.sslSocketFactory(k.getSSLSocketFactory());
         builder.hostnameVerifier(k.getHostnameVerifier());
-        this.coj = builder.build();
+        this.cvq = builder.build();
         builder.readTimeout(d.READ_TIME_OUT, TimeUnit.MILLISECONDS);
-        builder.writeTimeout(d.cog, TimeUnit.MILLISECONDS);
+        builder.writeTimeout(d.cvn, TimeUnit.MILLISECONDS);
         builder.connectTimeout(d.CONNECT_TIME_OUT, TimeUnit.MILLISECONDS);
-        this.coi = builder.build();
+        this.cvp = builder.build();
     }
 
     @Override // com.baidu.prologue.service.network.e
     public void a(Request request, l lVar) {
         try {
-            ef(request.cor);
+            eo(request.cvx);
             a(a(request), lVar);
         } catch (IllegalArgumentException e) {
-            if (com.baidu.prologue.a.a.a.GLOBAL_DEBUG) {
+            if (com.baidu.prologue.a.a.a.ctc) {
                 throw e;
             }
-            lVar.n(e);
+            lVar.l(e);
         }
     }
 
-    private void ef(boolean z) {
+    private void eo(boolean z) {
         if (z) {
-            this.coh = this.coi;
+            this.cvo = this.cvp;
         } else {
-            this.coh = this.coj;
+            this.cvo = this.cvq;
         }
     }
 
@@ -73,9 +73,9 @@ public class h implements e {
         if (!Arrays.asList("GET", "POST").contains(request.method)) {
             throw new IllegalArgumentException("Invalid request method " + request.method);
         }
-        if ("POST".equals(request.method) && request.f3198com != null) {
+        if ("POST".equals(request.method) && request.cvt != null) {
             FormBody.Builder builder2 = new FormBody.Builder();
-            for (Map.Entry<String, String> entry2 : request.f3198com.entrySet()) {
+            for (Map.Entry<String, String> entry2 : request.cvt.entrySet()) {
                 String value = entry2.getValue();
                 if (value == null) {
                     value = "";
@@ -89,10 +89,10 @@ public class h implements e {
 
     private void a(okhttp3.Request request, final l lVar) {
         try {
-            this.coh.newCall(request).enqueue(new Callback() { // from class: com.baidu.prologue.service.network.h.1
+            this.cvo.newCall(request).enqueue(new Callback() { // from class: com.baidu.prologue.service.network.h.1
                 @Override // okhttp3.Callback
                 public void onFailure(Call call, IOException iOException) {
-                    lVar.n(iOException);
+                    lVar.l(iOException);
                 }
 
                 @Override // okhttp3.Callback
@@ -104,7 +104,7 @@ public class h implements e {
                 }
             });
         } catch (OutOfMemoryError e) {
-            lVar.n(e);
+            lVar.l(e);
         }
     }
 }

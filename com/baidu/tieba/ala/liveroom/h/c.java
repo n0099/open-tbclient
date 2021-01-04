@@ -8,48 +8,48 @@ import com.baidu.live.sdk.a;
 import com.baidu.tieba.ala.liveroom.views.AlaLiveMultiBeautyFilterItemView;
 import java.util.ArrayList;
 import java.util.Arrays;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class c extends BaseAdapter {
-    private ViewGroup goa;
-    private b hpH;
-    public final a[] hpG = {new a(a.e.img_live_filter_ziran, "delta", "自然"), new a(a.e.img_live_filter_fennen, "slowlived", "粉嫩"), new a(a.e.img_live_filter_rouguang, "pink", "柔光"), new a(a.e.img_live_filter_fsqq, "sakura", "粉红气球"), new a(a.e.img_live_filter_mgzc, "hongkong", "暮光之城")};
-    private int goc = -1;
-    private int gnM = 0;
-    private ArrayList<Boolean> gob = new ArrayList<>();
+    private ViewGroup gyx;
+    private b hBD;
+    public final a[] hBC = {new a(a.e.img_live_filter_ziran, "delta", "自然"), new a(a.e.img_live_filter_fennen, "slowlived", "粉嫩"), new a(a.e.img_live_filter_rouguang, "pink", "柔光"), new a(a.e.img_live_filter_fsqq, "sakura", "粉红气球"), new a(a.e.img_live_filter_mgzc, "hongkong", "暮光之城")};
+    private int gyz = -1;
+    private int gyj = 0;
+    private ArrayList<Boolean> gyy = new ArrayList<>();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface b {
-        void onItemSelected(int i);
+        void uh(int i);
     }
 
     public c(ViewGroup viewGroup) {
-        this.goa = viewGroup;
-        bRt();
+        this.gyx = viewGroup;
+        bTR();
     }
 
-    private void bRt() {
-        if (this.gob != null) {
-            this.gob.clear();
-            this.gob.addAll(Arrays.asList(new Boolean[this.hpG.length]));
+    private void bTR() {
+        if (this.gyy != null) {
+            this.gyy.clear();
+            this.gyy.addAll(Arrays.asList(new Boolean[this.hBC.length]));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void wD(int i) {
+    public void wO(int i) {
         if (i >= 0) {
-            this.gob.set(i, true);
-            this.goc = i;
-            if (this.hpH != null) {
-                this.hpH.onItemSelected(i);
+            this.gyy.set(i, true);
+            this.gyz = i;
+            if (this.hBD != null) {
+                this.hBD.uh(i);
             }
         }
     }
 
-    public void Im(String str) {
+    public void Io(String str) {
         if (!TextUtils.isEmpty(str)) {
-            for (int i = 0; i < this.hpG.length; i++) {
-                if (str.equals(this.hpG[i].mFilterName)) {
-                    wD(i);
+            for (int i = 0; i < this.hBC.length; i++) {
+                if (str.equals(this.hBC[i].mFilterName)) {
+                    wO(i);
                     return;
                 }
             }
@@ -57,12 +57,12 @@ public class c extends BaseAdapter {
     }
 
     public void a(b bVar) {
-        this.hpH = bVar;
+        this.hBD = bVar;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.hpG.length;
+        return this.hBC.length;
     }
 
     @Override // android.widget.Adapter
@@ -77,72 +77,72 @@ public class c extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(final int i, View view, ViewGroup viewGroup) {
-        C0690c c0690c;
+        C0682c c0682c;
         if (view == null) {
-            C0690c c0690c2 = new C0690c();
-            c0690c2.hpJ = new AlaLiveMultiBeautyFilterItemView(this.goa.getContext());
-            c0690c2.hpJ.setTag(c0690c2);
-            c0690c = c0690c2;
+            C0682c c0682c2 = new C0682c();
+            c0682c2.hBF = new AlaLiveMultiBeautyFilterItemView(this.gyx.getContext());
+            c0682c2.hBF.setTag(c0682c2);
+            c0682c = c0682c2;
         } else {
-            c0690c = (C0690c) view.getTag();
+            c0682c = (C0682c) view.getTag();
         }
-        if (this.gob.get(i) == null || !this.gob.get(i).booleanValue()) {
-            c0690c.hpJ.setUnselectedBackground();
+        if (this.gyy.get(i) == null || !this.gyy.get(i).booleanValue()) {
+            c0682c.hBF.setUnselectedBackground();
         } else {
-            c0690c.hpJ.setSelectedBackground();
+            c0682c.hBF.setSelectedBackground();
         }
-        c0690c.hpJ.setItemIcon(this.hpG[i % this.hpG.length].faR);
-        c0690c.hpJ.setItemText(this.hpG[i % this.hpG.length].gof);
-        c0690c.hpJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.h.c.1
+        c0682c.hBF.setItemIcon(this.hBC[i % this.hBC.length].fkv);
+        c0682c.hBF.setItemText(this.hBC[i % this.hBC.length].gyC);
+        c0682c.hBF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.h.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (c.this.goc != i) {
-                    View childAt = c.this.goa.getChildAt(c.this.goc);
+                if (c.this.gyz != i) {
+                    View childAt = c.this.gyx.getChildAt(c.this.gyz);
                     if (childAt != null && (childAt instanceof AlaLiveMultiBeautyFilterItemView)) {
                         ((AlaLiveMultiBeautyFilterItemView) childAt).setUnselectedBackground();
                     }
-                    if (c.this.goc >= 0) {
-                        c.this.gob.set(c.this.goc, false);
+                    if (c.this.gyz >= 0) {
+                        c.this.gyy.set(c.this.gyz, false);
                     }
                 }
                 if (view2.getTag() != null) {
-                    ((C0690c) view2.getTag()).hpJ.setSelectedBackground();
+                    ((C0682c) view2.getTag()).hBF.setSelectedBackground();
                 }
-                c.this.wD(i);
+                c.this.wO(i);
                 c.this.notifyDataSetChanged();
             }
         });
-        if (i == 0 && this.gnM != 0) {
-            c0690c.hpJ.setPadding(this.gnM, 0, 0, 0);
+        if (i == 0 && this.gyj != 0) {
+            c0682c.hBF.setPadding(this.gyj, 0, 0, 0);
         } else {
-            c0690c.hpJ.setPadding(0, 0, 0, 0);
+            c0682c.hBF.setPadding(0, 0, 0, 0);
         }
-        return c0690c.hpJ;
+        return c0682c.hBF;
     }
 
-    public void uK(int i) {
-        this.gnM = i;
+    public void uW(int i) {
+        this.gyj = i;
     }
 
     /* renamed from: com.baidu.tieba.ala.liveroom.h.c$c  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    class C0690c {
-        AlaLiveMultiBeautyFilterItemView hpJ;
+    /* loaded from: classes11.dex */
+    class C0682c {
+        AlaLiveMultiBeautyFilterItemView hBF;
 
-        C0690c() {
+        C0682c() {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public static class a {
-        public int faR;
-        public String gof;
+        public int fkv;
+        public String gyC;
         public String mFilterName;
 
         public a(int i, String str, String str2) {
-            this.faR = i;
+            this.fkv = i;
             this.mFilterName = str;
-            this.gof = str2;
+            this.gyC = str2;
         }
     }
 }

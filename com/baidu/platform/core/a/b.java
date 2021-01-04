@@ -14,9 +14,11 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class b extends com.baidu.platform.base.d {
-    boolean b = false;
+
+    /* renamed from: b  reason: collision with root package name */
+    boolean f4763b = false;
     String c = null;
 
     private boolean a(String str, DistrictResult districtResult) {
@@ -49,10 +51,10 @@ public class b extends com.baidu.platform.base.d {
                         for (int i4 = 0; i4 < length; i4++) {
                             int optInt = optJSONArray2.optInt(i4);
                             if (i4 % 2 == 0) {
-                                i3 += optInt;
-                            } else {
                                 i2 += optInt;
-                                arrayList2.add(CoordUtil.mc2ll(new GeoPoint(i2, i3)));
+                            } else {
+                                i3 += optInt;
+                                arrayList2.add(CoordUtil.mc2ll(new GeoPoint(i3, i2)));
                             }
                         }
                         arrayList.add(arrayList2);
@@ -161,7 +163,7 @@ public class b extends com.baidu.platform.base.d {
                     }
                 }
                 if (!a(str, districtResult, false)) {
-                    if (this.b) {
+                    if (this.f4763b) {
                         b(str, districtResult);
                     } else if (!a(str, districtResult)) {
                         districtResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
@@ -183,6 +185,6 @@ public class b extends com.baidu.platform.base.d {
     }
 
     public void a(boolean z) {
-        this.b = z;
+        this.f4763b = z;
     }
 }

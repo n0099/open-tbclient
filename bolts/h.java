@@ -1,32 +1,32 @@
 package bolts;
-/* loaded from: classes10.dex */
+/* loaded from: classes5.dex */
 public class h<TResult> {
-    private final g<TResult> BM = new g<>();
+    private final g<TResult> Af = new g<>();
 
-    public g<TResult> iq() {
-        return this.BM;
+    public g<TResult> hG() {
+        return this.Af;
     }
 
-    public boolean ip() {
-        return this.BM.ip();
+    public boolean hF() {
+        return this.Af.hF();
     }
 
-    public boolean m(TResult tresult) {
-        return this.BM.m(tresult);
+    public boolean j(TResult tresult) {
+        return this.Af.j(tresult);
     }
 
     public boolean g(Exception exc) {
-        return this.BM.g(exc);
+        return this.Af.g(exc);
     }
 
-    public void ir() {
-        if (!ip()) {
+    public void hH() {
+        if (!hF()) {
             throw new IllegalStateException("Cannot cancel a completed task.");
         }
     }
 
-    public void n(TResult tresult) {
-        if (!m(tresult)) {
+    public void k(TResult tresult) {
+        if (!j(tresult)) {
             throw new IllegalStateException("Cannot set the result of a completed task.");
         }
     }

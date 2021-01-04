@@ -7,7 +7,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public class ProgressInfo {
     private static final boolean DEBUG = false;
     private static final String JSON_KEY_BEGIN = "begin";
@@ -17,7 +17,7 @@ public class ProgressInfo {
     private int mCurrentLength;
     private List<Segment> mSegments;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     public static class Segment {
         public long begin;
         public long current;
@@ -160,8 +160,7 @@ public class ProgressInfo {
         }
         if (arrayList2.size() < i) {
             int i2 = 0;
-            int size = arrayList2.size();
-            while (size < i) {
+            for (int size = arrayList2.size(); size < i; size++) {
                 if (i2 >= arrayList2.size()) {
                     break;
                 }
@@ -175,7 +174,6 @@ public class ProgressInfo {
                 segment3.end -= j3;
                 this.mSegments.add(segment4);
                 arrayList.add(segment4);
-                size++;
                 i2++;
             }
         }
@@ -190,7 +188,7 @@ public class ProgressInfo {
         return i2 >= i;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     public static class HandleProgressException extends RuntimeException {
         private static final long serialVersionUID = -1207561809132867949L;
 

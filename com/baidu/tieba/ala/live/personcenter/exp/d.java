@@ -11,30 +11,31 @@ import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes4.dex */
+import com.kwai.video.player.PlayerPostEvent;
+/* loaded from: classes11.dex */
 public class d extends BdBaseModel {
-    private a gZn;
-    private HttpMessageListener gZo = new HttpMessageListener(1021039) { // from class: com.baidu.tieba.ala.live.personcenter.exp.d.1
+    private a hlc;
+    private HttpMessageListener hld = new HttpMessageListener(1021039) { // from class: com.baidu.tieba.ala.live.personcenter.exp.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetUserInfoHttpResponseMessage) && d.this.gZn != null) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetUserInfoHttpResponseMessage) && d.this.hlc != null) {
                 if (httpResponsedMessage.getError() != 0 || !httpResponsedMessage.isSuccess()) {
-                    d.this.gZn.onFail(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                    d.this.hlc.onFail(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                     return;
                 }
-                AlaLivePersonData PN = ((AlaGetUserInfoHttpResponseMessage) httpResponsedMessage).PN();
-                if (PN == null || PN.mUserData == null) {
-                    d.this.gZn.onFail(901, "");
+                AlaLivePersonData QL = ((AlaGetUserInfoHttpResponseMessage) httpResponsedMessage).QL();
+                if (QL == null || QL.mUserData == null) {
+                    d.this.hlc.onFail(PlayerPostEvent.MEDIA_INFO_UNSUPPORTED_SUBTITLE, "");
                 } else {
-                    d.this.gZn.b(PN);
+                    d.this.hlc.b(QL);
                 }
             }
         }
     };
     private TbPageContext mPageContext;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void b(AlaLivePersonData alaLivePersonData);
 
@@ -43,12 +44,12 @@ public class d extends BdBaseModel {
 
     public d(TbPageContext tbPageContext, a aVar) {
         this.mPageContext = tbPageContext;
-        this.gZn = aVar;
-        bYB();
-        registerListener(this.gZo);
+        this.hlc = aVar;
+        cbg();
+        registerListener(this.hld);
     }
 
-    private void bYB() {
+    private void cbg() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021039, TbConfig.SERVER_ADDRESS + "ala/user/getUserInfoSDK");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -57,7 +58,7 @@ public class d extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void Ql() {
+    public void Rp() {
         HttpMessage httpMessage = new HttpMessage(1021039);
         httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccount());
         httpMessage.addParam("meta_key", "");
@@ -76,6 +77,6 @@ public class d extends BdBaseModel {
 
     public void onDestroy() {
         MessageManager.getInstance().unRegisterTask(1021039);
-        MessageManager.getInstance().unRegisterListener(this.gZo);
+        MessageManager.getInstance().unRegisterListener(this.hld);
     }
 }

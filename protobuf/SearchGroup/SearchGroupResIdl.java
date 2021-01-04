@@ -3,7 +3,7 @@ package protobuf.SearchGroup;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import protobuf.Error;
-/* loaded from: classes26.dex */
+/* loaded from: classes8.dex */
 public final class SearchGroupResIdl extends Message {
     @ProtoField(tag = 2)
     public final DataRes data;
@@ -21,7 +21,7 @@ public final class SearchGroupResIdl extends Message {
         this.data = builder.data;
     }
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes8.dex */
     public static final class Builder extends Message.Builder<SearchGroupResIdl> {
         public DataRes data;
         public Error error;

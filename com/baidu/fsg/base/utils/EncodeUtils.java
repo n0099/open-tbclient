@@ -3,7 +3,7 @@ package com.baidu.fsg.base.utils;
 import android.util.Base64;
 import java.lang.Character;
 import java.net.URLEncoder;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class EncodeUtils {
     private EncodeUtils() {
     }
@@ -73,14 +73,13 @@ public final class EncodeUtils {
             int i2 = i + 1;
             char charAt = str.charAt(i);
             if (charAt == '\\') {
-                int i3 = i2 + 1;
+                i = i2 + 1;
                 char charAt2 = str.charAt(i2);
                 if (charAt2 == 'u') {
+                    int i3 = 0;
                     int i4 = 0;
-                    i = i3;
-                    int i5 = 0;
-                    while (i5 < 4) {
-                        int i6 = i + 1;
+                    while (i3 < 4) {
+                        int i5 = i + 1;
                         char charAt3 = str.charAt(i);
                         switch (charAt3) {
                             case '0':
@@ -114,8 +113,8 @@ public final class EncodeUtils {
                             default:
                                 throw new IllegalArgumentException("Malformed   \\uxxxx   encoding.");
                         }
-                        i5++;
-                        i = i6;
+                        i3++;
+                        i = i5;
                     }
                     stringBuffer.append((char) i4);
                 } else {
@@ -129,7 +128,6 @@ public final class EncodeUtils {
                         charAt2 = '\f';
                     }
                     stringBuffer.append(charAt2);
-                    i = i3;
                 }
             } else {
                 stringBuffer.append(charAt);

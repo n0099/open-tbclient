@@ -9,7 +9,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes26.dex */
+/* loaded from: classes8.dex */
 public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdvert {
     public static final int BG_SIZE_FULL_SCALE = 2;
     public static final int BG_SIZE_WIDTH_SCALE = 1;
@@ -36,50 +36,50 @@ public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdv
     public final f resultInfo;
     public final g titleInfo;
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public String color;
         public String img;
         public int mode;
     }
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes8.dex */
     public static class b {
         public String content;
         public String tag;
         public int type;
     }
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes8.dex */
     public static class c extends b {
-        public String mJi;
+        public String mOq;
         public String postUrl;
     }
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes8.dex */
     public static class d extends b {
-        public String mJj;
-        public h mJk;
+        public String mOr;
+        public h mOs;
     }
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes8.dex */
     public static class e extends b {
-        public String[] mJl;
+        public String[] mOt;
     }
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes8.dex */
     public static class f {
         public String desc;
         public String title;
     }
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes8.dex */
     public static class g extends b {
     }
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes8.dex */
     public static class h extends b {
-        public String mJm;
+        public String mOu;
     }
 
     public FormCard(JSONObject jSONObject) throws CardParseException {
@@ -125,7 +125,7 @@ public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdv
             this.commitInfo.type = optJSONObject3.optInt("type", -1);
             this.commitInfo.postUrl = optJSONObject3.optString("post_url", "");
             this.commitInfo.content = optJSONObject3.optString("content", "");
-            this.commitInfo.mJi = optJSONObject3.optString("check_str", "");
+            this.commitInfo.mOq = optJSONObject3.optString("check_str", "");
             this.commitInfo.tag = optJSONObject3.optString("tag", "");
         } else {
             this.commitInfo = null;
@@ -152,16 +152,16 @@ public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdv
                                 gVar.type = optInt;
                                 gVar.content = jSONObject3.optString("content", "");
                                 gVar.tag = jSONObject3.optString("tag", "");
-                                com.baidu.tieba.lego.card.d.a.a(this.itemList, gVar);
+                                com.baidu.tieba.lego.card.c.a.a(this.itemList, gVar);
                                 continue;
                             case 2:
                                 c cVar = new c();
                                 cVar.type = optInt;
                                 cVar.content = jSONObject3.optString("content", "");
-                                cVar.mJi = jSONObject3.optString("check_str", "");
+                                cVar.mOq = jSONObject3.optString("check_str", "");
                                 cVar.postUrl = jSONObject3.optString("post_url", "");
                                 cVar.tag = jSONObject3.optString("tag", "");
-                                com.baidu.tieba.lego.card.d.a.a(this.itemList, cVar);
+                                com.baidu.tieba.lego.card.c.a.a(this.itemList, cVar);
                                 continue;
                             case 3:
                             case 4:
@@ -170,15 +170,15 @@ public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdv
                                 dVar.type = optInt;
                                 dVar.content = jSONObject3.optString("content", "");
                                 dVar.tag = jSONObject3.optString("tag", "");
-                                dVar.mJj = jSONObject3.optString("reg_str", "");
+                                dVar.mOr = jSONObject3.optString("reg_str", "");
                                 if (jSONObject3.has("veri_code_info") && (jSONObject2 = jSONObject3.getJSONObject("veri_code_info")) != null) {
                                     h hVar = new h();
                                     hVar.content = jSONObject2.optString("content");
-                                    hVar.mJm = jSONObject2.optString("btn_title");
+                                    hVar.mOu = jSONObject2.optString("btn_title");
                                     hVar.tag = jSONObject2.optString("tag");
-                                    dVar.mJk = hVar;
+                                    dVar.mOs = hVar;
                                 }
-                                com.baidu.tieba.lego.card.d.a.a(this.itemList, dVar);
+                                com.baidu.tieba.lego.card.c.a.a(this.itemList, dVar);
                                 continue;
                             case 6:
                             case 7:
@@ -193,9 +193,9 @@ public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdv
                                     for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                                         strArr[i2] = jSONArray.getString(i2);
                                     }
-                                    eVar.mJl = strArr;
+                                    eVar.mOt = strArr;
                                 }
-                                com.baidu.tieba.lego.card.d.a.a(this.itemList, eVar);
+                                com.baidu.tieba.lego.card.c.a.a(this.itemList, eVar);
                                 continue;
                         }
                     }
@@ -218,10 +218,10 @@ public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdv
 
     @Override // com.baidu.tbadk.core.data.AdvertAppInfo.ILegoAdvert
     public int getGoodsStyle() {
-        if (this.appInfo == null || this.appInfo.eEm == null) {
+        if (this.appInfo == null || this.appInfo.eOc == null) {
             return 0;
         }
-        return this.appInfo.eEm.eEA;
+        return this.appInfo.eOc.eOq;
     }
 
     @Override // com.baidu.tbadk.core.data.AdvertAppInfo.ILegoAdvert

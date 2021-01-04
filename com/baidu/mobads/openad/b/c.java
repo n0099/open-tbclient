@@ -5,17 +5,19 @@ import android.app.NotificationManager;
 import com.baidu.mobads.openad.interfaces.download.IOAdDownloader;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class c implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ IOAdDownloader f2378a;
-    final /* synthetic */ b b;
+    final /* synthetic */ IOAdDownloader f3437a;
+
+    /* renamed from: b  reason: collision with root package name */
+    final /* synthetic */ b f3438b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar, IOAdDownloader iOAdDownloader) {
-        this.b = bVar;
-        this.f2378a = iOAdDownloader;
+        this.f3438b = bVar;
+        this.f3437a = iOAdDownloader;
     }
 
     @Override // java.lang.Runnable
@@ -23,7 +25,7 @@ public class c implements Runnable {
         com.baidu.mobads.command.a aVar;
         NotificationManager notificationManager;
         com.baidu.mobads.command.a aVar2;
-        Notification b;
+        Notification b2;
         com.baidu.mobads.command.a aVar3;
         com.baidu.mobads.command.a aVar4;
         com.baidu.mobads.command.a aVar5;
@@ -31,27 +33,27 @@ public class c implements Runnable {
         NotificationManager notificationManager2;
         com.baidu.mobads.command.a aVar7;
         try {
-            aVar = this.b.c;
+            aVar = this.f3438b.c;
             if (aVar.g == IOAdDownloader.DownloadStatus.CANCELLED) {
-                notificationManager2 = b.f2377a;
-                aVar7 = this.b.c;
+                notificationManager2 = b.f3435a;
+                aVar7 = this.f3438b.c;
                 notificationManager2.cancel(aVar7.f);
             } else {
-                notificationManager = b.f2377a;
-                aVar2 = this.b.c;
+                notificationManager = b.f3435a;
+                aVar2 = this.f3438b.c;
                 int i = aVar2.f;
-                b = this.b.b(this.f2378a);
-                notificationManager.notify(i, b);
-                aVar3 = this.b.c;
+                b2 = this.f3438b.b(this.f3437a);
+                notificationManager.notify(i, b2);
+                aVar3 = this.f3438b.c;
                 if (aVar3.g != IOAdDownloader.DownloadStatus.ERROR) {
-                    aVar4 = this.b.c;
+                    aVar4 = this.f3438b.c;
                     if (aVar4.g == IOAdDownloader.DownloadStatus.INITING) {
-                        aVar5 = this.b.c;
+                        aVar5 = this.f3438b.c;
                         if (aVar5.r == 1) {
-                            b bVar = this.b;
+                            b bVar = this.f3438b;
                             StringBuilder append = new StringBuilder().append("开始下载 ");
-                            aVar6 = this.b.c;
-                            bVar.d(append.append(aVar6.f2326a).toString());
+                            aVar6 = this.f3438b.c;
+                            bVar.d(append.append(aVar6.f3349a).toString());
                         }
                     }
                 } else {

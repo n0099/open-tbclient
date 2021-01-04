@@ -2,7 +2,7 @@ package com.google.zxing.pdf417.decoder;
 
 import com.google.zxing.pdf417.PDF417Common;
 import java.util.Formatter;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 final class DetectionResult {
     private static final int ADJUST_ROW_NUMBER_SKIP = 2;
     private final int barcodeColumnCount;
@@ -81,29 +81,35 @@ final class DetectionResult {
     }
 
     private int adjustRowNumbersFromRRI() {
+        int i;
         if (this.detectionResultColumns[this.barcodeColumnCount + 1] == null) {
             return 0;
         }
         Codeword[] codewords = this.detectionResultColumns[this.barcodeColumnCount + 1].getCodewords();
-        int i = 0;
-        for (int i2 = 0; i2 < codewords.length; i2++) {
-            if (codewords[i2] != null) {
-                int rowNumber = codewords[i2].getRowNumber();
-                int i3 = i;
-                int i4 = 0;
-                for (int i5 = this.barcodeColumnCount + 1; i5 > 0 && i4 < 2; i5--) {
-                    Codeword codeword = this.detectionResultColumns[i5].getCodewords()[i2];
+        int i2 = 0;
+        for (int i3 = 0; i3 < codewords.length; i3++) {
+            if (codewords[i3] != null) {
+                int rowNumber = codewords[i3].getRowNumber();
+                int i4 = this.barcodeColumnCount + 1;
+                int i5 = 0;
+                int i6 = i2;
+                while (i4 > 0 && i5 < 2) {
+                    Codeword codeword = this.detectionResultColumns[i4].getCodewords()[i3];
                     if (codeword != null) {
-                        i4 = adjustRowNumberIfValid(rowNumber, i4, codeword);
+                        i = adjustRowNumberIfValid(rowNumber, i5, codeword);
                         if (!codeword.hasValidRowNumber()) {
-                            i3++;
+                            i6++;
                         }
+                    } else {
+                        i = i5;
                     }
+                    i4--;
+                    i5 = i;
                 }
-                i = i3;
+                i2 = i6;
             }
         }
-        return i;
+        return i2;
     }
 
     private int adjustRowNumbersFromLRI() {
@@ -115,18 +121,18 @@ final class DetectionResult {
         for (int i2 = 0; i2 < codewords.length; i2++) {
             if (codewords[i2] != null) {
                 int rowNumber = codewords[i2].getRowNumber();
-                int i3 = i;
-                int i4 = 0;
-                for (int i5 = 1; i5 < this.barcodeColumnCount + 1 && i4 < 2; i5++) {
+                int i3 = 0;
+                int i4 = i;
+                for (int i5 = 1; i5 < this.barcodeColumnCount + 1 && i3 < 2; i5++) {
                     Codeword codeword = this.detectionResultColumns[i5].getCodewords()[i2];
                     if (codeword != null) {
-                        i4 = adjustRowNumberIfValid(rowNumber, i4, codeword);
+                        i3 = adjustRowNumberIfValid(rowNumber, i3, codeword);
                         if (!codeword.hasValidRowNumber()) {
-                            i3++;
+                            i4++;
                         }
                     }
                 }
-                i = i3;
+                i = i4;
             }
         }
         return i;

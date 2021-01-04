@@ -1,19 +1,19 @@
 package com.baidu.swan.apps.view.narootview;
 
-import android.support.annotation.NonNull;
-/* loaded from: classes25.dex */
+import androidx.annotation.NonNull;
+/* loaded from: classes9.dex */
 public class b {
-    private int dMM;
-    private int dMN;
+    private int dVF;
+    private int dVG;
     private int mFlags = 0;
 
     @NonNull
-    public b lT(int i) {
+    public b ma(int i) {
         this.mFlags |= i;
         return this;
     }
 
-    public void lU(int i) {
+    public void mb(int i) {
         this.mFlags &= i ^ (-1);
     }
 
@@ -21,19 +21,19 @@ public class b {
         return (this.mFlags & 1) == 1;
     }
 
-    public int aQx() {
-        return this.dMM;
+    public int aSS() {
+        return this.dVF;
     }
 
-    public void lV(int i) {
-        this.dMM = i;
+    public void mc(int i) {
+        this.dVF = i;
     }
 
-    public int aQy() {
-        return this.dMN;
+    public int aST() {
+        return this.dVG;
     }
 
-    public void lW(int i) {
-        this.dMN = i;
+    public void md(int i) {
+        this.dVG = i;
     }
 }

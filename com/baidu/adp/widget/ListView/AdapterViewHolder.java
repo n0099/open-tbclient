@@ -1,0 +1,17 @@
+package com.baidu.adp.widget.ListView;
+
+import android.view.View;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+/* loaded from: classes.dex */
+public class AdapterViewHolder<T extends View> extends TypeAdapter.ViewHolder {
+    protected T Ww;
+
+    public AdapterViewHolder(T t) {
+        super(t);
+        this.Ww = t;
+    }
+
+    public T qt() {
+        return this.Ww;
+    }
+}

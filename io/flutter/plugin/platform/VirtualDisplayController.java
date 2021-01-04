@@ -7,16 +7,19 @@ import android.hardware.display.VirtualDisplay;
 import android.view.Surface;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import androidx.annotation.NonNull;
+import androidx.annotation.VisibleForTesting;
 import io.flutter.plugin.platform.SingleViewPresentation;
 import io.flutter.view.TextureRegistry;
 /* JADX INFO: Access modifiers changed from: package-private */
 @TargetApi(20)
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class VirtualDisplayController {
     private final AccessibilityEventsDelegate accessibilityEventsDelegate;
     private final Context context;
     private final int densityDpi;
     private final View.OnFocusChangeListener focusChangeListener;
+    @VisibleForTesting
     SingleViewPresentation presentation;
     private Surface surface;
     private final TextureRegistry.SurfaceTextureEntry textureEntry;
@@ -84,7 +87,7 @@ public class VirtualDisplayController {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void onFlutterViewAttached(View view) {
+    public void onFlutterViewAttached(@NonNull View view) {
         if (this.presentation != null && this.presentation.getView() != null) {
             this.presentation.getView().onFlutterViewAttached(view);
         }
@@ -119,7 +122,7 @@ public class VirtualDisplayController {
     }
 
     @TargetApi(16)
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     static class OneTimeOnDrawListener implements ViewTreeObserver.OnDrawListener {
         Runnable mOnDrawRunnable;
         final View mView;

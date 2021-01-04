@@ -4,26 +4,26 @@ import android.content.Context;
 import android.util.AttributeSet;
 import com.facebook.drawee.generic.c;
 import javax.annotation.Nullable;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class GenericDraweeView extends DraweeView<com.facebook.drawee.generic.a> {
     public GenericDraweeView(Context context) {
         super(context);
-        l(context, null);
+        n(context, null);
     }
 
     public GenericDraweeView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        l(context, attributeSet);
+        n(context, attributeSet);
     }
 
     public GenericDraweeView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        l(context, attributeSet);
+        n(context, attributeSet);
     }
 
-    protected void l(Context context, @Nullable AttributeSet attributeSet) {
-        com.facebook.drawee.generic.b k = c.k(context, attributeSet);
-        setAspectRatio(k.erT());
-        setHierarchy(k.esg());
+    protected void n(Context context, @Nullable AttributeSet attributeSet) {
+        com.facebook.drawee.generic.b m = c.m(context, attributeSet);
+        setAspectRatio(m.evW());
+        setHierarchy(m.ewj());
     }
 }

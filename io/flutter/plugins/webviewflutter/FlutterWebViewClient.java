@@ -10,14 +10,14 @@ import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import androidx.webkit.b;
-import androidx.webkit.c;
+import androidx.webkit.WebResourceErrorCompat;
+import androidx.webkit.WebViewClientCompat;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import io.flutter.plugin.common.MethodChannel;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
-/* loaded from: classes17.dex */
+/* loaded from: classes15.dex */
 class FlutterWebViewClient {
     private static final String TAG = "FlutterWebViewClient";
     private boolean hasNavigationDelegate;
@@ -163,9 +163,9 @@ class FlutterWebViewClient {
         };
     }
 
-    private c internalCreateWebViewClientCompat() {
-        return new c() { // from class: io.flutter.plugins.webviewflutter.FlutterWebViewClient.2
-            @Override // androidx.webkit.c, android.webkit.WebViewClient, org.chromium.support_lib_boundary.WebViewClientBoundaryInterface
+    private WebViewClientCompat internalCreateWebViewClientCompat() {
+        return new WebViewClientCompat() { // from class: io.flutter.plugins.webviewflutter.FlutterWebViewClient.2
+            @Override // androidx.webkit.WebViewClientCompat, android.webkit.WebViewClient, org.chromium.support_lib_boundary.WebViewClientBoundaryInterface
             public boolean shouldOverrideUrlLoading(WebView webView, WebResourceRequest webResourceRequest) {
                 return FlutterWebViewClient.this.shouldOverrideUrlLoading(webView, webResourceRequest);
             }
@@ -185,10 +185,10 @@ class FlutterWebViewClient {
                 FlutterWebViewClient.this.onPageFinished(webView, str);
             }
 
-            @Override // androidx.webkit.c
+            @Override // androidx.webkit.WebViewClientCompat
             @SuppressLint({"RequiresFeature"})
-            public void onReceivedError(WebView webView, WebResourceRequest webResourceRequest, b bVar) {
-                FlutterWebViewClient.this.onWebResourceError(bVar.getErrorCode(), bVar.getDescription().toString(), webResourceRequest.getUrl().toString());
+            public void onReceivedError(WebView webView, WebResourceRequest webResourceRequest, WebResourceErrorCompat webResourceErrorCompat) {
+                FlutterWebViewClient.this.onWebResourceError(webResourceErrorCompat.getErrorCode(), webResourceErrorCompat.getDescription().toString(), webResourceRequest.getUrl().toString());
             }
 
             @Override // android.webkit.WebViewClient
@@ -203,7 +203,7 @@ class FlutterWebViewClient {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes15.dex */
     public static class OnNavigationRequestResult implements MethodChannel.Result {
         private final Map<String, String> headers;
         private final String url;

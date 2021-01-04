@@ -1,61 +1,61 @@
 package com.baidu.swan.apps.extcore.b;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.swan.apps.extcore.d.b;
 import com.baidu.swan.apps.extcore.e.a;
 import com.baidu.swan.apps.extcore.model.ExtensionCore;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public abstract class b<P extends com.baidu.swan.apps.extcore.d.b, R extends com.baidu.swan.apps.extcore.e.a> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     @NonNull
-    private P cYM;
+    private P ddI;
     @NonNull
-    private R cYN;
+    private R ddJ;
 
     @Nullable
-    public abstract ExtensionCore auE();
+    public abstract ExtensionCore avW();
 
     public b(@NonNull P p, @NonNull R r) {
-        this.cYM = p;
-        this.cYN = r;
+        this.ddI = p;
+        this.ddJ = r;
     }
 
-    public void n(@Nullable com.baidu.swan.apps.ap.e.b<Exception> bVar) {
-        this.cYM.o(bVar);
+    public void n(@Nullable com.baidu.swan.apps.ao.e.b<Exception> bVar) {
+        this.ddI.o(bVar);
     }
 
-    public void awy() {
-        this.cYM.awy();
+    public void axQ() {
+        this.ddI.axQ();
     }
 
     public <T extends com.baidu.swan.apps.extcore.model.a> Exception a(T t) {
-        return t == null ? new Exception("ExtCore-Manager doRemoteUpdate: null updateInfo") : this.cYN.b(t);
+        return t == null ? new Exception("ExtCore-Manager doRemoteUpdate: null updateInfo") : this.ddJ.b(t);
     }
 
     @NonNull
-    public P awz() {
-        return this.cYM;
+    public P axR() {
+        return this.ddI;
     }
 
     @NonNull
-    public R awA() {
-        return this.cYN;
+    public R axS() {
+        return this.ddJ;
     }
 
     @NonNull
-    public ExtensionCore awB() {
+    public ExtensionCore axT() {
         String path;
-        int awM = this.cYM.cYL.awM();
-        if (com.baidu.swan.apps.extcore.f.a.iZ(awM)) {
+        int aye = this.ddI.ddH.aye();
+        if (com.baidu.swan.apps.extcore.f.a.iU(aye)) {
             ExtensionCore extensionCore = new ExtensionCore();
             extensionCore.extensionCoreVersionCode = 0L;
-            extensionCore.extensionCoreVersionName = com.baidu.swan.apps.extcore.f.a.ce(0L);
-            if (awM == 1) {
-                path = com.baidu.swan.games.h.a.b.awF().getPath();
+            extensionCore.extensionCoreVersionName = com.baidu.swan.apps.extcore.f.a.cf(0L);
+            if (aye == 1) {
+                path = com.baidu.swan.games.h.a.b.axX().getPath();
             } else {
-                path = com.baidu.swan.apps.extcore.c.b.awF().getPath();
+                path = com.baidu.swan.apps.extcore.c.b.axX().getPath();
             }
             extensionCore.extensionCorePath = path;
             extensionCore.extensionCoreType = 2;
@@ -64,18 +64,18 @@ public abstract class b<P extends com.baidu.swan.apps.extcore.d.b, R extends com
             }
             return extensionCore;
         }
-        ExtensionCore awO = this.cYM.awO();
-        ExtensionCore awO2 = this.cYN.awO();
-        if (awO.extensionCoreVersionCode >= awO2.extensionCoreVersionCode) {
+        ExtensionCore ayg = this.ddI.ayg();
+        ExtensionCore ayg2 = this.ddJ.ayg();
+        if (ayg.extensionCoreVersionCode >= ayg2.extensionCoreVersionCode) {
             if (DEBUG) {
-                Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: preset=>" + awO.toString());
-                return awO;
+                Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: preset=>" + ayg.toString());
+                return ayg;
             }
-            return awO;
+            return ayg;
         }
         if (DEBUG) {
-            Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: remote=>" + awO2.toString());
+            Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: remote=>" + ayg2.toString());
         }
-        return awO2;
+        return ayg2;
     }
 }

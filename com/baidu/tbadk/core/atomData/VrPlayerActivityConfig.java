@@ -18,7 +18,7 @@ public class VrPlayerActivityConfig extends IntentConfig {
         if (getIntent() != null) {
             getIntent().putExtra("type", i);
             getIntent().putExtra(IS_LOGO, z);
-            getIntent().putExtra("video_path", str);
+            getIntent().putExtra(RES_PATH, str);
         }
     }
 

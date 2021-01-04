@@ -2,7 +2,7 @@ package com.baidu.minivideo.plugin.capture.download;
 
 import android.os.Handler;
 import android.os.Looper;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.minivideo.plugin.capture.download.DownloadRequest;
 import com.baidu.minivideo.plugin.capture.download.base.DownloadCallback;
 import com.baidu.minivideo.plugin.capture.download.base.DownloadStatusDelivery;
@@ -16,7 +16,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 public class DownloadManager implements Downloader.OnDownloaderDestroyedListener {
     public static final String TAG = "DownloadManager";
     private static DownloadManager sDownloadManager;

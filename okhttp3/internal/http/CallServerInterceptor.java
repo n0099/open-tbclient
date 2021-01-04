@@ -14,7 +14,7 @@ import okio.ForwardingSink;
 import okio.Okio;
 import okio.Sink;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public final class CallServerInterceptor implements Interceptor {
     private final boolean forWebSocket;
 
@@ -85,7 +85,7 @@ public final class CallServerInterceptor implements Interceptor {
         return build;
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     static final class CountingSink extends ForwardingSink {
         long successfulCount;
 

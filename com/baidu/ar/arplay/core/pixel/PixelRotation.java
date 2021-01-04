@@ -1,5 +1,5 @@
 package com.baidu.ar.arplay.core.pixel;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public enum PixelRotation {
     NoRotation(0),
     RotateLeft(1),

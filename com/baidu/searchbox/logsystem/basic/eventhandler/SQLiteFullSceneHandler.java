@@ -1,13 +1,13 @@
 package com.baidu.searchbox.logsystem.basic.eventhandler;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.logsystem.logsys.eventscene.EventObject;
 import com.baidu.searchbox.logsystem.logsys.eventscene.handler.DeviceEventSceneHandler;
 import com.baidu.searchbox.logsystem.logsys.eventscene.snapshot.DeviceSnapshotType;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class SQLiteFullSceneHandler extends DeviceEventSceneHandler {
     private static final String SQLITE_FULL = "android.database.sqlite.SQLiteFullException";
 

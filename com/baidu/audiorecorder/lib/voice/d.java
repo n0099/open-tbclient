@@ -1,5 +1,5 @@
 package com.baidu.audiorecorder.lib.voice;
-/* loaded from: classes24.dex */
+/* loaded from: classes8.dex */
 public class d {
     public static float bl(int i) {
         switch (i) {

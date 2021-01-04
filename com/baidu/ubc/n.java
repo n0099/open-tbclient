@@ -1,29 +1,29 @@
 package com.baidu.ubc;
 
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 class n {
-    private String abH;
-    private String erA;
-    private int erB;
-    private JSONObject erC;
-    private String erD;
-    private boolean erE;
+    private String acu;
+    private String eBk;
+    private int eBl;
+    private JSONObject eBm;
+    private String eBn;
+    private boolean eBo;
     private String mCategory;
     private String mContent;
     private String mId;
     private int mOption;
     private long mTime;
-    private String oHq;
+    private String oNz;
 
     public n(String str, String str2, int i) {
         this.mContent = "";
-        this.erE = false;
-        this.abH = "";
-        this.oHq = "0";
+        this.eBo = false;
+        this.acu = "";
+        this.oNz = "0";
         this.mId = str;
-        this.erA = str;
-        this.erB = -1;
+        this.eBk = str;
+        this.eBl = -1;
         this.mContent = str2;
         this.mOption = i;
         if ((this.mOption & 2) == 0) {
@@ -33,13 +33,13 @@ class n {
 
     public n(String str, JSONObject jSONObject, int i) {
         this.mContent = "";
-        this.erE = false;
-        this.abH = "";
-        this.oHq = "0";
+        this.eBo = false;
+        this.acu = "";
+        this.oNz = "0";
         this.mId = str;
-        this.erA = str;
-        this.erB = -1;
-        this.erC = jSONObject;
+        this.eBk = str;
+        this.eBl = -1;
+        this.eBm = jSONObject;
         this.mOption = i;
         if ((this.mOption & 2) == 0) {
             this.mTime = System.currentTimeMillis();
@@ -48,12 +48,12 @@ class n {
 
     public n(String str, String str2, int i, String str3, int i2) {
         this.mContent = "";
-        this.erE = false;
-        this.abH = "";
-        this.oHq = "0";
+        this.eBo = false;
+        this.acu = "";
+        this.oNz = "0";
         this.mId = str2;
-        this.erA = str;
-        this.erB = i;
+        this.eBk = str;
+        this.eBl = i;
         this.mContent = str3;
         this.mOption = i2;
         if ((this.mOption & 2) == 0) {
@@ -63,12 +63,12 @@ class n {
 
     public n(String str, String str2, int i, String str3, long j, int i2) {
         this.mContent = "";
-        this.erE = false;
-        this.abH = "";
-        this.oHq = "0";
+        this.eBo = false;
+        this.acu = "";
+        this.oNz = "0";
         this.mId = str2;
-        this.erA = str;
-        this.erB = i;
+        this.eBk = str;
+        this.eBl = i;
         this.mContent = str3;
         this.mOption = i2;
         if ((this.mOption & 2) == 0) {
@@ -84,12 +84,12 @@ class n {
         return this.mId;
     }
 
-    public String bgb() {
-        return this.erA;
+    public String biy() {
+        return this.eBk;
     }
 
-    public int bgc() {
-        return this.erB;
+    public int biz() {
+        return this.eBl;
     }
 
     public String getContent() {
@@ -104,8 +104,8 @@ class n {
         return this.mOption;
     }
 
-    public String bgd() {
-        return this.erD;
+    public String biA() {
+        return this.eBn;
     }
 
     public void setCategory(String str) {
@@ -116,37 +116,37 @@ class n {
         return this.mCategory;
     }
 
-    public JSONObject bge() {
-        return this.erC;
+    public JSONObject biB() {
+        return this.eBm;
     }
 
     public void setFileName(String str) {
-        this.abH = str;
+        this.acu = str;
     }
 
     public String getFileName() {
-        return this.abH;
+        return this.acu;
     }
 
-    public void iq(boolean z) {
-        this.erE = z;
+    public void iL(boolean z) {
+        this.eBo = z;
     }
 
-    public boolean bfZ() {
-        return this.erE;
+    public boolean biw() {
+        return this.eBo;
     }
 
-    public void bgg() {
-        if (this.mId != null && this.mId.equals(this.erA) && g.eiM().zq(this.mId)) {
-            this.erD = UBC.getUBCContext().aFA();
+    public void biD() {
+        if (this.mId != null && this.mId.equals(this.eBk) && g.eiW().zp(this.mId)) {
+            this.eBn = UBC.getUBCContext().aGU();
         }
     }
 
-    public void XM(String str) {
-        this.oHq = str;
+    public void Xv(String str) {
+        this.oNz = str;
     }
 
-    public String eiS() {
-        return this.oHq;
+    public String ejc() {
+        return this.oNz;
     }
 }

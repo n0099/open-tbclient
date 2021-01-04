@@ -1,18 +1,18 @@
 package com.baidu.performance_monitor;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.stats.a;
 import com.baidu.ala.recorder.video.AlaRecorderLog;
-import com.baidu.fsg.base.statistics.j;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.atomData.CameraActivityConfig;
+import com.baidu.tbadk.n.j;
 import com.baidu.tbadk.n.k;
-import com.baidu.tbadk.n.l;
 import com.baidu.tieba.flutter.util.OpenFlutter;
 import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
@@ -20,7 +20,7 @@ import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes19.dex */
+/* loaded from: classes15.dex */
 public class PerformanceMonitorPlugin implements FlutterPlugin, MethodChannel.MethodCallHandler {
     private static HashMap<String, String> flutterEngineStartInfo = new HashMap<>();
     private final CustomMessageListener mFlutterEngineInitListener = new CustomMessageListener(2921451) { // from class: com.baidu.performance_monitor.PerformanceMonitorPlugin.1
@@ -43,6 +43,33 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, MethodChannel.Me
     @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
     public void onDetachedFromEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
         MessageManager.getInstance().unRegisterListener(this.mFlutterEngineInitListener);
+    }
+
+    /* loaded from: classes15.dex */
+    private class PerfCPULogAsync extends BdAsyncTask<String, Integer, Boolean> {
+        final a mItem;
+        final String mPage;
+
+        public PerfCPULogAsync(String str, a aVar) {
+            this.mPage = str;
+            this.mItem = aVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public Boolean doInBackground(String... strArr) {
+            this.mItem.append("memp", String.valueOf(k.bHF().bHG()));
+            this.mItem.append("cpu", k.bHF().bHH());
+            BdStatisticsManager.getInstance().performance(this.mPage, this.mItem);
+            return Boolean.TRUE;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(Boolean bool) {
+        }
     }
 
     @Override // io.flutter.plugin.common.MethodChannel.MethodCallHandler
@@ -79,61 +106,63 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, MethodChannel.Me
                     statsItem.append("cont_vast", hashMap3.get("vast"));
                 }
             }
-            BdStatisticsManager.getInstance().performance(str2, statsItem);
+            PerfCPULogAsync perfCPULogAsync = new PerfCPULogAsync(str2, statsItem);
+            perfCPULogAsync.setSelfExecute(true);
+            perfCPULogAsync.execute(new String[0]);
             result.success(null);
         } else if (methodCall.method.equals("reportPageLoadPerformance")) {
-            if (l.bFl().isSmallFlow() && methodCall.arguments != null && (hashMap = (HashMap) methodCall.arguments) != null && hashMap.get("viewCreateTime") != null && ((Double) hashMap.get("viewCreateTime")).doubleValue() > 0.0d) {
+            if (k.bHF().isSmallFlow() && methodCall.arguments != null && (hashMap = (HashMap) methodCall.arguments) != null && hashMap.get("viewCreateTime") != null && ((Double) hashMap.get("viewCreateTime")).doubleValue() > 0.0d) {
                 String str3 = (String) hashMap.get("pageName");
                 if (OpenFlutter.ACTIVITY_SIGN_TOGETHER.equals(str3)) {
                     str = "sign_all_flt";
                 } else {
                     str = OpenFlutter.FRAGMENT_MYTAB.equals(str3) ? "user_center_flt" : str3;
                 }
-                a mT = k.mT();
-                mT.append("action", "time");
-                mT.append("ishttp", hashMap.get("isHttp"));
-                mT.append("issuccess", hashMap.get("errCode") == BasicPushStatus.SUCCESS_CODE ? "1" : "0");
-                mT.append("nettype", l.bFl().getNetType());
+                a pi = j.pi();
+                pi.append("action", "time");
+                pi.append("ishttp", hashMap.get("isHttp"));
+                pi.append("issuccess", hashMap.get("errCode") == BasicPushStatus.SUCCESS_CODE ? "1" : "0");
+                pi.append("nettype", k.bHF().getNetType());
                 if (hashMap.containsKey("whiteTime") && (hashMap.get("whiteTime") instanceof Double)) {
-                    mT.append("wt", Double.valueOf(((Double) hashMap.get("whiteTime")).doubleValue() * 1000.0d));
+                    pi.append("wt", Double.valueOf(((Double) hashMap.get("whiteTime")).doubleValue() * 1000.0d));
                 }
-                mT.append("qt", hashMap.get("queneTime"));
-                mT.append("connt", hashMap.get("netConTime"));
-                mT.append("rwt", hashMap.get("netRWTime"));
-                mT.append("fbt", hashMap.get("firstByteTime"));
-                mT.append("abt", hashMap.get("allDataReadTime"));
-                mT.append("dect", hashMap.get("dataDeCompressTime"));
-                mT.append("tqt", "0");
+                pi.append("qt", hashMap.get("queneTime"));
+                pi.append("connt", hashMap.get("netConTime"));
+                pi.append("rwt", hashMap.get("netRWTime"));
+                pi.append("fbt", hashMap.get("firstByteTime"));
+                pi.append("abt", hashMap.get("allDataReadTime"));
+                pi.append("dect", hashMap.get("dataDeCompressTime"));
+                pi.append("tqt", hashMap.get("taskWaitTime"));
                 if (hashMap.containsKey("dataParseTime") && (hashMap.get("dataParseTime") instanceof Double)) {
-                    mT.append("parset", Double.valueOf(((Double) hashMap.get("dataParseTime")).doubleValue() * 1000.0d));
+                    pi.append("parset", Double.valueOf(((Double) hashMap.get("dataParseTime")).doubleValue() * 1000.0d));
                 }
                 if (hashMap.containsKey("drawTime") && (hashMap.get("drawTime") instanceof Double)) {
-                    mT.append("rendert", Double.valueOf(((Double) hashMap.get("drawTime")).doubleValue() * 1000.0d));
+                    pi.append("rendert", Double.valueOf(((Double) hashMap.get("drawTime")).doubleValue() * 1000.0d));
                 }
                 if (hashMap.get("isHttp") == "1") {
-                    mT.append("hrtn", hashMap.get("httpRetryNum"));
-                    mT.append("hrtt", hashMap.get("httpRetryCostTime"));
+                    pi.append("hrtn", hashMap.get("httpRetryNum"));
+                    pi.append("hrtt", hashMap.get("httpRetryCostTime"));
                 }
                 if (hashMap.get("errCode") != "0") {
-                    mT.append("errcode", hashMap.get("errCode"));
+                    pi.append("errcode", hashMap.get("errCode"));
                 }
                 if (hashMap.containsKey("viewCreateTime") && (hashMap.get("viewCreateTime") instanceof Double)) {
-                    mT.append(Config.EXCEPTION_CRASH_TYPE, Double.valueOf(((Double) hashMap.get("viewCreateTime")).doubleValue() * 1000.0d));
+                    pi.append(Config.EXCEPTION_CRASH_TYPE, Double.valueOf(((Double) hashMap.get("viewCreateTime")).doubleValue() * 1000.0d));
                 }
                 if (hashMap.containsKey("channelTransTime") && (hashMap.get("channelTransTime") instanceof Double)) {
-                    mT.append("transt", Double.valueOf(((Double) hashMap.get("channelTransTime")).doubleValue() * 1000.0d));
+                    pi.append("transt", Double.valueOf(((Double) hashMap.get("channelTransTime")).doubleValue() * 1000.0d));
                 }
                 if (hashMap.containsKey("dartItemParseTime") && (hashMap.get("dartItemParseTime") instanceof Double)) {
-                    mT.append("dpt", Double.valueOf(((Double) hashMap.get("dartItemParseTime")).doubleValue() * 1000.0d));
+                    pi.append("dpt", Double.valueOf(((Double) hashMap.get("dartItemParseTime")).doubleValue() * 1000.0d));
                 }
                 if (hashMap.containsKey("reqWaitTime") && (hashMap.get("reqWaitTime") instanceof Double)) {
-                    mT.append("rqwt", Double.valueOf(((Double) hashMap.get("reqWaitTime")).doubleValue() * 1000.0d));
+                    pi.append("rqwt", Double.valueOf(((Double) hashMap.get("reqWaitTime")).doubleValue() * 1000.0d));
                 }
                 if (hashMap.containsKey("renderTime") && (hashMap.get("renderTime") instanceof Double)) {
-                    mT.append("rdt", Double.valueOf(((Double) hashMap.get("renderTime")).doubleValue() * 1000.0d));
+                    pi.append("rdt", Double.valueOf(((Double) hashMap.get("renderTime")).doubleValue() * 1000.0d));
                 }
-                mT.append("hs", hashMap.get("httpSize"));
-                BdStatisticsManager.getInstance().performance(str, mT);
+                pi.append("hs", hashMap.get("httpSize"));
+                BdStatisticsManager.getInstance().performance(str, pi);
             }
         } else if (methodCall.method.equals("reportImageLoadPerformance")) {
             if (methodCall.arguments != null && (methodCall.arguments instanceof HashMap)) {
@@ -144,7 +173,7 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, MethodChannel.Me
                 statsItem2.append("try", hashMap4.get("tryTimes"));
                 statsItem2.append(Config.EXCEPTION_CRASH_TYPE, hashMap4.get(CameraActivityConfig.KEY_CONTENT_TYPE));
                 statsItem2.append("dc", hashMap4.get("dartCodecCost"));
-                statsItem2.append(j.g, hashMap4.get("loadingCost"));
+                statsItem2.append(com.baidu.fsg.base.statistics.j.g, hashMap4.get("loadingCost"));
                 statsItem2.append("trans", hashMap4.get("channelTransTime"));
                 statsItem2.append("cc", hashMap4.get("codecCost"));
                 statsItem2.append("tc", hashMap4.get("totalCost"));

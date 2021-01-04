@@ -3,19 +3,19 @@ package com.baidu.tieba.yuyinala.liveroom.wheat.b.b;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.tieba.yuyinala.liveroom.wheat.c.e;
 import com.baidu.tieba.yuyinala.liveroom.wheat.c.o;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a extends com.baidu.tieba.yuyinala.liveroom.wheat.b.a {
     public a(TbPageContext tbPageContext) {
         super(tbPageContext);
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.b.a
-    public void WD(String str) {
-        if (o.efe().eew()) {
+    public void Wn(String str) {
+        if (o.eff().eev()) {
             eeE();
-        } else if (o.efe().efh()) {
+        } else if (o.eff().efj()) {
             eeE();
-        } else if (o.efe().jt(str)) {
+        } else if (o.eff().jm(str)) {
             e.eeO().h(this.mPageContext);
         } else {
             eeD();
@@ -23,13 +23,13 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.wheat.b.a {
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.b.a
-    public void WE(String str) {
+    public void Wo(String str) {
         if (eey()) {
             eeF();
         } else if (eez()) {
-            if (o.efe().eew()) {
-                if (o.efe().jt(str)) {
-                    if (o.efe().jv(str)) {
+            if (o.eff().eev()) {
+                if (o.eff().jm(str)) {
+                    if (o.eff().jo(str)) {
                         eeE();
                         return;
                     } else {
@@ -37,10 +37,10 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.wheat.b.a {
                         return;
                     }
                 }
-                eeD();
-            } else if (o.efe().jv(str)) {
                 eeE();
-            } else if (o.efe().WQ(str)) {
+            } else if (o.eff().jo(str)) {
+                eeE();
+            } else if (o.eff().WA(str)) {
                 eeG();
             } else {
                 eeD();

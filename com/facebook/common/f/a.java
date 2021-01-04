@@ -3,10 +3,10 @@ package com.facebook.common.f;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 public class a extends FilterInputStream {
-    private int pcy;
-    private int pcz;
+    private int ptE;
+    private int ptF;
 
     public a(InputStream inputStream, int i) {
         super(inputStream);
@@ -16,30 +16,30 @@ public class a extends FilterInputStream {
         if (i < 0) {
             throw new IllegalArgumentException("limit must be >= 0");
         }
-        this.pcy = i;
-        this.pcz = -1;
+        this.ptE = i;
+        this.ptF = -1;
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
     public int read() throws IOException {
-        if (this.pcy == 0) {
+        if (this.ptE == 0) {
             return -1;
         }
         int read = this.in.read();
         if (read != -1) {
-            this.pcy--;
+            this.ptE--;
         }
         return read;
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
     public int read(byte[] bArr, int i, int i2) throws IOException {
-        if (this.pcy == 0) {
+        if (this.ptE == 0) {
             return -1;
         }
-        int read = this.in.read(bArr, i, Math.min(i2, this.pcy));
+        int read = this.in.read(bArr, i, Math.min(i2, this.ptE));
         if (read > 0) {
-            this.pcy -= read;
+            this.ptE -= read;
             return read;
         }
         return read;
@@ -47,21 +47,21 @@ public class a extends FilterInputStream {
 
     @Override // java.io.FilterInputStream, java.io.InputStream
     public long skip(long j) throws IOException {
-        long skip = this.in.skip(Math.min(j, this.pcy));
-        this.pcy = (int) (this.pcy - skip);
+        long skip = this.in.skip(Math.min(j, this.ptE));
+        this.ptE = (int) (this.ptE - skip);
         return skip;
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
     public int available() throws IOException {
-        return Math.min(this.in.available(), this.pcy);
+        return Math.min(this.in.available(), this.ptE);
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
     public void mark(int i) {
         if (this.in.markSupported()) {
             this.in.mark(i);
-            this.pcz = this.pcy;
+            this.ptF = this.ptE;
         }
     }
 
@@ -70,10 +70,10 @@ public class a extends FilterInputStream {
         if (!this.in.markSupported()) {
             throw new IOException("mark is not supported");
         }
-        if (this.pcz == -1) {
+        if (this.ptF == -1) {
             throw new IOException("mark not set");
         }
         this.in.reset();
-        this.pcy = this.pcz;
+        this.ptE = this.ptF;
     }
 }

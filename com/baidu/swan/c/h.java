@@ -1,15 +1,15 @@
 package com.baidu.swan.c;
 
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.webkit.internal.ETAG;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class h {
-    public static String zM(String str) {
+    public static String zL(String str) {
         int displayWidth = a.getDisplayWidth();
         int displayHeight = a.getDisplayHeight();
         int densityDpi = a.getDensityDpi();
@@ -72,7 +72,7 @@ public class h {
     }
 
     @NonNull
-    public static Map<String, String> yx(@NonNull String str) {
+    public static Map<String, String> yw(@NonNull String str) {
         String[] split;
         HashMap hashMap = new HashMap();
         for (String str2 : str.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR)) {

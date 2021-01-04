@@ -1,23 +1,23 @@
 package com.baidu.tieba.ala.personcenter.privilege.entereffect;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import com.baidu.ala.widget.multicolumn.absView.AbsFragment;
 import com.baidu.ala.widget.multicolumn.absView.AbsTabPagerAdapter;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.x;
 import java.util.LinkedList;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class AlaPrivilegeFragmentAdapter extends AbsTabPagerAdapter {
-    private LinkedList<AbsFragment> hNV;
+    private LinkedList<AbsFragment> iaq;
 
     public AlaPrivilegeFragmentAdapter(FragmentManager fragmentManager, LinkedList<AbsFragment> linkedList) {
         super(fragmentManager);
-        this.hNV = new LinkedList<>();
-        if (!y.isEmpty(linkedList)) {
-            if (!y.isEmpty(this.hNV)) {
-                this.hNV.clear();
+        this.iaq = new LinkedList<>();
+        if (!x.isEmpty(linkedList)) {
+            if (!x.isEmpty(this.iaq)) {
+                this.iaq.clear();
             }
-            this.hNV.addAll(linkedList);
+            this.iaq.addAll(linkedList);
         }
     }
 
@@ -28,16 +28,16 @@ public class AlaPrivilegeFragmentAdapter extends AbsTabPagerAdapter {
 
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabPagerAdapter
     public String getTabTitle(int i) {
-        return (i < 0 || i >= this.hNV.size()) ? "" : this.hNV.get(i).getTabTitle();
+        return (i < 0 || i >= this.iaq.size()) ? "" : this.iaq.get(i).getTabTitle();
     }
 
-    @Override // android.support.v4.app.FragmentPagerAdapter
+    @Override // androidx.fragment.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
-        return (AbsFragment) y.getItem(this.hNV, i);
+        return (AbsFragment) x.getItem(this.iaq, i);
     }
 
-    @Override // android.support.v4.view.PagerAdapter
+    @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        return y.getCount(this.hNV);
+        return x.getCount(this.iaq);
     }
 }

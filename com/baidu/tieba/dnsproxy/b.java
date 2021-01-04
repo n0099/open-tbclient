@@ -9,19 +9,19 @@ import com.baidu.adp.lib.util.j;
 import com.baidu.android.imsdk.db.TableDefine;
 import java.io.IOException;
 import java.util.Set;
-/* loaded from: classes13.dex */
+/* loaded from: classes8.dex */
 public class b {
-    private static b iqX = null;
+    private static b iDk = null;
 
-    public static final b ctM() {
-        if (iqX == null) {
+    public static final b cwD() {
+        if (iDk == null) {
             synchronized (b.class) {
-                if (iqX == null) {
-                    iqX = new b();
+                if (iDk == null) {
+                    iDk = new b();
                 }
             }
         }
-        return iqX;
+        return iDk;
     }
 
     private b() {
@@ -33,20 +33,20 @@ public class b {
         }
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes8.dex */
     private static class a extends BdAsyncTask<String, Void, Boolean> {
-        private static final BdUniqueId gtn = BdUniqueId.gen();
-        private long Ny;
-        Process frY;
+        private static final BdUniqueId gEm = BdUniqueId.gen();
+        private long MY;
+        Process fBD;
         private String ip;
 
         private a(String str) {
-            this.frY = null;
-            setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.TWO_PARALLEL, gtn));
+            this.fBD = null;
+            setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.TWO_PARALLEL, gEm));
             this.ip = str;
         }
 
-        private String bBn() {
+        private String bDI() {
             switch (j.netType()) {
                 case 1:
                     return "ping -c 3 -w 3000 ";
@@ -64,65 +64,39 @@ public class b {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            boolean z;
-            Throwable th;
-            InterruptedException e;
-            IOException e2;
             Runtime runtime = Runtime.getRuntime();
             try {
-                try {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    this.frY = runtime.exec(bBn() + this.ip);
-                    z = this.frY.waitFor() == 0;
-                    try {
-                        this.Ny = System.currentTimeMillis() - currentTimeMillis;
-                    } catch (IOException e3) {
-                        e2 = e3;
-                        BdLog.detailException(e2);
-                        d.ctN().eL("test_speed", e2.getMessage());
-                        this.frY.destroy();
-                        return Boolean.valueOf(z);
-                    } catch (InterruptedException e4) {
-                        e = e4;
-                        BdLog.detailException(e);
-                        d.ctN().eL("test_speed", e.getMessage());
-                        this.frY.destroy();
-                        return Boolean.valueOf(z);
-                    } catch (Throwable th2) {
-                        th = th2;
-                        BdLog.detailException(th);
-                        d.ctN().eL("test_speed", th.getMessage());
-                        this.frY.destroy();
-                        return Boolean.valueOf(z);
-                    }
-                } finally {
-                    this.frY.destroy();
-                }
-            } catch (IOException e5) {
-                z = false;
-                e2 = e5;
-            } catch (InterruptedException e6) {
-                z = false;
-                e = e6;
-            } catch (Throwable th3) {
-                z = false;
-                th = th3;
+                long currentTimeMillis = System.currentTimeMillis();
+                this.fBD = runtime.exec(bDI() + this.ip);
+                r0 = this.fBD.waitFor() == 0;
+                this.MY = System.currentTimeMillis() - currentTimeMillis;
+            } catch (InterruptedException e) {
+                BdLog.detailException(e);
+                d.cwE().eM("test_speed", e.getMessage());
+            } catch (IOException e2) {
+                BdLog.detailException(e2);
+                d.cwE().eM("test_speed", e2.getMessage());
+            } catch (Throwable th) {
+                BdLog.detailException(th);
+                d.cwE().eM("test_speed", th.getMessage());
+            } finally {
+                this.fBD.destroy();
             }
-            return Boolean.valueOf(z);
+            return Boolean.valueOf(r0);
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled() {
             super.onCancelled();
-            if (this.frY != null) {
+            if (this.fBD != null) {
                 try {
-                    this.frY.destroy();
+                    this.fBD.destroy();
                 } catch (Throwable th) {
                     th.printStackTrace();
                 }
             }
-            com.baidu.tieba.dnsproxy.a.d.cub().c(this.ip, (int) this.Ny, false);
+            com.baidu.tieba.dnsproxy.a.d.cwS().c(this.ip, (int) this.MY, false);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -130,12 +104,12 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             boolean booleanValue = bool != null ? bool.booleanValue() : true;
-            com.baidu.tieba.dnsproxy.a.d.cub().c(this.ip, (int) this.Ny, booleanValue);
+            com.baidu.tieba.dnsproxy.a.d.cwS().c(this.ip, (int) this.MY, booleanValue);
             com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
             statsItem.append("workflow", "dnsproxy_testspeed");
             statsItem.append("issuc", Boolean.valueOf(booleanValue));
             statsItem.append(TableDefine.UserInfoColumns.COLUMN_IP, this.ip);
-            statsItem.append("speed", Integer.valueOf((int) this.Ny));
+            statsItem.append("speed", Integer.valueOf((int) this.MY));
             BdStatisticsManager.getInstance().debug("dnsproxy", statsItem);
         }
     }

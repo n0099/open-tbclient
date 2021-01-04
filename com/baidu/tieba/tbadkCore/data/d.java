@@ -5,14 +5,14 @@ import com.baidu.tieba.frs.AbsDelegateAdapterList;
 /* loaded from: classes.dex */
 public class d {
     private Context mContext;
-    private AbsDelegateAdapterList nlh;
+    private AbsDelegateAdapterList nqP;
 
     public d(Context context, AbsDelegateAdapterList absDelegateAdapterList) {
         this.mContext = context;
-        this.nlh = absDelegateAdapterList;
+        this.nqP = absDelegateAdapterList;
     }
 
-    public AbsDelegateAdapterList dON() {
-        return this.nlh;
+    public AbsDelegateAdapterList dOF() {
+        return this.nqP;
     }
 }

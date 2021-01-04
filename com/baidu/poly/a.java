@@ -6,38 +6,38 @@ import com.baidu.poly.util.d;
 import com.baidu.poly.util.g;
 import com.baidu.poly.widget.PolyActivity;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 public class a {
-    private long cgl;
+    private long cnn;
 
     /* renamed from: com.baidu.poly.a$a  reason: collision with other inner class name */
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     public static class C0307a {
         private Context context;
-        private int cgm = 1;
+        private int cno = 1;
         private boolean debug = false;
 
-        public a adq() {
+        public a afm() {
             return new a(this);
         }
 
-        public C0307a bv(Context context) {
+        public C0307a bJ(Context context) {
             this.context = context;
             return this;
         }
 
-        public C0307a dZ(boolean z) {
+        public C0307a eg(boolean z) {
             this.debug = z;
             return this;
         }
 
-        public C0307a hf(int i) {
-            this.cgm = i;
+        public C0307a he(int i) {
+            this.cno = i;
             return this;
         }
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     public static abstract class b {
         public abstract void onResult(int i, String str);
     }
@@ -61,11 +61,11 @@ public class a {
         }
         if (cVar != null) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.cgl < 1000) {
+            if (currentTimeMillis - this.cnn < 1000) {
                 d.info("cashier pay time interval less than 1s");
                 return;
             }
-            this.cgl = currentTimeMillis;
+            this.cnn = currentTimeMillis;
             d.info("cashier pay");
             com.baidu.poly.a.h.a.a(Long.valueOf(currentTimeMillis));
             com.baidu.poly.a.h.d.a(new com.baidu.poly.a.h.b("0"));
@@ -76,13 +76,13 @@ public class a {
     }
 
     private a(C0307a c0307a) {
-        this.cgl = 0L;
+        this.cnn = 0L;
         if (c0307a != null) {
             if (c0307a.context != null) {
-                com.baidu.poly.a.b.a.b(c0307a.cgm);
-                com.baidu.poly.a.d.b.a(com.baidu.poly.a.d.a.bw(c0307a.context.getApplicationContext()));
+                com.baidu.poly.a.b.a.b(c0307a.cno);
+                com.baidu.poly.a.d.b.a(com.baidu.poly.a.d.a.bK(c0307a.context.getApplicationContext()));
                 g.b(c0307a.context.getApplicationContext());
-                d.ciw = c0307a.debug;
+                d.cpz = c0307a.debug;
                 return;
             }
             throw new IllegalArgumentException("context can not be null");

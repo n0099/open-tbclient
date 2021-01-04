@@ -1,7 +1,7 @@
 package com.baidu.clientupdate.appinfo;
 
 import java.io.Serializable;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class AppInfo implements Serializable {
     public String mApkMd5;
     public String mChangelog;

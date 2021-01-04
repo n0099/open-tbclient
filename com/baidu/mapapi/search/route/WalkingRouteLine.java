@@ -8,11 +8,11 @@ import com.baidu.mapapi.search.core.RouteLine;
 import com.baidu.mapapi.search.core.RouteNode;
 import com.baidu.mapapi.search.core.RouteStep;
 import java.util.List;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class WalkingRouteLine extends RouteLine<WalkingStep> implements Parcelable {
     public static final Parcelable.Creator<WalkingRouteLine> CREATOR = new r();
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public static class WalkingStep extends RouteStep implements Parcelable {
         public static final Parcelable.Creator<WalkingStep> CREATOR = new s();
         private int d;

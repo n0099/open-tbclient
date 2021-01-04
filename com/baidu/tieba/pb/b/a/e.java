@@ -3,25 +3,25 @@ package com.baidu.tieba.pb.b.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
-import com.baidu.tbadk.core.util.ah;
+import com.baidu.tbadk.core.util.ag;
 import java.util.ArrayList;
 import tbclient.ExcPbPage.ExcContent;
-/* loaded from: classes23.dex */
-public class e implements ah, d {
+/* loaded from: classes8.dex */
+public class e implements ag, d {
     private int height;
-    private ArrayList<PreLoadImageInfo> lYF;
-    public String lYG;
+    private ArrayList<PreLoadImageInfo> mdU;
+    public String mdV;
     private String src;
     private int width;
 
     public e(ExcContent excContent) {
         if (excContent != null && excContent.type != null && excContent.type.equals(3L)) {
-            this.lYF = new ArrayList<>(1);
+            this.mdU = new ArrayList<>(1);
             this.src = excContent.src;
-            this.lYG = excContent.bsize;
-            if (this.lYG != null) {
+            this.mdV = excContent.bsize;
+            if (this.mdV != null) {
                 try {
-                    String[] split = this.lYG.split(",");
+                    String[] split = this.mdV.split(",");
                     this.width = com.baidu.adp.lib.f.b.toInt(split[0], 0);
                     this.height = com.baidu.adp.lib.f.b.toInt(split[1], 0);
                 } catch (Exception e) {
@@ -44,7 +44,7 @@ public class e implements ah, d {
             } else {
                 preLoadImageInfo.imgUrl = str;
             }
-            this.lYF.add(preLoadImageInfo);
+            this.mdU.add(preLoadImageInfo);
         }
     }
 
@@ -52,7 +52,7 @@ public class e implements ah, d {
         return this.src;
     }
 
-    public int HL(int i) {
+    public int HE(int i) {
         if (i <= 0) {
             return 0;
         }
@@ -64,8 +64,8 @@ public class e implements ah, d {
         return 3;
     }
 
-    @Override // com.baidu.tbadk.core.util.ah
+    @Override // com.baidu.tbadk.core.util.ag
     public ArrayList<PreLoadImageInfo> getImages() {
-        return this.lYF;
+        return this.mdU;
     }
 }

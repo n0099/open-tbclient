@@ -6,50 +6,50 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.RectF;
 import android.graphics.Shader;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.style.ReplacementSpan;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 import java.util.Arrays;
 /* loaded from: classes.dex */
 public class b extends ReplacementSpan {
-    private int dtQ;
-    private int eXM;
-    private int eXO;
-    private int eXQ;
-    private int eXR;
-    private boolean eXS;
+    private Paint bjo;
+    private int dDL;
+    private int dzM;
+    private int fhm;
+    private int fho;
+    private int fhq;
+    private int fhr;
+    private boolean fhs;
     private String identify;
     private int mMarginLeft;
     private int mMarginRight;
-    private int mTextColorId;
-    private Paint mTextPaint;
     private int mTextSize;
-    private float[] eXN = new float[8];
-    private RectF eXP = new RectF();
-    private boolean eXT = false;
-    private int eXU = 0;
+    private float[] fhn = new float[8];
+    private RectF fhp = new RectF();
+    private boolean fht = false;
+    private int fhu = 0;
 
     public b(int i, int i2, int i3, int i4, int i5, int i6, int i7) {
-        this.eXM = i;
+        this.fhm = i;
         if (i2 > 0) {
-            qD(i2);
+            qO(i2);
         }
-        this.eXO = i3;
+        this.fho = i3;
         this.mTextSize = i4;
-        this.mTextColorId = i5;
-        this.dtQ = i6;
-        this.eXR = i7;
-        this.mTextPaint = new Paint();
-        this.mTextPaint.setAntiAlias(true);
-        this.mTextPaint.setStyle(Paint.Style.STROKE);
-        this.mTextPaint.setTextSize(this.mTextSize);
+        this.dDL = i5;
+        this.dzM = i6;
+        this.fhr = i7;
+        this.bjo = new Paint();
+        this.bjo.setAntiAlias(true);
+        this.bjo.setStyle(Paint.Style.STROKE);
+        this.bjo.setTextSize(this.mTextSize);
     }
 
-    public void qA(int i) {
+    public void qL(int i) {
         this.mMarginLeft = i;
     }
 
@@ -57,18 +57,18 @@ public class b extends ReplacementSpan {
         this.mMarginRight = i;
     }
 
-    public void jA(boolean z) {
-        this.eXT = z;
+    public void jW(boolean z) {
+        this.fht = z;
     }
 
-    public void qB(int i) {
-        this.eXU = i;
+    public void qM(int i) {
+        this.fhu = i;
     }
 
     @Override // android.text.style.ReplacementSpan
     public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, @Nullable Paint.FontMetricsInt fontMetricsInt) {
-        this.eXQ = ((int) this.mTextPaint.measureText(charSequence, i, i2)) + (this.dtQ * 2);
-        return this.eXQ + this.mMarginLeft + this.mMarginRight;
+        this.fhq = ((int) this.bjo.measureText(charSequence, i, i2)) + (this.dzM * 2);
+        return this.fhq + this.mMarginLeft + this.mMarginRight;
     }
 
     @Override // android.text.style.ReplacementSpan
@@ -76,17 +76,17 @@ public class b extends ReplacementSpan {
         int dimenPixelSize;
         int color;
         int color2;
-        this.mTextPaint.setColor(ap.getColor(this.eXO));
-        if (this.eXS) {
-            this.mTextPaint.setStyle(Paint.Style.FILL);
+        this.bjo.setColor(ao.getColor(this.fho));
+        if (this.fhs) {
+            this.bjo.setStyle(Paint.Style.FILL);
         } else {
-            this.mTextPaint.setStyle(Paint.Style.STROKE);
+            this.bjo.setStyle(Paint.Style.STROKE);
         }
-        if (this.eXT) {
-            this.eXP.left = this.mMarginLeft + f;
-            this.eXP.top = (i4 - this.eXR) + this.eXU;
-            this.eXP.right = this.eXQ + f + this.mMarginLeft;
-            this.eXP.bottom = this.eXU + i4;
+        if (this.fht) {
+            this.fhp.left = this.mMarginLeft + f;
+            this.fhp.top = (i4 - this.fhr) + this.fhu;
+            this.fhp.right = this.fhq + f + this.mMarginLeft;
+            this.fhp.bottom = this.fhu + i4;
         } else {
             Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
             if (!com.baidu.tbadk.core.elementsMaven.view.a.k(charSequence)) {
@@ -96,76 +96,76 @@ public class b extends ReplacementSpan {
                 dimenPixelSize = 0 - UtilHelper.getDimenPixelSize(R.dimen.tbds3);
             }
             int i6 = dimenPixelSize + fontMetricsInt.ascent + i4;
-            this.eXP.left = this.mMarginLeft + f;
-            this.eXP.top = i6;
-            this.eXP.right = this.eXQ + f + this.mMarginLeft;
-            this.eXP.bottom = i6 + this.eXR;
+            this.fhp.left = this.mMarginLeft + f;
+            this.fhp.top = i6;
+            this.fhp.right = this.fhq + f + this.mMarginLeft;
+            this.fhp.bottom = i6 + this.fhr;
         }
         if (this.identify != null) {
             if (" 吧主".equals(this.identify)) {
-                color = com.baidu.tbadk.core.util.e.c.a.getResources().getColor(R.color.CAM_X0302);
-                color2 = com.baidu.tbadk.core.util.e.c.a.getResources().getColor(R.color.CAM_X0302);
+                color = com.baidu.tbadk.core.util.f.c.a.getResources().getColor(R.color.CAM_X0302);
+                color2 = com.baidu.tbadk.core.util.f.c.a.getResources().getColor(R.color.CAM_X0302);
             } else if (" 小吧主".equals(this.identify)) {
-                color = com.baidu.tbadk.core.util.e.c.a.getResources().getColor(R.color.CAM_X0302);
-                color2 = com.baidu.tbadk.core.util.e.c.a.getResources().getColor(R.color.CAM_X0302);
+                color = com.baidu.tbadk.core.util.f.c.a.getResources().getColor(R.color.CAM_X0302);
+                color2 = com.baidu.tbadk.core.util.f.c.a.getResources().getColor(R.color.CAM_X0302);
             } else if (" 楼主".equals(this.identify)) {
-                color = com.baidu.tbadk.core.util.e.c.a.getResources().getColor(R.color.CAM_X0302);
-                color2 = com.baidu.tbadk.core.util.e.c.a.getResources().getColor(R.color.CAM_X0302);
+                color = com.baidu.tbadk.core.util.f.c.a.getResources().getColor(R.color.CAM_X0302);
+                color2 = com.baidu.tbadk.core.util.f.c.a.getResources().getColor(R.color.CAM_X0302);
             } else {
-                color = com.baidu.tbadk.core.util.e.c.a.getResources().getColor(R.color.CAM_X0302);
-                color2 = com.baidu.tbadk.core.util.e.c.a.getResources().getColor(R.color.CAM_X0302);
+                color = com.baidu.tbadk.core.util.f.c.a.getResources().getColor(R.color.CAM_X0302);
+                color2 = com.baidu.tbadk.core.util.f.c.a.getResources().getColor(R.color.CAM_X0302);
             }
-            this.mTextPaint.setShader(new LinearGradient(this.eXP.left, this.eXP.top, this.eXP.right, this.eXP.bottom, color, color2, Shader.TileMode.CLAMP));
+            this.bjo.setShader(new LinearGradient(this.fhp.left, this.fhp.top, this.fhp.right, this.fhp.bottom, color, color2, Shader.TileMode.CLAMP));
         }
         Path path = new Path();
-        path.addRoundRect(this.eXP, this.eXN, Path.Direction.CW);
-        canvas.drawPath(path, this.mTextPaint);
-        this.mTextPaint.setShader(null);
+        path.addRoundRect(this.fhp, this.fhn, Path.Direction.CW);
+        canvas.drawPath(path, this.bjo);
+        this.bjo.setShader(null);
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if ((skinType == 1 || skinType == 4) && this.identify != null) {
-            this.mTextPaint.setColor(com.baidu.tbadk.core.util.e.c.a.getResources().getColor(R.color.mask));
-            if (this.eXS) {
-                this.mTextPaint.setStyle(Paint.Style.FILL);
+            this.bjo.setColor(com.baidu.tbadk.core.util.f.c.a.getResources().getColor(R.color.mask));
+            if (this.fhs) {
+                this.bjo.setStyle(Paint.Style.FILL);
             } else {
-                this.mTextPaint.setStyle(Paint.Style.STROKE);
+                this.bjo.setStyle(Paint.Style.STROKE);
             }
             Path path2 = new Path();
-            path2.addRoundRect(this.eXP, this.eXN, Path.Direction.CW);
-            canvas.drawPath(path2, this.mTextPaint);
+            path2.addRoundRect(this.fhp, this.fhn, Path.Direction.CW);
+            canvas.drawPath(path2, this.bjo);
         }
-        Paint.FontMetricsInt fontMetricsInt2 = this.mTextPaint.getFontMetricsInt();
-        if (this.mTextColorId != 0) {
-            this.mTextPaint.setColor(ap.getColor(this.mTextColorId));
+        Paint.FontMetricsInt fontMetricsInt2 = this.bjo.getFontMetricsInt();
+        if (this.dDL != 0) {
+            this.bjo.setColor(ao.getColor(this.dDL));
         } else {
-            this.mTextPaint.setColor(com.baidu.tbadk.core.util.e.c.a.getResources().getColor(R.color.CAM_X0201));
+            this.bjo.setColor(com.baidu.tbadk.core.util.f.c.a.getResources().getColor(R.color.CAM_X0201));
         }
-        this.mTextPaint.setStyle(Paint.Style.FILL);
-        canvas.drawText(charSequence, i, i2, this.dtQ + f + this.mMarginLeft, (int) ((this.eXP.centerY() + ((fontMetricsInt2.bottom - fontMetricsInt2.top) / 2)) - fontMetricsInt2.bottom), this.mTextPaint);
+        this.bjo.setStyle(Paint.Style.FILL);
+        canvas.drawText(charSequence, i, i2, this.dzM + f + this.mMarginLeft, (int) ((this.fhp.centerY() + ((fontMetricsInt2.bottom - fontMetricsInt2.top) / 2)) - fontMetricsInt2.bottom), this.bjo);
     }
 
-    public void jB(boolean z) {
-        if (this.mTextPaint != null) {
-            this.eXS = z;
+    public void jX(boolean z) {
+        if (this.bjo != null) {
+            this.fhs = z;
             if (z) {
-                this.mTextPaint.setStyle(Paint.Style.FILL);
+                this.bjo.setStyle(Paint.Style.FILL);
             } else {
-                this.mTextPaint.setStyle(Paint.Style.STROKE);
+                this.bjo.setStyle(Paint.Style.STROKE);
             }
         }
     }
 
-    public void qC(int i) {
-        Arrays.fill(this.eXN, i);
+    public void qN(int i) {
+        Arrays.fill(this.fhn, i);
     }
 
-    public void qD(int i) {
-        float[] aH = com.baidu.tbadk.core.elementsMaven.a.aH(i);
-        if (!Arrays.equals(this.eXN, aH)) {
-            this.eXN = aH;
+    public void qO(int i) {
+        float[] aI = com.baidu.tbadk.core.elementsMaven.a.aI(i);
+        if (!Arrays.equals(this.fhn, aI)) {
+            this.fhn = aI;
         }
     }
 
-    public void Cv(String str) {
+    public void Ct(String str) {
         this.identify = str;
     }
 }

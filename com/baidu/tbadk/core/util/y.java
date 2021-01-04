@@ -1,100 +1,89 @@
 package com.baidu.tbadk.core.util;
 
-import java.util.List;
+import android.content.Context;
+import android.media.MediaScannerConnection;
+import android.net.Uri;
+import android.text.TextUtils;
+import com.baidu.down.manage.DownloadConstants;
 /* loaded from: classes.dex */
-public class y {
-    public static <T> void clear(List<T> list) {
-        if (list != null) {
-            list.clear();
+public class y implements MediaScannerConnection.MediaScannerConnectionClient {
+    private boolean completed;
+    private a fco;
+    private int length;
+    private MediaScannerConnection mConnection;
+    private Context mContext;
+    private String mMimeType;
+    private String[] mMimeTypes;
+    private String mPath;
+    private String[] mPaths;
+
+    /* loaded from: classes.dex */
+    public interface a {
+        void onScanCompeted();
+    }
+
+    public y(Context context) {
+        this.mContext = context;
+        this.mConnection = new MediaScannerConnection(this.mContext, this);
+    }
+
+    public void saveImage(String str) {
+        this.mPath = str;
+        String substring = this.mPath.substring(this.mPath.lastIndexOf("."));
+        this.mMimeType = "image/jpeg";
+        if (substring.equals(".gif")) {
+            this.mMimeType = DownloadConstants.MIMETYPE_GIF;
+        }
+        this.mConnection.connect();
+    }
+
+    public void saveVideo(String str) {
+        this.mPath = str;
+        this.mMimeType = getVideoMimeType(str);
+        this.mConnection.connect();
+    }
+
+    private String getVideoMimeType(String str) {
+        String lowerCase = str.toLowerCase();
+        if (!lowerCase.endsWith("mp4") && !lowerCase.endsWith("mpeg4") && lowerCase.endsWith("3gp")) {
+            return "video/3gp";
+        }
+        return "video/mp4";
+    }
+
+    @Override // android.media.MediaScannerConnection.MediaScannerConnectionClient
+    public void onMediaScannerConnected() {
+        if (!TextUtils.isEmpty(this.mPath) && !TextUtils.isEmpty(this.mMimeType)) {
+            this.mConnection.scanFile(this.mPath, this.mMimeType);
+        }
+        if (this.mPaths != null && this.mMimeTypes != null && this.mPaths.length == this.mMimeTypes.length) {
+            int length = this.mPaths.length;
+            for (int i = 0; i < length; i++) {
+                this.mConnection.scanFile(this.mPaths[i], this.mMimeTypes[i]);
+            }
         }
     }
 
-    public static <T> int getCount(List<T> list) {
-        if (list == null || list.isEmpty()) {
-            return 0;
+    @Override // android.media.MediaScannerConnection.OnScanCompletedListener
+    public void onScanCompleted(String str, Uri uri) {
+        if (!TextUtils.isEmpty(this.mPath) && !TextUtils.isEmpty(this.mMimeType) && str.equals(this.mPath)) {
+            this.mConnection.disconnect();
+            this.mPath = null;
+            this.mMimeType = null;
+            this.completed = true;
+        } else if (this.mPaths != null && this.mMimeTypes != null && this.mPaths.length == this.mMimeTypes.length) {
+            this.length--;
+            if (this.length == 0) {
+                this.mConnection.disconnect();
+                this.mPaths = null;
+                this.mMimeTypes = null;
+                this.completed = true;
+            } else {
+                this.completed = false;
+            }
         }
-        return list.size();
-    }
-
-    public static <T> T getItem(List<T> list, int i) {
-        if (list == null || list.isEmpty() || i < 0 || i >= list.size()) {
-            return null;
+        if (this.completed && this.fco != null) {
+            this.fco.onScanCompeted();
         }
-        return list.get(i);
-    }
-
-    public static <T> int getPosition(List<T> list, T t) {
-        if (list == null || list.isEmpty() || t == null) {
-            return -1;
-        }
-        return list.indexOf(t);
-    }
-
-    public static <T> boolean isEmpty(List<T> list) {
-        return getCount(list) <= 0;
-    }
-
-    public static <T> T remove(List<T> list, int i) {
-        if (list == null || list.isEmpty() || i < 0 || i >= list.size()) {
-            return null;
-        }
-        return list.remove(i);
-    }
-
-    public static <T> boolean add(List<T> list, T t) {
-        if (list == null) {
-            return false;
-        }
-        return list.add(t);
-    }
-
-    public static <T> boolean add(List<T> list, int i, T t) {
-        if (list == null || i > list.size() || i < 0) {
-            return false;
-        }
-        list.add(i, t);
-        return true;
-    }
-
-    public static <T> boolean addAll(List<T> list, int i, List<T> list2) {
-        if (list == null || i > list.size() || i < 0 || list2 == null || list2.size() <= 0) {
-            return false;
-        }
-        list.addAll(i, list2);
-        return true;
-    }
-
-    public static <T> List<T> subList(List<T> list, int i, int i2) {
-        int count = getCount(list);
-        if (count > 0 && i >= 0 && i2 <= count) {
-            return list.subList(i, i2);
-        }
-        return null;
-    }
-
-    public static <T> void removeSubList(List<T> list, int i, int i2) {
-        int count = getCount(list);
-        if (count > 0 && i >= 0 && i2 <= count) {
-            clear(list.subList(i, i2));
-        }
-    }
-
-    public static <T> boolean equalList(List<T> list, List<T> list2) {
-        if (list == list2) {
-            return true;
-        }
-        if (list == null || list2 == null) {
-            return false;
-        }
-        return list.size() == list2.size() && list.containsAll(list2);
-    }
-
-    public static <T> List<T> trimToSize(List<T> list, int i) {
-        int count = getCount(list);
-        int min = Math.min(count, i);
-        if (min > 0 && min < count) {
-            return subList(list, 0, min);
-        }
-        return list;
     }
 }

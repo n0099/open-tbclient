@@ -16,7 +16,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class c extends k {
     private RouteNode a(JSONArray jSONArray, List<RouteNode> list) {
         int length;
@@ -55,18 +55,18 @@ public class c extends k {
 
     private List<LatLng> a(JSONArray jSONArray) {
         int length;
-        double d = 0.0d;
         if (jSONArray == null || (length = jSONArray.length()) < 6) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
+        double d = 0.0d;
         double d2 = 0.0d;
         for (int i = 5; i < length; i++) {
             if (i % 2 != 0) {
-                d += jSONArray.optInt(i);
-            } else {
                 d2 += jSONArray.optInt(i);
-                arrayList.add(CoordUtil.mc2ll(new GeoPoint(d2, d)));
+            } else {
+                d += jSONArray.optInt(i);
+                arrayList.add(CoordUtil.mc2ll(new GeoPoint(d, d2)));
             }
         }
         return arrayList;
@@ -74,18 +74,17 @@ public class c extends k {
 
     private List<DrivingRouteLine.DrivingStep> a(JSONArray jSONArray, JSONArray jSONArray2) {
         int length;
-        boolean z;
         int i;
         int i2;
         if (jSONArray == null || (length = jSONArray.length()) <= 0) {
             return null;
         }
+        boolean z = true;
         int i3 = 0;
         if (jSONArray2 == null || (i3 = jSONArray2.length()) <= 0) {
             z = false;
             i = i3;
         } else {
-            z = true;
             i = i3;
         }
         ArrayList arrayList = new ArrayList();
@@ -231,17 +230,17 @@ public class c extends k {
                                 return false;
                             }
                             int length = optJSONArray2.length();
-                            ArrayList arrayList3 = new ArrayList();
                             int i2 = 0;
                             int i3 = 0;
+                            ArrayList arrayList3 = new ArrayList();
                             for (int i4 = 0; i4 < length; i4++) {
                                 JSONObject optJSONObject6 = optJSONArray2.optJSONObject(i4);
                                 if (optJSONObject6 != null) {
-                                    i3 += optJSONObject6.optInt("distance");
-                                    i2 += optJSONObject6.optInt("duration");
-                                    List<DrivingRouteLine.DrivingStep> b = b(optJSONObject6.optJSONArray("stepis"), a4);
-                                    if (b != null) {
-                                        arrayList3.addAll(b);
+                                    i2 += optJSONObject6.optInt("distance");
+                                    i3 += optJSONObject6.optInt("duration");
+                                    List<DrivingRouteLine.DrivingStep> b2 = b(optJSONObject6.optJSONArray("stepis"), a4);
+                                    if (b2 != null) {
+                                        arrayList3.addAll(b2);
                                     }
                                 }
                             }
@@ -252,8 +251,8 @@ public class c extends k {
                             } else {
                                 drivingRouteLine.setWayPoints(arrayList);
                             }
-                            drivingRouteLine.setDistance(i3);
-                            drivingRouteLine.setDuration(i2);
+                            drivingRouteLine.setDistance(i2);
+                            drivingRouteLine.setDuration(i3);
                             drivingRouteLine.setCongestionDistance(optJSONObject5.optInt("congestion_length"));
                             drivingRouteLine.setLightNum(optJSONObject5.optInt("light_num"));
                             drivingRouteLine.setToll(optJSONObject5.optInt("toll"));

@@ -1,41 +1,41 @@
 package com.baidu.live.gift.container.a;
 
 import android.animation.TypeEvaluator;
-/* loaded from: classes4.dex */
-public class a implements TypeEvaluator<C0188a> {
-    private C0188a bcA = new C0188a();
-    private float bcB;
-    private float bcC;
+/* loaded from: classes11.dex */
+public class a implements TypeEvaluator<C0182a> {
+    private C0182a bej = new C0182a();
+    private float bek;
+    private float bel;
 
     public a() {
-        this.bcA.k(1.0f, 1.0f);
-        this.bcB = 0.05882353f;
-        this.bcC = 0.90588236f;
+        this.bej.k(1.0f, 1.0f);
+        this.bek = 0.05882353f;
+        this.bel = 0.90588236f;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.animation.TypeEvaluator
     /* renamed from: a */
-    public C0188a evaluate(float f, C0188a c0188a, C0188a c0188a2) {
-        if (f <= this.bcB) {
-            this.bcA.k(f / this.bcB, f / this.bcB);
-        } else if (f <= this.bcC) {
-            this.bcA.k(1.0f, 1.0f);
+    public C0182a evaluate(float f, C0182a c0182a, C0182a c0182a2) {
+        if (f <= this.bek) {
+            this.bej.k(f / this.bek, f / this.bek);
+        } else if (f <= this.bel) {
+            this.bej.k(1.0f, 1.0f);
         } else {
-            this.bcA.k(1.0f - ((f - this.bcC) / (1.0f - this.bcC)), 1.0f - ((f - this.bcC) / (1.0f - this.bcC)));
+            this.bej.k(1.0f - ((f - this.bel) / (1.0f - this.bel)), 1.0f - ((f - this.bel) / (1.0f - this.bel)));
         }
-        return this.bcA;
+        return this.bej;
     }
 
     /* renamed from: com.baidu.live.gift.container.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class C0188a {
-        public float bcD;
+    /* loaded from: classes11.dex */
+    public static class C0182a {
+        public float bem;
         public float scale;
 
         public void k(float f, float f2) {
             this.scale = f;
-            this.bcD = f2;
+            this.bem = f2;
         }
     }
 }

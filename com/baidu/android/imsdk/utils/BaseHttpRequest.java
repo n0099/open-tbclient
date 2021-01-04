@@ -2,13 +2,15 @@ package com.baidu.android.imsdk.utils;
 
 import android.content.Context;
 import android.util.Pair;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.HttpHelper;
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 import java.util.UUID;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public abstract class BaseHttpRequest implements HttpHelper.Request, HttpHelper.ResponseHandler {
     protected Context mContext;
     protected boolean mIsNeedSaveToDb;
@@ -53,7 +55,7 @@ public abstract class BaseHttpRequest implements HttpHelper.Request, HttpHelper.
     }
 
     public String getMd5(String str) throws NoSuchAlgorithmException {
-        MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+        MessageDigest messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
         messageDigest.update(str.getBytes());
         return Utility.byte2Hex(messageDigest.digest());
     }
@@ -99,11 +101,11 @@ public abstract class BaseHttpRequest implements HttpHelper.Request, HttpHelper.
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
     public int getConnectTimeout() {
-        return 15000;
+        return BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL;
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
     public int getReadTimeout() {
-        return 15000;
+        return BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL;
     }
 }

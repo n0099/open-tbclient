@@ -7,15 +7,15 @@ import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.mobstat.Config;
 import java.io.IOException;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class u {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static Mask r(JsonReader jsonReader, com.airbnb.lottie.e eVar) throws IOException {
+    public static Mask r(JsonReader jsonReader, com.airbnb.lottie.d dVar) throws IOException {
         boolean z;
         boolean z2;
-        com.airbnb.lottie.model.a.d dVar = null;
         jsonReader.beginObject();
+        com.airbnb.lottie.model.a.d dVar2 = null;
         com.airbnb.lottie.model.a.h hVar = null;
         Mask.MaskMode maskMode = null;
         while (jsonReader.hasNext()) {
@@ -83,7 +83,7 @@ public class u {
                             maskMode = Mask.MaskMode.MaskModeSubtract;
                             continue;
                         case true:
-                            eVar.bf("Animation contains intersect masks. They are not supported but will be treated like add masks.");
+                            dVar.bc("Animation contains intersect masks. They are not supported but will be treated like add masks.");
                             maskMode = Mask.MaskMode.MaskModeIntersect;
                             continue;
                         default:
@@ -92,10 +92,10 @@ public class u {
                             continue;
                     }
                 case true:
-                    hVar = d.j(jsonReader, eVar);
+                    hVar = d.j(jsonReader, dVar);
                     break;
                 case true:
-                    dVar = d.g(jsonReader, eVar);
+                    dVar2 = d.g(jsonReader, dVar);
                     break;
                 default:
                     jsonReader.skipValue();
@@ -103,6 +103,6 @@ public class u {
             }
         }
         jsonReader.endObject();
-        return new Mask(maskMode, hVar, dVar);
+        return new Mask(maskMode, hVar, dVar2);
     }
 }

@@ -1,9 +1,7 @@
 package com.baidu.live.data;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class ai {
-    public int aLz = -1;
-    public int aLA = -1;
-    public int aLB = -1;
-    public int aLC = -1;
-    public w aLD = null;
+    public int liveType;
+    public String portrait;
+    public long userId;
 }

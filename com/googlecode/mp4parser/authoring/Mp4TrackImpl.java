@@ -30,7 +30,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class Mp4TrackImpl extends AbstractTrack {
     private List<CompositionTimeToSample.Entry> compositionTimeEntries;
     private long[] decodingTimes;
@@ -44,7 +44,6 @@ public class Mp4TrackImpl extends AbstractTrack {
     private TrackMetaData trackMetaData = new TrackMetaData();
 
     public Mp4TrackImpl(TrackBox trackBox, IsoFile... isoFileArr) {
-        long j;
         SampleFlags defaultSampleFlags;
         this.syncSamples = new long[0];
         long trackId = trackBox.getTrackHeaderBox().getTrackId();
@@ -73,9 +72,9 @@ public class Mp4TrackImpl extends AbstractTrack {
                 for (TrackExtendsBox trackExtendsBox : movieExtendsBox.getBoxes(TrackExtendsBox.class)) {
                     if (trackExtendsBox.getTrackId() == trackId) {
                         LinkedList<Long> linkedList = new LinkedList();
-                        long j2 = 1;
+                        long j = 1;
                         for (MovieFragmentBox movieFragmentBox : ((Box) trackBox.getParent()).getParent().getBoxes(MovieFragmentBox.class)) {
-                            long j3 = j2;
+                            long j2 = j;
                             for (TrackFragmentBox trackFragmentBox : movieFragmentBox.getBoxes(TrackFragmentBox.class)) {
                                 if (trackFragmentBox.getTrackFragmentHeaderBox().getTrackId() == trackId) {
                                     for (SampleEncryptionBox sampleEncryptionBox : trackFragmentBox.getBoxes(SampleEncryptionBox.class)) {
@@ -86,52 +85,49 @@ public class Mp4TrackImpl extends AbstractTrack {
                                         boolean z = true;
                                         Iterator<TrackRunBox.Entry> it = trackRunBox.getEntries().iterator();
                                         while (true) {
-                                            j = j3;
                                             boolean z2 = z;
-                                            if (!it.hasNext()) {
-                                                break;
-                                            }
-                                            TrackRunBox.Entry next = it.next();
-                                            if (trackRunBox.isSampleDurationPresent()) {
-                                                if (arrayList.size() == 0 || ((TimeToSampleBox.Entry) arrayList.get(arrayList.size() - 1)).getDelta() != next.getSampleDuration()) {
-                                                    arrayList.add(new TimeToSampleBox.Entry(1L, next.getSampleDuration()));
+                                            if (it.hasNext()) {
+                                                TrackRunBox.Entry next = it.next();
+                                                if (trackRunBox.isSampleDurationPresent()) {
+                                                    if (arrayList.size() == 0 || ((TimeToSampleBox.Entry) arrayList.get(arrayList.size() - 1)).getDelta() != next.getSampleDuration()) {
+                                                        arrayList.add(new TimeToSampleBox.Entry(1L, next.getSampleDuration()));
+                                                    } else {
+                                                        TimeToSampleBox.Entry entry = (TimeToSampleBox.Entry) arrayList.get(arrayList.size() - 1);
+                                                        entry.setCount(entry.getCount() + 1);
+                                                    }
+                                                } else if (trackFragmentHeaderBox.hasDefaultSampleDuration()) {
+                                                    arrayList.add(new TimeToSampleBox.Entry(1L, trackFragmentHeaderBox.getDefaultSampleDuration()));
                                                 } else {
-                                                    TimeToSampleBox.Entry entry = (TimeToSampleBox.Entry) arrayList.get(arrayList.size() - 1);
-                                                    entry.setCount(entry.getCount() + 1);
+                                                    arrayList.add(new TimeToSampleBox.Entry(1L, trackExtendsBox.getDefaultSampleDuration()));
                                                 }
-                                            } else if (trackFragmentHeaderBox.hasDefaultSampleDuration()) {
-                                                arrayList.add(new TimeToSampleBox.Entry(1L, trackFragmentHeaderBox.getDefaultSampleDuration()));
-                                            } else {
-                                                arrayList.add(new TimeToSampleBox.Entry(1L, trackExtendsBox.getDefaultSampleDuration()));
-                                            }
-                                            if (trackRunBox.isSampleCompositionTimeOffsetPresent()) {
-                                                if (this.compositionTimeEntries.size() == 0 || this.compositionTimeEntries.get(this.compositionTimeEntries.size() - 1).getOffset() != next.getSampleCompositionTimeOffset()) {
-                                                    this.compositionTimeEntries.add(new CompositionTimeToSample.Entry(1, CastUtils.l2i(next.getSampleCompositionTimeOffset())));
+                                                if (trackRunBox.isSampleCompositionTimeOffsetPresent()) {
+                                                    if (this.compositionTimeEntries.size() == 0 || this.compositionTimeEntries.get(this.compositionTimeEntries.size() - 1).getOffset() != next.getSampleCompositionTimeOffset()) {
+                                                        this.compositionTimeEntries.add(new CompositionTimeToSample.Entry(1, CastUtils.l2i(next.getSampleCompositionTimeOffset())));
+                                                    } else {
+                                                        CompositionTimeToSample.Entry entry2 = this.compositionTimeEntries.get(this.compositionTimeEntries.size() - 1);
+                                                        entry2.setCount(entry2.getCount() + 1);
+                                                    }
+                                                }
+                                                if (trackRunBox.isSampleFlagsPresent()) {
+                                                    defaultSampleFlags = next.getSampleFlags();
+                                                } else if (z2 && trackRunBox.isFirstSampleFlagsPresent()) {
+                                                    defaultSampleFlags = trackRunBox.getFirstSampleFlags();
+                                                } else if (trackFragmentHeaderBox.hasDefaultSampleFlags()) {
+                                                    defaultSampleFlags = trackFragmentHeaderBox.getDefaultSampleFlags();
                                                 } else {
-                                                    CompositionTimeToSample.Entry entry2 = this.compositionTimeEntries.get(this.compositionTimeEntries.size() - 1);
-                                                    entry2.setCount(entry2.getCount() + 1);
+                                                    defaultSampleFlags = trackExtendsBox.getDefaultSampleFlags();
                                                 }
+                                                if (defaultSampleFlags != null && !defaultSampleFlags.isSampleIsDifferenceSample()) {
+                                                    linkedList.add(Long.valueOf(j2));
+                                                }
+                                                j2++;
+                                                z = false;
                                             }
-                                            if (trackRunBox.isSampleFlagsPresent()) {
-                                                defaultSampleFlags = next.getSampleFlags();
-                                            } else if (z2 && trackRunBox.isFirstSampleFlagsPresent()) {
-                                                defaultSampleFlags = trackRunBox.getFirstSampleFlags();
-                                            } else if (trackFragmentHeaderBox.hasDefaultSampleFlags()) {
-                                                defaultSampleFlags = trackFragmentHeaderBox.getDefaultSampleFlags();
-                                            } else {
-                                                defaultSampleFlags = trackExtendsBox.getDefaultSampleFlags();
-                                            }
-                                            if (defaultSampleFlags != null && !defaultSampleFlags.isSampleIsDifferenceSample()) {
-                                                linkedList.add(Long.valueOf(j));
-                                            }
-                                            j3 = 1 + j;
-                                            z = false;
                                         }
-                                        j3 = j;
                                     }
                                 }
                             }
-                            j2 = j3;
+                            j = j2;
                         }
                         long[] jArr = this.syncSamples;
                         this.syncSamples = new long[this.syncSamples.length + linkedList.size()];

@@ -1,7 +1,7 @@
 package kotlin.jvm.internal;
 
 import kotlin.reflect.m;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public abstract class PropertyReference2 extends PropertyReference implements kotlin.reflect.m {
     @Override // kotlin.jvm.internal.CallableReference
     protected kotlin.reflect.b computeReflected() {

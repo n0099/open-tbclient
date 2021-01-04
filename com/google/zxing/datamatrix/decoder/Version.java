@@ -3,7 +3,7 @@ package com.google.zxing.datamatrix.decoder;
 import com.alibaba.fastjson.asm.Opcodes;
 import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 import com.google.zxing.FormatException;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class Version {
     private static final Version[] VERSIONS = buildVersions();
     private final int dataRegionSizeColumns;
@@ -15,7 +15,6 @@ public final class Version {
     private final int versionNumber;
 
     private Version(int i, int i2, int i3, int i4, int i5, ECBlocks eCBlocks) {
-        ECB[] eCBlocks2;
         this.versionNumber = i;
         this.symbolSizeRows = i2;
         this.symbolSizeColumns = i3;
@@ -23,11 +22,16 @@ public final class Version {
         this.dataRegionSizeColumns = i5;
         this.ecBlocks = eCBlocks;
         int eCCodewords = eCBlocks.getECCodewords();
+        ECB[] eCBlocks2 = eCBlocks.getECBlocks();
+        int length = eCBlocks2.length;
         int i6 = 0;
-        for (ECB ecb : eCBlocks.getECBlocks()) {
-            i6 += (ecb.getDataCodewords() + eCCodewords) * ecb.getCount();
+        int i7 = 0;
+        while (i6 < length) {
+            ECB ecb = eCBlocks2[i6];
+            i6++;
+            i7 = ((ecb.getDataCodewords() + eCCodewords) * ecb.getCount()) + i7;
         }
-        this.totalCodewords = i6;
+        this.totalCodewords = i7;
     }
 
     public int getVersionNumber() {
@@ -73,7 +77,7 @@ public final class Version {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes6.dex */
     public static final class ECBlocks {
         private final ECB[] ecBlocks;
         private final int ecCodewords;
@@ -100,7 +104,7 @@ public final class Version {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes6.dex */
     public static final class ECB {
         private final int count;
         private final int dataCodewords;

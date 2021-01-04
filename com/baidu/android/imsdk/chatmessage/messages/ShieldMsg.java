@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class ShieldMsg extends NormalMsg {
     public static final Parcelable.Creator<ShieldMsg> CREATOR = new Parcelable.Creator<ShieldMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.ShieldMsg.1
         /* JADX DEBUG: Method merged with bridge method */

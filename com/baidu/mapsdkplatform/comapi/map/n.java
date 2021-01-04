@@ -11,13 +11,15 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2236a = n.class.getSimpleName();
+    private static final String f3188a = n.class.getSimpleName();
     private static n c;
-    private AppBaseMap b;
+
+    /* renamed from: b  reason: collision with root package name */
+    private AppBaseMap f3189b;
     private s d;
     private Handler e;
 
@@ -41,8 +43,8 @@ public class n {
 
     private void h() {
         EnvironmentUtilities.initAppDirectory(BMapManager.getContext());
-        this.b = new AppBaseMap();
-        this.b.Create();
+        this.f3189b = new AppBaseMap();
+        this.f3189b.Create();
         String moduleFileName = SysOSUtil.getModuleFileName();
         String appSDCardPath = EnvironmentUtilities.getAppSDCardPath();
         String appCachePath = EnvironmentUtilities.getAppCachePath();
@@ -54,14 +56,14 @@ public class n {
         String str = com.baidu.platform.comapi.util.SysOSUtil.getInstance().getDensityDPI() >= 180 ? "/h/" : "/l/";
         String str2 = moduleFileName + "/cfg";
         String str3 = appSDCardPath + "/vmp";
-        this.b.Init(str2 + "/a/", str2 + "/idrres/", str3 + str, appCachePath + "/tmp/", appSecondCachePath + "/tmp/", str3 + str, str2 + "/a/", com.baidu.platform.comapi.util.SysOSUtil.getInstance().getScreenWidth(), com.baidu.platform.comapi.util.SysOSUtil.getInstance().getScreenHeight(), com.baidu.platform.comapi.util.SysOSUtil.getInstance().getDensityDPI(), mapTmpStgMax, domTmpStgMax, itsTmpStgMax, ssgTmpStgMax, false, false);
-        this.b.OnResume();
+        this.f3189b.Init(str2 + "/a/", str2 + "/idrres/", str3 + str, appCachePath + "/tmp/", appSecondCachePath + "/tmp/", str3 + str, str2 + "/a/", com.baidu.platform.comapi.util.SysOSUtil.getInstance().getScreenWidth(), com.baidu.platform.comapi.util.SysOSUtil.getInstance().getScreenHeight(), com.baidu.platform.comapi.util.SysOSUtil.getInstance().getDensityDPI(), mapTmpStgMax, domTmpStgMax, itsTmpStgMax, ssgTmpStgMax, false, false);
+        this.f3189b.OnResume();
     }
 
     public ArrayList<m> a(String str) {
         String OnSchcityGet;
         JSONArray optJSONArray;
-        if (str.equals("") || this.b == null || (OnSchcityGet = this.b.OnSchcityGet(str)) == null || OnSchcityGet.equals("")) {
+        if (str.equals("") || this.f3189b == null || (OnSchcityGet = this.f3189b.OnSchcityGet(str)) == null || OnSchcityGet.equals("")) {
             return null;
         }
         ArrayList<m> arrayList = new ArrayList<>();
@@ -75,8 +77,8 @@ public class n {
                 JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                 int optInt = jSONObject2.optInt("id");
                 if (optInt <= 2000 || optInt == 2912 || optInt == 2911 || optInt == 9000) {
-                    mVar.f2235a = optInt;
-                    mVar.b = jSONObject2.optString("name");
+                    mVar.f3186a = optInt;
+                    mVar.f3187b = jSONObject2.optString("name");
                     mVar.c = jSONObject2.optInt("mapsize");
                     mVar.d = jSONObject2.optInt(MapBundleKey.OfflineMapKey.OFFLINE_CITY_TYPE);
                     if (jSONObject2.has(MapBundleKey.OfflineMapKey.OFFLINE_CHILD)) {
@@ -85,8 +87,8 @@ public class n {
                         for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                             m mVar2 = new m();
                             JSONObject optJSONObject = optJSONArray2.optJSONObject(i2);
-                            mVar2.f2235a = optJSONObject.optInt("id");
-                            mVar2.b = optJSONObject.optString("name");
+                            mVar2.f3186a = optJSONObject.optInt("id");
+                            mVar2.f3187b = optJSONObject.optString("name");
                             mVar2.c = optJSONObject.optInt("mapsize");
                             mVar2.d = optJSONObject.optInt(MapBundleKey.OfflineMapKey.OFFLINE_CITY_TYPE);
                             arrayList2.add(mVar2);
@@ -110,25 +112,25 @@ public class n {
     }
 
     public boolean a(int i) {
-        if (this.b == null || i < 0) {
+        if (this.f3189b == null || i < 0) {
             return false;
         }
         if (i <= 2000 || i == 2912 || i == 2911 || i == 9000) {
-            return this.b.OnRecordAdd(i);
+            return this.f3189b.OnRecordAdd(i);
         }
         return false;
     }
 
     public boolean a(boolean z, boolean z2) {
-        if (this.b == null) {
+        if (this.f3189b == null) {
             return false;
         }
-        return this.b.OnRecordImport(z, z2);
+        return this.f3189b.OnRecordImport(z, z2);
     }
 
     public void b() {
         MessageCenter.unregistMessage(65289, this.e);
-        this.b.Release();
+        this.f3189b.Release();
         c = null;
     }
 
@@ -139,20 +141,20 @@ public class n {
     }
 
     public boolean b(int i) {
-        if (this.b == null || i < 0) {
+        if (this.f3189b == null || i < 0) {
             return false;
         }
         if (i <= 2000 || i == 2912 || i == 2911 || i == 9000) {
-            return this.b.OnRecordStart(i, false, 0);
+            return this.f3189b.OnRecordStart(i, false, 0);
         }
         return false;
     }
 
     public ArrayList<m> c() {
-        if (this.b == null) {
+        if (this.f3189b == null) {
             return null;
         }
-        String OnHotcityGet = this.b.OnHotcityGet();
+        String OnHotcityGet = this.f3189b.OnHotcityGet();
         ArrayList<m> arrayList = new ArrayList<>();
         try {
             JSONArray optJSONArray = new JSONObject(OnHotcityGet).optJSONArray("dataset");
@@ -160,8 +162,8 @@ public class n {
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     m mVar = new m();
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                    mVar.f2235a = optJSONObject.optInt("id");
-                    mVar.b = optJSONObject.optString("name");
+                    mVar.f3186a = optJSONObject.optInt("id");
+                    mVar.f3187b = optJSONObject.optString("name");
                     mVar.c = optJSONObject.optInt("mapsize");
                     mVar.d = optJSONObject.optInt(MapBundleKey.OfflineMapKey.OFFLINE_CITY_TYPE);
                     if (optJSONObject.has(MapBundleKey.OfflineMapKey.OFFLINE_CHILD)) {
@@ -170,8 +172,8 @@ public class n {
                         for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                             m mVar2 = new m();
                             JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i2);
-                            mVar2.f2235a = optJSONObject2.optInt("id");
-                            mVar2.b = optJSONObject2.optString("name");
+                            mVar2.f3186a = optJSONObject2.optInt("id");
+                            mVar2.f3187b = optJSONObject2.optString("name");
                             mVar2.c = optJSONObject2.optInt("mapsize");
                             mVar2.d = optJSONObject2.optInt(MapBundleKey.OfflineMapKey.OFFLINE_CITY_TYPE);
                             arrayList2.add(mVar2);
@@ -190,17 +192,17 @@ public class n {
     }
 
     public boolean c(int i) {
-        if (this.b == null || i < 0) {
+        if (this.f3189b == null || i < 0) {
             return false;
         }
-        return this.b.OnRecordSuspend(i, false, 0);
+        return this.f3189b.OnRecordSuspend(i, false, 0);
     }
 
     public ArrayList<m> d() {
-        if (this.b == null) {
+        if (this.f3189b == null) {
             return null;
         }
-        String OnSchcityGet = this.b.OnSchcityGet("");
+        String OnSchcityGet = this.f3189b.OnSchcityGet("");
         ArrayList<m> arrayList = new ArrayList<>();
         try {
             JSONArray optJSONArray = new JSONObject(OnSchcityGet).optJSONArray("dataset");
@@ -209,8 +211,8 @@ public class n {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 int optInt = optJSONObject.optInt("id");
                 if (optInt <= 2000 || optInt == 2912 || optInt == 2911 || optInt == 9000) {
-                    mVar.f2235a = optInt;
-                    mVar.b = optJSONObject.optString("name");
+                    mVar.f3186a = optInt;
+                    mVar.f3187b = optJSONObject.optString("name");
                     mVar.c = optJSONObject.optInt("mapsize");
                     mVar.d = optJSONObject.optInt(MapBundleKey.OfflineMapKey.OFFLINE_CITY_TYPE);
                     if (optJSONObject.has(MapBundleKey.OfflineMapKey.OFFLINE_CHILD)) {
@@ -219,8 +221,8 @@ public class n {
                         for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                             m mVar2 = new m();
                             JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i2);
-                            mVar2.f2235a = optJSONObject2.optInt("id");
-                            mVar2.b = optJSONObject2.optString("name");
+                            mVar2.f3186a = optJSONObject2.optInt("id");
+                            mVar2.f3187b = optJSONObject2.optString("name");
                             mVar2.c = optJSONObject2.optInt("mapsize");
                             mVar2.d = optJSONObject2.optInt(MapBundleKey.OfflineMapKey.OFFLINE_CITY_TYPE);
                             arrayList2.add(mVar2);
@@ -239,15 +241,15 @@ public class n {
     }
 
     public boolean d(int i) {
-        if (this.b == null) {
+        if (this.f3189b == null) {
             return false;
         }
-        return this.b.OnRecordSuspend(0, true, i);
+        return this.f3189b.OnRecordSuspend(0, true, i);
     }
 
     public ArrayList<q> e() {
         String OnRecordGetAll;
-        if (this.b == null || (OnRecordGetAll = this.b.OnRecordGetAll()) == null || OnRecordGetAll.equals("")) {
+        if (this.f3189b == null || (OnRecordGetAll = this.f3189b.OnRecordGetAll()) == null || OnRecordGetAll.equals("")) {
             return null;
         }
         ArrayList<q> arrayList = new ArrayList<>();
@@ -259,8 +261,8 @@ public class n {
                     q qVar = new q();
                     p pVar = new p();
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                    pVar.f2238a = optJSONObject.optInt("id");
-                    pVar.b = optJSONObject.optString("name");
+                    pVar.f3191a = optJSONObject.optInt("id");
+                    pVar.f3192b = optJSONObject.optString("name");
                     pVar.c = optJSONObject.optString("pinyin");
                     pVar.h = optJSONObject.optInt("mapoldsize");
                     pVar.i = optJSONObject.optInt(MapBundleKey.OfflineMapKey.OFFLINE_RATION);
@@ -286,18 +288,18 @@ public class n {
     }
 
     public boolean e(int i) {
-        if (this.b == null || i < 0) {
+        if (this.f3189b == null || i < 0) {
             return false;
         }
-        return this.b.OnRecordRemove(i, false);
+        return this.f3189b.OnRecordRemove(i, false);
     }
 
     public boolean f(int i) {
-        if (this.b == null || i < 0) {
+        if (this.f3189b == null || i < 0) {
             return false;
         }
         if (i <= 2000 || i == 2912 || i == 2911 || i == 9000) {
-            return this.b.OnRecordReload(i, false);
+            return this.f3189b.OnRecordReload(i, false);
         }
         return false;
     }
@@ -305,7 +307,7 @@ public class n {
     public q g(int i) {
         String OnRecordGetAt;
         q qVar = null;
-        if (this.b == null || i < 0 || (OnRecordGetAt = this.b.OnRecordGetAt(i)) == null || OnRecordGetAt.equals("")) {
+        if (this.f3189b == null || i < 0 || (OnRecordGetAt = this.f3189b.OnRecordGetAt(i)) == null || OnRecordGetAt.equals("")) {
             return null;
         }
         q qVar2 = new q();
@@ -315,8 +317,8 @@ public class n {
             if (jSONObject.length() != 0) {
                 int optInt = jSONObject.optInt("id");
                 if (optInt <= 2000 || optInt == 2912 || optInt == 2911 || optInt == 9000) {
-                    pVar.f2238a = optInt;
-                    pVar.b = jSONObject.optString("name");
+                    pVar.f3191a = optInt;
+                    pVar.f3192b = jSONObject.optString("name");
                     pVar.c = jSONObject.optString("pinyin");
                     pVar.d = jSONObject.optString("headchar");
                     pVar.h = jSONObject.optInt("mapoldsize");

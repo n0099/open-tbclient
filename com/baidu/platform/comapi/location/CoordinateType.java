@@ -1,5 +1,5 @@
 package com.baidu.platform.comapi.location;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public final class CoordinateType {
     public static final String BD09LL = "bd09ll";
     public static final String BD09MC = "bd09mc";

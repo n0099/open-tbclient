@@ -6,12 +6,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import com.baidu.live.data.j;
+import com.baidu.live.data.k;
 import com.baidu.live.sdk.a;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class b extends BaseAdapter {
-    private List<j> bae;
+    private List<k> bbL;
     private Context mContext;
     private int mType;
 
@@ -20,26 +20,26 @@ public class b extends BaseAdapter {
         this.mType = i;
     }
 
-    public void J(List<j> list) {
-        this.bae = list;
+    public void J(List<k> list) {
+        this.bbL = list;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.bae == null) {
+        if (this.bbL == null) {
             return 1;
         }
-        return this.bae.size() + 1;
+        return this.bbL.size() + 1;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: ew */
-    public j getItem(int i) {
-        if (this.bae == null || i < 0 || i >= getCount() - 1) {
+    /* renamed from: eu */
+    public k getItem(int i) {
+        if (this.bbL == null || i < 0 || i >= getCount() - 1) {
             return null;
         }
-        return this.bae.get(i);
+        return this.bbL.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -63,33 +63,33 @@ public class b extends BaseAdapter {
         if (view == null || view.getTag() == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.g.ala_gift_num_item, (ViewGroup) null);
             a aVar2 = new a();
-            aVar2.text = (TextView) view.findViewById(a.f.text);
+            aVar2.bbM = (TextView) view.findViewById(a.f.text);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
             aVar = (a) view.getTag();
         }
-        j item = getItem(i);
+        k item = getItem(i);
         if (getItemViewType(i) == 1) {
-            aVar.text.setText(a.h.ala_custom_num);
+            aVar.bbM.setText(a.h.ala_custom_num);
         } else if (item != null) {
             switch (this.mType) {
                 case 0:
-                    aVar.text.setText((item.getNumber() <= 0 ? 1 : item.getNumber()) + (item.getName() == null ? "" : item.getName()));
+                    aVar.bbM.setText((item.getNumber() <= 0 ? 1 : item.getNumber()) + (item.getName() == null ? "" : item.getName()));
                     break;
                 case 1:
-                    aVar.text.setText(item.getName() == null ? "" : item.getName());
+                    aVar.bbM.setText(item.getName() == null ? "" : item.getName());
                     break;
             }
         } else {
-            aVar.text.setText("");
+            aVar.bbM.setText("");
         }
         return view;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     private class a {
-        public TextView text;
+        public TextView bbM;
 
         private a() {
         }

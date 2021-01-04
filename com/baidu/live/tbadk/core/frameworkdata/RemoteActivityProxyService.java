@@ -11,7 +11,7 @@ import android.os.RemoteException;
 import android.text.TextUtils;
 import com.baidu.live.adp.base.BdBaseService;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class RemoteActivityProxyService extends BdBaseService {
     public static final int PLUGIN_CHECK_RESULT = 0;
     public static final int PLUGIN_LOADED_FAILED = 2;
@@ -28,7 +28,7 @@ public class RemoteActivityProxyService extends BdBaseService {
     }
 
     @SuppressLint({"HandlerLeak"})
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     private class IncomingHandler extends Handler {
         private IncomingHandler() {
         }

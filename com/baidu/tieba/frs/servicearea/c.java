@@ -1,15 +1,11 @@
 package com.baidu.tieba.frs.servicearea;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -18,150 +14,128 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.HotUserRankActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.tieba.tbadkCore.aa;
 import com.baidu.tieba.tbadkCore.ab;
+import com.baidu.tieba.view.ImageOverlayView;
 import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes22.dex */
-public class c implements b {
-    private FrsViewData jtc;
-    private final Context mContext;
-    private RecyclerView mRecyclerView;
-    private List<ab> mDataList = new ArrayList();
-    private RecyclerView.Adapter mAdapter = new RecyclerView.Adapter<a>() { // from class: com.baidu.tieba.frs.servicearea.c.1
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.support.v7.widget.RecyclerView.Adapter
-        /* renamed from: z */
-        public a onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-            return new a(new LinearLayout(viewGroup.getContext()), c.this.jtc);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.support.v7.widget.RecyclerView.Adapter
-        /* renamed from: a */
-        public void onBindViewHolder(a aVar, int i) {
-            aVar.a((ab) c.this.mDataList.get(i));
-        }
-
-        @Override // android.support.v7.widget.RecyclerView.Adapter
-        public int getItemCount() {
-            return c.this.mDataList.size();
+import tbclient.ShortUserInfo;
+/* loaded from: classes2.dex */
+public class c implements a, b {
+    private TextView dXi;
+    private ab jFB;
+    private TextView jFE;
+    private TextView jFF;
+    private TbClipImageView jFG;
+    private ImageOverlayView jFH;
+    private FrsViewData jFx;
+    private ImageView jvY;
+    private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.servicearea.c.1
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            if (!TextUtils.equals(c.this.mRootView.getResources().getString(R.string.hot_user_rank), c.this.jFB.imageUrl) || c.this.jFx == null || c.this.jFx.getForum() == null || TextUtils.isEmpty(c.this.jFx.getForum().getId())) {
+                if (c.this.jFB != null && c.this.jFB.nqy != null) {
+                    TiebaStatic.log(new aq("c13274").w("uid", TbadkCoreApplication.getCurrentAccountId()).dX("fid", c.this.jFB.forumId).dX("obj_source", "frs_card").dX("obj_id", c.this.jFB.nqy.id).dX("obj_name", c.this.jFB.nqy.name).an("obj_param1", c.this.jFB.nqy.eGU.intValue()));
+                }
+                d.a(view.getContext(), c.this.jFB);
+                d.c(c.this.jFB);
+                return;
+            }
+            HotUserRankActivityConfig hotUserRankActivityConfig = new HotUserRankActivityConfig(view.getContext());
+            hotUserRankActivityConfig.setForumId(Long.valueOf(com.baidu.adp.lib.f.b.toLong(c.this.jFx.getForum().getId(), 0L)));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, hotUserRankActivityConfig));
+            aq aqVar = new aq("c13666");
+            aqVar.dX("fid", c.this.jFx.getForum().getId());
+            TiebaStatic.log(aqVar);
         }
     };
+    private View mRootView;
 
     public c(Context context) {
-        this.mContext = context;
-        this.mRecyclerView = new RecyclerView(context);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
-        linearLayoutManager.setOrientation(0);
-        this.mRecyclerView.setLayoutManager(linearLayoutManager);
-        this.mRecyclerView.setAdapter(this.mAdapter);
-    }
-
-    @Override // com.baidu.tieba.frs.servicearea.b
-    public void setData(aa aaVar, FrsViewData frsViewData) {
-        if (aaVar != null && !y.isEmpty(aaVar.dataList)) {
-            this.mDataList = aaVar.dataList;
-            this.jtc = frsViewData;
-            this.mAdapter.notifyDataSetChanged();
-            this.mRecyclerView.setPadding(l.getDimens(this.mRecyclerView.getContext(), R.dimen.M_W_X007), 0, 0, 0);
-            this.mRecyclerView.setClipToPadding(false);
-        }
+        this.mRootView = LayoutInflater.from(context).inflate(R.layout.frs_one_service_layout, (ViewGroup) null);
+        this.dXi = (TextView) this.mRootView.findViewById(R.id.frs_service);
+        this.jFE = (TextView) this.mRootView.findViewById(R.id.frs_service_category);
+        this.jFF = (TextView) this.mRootView.findViewById(R.id.frs_service_name);
+        this.jFG = (TbClipImageView) this.mRootView.findViewById(R.id.frs_service_icon);
+        this.jFG.setDrawerType(1);
+        this.jFG.setIsRound(true);
+        this.jFG.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        int dimensionPixelOffset = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds57);
+        int dimensionPixelOffset2 = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds1);
+        int dimensionPixelOffset3 = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds15);
+        this.jFH = (ImageOverlayView) this.mRootView.findViewById(R.id.image_group);
+        this.jFH.k(3, dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset2, R.color.CAM_X0618, dimensionPixelOffset3);
+        this.jFH.setStrokeStyle(1);
+        this.jFH.setLoadImageType(12);
+        this.mRootView.setOnClickListener(this.mOnClickListener);
+        this.jvY = (ImageView) this.mRootView.findViewById(R.id.frs_service_arrow);
     }
 
     @Override // com.baidu.tieba.frs.servicearea.b
     public View getView() {
-        return this.mRecyclerView;
+        return this.mRootView;
     }
 
-    /* loaded from: classes22.dex */
-    public static class a extends RecyclerView.ViewHolder {
-        private LinearLayout fLe;
-        private FrsViewData jtc;
-        private FrameLayout jte;
-        private TbClipImageView jtf;
-        private ab jtg;
-        private List<String> jth;
-        private View.OnClickListener mOnClickListener;
-        private TextView mTextView;
-
-        public a(View view, FrsViewData frsViewData) {
-            super(view);
-            this.jth = new ArrayList();
-            this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.servicearea.c.a.1
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view2) {
-                    if (!TextUtils.equals(view2.getResources().getString(R.string.hot_user_rank), a.this.jtg.imageUrl) || a.this.jtc == null || a.this.jtc.getForum() == null || TextUtils.isEmpty(a.this.jtc.getForum().getId())) {
-                        if (a.this.jtg != null && a.this.jtg.nkQ != null) {
-                            TiebaStatic.log(new ar("c13274").w("uid", TbadkCoreApplication.getCurrentAccountId()).dY("fid", a.this.jtg.forumId).dY("obj_source", "frs_card").dY("obj_id", a.this.jtg.nkQ.id).dY("obj_name", a.this.jtg.nkQ.name).al("obj_param1", a.this.jtg.nkQ.exF.intValue()));
-                        }
-                        e.a(view2.getContext(), a.this.jtg);
-                        e.c(a.this.jtg);
-                        return;
-                    }
-                    HotUserRankActivityConfig hotUserRankActivityConfig = new HotUserRankActivityConfig(view2.getContext());
-                    hotUserRankActivityConfig.setForumId(Long.valueOf(com.baidu.adp.lib.f.b.toLong(a.this.jtc.getForum().getId(), 0L)));
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, hotUserRankActivityConfig));
-                    ar arVar = new ar("c13666");
-                    arVar.dY("fid", a.this.jtc.getForum().getId());
-                    TiebaStatic.log(arVar);
-                }
-            };
-            Context context = view.getContext();
-            this.jtc = frsViewData;
-            this.fLe = (LinearLayout) view;
-            this.fLe.setGravity(16);
-            this.fLe.setOrientation(0);
-            this.jte = new FrameLayout(context);
-            this.jtf = new TbClipImageView(context);
-            int dimens = l.getDimens(context, R.dimen.tbds57);
-            this.jtf.setDrawerType(1);
-            this.jtf.setIsRound(true);
-            this.jtf.setBorderWidth(R.dimen.L_X01);
-            this.jtf.setBorderColor(R.color.CAM_X0401);
-            this.jtf.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.jtf.setPlaceHolder(1);
-            this.jte.addView(this.jtf, new FrameLayout.LayoutParams(dimens, dimens));
-            this.fLe.addView(this.jte, new LinearLayout.LayoutParams(-2, l.getDimens(this.jtf.getContext(), R.dimen.tbds62)));
-            this.mTextView = new TextView(context);
-            this.mTextView.setTextSize(0, l.getDimens(context, R.dimen.T_X08));
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams.leftMargin = l.getDimens(context, R.dimen.tbds10);
-            layoutParams.rightMargin = l.getDimens(context, R.dimen.M_W_X008);
-            this.fLe.addView(this.mTextView, layoutParams);
-            view.setOnClickListener(this.mOnClickListener);
-        }
-
-        public void a(ab abVar) {
+    @Override // com.baidu.tieba.frs.servicearea.b
+    public void setData(aa aaVar, FrsViewData frsViewData) {
+        if (aaVar != null && !x.isEmpty(aaVar.dataList)) {
+            this.jFx = frsViewData;
+            ab abVar = aaVar.dataList.get(0);
             if (abVar != null) {
-                this.jtg = abVar;
-                if (TextUtils.equals(this.itemView.getResources().getString(R.string.hot_user_rank), abVar.imageUrl)) {
-                    this.jtf.setImageResource(R.drawable.icon_mask_service_celebrity24);
-                    FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.jtf.getLayoutParams();
-                    layoutParams.width = l.getDimens(this.jtf.getContext(), R.dimen.tbds62);
-                    layoutParams.height = l.getDimens(this.jtf.getContext(), R.dimen.tbds62);
+                this.jFB = abVar;
+                if (!TextUtils.equals(this.mRootView.getResources().getString(R.string.hot_user_rank), this.jFB.imageUrl)) {
+                    this.jFE.setText(this.mRootView.getContext().getString(R.string.forum_exclusive));
                 } else {
-                    this.jtf.startLoad(abVar.imageUrl, 10, false);
+                    this.jFE.setText(this.mRootView.getContext().getString(R.string.frs_service_special));
+                    this.dXi.setText(this.mRootView.getContext().getString(R.string.hot_person));
                 }
-                this.mTextView.setText(au.cutChineseAndEnglishWithSuffix(abVar.name, 10, ""));
-                ap.setViewTextColor(this.mTextView, R.color.CAM_X0105);
-                if (!this.jth.contains(abVar.name)) {
-                    e.b(abVar);
-                    this.jth.add(abVar.name);
+                this.jFF.setText(at.ao(abVar.name, 20));
+                if (TextUtils.equals(this.mRootView.getResources().getString(R.string.hot_user_rank), abVar.imageUrl)) {
+                    this.jFH.setVisibility(0);
+                    this.jFG.setVisibility(8);
+                    g(frsViewData);
+                } else {
+                    this.jFG.startLoad(abVar.imageUrl, 10, false);
+                    this.jFG.setVisibility(0);
+                    this.jFH.setVisibility(8);
                 }
+                d.b(abVar);
             }
         }
     }
 
     @Override // com.baidu.tieba.frs.servicearea.b
     public void onChangeSkinType(int i) {
-        this.mAdapter.notifyDataSetChanged();
+        ao.setViewTextColor(this.jFE, R.color.CAM_X0105);
+        ao.setViewTextColor(this.jFF, R.color.CAM_X0105);
+        ao.setViewTextColor(this.dXi, R.color.CAM_X0101);
+        WebPManager.a(this.jvY, R.drawable.icon_pure_arrow12_right, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS);
+        this.jFH.onChangeSkinType();
+    }
+
+    @Override // com.baidu.tieba.frs.servicearea.a
+    public void setThemeFontColor(int i) {
+        com.baidu.tbadk.core.util.f.a.bwU().qq(0).qx(l.getDimens(getView().getContext(), R.dimen.tbds10)).qs(i).bz(this.dXi);
+    }
+
+    private boolean g(FrsViewData frsViewData) {
+        if (frsViewData.getHotUserRankData() == null || frsViewData.getHotUserRankData().hot_user == null || frsViewData.getHotUserRankData().hot_user.size() <= 0) {
+            return true;
+        }
+        ArrayList arrayList = new ArrayList();
+        for (ShortUserInfo shortUserInfo : frsViewData.getHotUserRankData().hot_user) {
+            if (shortUserInfo != null) {
+                arrayList.add(shortUserInfo.portrait);
+            }
+        }
+        this.jFH.setData(arrayList);
+        return false;
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.idl.facesdk;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.idl.facesdk";
     public static final String BUILD_TYPE = "release";

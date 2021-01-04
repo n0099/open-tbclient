@@ -10,17 +10,6 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.os.SystemClock;
-import android.support.annotation.CallSuper;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.AccessibilityDelegateCompat;
-import android.support.v4.view.OnApplyWindowInsetsListener;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewCompat;
-import android.support.v4.view.WindowInsetsCompat;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.FocusFinder;
@@ -36,6 +25,17 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.animation.Interpolator;
 import android.widget.EdgeEffect;
 import android.widget.Scroller;
+import androidx.annotation.CallSuper;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.core.view.AccessibilityDelegateCompat;
+import androidx.core.view.OnApplyWindowInsetsListener;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.viewpager.widget.PagerAdapter;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Inherited;
 import java.lang.annotation.Retention;
@@ -47,7 +47,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class SlideRatioViewPager extends ViewGroup {
     private static final int CLOSE_ENOUGH = 2;
     private static final boolean DEBUG = false;
@@ -144,16 +144,16 @@ public class SlideRatioViewPager extends ViewGroup {
     @Target({ElementType.TYPE})
     @Inherited
     @Retention(RetentionPolicy.RUNTIME)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public @interface DecorView {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface OnAdapterChangeListener {
         void onAdapterChanged(@NonNull SlideRatioViewPager slideRatioViewPager, @Nullable PagerAdapter pagerAdapter, @Nullable PagerAdapter pagerAdapter2);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface OnPageChangeListener {
         void onPageScrollStateChanged(int i);
 
@@ -162,13 +162,13 @@ public class SlideRatioViewPager extends ViewGroup {
         void onPageSelected(int i);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface PageTransformer {
         void transformPage(View view, float f);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public static class ItemInfo {
         Object object;
         float offset;
@@ -180,7 +180,7 @@ public class SlideRatioViewPager extends ViewGroup {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public static class SimpleOnPageChangeListener implements OnPageChangeListener {
         @Override // com.baidu.live.tbadk.widget.SlideRatioViewPager.OnPageChangeListener
         public void onPageScrolled(int i, float f, int i2) {
@@ -272,7 +272,7 @@ public class SlideRatioViewPager extends ViewGroup {
         ViewCompat.setOnApplyWindowInsetsListener(this, new OnApplyWindowInsetsListener() { // from class: com.baidu.live.tbadk.widget.SlideRatioViewPager.4
             private final Rect mTempRect = new Rect();
 
-            @Override // android.support.v4.view.OnApplyWindowInsetsListener
+            @Override // androidx.core.view.OnApplyWindowInsetsListener
             public WindowInsetsCompat onApplyWindowInsets(View view, WindowInsetsCompat windowInsetsCompat) {
                 WindowInsetsCompat onApplyWindowInsets = ViewCompat.onApplyWindowInsets(view, windowInsetsCompat);
                 if (!onApplyWindowInsets.isConsumed()) {
@@ -673,77 +673,54 @@ public class SlideRatioViewPager extends ViewGroup {
     }
 
     void dataSetChanged() {
-        int i;
-        boolean z;
-        int i2;
-        boolean z2;
         int count = this.mAdapter.getCount();
         this.mExpectedAdapterCount = count;
-        boolean z3 = this.mItems.size() < (this.mOffscreenPageLimit * 2) + 1 && this.mItems.size() < count;
-        boolean z4 = false;
-        int i3 = this.mCurItem;
-        boolean z5 = z3;
-        int i4 = 0;
-        while (i4 < this.mItems.size()) {
-            ItemInfo itemInfo = this.mItems.get(i4);
+        boolean z = this.mItems.size() < (this.mOffscreenPageLimit * 2) + 1 && this.mItems.size() < count;
+        int i = this.mCurItem;
+        int i2 = 0;
+        boolean z2 = false;
+        boolean z3 = z;
+        while (i2 < this.mItems.size()) {
+            ItemInfo itemInfo = this.mItems.get(i2);
             int itemPosition = this.mAdapter.getItemPosition(itemInfo.object);
-            if (itemPosition == -1) {
-                i = i4;
-                z = z4;
-                i2 = i3;
-                z2 = z5;
-            } else if (itemPosition == -2) {
-                this.mItems.remove(i4);
-                int i5 = i4 - 1;
-                if (!z4) {
-                    this.mAdapter.startUpdate((ViewGroup) this);
-                    z4 = true;
+            if (itemPosition != -1) {
+                if (itemPosition == -2) {
+                    this.mItems.remove(i2);
+                    i2--;
+                    if (!z2) {
+                        this.mAdapter.startUpdate((ViewGroup) this);
+                        z2 = true;
+                    }
+                    this.mAdapter.destroyItem((ViewGroup) this, itemInfo.position, itemInfo.object);
+                    if (this.mCurItem == itemInfo.position) {
+                        i = Math.max(0, Math.min(this.mCurItem, count - 1));
+                        z3 = true;
+                    } else {
+                        z3 = true;
+                    }
+                } else if (itemInfo.position != itemPosition) {
+                    if (itemInfo.position == this.mCurItem) {
+                        i = itemPosition;
+                    }
+                    itemInfo.position = itemPosition;
+                    z3 = true;
                 }
-                this.mAdapter.destroyItem((ViewGroup) this, itemInfo.position, itemInfo.object);
-                if (this.mCurItem == itemInfo.position) {
-                    i = i5;
-                    z = z4;
-                    i2 = Math.max(0, Math.min(this.mCurItem, count - 1));
-                    z2 = true;
-                } else {
-                    i = i5;
-                    z = z4;
-                    i2 = i3;
-                    z2 = true;
-                }
-            } else if (itemInfo.position != itemPosition) {
-                if (itemInfo.position == this.mCurItem) {
-                    i3 = itemPosition;
-                }
-                itemInfo.position = itemPosition;
-                i = i4;
-                z = z4;
-                i2 = i3;
-                z2 = true;
-            } else {
-                i = i4;
-                z = z4;
-                i2 = i3;
-                z2 = z5;
             }
-            z5 = z2;
-            i3 = i2;
-            z4 = z;
-            i4 = i + 1;
+            i2++;
         }
-        if (z4) {
+        if (z2) {
             this.mAdapter.finishUpdate((ViewGroup) this);
         }
         Collections.sort(this.mItems, COMPARATOR);
-        if (z5) {
+        if (z3) {
             int childCount = getChildCount();
-            for (int i6 = 0; i6 < childCount; i6++) {
-                LayoutParams layoutParams = (LayoutParams) getChildAt(i6).getLayoutParams();
+            for (int i3 = 0; i3 < childCount; i3++) {
+                LayoutParams layoutParams = (LayoutParams) getChildAt(i3).getLayoutParams();
                 if (!layoutParams.isDecor) {
                     layoutParams.widthFactor = 0.0f;
                 }
             }
-            setCurrentItemInternal(i3, false, true);
+            setCurrentItemInternal(i, false, true);
             requestLayout();
         }
     }
@@ -752,8 +729,8 @@ public class SlideRatioViewPager extends ViewGroup {
         populate(this.mCurItem);
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x00f5, code lost:
-        if (r2.position == r17.mCurItem) goto L26;
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x00cb, code lost:
+        if (r0.position == r13.mCurItem) goto L26;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -764,6 +741,7 @@ public class SlideRatioViewPager extends ViewGroup {
         int i2;
         ItemInfo itemInfo2;
         ItemInfo infoForChild;
+        int i3;
         if (this.mCurItem == i) {
             itemInfo = null;
         } else {
@@ -777,10 +755,10 @@ public class SlideRatioViewPager extends ViewGroup {
             sortChildDrawingOrder();
         } else if (getWindowToken() != null) {
             this.mAdapter.startUpdate((ViewGroup) this);
-            int i3 = this.mOffscreenPageLimit;
-            int max = Math.max(0, this.mCurItem - i3);
+            int i4 = this.mOffscreenPageLimit;
+            int max = Math.max(0, this.mCurItem - i4);
             int count = this.mAdapter.getCount();
-            int min = Math.min(count - 1, i3 + this.mCurItem);
+            int min = Math.min(count - 1, i4 + this.mCurItem);
             if (count != this.mExpectedAdapterCount) {
                 try {
                     hexString = getResources().getResourceName(getId());
@@ -789,57 +767,61 @@ public class SlideRatioViewPager extends ViewGroup {
                 }
                 throw new IllegalStateException("The application's PagerAdapter changed the adapter's contents without calling PagerAdapter#notifyDataSetChanged! Expected adapter item count: " + this.mExpectedAdapterCount + ", found: " + count + " Pager id: " + hexString + " Pager class: " + getClass() + " Problematic adapter: " + this.mAdapter.getClass());
             }
-            int i4 = 0;
+            int i5 = 0;
             while (true) {
-                i2 = i4;
+                i2 = i5;
                 if (i2 >= this.mItems.size()) {
                     break;
                 }
                 itemInfo2 = this.mItems.get(i2);
                 if (itemInfo2.position < this.mCurItem) {
-                    i4 = i2 + 1;
+                    i5 = i2 + 1;
                 }
             }
             itemInfo2 = null;
             ItemInfo addNewItem = (itemInfo2 != null || count <= 0) ? itemInfo2 : addNewItem(this.mCurItem, i2);
             if (addNewItem != null) {
-                int i5 = i2 - 1;
-                ItemInfo itemInfo3 = i5 >= 0 ? this.mItems.get(i5) : null;
+                float f = 0.0f;
+                int i6 = i2 - 1;
+                ItemInfo itemInfo3 = i6 >= 0 ? this.mItems.get(i6) : null;
                 int clientWidth = getClientWidth();
                 float paddingLeft = clientWidth <= 0 ? 0.0f : (2.0f - addNewItem.widthFactor) + (getPaddingLeft() / clientWidth);
-                float f = 0.0f;
-                int i6 = i2;
-                int i7 = i5;
-                for (int i8 = this.mCurItem - 1; i8 >= 0; i8--) {
-                    if (f >= paddingLeft && i8 < max) {
+                int i7 = this.mCurItem - 1;
+                int i8 = i2;
+                while (i7 >= 0) {
+                    if (f >= paddingLeft && i7 < max) {
                         if (itemInfo3 == null) {
                             break;
-                        } else if (i8 == itemInfo3.position && !itemInfo3.scrolling) {
-                            this.mItems.remove(i7);
-                            this.mAdapter.destroyItem((ViewGroup) this, i8, itemInfo3.object);
-                            i7--;
-                            i6--;
-                            itemInfo3 = i7 >= 0 ? this.mItems.get(i7) : null;
+                        } else if (i7 != itemInfo3.position || itemInfo3.scrolling) {
+                            i3 = i6;
+                        } else {
+                            this.mItems.remove(i6);
+                            this.mAdapter.destroyItem((ViewGroup) this, i7, itemInfo3.object);
+                            i3 = i6 - 1;
+                            int i9 = i8 - 1;
+                            itemInfo3 = i3 >= 0 ? this.mItems.get(i3) : null;
+                            i8 = i9;
                         }
-                    } else if (itemInfo3 != null && i8 == itemInfo3.position) {
+                    } else if (itemInfo3 != null && i7 == itemInfo3.position) {
                         f += itemInfo3.widthFactor;
-                        i7--;
-                        itemInfo3 = i7 >= 0 ? this.mItems.get(i7) : null;
+                        i3 = i6 - 1;
+                        itemInfo3 = i3 >= 0 ? this.mItems.get(i3) : null;
                     } else {
-                        f += addNewItem(i8, i7 + 1).widthFactor;
-                        i6++;
-                        itemInfo3 = i7 >= 0 ? this.mItems.get(i7) : null;
+                        f += addNewItem(i7, i6 + 1).widthFactor;
+                        i8++;
+                        itemInfo3 = i6 >= 0 ? this.mItems.get(i6) : null;
+                        i3 = i6;
                     }
+                    i7--;
+                    i6 = i3;
                 }
                 float f2 = addNewItem.widthFactor;
-                int i9 = i6 + 1;
+                int i10 = i8 + 1;
                 if (f2 < 2.0f) {
-                    ItemInfo itemInfo4 = i9 < this.mItems.size() ? this.mItems.get(i9) : null;
+                    ItemInfo itemInfo4 = i10 < this.mItems.size() ? this.mItems.get(i10) : null;
                     float paddingRight = clientWidth <= 0 ? 0.0f : (getPaddingRight() / clientWidth) + 2.0f;
                     ItemInfo itemInfo5 = itemInfo4;
-                    int i10 = i9;
-                    int i11 = this.mCurItem + 1;
-                    while (i11 < count) {
+                    for (int i11 = this.mCurItem + 1; i11 < count; i11++) {
                         if (f2 >= paddingRight && i11 > min) {
                             if (itemInfo5 == null) {
                                 break;
@@ -858,12 +840,9 @@ public class SlideRatioViewPager extends ViewGroup {
                             f2 += addNewItem2.widthFactor;
                             itemInfo5 = i10 < this.mItems.size() ? this.mItems.get(i10) : null;
                         }
-                        i11++;
-                        itemInfo5 = itemInfo5;
-                        f2 = f2;
                     }
                 }
-                calculatePageOffsets(addNewItem, i6, itemInfo);
+                calculatePageOffsets(addNewItem, i8, itemInfo);
                 this.mAdapter.setPrimaryItem((ViewGroup) this, this.mCurItem, addNewItem.object);
             }
             this.mAdapter.finishUpdate((ViewGroup) this);
@@ -988,7 +967,7 @@ public class SlideRatioViewPager extends ViewGroup {
             ItemInfo itemInfo8 = this.mItems.get(i9);
             float f7 = f6;
             while (i8 < itemInfo8.position) {
-                f7 = this.mAdapter.getPageWidth(i8) + f + f7;
+                f7 += this.mAdapter.getPageWidth(i8) + f;
                 i8++;
             }
             if (itemInfo8.position == count - 1) {
@@ -1087,8 +1066,8 @@ public class SlideRatioViewPager extends ViewGroup {
         this.mFirstLayout = true;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:34:0x00a0  */
-    /* JADX WARN: Removed duplicated region for block: B:40:0x00b4  */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x00a1  */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x00b5  */
     @Override // android.view.View
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -1120,17 +1099,17 @@ public class SlideRatioViewPager extends ViewGroup {
                     i10 = 1073741824;
                 }
                 if (layoutParams2.width != -2) {
-                    i3 = 1073741824;
-                    i4 = layoutParams2.width != -1 ? layoutParams2.width : paddingLeft;
+                    i4 = 1073741824;
+                    i3 = layoutParams2.width != -1 ? layoutParams2.width : paddingLeft;
                 } else {
-                    i3 = i9;
-                    i4 = paddingLeft;
+                    i3 = paddingLeft;
+                    i4 = i9;
                 }
                 if (layoutParams2.height != -2) {
                     i10 = 1073741824;
                     if (layoutParams2.height != -1) {
                         i5 = layoutParams2.height;
-                        childAt.measure(View.MeasureSpec.makeMeasureSpec(i4, i3), View.MeasureSpec.makeMeasureSpec(i5, i10));
+                        childAt.measure(View.MeasureSpec.makeMeasureSpec(i3, i4), View.MeasureSpec.makeMeasureSpec(i5, i10));
                         if (!z) {
                             measuredHeight -= childAt.getMeasuredHeight();
                         } else if (z2) {
@@ -1139,7 +1118,7 @@ public class SlideRatioViewPager extends ViewGroup {
                     }
                 }
                 i5 = measuredHeight;
-                childAt.measure(View.MeasureSpec.makeMeasureSpec(i4, i3), View.MeasureSpec.makeMeasureSpec(i5, i10));
+                childAt.measure(View.MeasureSpec.makeMeasureSpec(i3, i4), View.MeasureSpec.makeMeasureSpec(i5, i10));
                 if (!z) {
                 }
             }
@@ -1190,110 +1169,105 @@ public class SlideRatioViewPager extends ViewGroup {
         int i5;
         int i6;
         int i7;
+        int measuredWidth;
         int measuredHeight;
         int i8;
-        int i9;
         int childCount = getChildCount();
-        int i10 = i3 - i;
-        int i11 = i4 - i2;
+        int i9 = i3 - i;
+        int i10 = i4 - i2;
         int paddingLeft = getPaddingLeft();
         int paddingTop = getPaddingTop();
         int paddingRight = getPaddingRight();
         int paddingBottom = getPaddingBottom();
         int scrollX = getScrollX();
+        int i11 = 0;
         int i12 = 0;
-        int i13 = 0;
-        while (i13 < childCount) {
-            View childAt = getChildAt(i13);
+        while (i12 < childCount) {
+            View childAt = getChildAt(i12);
             if (childAt.getVisibility() != 8) {
                 LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
                 if (layoutParams.isDecor) {
-                    int i14 = layoutParams.gravity & 7;
-                    int i15 = layoutParams.gravity & 112;
-                    switch (i14) {
+                    int i13 = layoutParams.gravity & 7;
+                    int i14 = layoutParams.gravity & 112;
+                    switch (i13) {
                         case 1:
-                            i7 = Math.max((i10 - childAt.getMeasuredWidth()) / 2, paddingLeft);
+                            measuredWidth = Math.max((i9 - childAt.getMeasuredWidth()) / 2, paddingLeft);
+                            i6 = paddingRight;
+                            i7 = paddingLeft;
                             break;
                         case 2:
                         case 4:
                         default:
+                            measuredWidth = paddingLeft;
+                            i6 = paddingRight;
                             i7 = paddingLeft;
                             break;
                         case 3:
-                            i7 = paddingLeft;
-                            paddingLeft = childAt.getMeasuredWidth() + paddingLeft;
+                            i7 = paddingLeft + childAt.getMeasuredWidth();
+                            measuredWidth = paddingLeft;
+                            i6 = paddingRight;
                             break;
                         case 5:
-                            int measuredWidth = (i10 - paddingRight) - childAt.getMeasuredWidth();
-                            paddingRight += childAt.getMeasuredWidth();
-                            i7 = measuredWidth;
+                            measuredWidth = (i9 - paddingRight) - childAt.getMeasuredWidth();
+                            i6 = paddingRight + childAt.getMeasuredWidth();
+                            i7 = paddingLeft;
                             break;
                     }
-                    switch (i15) {
+                    switch (i14) {
                         case 16:
-                            measuredHeight = Math.max((i11 - childAt.getMeasuredHeight()) / 2, paddingTop);
-                            int i16 = paddingBottom;
+                            measuredHeight = Math.max((i10 - childAt.getMeasuredHeight()) / 2, paddingTop);
                             i8 = paddingTop;
-                            i9 = i16;
                             break;
                         case 48:
-                            int measuredHeight2 = childAt.getMeasuredHeight() + paddingTop;
-                            int i17 = paddingTop;
-                            i9 = paddingBottom;
-                            i8 = measuredHeight2;
-                            measuredHeight = i17;
+                            i8 = paddingTop + childAt.getMeasuredHeight();
+                            measuredHeight = paddingTop;
                             break;
                         case 80:
-                            measuredHeight = (i11 - paddingBottom) - childAt.getMeasuredHeight();
-                            int measuredHeight3 = paddingBottom + childAt.getMeasuredHeight();
+                            measuredHeight = (i10 - paddingBottom) - childAt.getMeasuredHeight();
+                            paddingBottom += childAt.getMeasuredHeight();
                             i8 = paddingTop;
-                            i9 = measuredHeight3;
                             break;
                         default:
                             measuredHeight = paddingTop;
-                            int i18 = paddingBottom;
                             i8 = paddingTop;
-                            i9 = i18;
                             break;
                     }
-                    int i19 = i7 + scrollX;
-                    childAt.layout(i19, measuredHeight, childAt.getMeasuredWidth() + i19, childAt.getMeasuredHeight() + measuredHeight);
-                    i5 = i12 + 1;
-                    i6 = i8;
-                    paddingBottom = i9;
-                    i13++;
-                    paddingLeft = paddingLeft;
-                    paddingRight = paddingRight;
-                    paddingTop = i6;
-                    i12 = i5;
+                    int i15 = measuredWidth + scrollX;
+                    childAt.layout(i15, measuredHeight, childAt.getMeasuredWidth() + i15, childAt.getMeasuredHeight() + measuredHeight);
+                    i5 = i11 + 1;
+                    paddingTop = i8;
+                    i12++;
+                    i11 = i5;
+                    paddingRight = i6;
+                    paddingLeft = i7;
                 }
             }
-            i5 = i12;
-            i6 = paddingTop;
-            i13++;
-            paddingLeft = paddingLeft;
-            paddingRight = paddingRight;
-            paddingTop = i6;
-            i12 = i5;
+            i5 = i11;
+            i6 = paddingRight;
+            i7 = paddingLeft;
+            i12++;
+            i11 = i5;
+            paddingRight = i6;
+            paddingLeft = i7;
         }
-        int i20 = (i10 - paddingLeft) - paddingRight;
-        for (int i21 = 0; i21 < childCount; i21++) {
-            View childAt2 = getChildAt(i21);
+        int i16 = (i9 - paddingLeft) - paddingRight;
+        for (int i17 = 0; i17 < childCount; i17++) {
+            View childAt2 = getChildAt(i17);
             if (childAt2.getVisibility() != 8) {
                 LayoutParams layoutParams2 = (LayoutParams) childAt2.getLayoutParams();
                 if (!layoutParams2.isDecor && (infoForChild = infoForChild(childAt2)) != null) {
-                    int i22 = ((int) (infoForChild.offset * i20)) + paddingLeft;
+                    int i18 = ((int) (infoForChild.offset * i16)) + paddingLeft;
                     if (layoutParams2.needsMeasure) {
                         layoutParams2.needsMeasure = false;
-                        childAt2.measure(View.MeasureSpec.makeMeasureSpec((int) (layoutParams2.widthFactor * i20), 1073741824), View.MeasureSpec.makeMeasureSpec((i11 - paddingTop) - paddingBottom, 1073741824));
+                        childAt2.measure(View.MeasureSpec.makeMeasureSpec((int) (layoutParams2.widthFactor * i16), 1073741824), View.MeasureSpec.makeMeasureSpec((i10 - paddingTop) - paddingBottom, 1073741824));
                     }
-                    childAt2.layout(i22, paddingTop, childAt2.getMeasuredWidth() + i22, childAt2.getMeasuredHeight() + paddingTop);
+                    childAt2.layout(i18, paddingTop, childAt2.getMeasuredWidth() + i18, childAt2.getMeasuredHeight() + paddingTop);
                 }
             }
         }
         this.mTopPageBounds = paddingTop;
-        this.mBottomPageBounds = i11 - paddingBottom;
-        this.mDecorChildCount = i12;
+        this.mBottomPageBounds = i10 - paddingBottom;
+        this.mDecorChildCount = i11;
         if (this.mFirstLayout) {
             scrollToItem(this.mCurItem, false, 0, false);
         }
@@ -1351,45 +1325,36 @@ public class SlideRatioViewPager extends ViewGroup {
     protected void onPageScrolled(int i, float f, int i2) {
         int measuredWidth;
         int i3;
-        int i4;
         if (this.mDecorChildCount > 0) {
             int scrollX = getScrollX();
             int paddingLeft = getPaddingLeft();
             int paddingRight = getPaddingRight();
             int width = getWidth();
             int childCount = getChildCount();
-            int i5 = 0;
-            while (i5 < childCount) {
-                View childAt = getChildAt(i5);
+            int i4 = 0;
+            while (i4 < childCount) {
+                View childAt = getChildAt(i4);
                 LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
                 if (layoutParams.isDecor) {
                     switch (layoutParams.gravity & 7) {
                         case 1:
                             measuredWidth = Math.max((width - childAt.getMeasuredWidth()) / 2, paddingLeft);
-                            int i6 = paddingRight;
                             i3 = paddingLeft;
-                            i4 = i6;
                             break;
                         case 2:
                         case 4:
                         default:
                             measuredWidth = paddingLeft;
-                            int i7 = paddingRight;
                             i3 = paddingLeft;
-                            i4 = i7;
                             break;
                         case 3:
-                            int width2 = childAt.getWidth() + paddingLeft;
-                            int i8 = paddingLeft;
-                            i4 = paddingRight;
-                            i3 = width2;
-                            measuredWidth = i8;
+                            i3 = paddingLeft + childAt.getWidth();
+                            measuredWidth = paddingLeft;
                             break;
                         case 5:
                             measuredWidth = (width - paddingRight) - childAt.getMeasuredWidth();
-                            int measuredWidth2 = paddingRight + childAt.getMeasuredWidth();
+                            paddingRight += childAt.getMeasuredWidth();
                             i3 = paddingLeft;
-                            i4 = measuredWidth2;
                             break;
                     }
                     int left = (measuredWidth + scrollX) - childAt.getLeft();
@@ -1397,22 +1362,18 @@ public class SlideRatioViewPager extends ViewGroup {
                         childAt.offsetLeftAndRight(left);
                     }
                 } else {
-                    int i9 = paddingRight;
                     i3 = paddingLeft;
-                    i4 = i9;
                 }
-                i5++;
-                int i10 = i4;
+                i4++;
                 paddingLeft = i3;
-                paddingRight = i10;
             }
         }
         dispatchOnPageScrolled(i, f, i2);
         if (this.mPageTransformer != null) {
             int scrollX2 = getScrollX();
             int childCount2 = getChildCount();
-            for (int i11 = 0; i11 < childCount2; i11++) {
-                View childAt2 = getChildAt(i11);
+            for (int i5 = 0; i5 < childCount2; i5++) {
+                View childAt2 = getChildAt(i5);
                 if (!((LayoutParams) childAt2.getLayoutParams()).isDecor) {
                     this.mPageTransformer.transformPage(childAt2, (childAt2.getLeft() - scrollX2) / getClientWidth());
                 }
@@ -1717,8 +1678,8 @@ public class SlideRatioViewPager extends ViewGroup {
 
     private boolean performDrag(float f) {
         boolean z;
-        float f2;
         boolean z2;
+        float f2;
         boolean z3 = true;
         this.mLastMotionX = f;
         float scrollX = getScrollX() + (this.mLastMotionX - f);
@@ -1728,7 +1689,7 @@ public class SlideRatioViewPager extends ViewGroup {
         ItemInfo itemInfo = this.mItems.get(0);
         ItemInfo itemInfo2 = this.mItems.get(this.mItems.size() - 1);
         if (itemInfo.position != 0) {
-            f3 = itemInfo.offset * clientWidth;
+            f3 = clientWidth * itemInfo.offset;
             z = false;
         } else {
             z = true;
@@ -1737,8 +1698,8 @@ public class SlideRatioViewPager extends ViewGroup {
             f2 = itemInfo2.offset * clientWidth;
             z2 = false;
         } else {
-            f2 = f4;
             z2 = true;
+            f2 = f4;
         }
         if (scrollX < f3) {
             if (z) {
@@ -1764,42 +1725,39 @@ public class SlideRatioViewPager extends ViewGroup {
     }
 
     private ItemInfo infoForCurrentScrollPosition() {
-        int i;
         ItemInfo itemInfo;
         int clientWidth = getClientWidth();
         float scrollX = clientWidth > 0 ? getScrollX() / clientWidth : 0.0f;
         float f = clientWidth > 0 ? this.mPageMargin / clientWidth : 0.0f;
+        int i = -1;
+        boolean z = true;
+        int i2 = 0;
+        ItemInfo itemInfo2 = null;
         float f2 = 0.0f;
         float f3 = 0.0f;
-        int i2 = -1;
-        int i3 = 0;
-        boolean z = true;
-        ItemInfo itemInfo2 = null;
-        while (i3 < this.mItems.size()) {
-            ItemInfo itemInfo3 = this.mItems.get(i3);
-            if (z || itemInfo3.position == i2 + 1) {
-                i = i3;
+        while (i2 < this.mItems.size()) {
+            ItemInfo itemInfo3 = this.mItems.get(i2);
+            if (z || itemInfo3.position == i + 1) {
                 itemInfo = itemInfo3;
             } else {
                 ItemInfo itemInfo4 = this.mTempItem;
-                itemInfo4.offset = f2 + f3 + f;
-                itemInfo4.position = i2 + 1;
+                itemInfo4.offset = f3 + f2 + f;
+                itemInfo4.position = i + 1;
                 itemInfo4.widthFactor = this.mAdapter.getPageWidth(itemInfo4.position);
-                i = i3 - 1;
+                i2--;
                 itemInfo = itemInfo4;
             }
-            float f4 = itemInfo.offset;
-            float f5 = itemInfo.widthFactor + f4 + f;
-            if (z || scrollX >= f4) {
-                if (scrollX < f5 || i == this.mItems.size() - 1) {
+            f3 = itemInfo.offset;
+            float f4 = itemInfo.widthFactor + f3 + f;
+            if (z || scrollX >= f3) {
+                if (scrollX < f4 || i2 == this.mItems.size() - 1) {
                     return itemInfo;
                 }
-                f3 = f4;
-                i2 = itemInfo.position;
-                z = false;
+                i = itemInfo.position;
                 f2 = itemInfo.widthFactor;
+                i2++;
                 itemInfo2 = itemInfo;
-                i3 = i + 1;
+                z = false;
             } else {
                 return itemInfo2;
             }
@@ -2195,8 +2153,8 @@ public class SlideRatioViewPager extends ViewGroup {
     @Override // android.view.ViewGroup
     protected boolean onRequestFocusInDescendants(int i, Rect rect) {
         int i2;
+        int i3;
         ItemInfo infoForChild;
-        int i3 = -1;
         int childCount = getChildCount();
         if ((i & 2) != 0) {
             i3 = 1;
@@ -2204,6 +2162,7 @@ public class SlideRatioViewPager extends ViewGroup {
         } else {
             i2 = childCount - 1;
             childCount = -1;
+            i3 = -1;
         }
         while (i2 != childCount) {
             View childAt = getChildAt(i2);
@@ -2252,12 +2211,12 @@ public class SlideRatioViewPager extends ViewGroup {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public class MyAccessibilityDelegate extends AccessibilityDelegateCompat {
         MyAccessibilityDelegate() {
         }
 
-        @Override // android.support.v4.view.AccessibilityDelegateCompat
+        @Override // androidx.core.view.AccessibilityDelegateCompat
         public void onInitializeAccessibilityEvent(View view, AccessibilityEvent accessibilityEvent) {
             super.onInitializeAccessibilityEvent(view, accessibilityEvent);
             accessibilityEvent.setClassName(SlideRatioViewPager.class.getName());
@@ -2269,7 +2228,7 @@ public class SlideRatioViewPager extends ViewGroup {
             }
         }
 
-        @Override // android.support.v4.view.AccessibilityDelegateCompat
+        @Override // androidx.core.view.AccessibilityDelegateCompat
         public void onInitializeAccessibilityNodeInfo(View view, AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
             super.onInitializeAccessibilityNodeInfo(view, accessibilityNodeInfoCompat);
             accessibilityNodeInfoCompat.setClassName(SlideRatioViewPager.class.getName());
@@ -2282,7 +2241,7 @@ public class SlideRatioViewPager extends ViewGroup {
             }
         }
 
-        @Override // android.support.v4.view.AccessibilityDelegateCompat
+        @Override // androidx.core.view.AccessibilityDelegateCompat
         public boolean performAccessibilityAction(View view, int i, Bundle bundle) {
             if (super.performAccessibilityAction(view, i, bundle)) {
                 return true;
@@ -2310,7 +2269,7 @@ public class SlideRatioViewPager extends ViewGroup {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     private class PagerObserver extends DataSetObserver {
         PagerObserver() {
         }
@@ -2326,7 +2285,7 @@ public class SlideRatioViewPager extends ViewGroup {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public static class LayoutParams extends ViewGroup.LayoutParams {
         int childIndex;
         public int gravity;
@@ -2350,7 +2309,7 @@ public class SlideRatioViewPager extends ViewGroup {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public static class ViewPositionComparator implements Comparator<View> {
         ViewPositionComparator() {
         }

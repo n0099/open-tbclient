@@ -2,61 +2,61 @@ package com.baidu.yuyinala.privatemessage.session.view;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
-/* loaded from: classes4.dex */
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+/* loaded from: classes11.dex */
 public class SwipeListViewScroll extends HorizontalScrollView {
     private View contentView;
     private int index;
     private boolean isOpen;
-    private boolean oPG;
-    private boolean oYq;
-    private SwipeRefreshLayout oYr;
-    private SwipeListView oYs;
-    private int oYt;
-    private boolean oYu;
-    private int oYv;
+    private boolean oVQ;
+    private SwipeRefreshLayout peA;
+    private SwipeListView peB;
+    private int peC;
+    private boolean peD;
+    private int peE;
+    private boolean pez;
     private int width;
 
     public SwipeListViewScroll(Context context) {
         super(context);
-        this.oYq = false;
+        this.pez = false;
         this.isOpen = false;
-        this.oPG = true;
-        this.oYr = null;
-        this.oYs = null;
-        this.oYu = false;
-        this.oYv = (int) (20.0f * getResources().getDisplayMetrics().density);
+        this.oVQ = true;
+        this.peA = null;
+        this.peB = null;
+        this.peD = false;
+        this.peE = (int) (20.0f * getResources().getDisplayMetrics().density);
         this.width = 0;
         this.index = -1;
     }
 
     public SwipeListViewScroll(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.oYq = false;
+        this.pez = false;
         this.isOpen = false;
-        this.oPG = true;
-        this.oYr = null;
-        this.oYs = null;
-        this.oYu = false;
-        this.oYv = (int) (20.0f * getResources().getDisplayMetrics().density);
+        this.oVQ = true;
+        this.peA = null;
+        this.peB = null;
+        this.peD = false;
+        this.peE = (int) (20.0f * getResources().getDisplayMetrics().density);
         this.width = 0;
         this.index = -1;
     }
 
     public SwipeListViewScroll(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.oYq = false;
+        this.pez = false;
         this.isOpen = false;
-        this.oPG = true;
-        this.oYr = null;
-        this.oYs = null;
-        this.oYu = false;
-        this.oYv = (int) (20.0f * getResources().getDisplayMetrics().density);
+        this.oVQ = true;
+        this.peA = null;
+        this.peB = null;
+        this.peD = false;
+        this.peE = (int) (20.0f * getResources().getDisplayMetrics().density);
         this.width = 0;
         this.index = -1;
     }
@@ -65,27 +65,27 @@ public class SwipeListViewScroll extends HorizontalScrollView {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         if (z) {
             this.width = i3 - i;
-            PG(this.width);
+            Pu(this.width);
             measureChildren(this.width, i4 - i2);
         }
         super.onLayout(z, i, i2, i3, i4);
     }
 
     public void setCanSwipe(boolean z) {
-        this.oPG = z;
+        this.oVQ = z;
         if (!z && this.isOpen) {
             close();
         }
     }
 
-    private void PG(int i) {
+    private void Pu(int i) {
         setHorizontalScrollBarEnabled(false);
         setVerticalScrollBarEnabled(false);
         setFocusableInTouchMode(true);
         setFocusable(true);
         try {
-            this.oYs = (SwipeListView) getParent().getParent();
-            this.oYs.a(this);
+            this.peB = (SwipeListView) getParent().getParent();
+            this.peB.a(this);
             LinearLayout linearLayout = (LinearLayout) getChildAt(0);
             this.contentView = linearLayout.getChildAt(0);
             this.contentView.setFocusable(true);
@@ -93,16 +93,16 @@ public class SwipeListViewScroll extends HorizontalScrollView {
             this.contentView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.session.view.SwipeListViewScroll.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (SwipeListViewScroll.this.oYs.oYp != null) {
-                        SwipeListViewScroll.this.oYs.oYp.s(SwipeListViewScroll.this, SwipeListViewScroll.this.index);
+                    if (SwipeListViewScroll.this.peB.pey != null) {
+                        SwipeListViewScroll.this.peB.pey.v(SwipeListViewScroll.this, SwipeListViewScroll.this.index);
                     }
                 }
             });
             this.contentView.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.yuyinala.privatemessage.session.view.SwipeListViewScroll.2
                 @Override // android.view.View.OnLongClickListener
                 public boolean onLongClick(View view) {
-                    if (SwipeListViewScroll.this.oYs.oYp != null) {
-                        return SwipeListViewScroll.this.oYs.oYp.G(SwipeListViewScroll.this, SwipeListViewScroll.this.index);
+                    if (SwipeListViewScroll.this.peB.pey != null) {
+                        return SwipeListViewScroll.this.peB.pey.L(SwipeListViewScroll.this, SwipeListViewScroll.this.index);
                     }
                     return false;
                 }
@@ -110,14 +110,14 @@ public class SwipeListViewScroll extends HorizontalScrollView {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.contentView.getLayoutParams();
             layoutParams.width = i;
             this.contentView.setLayoutParams(layoutParams);
-            if (this.oYs.oYo != null) {
-                for (int i2 = 0; i2 < this.oYs.oYo.length; i2++) {
-                    final int i3 = this.oYs.oYo[i2];
+            if (this.peB.pex != null) {
+                for (int i2 = 0; i2 < this.peB.pex.length; i2++) {
+                    final int i3 = this.peB.pex[i2];
                     linearLayout.findViewById(i3).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.session.view.SwipeListViewScroll.3
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
-                            if (SwipeListViewScroll.this.oYs.oYp != null) {
-                                SwipeListViewScroll.this.oYs.oYp.a(i3, view, SwipeListViewScroll.this.index);
+                            if (SwipeListViewScroll.this.peB.pey != null) {
+                                SwipeListViewScroll.this.peB.pey.a(i3, view, SwipeListViewScroll.this.index);
                             }
                         }
                     });
@@ -128,8 +128,7 @@ public class SwipeListViewScroll extends HorizontalScrollView {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void setIndex(int i) {
+    protected void setIndex(int i) {
         this.index = i;
     }
 
@@ -139,7 +138,7 @@ public class SwipeListViewScroll extends HorizontalScrollView {
     }
 
     public void setSwipe(SwipeRefreshLayout swipeRefreshLayout) {
-        this.oYr = swipeRefreshLayout;
+        this.peA = swipeRefreshLayout;
     }
 
     public void close() {
@@ -148,12 +147,12 @@ public class SwipeListViewScroll extends HorizontalScrollView {
     }
 
     public void open() {
-        if (!this.oPG) {
+        if (!this.oVQ) {
             this.isOpen = false;
         } else if (this.contentView != null) {
             try {
-                if (this.oYs != null) {
-                    this.oYs.eoq();
+                if (this.peB != null) {
+                    this.peB.eoy();
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -165,41 +164,41 @@ public class SwipeListViewScroll extends HorizontalScrollView {
 
     @Override // android.widget.HorizontalScrollView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.oPG) {
+        if (this.oVQ) {
             boolean onTouchEvent = super.onTouchEvent(motionEvent);
             int scrollX = getScrollX();
             if (motionEvent.getAction() != 2) {
-                if (scrollX < this.oYv) {
+                if (scrollX < this.peE) {
                     close();
-                } else if (this.oYu) {
+                } else if (this.peD) {
                     close();
                 } else {
                     open();
                 }
             }
-            if (Math.abs(this.oYt - scrollX) >= 0) {
-                if (this.oYu) {
-                    if (this.oYt < scrollX) {
-                        this.oYu = false;
+            if (Math.abs(this.peC - scrollX) >= 0) {
+                if (this.peD) {
+                    if (this.peC < scrollX) {
+                        this.peD = false;
                     }
-                } else if (this.oYt > scrollX) {
-                    this.oYu = true;
+                } else if (this.peC > scrollX) {
+                    this.peD = true;
                 }
-                this.oYt = scrollX;
+                this.peC = scrollX;
             }
-            if (this.oYr != null) {
+            if (this.peA != null) {
                 if (motionEvent.getAction() != 2) {
-                    this.oYr.setEnabled(true);
+                    this.peA.setEnabled(true);
                 } else {
-                    this.oYr.setEnabled(false);
+                    this.peA.setEnabled(false);
                 }
             }
-            if (!this.oYq) {
-                this.oYq = true;
+            if (!this.pez) {
+                this.pez = true;
             }
             if (motionEvent.getAction() != 2) {
-                this.oYq = false;
-                this.oYt = scrollX;
+                this.pez = false;
+                this.peC = scrollX;
             }
             return onTouchEvent;
         }

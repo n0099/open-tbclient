@@ -2,7 +2,7 @@ package com.baidu.platform.comjni.map.aime;
 
 import com.baidu.platform.comapi.a.a;
 import com.baidu.platform.comjni.NativeComponent;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class NAAimeControl extends NativeComponent {
     public NAAimeControl() {
         create();

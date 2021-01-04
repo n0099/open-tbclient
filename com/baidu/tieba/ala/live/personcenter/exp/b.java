@@ -1,6 +1,6 @@
 package com.baidu.tieba.ala.live.personcenter.exp;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class b {
-    public String gZg;
+    public String hkV;
     public int level;
 }

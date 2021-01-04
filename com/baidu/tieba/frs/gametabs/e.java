@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.hybrid.n;
 import com.baidu.tbadk.core.hybrid.o;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class e extends n {
     public e(l lVar) {
         super(lVar);
@@ -16,11 +16,11 @@ public class e extends n {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.hybrid.n
-    public String blw() {
+    public String bnV() {
         return "TBHY_COMMON_IS_GAME_INSTALL";
     }
 
-    @o(bsz = false, value = "isGameInstall")
+    @o(bvb = false, value = "isGameInstall")
     private JSONObject isGameInstall(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;

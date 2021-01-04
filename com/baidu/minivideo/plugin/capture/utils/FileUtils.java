@@ -16,7 +16,7 @@ import java.util.Random;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 public class FileUtils {
     public static final String PUBLIC_SUCCESS_TEMP_DIR = "public_succes_temp";
     public static final String VIDEO_COVER_DIR = "video_cover";
@@ -74,7 +74,7 @@ public class FileUtils {
         if (!TextUtils.isEmpty(str)) {
             File file = new File(str);
             if (file.exists()) {
-                return EncryptUtils.encrypt("MD5", file, false);
+                return EncryptUtils.encrypt(EncryptUtils.ENCRYPT_MD5, file, false);
             }
         }
         return null;
@@ -87,13 +87,13 @@ public class FileUtils {
 
     public static long getDirectorySize(String str) throws IOException {
         long length;
+        long j = 0;
         File file = new File(str);
         File[] listFiles = file.listFiles();
         if (listFiles == null) {
             return file.length();
         }
         int length2 = listFiles.length;
-        long j = 0;
         for (int i = 0; i < length2; i++) {
             if (listFiles[i].isDirectory()) {
                 length = getDirectorySize(listFiles[i]);
@@ -107,12 +107,12 @@ public class FileUtils {
 
     public static long getDirectorySize(File file) throws IOException {
         long length;
+        long j = 0;
         File[] listFiles = file.listFiles();
         if (listFiles == null) {
             return file.length();
         }
         int length2 = listFiles.length;
-        long j = 0;
         for (int i = 0; i < length2; i++) {
             if (listFiles[i].isDirectory()) {
                 length = getDirectorySize(listFiles[i]);
@@ -125,35 +125,24 @@ public class FileUtils {
     }
 
     public static Bitmap getLocalVideoBitmap(String str) {
-        Bitmap bitmap;
-        IllegalArgumentException illegalArgumentException;
+        Bitmap bitmap = null;
         MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
         try {
             try {
                 mediaMetadataRetriever.setDataSource(str);
-                Bitmap frameAtTime = mediaMetadataRetriever.getFrameAtTime();
-                try {
-                    bitmap = BitmapUtils.scaleCover(frameAtTime, Integer.parseInt(mediaMetadataRetriever.extractMetadata(18)), Integer.parseInt(mediaMetadataRetriever.extractMetadata(19)), true);
-                } catch (IllegalArgumentException e) {
-                    bitmap = frameAtTime;
-                    illegalArgumentException = e;
-                    illegalArgumentException.printStackTrace();
-                    mediaMetadataRetriever.release();
-                    return bitmap;
-                } catch (Exception e2) {
-                    bitmap = frameAtTime;
-                    return bitmap;
-                }
-            } finally {
+                bitmap = BitmapUtils.scaleCover(mediaMetadataRetriever.getFrameAtTime(), Integer.parseInt(mediaMetadataRetriever.extractMetadata(18)), Integer.parseInt(mediaMetadataRetriever.extractMetadata(19)), true);
+                mediaMetadataRetriever.release();
+            } catch (IllegalArgumentException e) {
+                e.printStackTrace();
+                mediaMetadataRetriever.release();
+            } catch (Exception e2) {
                 mediaMetadataRetriever.release();
             }
-        } catch (IllegalArgumentException e3) {
-            bitmap = null;
-            illegalArgumentException = e3;
-        } catch (Exception e4) {
-            bitmap = null;
+            return bitmap;
+        } catch (Throwable th) {
+            mediaMetadataRetriever.release();
+            throw th;
         }
-        return bitmap;
     }
 
     public static String saveBitmap(Bitmap bitmap) {

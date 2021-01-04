@@ -27,14 +27,16 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class an {
     private static volatile String c;
     private static volatile int d = 0;
-    private final Handler b = new Handler(Looper.getMainLooper());
+
+    /* renamed from: b  reason: collision with root package name */
+    private final Handler f3710b = new Handler(Looper.getMainLooper());
 
     /* renamed from: a  reason: collision with root package name */
-    private final b f2541a = new b();
+    private final b f3709a = new b();
 
     public static void a() {
         d = 0;
@@ -96,7 +98,6 @@ public class an {
     private void a(Activity activity, View view, JSONArray jSONArray, String str, View view2) throws Exception {
         Rect e;
         Object obj;
-        String str2;
         int i = 0;
         if (view != null && (e = bj.e(view)) != null && !ai.a(view)) {
             String l = bj.l(view);
@@ -136,14 +137,15 @@ public class an {
                         jSONObject.put("page", activity.getClass().getName());
                         jSONObject.put(MapBundleKey.MapObjKey.OBJ_SS_ARROW_Z, bj.j(view));
                         if (view instanceof WebView) {
+                            String str2 = "";
                             String a2 = bl.a(activity, (WebView) view, e);
                             if (TextUtils.isEmpty(a2)) {
                                 obj = null;
-                                str2 = "";
                             } else {
                                 JSONObject jSONObject4 = new JSONObject(a2);
-                                str2 = jSONObject4.optString("url");
+                                String optString = jSONObject4.optString("url");
                                 obj = jSONObject4.optJSONArray("objects");
+                                str2 = optString;
                             }
                             if (obj == null) {
                                 obj = new JSONArray();
@@ -183,9 +185,9 @@ public class an {
 
     public Bitmap b(Activity activity) {
         List list;
-        this.f2541a.a(activity);
-        FutureTask futureTask = new FutureTask(this.f2541a);
-        this.b.post(futureTask);
+        this.f3709a.a(activity);
+        FutureTask futureTask = new FutureTask(this.f3709a);
+        this.f3710b.post(futureTask);
         List emptyList = Collections.emptyList();
         if (futureTask != null) {
             try {
@@ -204,67 +206,61 @@ public class an {
         if (emptyList.size() == 0) {
             return null;
         }
-        return ((c) emptyList.get(0)).c.f2542a;
+        return ((c) emptyList.get(0)).c.f3711a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     public static class b implements Callable<List<c>> {
 
         /* renamed from: a  reason: collision with root package name */
-        private Activity f2543a;
+        private Activity f3713a;
         private final int e = 160;
         private final DisplayMetrics c = new DisplayMetrics();
-        private final List<c> b = new ArrayList();
+
+        /* renamed from: b  reason: collision with root package name */
+        private final List<c> f3714b = new ArrayList();
         private final a d = new a();
 
         public void a(Activity activity) {
-            this.f2543a = activity;
+            this.f3713a = activity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
         /* renamed from: a */
         public List<c> call() throws Exception {
-            this.b.clear();
+            this.f3714b.clear();
             HashSet<Activity> hashSet = new HashSet(1);
-            hashSet.add(this.f2543a);
+            hashSet.add(this.f3713a);
             for (Activity activity : hashSet) {
                 String canonicalName = activity.getClass().getCanonicalName();
-                View b = bj.b(activity);
+                View b2 = bj.b(activity);
                 activity.getWindowManager().getDefaultDisplay().getMetrics(this.c);
-                this.b.add(new c(canonicalName, b));
+                this.f3714b.add(new c(canonicalName, b2));
             }
-            int size = this.b.size();
+            int size = this.f3714b.size();
             for (int i = 0; i < size; i++) {
                 b();
-                a(this.b.get(i));
+                a(this.f3714b.get(i));
                 c();
             }
-            return this.b;
+            return this.f3714b;
         }
 
         private void b() {
-            ai.a(this.f2543a, false);
+            ai.a(this.f3713a, false);
         }
 
         private void c() {
-            ai.a(this.f2543a, true);
+            ai.a(this.f3713a, true);
         }
 
         /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [359=5] */
-        /* JADX WARN: Removed duplicated region for block: B:13:0x005f  */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
         private void a(c cVar) {
             Bitmap bitmap;
-            Boolean bool;
-            Exception exc;
             Bitmap bitmap2;
-            Boolean valueOf;
-            Boolean bool2;
-            View view = cVar.b;
+            View view = cVar.f3716b;
             try {
                 Method declaredMethod = View.class.getDeclaredMethod("createSnapshot", Bitmap.Config.class, Integer.TYPE, Boolean.TYPE);
                 declaredMethod.setAccessible(true);
@@ -288,36 +284,19 @@ public class an {
                 bc.c().d(" autotrace:createSnapshot encounter exception", e6);
                 bitmap = null;
             }
+            Boolean bool = null;
             if (bitmap == null) {
                 try {
-                    valueOf = Boolean.valueOf(view.isDrawingCacheEnabled());
-                } catch (Exception e7) {
-                    bool = null;
-                    exc = e7;
-                }
-                try {
+                    bool = Boolean.valueOf(view.isDrawingCacheEnabled());
                     view.setDrawingCacheEnabled(true);
                     view.buildDrawingCache(true);
-                    bitmap2 = view.getDrawingCache();
-                    bool2 = valueOf;
-                } catch (Exception e8) {
-                    bool = valueOf;
-                    exc = e8;
-                    bc.c().a("autotrace: Can't take a bitmap snapshot of view " + view + ", skipping for now.", exc);
+                    bitmap = view.getDrawingCache();
+                } catch (Exception e7) {
+                    bc.c().a("autotrace: Can't take a bitmap snapshot of view " + view + ", skipping for now.", e7);
                     bitmap2 = bitmap;
-                    if (bitmap2 != null) {
-                    }
-                    if (bool != null) {
-                        view.setDrawingCacheEnabled(false);
-                    }
-                    cVar.d = r0;
-                    cVar.c = this.d;
                 }
-            } else {
-                bitmap2 = bitmap;
-                bool2 = null;
             }
-            bool = bool2;
+            bitmap2 = bitmap;
             if (bitmap2 != null) {
                 int density = bitmap2.getDensity();
                 r0 = density != 0 ? 160.0f / density : 1.0f;
@@ -338,43 +317,47 @@ public class an {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     public static class a {
-        private final Paint b = new Paint(2);
+
+        /* renamed from: b  reason: collision with root package name */
+        private final Paint f3712b = new Paint(2);
 
         /* renamed from: a  reason: collision with root package name */
-        private Bitmap f2542a = null;
+        private Bitmap f3711a = null;
 
         public synchronized void a(int i, int i2, int i3, Bitmap bitmap) {
-            if (this.f2542a == null || this.f2542a.getWidth() != i || this.f2542a.getHeight() != i2) {
+            if (this.f3711a == null || this.f3711a.getWidth() != i || this.f3711a.getHeight() != i2) {
                 try {
-                    this.f2542a = Bitmap.createBitmap(i, i2, Bitmap.Config.RGB_565);
+                    this.f3711a = Bitmap.createBitmap(i, i2, Bitmap.Config.RGB_565);
                 } catch (OutOfMemoryError e) {
-                    this.f2542a = null;
+                    this.f3711a = null;
                 }
-                if (this.f2542a != null) {
-                    this.f2542a.setDensity(i3);
+                if (this.f3711a != null) {
+                    this.f3711a.setDensity(i3);
                 }
             }
-            if (this.f2542a != null) {
-                new Canvas(this.f2542a).drawBitmap(bitmap, 0.0f, 0.0f, this.b);
+            if (this.f3711a != null) {
+                new Canvas(this.f3711a).drawBitmap(bitmap, 0.0f, 0.0f, this.f3712b);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f2544a;
-        public final View b;
+        public final String f3715a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final View f3716b;
         public a c = null;
         public float d = 1.0f;
 
         public c(String str, View view) {
-            this.f2544a = str;
-            this.b = view;
+            this.f3715a = str;
+            this.f3716b = view;
         }
     }
 }

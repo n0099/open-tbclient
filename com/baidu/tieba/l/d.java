@@ -2,16 +2,16 @@ package com.baidu.tieba.l;
 
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.util.n;
-import com.baidu.tieba.l.g;
+import com.baidu.tieba.l.f;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import org.json.JSONArray;
-/* loaded from: classes23.dex */
+/* loaded from: classes8.dex */
 public class d {
-    public static boolean i(File file, String str) {
+    public static boolean j(File file, String str) {
         return a(file, str, true);
     }
 
@@ -49,7 +49,7 @@ public class d {
         }
     }
 
-    public static void Ph(String str) {
+    public static void OP(String str) {
         if (!StringUtils.isNull(str)) {
             File file = new File(str);
             if (!file.exists()) {
@@ -58,7 +58,7 @@ public class d {
         }
     }
 
-    public static String aa(File file) {
+    public static String ad(File file) {
         FileInputStream fileInputStream;
         StringBuilder sb = new StringBuilder();
         try {
@@ -97,21 +97,21 @@ public class d {
         return sb.toString();
     }
 
-    public static JSONArray Pi(String str) {
+    public static JSONArray OQ(String str) {
         JSONArray jSONArray = new JSONArray();
         if (StringUtils.isNull(str)) {
             return jSONArray;
         }
         File file = new File(str);
         if (file.exists()) {
-            String aa = aa(file);
-            String[] split = aa.split("\n");
+            String ad = ad(file);
+            String[] split = ad.split("\n");
             if (split.length > 0) {
                 for (String str2 : split) {
-                    c(str2, jSONArray);
+                    d(str2, jSONArray);
                 }
             } else {
-                c(aa, jSONArray);
+                d(ad, jSONArray);
             }
             n.deleteFile(file);
             return jSONArray;
@@ -119,7 +119,7 @@ public class d {
         return jSONArray;
     }
 
-    private static void c(String str, JSONArray jSONArray) {
+    private static void d(String str, JSONArray jSONArray) {
         if (!StringUtils.isNull(str) && jSONArray != null) {
             try {
                 JSONArray jSONArray2 = new JSONArray(str);
@@ -132,9 +132,9 @@ public class d {
         }
     }
 
-    public static void Pj(String str) {
+    public static void OR(String str) {
         if (!StringUtils.isNull(str)) {
-            n.deleteFileOrDir(new File(g.a.lln + g.a.lld + str));
+            n.deleteFileOrDir(new File(f.a.lqX + f.a.lqN + str));
         }
     }
 }

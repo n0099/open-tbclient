@@ -6,7 +6,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public class LruMemoryCache implements MemoryCacheAware<String, Bitmap> {
     private final LinkedHashMap<String, Bitmap> map;
     private final int maxSize;

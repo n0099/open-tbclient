@@ -5,14 +5,14 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.style.ImageSpan;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class b extends ImageSpan {
-    private int VT;
-    private int VU;
+    private int VV;
+    private int VW;
     private WeakReference<Drawable> mDrawableRef;
     private int offset;
 
@@ -30,7 +30,7 @@ public class b extends ImageSpan {
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, @Nullable Paint.FontMetricsInt fontMetricsInt) {
-        return super.getSize(paint, charSequence, i, i2, fontMetricsInt) + this.VU + this.VT;
+        return super.getSize(paint, charSequence, i, i2, fontMetricsInt) + this.VW + this.VV;
     }
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
@@ -38,7 +38,7 @@ public class b extends ImageSpan {
         Drawable cachedDrawable = getCachedDrawable();
         canvas.save();
         int i6 = paint.getFontMetricsInt().top;
-        canvas.translate(this.VU + f, ((i5 - cachedDrawable.getBounds().bottom) - (((paint.getFontMetricsInt().bottom - i6) / 2) - ((cachedDrawable.getBounds().top + cachedDrawable.getBounds().bottom) / 2))) + this.offset);
+        canvas.translate(this.VW + f, ((i5 - cachedDrawable.getBounds().bottom) - (((paint.getFontMetricsInt().bottom - i6) / 2) - ((cachedDrawable.getBounds().top + cachedDrawable.getBounds().bottom) / 2))) + this.offset);
         cachedDrawable.draw(canvas);
         canvas.restore();
     }
@@ -57,7 +57,7 @@ public class b extends ImageSpan {
         return drawable;
     }
 
-    public void aL(int i) {
-        this.VU = i;
+    public void aM(int i) {
+        this.VW = i;
     }
 }

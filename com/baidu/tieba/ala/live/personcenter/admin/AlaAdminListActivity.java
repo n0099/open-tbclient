@@ -10,15 +10,15 @@ import com.baidu.live.tbadk.core.util.SkinManager;
 import com.baidu.live.tbadk.core.view.NavigationBar;
 import com.baidu.live.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.ala.live.personcenter.admin.c.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaAdminListActivity extends BaseFragmentActivity {
-    private NoNetworkView gYv;
-    private a gYw;
+    private NoNetworkView hkk;
+    private a hkl;
     private NavigationBar mNavigationBar;
     private View rootView;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
+    @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         String str;
         super.onCreate(bundle);
@@ -32,9 +32,9 @@ public class AlaAdminListActivity extends BaseFragmentActivity {
             }
             this.rootView = findViewById(a.f.ala_person_adminlist_rootview);
             this.mNavigationBar = (NavigationBar) findViewById(a.f.ala_person_adminlist_navigation_bar);
-            this.gYv = (NoNetworkView) findViewById(a.f.ala_person_adminlist_no_network_view);
-            this.gYw = new com.baidu.tieba.ala.live.personcenter.admin.c.a(getPageContext(), this.rootView, str);
-            this.gYw.onCreate(bundle);
+            this.hkk = (NoNetworkView) findViewById(a.f.ala_person_adminlist_no_network_view);
+            this.hkl = new com.baidu.tieba.ala.live.personcenter.admin.c.a(getPageContext(), this.rootView, str);
+            this.hkl.onCreate(bundle);
             this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.mNavigationBar.setCenterTextTitle(getString(a.h.sdk_prc_person_live_admin));
         }
@@ -48,11 +48,11 @@ public class AlaAdminListActivity extends BaseFragmentActivity {
         }
         SkinManager.setBackgroundResource(this.mNavigationBar, a.c.sdk_cp_bg_line_d);
         SkinManager.setBackgroundResource(this.rootView, a.c.sdk_cp_bg_line_d);
-        if (this.gYv != null) {
-            this.gYv.onChangeSkinType(getPageContext(), i);
+        if (this.hkk != null) {
+            this.hkk.onChangeSkinType(getPageContext(), i);
         }
-        if (this.gYw != null) {
-            this.gYw.onChangeSkinType(i);
+        if (this.hkl != null) {
+            this.hkl.onChangeSkinType(i);
         }
     }
 }

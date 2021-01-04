@@ -3,28 +3,28 @@ package com.baidu.ufosdk.ui;
 import android.view.View;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes22.dex */
+/* loaded from: classes8.dex */
 public final class ab implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackEditActivity f3745a;
+    final /* synthetic */ FeedbackEditActivity f5706a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(FeedbackEditActivity feedbackEditActivity) {
-        this.f3745a = feedbackEditActivity;
+        this.f5706a = feedbackEditActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
         boolean z;
         List list;
-        z = this.f3745a.v;
+        z = this.f5706a.v;
         if (z) {
             return;
         }
-        list = this.f3745a.q;
+        list = this.f5706a.q;
         if (list.size() > 0) {
-            FeedbackEditActivity.a(this.f3745a, 1);
+            FeedbackEditActivity.a(this.f5706a, 1);
         }
     }
 }

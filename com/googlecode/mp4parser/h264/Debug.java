@@ -1,37 +1,29 @@
 package com.googlecode.mp4parser.h264;
 
 import java.nio.ShortBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class Debug {
     public static final boolean debug = false;
 
     public static final void print8x8(int[] iArr) {
         int i = 0;
-        int i2 = 0;
-        while (i < 8) {
-            int i3 = i2;
-            for (int i4 = 0; i4 < 8; i4++) {
-                System.out.printf("%3d, ", Integer.valueOf(iArr[i3]));
-                i3++;
+        for (int i2 = 0; i2 < 8; i2++) {
+            for (int i3 = 0; i3 < 8; i3++) {
+                System.out.printf("%3d, ", Integer.valueOf(iArr[i]));
+                i++;
             }
             System.out.println();
-            i++;
-            i2 = i3;
         }
     }
 
     public static final void print8x8(short[] sArr) {
         int i = 0;
-        int i2 = 0;
-        while (i < 8) {
-            int i3 = i2;
-            for (int i4 = 0; i4 < 8; i4++) {
-                System.out.printf("%3d, ", Short.valueOf(sArr[i3]));
-                i3++;
+        for (int i2 = 0; i2 < 8; i2++) {
+            for (int i3 = 0; i3 < 8; i3++) {
+                System.out.printf("%3d, ", Short.valueOf(sArr[i]));
+                i++;
             }
             System.out.println();
-            i++;
-            i2 = i3;
         }
     }
 
@@ -46,16 +38,12 @@ public class Debug {
 
     public static void print(short[] sArr) {
         int i = 0;
-        int i2 = 0;
-        while (i < 8) {
-            int i3 = i2;
-            for (int i4 = 0; i4 < 8; i4++) {
-                System.out.printf("%3d, ", Short.valueOf(sArr[i3]));
-                i3++;
+        for (int i2 = 0; i2 < 8; i2++) {
+            for (int i3 = 0; i3 < 8; i3++) {
+                System.out.printf("%3d, ", Short.valueOf(sArr[i]));
+                i++;
             }
             System.out.println();
-            i++;
-            i2 = i3;
         }
     }
 

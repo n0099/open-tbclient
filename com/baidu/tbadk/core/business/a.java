@@ -1,183 +1,138 @@
 package com.baidu.tbadk.core.business;
 
-import android.text.format.DateUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.lib.util.j;
-import com.baidu.tbadk.BdToken.completeTask.CompleteTaskReqMsg;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.RecordVideoActivityConfig;
-import com.baidu.tieba.compatible.EditorHelper;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.util.DisplayMetrics;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import com.baidu.adp.lib.f.g;
+import com.baidu.adp.lib.util.l;
+import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class a {
-    private static a eDm;
-    private ArrayList<com.baidu.tbadk.BdToken.completeTask.a> eDn = new ArrayList<>();
-
-    public static a bmh() {
-        if (eDm == null) {
-            synchronized (a.class) {
-                if (eDm == null) {
-                    eDm = new a();
-                }
+    private ViewGroup blI;
+    private com.baidu.tbadk.BdToken.completeTask.a eMQ;
+    private EMTextView eMR;
+    private EMTextView eMS;
+    private EMTextView eMT;
+    private EMTextView eMU;
+    private InterfaceC0576a eMV;
+    private final Activity mActivity;
+    private AlertDialog mDialog;
+    private View mRootView;
+    private boolean mDialogCreated = false;
+    private boolean cancelableFlag = true;
+    private int mDialogGravity = -1;
+    private View.OnClickListener eMW = new View.OnClickListener() { // from class: com.baidu.tbadk.core.business.a.1
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            if (a.this.eMV != null) {
+                a.this.eMV.onCancel();
+                a.this.mDialog.dismiss();
             }
         }
-        return eDm;
-    }
-
-    public void O(JSONArray jSONArray) {
-        if (jSONArray != null) {
-            P(jSONArray);
-        }
-    }
-
-    private void P(JSONArray jSONArray) {
-        JSONObject jSONObject;
-        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (!StringUtils.isNull(currentAccount) && jSONArray != null) {
-            this.eDn.clear();
-            for (int i = 0; i < jSONArray.length(); i++) {
-                try {
-                    jSONObject = jSONArray.getJSONObject(i);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    jSONObject = null;
-                }
-                com.baidu.tbadk.BdToken.completeTask.a aVar = new com.baidu.tbadk.BdToken.completeTask.a();
-                aVar.activityId = jSONObject.optInt("active_id");
-                aVar.missionId = jSONObject.optInt("mission_id");
-                aVar.showType = jSONObject.optInt(RecordVideoActivityConfig.SHOW_TYPE);
-                long j = getLong("business_update_time" + currentAccount + aVar.activityId);
-                if (isContains("business_count_hint" + currentAccount + aVar.activityId) && DateUtils.isToday(j)) {
-                    aVar.showNum = getInt("business_count_hint" + currentAccount + aVar.activityId);
-                } else {
-                    aVar.showNum = jSONObject.optInt("show_num");
-                    clear();
-                    putInt("business_count_hint" + currentAccount + aVar.activityId, aVar.showNum);
-                    putLong("business_update_time" + currentAccount + aVar.activityId, System.currentTimeMillis());
-                }
-                aVar.eyT = jSONObject.optInt("show_time_begin");
-                aVar.eyU = jSONObject.optInt("show_time_end");
-                JSONArray optJSONArray = jSONObject.optJSONArray("forumIds");
-                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                    try {
-                        aVar.eyW.add((String) optJSONArray.get(i2));
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
-                    }
-                }
-                JSONArray optJSONArray2 = jSONObject.optJSONArray("show_page");
-                for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
-                    try {
-                        aVar.eyV.add((String) optJSONArray2.get(i3));
-                    } catch (JSONException e3) {
-                        e3.printStackTrace();
-                    }
-                }
-                this.eDn.add(aVar);
+    };
+    private View.OnClickListener eMX = new View.OnClickListener() { // from class: com.baidu.tbadk.core.business.a.2
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            if (a.this.eMV != null) {
+                a.this.eMV.bnU();
+                a.this.mDialog.dismiss();
             }
         }
+    };
+
+    /* renamed from: com.baidu.tbadk.core.business.a$a  reason: collision with other inner class name */
+    /* loaded from: classes.dex */
+    public interface InterfaceC0576a {
+        void bnU();
+
+        void onCancel();
     }
 
-    public void putInt(String str, int i) {
-        EditorHelper.putInt(TbadkCoreApplication.getInst().getSharedPreferences("business_workspace", 0), str, i);
+    public a(Activity activity) {
+        this.mActivity = activity;
+        this.blI = (ViewGroup) LayoutInflater.from(activity).inflate(R.layout.business_alert_dialog, (ViewGroup) null);
     }
 
-    public void putLong(String str, long j) {
-        EditorHelper.putLong(TbadkCoreApplication.getInst().getSharedPreferences("business_workspace", 0), str, j);
+    public void a(com.baidu.tbadk.BdToken.completeTask.a aVar) {
+        this.eMQ = aVar;
     }
 
-    public int getInt(String str) {
-        return TbadkCoreApplication.getInst().getSharedPreferences("business_workspace", 0).getInt(str, 0);
+    public void a(InterfaceC0576a interfaceC0576a) {
+        this.eMV = interfaceC0576a;
     }
 
-    public long getLong(String str) {
-        return TbadkCoreApplication.getInst().getSharedPreferences("business_workspace", 0).getLong(str, 0L);
+    public a boG() {
+        if (!this.mDialogCreated) {
+            this.mDialogCreated = true;
+            this.mRootView = this.blI.findViewById(R.id.root_dialog_view);
+            this.eMR = (EMTextView) this.blI.findViewById(R.id.title);
+            this.eMS = (EMTextView) this.blI.findViewById(R.id.content);
+            this.eMT = (EMTextView) this.blI.findViewById(R.id.cancel);
+            this.eMU = (EMTextView) this.blI.findViewById(R.id.confirm);
+            this.eMT.setClickable(true);
+            this.eMU.setClickable(true);
+            this.eMT.setOnClickListener(this.eMW);
+            this.eMU.setOnClickListener(this.eMX);
+        }
+        return this;
     }
 
-    public boolean isContains(String str) {
-        return TbadkCoreApplication.getInst().getSharedPreferences("business_workspace", 0).contains(str);
-    }
-
-    public void clear() {
-        TbadkCoreApplication.getInst().getSharedPreferences("business_workspace", 0).edit().clear();
-    }
-
-    private ArrayList<com.baidu.tbadk.BdToken.completeTask.a> bmi() {
-        return this.eDn;
-    }
-
-    public void dK(String str, String str2) {
-        ArrayList<com.baidu.tbadk.BdToken.completeTask.a> bmi = bmi();
-        if (bmi != null && j.isNetWorkAvailable()) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (!StringUtils.isNull(currentAccount)) {
-                int i = 0;
-                while (true) {
-                    int i2 = i;
-                    if (i2 < bmi.size()) {
-                        int i3 = bmi.get(i2).activityId;
-                        int i4 = bmi.get(i2).missionId;
-                        int i5 = bmi.get(i2).showType;
-                        int i6 = getInt("business_count_hint" + currentAccount + i3);
-                        long j = bmi.get(i2).eyT;
-                        long j2 = bmi.get(i2).eyU;
-                        ArrayList<String> arrayList = bmi.get(i2).eyV;
-                        ArrayList<String> arrayList2 = bmi.get(i2).eyW;
-                        if (i6 != 0 && System.currentTimeMillis() / 1000 > j && System.currentTimeMillis() / 1000 < j2) {
-                            int i7 = 0;
-                            boolean z = false;
-                            while (true) {
-                                int i8 = i7;
-                                if (i8 >= arrayList.size()) {
-                                    break;
-                                }
-                                if (arrayList.get(i8).equals(str)) {
-                                    z = true;
-                                }
-                                i7 = i8 + 1;
-                            }
-                            if (z) {
-                                if (str.equals("2")) {
-                                    int i9 = 0;
-                                    boolean z2 = false;
-                                    while (true) {
-                                        int i10 = i9;
-                                        if (i10 >= arrayList2.size()) {
-                                            break;
-                                        }
-                                        if (arrayList2.get(i10).equals(str2)) {
-                                            z2 = true;
-                                        }
-                                        i9 = i10 + 1;
-                                    }
-                                    if (!z2) {
-                                    }
-                                }
-                                JSONObject jSONObject = new JSONObject();
-                                try {
-                                    jSONObject.put(String.valueOf(i3), String.valueOf(i4));
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
-                                }
-                                sendCompleteTask(jSONObject.toString());
-                            }
-                        }
-                        i = i2 + 1;
-                    } else {
-                        return;
-                    }
-                }
+    public a boH() {
+        if (!this.mDialogCreated) {
+            throw new RuntimeException("Dialog must be created by function create()!");
+        }
+        this.mDialog = new AlertDialog.Builder(this.mActivity).create();
+        this.mDialog.setCanceledOnTouchOutside(this.cancelableFlag);
+        g.showDialog(this.mDialog, this.mActivity);
+        bom();
+        onChangeSkinType();
+        Window window = this.mDialog.getWindow();
+        if (this.mDialogGravity == -1) {
+            this.mDialogGravity = 17;
+        }
+        window.setGravity(this.mDialogGravity);
+        window.setBackgroundDrawableResource(R.drawable.transparent_bg);
+        WindowManager.LayoutParams attributes = window.getAttributes();
+        attributes.dimAmount = 0.7f;
+        attributes.width = -1;
+        DisplayMetrics screenSize = l.getScreenSize(this.mActivity);
+        if (screenSize != null) {
+            int dimens = l.getDimens(this.mActivity, R.dimen.M_W_X009);
+            if (UtilHelper.getRealScreenOrientation(this.mActivity) == 2) {
+                attributes.width = screenSize.heightPixels - (dimens * 2);
+            } else {
+                attributes.width = screenSize.widthPixels - (dimens * 2);
             }
+        }
+        attributes.height = -2;
+        window.setAttributes(attributes);
+        window.setContentView(this.blI);
+        return this;
+    }
+
+    private void bom() {
+        if (this.eMQ != null) {
+            this.eMR.setText(this.eMQ.title);
+            this.eMS.setText(this.eMQ.subTitle);
+            this.eMT.setText(this.eMQ.eIp);
+            this.eMU.setText(this.eMQ.eIs);
         }
     }
 
-    private void sendCompleteTask(String str) {
-        CompleteTaskReqMsg completeTaskReqMsg = new CompleteTaskReqMsg(0);
-        completeTaskReqMsg.completeId = str;
-        MessageManager.getInstance().sendMessage(completeTaskReqMsg);
+    private void onChangeSkinType() {
+        if (this.eMQ != null) {
+            com.baidu.tbadk.core.elementsMaven.c.bv(this.mRootView).pK(R.string.J_X06).setBackGroundColor(R.color.CAM_X0201);
+            com.baidu.tbadk.core.elementsMaven.c.bv(this.eMR).pE(R.string.F_X02).pC(R.color.CAM_X0105);
+            com.baidu.tbadk.core.elementsMaven.c.bv(this.eMS).pC(R.color.CAM_X0107);
+            com.baidu.tbadk.core.elementsMaven.c.bv(this.eMT).pC(R.color.CAM_X0105).pK(R.string.J_X07).pN(R.dimen.L_X02).pM(R.color.CAM_X0902);
+            com.baidu.tbadk.core.elementsMaven.c.bv(this.eMU).pC(R.color.CAM_X0304).pK(R.string.J_X07).pO(R.string.A_X07).pN(R.dimen.L_X02).pM(R.color.CAM_X0304);
+        }
     }
 }

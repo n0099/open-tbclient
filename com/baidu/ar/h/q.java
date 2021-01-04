@@ -15,15 +15,16 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.PrintStream;
 import java.nio.charset.Charset;
 import java.util.regex.Pattern;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class q {
     public static String yh = "";
     public static String name = "";
     public static String value = "";
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes6.dex */
     class a implements FileFilter {
         a() {
         }
@@ -34,104 +35,99 @@ public class q {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:53:0x00a0 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:59:0x00a5 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:53:0x00a1 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:59:0x00a6 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static long B(Context context) {
         BufferedReader bufferedReader;
         InputStreamReader inputStreamReader;
-        InputStreamReader inputStreamReader2 = null;
         long j = 0;
         try {
             inputStreamReader = new InputStreamReader(new FileInputStream("/proc/meminfo"), Charset.forName("utf-8"));
             try {
                 bufferedReader = new BufferedReader(inputStreamReader, 8192);
-            } catch (Exception e) {
-                e = e;
-                bufferedReader = null;
-                inputStreamReader2 = inputStreamReader;
-            } catch (Throwable th) {
-                th = th;
-                bufferedReader = null;
-            }
-        } catch (Exception e2) {
-            e = e2;
-            bufferedReader = null;
-        } catch (Throwable th2) {
-            th = th2;
-            bufferedReader = null;
-            inputStreamReader = null;
-        }
-        try {
-            String readLine = bufferedReader.readLine();
-            String[] split = readLine.split("\\s+");
-            int length = split.length;
-            for (int i = 0; i < length; i++) {
-                Log.i("bdar:", readLine + ", " + split[i] + "\t");
-            }
-            j = Integer.parseInt(split[1]);
-            if (bufferedReader != null) {
                 try {
-                    bufferedReader.close();
-                } catch (IOException e3) {
-                    e3.printStackTrace(System.out);
+                    try {
+                        String readLine = bufferedReader.readLine();
+                        String[] split = readLine.split("\\s+");
+                        int length = split.length;
+                        for (int i = 0; i < length; i++) {
+                            Log.i("bdar:", readLine + ", " + split[i] + "\t");
+                        }
+                        j = Integer.parseInt(split[1]);
+                        if (bufferedReader != null) {
+                            try {
+                                bufferedReader.close();
+                            } catch (IOException e) {
+                                e.printStackTrace(System.out);
+                            }
+                        }
+                        if (inputStreamReader != null) {
+                            try {
+                                inputStreamReader.close();
+                            } catch (IOException e2) {
+                                e2.printStackTrace(System.out);
+                            }
+                        }
+                    } catch (Exception e3) {
+                        e = e3;
+                        e.printStackTrace(System.out);
+                        if (bufferedReader != null) {
+                            try {
+                                bufferedReader.close();
+                            } catch (IOException e4) {
+                                e4.printStackTrace(System.out);
+                            }
+                        }
+                        if (inputStreamReader != null) {
+                            try {
+                                inputStreamReader.close();
+                            } catch (IOException e5) {
+                                e5.printStackTrace(System.out);
+                            }
+                        }
+                        return j / 1024;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    if (bufferedReader != null) {
+                        try {
+                            bufferedReader.close();
+                        } catch (IOException e6) {
+                            e6.printStackTrace(System.out);
+                        }
+                    }
+                    if (inputStreamReader != null) {
+                        try {
+                            inputStreamReader.close();
+                        } catch (IOException e7) {
+                            e7.printStackTrace(System.out);
+                        }
+                    }
+                    throw th;
                 }
-            }
-            if (inputStreamReader != null) {
-                try {
-                    inputStreamReader.close();
-                } catch (IOException e4) {
-                    e4.printStackTrace(System.out);
-                }
-            }
-        } catch (Exception e5) {
-            e = e5;
-            inputStreamReader2 = inputStreamReader;
-            try {
-                e.printStackTrace(System.out);
+            } catch (Exception e8) {
+                e = e8;
+                bufferedReader = null;
+            } catch (Throwable th2) {
+                th = th2;
+                bufferedReader = null;
                 if (bufferedReader != null) {
-                    try {
-                        bufferedReader.close();
-                    } catch (IOException e6) {
-                        e6.printStackTrace(System.out);
-                    }
-                }
-                if (inputStreamReader2 != null) {
-                    try {
-                        inputStreamReader2.close();
-                    } catch (IOException e7) {
-                        e7.printStackTrace(System.out);
-                    }
-                }
-                return j / 1024;
-            } catch (Throwable th3) {
-                th = th3;
-                inputStreamReader = inputStreamReader2;
-                if (bufferedReader != null) {
-                    try {
-                        bufferedReader.close();
-                    } catch (IOException e8) {
-                        e8.printStackTrace(System.out);
-                    }
                 }
                 if (inputStreamReader != null) {
-                    try {
-                        inputStreamReader.close();
-                    } catch (IOException e9) {
-                        e9.printStackTrace(System.out);
-                    }
                 }
                 throw th;
             }
-        } catch (Throwable th4) {
-            th = th4;
-            if (bufferedReader != null) {
-            }
-            if (inputStreamReader != null) {
-            }
-            throw th;
+        } catch (Exception e9) {
+            e = e9;
+            bufferedReader = null;
+            inputStreamReader = null;
+        } catch (Throwable th3) {
+            th = th3;
+            bufferedReader = null;
+            inputStreamReader = null;
         }
         return j / 1024;
     }
@@ -185,15 +181,14 @@ public class q {
         return 0L;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:50:0x0070 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:58:0x0075 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:52:0x006f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:59:0x0074 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static String gF() {
         BufferedReader bufferedReader;
         InputStreamReader inputStreamReader;
-        Throwable th;
         String str = null;
         try {
             inputStreamReader = new InputStreamReader(new FileInputStream("/proc/cpuinfo"), Charset.forName("utf-8"));
@@ -238,8 +233,8 @@ public class q {
                         }
                         return str;
                     }
-                } catch (Throwable th2) {
-                    th = th2;
+                } catch (Throwable th) {
+                    th = th;
                     if (bufferedReader != null) {
                         try {
                             bufferedReader.close();
@@ -259,9 +254,9 @@ public class q {
             } catch (Exception e8) {
                 e = e8;
                 bufferedReader = null;
-            } catch (Throwable th3) {
+            } catch (Throwable th2) {
+                th = th2;
                 bufferedReader = null;
-                th = th3;
                 if (bufferedReader != null) {
                 }
                 if (inputStreamReader != null) {
@@ -272,10 +267,10 @@ public class q {
             e = e9;
             bufferedReader = null;
             inputStreamReader = null;
-        } catch (Throwable th4) {
+        } catch (Throwable th3) {
+            th = th3;
             bufferedReader = null;
             inputStreamReader = null;
-            th = th4;
         }
         return str;
     }
@@ -331,93 +326,112 @@ public class q {
         return String.valueOf(str);
     }
 
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:20:0x0059 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:40:0x008c */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:44:0x0091 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v14, types: [java.io.IOException] */
+    /* JADX WARN: Type inference failed for: r1v5, types: [java.io.IOException] */
+    /* JADX WARN: Type inference failed for: r2v0 */
+    /* JADX WARN: Type inference failed for: r2v10 */
+    /* JADX WARN: Type inference failed for: r2v14 */
+    /* JADX WARN: Type inference failed for: r2v18 */
+    /* JADX WARN: Type inference failed for: r2v19, types: [java.io.PrintStream] */
+    /* JADX WARN: Type inference failed for: r2v20 */
+    /* JADX WARN: Type inference failed for: r2v21 */
+    /* JADX WARN: Type inference failed for: r2v22 */
+    /* JADX WARN: Type inference failed for: r2v23 */
+    /* JADX WARN: Type inference failed for: r2v25 */
+    /* JADX WARN: Type inference failed for: r2v3, types: [java.io.BufferedReader] */
+    /* JADX WARN: Type inference failed for: r2v8 */
+    /* JADX WARN: Type inference failed for: r2v9, types: [java.io.PrintStream] */
     public static String gK() {
+        PrintStream printStream;
         InputStreamReader inputStreamReader;
-        Exception exc;
-        String str;
-        BufferedReader bufferedReader = null;
+        BufferedReader bufferedReader;
+        String str = "N/A";
         try {
-            inputStreamReader = new InputStreamReader(new FileInputStream("/sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq"), Charset.forName("utf-8"));
             try {
+                inputStreamReader = new InputStreamReader(new FileInputStream("/sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq"), Charset.forName("utf-8"));
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                bufferedReader = new BufferedReader(inputStreamReader);
                 try {
-                    BufferedReader bufferedReader2 = new BufferedReader(inputStreamReader);
-                    try {
+                    str = String.valueOf(Integer.parseInt(bufferedReader.readLine().trim().trim()) / 1000);
+                    printStream = bufferedReader;
+                    if (bufferedReader != null) {
                         try {
-                            String trim = bufferedReader2.readLine().trim();
-                            try {
-                                str = String.valueOf(Integer.parseInt(trim.trim()) / 1000);
-                                if (bufferedReader2 != null) {
-                                    try {
-                                        bufferedReader2.close();
-                                    } catch (IOException e) {
-                                        e.printStackTrace(System.out);
-                                    }
-                                }
-                                if (inputStreamReader != null) {
-                                    try {
-                                        inputStreamReader.close();
-                                    } catch (IOException e2) {
-                                        e2.printStackTrace(System.out);
-                                    }
-                                }
-                            } catch (Exception e3) {
-                                str = trim;
-                                bufferedReader = bufferedReader2;
-                                exc = e3;
-                                exc.printStackTrace(System.out);
-                                if (bufferedReader != null) {
-                                    try {
-                                        bufferedReader.close();
-                                    } catch (IOException e4) {
-                                        e4.printStackTrace(System.out);
-                                    }
-                                }
-                                if (inputStreamReader != null) {
-                                    try {
-                                        inputStreamReader.close();
-                                    } catch (IOException e5) {
-                                        e5.printStackTrace(System.out);
-                                    }
-                                }
-                                return str;
-                            }
-                        } catch (Throwable th) {
-                            th = th;
-                            bufferedReader = bufferedReader2;
-                            if (bufferedReader != null) {
-                                try {
-                                    bufferedReader.close();
-                                } catch (IOException e6) {
-                                    e6.printStackTrace(System.out);
-                                }
-                            }
-                            if (inputStreamReader != null) {
-                                try {
-                                    inputStreamReader.close();
-                                } catch (IOException e7) {
-                                    e7.printStackTrace(System.out);
-                                }
-                            }
-                            throw th;
+                            bufferedReader.close();
+                            printStream = bufferedReader;
+                        } catch (IOException e) {
+                            PrintStream printStream2 = System.out;
+                            e.printStackTrace(printStream2);
+                            printStream = printStream2;
                         }
-                    } catch (Exception e8) {
-                        bufferedReader = bufferedReader2;
-                        exc = e8;
-                        str = "N/A";
                     }
-                } catch (Exception e9) {
-                    exc = e9;
-                    str = "N/A";
+                    if (inputStreamReader != null) {
+                        try {
+                            inputStreamReader.close();
+                        } catch (IOException e2) {
+                            printStream = System.out;
+                            e2.printStackTrace(printStream);
+                        }
+                    }
+                } catch (Exception e3) {
+                    e = e3;
+                    e.printStackTrace(System.out);
+                    printStream = bufferedReader;
+                    if (bufferedReader != null) {
+                        try {
+                            bufferedReader.close();
+                            printStream = bufferedReader;
+                        } catch (IOException e4) {
+                            PrintStream printStream3 = System.out;
+                            e4.printStackTrace(printStream3);
+                            printStream = printStream3;
+                        }
+                    }
+                    if (inputStreamReader != null) {
+                        try {
+                            inputStreamReader.close();
+                        } catch (IOException e5) {
+                            printStream = System.out;
+                            e5.printStackTrace(printStream);
+                        }
+                    }
+                    return str;
                 }
+            } catch (Exception e6) {
+                e = e6;
+                bufferedReader = null;
             } catch (Throwable th2) {
                 th = th2;
+                printStream = 0;
+                if (printStream != 0) {
+                    try {
+                        printStream.close();
+                    } catch (IOException e7) {
+                        e7.printStackTrace(System.out);
+                    }
+                }
+                if (inputStreamReader != null) {
+                    try {
+                        inputStreamReader.close();
+                    } catch (IOException e8) {
+                        e8.printStackTrace(System.out);
+                    }
+                }
+                throw th;
             }
-        } catch (Exception e10) {
-            exc = e10;
+        } catch (Exception e9) {
+            e = e9;
+            bufferedReader = null;
             inputStreamReader = null;
-            str = "N/A";
         } catch (Throwable th3) {
             th = th3;
+            printStream = 0;
             inputStreamReader = null;
         }
         return str;

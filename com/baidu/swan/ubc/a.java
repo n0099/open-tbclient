@@ -23,33 +23,33 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class a {
-    private final o eqA;
+    private final o eAl;
     private long mTotalLength;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(Context context) {
-        this.eqA = new o(context);
+        this.eAl = new o(context);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(i iVar) {
         if (iVar != null && !TextUtils.isEmpty(iVar.getId())) {
             final ContentValues contentValues = new ContentValues();
-            contentValues.put("flowhandle", Integer.valueOf(iVar.bgc()));
+            contentValues.put("flowhandle", Integer.valueOf(iVar.biz()));
             contentValues.put("eventid", iVar.getId());
             contentValues.put("begintime", Long.valueOf(iVar.getTime()));
-            if (iVar.bge() != null) {
-                contentValues.put("content", iVar.bge().toString());
+            if (iVar.biB() != null) {
+                contentValues.put("content", iVar.biB().toString());
             } else {
                 contentValues.put("content", iVar.getContent());
             }
-            contentValues.put("reserve1", iVar.bgd());
+            contentValues.put("reserve1", iVar.biA());
             if (!TextUtils.isEmpty(iVar.getCategory())) {
                 contentValues.put("reserve2", iVar.getCategory());
             }
-            if (iVar.bfZ()) {
+            if (iVar.biw()) {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("ctr", "1");
@@ -58,51 +58,51 @@ public class a {
                     e.printStackTrace();
                 }
             }
-            final String bgb = iVar.bgb();
+            final String biy = iVar.biy();
             final String id = iVar.getId();
-            final int bgc = iVar.bgc();
-            new AbstractC0573a() { // from class: com.baidu.swan.ubc.a.1
+            final int biz = iVar.biz();
+            new AbstractC0564a() { // from class: com.baidu.swan.ubc.a.1
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
                     super();
                 }
 
-                @Override // com.baidu.swan.ubc.a.AbstractC0573a
+                @Override // com.baidu.swan.ubc.a.AbstractC0564a
                 protected boolean H(SQLiteDatabase sQLiteDatabase) {
-                    return a.this.a(bgb, id, bgc, sQLiteDatabase) && sQLiteDatabase.insert("event", null, contentValues) != -1;
+                    return a.this.a(biy, id, biz, sQLiteDatabase) && sQLiteDatabase.insert("event", null, contentValues) != -1;
                 }
-            }.I(this.eqA.getWritableDatabase());
+            }.I(this.eAl.getWritableDatabase());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void ba(final List<i> list) {
+    public void bh(final List<i> list) {
         if (list != null && list.size() != 0) {
-            new AbstractC0573a() { // from class: com.baidu.swan.ubc.a.9
+            new AbstractC0564a() { // from class: com.baidu.swan.ubc.a.9
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
                     super();
                 }
 
-                @Override // com.baidu.swan.ubc.a.AbstractC0573a
+                @Override // com.baidu.swan.ubc.a.AbstractC0564a
                 protected boolean H(SQLiteDatabase sQLiteDatabase) {
                     boolean z = true;
                     for (i iVar : list) {
-                        if (!TextUtils.isEmpty(iVar.getId()) && a.this.a(iVar.bgb(), iVar.getId(), iVar.bgc(), sQLiteDatabase)) {
+                        if (!TextUtils.isEmpty(iVar.getId()) && a.this.a(iVar.biy(), iVar.getId(), iVar.biz(), sQLiteDatabase)) {
                             ContentValues contentValues = new ContentValues();
-                            contentValues.put("flowhandle", Integer.valueOf(iVar.bgc()));
+                            contentValues.put("flowhandle", Integer.valueOf(iVar.biz()));
                             contentValues.put("eventid", iVar.getId());
                             contentValues.put("begintime", Long.valueOf(iVar.getTime()));
                             if (!TextUtils.isEmpty(iVar.getContent())) {
                                 contentValues.put("content", iVar.getContent());
-                            } else if (iVar.bge() != null && !TextUtils.isEmpty(iVar.bge().toString())) {
-                                contentValues.put("content", iVar.bge().toString());
+                            } else if (iVar.biB() != null && !TextUtils.isEmpty(iVar.biB().toString())) {
+                                contentValues.put("content", iVar.biB().toString());
                             }
-                            contentValues.put("reserve1", iVar.bgd());
+                            contentValues.put("reserve1", iVar.biA());
                             if (!TextUtils.isEmpty(iVar.getCategory())) {
                                 contentValues.put("reserve2", iVar.getCategory());
                             }
-                            if (iVar.bfZ()) {
+                            if (iVar.biw()) {
                                 JSONObject jSONObject = new JSONObject();
                                 try {
                                     jSONObject.put("ctr", "1");
@@ -116,7 +116,7 @@ public class a {
                     }
                     return z;
                 }
-            }.I(this.eqA.getWritableDatabase());
+            }.I(this.eAl.getWritableDatabase());
         }
     }
 
@@ -176,20 +176,20 @@ public class a {
         if (kVar != null && !TextUtils.isEmpty(kVar.getId())) {
             final ContentValues contentValues = new ContentValues();
             contentValues.put("flowid", kVar.getId());
-            contentValues.put("flowhandle", Integer.valueOf(kVar.bgc()));
-            contentValues.put("state", kVar.bgk());
-            contentValues.put("begintime", Long.valueOf(kVar.bgj()));
-            if (kVar.bge() != null) {
-                contentValues.put("content", kVar.bge().toString());
+            contentValues.put("flowhandle", Integer.valueOf(kVar.biz()));
+            contentValues.put("state", kVar.biH());
+            contentValues.put("begintime", Long.valueOf(kVar.biG()));
+            if (kVar.biB() != null) {
+                contentValues.put("content", kVar.biB().toString());
             } else {
                 contentValues.put("content", kVar.getContent());
             }
             contentValues.put("option", Integer.valueOf(kVar.getOption()));
-            contentValues.put("reserve1", kVar.bgd());
+            contentValues.put("reserve1", kVar.biA());
             if (!TextUtils.isEmpty(kVar.getCategory())) {
                 contentValues.put("reserve2", kVar.getCategory());
             }
-            if (kVar.bfZ()) {
+            if (kVar.biw()) {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("ctr", "1");
@@ -198,17 +198,17 @@ public class a {
                     e.printStackTrace();
                 }
             }
-            new AbstractC0573a() { // from class: com.baidu.swan.ubc.a.10
+            new AbstractC0564a() { // from class: com.baidu.swan.ubc.a.10
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
                     super();
                 }
 
-                @Override // com.baidu.swan.ubc.a.AbstractC0573a
+                @Override // com.baidu.swan.ubc.a.AbstractC0564a
                 protected boolean H(SQLiteDatabase sQLiteDatabase) {
                     return sQLiteDatabase.insert("flow", null, contentValues) != -1;
                 }
-            }.I(this.eqA.getWritableDatabase());
+            }.I(this.eAl.getWritableDatabase());
         }
     }
 
@@ -220,17 +220,17 @@ public class a {
             StringBuilder sb = new StringBuilder();
             sb.append("flowid").append("=\"").append(str).append("\"").append(" AND ").append("flowhandle").append(" = ").append(i);
             final String sb2 = sb.toString();
-            new AbstractC0573a() { // from class: com.baidu.swan.ubc.a.11
+            new AbstractC0564a() { // from class: com.baidu.swan.ubc.a.11
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
                     super();
                 }
 
-                @Override // com.baidu.swan.ubc.a.AbstractC0573a
+                @Override // com.baidu.swan.ubc.a.AbstractC0564a
                 protected boolean H(SQLiteDatabase sQLiteDatabase) {
                     return sQLiteDatabase.update("flow", contentValues, sb2, null) == 1;
                 }
-            }.I(this.eqA.getWritableDatabase());
+            }.I(this.eAl.getWritableDatabase());
         }
     }
 
@@ -246,56 +246,57 @@ public class a {
             StringBuilder sb = new StringBuilder();
             sb.append("flowid").append("=\"").append(str).append("\"").append(" AND ").append("flowhandle").append(" = ").append(i);
             final String sb2 = sb.toString();
-            new AbstractC0573a() { // from class: com.baidu.swan.ubc.a.12
+            new AbstractC0564a() { // from class: com.baidu.swan.ubc.a.12
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
                     super();
                 }
 
-                @Override // com.baidu.swan.ubc.a.AbstractC0573a
+                @Override // com.baidu.swan.ubc.a.AbstractC0564a
                 protected boolean H(SQLiteDatabase sQLiteDatabase) {
                     return sQLiteDatabase.update("flow", contentValues, sb2, null) == 1;
                 }
-            }.I(this.eqA.getWritableDatabase());
+            }.I(this.eAl.getWritableDatabase());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void L(String str, final int i) {
+    public void M(String str, final int i) {
         if (i >= 0 && !TextUtils.isEmpty(str)) {
             StringBuilder sb = new StringBuilder();
             sb.append("flowid").append("=\"").append(str).append("\"").append(" AND ").append("flowhandle").append(" = ").append(i);
             final String sb2 = sb.toString();
-            new AbstractC0573a() { // from class: com.baidu.swan.ubc.a.13
+            new AbstractC0564a() { // from class: com.baidu.swan.ubc.a.13
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
                     super();
                 }
 
-                @Override // com.baidu.swan.ubc.a.AbstractC0573a
+                @Override // com.baidu.swan.ubc.a.AbstractC0564a
                 protected boolean H(SQLiteDatabase sQLiteDatabase) {
                     sQLiteDatabase.delete("flow", sb2, null);
                     sQLiteDatabase.delete("event", "flowhandle = " + i, null);
                     return true;
                 }
-            }.I(this.eqA.getWritableDatabase());
+            }.I(this.eAl.getWritableDatabase());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void bfv() {
-        new AbstractC0573a() { // from class: com.baidu.swan.ubc.a.14
+    public void bhS() {
+        new AbstractC0564a() { // from class: com.baidu.swan.ubc.a.14
             /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [590=4] */
-            /* JADX WARN: Removed duplicated region for block: B:38:0x016c  */
-            @Override // com.baidu.swan.ubc.a.AbstractC0573a
+            /* JADX WARN: Removed duplicated region for block: B:39:0x016f  */
+            @Override // com.baidu.swan.ubc.a.AbstractC0564a
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
             protected boolean H(SQLiteDatabase sQLiteDatabase) {
+                Throwable th;
                 Cursor cursor;
+                RuntimeException e;
                 Cursor cursor2;
-                Cursor cursor3 = null;
-                long currentTimeMillis = System.currentTimeMillis() - d.bfM().bfO();
+                long currentTimeMillis = System.currentTimeMillis() - d.bij().bil();
                 int delete = sQLiteDatabase.delete("flow", "endtime < " + currentTimeMillis, null);
                 if (delete > 0) {
                     JSONObject jSONObject = new JSONObject();
@@ -304,8 +305,8 @@ public class a {
                         jSONObject.put("ubc_type", "flow");
                         jSONObject.put("expire_time", currentTimeMillis);
                         jSONObject.put("count", delete);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
+                    } catch (JSONException e2) {
+                        e2.printStackTrace();
                     }
                     e.onEvent(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, jSONObject.toString());
                 }
@@ -317,8 +318,8 @@ public class a {
                         jSONObject2.put("ubc_type", "event");
                         jSONObject2.put("expire_time", currentTimeMillis);
                         jSONObject2.put("count", delete2);
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
+                    } catch (JSONException e3) {
+                        e3.printStackTrace();
                     }
                     e.onEvent(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, jSONObject2.toString());
                 }
@@ -335,41 +336,41 @@ public class a {
                                     arrayList.add(Integer.valueOf(cursor2.getInt(cursor2.getColumnIndex("flowhandle"))));
                                 } while (cursor2.moveToNext());
                             }
-                        } catch (SQLiteFullException e3) {
+                        } catch (SQLiteFullException e4) {
                             com.baidu.swan.c.d.closeSafely(cursor2);
                             if (arrayList.size() != 0) {
                             }
                             return true;
-                        } catch (RuntimeException e4) {
+                        } catch (RuntimeException e5) {
+                            e = e5;
                             cursor = cursor2;
-                            e = e4;
                             try {
                                 e.printStackTrace();
                                 com.baidu.swan.c.d.closeSafely(cursor);
                                 if (arrayList.size() != 0) {
                                 }
                                 return true;
-                            } catch (Throwable th) {
-                                th = th;
-                                cursor3 = cursor;
-                                com.baidu.swan.c.d.closeSafely(cursor3);
+                            } catch (Throwable th2) {
+                                th = th2;
+                                com.baidu.swan.c.d.closeSafely(cursor);
                                 throw th;
                             }
-                        } catch (Throwable th2) {
-                            cursor3 = cursor2;
-                            th = th2;
-                            com.baidu.swan.c.d.closeSafely(cursor3);
+                        } catch (Throwable th3) {
+                            th = th3;
+                            cursor = cursor2;
+                            com.baidu.swan.c.d.closeSafely(cursor);
                             throw th;
                         }
                     }
                     com.baidu.swan.c.d.closeSafely(cursor2);
-                } catch (SQLiteFullException e5) {
+                } catch (SQLiteFullException e6) {
                     cursor2 = null;
-                } catch (RuntimeException e6) {
-                    e = e6;
+                } catch (RuntimeException e7) {
+                    e = e7;
                     cursor = null;
-                } catch (Throwable th3) {
-                    th = th3;
+                } catch (Throwable th4) {
+                    th = th4;
+                    cursor = null;
                 }
                 if (arrayList.size() != 0) {
                     String w = a.this.w(arrayList);
@@ -380,72 +381,39 @@ public class a {
                 }
                 return true;
             }
-        }.I(this.eqA.getWritableDatabase());
-        zi("flow");
-        zi("event");
+        }.I(this.eAl.getWritableDatabase());
+        zh("flow");
+        zh("event");
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [645=4] */
-    /* JADX WARN: Removed duplicated region for block: B:12:0x0068  */
-    /* JADX WARN: Removed duplicated region for block: B:33:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private void zi(final String str) {
-        Cursor cursor;
-        RuntimeException runtimeException;
-        Cursor cursor2 = null;
+    private void zh(final String str) {
+        Cursor cursor = null;
         final int i = 0;
-        SQLiteDatabase writableDatabase = this.eqA.getWritableDatabase();
+        SQLiteDatabase writableDatabase = this.eAl.getWritableDatabase();
         StringBuilder sb = new StringBuilder();
         sb.append("SELECT COUNT(*), MIN(").append(IMConstants.MSG_ROW_ID).append("), MAX(").append(IMConstants.MSG_ROW_ID).append(") FROM ").append(str);
         try {
-            try {
-                Cursor rawQuery = writableDatabase.rawQuery(sb.toString(), null);
-                if (rawQuery != null) {
-                    try {
-                        if (rawQuery.getCount() > 0) {
-                            rawQuery.moveToFirst();
-                            if (rawQuery.getInt(0) > d.bfM().bfP()) {
-                                i = (rawQuery.getInt(1) + rawQuery.getInt(2)) / 2;
-                            }
-                        }
-                    } catch (RuntimeException e) {
-                        cursor = rawQuery;
-                        runtimeException = e;
-                        try {
-                            runtimeException.printStackTrace();
-                            com.baidu.swan.c.d.closeSafely(cursor);
-                            if (i <= 0) {
-                            }
-                        } catch (Throwable th) {
-                            th = th;
-                            cursor2 = cursor;
-                            com.baidu.swan.c.d.closeSafely(cursor2);
-                            throw th;
-                        }
-                    }
+            cursor = writableDatabase.rawQuery(sb.toString(), null);
+            if (cursor != null && cursor.getCount() > 0) {
+                cursor.moveToFirst();
+                if (cursor.getInt(0) > d.bij().bim()) {
+                    i = (cursor.getInt(1) + cursor.getInt(2)) / 2;
                 }
-                com.baidu.swan.c.d.closeSafely(rawQuery);
-            } catch (RuntimeException e2) {
-                cursor = null;
-                runtimeException = e2;
             }
-        } catch (SQLiteFullException e3) {
-            com.baidu.swan.c.d.closeSafely(null);
-        } catch (Throwable th2) {
-            th = th2;
-            com.baidu.swan.c.d.closeSafely(cursor2);
-            throw th;
+        } catch (SQLiteFullException e) {
+        } catch (RuntimeException e2) {
+            e2.printStackTrace();
+        } finally {
+            com.baidu.swan.c.d.closeSafely(cursor);
         }
-        if (i <= 0) {
-            new AbstractC0573a() { // from class: com.baidu.swan.ubc.a.15
+        if (i > 0) {
+            new AbstractC0564a() { // from class: com.baidu.swan.ubc.a.15
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
                     super();
                 }
 
-                @Override // com.baidu.swan.ubc.a.AbstractC0573a
+                @Override // com.baidu.swan.ubc.a.AbstractC0564a
                 protected boolean H(SQLiteDatabase sQLiteDatabase) {
                     int delete = sQLiteDatabase.delete(str, "_id < " + i, null);
                     e.onEvent(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, "delLimit");
@@ -459,8 +427,8 @@ public class a {
     public void a(HashSet<String> hashSet, HashSet<String> hashSet2, HashSet<String> hashSet3, HashSet<String> hashSet4, HashMap<String, String> hashMap, HashMap<String, String> hashMap2, HashMap<String, h> hashMap3, HashSet<String> hashSet5) {
         Throwable th;
         Cursor cursor;
-        RuntimeException e;
-        SQLiteDatabase readableDatabase = this.eqA.getReadableDatabase();
+        RuntimeException runtimeException;
+        SQLiteDatabase readableDatabase = this.eAl.getReadableDatabase();
         if (readableDatabase == null) {
             return;
         }
@@ -468,79 +436,83 @@ public class a {
         StringBuilder sb = new StringBuilder();
         sb.append("SELECT * FROM ").append("config");
         try {
-            try {
-                cursor = readableDatabase.rawQuery(sb.toString(), null);
-                if (cursor != null) {
-                    try {
-                        if (cursor.getCount() > 0) {
-                            cursor.moveToFirst();
-                            do {
-                                String string = cursor.getString(cursor.getColumnIndex("eventid"));
-                                String string2 = cursor.getString(cursor.getColumnIndex("switch"));
-                                int i = cursor.getInt(cursor.getColumnIndex("sample"));
-                                String string3 = cursor.getString(cursor.getColumnIndex("reserve1"));
-                                String string4 = cursor.getString(cursor.getColumnIndex("reserve2"));
-                                int i2 = cursor.getInt(cursor.getColumnIndex("cycle"));
-                                int i3 = cursor.getInt(cursor.getColumnIndex("uploadrule"));
-                                int i4 = cursor.getInt(cursor.getColumnIndex("recordrule"));
-                                String string5 = cursor.getString(cursor.getColumnIndex("extend"));
-                                if (TextUtils.equals(string2, "0")) {
-                                    hashSet.add(string);
-                                } else if (TextUtils.equals(string2, "1")) {
-                                    hashSet2.add(string);
-                                }
-                                if (i2 == 0) {
-                                    hashSet3.add(string);
-                                }
-                                if (TextUtils.equals(string3, "1")) {
-                                    hashSet4.add(string);
-                                }
-                                if (i > 0) {
-                                    hashMap.put(string, String.valueOf(i));
-                                }
-                                if (!TextUtils.isEmpty(string4)) {
-                                    hashMap2.put(string, string4);
-                                }
-                                if (i3 != 0 && i4 != 0) {
-                                    hashMap3.put(string, new h(string, i4, i3));
-                                }
-                                if (!TextUtils.isEmpty(string5)) {
-                                    try {
-                                        if (new JSONObject(string5).has("idtype")) {
-                                            hashSet5.add(string);
-                                        }
-                                    } catch (JSONException e2) {
-                                        e2.printStackTrace();
+            Cursor rawQuery = readableDatabase.rawQuery(sb.toString(), null);
+            if (rawQuery != null) {
+                try {
+                    if (rawQuery.getCount() > 0) {
+                        rawQuery.moveToFirst();
+                        do {
+                            String string = rawQuery.getString(rawQuery.getColumnIndex("eventid"));
+                            String string2 = rawQuery.getString(rawQuery.getColumnIndex("switch"));
+                            int i = rawQuery.getInt(rawQuery.getColumnIndex("sample"));
+                            String string3 = rawQuery.getString(rawQuery.getColumnIndex("reserve1"));
+                            String string4 = rawQuery.getString(rawQuery.getColumnIndex("reserve2"));
+                            int i2 = rawQuery.getInt(rawQuery.getColumnIndex("cycle"));
+                            int i3 = rawQuery.getInt(rawQuery.getColumnIndex("uploadrule"));
+                            int i4 = rawQuery.getInt(rawQuery.getColumnIndex("recordrule"));
+                            String string5 = rawQuery.getString(rawQuery.getColumnIndex("extend"));
+                            if (TextUtils.equals(string2, "0")) {
+                                hashSet.add(string);
+                            } else if (TextUtils.equals(string2, "1")) {
+                                hashSet2.add(string);
+                            }
+                            if (i2 == 0) {
+                                hashSet3.add(string);
+                            }
+                            if (TextUtils.equals(string3, "1")) {
+                                hashSet4.add(string);
+                            }
+                            if (i > 0) {
+                                hashMap.put(string, String.valueOf(i));
+                            }
+                            if (!TextUtils.isEmpty(string4)) {
+                                hashMap2.put(string, string4);
+                            }
+                            if (i3 != 0 && i4 != 0) {
+                                hashMap3.put(string, new h(string, i4, i3));
+                            }
+                            if (!TextUtils.isEmpty(string5)) {
+                                try {
+                                    if (new JSONObject(string5).has("idtype")) {
+                                        hashSet5.add(string);
                                     }
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
                                 }
-                            } while (cursor.moveToNext());
-                        }
-                    } catch (SQLiteFullException e3) {
-                        cursor2 = cursor;
-                        com.baidu.swan.c.d.closeSafely(cursor2);
-                        return;
-                    } catch (RuntimeException e4) {
-                        e = e4;
-                        e.printStackTrace();
+                            }
+                        } while (rawQuery.moveToNext());
+                    }
+                } catch (SQLiteFullException e2) {
+                    cursor2 = rawQuery;
+                    com.baidu.swan.c.d.closeSafely(cursor2);
+                    return;
+                } catch (RuntimeException e3) {
+                    runtimeException = e3;
+                    cursor = rawQuery;
+                    try {
+                        runtimeException.printStackTrace();
                         com.baidu.swan.c.d.closeSafely(cursor);
                         return;
+                    } catch (Throwable th2) {
+                        th = th2;
+                        com.baidu.swan.c.d.closeSafely(cursor);
+                        throw th;
                     }
+                } catch (Throwable th3) {
+                    th = th3;
+                    cursor = rawQuery;
+                    com.baidu.swan.c.d.closeSafely(cursor);
+                    throw th;
                 }
-                com.baidu.swan.c.d.closeSafely(cursor);
-            } catch (Throwable th2) {
-                th = th2;
-                com.baidu.swan.c.d.closeSafely(readableDatabase);
-                throw th;
             }
-        } catch (SQLiteFullException e5) {
-        } catch (RuntimeException e6) {
+            com.baidu.swan.c.d.closeSafely(rawQuery);
+        } catch (SQLiteFullException e4) {
+        } catch (RuntimeException e5) {
+            runtimeException = e5;
             cursor = null;
-            e = e6;
-        } catch (Throwable th3) {
-            readableDatabase = null;
-            th = th3;
-            com.baidu.swan.c.d.closeSafely(readableDatabase);
-            throw th;
+        } catch (Throwable th4) {
+            th = th4;
+            cursor = null;
         }
     }
 
@@ -549,10 +521,10 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void b(SparseArray<ArrayList> sparseArray) {
+    public void e(SparseArray<ArrayList> sparseArray) {
         int i;
         Cursor cursor = null;
-        SQLiteDatabase readableDatabase = this.eqA.getReadableDatabase();
+        SQLiteDatabase readableDatabase = this.eAl.getReadableDatabase();
         StringBuilder sb = new StringBuilder();
         sb.append("SELECT ").append("eventid").append(" , ").append("type").append(" , ").append("cycle").append(" FROM ").append("config").append(" WHERE ").append("switch").append("=\"").append("1").append("\"");
         try {
@@ -637,165 +609,169 @@ public class a {
     */
     private int a(String str, v vVar) {
         Cursor cursor;
-        RuntimeException e;
+        RuntimeException runtimeException;
+        Cursor cursor2;
         String string;
         int i = 0;
         ArrayList<k> arrayList = new ArrayList<>();
-        Cursor cursor2 = null;
-        SQLiteDatabase readableDatabase = this.eqA.getReadableDatabase();
+        Cursor cursor3 = null;
         long j = Long.MAX_VALUE;
         long j2 = 0;
         try {
-            try {
-                cursor = readableDatabase.rawQuery(str, null);
-                if (cursor != null) {
-                    try {
-                        if (cursor.getCount() > 0) {
-                            cursor.moveToFirst();
-                            int columnIndex = cursor.getColumnIndex("flowid");
-                            int columnIndex2 = cursor.getColumnIndex("flowhandle");
-                            int columnIndex3 = cursor.getColumnIndex("state");
-                            int columnIndex4 = cursor.getColumnIndex("begintime");
-                            int columnIndex5 = cursor.getColumnIndex(LogBuilder.KEY_END_TIME);
-                            int columnIndex6 = cursor.getColumnIndex("content");
-                            int columnIndex7 = cursor.getColumnIndex("option");
-                            int columnIndex8 = cursor.getColumnIndex("reserve1");
-                            int columnIndex9 = cursor.getColumnIndex("reserve2");
-                            int columnIndex10 = cursor.getColumnIndex("slot");
-                            int columnIndex11 = cursor.getColumnIndex("extend");
-                            do {
-                                if ("2".equals(cursor.getString(columnIndex3)) || (Math.abs(cursor.getLong(columnIndex4) - System.currentTimeMillis()) > 86400000 && (cursor.getInt(columnIndex7) & 4) != 0)) {
-                                    k kVar = new k();
-                                    kVar.setId(cursor.getString(columnIndex));
-                                    kVar.nH(cursor.getInt(columnIndex2));
-                                    kVar.dw(cursor.getLong(columnIndex4));
-                                    kVar.setEndTime(cursor.getLong(columnIndex5));
-                                    if (kVar.getEndTime() > 0 && kVar.getEndTime() > j2) {
-                                        j2 = kVar.getEndTime();
-                                    }
-                                    if (kVar.bgj() > 0 && kVar.bgj() < j) {
-                                        j = kVar.bgj();
-                                    }
-                                    String string2 = cursor.getString(columnIndex6);
-                                    if (!TextUtils.isEmpty(string2)) {
-                                        kVar.setContent(string2);
-                                        this.mTotalLength = string2.getBytes("UTF-8").length;
-                                    }
-                                    String string3 = cursor.getString(columnIndex8);
-                                    if (!TextUtils.isEmpty(string3)) {
-                                        kVar.zB(string3);
-                                        this.mTotalLength += string3.getBytes("UTF-8").length;
-                                    }
-                                    if (!TextUtils.isEmpty(cursor.getString(columnIndex9))) {
-                                        kVar.setCategory(cursor.getString(columnIndex9));
-                                    }
-                                    String string4 = cursor.getString(columnIndex10);
-                                    if (columnIndex10 >= 0 && !TextUtils.isEmpty(string4)) {
-                                        kVar.zC(string4);
-                                        this.mTotalLength += string4.getBytes("UTF-8").length;
-                                    }
-                                    if (!TextUtils.isEmpty(cursor.getString(columnIndex11))) {
-                                        this.mTotalLength += string.getBytes("UTF-8").length;
-                                        try {
-                                            if (new JSONObject(cursor.getString(columnIndex11)).has("ctr")) {
-                                                kVar.iq(true);
-                                            }
-                                        } catch (JSONException e2) {
-                                            e2.printStackTrace();
+            cursor = this.eAl.getReadableDatabase().rawQuery(str, null);
+            if (cursor != null) {
+                try {
+                    if (cursor.getCount() > 0) {
+                        cursor.moveToFirst();
+                        int columnIndex = cursor.getColumnIndex("flowid");
+                        int columnIndex2 = cursor.getColumnIndex("flowhandle");
+                        int columnIndex3 = cursor.getColumnIndex("state");
+                        int columnIndex4 = cursor.getColumnIndex("begintime");
+                        int columnIndex5 = cursor.getColumnIndex(LogBuilder.KEY_END_TIME);
+                        int columnIndex6 = cursor.getColumnIndex("content");
+                        int columnIndex7 = cursor.getColumnIndex("option");
+                        int columnIndex8 = cursor.getColumnIndex("reserve1");
+                        int columnIndex9 = cursor.getColumnIndex("reserve2");
+                        int columnIndex10 = cursor.getColumnIndex("slot");
+                        int columnIndex11 = cursor.getColumnIndex("extend");
+                        do {
+                            if ("2".equals(cursor.getString(columnIndex3)) || (Math.abs(cursor.getLong(columnIndex4) - System.currentTimeMillis()) > 86400000 && (cursor.getInt(columnIndex7) & 4) != 0)) {
+                                k kVar = new k();
+                                kVar.setId(cursor.getString(columnIndex));
+                                kVar.nQ(cursor.getInt(columnIndex2));
+                                kVar.dw(cursor.getLong(columnIndex4));
+                                kVar.setEndTime(cursor.getLong(columnIndex5));
+                                if (kVar.getEndTime() > 0 && kVar.getEndTime() > j2) {
+                                    j2 = kVar.getEndTime();
+                                }
+                                if (kVar.biG() > 0 && kVar.biG() < j) {
+                                    j = kVar.biG();
+                                }
+                                String string2 = cursor.getString(columnIndex6);
+                                if (!TextUtils.isEmpty(string2)) {
+                                    kVar.setContent(string2);
+                                    this.mTotalLength = string2.getBytes("UTF-8").length;
+                                }
+                                String string3 = cursor.getString(columnIndex8);
+                                if (!TextUtils.isEmpty(string3)) {
+                                    kVar.zA(string3);
+                                    this.mTotalLength += string3.getBytes("UTF-8").length;
+                                }
+                                if (!TextUtils.isEmpty(cursor.getString(columnIndex9))) {
+                                    kVar.setCategory(cursor.getString(columnIndex9));
+                                }
+                                String string4 = cursor.getString(columnIndex10);
+                                if (columnIndex10 >= 0 && !TextUtils.isEmpty(string4)) {
+                                    kVar.zB(string4);
+                                    this.mTotalLength += string4.getBytes("UTF-8").length;
+                                }
+                                if (!TextUtils.isEmpty(cursor.getString(columnIndex11))) {
+                                    this.mTotalLength += string.getBytes("UTF-8").length;
+                                    try {
+                                        if (new JSONObject(cursor.getString(columnIndex11)).has("ctr")) {
+                                            kVar.iL(true);
                                         }
-                                    }
-                                    arrayList.add(kVar);
-                                    vVar.aH(kVar.bgc(), Integer.parseInt(kVar.getId()));
-                                    if (this.mTotalLength >= PlaybackStateCompat.ACTION_SET_SHUFFLE_MODE) {
-                                        break;
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
                                     }
                                 }
-                            } while (cursor.moveToNext());
-                            i = 1;
-                        }
-                    } catch (SQLiteFullException e3) {
-                        cursor2 = cursor;
+                                arrayList.add(kVar);
+                                vVar.aE(kVar.biz(), Integer.parseInt(kVar.getId()));
+                                if (this.mTotalLength >= PlaybackStateCompat.ACTION_SET_SHUFFLE_MODE) {
+                                    break;
+                                }
+                            }
+                        } while (cursor.moveToNext());
+                        i = 1;
+                    }
+                } catch (SQLiteFullException e2) {
+                    cursor3 = cursor;
+                    com.baidu.swan.c.d.closeSafely(cursor3);
+                    if (arrayList.size() > 0) {
+                    }
+                    vVar.u(j, j2);
+                    return i;
+                } catch (UnsupportedEncodingException e3) {
+                    com.baidu.swan.c.d.closeSafely(cursor);
+                    if (arrayList.size() > 0) {
+                    }
+                    vVar.u(j, j2);
+                    return i;
+                } catch (RuntimeException e4) {
+                    runtimeException = e4;
+                    cursor2 = cursor;
+                    try {
+                        runtimeException.printStackTrace();
                         com.baidu.swan.c.d.closeSafely(cursor2);
                         if (arrayList.size() > 0) {
                         }
-                        vVar.r(j, j2);
+                        vVar.u(j, j2);
                         return i;
-                    } catch (UnsupportedEncodingException e4) {
+                    } catch (Throwable th) {
+                        th = th;
+                        cursor = cursor2;
                         com.baidu.swan.c.d.closeSafely(cursor);
-                        if (arrayList.size() > 0) {
-                        }
-                        vVar.r(j, j2);
-                        return i;
-                    } catch (RuntimeException e5) {
-                        e = e5;
-                        e.printStackTrace();
-                        com.baidu.swan.c.d.closeSafely(cursor);
-                        if (arrayList.size() > 0) {
-                        }
-                        vVar.r(j, j2);
-                        return i;
+                        throw th;
                     }
+                } catch (Throwable th2) {
+                    th = th2;
+                    com.baidu.swan.c.d.closeSafely(cursor);
+                    throw th;
                 }
-                com.baidu.swan.c.d.closeSafely(cursor);
-            } catch (Throwable th) {
-                th = th;
-                com.baidu.swan.c.d.closeSafely(readableDatabase);
-                throw th;
             }
-        } catch (SQLiteFullException e6) {
-        } catch (UnsupportedEncodingException e7) {
+            com.baidu.swan.c.d.closeSafely(cursor);
+        } catch (SQLiteFullException e5) {
+        } catch (UnsupportedEncodingException e6) {
             cursor = null;
-        } catch (RuntimeException e8) {
+        } catch (RuntimeException e7) {
+            runtimeException = e7;
+            cursor2 = null;
+        } catch (Throwable th3) {
+            th = th3;
             cursor = null;
-            e = e8;
-        } catch (Throwable th2) {
-            th = th2;
-            readableDatabase = null;
-            com.baidu.swan.c.d.closeSafely(readableDatabase);
-            throw th;
         }
         if (arrayList.size() > 0) {
             b(arrayList, vVar);
         }
-        vVar.r(j, j2);
+        vVar.u(j, j2);
         return i;
     }
 
     private void b(ArrayList<k> arrayList, v vVar) {
         Cursor cursor;
         JSONObject jSONObject = new JSONObject();
-        SQLiteDatabase readableDatabase = this.eqA.getReadableDatabase();
+        SQLiteDatabase readableDatabase = this.eAl.getReadableDatabase();
         Cursor cursor2 = null;
         try {
             Iterator<k> it = arrayList.iterator();
             while (it.hasNext()) {
                 k next = it.next();
-                if (next.bgc() >= 0) {
+                if (next.biz() >= 0) {
                     JSONObject jSONObject2 = new JSONObject();
                     jSONObject2.put("bizId", next.getId());
-                    jSONObject2.put(LogBuilder.KEY_START_TIME, Long.toString(next.bgj()));
+                    jSONObject2.put(LogBuilder.KEY_START_TIME, Long.toString(next.biG()));
                     jSONObject2.put(LogBuilder.KEY_END_TIME, Long.toString(next.getEndTime()));
                     jSONObject2.put("eventType", "1");
                     if (!TextUtils.isEmpty(next.getContent())) {
                         jSONObject = new JSONObject(next.getContent());
                     }
-                    if (!TextUtils.isEmpty(next.bgd())) {
-                        jSONObject2.put("abtest", next.bgd());
-                        vVar.zG("1");
+                    if (!TextUtils.isEmpty(next.biA())) {
+                        jSONObject2.put("abtest", next.biA());
+                        vVar.zF("1");
                     }
                     if (!TextUtils.isEmpty(next.getCategory())) {
                         jSONObject2.put("c", next.getCategory());
                     }
-                    if (next.bgl() != null) {
-                        jSONObject2.put("part", next.bgl());
+                    if (next.biI() != null) {
+                        jSONObject2.put("part", next.biI());
                     }
-                    if (next.bfZ()) {
+                    if (next.biw()) {
                         jSONObject2.put(MapBundleKey.MapObjKey.OBJ_OFFSET, "1");
                     }
-                    jSONObject2.put("idtype", d.bfM().zv(next.getId()));
+                    jSONObject2.put("idtype", d.bij().zu(next.getId()));
                     JSONArray jSONArray = new JSONArray();
                     StringBuilder sb = new StringBuilder(256);
-                    sb.append("SELECT ").append("eventid").append(" , ").append("begintime").append(" , ").append("content").append(" FROM ").append("event").append(" WHERE ").append("flowhandle").append(" = ").append(next.bgc());
+                    sb.append("SELECT ").append("eventid").append(" , ").append("begintime").append(" , ").append("content").append(" FROM ").append("event").append(" WHERE ").append("flowhandle").append(" = ").append(next.biz());
                     try {
                         cursor2 = readableDatabase.rawQuery(sb.toString(), null);
                         if (cursor2 != null && cursor2.getCount() > 0) {
@@ -822,12 +798,11 @@ public class a {
                         throw th;
                     }
                     jSONObject2.put("content", jSONObject);
-                    s.dd(jSONObject2);
-                    vVar.df(jSONObject2);
+                    s.dl(jSONObject2);
+                    vVar.dn(jSONObject2);
                 } else {
                     cursor = cursor2;
                 }
-                jSONObject = jSONObject;
                 cursor2 = cursor;
             }
         } catch (RuntimeException e2) {
@@ -836,107 +811,86 @@ public class a {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1190=6] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1190=5] */
     private int b(String str, v vVar) {
-        Cursor cursor;
-        RuntimeException runtimeException;
-        String string;
         int i = 0;
-        Cursor cursor2 = null;
+        Cursor cursor = null;
         long j = Long.MAX_VALUE;
         long j2 = 0;
         try {
             try {
-                Cursor rawQuery = this.eqA.getReadableDatabase().rawQuery(str, null);
-                if (rawQuery != null) {
-                    try {
-                        if (rawQuery.getCount() > 0) {
-                            rawQuery.moveToFirst();
-                            int columnIndex = rawQuery.getColumnIndex("eventid");
-                            int columnIndex2 = rawQuery.getColumnIndex("begintime");
-                            int columnIndex3 = rawQuery.getColumnIndex("content");
-                            int columnIndex4 = rawQuery.getColumnIndex("reserve1");
-                            int columnIndex5 = rawQuery.getColumnIndex("reserve2");
-                            int columnIndex6 = rawQuery.getColumnIndex("extend");
-                            do {
-                                JSONObject jSONObject = new JSONObject();
-                                String string2 = rawQuery.getString(columnIndex);
-                                jSONObject.put("bizId", string2);
-                                long j3 = rawQuery.getLong(columnIndex2);
-                                jSONObject.put("timestamp", Long.toString(j3));
-                                if (j3 > 0) {
-                                    if (j3 < j) {
-                                        j = j3;
-                                    }
-                                    if (j3 > j2) {
-                                        j2 = j3;
-                                    }
-                                }
-                                jSONObject.put("eventType", "0");
-                                String string3 = rawQuery.getString(columnIndex3);
-                                if (!TextUtils.isEmpty(string3)) {
-                                    jSONObject.put("content", string3);
-                                    this.mTotalLength = string3.getBytes("UTF-8").length + this.mTotalLength;
-                                }
-                                String string4 = rawQuery.getString(columnIndex4);
-                                if (!TextUtils.isEmpty(string4)) {
-                                    jSONObject.put("abtest", string4);
-                                    vVar.zG("1");
-                                    this.mTotalLength = string4.getBytes("UTF-8").length + this.mTotalLength;
-                                }
-                                if (!TextUtils.isEmpty(rawQuery.getString(columnIndex5))) {
-                                    jSONObject.put("c", rawQuery.getString(columnIndex5));
-                                }
-                                if (!TextUtils.isEmpty(rawQuery.getString(columnIndex6))) {
-                                    if (new JSONObject(rawQuery.getString(columnIndex6)).has("ctr")) {
-                                        jSONObject.put(MapBundleKey.MapObjKey.OBJ_OFFSET, "1");
-                                    }
-                                    this.mTotalLength = string.getBytes("UTF-8").length + this.mTotalLength;
-                                }
-                                jSONObject.put("idtype", d.bfM().zv(string2));
-                                s.dd(jSONObject);
-                                vVar.df(jSONObject);
-                                vVar.zF(rawQuery.getString(columnIndex));
-                                if (this.mTotalLength >= PlaybackStateCompat.ACTION_SET_SHUFFLE_MODE) {
-                                    break;
-                                }
-                            } while (rawQuery.moveToNext());
-                            i = 1;
+                cursor = this.eAl.getReadableDatabase().rawQuery(str, null);
+                if (cursor != null && cursor.getCount() > 0) {
+                    cursor.moveToFirst();
+                    int columnIndex = cursor.getColumnIndex("eventid");
+                    int columnIndex2 = cursor.getColumnIndex("begintime");
+                    int columnIndex3 = cursor.getColumnIndex("content");
+                    int columnIndex4 = cursor.getColumnIndex("reserve1");
+                    int columnIndex5 = cursor.getColumnIndex("reserve2");
+                    int columnIndex6 = cursor.getColumnIndex("extend");
+                    do {
+                        JSONObject jSONObject = new JSONObject();
+                        String string = cursor.getString(columnIndex);
+                        jSONObject.put("bizId", string);
+                        long j3 = cursor.getLong(columnIndex2);
+                        jSONObject.put("timestamp", Long.toString(j3));
+                        if (j3 > 0) {
+                            if (j3 < j) {
+                                j = j3;
+                            }
+                            if (j3 > j2) {
+                                j2 = j3;
+                            }
                         }
-                    } catch (RuntimeException e) {
-                        cursor = rawQuery;
-                        runtimeException = e;
-                        try {
-                            runtimeException.printStackTrace();
-                            com.baidu.swan.c.d.closeSafely(cursor);
-                            vVar.r(j, j2);
-                            return i;
-                        } catch (Throwable th) {
-                            th = th;
-                            cursor2 = cursor;
-                            com.baidu.swan.c.d.closeSafely(cursor2);
-                            throw th;
+                        jSONObject.put("eventType", "0");
+                        String string2 = cursor.getString(columnIndex3);
+                        if (!TextUtils.isEmpty(string2)) {
+                            jSONObject.put("content", string2);
+                            this.mTotalLength = string2.getBytes("UTF-8").length + this.mTotalLength;
                         }
-                    }
+                        String string3 = cursor.getString(columnIndex4);
+                        if (!TextUtils.isEmpty(string3)) {
+                            jSONObject.put("abtest", string3);
+                            vVar.zF("1");
+                            this.mTotalLength = string3.getBytes("UTF-8").length + this.mTotalLength;
+                        }
+                        if (!TextUtils.isEmpty(cursor.getString(columnIndex5))) {
+                            jSONObject.put("c", cursor.getString(columnIndex5));
+                        }
+                        String string4 = cursor.getString(columnIndex6);
+                        if (!TextUtils.isEmpty(string4)) {
+                            if (new JSONObject(cursor.getString(columnIndex6)).has("ctr")) {
+                                jSONObject.put(MapBundleKey.MapObjKey.OBJ_OFFSET, "1");
+                            }
+                            this.mTotalLength = string4.getBytes("UTF-8").length + this.mTotalLength;
+                        }
+                        jSONObject.put("idtype", d.bij().zu(string));
+                        s.dl(jSONObject);
+                        vVar.dn(jSONObject);
+                        vVar.zE(cursor.getString(columnIndex));
+                        if (this.mTotalLength >= PlaybackStateCompat.ACTION_SET_SHUFFLE_MODE) {
+                            break;
+                        }
+                    } while (cursor.moveToNext());
+                    i = 1;
                 }
-                com.baidu.swan.c.d.closeSafely(rawQuery);
-            } catch (RuntimeException e2) {
-                cursor = null;
-                runtimeException = e2;
+                com.baidu.swan.c.d.closeSafely(cursor);
+            } catch (SQLiteFullException e) {
+                com.baidu.swan.c.d.closeSafely(cursor);
+            } catch (UnsupportedEncodingException e2) {
+                com.baidu.swan.c.d.closeSafely(cursor);
+            } catch (RuntimeException e3) {
+                e3.printStackTrace();
+                com.baidu.swan.c.d.closeSafely(cursor);
+            } catch (JSONException e4) {
+                com.baidu.swan.c.d.closeSafely(cursor);
             }
-        } catch (SQLiteFullException e3) {
-            com.baidu.swan.c.d.closeSafely(null);
-        } catch (UnsupportedEncodingException e4) {
-            com.baidu.swan.c.d.closeSafely(null);
-        } catch (JSONException e5) {
-            com.baidu.swan.c.d.closeSafely(null);
-        } catch (Throwable th2) {
-            th = th2;
-            com.baidu.swan.c.d.closeSafely(cursor2);
+            vVar.u(j, j2);
+            return i;
+        } catch (Throwable th) {
+            com.baidu.swan.c.d.closeSafely(cursor);
             throw th;
         }
-        vVar.r(j, j2);
-        return i;
     }
 
     private String d(ArrayList<f> arrayList, boolean z) {
@@ -964,36 +918,36 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void bb(final List<g> list) {
+    public void bi(final List<g> list) {
         if (list != null && list.size() != 0) {
-            new AbstractC0573a() { // from class: com.baidu.swan.ubc.a.16
+            new AbstractC0564a() { // from class: com.baidu.swan.ubc.a.16
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
                     super();
                 }
 
-                @Override // com.baidu.swan.ubc.a.AbstractC0573a
+                @Override // com.baidu.swan.ubc.a.AbstractC0564a
                 protected boolean H(SQLiteDatabase sQLiteDatabase) {
                     for (g gVar : list) {
                         ContentValues contentValues = new ContentValues();
                         contentValues.put("eventid", gVar.getId());
                         contentValues.put("type", gVar.getType());
-                        if ("1".equals(gVar.bfT())) {
+                        if ("1".equals(gVar.biq())) {
                             contentValues.put("cycle", (Integer) 0);
                         } else {
                             contentValues.put("cycle", Integer.valueOf(gVar.getTimeout()));
                         }
-                        contentValues.put("switch", gVar.bfS());
-                        contentValues.put("reserve1", gVar.bfU());
+                        contentValues.put("switch", gVar.bip());
+                        contentValues.put("reserve1", gVar.bir());
                         if (!TextUtils.isEmpty(gVar.getCategory())) {
                             contentValues.put("reserve2", gVar.getCategory());
                         }
-                        contentValues.put("sample", Integer.valueOf(gVar.bfV()));
-                        if (gVar.bfW() != 0 && gVar.bfX() != 0) {
-                            contentValues.put("recordrule", Integer.valueOf(gVar.bfW()));
-                            contentValues.put("uploadrule", Integer.valueOf(gVar.bfX()));
+                        contentValues.put("sample", Integer.valueOf(gVar.bis()));
+                        if (gVar.bit() != 0 && gVar.biu() != 0) {
+                            contentValues.put("recordrule", Integer.valueOf(gVar.bit()));
+                            contentValues.put("uploadrule", Integer.valueOf(gVar.biu()));
                         }
-                        if (TextUtils.equals(gVar.bfY(), "1")) {
+                        if (TextUtils.equals(gVar.biv(), "1")) {
                             JSONObject jSONObject = new JSONObject();
                             try {
                                 jSONObject.put("idtype", "1");
@@ -1006,13 +960,13 @@ public class a {
                     }
                     return true;
                 }
-            }.I(this.eqA.getWritableDatabase());
+            }.I(this.eAl.getWritableDatabase());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean a(final SparseArray<Integer> sparseArray, final ArrayList<String> arrayList, final boolean z, final String str) {
-        AbstractC0573a abstractC0573a = new AbstractC0573a() { // from class: com.baidu.swan.ubc.a.2
+        AbstractC0564a abstractC0564a = new AbstractC0564a() { // from class: com.baidu.swan.ubc.a.2
             long beginTime;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -1021,7 +975,7 @@ public class a {
                 this.beginTime = System.currentTimeMillis();
             }
 
-            @Override // com.baidu.swan.ubc.a.AbstractC0573a
+            @Override // com.baidu.swan.ubc.a.AbstractC0564a
             protected boolean H(SQLiteDatabase sQLiteDatabase) {
                 if (sparseArray != null && sparseArray.size() > 0) {
                     int size = sparseArray.size();
@@ -1032,14 +986,14 @@ public class a {
                     String w = a.this.w(arrayList2);
                     StringBuilder sb = new StringBuilder();
                     sb.append("flowhandle").append(" in (").append(w).append(")");
-                    t.zE("delete flow table flow count:" + sQLiteDatabase.delete("flow", sb.toString(), null));
-                    t.zE("delete flow table event count:" + sQLiteDatabase.delete("event", sb.toString(), null));
+                    t.zD("delete flow table flow count:" + sQLiteDatabase.delete("flow", sb.toString(), null));
+                    t.zD("delete flow table event count:" + sQLiteDatabase.delete("event", sb.toString(), null));
                 }
                 if (arrayList != null && arrayList.size() > 0) {
                     String w2 = a.this.w(arrayList);
                     StringBuilder sb2 = new StringBuilder();
                     sb2.append("eventid").append(" in (").append(w2).append(")").append(" AND ").append("flowhandle").append(" = ").append(-1);
-                    t.zE("delete event table event count:" + sQLiteDatabase.delete("event", sb2.toString(), null));
+                    t.zD("delete event table event count:" + sQLiteDatabase.delete("event", sb2.toString(), null));
                 }
                 if ((sparseArray != null && sparseArray.size() > 0) || (arrayList != null && arrayList.size() > 0)) {
                     ContentValues contentValues = new ContentValues();
@@ -1048,21 +1002,21 @@ public class a {
                     contentValues.put("reserve1", z ? "1" : "0");
                     sQLiteDatabase.replace("file", null, contentValues);
                 }
-                t.zE("delete total time:" + (System.currentTimeMillis() - this.beginTime));
+                t.zD("delete total time:" + (System.currentTimeMillis() - this.beginTime));
                 return true;
             }
         };
-        abstractC0573a.I(this.eqA.getWritableDatabase());
-        return abstractC0573a.bfA();
+        abstractC0564a.I(this.eAl.getWritableDatabase());
+        return abstractC0564a.bhX();
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1536=4] */
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j zj(String str) {
+    public j zi(String str) {
         Cursor cursor;
         j jVar;
         StringBuilder sb = new StringBuilder();
-        SQLiteDatabase readableDatabase = this.eqA.getReadableDatabase();
+        SQLiteDatabase readableDatabase = this.eAl.getReadableDatabase();
         sb.append("SELECT ").append("state").append(" , ").append("reserve1").append(" FROM ").append("file").append(" WHERE ").append("filename").append("=\"").append(str).append("\"");
         try {
             cursor = readableDatabase.rawQuery(sb.toString(), null);
@@ -1110,13 +1064,13 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void au(final String str, final boolean z) {
-        new AbstractC0573a() { // from class: com.baidu.swan.ubc.a.3
+        new AbstractC0564a() { // from class: com.baidu.swan.ubc.a.3
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
                 super();
             }
 
-            @Override // com.baidu.swan.ubc.a.AbstractC0573a
+            @Override // com.baidu.swan.ubc.a.AbstractC0564a
             protected boolean H(SQLiteDatabase sQLiteDatabase) {
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("state", "1");
@@ -1125,47 +1079,47 @@ public class a {
                 sQLiteDatabase.replace("file", null, contentValues);
                 return true;
             }
-        }.I(this.eqA.getWritableDatabase());
+        }.I(this.eAl.getWritableDatabase());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void zk(final String str) {
-        new AbstractC0573a() { // from class: com.baidu.swan.ubc.a.4
+    public void zj(final String str) {
+        new AbstractC0564a() { // from class: com.baidu.swan.ubc.a.4
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
                 super();
             }
 
-            @Override // com.baidu.swan.ubc.a.AbstractC0573a
+            @Override // com.baidu.swan.ubc.a.AbstractC0564a
             protected boolean H(SQLiteDatabase sQLiteDatabase) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("filename").append("=\"").append(str).append("\"");
                 sQLiteDatabase.delete("file", sb.toString(), null);
                 return true;
             }
-        }.I(this.eqA.getWritableDatabase());
+        }.I(this.eAl.getWritableDatabase());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void bfw() {
-        new AbstractC0573a() { // from class: com.baidu.swan.ubc.a.5
-            @Override // com.baidu.swan.ubc.a.AbstractC0573a
+    public void bhT() {
+        new AbstractC0564a() { // from class: com.baidu.swan.ubc.a.5
+            @Override // com.baidu.swan.ubc.a.AbstractC0564a
             protected boolean H(SQLiteDatabase sQLiteDatabase) {
                 sQLiteDatabase.delete("file", null, null);
                 return true;
             }
-        }.I(this.eqA.getWritableDatabase());
+        }.I(this.eAl.getWritableDatabase());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void zl(final String str) {
-        new AbstractC0573a() { // from class: com.baidu.swan.ubc.a.6
+    public void zk(final String str) {
+        new AbstractC0564a() { // from class: com.baidu.swan.ubc.a.6
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
                 super();
             }
 
-            @Override // com.baidu.swan.ubc.a.AbstractC0573a
+            @Override // com.baidu.swan.ubc.a.AbstractC0564a
             protected boolean H(SQLiteDatabase sQLiteDatabase) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("filename").append("=\"").append(str).append("\"");
@@ -1174,18 +1128,18 @@ public class a {
                 sQLiteDatabase.update("file", contentValues, sb.toString(), null);
                 return true;
             }
-        }.I(this.eqA.getWritableDatabase());
+        }.I(this.eAl.getWritableDatabase());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void dB(final String str, final String str2) {
-        new AbstractC0573a() { // from class: com.baidu.swan.ubc.a.7
+    public void dA(final String str, final String str2) {
+        new AbstractC0564a() { // from class: com.baidu.swan.ubc.a.7
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
                 super();
             }
 
-            @Override // com.baidu.swan.ubc.a.AbstractC0573a
+            @Override // com.baidu.swan.ubc.a.AbstractC0564a
             protected boolean H(SQLiteDatabase sQLiteDatabase) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("filename").append("=\"").append(str).append("\"");
@@ -1194,20 +1148,20 @@ public class a {
                 sQLiteDatabase.update("file", contentValues, sb.toString(), null);
                 return true;
             }
-        }.I(this.eqA.getWritableDatabase());
+        }.I(this.eAl.getWritableDatabase());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void bfx() {
-        new AbstractC0573a() { // from class: com.baidu.swan.ubc.a.8
-            @Override // com.baidu.swan.ubc.a.AbstractC0573a
+    public void bhU() {
+        new AbstractC0564a() { // from class: com.baidu.swan.ubc.a.8
+            @Override // com.baidu.swan.ubc.a.AbstractC0564a
             protected boolean H(SQLiteDatabase sQLiteDatabase) {
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("state", "1");
                 sQLiteDatabase.update("file", contentValues, null, null);
                 return true;
             }
-        }.I(this.eqA.getWritableDatabase());
+        }.I(this.eAl.getWritableDatabase());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -1222,35 +1176,35 @@ public class a {
         return sb.toString();
     }
 
-    final long bfy() {
-        return this.eqA.bfy();
+    final long bhV() {
+        return this.eAl.bhV();
     }
 
-    final long bfz() {
-        return this.eqA.bfz();
+    final long bhW() {
+        return this.eAl.bhW();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.ubc.a$a  reason: collision with other inner class name */
-    /* loaded from: classes17.dex */
-    public abstract class AbstractC0573a {
-        private boolean eqN;
+    /* loaded from: classes6.dex */
+    public abstract class AbstractC0564a {
+        private boolean eAy;
 
         protected abstract boolean H(SQLiteDatabase sQLiteDatabase);
 
-        private AbstractC0573a() {
-            this.eqN = false;
+        private AbstractC0564a() {
+            this.eAy = false;
         }
 
         public void I(SQLiteDatabase sQLiteDatabase) {
             if (sQLiteDatabase != null) {
-                this.eqN = false;
+                this.eAy = false;
                 try {
                     try {
                         sQLiteDatabase.beginTransaction();
                         if (H(sQLiteDatabase)) {
                             sQLiteDatabase.setTransactionSuccessful();
-                            this.eqN = true;
+                            this.eAy = true;
                         }
                         try {
                             sQLiteDatabase.endTransaction();
@@ -1260,8 +1214,8 @@ public class a {
                         JSONObject jSONObject = new JSONObject();
                         try {
                             jSONObject.put("type", "DBError");
-                            jSONObject.put("db_size", a.this.bfy());
-                            jSONObject.put("db_log_size", a.this.bfz());
+                            jSONObject.put("db_size", a.this.bhV());
+                            jSONObject.put("db_log_size", a.this.bhW());
                             jSONObject.put("exception", Log.getStackTraceString(e2));
                         } catch (JSONException e3) {
                             e3.printStackTrace();
@@ -1282,8 +1236,8 @@ public class a {
             }
         }
 
-        protected boolean bfA() {
-            return this.eqN;
+        protected boolean bhX() {
+            return this.eAy;
         }
     }
 }

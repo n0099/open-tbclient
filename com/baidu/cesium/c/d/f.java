@@ -13,11 +13,11 @@ import java.util.Map;
 import javax.crypto.BadPaddingException;
 import javax.crypto.spec.OAEPParameterSpec;
 import javax.crypto.spec.PSource;
-/* loaded from: classes14.dex */
+/* loaded from: classes4.dex */
 public final class f {
-    private static final Map<String, byte[]> anN = Collections.synchronizedMap(new HashMap());
-    private MessageDigest anL;
-    private MessageDigest anM;
+    private static final Map<String, byte[]> l = Collections.synchronizedMap(new HashMap());
+    private MessageDigest aon;
+    private MessageDigest aoo;
     private final int e;
     private final int f;
     private SecureRandom g;
@@ -61,9 +61,9 @@ public final class f {
                         throw new InvalidKeyException("Digest SHA-1 not available", e);
                     }
                 }
-                this.anL = MessageDigest.getInstance(str);
-                this.anM = MessageDigest.getInstance(str2);
-                this.k = c(this.anL, bArr);
+                this.aon = MessageDigest.getInstance(str);
+                this.aoo = MessageDigest.getInstance(str2);
+                this.k = c(this.aon, bArr);
                 this.h = (i2 - 2) - (this.k.length * 2);
                 if (this.h <= 0) {
                     throw new InvalidKeyException("Key is too short for encryption using OAEPPadding with " + str + " and MGF1" + str2);
@@ -88,32 +88,31 @@ public final class f {
         int i5 = i4;
         int i6 = i3;
         while (i5 > 0) {
-            this.anM.update(bArr, i, i2);
-            this.anM.update(bArr3);
+            this.aoo.update(bArr, i, i2);
+            this.aoo.update(bArr3);
             try {
-                this.anM.digest(bArr4, 0, bArr4.length);
-                int i7 = i5;
-                int i8 = i6;
-                for (int i9 = 0; i9 < bArr4.length && i7 > 0; i9++) {
-                    bArr2[i8] = (byte) (bArr4[i9] ^ bArr2[i8]);
-                    i7--;
-                    i8++;
+                this.aoo.digest(bArr4, 0, bArr4.length);
+                int i7 = 0;
+                int i8 = i5;
+                while (i7 < bArr4.length && i8 > 0) {
+                    bArr2[i6] = (byte) (bArr4[i7] ^ bArr2[i6]);
+                    i8--;
+                    i7++;
+                    i6++;
                 }
-                if (i7 > 0) {
+                if (i8 > 0) {
                     int length = bArr3.length;
                     while (true) {
                         length--;
-                        byte b = (byte) (bArr3[length] + 1);
-                        bArr3[length] = b;
-                        if (b != 0 || length <= 0) {
+                        byte b2 = (byte) (bArr3[length] + 1);
+                        bArr3[length] = b2;
+                        if (b2 != 0 || length <= 0) {
                             break;
                         }
                     }
-                    i5 = i7;
-                    i6 = i8;
+                    i5 = i8;
                 } else {
-                    i5 = i7;
-                    i6 = i8;
+                    i5 = i8;
                 }
             } catch (DigestException e) {
                 throw new BadPaddingException(e.toString());
@@ -124,10 +123,10 @@ public final class f {
     private static byte[] c(MessageDigest messageDigest, byte[] bArr) {
         if (bArr == null || bArr.length == 0) {
             String algorithm = messageDigest.getAlgorithm();
-            byte[] bArr2 = anN.get(algorithm);
+            byte[] bArr2 = l.get(algorithm);
             if (bArr2 == null) {
                 byte[] digest = messageDigest.digest();
-                anN.put(algorithm, digest);
+                l.put(algorithm, digest);
                 return digest;
             }
             return bArr2;
@@ -147,14 +146,14 @@ public final class f {
         bArr2[1] = (byte) this.e;
         if (this.e != 1) {
             if (this.g == null) {
-                this.g = b.aex;
+                this.g = b.afc;
             }
             byte[] bArr3 = new byte[64];
-            int i5 = length;
-            int i6 = 2;
+            int i5 = 2;
+            int i6 = length;
             while (true) {
-                int i7 = i5 - 1;
-                if (i5 <= 0) {
+                int i7 = i6 - 1;
+                if (i6 <= 0) {
                     break;
                 }
                 while (true) {
@@ -169,10 +168,10 @@ public final class f {
                     }
                     i3 = i;
                 }
-                bArr2[i6] = (byte) i2;
-                i6++;
+                bArr2[i5] = (byte) i2;
                 i3 = i;
-                i5 = i7;
+                i5++;
+                i6 = i7;
             }
         } else {
             while (true) {
@@ -188,7 +187,7 @@ public final class f {
         return bArr2;
     }
 
-    private byte[] t(byte[] bArr) {
+    private byte[] d(byte[] bArr) {
         if (bArr[0] != 0) {
             throw new BadPaddingException("Data must start with zero");
         }
@@ -218,9 +217,9 @@ public final class f {
         }
     }
 
-    private byte[] u(byte[] bArr) {
+    private byte[] e(byte[] bArr) {
         if (this.g == null) {
-            this.g = b.aex;
+            this.g = b.afc;
         }
         int length = this.k.length;
         byte[] bArr2 = new byte[length];
@@ -238,7 +237,7 @@ public final class f {
         return bArr3;
     }
 
-    private byte[] v(byte[] bArr) {
+    private byte[] f(byte[] bArr) {
         int length = this.k.length;
         if (bArr[0] != 0) {
             throw new BadPaddingException("Data must start with zero");
@@ -284,7 +283,7 @@ public final class f {
             case 3:
                 return bArr;
             case 4:
-                return u(bArr);
+                return e(bArr);
             default:
                 throw new AssertionError();
         }
@@ -297,11 +296,11 @@ public final class f {
         switch (this.e) {
             case 1:
             case 2:
-                return t(bArr);
+                return d(bArr);
             case 3:
                 return bArr;
             case 4:
-                return v(bArr);
+                return f(bArr);
             default:
                 throw new AssertionError();
         }

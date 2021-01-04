@@ -2,7 +2,7 @@ package com.baidu.searchbox.anr.ioc;
 
 import android.content.Context;
 import com.baidu.searchbox.anr.impl.ANRInfo;
-/* loaded from: classes20.dex */
+/* loaded from: classes6.dex */
 public interface IANRContext {
     void onAppNotResponding(Context context, ANRInfo aNRInfo);
 }

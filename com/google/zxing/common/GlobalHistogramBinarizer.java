@@ -3,7 +3,7 @@ package com.google.zxing.common;
 import com.google.zxing.Binarizer;
 import com.google.zxing.LuminanceSource;
 import com.google.zxing.NotFoundException;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class GlobalHistogramBinarizer extends Binarizer {
     private static final byte[] EMPTY = new byte[0];
     private static final int LUMINANCE_BITS = 5;
@@ -111,59 +111,57 @@ public class GlobalHistogramBinarizer extends Binarizer {
     private static int estimateBlackPoint(int[] iArr) throws NotFoundException {
         int i;
         int i2;
-        int i3 = 0;
         int length = iArr.length;
+        int i3 = 0;
         int i4 = 0;
         int i5 = 0;
-        int i6 = 0;
-        for (int i7 = 0; i7 < length; i7++) {
-            if (iArr[i7] > i4) {
-                i4 = iArr[i7];
-                i5 = i7;
+        for (int i6 = 0; i6 < length; i6++) {
+            if (iArr[i6] > i3) {
+                i3 = iArr[i6];
+                i4 = i6;
             }
-            if (iArr[i7] > i6) {
-                i6 = iArr[i7];
+            if (iArr[i6] > i5) {
+                i5 = iArr[i6];
             }
         }
+        int i7 = 0;
         int i8 = 0;
         int i9 = 0;
-        while (i3 < length) {
-            int i10 = i3 - i5;
-            int i11 = i10 * iArr[i3] * i10;
+        while (i7 < length) {
+            int i10 = i7 - i4;
+            int i11 = i10 * iArr[i7] * i10;
             if (i11 > i8) {
-                i2 = i3;
+                i9 = i7;
             } else {
                 i11 = i8;
-                i2 = i9;
             }
-            i3++;
-            i9 = i2;
+            i7++;
             i8 = i11;
         }
-        if (i5 <= i9) {
-            int i12 = i9;
-            i9 = i5;
-            i5 = i12;
+        if (i4 > i9) {
+            i = i4;
+            i2 = i9;
+        } else {
+            i = i9;
+            i2 = i4;
         }
-        if (i5 - i9 <= length / 16) {
+        if (i - i2 <= length / 16) {
             throw NotFoundException.getNotFoundInstance();
         }
-        int i13 = i5 - 1;
-        int i14 = -1;
-        int i15 = i5 - 1;
-        while (i15 > i9) {
-            int i16 = i15 - i9;
-            int i17 = i16 * i16 * (i5 - i15) * (i6 - iArr[i15]);
-            if (i17 > i14) {
-                i = i15;
+        int i12 = i - 1;
+        int i13 = -1;
+        int i14 = i - 1;
+        while (i14 > i2) {
+            int i15 = i14 - i2;
+            int i16 = i15 * i15 * (i - i14) * (i5 - iArr[i14]);
+            if (i16 > i13) {
+                i12 = i14;
             } else {
-                i17 = i14;
-                i = i13;
+                i16 = i13;
             }
-            i15--;
-            i13 = i;
-            i14 = i17;
+            i14--;
+            i13 = i16;
         }
-        return i13 << 3;
+        return i12 << 3;
     }
 }

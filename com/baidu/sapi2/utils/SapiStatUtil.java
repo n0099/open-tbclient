@@ -3,6 +3,7 @@ package com.baidu.sapi2.utils;
 import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiContext;
@@ -18,7 +19,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class SapiStatUtil {
     public static final int CLOUND_SHARE_ACCOUNT_STAT_INVOKE_START = 3;
     public static final int CLOUND_SHARE_ACCOUNT_STAT_LOGIN_FAIL = 5;
@@ -173,8 +174,8 @@ public class SapiStatUtil {
     public static void statShareV2Click(b.c cVar, List<PassNameValuePair> list) {
         HashMap hashMap = new HashMap();
         buildStatExtraMap(hashMap, list);
-        hashMap.put("index", cVar.f3519a + "");
-        hashMap.put(b.c.f, cVar.b);
+        hashMap.put("index", cVar.f5344a + "");
+        hashMap.put(b.c.f, cVar.f5345b);
         hashMap.put(b.c.g, cVar.c);
         k.a("share_account_click", hashMap);
     }
@@ -242,7 +243,7 @@ public class SapiStatUtil {
         hashMap.put("share_result", i + "");
         hashMap.put("fail_reason", str);
         if (com.baidu.sapi2.share.b.l != null) {
-            hashMap.put(b.c.f, cVar.b);
+            hashMap.put(b.c.f, cVar.f5345b);
             hashMap.put(b.c.g, cVar.c);
         }
         hashMap.put("uid", str2);
@@ -261,7 +262,7 @@ public class SapiStatUtil {
     public static void statThirdLoginEnter(SocialType socialType) {
         HashMap hashMap = new HashMap();
         hashMap.put("clientip", SapiUtils.getLocalIpAddress());
-        hashMap.put("client", "android");
+        hashMap.put("client", HttpConstants.OS_TYPE_VALUE);
         hashMap.put(LoginActivityConfig.SOCIAL_TYPE, socialType.getType() + "");
         if (SocialType.SINA_WEIBO_SSO == socialType) {
             hashMap.put("is_sso", "1");

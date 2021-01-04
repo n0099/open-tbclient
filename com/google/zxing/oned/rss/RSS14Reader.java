@@ -14,7 +14,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class RSS14Reader extends AbstractRSSReader {
     private final List<Pair> possibleLeftPairs = new ArrayList();
     private final List<Pair> possibleRightPairs = new ArrayList();
@@ -209,6 +209,7 @@ public final class RSS14Reader extends AbstractRSSReader {
     }
 
     private int[] findFinderPattern(BitArray bitArray, int i, boolean z) throws NotFoundException {
+        int i2;
         int[] decodeFinderCounters = getDecodeFinderCounters();
         decodeFinderCounters[0] = 0;
         decodeFinderCounters[1] = 0;
@@ -216,37 +217,42 @@ public final class RSS14Reader extends AbstractRSSReader {
         decodeFinderCounters[3] = 0;
         int size = bitArray.getSize();
         boolean z2 = false;
-        int i2 = i;
-        while (i2 < size) {
-            z2 = !bitArray.get(i2);
+        int i3 = i;
+        while (i3 < size) {
+            z2 = !bitArray.get(i3);
             if (z == z2) {
                 break;
             }
-            i2++;
+            i3++;
         }
+        int i4 = i3;
+        int i5 = i3;
+        int i6 = 0;
         boolean z3 = z2;
-        int i3 = i2;
-        int i4 = 0;
-        for (int i5 = i2; i5 < size; i5++) {
-            if (bitArray.get(i5) ^ z3) {
-                decodeFinderCounters[i4] = decodeFinderCounters[i4] + 1;
+        while (i4 < size) {
+            if (bitArray.get(i4) ^ z3) {
+                decodeFinderCounters[i6] = decodeFinderCounters[i6] + 1;
+                i2 = i5;
             } else {
-                if (i4 == 3) {
+                if (i6 == 3) {
                     if (isFinderPattern(decodeFinderCounters)) {
-                        return new int[]{i3, i5};
+                        return new int[]{i5, i4};
                     }
-                    i3 += decodeFinderCounters[0] + decodeFinderCounters[1];
+                    i2 = decodeFinderCounters[0] + decodeFinderCounters[1] + i5;
                     decodeFinderCounters[0] = decodeFinderCounters[2];
                     decodeFinderCounters[1] = decodeFinderCounters[3];
                     decodeFinderCounters[2] = 0;
                     decodeFinderCounters[3] = 0;
-                    i4--;
+                    i6--;
                 } else {
-                    i4++;
+                    i6++;
+                    i2 = i5;
                 }
-                decodeFinderCounters[i4] = 1;
+                decodeFinderCounters[i6] = 1;
                 z3 = !z3;
             }
+            i4++;
+            i5 = i2;
         }
         throw NotFoundException.getNotFoundInstance();
     }
@@ -278,9 +284,6 @@ public final class RSS14Reader extends AbstractRSSReader {
         boolean z3;
         boolean z4;
         boolean z5;
-        boolean z6;
-        boolean z7;
-        boolean z8 = true;
         int sum = MathUtils.sum(getOddCounts());
         int sum2 = MathUtils.sum(getEvenCounts());
         if (z) {
@@ -329,74 +332,58 @@ public final class RSS14Reader extends AbstractRSSReader {
             }
         }
         int i2 = (sum + sum2) - i;
-        boolean z9 = (sum & 1) == (z ? 1 : 0);
-        boolean z10 = (sum2 & 1) == 1;
+        boolean z6 = (sum & 1) == (z ? 1 : 0);
+        boolean z7 = (sum2 & 1) == 1;
         if (i2 == 1) {
-            if (z9) {
-                if (z10) {
+            if (z6) {
+                if (z7) {
                     throw NotFoundException.getNotFoundInstance();
                 }
-                z7 = z3;
-                z8 = z5;
-                z6 = true;
-            } else if (!z10) {
+                z2 = true;
+            } else if (!z7) {
                 throw NotFoundException.getNotFoundInstance();
             } else {
                 z4 = true;
-                z8 = z5;
-                z6 = z2;
-                z7 = z3;
             }
         } else if (i2 == -1) {
-            if (z9) {
-                if (z10) {
+            if (z6) {
+                if (z7) {
                     throw NotFoundException.getNotFoundInstance();
                 }
-                boolean z11 = z5;
-                z6 = z2;
-                z7 = true;
-                z8 = z11;
-            } else if (!z10) {
+                z3 = true;
+            } else if (!z7) {
                 throw NotFoundException.getNotFoundInstance();
             } else {
-                z6 = z2;
-                z7 = z3;
+                z5 = true;
             }
         } else if (i2 == 0) {
-            if (z9) {
-                if (!z10) {
+            if (z6) {
+                if (!z7) {
                     throw NotFoundException.getNotFoundInstance();
                 }
                 if (sum < sum2) {
                     z4 = true;
-                    boolean z12 = z5;
-                    z6 = z2;
-                    z7 = true;
-                    z8 = z12;
+                    z3 = true;
                 } else {
-                    z6 = true;
-                    z7 = z3;
+                    z5 = true;
+                    z2 = true;
                 }
-            } else if (z10) {
+            } else if (z7) {
                 throw NotFoundException.getNotFoundInstance();
-            } else {
-                z8 = z5;
-                z6 = z2;
-                z7 = z3;
             }
         } else {
             throw NotFoundException.getNotFoundInstance();
         }
-        if (z7) {
-            if (z6) {
+        if (z3) {
+            if (z2) {
                 throw NotFoundException.getNotFoundInstance();
             }
             increment(getOddCounts(), getOddRoundingErrors());
         }
-        if (z6) {
+        if (z2) {
             decrement(getOddCounts(), getOddRoundingErrors());
         }
-        if (z8) {
+        if (z5) {
             if (z4) {
                 throw NotFoundException.getNotFoundInstance();
             }

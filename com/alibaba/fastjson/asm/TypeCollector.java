@@ -1,11 +1,10 @@
 package com.alibaba.fastjson.asm;
 
-import android.support.media.ExifInterface;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import java.lang.reflect.Modifier;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class TypeCollector {
     private static final Map<String, String> primitives = new HashMap<String, String>() { // from class: com.alibaba.fastjson.asm.TypeCollector.1
         {
@@ -13,7 +12,7 @@ public class TypeCollector {
             put("boolean", "Z");
             put("byte", "B");
             put("char", "C");
-            put("short", ExifInterface.LATITUDE_SOUTH);
+            put("short", "S");
             put("float", "F");
             put("long", "J");
             put("double", "D");

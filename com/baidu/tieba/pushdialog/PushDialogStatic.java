@@ -19,28 +19,28 @@ import com.baidu.tieba.pushdialog.data.PullTidSocketResponseMessage;
 import com.baidu.tieba.pushdialog.data.PushDialogHttpResMsg;
 import com.baidu.tieba.pushdialog.data.PushDialogSocketResMsg;
 import com.squareup.wire.Wire;
-/* loaded from: classes21.dex */
+/* loaded from: classes8.dex */
 public class PushDialogStatic {
     public static Wire WIRE = new Wire(new Class[0]);
 
     static {
         TbadkApplication.getInst().RegisterIntent(PushDialogActivityConfig.class, PushDialogActivity.class);
-        cuh();
+        cwY();
     }
 
-    private static void cuh() {
+    private static void cwY() {
         com.baidu.tieba.tbadkCore.a.a.a(309614, PushDialogSocketResMsg.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003412, com.baidu.tieba.tbadkCore.a.a.bN(TbConfig.GET_PUSH_DIALOG_DETAIL, 309614));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003412, com.baidu.tieba.tbadkCore.a.a.bU(TbConfig.GET_PUSH_DIALOG_DETAIL, 309614));
         tbHttpMessageTask.setResponsedClass(PushDialogHttpResMsg.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
         com.baidu.tieba.tbadkCore.a.a.a(309618, PullTidSocketResponseMessage.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_PUSH_DIALOG_TID, com.baidu.tieba.tbadkCore.a.a.bN(TbConfig.GET_PUSH_DIALOG_TID, 309618));
+        TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_PUSH_DIALOG_TID, com.baidu.tieba.tbadkCore.a.a.bU(TbConfig.GET_PUSH_DIALOG_TID, 309618));
         tbHttpMessageTask2.setResponsedClass(PullTidHttpRespMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask2);
         CustomMessageTask customMessageTask = new CustomMessageTask(2921359, new CustomMessageTask.CustomRunnable() { // from class: com.baidu.tieba.pushdialog.PushDialogStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage customMessage) {
-                PushDialogLoopManager.dDM();
+                PushDialogLoopManager.dDB();
                 return null;
             }
         });
@@ -52,11 +52,11 @@ public class PushDialogStatic {
                 a.b bVar;
                 int i = 0;
                 if (customMessage != null && (customMessage.getData() instanceof TbPageContextSupport)) {
-                    int i2 = com.baidu.tbadk.core.sharedPref.b.bsO().getInt("lock_permission_guide_set", 0);
+                    int i2 = com.baidu.tbadk.core.sharedPref.b.bvq().getInt("lock_permission_guide_set", 0);
                     if (!(i2 >= 2) && TbSingleton.getInstance().canShowPermDialog()) {
                         final TbPageContextSupport tbPageContextSupport = (TbPageContextSupport) customMessage.getData();
                         if (tbPageContextSupport.getPageContext() != null && tbPageContextSupport.getPageContext().getPageActivity() != null) {
-                            if (b.dDT()) {
+                            if (b.dDI()) {
                                 bVar = new a.b() { // from class: com.baidu.tieba.pushdialog.PushDialogStatic.2.1
                                     @Override // com.baidu.tbadk.core.dialog.a.b
                                     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
@@ -72,7 +72,7 @@ public class PushDialogStatic {
                                     }
                                 };
                                 i = R.string.push_dialog_guide_content_miui;
-                            } else if (b.dDU()) {
+                            } else if (b.dDJ()) {
                                 bVar = new a.b() { // from class: com.baidu.tieba.pushdialog.PushDialogStatic.2.2
                                     @Override // com.baidu.tbadk.core.dialog.a.b
                                     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
@@ -92,8 +92,8 @@ public class PushDialogStatic {
                             }
                             if (bVar != null) {
                                 com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContextSupport.getPageContext().getPageActivity());
-                                aVar.oP(R.string.push_dialog_guide_title);
-                                aVar.oQ(i);
+                                aVar.oZ(R.string.push_dialog_guide_title);
+                                aVar.pa(i);
                                 aVar.a(R.string.go_setting, bVar);
                                 aVar.b(R.string.has_set, new a.b() { // from class: com.baidu.tieba.pushdialog.PushDialogStatic.2.3
                                     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -102,10 +102,10 @@ public class PushDialogStatic {
                                     }
                                 });
                                 aVar.b(tbPageContextSupport.getPageContext());
-                                aVar.brv();
+                                aVar.btX();
                                 TbSingleton.getInstance().setHasShowPermDlg(true);
                             }
-                            com.baidu.tbadk.core.sharedPref.b.bsO().putInt("lock_permission_guide_set", i2 + 1);
+                            com.baidu.tbadk.core.sharedPref.b.bvq().putInt("lock_permission_guide_set", i2 + 1);
                         }
                     }
                 }

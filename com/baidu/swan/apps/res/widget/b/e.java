@@ -5,9 +5,6 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.support.annotation.AnimRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -24,19 +21,22 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.annotation.AnimRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.widget.b.d;
 import com.facebook.drawee.generic.RoundingParams;
 import com.facebook.drawee.view.SimpleDraweeView;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 class e {
-    private static View dxK;
-    private static Runnable mCancelRunnable;
-    private static View sMaskView;
-    private static boolean sShowMask = false;
+    private static Runnable dFR;
+    private static View dGi;
+    private static View dGj;
+    private static boolean dGk = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void showToast(@NonNull Activity activity, @NonNull CharSequence charSequence, int i, int i2, boolean z) {
+    public static void a(@NonNull Activity activity, @NonNull CharSequence charSequence, int i, int i2, boolean z) {
         TextView textView;
         Resources resources = activity.getResources();
         RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(activity).inflate(a.g.aiapps_normal_toast_view, (ViewGroup) null);
@@ -52,10 +52,10 @@ class e {
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 17;
-        addToastToViewTree(getContentView(activity), relativeLayout, i, layoutParams, a.C0379a.aiapps_toast_enter);
+        a(K(activity), relativeLayout, i, layoutParams, a.C0372a.aiapps_toast_enter);
     }
 
-    static View getContentView(@NonNull Activity activity) {
+    static View K(@NonNull Activity activity) {
         if (activity == null || activity.getWindow() == null || activity.getWindow().getDecorView() == null) {
             return null;
         }
@@ -63,7 +63,7 @@ class e {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void showToastBottom(@NonNull Activity activity, @NonNull CharSequence charSequence, int i) {
+    public static void a(@NonNull Activity activity, @NonNull CharSequence charSequence, int i) {
         TextView textView;
         Resources resources = activity.getResources();
         RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(activity).inflate(a.g.aiapps_normal_toast_view, (ViewGroup) null);
@@ -75,13 +75,13 @@ class e {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 81;
         layoutParams.bottomMargin = (int) resources.getDimension(a.d.aiapps_clickable_toast_view_margin_bottom);
-        addToastToViewTree(getContentView(activity), relativeLayout, i, layoutParams, a.C0379a.aiapps_toast_enter);
+        a(K(activity), relativeLayout, i, layoutParams, a.C0372a.aiapps_toast_enter);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void showHighlight(@NonNull Activity activity, @NonNull CharSequence charSequence, @Nullable Drawable drawable, int i, boolean z) {
+    public static void a(@NonNull Activity activity, @NonNull CharSequence charSequence, @Nullable Drawable drawable, int i, boolean z) {
         Resources resources = activity.getResources();
-        sShowMask = z;
+        dGk = z;
         LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(activity).inflate(a.g.aiapps_highlight_toast_view, (ViewGroup) null);
         linearLayout.setBackground(resources.getDrawable(a.e.aiapps_highlight_toast_view_bg));
         TextView textView = (TextView) linearLayout.findViewById(a.f.highlight_toast_text);
@@ -98,13 +98,13 @@ class e {
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 17;
-        addToastToViewTree(getContentView(activity), linearLayout, i, layoutParams, a.C0379a.aiapps_highlight_toast_show);
+        a(K(activity), linearLayout, i, layoutParams, a.C0372a.aiapps_highlight_toast_show);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void showHighLoadingToast(Activity activity, CharSequence charSequence, int i, boolean z) {
+    public static void a(Activity activity, CharSequence charSequence, int i, boolean z) {
         Resources resources = activity.getResources();
-        sShowMask = z;
+        dGk = z;
         LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(activity).inflate(a.g.aiapps_highloading_toast_view, (ViewGroup) null);
         linearLayout.setBackground(resources.getDrawable(a.e.aiapps_highlight_toast_view_bg));
         TextView textView = (TextView) linearLayout.findViewById(a.f.highLoading_progress_toast_title);
@@ -114,16 +114,16 @@ class e {
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 17;
-        addToastToViewTree(getContentView(activity), linearLayout, i, layoutParams, a.C0379a.aiapps_highlight_toast_show);
+        a(K(activity), linearLayout, i, layoutParams, a.C0372a.aiapps_highlight_toast_show);
     }
 
-    private static void addToastToViewTree(View view, View view2, int i, FrameLayout.LayoutParams layoutParams, @AnimRes int i2) {
+    private static void a(View view, View view2, int i, FrameLayout.LayoutParams layoutParams, @AnimRes int i2) {
         if (view != null && view2 != null) {
-            addToastToViewTree(view, view2, i, layoutParams, AnimationUtils.loadAnimation(view.getContext(), i2));
+            a(view, view2, i, layoutParams, AnimationUtils.loadAnimation(view.getContext(), i2));
         }
     }
 
-    private static void addToastToViewTree(final View view, final View view2, int i, final FrameLayout.LayoutParams layoutParams, final Animation animation) {
+    private static void a(final View view, final View view2, int i, final FrameLayout.LayoutParams layoutParams, final Animation animation) {
         if (view != null && view2 != null) {
             final Context context = view.getContext();
             if (view2.getParent() instanceof ViewGroup) {
@@ -134,42 +134,42 @@ class e {
                 view.post(new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.e.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (e.sShowMask && view != null) {
-                            if (e.sMaskView != null && (e.sMaskView.getParent() instanceof ViewGroup)) {
-                                ((ViewGroup) e.sMaskView.getParent()).removeView(e.sMaskView);
+                        if (e.dGk && view != null) {
+                            if (e.dGj != null && (e.dGj.getParent() instanceof ViewGroup)) {
+                                ((ViewGroup) e.dGj.getParent()).removeView(e.dGj);
                             }
                             if (!(context instanceof Activity) || !((Activity) context).isFinishing()) {
                                 FrameLayout frameLayout = new FrameLayout(context);
                                 frameLayout.setClickable(true);
                                 FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, -1);
-                                layoutParams2.topMargin = d.getSwanAppStatusBarAndActionBarHeight(context);
+                                layoutParams2.topMargin = d.dp(context);
                                 if (view instanceof ViewGroup) {
                                     ((ViewGroup) view).addView(frameLayout, layoutParams2);
-                                    View unused = e.sMaskView = frameLayout;
+                                    View unused = e.dGj = frameLayout;
                                 }
                             } else {
                                 return;
                             }
                         }
-                        if (e.dxK != null && (e.dxK.getParent() instanceof ViewGroup)) {
-                            ((ViewGroup) e.dxK.getParent()).removeView(e.dxK);
+                        if (e.dGi != null && (e.dGi.getParent() instanceof ViewGroup)) {
+                            ((ViewGroup) e.dGi.getParent()).removeView(e.dGi);
                         }
                         if (!(context instanceof Activity) || !((Activity) context).isFinishing()) {
                             ((ViewGroup) view).addView(view2, layoutParams);
                             view2.startAnimation(animation);
-                            View unused2 = e.dxK = view2;
+                            View unused2 = e.dGi = view2;
                         }
                     }
                 });
-                if (mCancelRunnable == null) {
-                    mCancelRunnable = new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.e.3
+                if (dFR == null) {
+                    dFR = new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.e.3
                         @Override // java.lang.Runnable
                         public void run() {
                             e.cancel();
                         }
                     };
                 }
-                view.postDelayed(mCancelRunnable, i * 1000);
+                view.postDelayed(dFR, i * 1000);
             }
         }
     }
@@ -178,9 +178,9 @@ class e {
     public static void a(@NonNull Activity activity, @NonNull CharSequence charSequence, int i, @Nullable CharSequence charSequence2, int i2, @Nullable final d.a aVar) {
         TextView textView;
         Resources resources = activity.getResources();
-        View contentView = getContentView(activity);
-        if (contentView != null) {
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(contentView.getContext()).inflate(a.g.aiapps_clickable_toast_view, (ViewGroup) null);
+        View K = K(activity);
+        if (K != null) {
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(K.getContext()).inflate(a.g.aiapps_clickable_toast_view, (ViewGroup) null);
             linearLayout.setBackground(resources.getDrawable(a.e.aiapps_clickable_toast_view_bg));
             View findViewById = linearLayout.findViewById(a.f.clickable_toast_click_area);
             if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(a.f.clickable_toast_info_view)) != null) {
@@ -209,7 +209,7 @@ class e {
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         if (d.a.this != null) {
-                            d.a.this.onToastClick();
+                            d.a.this.ajM();
                         }
                         e.cancel();
                     }
@@ -218,7 +218,7 @@ class e {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 81;
             layoutParams.bottomMargin = (int) resources.getDimension(a.d.aiapps_clickable_toast_view_margin_bottom);
-            addToastToViewTree(contentView, linearLayout, i2, layoutParams, a.C0379a.aiapps_toast_enter);
+            a(K, linearLayout, i2, layoutParams, a.C0372a.aiapps_toast_enter);
         }
     }
 
@@ -235,7 +235,7 @@ class e {
         if (uri != null) {
             simpleDraweeView.setImageURI(uri);
             if (i != 1) {
-                simpleDraweeView.getHierarchy().a(new RoundingParams().AU(false));
+                simpleDraweeView.getHierarchy().a(new RoundingParams().Bc(false));
             }
         } else {
             simpleDraweeView.setVisibility(8);
@@ -288,7 +288,7 @@ class e {
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (d.a.this != null) {
-                        d.a.this.onToastClick();
+                        d.a.this.ajM();
                     }
                     e.cancel();
                 }
@@ -298,7 +298,7 @@ class e {
                 public boolean onTouch(View view, MotionEvent motionEvent) {
                     switch (motionEvent.getAction()) {
                         case 0:
-                            textView.setAlpha(com.baidu.swan.apps.t.a.azw().getNightModeSwitcherState() ? 0.5f : 0.2f);
+                            textView.setAlpha(com.baidu.swan.apps.t.a.aAN().alD() ? 0.5f : 0.2f);
                             return false;
                         case 1:
                         default:
@@ -326,39 +326,39 @@ class e {
                 animation = animationSet;
                 break;
             default:
-                animation = AnimationUtils.loadAnimation(activity, a.C0379a.aiapps_toast_enter);
+                animation = AnimationUtils.loadAnimation(activity, a.C0372a.aiapps_toast_enter);
                 break;
         }
-        addToastToViewTree(getContentView(activity), linearLayout, i4, layoutParams, animation);
+        a(K(activity), linearLayout, i4, layoutParams, animation);
     }
 
     public static synchronized void cancel() {
         synchronized (e.class) {
-            if (dxK != null) {
-                dxK.post(new AnonymousClass2(dxK, sMaskView));
-                dxK.removeCallbacks(mCancelRunnable);
-                dxK = null;
-                mCancelRunnable = null;
-                sMaskView = null;
+            if (dGi != null) {
+                dGi.post(new AnonymousClass2(dGi, dGj));
+                dGi.removeCallbacks(dFR);
+                dGi = null;
+                dFR = null;
+                dGj = null;
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.swan.apps.res.widget.b.e$2  reason: invalid class name */
-    /* loaded from: classes25.dex */
+    /* loaded from: classes9.dex */
     public static class AnonymousClass2 implements Runnable {
-        final /* synthetic */ View val$maskView;
-        final /* synthetic */ View val$toastView;
+        final /* synthetic */ View dGo;
+        final /* synthetic */ View dGp;
 
         AnonymousClass2(View view, View view2) {
-            this.val$toastView = view;
-            this.val$maskView = view2;
+            this.dGo = view;
+            this.dGp = view2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            Animation loadAnimation = AnimationUtils.loadAnimation(this.val$toastView.getContext(), a.C0379a.aiapps_toast_exit);
+            Animation loadAnimation = AnimationUtils.loadAnimation(this.dGo.getContext(), a.C0372a.aiapps_toast_exit);
             loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.swan.apps.res.widget.b.e.2.1
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationStart(Animation animation) {
@@ -366,22 +366,22 @@ class e {
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
-                    if (AnonymousClass2.this.val$toastView.getParent() instanceof ViewGroup) {
-                        AnonymousClass2.this.val$toastView.post(new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.e.2.1.1
+                    if (AnonymousClass2.this.dGo.getParent() instanceof ViewGroup) {
+                        AnonymousClass2.this.dGo.post(new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.e.2.1.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                if (AnonymousClass2.this.val$toastView.getParent() != null) {
-                                    ((ViewGroup) AnonymousClass2.this.val$toastView.getParent()).removeView(AnonymousClass2.this.val$toastView);
+                                if (AnonymousClass2.this.dGo.getParent() != null) {
+                                    ((ViewGroup) AnonymousClass2.this.dGo.getParent()).removeView(AnonymousClass2.this.dGo);
                                 }
                             }
                         });
                     }
-                    if (AnonymousClass2.this.val$maskView != null) {
-                        AnonymousClass2.this.val$maskView.post(new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.e.2.1.2
+                    if (AnonymousClass2.this.dGp != null) {
+                        AnonymousClass2.this.dGp.post(new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.e.2.1.2
                             @Override // java.lang.Runnable
                             public void run() {
-                                if (AnonymousClass2.this.val$maskView != null && AnonymousClass2.this.val$maskView.getParent() != null && (AnonymousClass2.this.val$maskView.getParent() instanceof ViewGroup)) {
-                                    ((ViewGroup) AnonymousClass2.this.val$maskView.getParent()).removeView(AnonymousClass2.this.val$maskView);
+                                if (AnonymousClass2.this.dGp != null && AnonymousClass2.this.dGp.getParent() != null && (AnonymousClass2.this.dGp.getParent() instanceof ViewGroup)) {
+                                    ((ViewGroup) AnonymousClass2.this.dGp.getParent()).removeView(AnonymousClass2.this.dGp);
                                 }
                             }
                         });
@@ -392,7 +392,7 @@ class e {
                 public void onAnimationRepeat(Animation animation) {
                 }
             });
-            this.val$toastView.startAnimation(loadAnimation);
+            this.dGo.startAnimation(loadAnimation);
         }
     }
 }

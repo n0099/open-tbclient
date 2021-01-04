@@ -1,12 +1,11 @@
 package com.oversketch.progresshud;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.res.Resources;
 import android.os.Build;
-import android.support.v4.app.NotificationCompat;
+import androidx.core.app.NotificationCompat;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.base.g;
+import com.baidu.adp.base.h;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.BdToast;
@@ -77,17 +76,18 @@ public final class ProgresshudPlugin implements FlutterPlugin, MethodChannel.Met
             ProgresshudPluginKt.getDialog().showWithMaskType(ProgresshudPluginKt.getMaskType());
         } else if (p.l(methodCall.method, "showWithImg")) {
             if (methodCall.hasArgument("image")) {
-                String str = ((String) methodCall.argument("image")).toString();
-                String str2 = ((String) methodCall.argument("text")).toString();
-                String androidNameFromIos = getAndroidNameFromIos(str);
-                g li = g.li();
-                p.n(li, "BdResources.getInstance()");
-                Resources resources = li.getResources();
+                String valueOf = String.valueOf(methodCall.argument("image"));
+                String valueOf2 = String.valueOf(methodCall.argument("text"));
+                boolean l = p.l((String) methodCall.argument("isSvg"), "1");
+                String androidNameFromIos = getAndroidNameFromIos(valueOf);
+                h kE = h.kE();
+                p.n(kE, "BdResources.getInstance()");
+                Resources resources = kE.getResources();
                 BdBaseApplication inst4 = BdBaseApplication.getInst();
                 p.n(inst4, "BdBaseApplication.getInst()");
                 int identifier = resources.getIdentifier(androidNameFromIos, "drawable", inst4.getPackageName());
                 activity5 = ProgresshudPluginKt.mCurrentActivity;
-                BdToast.a((Context) activity5, (CharSequence) str2, identifier, false).brB();
+                BdToast.b(activity5, valueOf2, identifier, l).bud();
             }
         } else if (p.l(methodCall.method, "showWithStatus")) {
             ProgresshudPluginKt.getDialog().showWithStatus(methodCall.arguments.toString(), ProgresshudPluginKt.getMaskType());
@@ -100,14 +100,14 @@ public final class ProgresshudPlugin implements FlutterPlugin, MethodChannel.Met
             activity3 = ProgresshudPluginKt.mCurrentActivity;
             l.showToast(activity3, methodCall.arguments.toString());
         } else if (p.l(methodCall.method, "showAttentionWithStatusForTime")) {
-            String str3 = (String) methodCall.argument("status");
+            String str = (String) methodCall.argument("status");
             Object argument = methodCall.argument("time");
             if (argument == null) {
-                p.eEa();
+                p.eMi();
             }
             double doubleValue = ((Number) argument).doubleValue();
             activity2 = ProgresshudPluginKt.mCurrentActivity;
-            l.showToast(activity2, str3, ((int) doubleValue) * 1000);
+            l.showToast(activity2, str, ((int) doubleValue) * 1000);
         } else if (p.l(methodCall.method, "setDefaultMaskTypeNone")) {
             ProgresshudPluginKt.setMaskType(SVProgressHUD.SVProgressHUDMaskType.None);
         } else if (p.l(methodCall.method, "setDefaultMaskTypeBlack")) {

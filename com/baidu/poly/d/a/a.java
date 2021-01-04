@@ -1,5 +1,5 @@
 package com.baidu.poly.d.a;
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 public interface a {
     void onResult(int i, String str);
 }

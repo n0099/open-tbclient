@@ -4,9 +4,9 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import rx.h;
 import rx.internal.subscriptions.CancellableSubscription;
 import rx.internal.subscriptions.SequentialSubscription;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class SingleFromEmitter<T> implements h.a<T> {
-    final rx.functions.b<Object<T>> pPH;
+    final rx.functions.b<Object<T>> qrj;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // rx.functions.b
@@ -15,15 +15,15 @@ public final class SingleFromEmitter<T> implements h.a<T> {
         SingleEmitterImpl singleEmitterImpl = new SingleEmitterImpl(iVar);
         iVar.add(singleEmitterImpl);
         try {
-            this.pPH.call(singleEmitterImpl);
+            this.qrj.call(singleEmitterImpl);
         } catch (Throwable th) {
-            rx.exceptions.a.J(th);
+            rx.exceptions.a.O(th);
             singleEmitterImpl.onError(th);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes15.dex */
     public static final class SingleEmitterImpl<T> extends AtomicBoolean implements rx.k {
         private static final long serialVersionUID = 8082834163465882809L;
         final rx.i<? super T> actual;

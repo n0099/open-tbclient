@@ -10,29 +10,33 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.concurrent.ExecutorService;
 import org.json.JSONObject;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class aa {
 
     /* renamed from: a  reason: collision with root package name */
-    private b f1868a;
-    private long b = 0;
+    private b f2585a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private long f2586b = 0;
     private long c = 0;
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     private static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static aa f1869a = new aa();
+        private static aa f2587a = new aa();
     }
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     class b extends com.baidu.location.e.f {
         private boolean d = false;
         private String e = null;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f1870a = false;
-        public long b = 0;
+        public boolean f2588a = false;
+
+        /* renamed from: b  reason: collision with root package name */
+        public long f2589b = 0;
 
         public b() {
             this.k = new HashMap();
@@ -40,11 +44,11 @@ public class aa {
 
         @Override // com.baidu.location.e.f
         public void a() {
-            String b = com.baidu.location.e.b.a().b();
-            if (b != null) {
-                b = b + "&gnsst=" + this.b;
+            String b2 = com.baidu.location.e.b.a().b();
+            if (b2 != null) {
+                b2 = b2 + "&gnsst=" + this.f2589b;
             }
-            String a2 = m.a().a(b);
+            String a2 = m.a().a(b2);
             String replaceAll = !TextUtils.isEmpty(a2) ? a2.trim().replaceAll("\r|\n", "") : "null";
             String a3 = m.a().a(this.e);
             String replaceAll2 = !TextUtils.isEmpty(a3) ? a3.trim().replaceAll("\r|\n", "") : "null";
@@ -61,7 +65,7 @@ public class aa {
             }
             this.d = true;
             this.e = str;
-            this.b = j;
+            this.f2589b = j;
             ExecutorService c = z.a().c();
             if (c != null) {
                 a(c, "https://ofloc.map.baidu.com/locnu");
@@ -75,7 +79,7 @@ public class aa {
             if (z && this.j != null) {
                 try {
                     new JSONObject(this.j);
-                    this.f1870a = true;
+                    this.f2588a = true;
                 } catch (Throwable th) {
                 }
             }
@@ -91,25 +95,25 @@ public class aa {
     }
 
     public static aa a() {
-        return a.f1869a;
+        return a.f2587a;
     }
 
     @TargetApi(24)
     public void a(GnssNavigationMessage gnssNavigationMessage, long j) {
         q.a().a(gnssNavigationMessage, j);
-        this.b = System.currentTimeMillis();
+        this.f2586b = System.currentTimeMillis();
         this.c = j;
     }
 
     public void b() {
         ArrayList<String> b2;
-        if (this.b == 0 || Math.abs(System.currentTimeMillis() - this.b) >= 20000) {
+        if (this.f2586b == 0 || Math.abs(System.currentTimeMillis() - this.f2586b) >= 20000) {
             return;
         }
-        if (this.f1868a == null) {
-            this.f1868a = new b();
+        if (this.f2585a == null) {
+            this.f2585a = new b();
         }
-        if (this.f1868a == null || this.f1868a.b() || (b2 = q.a().b()) == null || b2.size() <= 0) {
+        if (this.f2585a == null || this.f2585a.b() || (b2 = q.a().b()) == null || b2.size() <= 0) {
             return;
         }
         StringBuffer stringBuffer = new StringBuffer();
@@ -118,7 +122,7 @@ public class aa {
         while (true) {
             int i2 = i;
             if (!it.hasNext()) {
-                this.f1868a.a(stringBuffer.toString(), this.c);
+                this.f2585a.a(stringBuffer.toString(), this.c);
                 return;
             }
             stringBuffer.append(it.next());

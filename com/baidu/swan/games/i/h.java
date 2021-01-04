@@ -1,21 +1,21 @@
 package com.baidu.swan.games.i;
 
-import com.baidu.swan.apps.ap.p;
+import com.baidu.swan.apps.ao.p;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class h implements Runnable {
-    private final i dZq;
-    private AtomicBoolean eam = new AtomicBoolean(false);
-    private List<h> ean = Collections.synchronizedList(new ArrayList());
+    private final i ein;
+    private AtomicBoolean ejj = new AtomicBoolean(false);
+    private List<h> ejk = Collections.synchronizedList(new ArrayList());
     private String[] mPaths;
     private final Runnable mRunnable;
     private String mTag;
 
     public h(i iVar, Runnable runnable, String str, String[] strArr) {
-        this.dZq = iVar;
+        this.ein = iVar;
         this.mRunnable = runnable;
         this.mTag = str;
         this.mPaths = strArr;
@@ -24,47 +24,47 @@ public class h implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         try {
-            aXB();
+            aZV();
         } finally {
-            this.dZq.c(this);
+            this.ein.c(this);
         }
     }
 
-    public void aXB() {
+    public void aZV() {
         this.mRunnable.run();
     }
 
-    public void aXC() {
-        p.postOnIO(this, this.mTag);
+    public void aZW() {
+        p.a(this, this.mTag);
     }
 
     public String getTag() {
         return this.mTag;
     }
 
-    public String[] aXD() {
+    public String[] aZX() {
         return this.mPaths;
     }
 
-    public boolean aXE() {
-        return this.eam.get();
+    public boolean aZY() {
+        return this.ejj.get();
     }
 
-    public void aXF() {
-        this.eam.set(true);
+    public void aZZ() {
+        this.ejj.set(true);
     }
 
     public void a(h hVar) {
-        if (!this.ean.contains(hVar)) {
-            this.ean.add(hVar);
+        if (!this.ejk.contains(hVar)) {
+            this.ejk.add(hVar);
         }
     }
 
     public void b(h hVar) {
-        this.ean.remove(hVar);
+        this.ejk.remove(hVar);
     }
 
-    public boolean aXG() {
-        return this.ean.isEmpty();
+    public boolean baa() {
+        return this.ejk.isEmpty();
     }
 }

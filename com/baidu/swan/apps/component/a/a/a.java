@@ -1,20 +1,20 @@
 package com.baidu.swan.apps.component.a.a;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.minivideo.plugin.capture.db.AuthoritySharedPreferences;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.swan.apps.component.a.a.b;
 import com.baidu.swan.apps.component.components.textarea.SwanEditText;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public abstract class a<V extends SwanEditText, M extends b> extends com.baidu.swan.apps.component.a.c.a<V, M> {
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.swan.apps.component.a.a.a<V extends com.baidu.swan.apps.component.components.textarea.SwanEditText, M extends com.baidu.swan.apps.component.a.a.b> */
     /* JADX WARN: Multi-variable type inference failed */
@@ -57,19 +57,19 @@ public abstract class a<V extends SwanEditText, M extends b> extends com.baidu.s
     public com.baidu.swan.apps.component.d.b a(@NonNull M m, @NonNull M m2) {
         com.baidu.swan.apps.component.d.b a2 = super.a(m, m2);
         if (getView() != 0 && !TextUtils.equals(((SwanEditText) getView()).getText().toString(), m2.text)) {
-            a2.ie(6);
+            a2.hY(6);
         }
         if (m.maxLength != m2.maxLength) {
-            a2.ie(10);
+            a2.hY(10);
         }
-        if (m.cIu != m2.cIu) {
-            a2.ie(11);
+        if (m.cNm != m2.cNm) {
+            a2.hY(11);
         }
         if (m.selectionStart != m2.selectionStart || m.selectionEnd != m2.selectionEnd) {
-            a2.ie(12);
+            a2.hY(12);
         }
-        if (!TextUtils.equals(m.cIv, m2.cIv)) {
-            a2.ie(13);
+        if (!TextUtils.equals(m.cNn, m2.cNn)) {
+            a2.hY(13);
         }
         return a2;
     }
@@ -77,16 +77,16 @@ public abstract class a<V extends SwanEditText, M extends b> extends com.baidu.s
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(@NonNull V v, @NonNull M m, @NonNull com.baidu.swan.apps.component.d.b bVar) {
         super.a((a<V, M>) v, (V) m, bVar);
-        if (bVar.m32if(11)) {
+        if (bVar.hZ(11)) {
             b((a<V, M>) v, (V) m);
         }
-        if (bVar.m32if(12)) {
+        if (bVar.hZ(12)) {
             c((a<V, M>) v, (V) m);
         }
-        if (bVar.m32if(10)) {
+        if (bVar.hZ(10)) {
             d((a<V, M>) v, (V) m);
         }
-        if (bVar.m32if(13)) {
+        if (bVar.hZ(13)) {
             e((a<V, M>) v, (V) m);
         }
     }
@@ -107,8 +107,8 @@ public abstract class a<V extends SwanEditText, M extends b> extends com.baidu.s
         if (text != null) {
             i = text.length();
         }
-        if (m.cIu <= i && m.cIu >= 0) {
-            v.setSelection(m.cIu);
+        if (m.cNm <= i && m.cNm >= 0) {
+            v.setSelection(m.cNm);
         }
     }
 
@@ -138,9 +138,9 @@ public abstract class a<V extends SwanEditText, M extends b> extends com.baidu.s
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean e(@NonNull V v, @NonNull M m) {
         if (DEBUG) {
-            Log.d("Component-EditText", "renderConfirmType:" + m.cIv);
+            Log.d("Component-EditText", "renderConfirmType:" + m.cNn);
         }
-        String str = m.cIv;
+        String str = m.cNn;
         char c = 65535;
         switch (str.hashCode()) {
             case -906336856:

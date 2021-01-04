@@ -3,7 +3,6 @@ package com.baidu.android.imsdk.pubaccount.request;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Pair;
-import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.db.TableDefine;
@@ -23,7 +22,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class IMPaGetInfoListRequest extends PaBaseHttpRequest {
     private static final String TAG = IMPaGetInfoListRequest.class.getSimpleName();
     private long mAppid;
@@ -97,31 +96,30 @@ public class IMPaGetInfoListRequest extends PaBaseHttpRequest {
         return false;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:25:0x01ca  */
-    /* JADX WARN: Removed duplicated region for block: B:43:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:26:0x01cc  */
+    /* JADX WARN: Removed duplicated region for block: B:44:? A[RETURN, SYNTHETIC] */
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void onSuccess(int i, byte[] bArr) {
         ArrayList arrayList;
-        JSONException e;
-        int i2;
         String str;
+        int i2;
         String str2 = new String(bArr);
         LogUtils.d(TAG, "FXF  json is " + str2);
         try {
             JSONObject jSONObject = new JSONObject(str2);
-            int i3 = jSONObject.getInt("error_code");
-            String optString = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG, "");
-            if (i3 != 0 || !jSONObject.has("response_params")) {
+            i2 = jSONObject.getInt("error_code");
+            String optString = jSONObject.optString("error_msg", "");
+            if (i2 != 0 || !jSONObject.has("response_params")) {
                 arrayList = null;
             } else {
                 JSONArray jSONArray = jSONObject.getJSONArray("response_params");
                 arrayList = new ArrayList();
-                for (int i4 = 0; i4 < jSONArray.length(); i4++) {
+                for (int i3 = 0; i3 < jSONArray.length(); i3++) {
                     try {
-                        JSONObject jSONObject2 = jSONArray.getJSONObject(i4);
+                        JSONObject jSONObject2 = jSONArray.getJSONObject(i3);
                         if (jSONObject2.optInt("pa_type") != 16) {
                             PaInfo paInfo = new PaInfo();
                             paInfo.setPaId(jSONObject2.optLong("pa_uid"));
@@ -146,8 +144,8 @@ public class IMPaGetInfoListRequest extends PaBaseHttpRequest {
                             if (!TextUtils.isEmpty(optString2)) {
                                 try {
                                     paInfo.setSubsetType(new JSONObject(optString2).optInt("sub_pa_type", 0));
-                                } catch (JSONException e2) {
-                                    LogUtils.e(LogUtils.TAG, "IMPaGetInfoListRequest JSONException", e2);
+                                } catch (JSONException e) {
+                                    LogUtils.e(LogUtils.TAG, "IMPaGetInfoListRequest JSONException", e);
                                 }
                             }
                             paInfo.setVipId(jSONObject2.optString("vip"));
@@ -165,21 +163,20 @@ public class IMPaGetInfoListRequest extends PaBaseHttpRequest {
                             }
                             arrayList.add(paInfo);
                         }
-                    } catch (JSONException e3) {
-                        e = e3;
+                    } catch (JSONException e2) {
+                        e = e2;
                         LogUtils.e(LogUtils.TAG, "IMGetZhidaInfoRequest JSONException", e);
-                        i2 = 1010;
                         str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
+                        i2 = 1010;
                         if (this.sliceListener == null) {
                         }
                     }
                 }
             }
             str = optString;
-            i2 = i3;
-        } catch (JSONException e4) {
+        } catch (JSONException e3) {
+            e = e3;
             arrayList = null;
-            e = e4;
         }
         if (this.sliceListener == null) {
             this.sliceListener.onResult(i2, str, arrayList);

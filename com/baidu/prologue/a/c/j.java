@@ -6,15 +6,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class j {
-    public static final boolean DEBUG = com.baidu.prologue.a.b.a.clZ.get().aes();
+    public static final boolean DEBUG = com.baidu.prologue.a.b.a.ctd.get().ago();
 
-    public static boolean O(@NonNull Context context, @NonNull String str) {
+    public static boolean U(@NonNull Context context, @NonNull String str) {
         ResolveInfo next;
         boolean z = false;
         if (!TextUtils.isEmpty(str)) {
@@ -43,7 +43,7 @@ public class j {
         return z;
     }
 
-    public static boolean P(@NonNull Context context, @NonNull String str) {
+    public static boolean V(@NonNull Context context, @NonNull String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }

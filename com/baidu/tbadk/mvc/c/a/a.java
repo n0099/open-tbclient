@@ -34,6 +34,7 @@ public abstract class a {
     }
 
     public boolean dispatchMvcEvent(b bVar) {
+        Throwable th;
         boolean z;
         boolean z2;
         if (bVar != null && bVar.getUniqueId() == null) {
@@ -51,18 +52,18 @@ public abstract class a {
             while (i < size) {
                 try {
                     com.baidu.tbadk.mvc.c.a aVar = this.eventDelegates.get(i);
-                    if (aVar == null || (aVar.bEs() && !(aVar.bEs() && bVar.getUniqueId() == aVar.getUniqueId()))) {
+                    if (aVar == null || (aVar.bGM() && !(aVar.bGM() && bVar.getUniqueId() == aVar.getUniqueId()))) {
                         z2 = z;
                     } else {
                         z2 = aVar.a(bVar);
                         if (z2) {
                             try {
-                                if (bVar.bEw()) {
+                                if (bVar.bGQ()) {
                                     return true;
                                 }
-                            } catch (Throwable th) {
+                            } catch (Throwable th2) {
+                                th = th2;
                                 z = z2;
-                                th = th;
                                 try {
                                     BdLog.e(th);
                                     if (TbadkCoreApplication.getInst().isDebugMode()) {
@@ -79,13 +80,13 @@ public abstract class a {
                     }
                     i++;
                     z = z2;
-                } catch (Throwable th2) {
-                    th = th2;
+                } catch (Throwable th3) {
+                    th = th3;
                 }
             }
             return z;
-        } catch (Throwable th3) {
-            th = th3;
+        } catch (Throwable th4) {
+            th = th4;
             z = false;
         }
     }

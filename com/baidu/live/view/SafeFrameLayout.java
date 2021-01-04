@@ -2,11 +2,11 @@ package com.baidu.live.view;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
-/* loaded from: classes4.dex */
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+/* loaded from: classes11.dex */
 public class SafeFrameLayout extends FrameLayout {
     public SafeFrameLayout(@NonNull Context context) {
         super(context);

@@ -1,12 +1,12 @@
 package com.baidu.ala.helper;
 
 import android.os.Build;
+import com.baidu.ala.adp.lib.util.BdNetTypeUtil;
+import com.baidu.ala.tbadk.core.TbadkCoreApplicationProxy;
 import com.baidu.ar.constants.HttpConstants;
-import com.baidu.live.adp.lib.util.BdNetTypeUtil;
 import com.baidu.live.data.AlaLiveStreamSessionInfo;
-import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class AlaLiveBaseInfo {
     public static final String STREAM_TYPE_RECV = "RECV";
     public static final String STREAM_TYPE_SEND = "SEND";
@@ -38,8 +38,8 @@ public class AlaLiveBaseInfo {
     }
 
     public String toJsonString() {
-        this.mCuid = TbadkCoreApplication.getClientId();
-        this.mUid = TbadkCoreApplication.getCurrentAccount();
+        this.mCuid = TbadkCoreApplicationProxy.getInst().getClientId();
+        this.mUid = TbadkCoreApplicationProxy.getInst().getUid();
         this.mNetWork = BdNetTypeUtil.netTypeNameInUpperCase();
         JSONObject jSONObject = new JSONObject();
         try {

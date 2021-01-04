@@ -16,11 +16,11 @@ public class e {
             public boolean MS(String str) {
                 return !TextUtils.isEmpty(str) && ChatStatusManager.getInst().getIsOpen(0) && str.equals(ChatStatusManager.getInst().getCurId(0));
             }
-        }, ChatStatusManager.getInst().getIsOpen(5), new a.InterfaceC0771a() { // from class: com.baidu.tieba.im.chat.b.e.2
-            @Override // com.baidu.tieba.im.chat.b.a.InterfaceC0771a
+        }, ChatStatusManager.getInst().getIsOpen(5), new a.InterfaceC0758a() { // from class: com.baidu.tieba.im.chat.b.e.2
+            @Override // com.baidu.tieba.im.chat.b.a.InterfaceC0758a
             public boolean a(ChatMessage chatMessage, ImMessageCenterPojo imMessageCenterPojo2) {
                 if (chatMessage != null && chatMessage.getMsgType() == 22) {
-                    if (com.baidu.tieba.im.util.e.r(chatMessage)) {
+                    if (com.baidu.tieba.im.util.c.r(chatMessage)) {
                         return true;
                     }
                     long f = e.f(chatMessage);
@@ -47,10 +47,10 @@ public class e {
             }
             JSONObject jSONObject = new JSONObject(content);
             String optString = jSONObject.optString(TbEnum.SystemMessage.KEY_EVENT_ID);
-            if (TextUtils.isEmpty(optString) || !optString.equals("22001") || (optJSONObject = jSONObject.optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM)) == null || optJSONObject.optLong(TbEnum.SystemMessage.KEY_GROUP_ID) != com.baidu.tieba.im.sendmessage.a.kCF.longValue()) {
+            if (TextUtils.isEmpty(optString) || !optString.equals("22001") || (optJSONObject = jSONObject.optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM)) == null || optJSONObject.optLong(TbEnum.SystemMessage.KEY_GROUP_ID) != com.baidu.tieba.im.sendmessage.a.kIa.longValue()) {
                 return -1L;
             }
-            return com.baidu.tieba.im.util.d.hb(optJSONObject.optLong("readMsgId"));
+            return com.baidu.tieba.im.util.b.gY(optJSONObject.optLong("readMsgId"));
         } catch (Exception e) {
             return -1L;
         }

@@ -9,8 +9,8 @@ import android.os.Looper;
 import android.os.Message;
 import android.os.Process;
 import android.text.TextUtils;
-import com.baidu.searchbox.ui.animview.praise.guide.ControlShowManager;
 import com.coremedia.iso.boxes.AuthorBox;
+import com.kwai.video.player.KsMediaMeta;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -23,7 +23,7 @@ import java.util.Hashtable;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class LBSAuthManager {
     public static final int CODE_AUTHENTICATE_SUCC = 0;
     public static final int CODE_AUTHENTICATING = 602;
@@ -35,18 +35,20 @@ public class LBSAuthManager {
     public static final String VERSION = "1.0.24";
 
     /* renamed from: a  reason: collision with root package name */
-    private static Context f1834a;
+    private static Context f2530a;
     private static m d = null;
     private static int e = 0;
     private static Hashtable<String, LBSAuthManagerListener> f = new Hashtable<>();
     private static LBSAuthManager g;
-    private c b = null;
+
+    /* renamed from: b  reason: collision with root package name */
+    private c f2531b = null;
     private e c = null;
     private boolean h = false;
     private final Handler i = new i(this, Looper.getMainLooper());
 
     private LBSAuthManager(Context context) {
-        f1834a = context;
+        f2530a = context;
         if (d != null && !d.isAlive()) {
             d = null;
         }
@@ -54,129 +56,151 @@ public class LBSAuthManager {
         d();
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:20:0x006c A[ORIG_RETURN, RETURN] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     private int a(String str) {
-        int i = -1;
+        JSONException e2;
+        int i;
+        JSONObject jSONObject;
+        int i2;
+        int i3 = -1;
         try {
-            JSONObject jSONObject = new JSONObject(str);
+            jSONObject = new JSONObject(str);
             if (!jSONObject.has("status")) {
                 jSONObject.put("status", -1);
             }
-            i = jSONObject.getInt("status");
-            if (jSONObject.has("current") && i == 0) {
+            i3 = jSONObject.getInt("status");
+        } catch (JSONException e3) {
+            e2 = e3;
+            i = i3;
+        }
+        try {
+            if (jSONObject.has("current") && i3 == 0) {
                 long j = jSONObject.getLong("current");
                 long currentTimeMillis = System.currentTimeMillis();
                 if ((currentTimeMillis - j) / 3600000.0d >= 24.0d) {
-                    i = 601;
+                    i2 = 601;
                 } else if (this.h) {
-                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat(ControlShowManager.DAY_TIME_FORMAT);
+                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
                     if (!simpleDateFormat.format(Long.valueOf(currentTimeMillis)).equals(simpleDateFormat.format(Long.valueOf(j)))) {
-                        i = 601;
+                        i2 = 601;
                     }
                 }
+                if (jSONObject.has("current") && i2 == 602) {
+                    if ((System.currentTimeMillis() - jSONObject.getLong("current")) / 1000 > 180.0d) {
+                        return 601;
+                    }
+                }
+                return i2;
             }
-            if (jSONObject.has("current") && i == 602) {
+            if (jSONObject.has("current")) {
                 if ((System.currentTimeMillis() - jSONObject.getLong("current")) / 1000 > 180.0d) {
-                    return 601;
                 }
             }
-            return i;
-        } catch (JSONException e2) {
-            int i2 = i;
-            e2.printStackTrace();
             return i2;
+        } catch (JSONException e4) {
+            e2 = e4;
+            i = i2;
+            e2.printStackTrace();
+            return i;
         }
+        i2 = i3;
     }
 
     private String a(int i) throws IOException {
+        Throwable th;
+        BufferedReader bufferedReader;
         InputStreamReader inputStreamReader;
         FileInputStream fileInputStream;
-        BufferedReader bufferedReader;
-        Throwable th;
+        BufferedReader bufferedReader2;
         String str = null;
         try {
             fileInputStream = new FileInputStream(new File("/proc/" + i + "/cmdline"));
             try {
                 inputStreamReader = new InputStreamReader(fileInputStream);
                 try {
-                    bufferedReader = new BufferedReader(inputStreamReader);
-                } catch (FileNotFoundException e2) {
+                    bufferedReader2 = new BufferedReader(inputStreamReader);
+                    try {
+                        str = bufferedReader2.readLine();
+                        if (bufferedReader2 != null) {
+                            bufferedReader2.close();
+                        }
+                        if (inputStreamReader != null) {
+                            inputStreamReader.close();
+                        }
+                        if (fileInputStream != null) {
+                            fileInputStream.close();
+                        }
+                    } catch (FileNotFoundException e2) {
+                        if (bufferedReader2 != null) {
+                            bufferedReader2.close();
+                        }
+                        if (inputStreamReader != null) {
+                            inputStreamReader.close();
+                        }
+                        if (fileInputStream != null) {
+                            fileInputStream.close();
+                        }
+                        return str;
+                    } catch (IOException e3) {
+                        if (bufferedReader2 != null) {
+                            bufferedReader2.close();
+                        }
+                        if (inputStreamReader != null) {
+                            inputStreamReader.close();
+                        }
+                        if (fileInputStream != null) {
+                            fileInputStream.close();
+                        }
+                        return str;
+                    } catch (Throwable th2) {
+                        th = th2;
+                        bufferedReader = bufferedReader2;
+                        if (bufferedReader != null) {
+                            bufferedReader.close();
+                        }
+                        if (inputStreamReader != null) {
+                            inputStreamReader.close();
+                        }
+                        if (fileInputStream != null) {
+                            fileInputStream.close();
+                        }
+                        throw th;
+                    }
+                } catch (FileNotFoundException e4) {
+                    bufferedReader2 = null;
+                } catch (IOException e5) {
+                    bufferedReader2 = null;
+                } catch (Throwable th3) {
+                    th = th3;
                     bufferedReader = null;
-                } catch (IOException e3) {
-                    bufferedReader = null;
-                } catch (Throwable th2) {
-                    bufferedReader = null;
-                    th = th2;
                 }
-            } catch (FileNotFoundException e4) {
+            } catch (FileNotFoundException e6) {
+                bufferedReader2 = null;
+                inputStreamReader = null;
+            } catch (IOException e7) {
+                bufferedReader2 = null;
+                inputStreamReader = null;
+            } catch (Throwable th4) {
+                th = th4;
                 bufferedReader = null;
                 inputStreamReader = null;
-            } catch (IOException e5) {
-                bufferedReader = null;
-                inputStreamReader = null;
-            } catch (Throwable th3) {
-                inputStreamReader = null;
-                th = th3;
-                bufferedReader = null;
-            }
-        } catch (FileNotFoundException e6) {
-            bufferedReader = null;
-            inputStreamReader = null;
-            fileInputStream = null;
-        } catch (IOException e7) {
-            bufferedReader = null;
-            inputStreamReader = null;
-            fileInputStream = null;
-        } catch (Throwable th4) {
-            inputStreamReader = null;
-            fileInputStream = null;
-            bufferedReader = null;
-            th = th4;
-        }
-        try {
-            str = bufferedReader.readLine();
-            if (bufferedReader != null) {
-                bufferedReader.close();
-            }
-            if (inputStreamReader != null) {
-                inputStreamReader.close();
-            }
-            if (fileInputStream != null) {
-                fileInputStream.close();
             }
         } catch (FileNotFoundException e8) {
-            if (bufferedReader != null) {
-                bufferedReader.close();
-            }
-            if (inputStreamReader != null) {
-                inputStreamReader.close();
-            }
-            if (fileInputStream != null) {
-                fileInputStream.close();
-            }
-            return str;
+            bufferedReader2 = null;
+            inputStreamReader = null;
+            fileInputStream = null;
         } catch (IOException e9) {
-            if (bufferedReader != null) {
-                bufferedReader.close();
-            }
-            if (inputStreamReader != null) {
-                inputStreamReader.close();
-            }
-            if (fileInputStream != null) {
-                fileInputStream.close();
-            }
-            return str;
+            bufferedReader2 = null;
+            inputStreamReader = null;
+            fileInputStream = null;
         } catch (Throwable th5) {
             th = th5;
-            if (bufferedReader != null) {
-                bufferedReader.close();
-            }
-            if (inputStreamReader != null) {
-                inputStreamReader.close();
-            }
-            if (fileInputStream != null) {
-                fileInputStream.close();
-            }
-            throw th;
+            bufferedReader = null;
+            inputStreamReader = null;
+            fileInputStream = null;
         }
         return str;
     }
@@ -187,7 +211,7 @@ public class LBSAuthManager {
             str = a(Process.myPid());
         } catch (IOException e2) {
         }
-        return str != null ? str : f1834a.getPackageName();
+        return str != null ? str : f2530a.getPackageName();
     }
 
     private String a(Context context, String str) {
@@ -266,7 +290,7 @@ public class LBSAuthManager {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z, String str, Hashtable<String, String> hashtable, String str2) {
-        String a2 = a(f1834a, str2);
+        String a2 = a(f2530a, str2);
         if (a2 == null || a2.equals("")) {
             return;
         }
@@ -276,7 +300,7 @@ public class LBSAuthManager {
         hashMap.put("output", "json");
         hashMap.put("ak", a2);
         a.a("ak:" + a2);
-        hashMap.put("mcode", b.a(f1834a));
+        hashMap.put("mcode", b.a(f2530a));
         hashMap.put("from", "lbs_yunsdk");
         if (hashtable != null && hashtable.size() > 0) {
             for (Map.Entry<String, String> entry : hashtable.entrySet()) {
@@ -289,7 +313,7 @@ public class LBSAuthManager {
         }
         String str3 = "";
         try {
-            str3 = com.baidu.a.a.a.a.a.a(f1834a);
+            str3 = com.baidu.a.a.a.a.a.a(f2530a);
         } catch (Exception e2) {
             a.a("get cuid failed");
             e2.printStackTrace();
@@ -300,7 +324,7 @@ public class LBSAuthManager {
         } else {
             hashMap.put("cuid", str3);
         }
-        hashMap.put("pcn", f1834a.getPackageName());
+        hashMap.put("pcn", f2530a.getPackageName());
         hashMap.put("version", VERSION);
         hashMap.put("macaddr", "");
         String str4 = "";
@@ -309,9 +333,9 @@ public class LBSAuthManager {
         } catch (Exception e3) {
         }
         if (TextUtils.isEmpty(str4)) {
-            hashMap.put("language", "");
+            hashMap.put(KsMediaMeta.KSM_KEY_LANGUAGE, "");
         } else {
-            hashMap.put("language", str4);
+            hashMap.put(KsMediaMeta.KSM_KEY_LANGUAGE, str4);
         }
         if (z) {
             hashMap.put("force", z ? "1" : "0");
@@ -321,13 +345,13 @@ public class LBSAuthManager {
         } else {
             hashMap.put("from_service", str);
         }
-        this.b = new c(f1834a);
-        this.b.a(hashMap, new k(this, str2));
+        this.f2531b = new c(f2530a);
+        this.f2531b.a(hashMap, new k(this, str2));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z, String str, Hashtable<String, String> hashtable, String[] strArr, String str2) {
-        String a2 = a(f1834a, str2);
+        String a2 = a(f2530a, str2);
         if (a2 == null || a2.equals("")) {
             return;
         }
@@ -347,7 +371,7 @@ public class LBSAuthManager {
         }
         String str3 = "";
         try {
-            str3 = com.baidu.a.a.a.a.a.a(f1834a);
+            str3 = com.baidu.a.a.a.a.a.a(f2530a);
         } catch (Exception e2) {
         }
         if (TextUtils.isEmpty(str3)) {
@@ -355,7 +379,7 @@ public class LBSAuthManager {
         } else {
             hashMap.put("cuid", str3);
         }
-        hashMap.put("pcn", f1834a.getPackageName());
+        hashMap.put("pcn", f2530a.getPackageName());
         hashMap.put("version", VERSION);
         hashMap.put("macaddr", "");
         String str4 = "";
@@ -364,9 +388,9 @@ public class LBSAuthManager {
         } catch (Exception e3) {
         }
         if (TextUtils.isEmpty(str4)) {
-            hashMap.put("language", "");
+            hashMap.put(KsMediaMeta.KSM_KEY_LANGUAGE, "");
         } else {
-            hashMap.put("language", str4);
+            hashMap.put(KsMediaMeta.KSM_KEY_LANGUAGE, str4);
         }
         if (z) {
             hashMap.put("force", z ? "1" : "0");
@@ -376,7 +400,7 @@ public class LBSAuthManager {
         } else {
             hashMap.put("from_service", str);
         }
-        this.c = new e(f1834a);
+        this.c = new e(f2530a);
         this.c.a(hashMap, strArr, new l(this, str2));
     }
 
@@ -384,7 +408,7 @@ public class LBSAuthManager {
     public boolean b(String str) {
         String str2;
         JSONObject jSONObject;
-        String a2 = a(f1834a, str);
+        String a2 = a(f2530a, str);
         try {
             jSONObject = new JSONObject(e());
         } catch (JSONException e2) {
@@ -399,7 +423,7 @@ public class LBSAuthManager {
     }
 
     private void c(String str) {
-        f1834a.getSharedPreferences("authStatus_" + a(f1834a), 0).edit().putString("status", str).commit();
+        f2530a.getSharedPreferences("authStatus_" + a(f2530a), 0).edit().putString("status", str).commit();
     }
 
     private void d() {
@@ -407,7 +431,7 @@ public class LBSAuthManager {
             if (d == null) {
                 d = new m(AuthorBox.TYPE);
                 d.start();
-                while (d.f1846a == null) {
+                while (d.f2550a == null) {
                     try {
                         a.a("wait for create auth thread.");
                         Thread.sleep(3L);
@@ -420,7 +444,7 @@ public class LBSAuthManager {
     }
 
     private String e() {
-        return f1834a.getSharedPreferences("authStatus_" + a(f1834a), 0).getString("status", "{\"status\":601}");
+        return f2530a.getSharedPreferences("authStatus_" + a(f2530a), 0).getString("status", "{\"status\":601}");
     }
 
     public static LBSAuthManager getInstance(Context context) {
@@ -431,8 +455,8 @@ public class LBSAuthManager {
                 }
             }
         } else if (context != null) {
-            f1834a = context;
-        } else if (a.f1835a) {
+            f2530a = context;
+        } else if (a.f2532a) {
             a.c("input context is null");
             new RuntimeException("here").printStackTrace();
         }
@@ -456,7 +480,7 @@ public class LBSAuthManager {
             if (lBSAuthManagerListener != null) {
                 f.put(str3, lBSAuthManagerListener);
             }
-            String a2 = a(f1834a, str3);
+            String a2 = a(f2530a, str3);
             if (a2 == null || a2.equals("")) {
                 i = 101;
             } else {
@@ -467,17 +491,17 @@ public class LBSAuthManager {
                 i = a(e2);
                 if (i == 601) {
                     try {
-                        c(new JSONObject().put("status", CODE_AUTHENTICATING).toString());
+                        c(new JSONObject().put("status", 602).toString());
                     } catch (JSONException e3) {
                         e3.printStackTrace();
                     }
                 }
                 d();
-                if (d == null || d.f1846a == null) {
+                if (d == null || d.f2550a == null) {
                     i = -1;
                 } else {
-                    a.a("mThreadLooper.mHandler = " + d.f1846a);
-                    d.f1846a.post(new j(this, i, z, str3, str, hashtable));
+                    a.a("mThreadLooper.mHandler = " + d.f2550a);
+                    d.f2550a.post(new j(this, i, z, str3, str, hashtable));
                 }
             }
         }
@@ -485,11 +509,11 @@ public class LBSAuthManager {
     }
 
     public String getCUID() {
-        if (f1834a == null) {
+        if (f2530a == null) {
             return "";
         }
         try {
-            return com.baidu.a.a.a.a.a.a(f1834a);
+            return com.baidu.a.a.a.a.a.a(f2530a);
         } catch (Exception e2) {
             e2.printStackTrace();
             return "";
@@ -497,11 +521,11 @@ public class LBSAuthManager {
     }
 
     public String getKey() {
-        if (f1834a == null) {
+        if (f2530a == null) {
             return "";
         }
         try {
-            return getPublicKey(f1834a);
+            return getPublicKey(f2530a);
         } catch (PackageManager.NameNotFoundException e2) {
             e2.printStackTrace();
             return "";
@@ -509,7 +533,7 @@ public class LBSAuthManager {
     }
 
     public String getMCode() {
-        return f1834a == null ? "" : b.a(f1834a);
+        return f2530a == null ? "" : b.a(f2530a);
     }
 
     public String getPublicKey(Context context) throws PackageManager.NameNotFoundException {

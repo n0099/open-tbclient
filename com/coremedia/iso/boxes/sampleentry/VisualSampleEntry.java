@@ -1,6 +1,6 @@
 package com.coremedia.iso.boxes.sampleentry;
 
-import com.baidu.searchbox.account.contants.AccountConstants;
+import androidx.core.internal.view.SupportMenu;
 import com.coremedia.iso.BoxParser;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
@@ -10,7 +10,7 @@ import com.googlecode.mp4parser.DataSource;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class VisualSampleEntry extends AbstractSampleEntry implements Container {
     static final /* synthetic */ boolean $assertionsDisabled;
     public static final String TYPE1 = "mp4v";
@@ -182,7 +182,7 @@ public final class VisualSampleEntry extends AbstractSampleEntry implements Cont
             allocate.put((byte) 0);
         }
         IsoTypeWriter.writeUInt16(allocate, getDepth());
-        IsoTypeWriter.writeUInt16(allocate, 65535);
+        IsoTypeWriter.writeUInt16(allocate, SupportMenu.USER_MASK);
         writableByteChannel.write((ByteBuffer) allocate.rewind());
         writeContainer(writableByteChannel);
     }
@@ -190,6 +190,6 @@ public final class VisualSampleEntry extends AbstractSampleEntry implements Cont
     @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
     public long getSize() {
         long containerSize = getContainerSize();
-        return ((this.largeBox || (containerSize + 78) + 8 >= AccountConstants.TYPE_MODIFY_EXT_FIELDS) ? 16 : 8) + containerSize + 78;
+        return ((this.largeBox || (containerSize + 78) + 8 >= 4294967296L) ? 16 : 8) + containerSize + 78;
     }
 }

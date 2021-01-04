@@ -12,16 +12,18 @@ import com.baidu.mapapi.common.SysOSUtil;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class BitmapDescriptorFactory {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ boolean f2002a;
-    private static final String b;
+    static final /* synthetic */ boolean f2799a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private static final String f2800b;
 
     static {
-        f2002a = !BitmapDescriptorFactory.class.desiredAssertionStatus();
-        b = "BaiduMapSDK-" + BitmapDescriptorFactory.class.getSimpleName();
+        f2799a = !BitmapDescriptorFactory.class.desiredAssertionStatus();
+        f2800b = "BaiduMapSDK-" + BitmapDescriptorFactory.class.getSimpleName();
     }
 
     public static BitmapDescriptor fromAsset(String str) {
@@ -32,7 +34,7 @@ public class BitmapDescriptorFactory {
         try {
             Bitmap a2 = com.baidu.mapsdkplatform.comapi.commonutils.a.a(str, context);
             BitmapDescriptor fromBitmap = fromBitmap(a2);
-            if (f2002a || a2 != null) {
+            if (f2799a || a2 != null) {
                 a2.recycle();
                 return fromBitmap;
             }
@@ -104,10 +106,10 @@ public class BitmapDescriptorFactory {
             }
             return null;
         } catch (FileNotFoundException e) {
-            Log.e(b, "FileNotFoundException happened", e);
+            Log.e(f2800b, "FileNotFoundException happened", e);
             return null;
         } catch (IOException e2) {
-            Log.e(b, "IOException happened", e2);
+            Log.e(f2800b, "IOException happened", e2);
             return null;
         }
     }
@@ -132,10 +134,10 @@ public class BitmapDescriptorFactory {
             }
             return null;
         } catch (FileNotFoundException e) {
-            Log.e(b, "FileNotFoundException happened", e);
+            Log.e(f2800b, "FileNotFoundException happened", e);
             return null;
         } catch (IOException e2) {
-            Log.e(b, "IOException happened", e2);
+            Log.e(f2800b, "IOException happened", e2);
             return null;
         }
     }
@@ -218,7 +220,7 @@ public class BitmapDescriptorFactory {
             view.buildDrawingCache();
             Bitmap drawingCache = view.getDrawingCache();
             if (drawingCache == null) {
-                Log.e(b, "Get bitmap failed");
+                Log.e(f2800b, "Get bitmap failed");
             } else {
                 if (i <= 0) {
                     i = SysOSUtil.getDensityDpi();

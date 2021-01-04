@@ -1,5 +1,6 @@
 package com.baidu.sapi2.httpwrap;
 
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.ServiceManager;
@@ -7,7 +8,7 @@ import com.baidu.sapi2.service.interfaces.ISAccountManager;
 import com.baidu.sapi2.utils.SapiUtils;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 class Utils {
     Utils() {
     }
@@ -16,7 +17,7 @@ class Utils {
     public static Map<String, String> a() {
         SapiConfiguration confignation;
         HashMap hashMap = new HashMap();
-        hashMap.put("client", "android");
+        hashMap.put("client", HttpConstants.OS_TYPE_VALUE);
         ISAccountManager isAccountManager = ServiceManager.getInstance().getIsAccountManager();
         if (isAccountManager != null && (confignation = isAccountManager.getConfignation()) != null) {
             hashMap.put("cuid", confignation.clientId);

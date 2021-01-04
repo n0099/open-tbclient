@@ -28,8 +28,8 @@ final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
         if (!Locale.getDefault().equals(Locale.US)) {
             this.dateFormats.add(DateFormat.getDateTimeInstance(2, 2));
         }
-        if (c.eyn()) {
-            this.dateFormats.add(f.ei(2, 2));
+        if (c.eBZ()) {
+            this.dateFormats.add(f.eg(2, 2));
         }
     }
 
@@ -50,8 +50,8 @@ final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
         if (!Locale.getDefault().equals(Locale.US)) {
             this.dateFormats.add(DateFormat.getDateInstance(i));
         }
-        if (c.eyn()) {
-            this.dateFormats.add(f.Rt(i));
+        if (c.eBZ()) {
+            this.dateFormats.add(f.Rq(i));
         }
     }
 
@@ -66,8 +66,8 @@ final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
         if (!Locale.getDefault().equals(Locale.US)) {
             this.dateFormats.add(DateFormat.getDateTimeInstance(i, i2));
         }
-        if (c.eyn()) {
-            this.dateFormats.add(f.ei(i, i2));
+        if (c.eBZ()) {
+            this.dateFormats.add(f.eg(i, i2));
         }
     }
 
@@ -82,22 +82,22 @@ final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
     @Override // com.google.gson.TypeAdapter
     public void write(b bVar, Date date) throws IOException {
         if (date == null) {
-            bVar.eyS();
+            bVar.eCE();
             return;
         }
         synchronized (this.dateFormats) {
-            bVar.ZG(this.dateFormats.get(0).format(date));
+            bVar.ZQ(this.dateFormats.get(0).format(date));
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.TypeAdapter
     public Date read(a aVar) throws IOException {
-        if (aVar.eyz() == JsonToken.NULL) {
-            aVar.eyF();
+        if (aVar.eCl() == JsonToken.NULL) {
+            aVar.eCr();
             return null;
         }
-        Date deserializeToDate = deserializeToDate(aVar.eyD());
+        Date deserializeToDate = deserializeToDate(aVar.eCp());
         if (this.dateType != Date.class) {
             if (this.dateType == Timestamp.class) {
                 return new Timestamp(deserializeToDate.getTime());
@@ -111,19 +111,19 @@ final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:11:0x001b, code lost:
-        r0 = com.google.gson.internal.bind.a.a.a(r4, new java.text.ParsePosition(0));
+        r0 = com.google.gson.internal.bind.a.a.b(r4, new java.text.ParsePosition(0));
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private Date deserializeToDate(String str) {
-        Date a2;
+        Date b2;
         synchronized (this.dateFormats) {
             Iterator<DateFormat> it = this.dateFormats.iterator();
             while (true) {
                 if (it.hasNext()) {
                     try {
-                        a2 = it.next().parse(str);
+                        b2 = it.next().parse(str);
                         break;
                     } catch (ParseException e) {
                     }
@@ -136,7 +136,7 @@ final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
                 }
             }
         }
-        return a2;
+        return b2;
     }
 
     public String toString() {

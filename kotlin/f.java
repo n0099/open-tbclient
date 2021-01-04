@@ -1,8 +1,8 @@
 package kotlin;
 @e
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class f {
-    public static final <A, B> Pair<A, B> k(A a2, B b) {
-        return new Pair<>(a2, b);
+    public static final <A, B> Pair<A, B> k(A a2, B b2) {
+        return new Pair<>(a2, b2);
     }
 }

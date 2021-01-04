@@ -6,19 +6,21 @@ import android.webkit.WebView;
 import com.baidu.mobstat.ActivityLifeObserver;
 import com.baidu.mobstat.BaiduStatJSInterface;
 import org.json.JSONArray;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class af {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile boolean f2524a = true;
-    private static volatile boolean b = false;
+    private static volatile boolean f3684a = true;
+
+    /* renamed from: b  reason: collision with root package name */
+    private static volatile boolean f3685b = false;
 
     public static boolean a() {
-        return b;
+        return f3685b;
     }
 
     public static void a(String str) {
-        b = true;
+        f3685b = true;
         am.a().a(str);
     }
 
@@ -27,14 +29,14 @@ public class af {
     }
 
     public static boolean b() {
-        return f2524a;
+        return f3684a;
     }
 
     public static JSONArray c() {
         return am.a().e();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     public static class a implements ActivityLifeObserver.IActivityLifeCallback {
         @Override // com.baidu.mobstat.ActivityLifeObserver.IActivityLifeCallback
         public void onActivityCreated(Activity activity, Bundle bundle) {
@@ -77,7 +79,7 @@ public class af {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     public static class b implements BaiduStatJSInterface.IWebviewPageLoadCallback {
         @Override // com.baidu.mobstat.BaiduStatJSInterface.IWebviewPageLoadCallback
         public void onPageStarted(WebView webView, String str, bl blVar) {

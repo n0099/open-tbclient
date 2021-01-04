@@ -1,11 +1,11 @@
 package com.baidu.tieba.yuyinala.endliveroom;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
+import androidx.annotation.Nullable;
 import com.baidu.live.sdk.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class FlexibleHeightView extends View {
     private int ds160;
     private int ds48;

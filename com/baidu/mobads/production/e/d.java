@@ -3,15 +3,15 @@ package com.baidu.mobads.production.e;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class d implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f2405a;
+    final /* synthetic */ b f3477a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(b bVar) {
-        this.f2405a = bVar;
+        this.f3477a = bVar;
     }
 
     @Override // java.lang.Runnable
@@ -20,18 +20,18 @@ public class d implements Runnable {
         RelativeLayout relativeLayout2;
         RelativeLayout relativeLayout3;
         RelativeLayout relativeLayout4;
-        this.f2405a.x.d("remote Interstitial.removeAd");
+        this.f3477a.x.d("remote Interstitial.removeAd");
         try {
-            relativeLayout = this.f2405a.e;
+            relativeLayout = this.f3477a.e;
             if (relativeLayout.getParent() != null) {
-                relativeLayout3 = this.f2405a.e;
-                relativeLayout4 = this.f2405a.e;
+                relativeLayout3 = this.f3477a.e;
+                relativeLayout4 = this.f3477a.e;
                 ((ViewGroup) relativeLayout3.getParent()).removeView(relativeLayout4);
             }
-            relativeLayout2 = this.f2405a.e;
+            relativeLayout2 = this.f3477a.e;
             relativeLayout2.removeAllViews();
         } catch (Exception e) {
-            this.f2405a.x.d("Interstitial.removeAd", e);
+            this.f3477a.x.d("Interstitial.removeAd", e);
         }
     }
 }

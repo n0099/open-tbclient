@@ -1,7 +1,9 @@
 package com.baidu.live.alablmsdk.config.enums;
-/* loaded from: classes4.dex */
+
+import com.kwai.video.player.misc.KsMediaFormat;
+/* loaded from: classes11.dex */
 public enum BLMVideoEncodeType {
-    H264("h264");
+    H264(KsMediaFormat.CODEC_NAME_H264);
     
     private String encodeType;
 

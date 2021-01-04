@@ -11,7 +11,7 @@ import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import org.a.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class FlowableConcatMapEager<T, R> extends a<T, R> {
     final ErrorMode errorMode;
     final h<? super T, ? extends org.a.b<? extends R>> mapper;
@@ -20,10 +20,10 @@ public final class FlowableConcatMapEager<T, R> extends a<T, R> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super R> cVar) {
-        this.pFi.a((j) new ConcatMapEagerDelayErrorSubscriber(cVar, this.mapper, this.maxConcurrency, this.prefetch, this.errorMode));
+        this.qgK.a((j) new ConcatMapEagerDelayErrorSubscriber(cVar, this.mapper, this.maxConcurrency, this.prefetch, this.errorMode));
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class ConcatMapEagerDelayErrorSubscriber<T, R> extends AtomicInteger implements io.reactivex.internal.subscribers.c<R>, j<T>, d {
         private static final long serialVersionUID = -4255299542215038287L;
         final org.a.c<? super R> actual;
@@ -73,7 +73,7 @@ public final class FlowableConcatMapEager<T, R> extends a<T, R> {
                     }
                 }
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.J(th);
+                io.reactivex.exceptions.a.O(th);
                 this.s.cancel();
                 onError(th);
             }
@@ -226,7 +226,7 @@ public final class FlowableConcatMapEager<T, R> extends a<T, R> {
                                         innerQueuedSubscriber2.requestOne();
                                     }
                                 } catch (Throwable th) {
-                                    io.reactivex.exceptions.a.J(th);
+                                    io.reactivex.exceptions.a.O(th);
                                     this.current = null;
                                     innerQueuedSubscriber2.cancel();
                                     cancelAll();
@@ -249,9 +249,9 @@ public final class FlowableConcatMapEager<T, R> extends a<T, R> {
                                 boolean isDone2 = innerQueuedSubscriber2.isDone();
                                 boolean isEmpty = queue.isEmpty();
                                 if (isDone2 && isEmpty) {
+                                    innerQueuedSubscriber = null;
                                     this.current = null;
                                     this.s.request(1L);
-                                    innerQueuedSubscriber = null;
                                     z2 = true;
                                     if (j2 != 0 && j != Long.MAX_VALUE) {
                                         this.requested.addAndGet(-j2);

@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.ResponseCommitPersonalMessage;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.im.util.e;
+import com.baidu.tieba.im.util.c;
 /* loaded from: classes.dex */
 public abstract class CommonPersonalMsglistModel extends MsglistModel {
     private final CustomMessageListener mCustomListener;
@@ -32,7 +32,7 @@ public abstract class CommonPersonalMsglistModel extends MsglistModel {
                     } else if (customResponsedMessage.getCmd() == 2001215 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ChatMessage)) {
                         ChatMessage chatMessage = (ChatMessage) customResponsedMessage.getData();
                         if (CommonPersonalMsglistModel.this.mUser != null && CommonPersonalMsglistModel.this.mUser.getUserId() != null) {
-                            if (CommonPersonalMsglistModel.this.mUser.getUserId().equals(String.valueOf(e.n(chatMessage)))) {
+                            if (CommonPersonalMsglistModel.this.mUser.getUserId().equals(String.valueOf(c.n(chatMessage)))) {
                                 CommonPersonalMsglistModel.this.sendMsgFail(chatMessage);
                             }
                         }
@@ -60,7 +60,7 @@ public abstract class CommonPersonalMsglistModel extends MsglistModel {
                     } else if (customResponsedMessage.getCmd() == 2001215 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ChatMessage)) {
                         ChatMessage chatMessage = (ChatMessage) customResponsedMessage.getData();
                         if (CommonPersonalMsglistModel.this.mUser != null && CommonPersonalMsglistModel.this.mUser.getUserId() != null) {
-                            if (CommonPersonalMsglistModel.this.mUser.getUserId().equals(String.valueOf(e.n(chatMessage)))) {
+                            if (CommonPersonalMsglistModel.this.mUser.getUserId().equals(String.valueOf(c.n(chatMessage)))) {
                                 CommonPersonalMsglistModel.this.sendMsgFail(chatMessage);
                             }
                         }

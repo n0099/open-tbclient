@@ -9,14 +9,14 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import com.baidu.live.adp.widget.listview.BdListView;
 import com.baidu.live.data.AlaLiveUserInfoData;
-import com.baidu.live.data.p;
+import com.baidu.live.data.q;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class g extends BaseAdapter {
-    private String gFZ;
+    private String gRK;
     private boolean isHost;
     private BdListView mListView;
     private TbPageContext mPageContext;
@@ -24,44 +24,44 @@ public class g extends BaseAdapter {
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             super.handleMessage(message);
-            g.this.bJ(message.arg1, message.arg2);
+            g.this.bI(message.arg1, message.arg2);
         }
     };
-    private ArrayList<p> eOt = new ArrayList<>();
+    private ArrayList<q> eYq = new ArrayList<>();
 
     public g(TbPageContext tbPageContext, boolean z) {
         this.mPageContext = tbPageContext;
         this.isHost = z;
     }
 
-    public void setData(List<p> list) {
+    public void setData(List<q> list) {
         if (list != null) {
-            this.eOt.clear();
-            this.eOt.addAll(list);
+            this.eYq.clear();
+            this.eYq.addAll(list);
         }
         notifyDataSetChanged();
     }
 
-    public ArrayList<p> getData() {
-        return this.eOt;
+    public ArrayList<q> getData() {
+        return this.eYq;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.eOt == null) {
+        if (this.eYq == null) {
             return 0;
         }
-        return this.eOt.size();
+        return this.eYq.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: vB */
-    public p getItem(int i) {
-        if (this.eOt == null) {
+    /* renamed from: vM */
+    public q getItem(int i) {
+        if (this.eYq == null) {
             return null;
         }
-        return this.eOt.get(i);
+        return this.eYq.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -75,24 +75,30 @@ public class g extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(a.g.sdk_charm_list_item, viewGroup, false);
             a aVar2 = new a();
-            aVar2.gGb = (CharmPokeItemView) view.findViewById(a.f.pokeItem);
-            aVar2.gFU = (CharmItemView) view.findViewById(a.f.item);
+            aVar2.gRM = (CharmPokeItemView) view.findViewById(a.f.pokeItem);
+            aVar2.gRF = (CharmItemView) view.findViewById(a.f.item);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
             aVar = (a) view.getTag();
         }
-        p item = getItem(i);
-        AlaLiveUserInfoData alaLiveUserInfoData = getItem(i).aJV;
+        q item = getItem(i);
+        AlaLiveUserInfoData alaLiveUserInfoData = getItem(i).aKu;
         if (item != null && alaLiveUserInfoData != null) {
-            if (!this.isHost || item.hadPoked == 0) {
-                aVar.gGb.setVisibility(8);
-                aVar.gFU.setData(2, i + 1, alaLiveUserInfoData.userName, alaLiveUserInfoData.portrait, alaLiveUserInfoData.totalPrice, 0L);
-                aVar.gFU.gFK.setData(alaLiveUserInfoData);
+            boolean z = false;
+            if (alaLiveUserInfoData.extInfoJson != null) {
+                z = alaLiveUserInfoData.extInfoJson.optInt("is_mysterious_man") == 1;
+            }
+            if (!this.isHost || item.hadPoked == 0 || z) {
+                aVar.gRM.setVisibility(8);
+                aVar.gRF.setData(2, i + 1, alaLiveUserInfoData.userName, alaLiveUserInfoData.portrait, alaLiveUserInfoData.totalPrice, 0L);
+                aVar.gRF.gRv.setData(alaLiveUserInfoData);
+                aVar.gRF.setVisibility(0);
             } else {
-                aVar.gFU.setVisibility(8);
-                aVar.gGb.setData(2, i + 1, alaLiveUserInfoData.userName, alaLiveUserInfoData.portrait, alaLiveUserInfoData.totalPrice, 0L, item.hadPoked, alaLiveUserInfoData.userId, this.gFZ);
-                aVar.gGb.gFK.setData(alaLiveUserInfoData);
+                aVar.gRF.setVisibility(8);
+                aVar.gRM.setData(2, i + 1, alaLiveUserInfoData.userName, alaLiveUserInfoData.portrait, alaLiveUserInfoData.totalPrice, 0L, item.hadPoked, alaLiveUserInfoData.userId, this.gRK);
+                aVar.gRM.gRv.setData(alaLiveUserInfoData);
+                aVar.gRM.setVisibility(0);
             }
             this.mPageContext.getLayoutMode().onModeChanged(view);
         }
@@ -103,10 +109,10 @@ public class g extends BaseAdapter {
         this.mListView = bdListView;
     }
 
-    public void bI(int i, int i2) {
-        p pVar = this.eOt.get(i);
-        pVar.hadPoked = 1;
-        this.eOt.set(i, pVar);
+    public void bH(int i, int i2) {
+        q qVar = this.eYq.get(i);
+        qVar.hadPoked = 1;
+        this.eYq.set(i, qVar);
         Message obtain = Message.obtain();
         obtain.arg1 = i;
         obtain.arg2 = i2;
@@ -114,7 +120,7 @@ public class g extends BaseAdapter {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bJ(int i, int i2) {
+    public void bI(int i, int i2) {
         if (this.mListView != null) {
             int firstVisiblePosition = this.mListView.getFirstVisiblePosition();
             int lastVisiblePosition = this.mListView.getLastVisiblePosition();
@@ -124,24 +130,24 @@ public class g extends BaseAdapter {
                     if (i2 != 0) {
                         return;
                     }
-                    aVar.gGb.gFM.setVisibility(8);
+                    aVar.gRM.gRx.setVisibility(8);
                     return;
                 }
-                aVar.gGb.gFM.setEnabled(false);
-                aVar.gGb.gFM.setText(this.mPageContext.getString(a.h.sdk_poke_had_poked));
+                aVar.gRM.gRx.setEnabled(false);
+                aVar.gRM.gRx.setText(this.mPageContext.getString(a.h.sdk_poke_had_poked));
             }
         }
     }
 
     public void setLiveId(String str) {
-        this.gFZ = str;
+        this.gRK = str;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public class a {
-        private CharmItemView gFU;
-        private CharmPokeItemView gGb;
+        private CharmItemView gRF;
+        private CharmPokeItemView gRM;
 
         private a() {
         }

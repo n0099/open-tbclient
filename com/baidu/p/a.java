@@ -1,184 +1,29 @@
 package com.baidu.p;
 
-import android.content.Context;
-import android.util.Log;
-import com.baidu.live.tbadk.pay.PayHelper;
-import com.baidu.rtc.AudioSession;
-import com.baidu.rtc.RtcConfig;
-import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes15.dex */
+import android.text.TextUtils;
+/* loaded from: classes3.dex */
 public class a {
-    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String euN;
-    private com.baidu.p.c.a euO;
-    private AudioSession euP;
+    protected int mStatusCode;
+    protected boolean oPb;
+    protected boolean oPc;
+    protected String oPd;
+    protected String oPe;
+    protected String oPf;
 
-    public a(Context context, RtcConfig rtcConfig, String str) {
-        this.euN = "";
-        this.euN = str;
-        this.euP = new AudioSession(context, rtcConfig, new RtcConfig.RtcHandler() { // from class: com.baidu.p.a.1
-            @Override // com.baidu.rtc.RtcConfig.RtcHandler
-            public void onStart(int i, int i2, String str2, String str3) {
-                if (a.this.euO != null) {
-                    if (str2 == null) {
-                        str2 = "";
-                    }
-                    if (str3 == null) {
-                        str3 = "";
-                    }
-                    JSONObject jSONObject = new JSONObject();
-                    try {
-                        jSONObject.putOpt("state", PayHelper.STATUS_SUCC);
-                        jSONObject.putOpt("stateMsg", "connected");
-                        jSONObject.putOpt("url", str2);
-                        jSONObject.putOpt("remoteIP", str3);
-                        a.this.euO.g(MissionEvent.MESSAGE_START, jSONObject);
-                    } catch (JSONException e) {
-                        if (a.DEBUG) {
-                            Log.d("SwanAudiodRTCContext", Log.getStackTraceString(e));
-                        }
-                    }
-                }
-            }
-
-            @Override // com.baidu.rtc.RtcConfig.RtcHandler
-            public void onConnectSuccess(int i, int i2, String str2, String str3) {
-                if (a.this.euO != null) {
-                    if (str2 == null) {
-                        str2 = "";
-                    }
-                    if (str3 == null) {
-                        str3 = "";
-                    }
-                    JSONObject jSONObject = new JSONObject();
-                    try {
-                        jSONObject.putOpt("state", PayHelper.STATUS_FAIL);
-                        jSONObject.putOpt("stateMsg", "remote IP resolved");
-                        jSONObject.putOpt("url", str2);
-                        jSONObject.putOpt("remoteIP", str3);
-                        a.this.euO.g("onStateChange", jSONObject);
-                    } catch (JSONException e) {
-                        if (a.DEBUG) {
-                            Log.d("SwanAudiodRTCContext", Log.getStackTraceString(e));
-                        }
-                    }
-                }
-            }
-
-            @Override // com.baidu.rtc.RtcConfig.RtcHandler
-            public void onConnectFailed(int i, int i2, String str2, int i3) {
-                if (a.this.euO != null) {
-                    JSONObject jSONObject = new JSONObject();
-                    try {
-                        jSONObject.putOpt("state", "2001");
-                        jSONObject.putOpt("stateMsg", "connect failed");
-                        jSONObject.putOpt("rtcErr", Integer.valueOf(i3));
-                        a.this.euO.g("onStateChange", jSONObject);
-                    } catch (JSONException e) {
-                        if (a.DEBUG) {
-                            Log.d("SwanAudiodRTCContext", Log.getStackTraceString(e));
-                        }
-                    }
-                }
-            }
-
-            @Override // com.baidu.rtc.RtcConfig.RtcHandler
-            public void onRemoteUserOnLine(int i, int i2) {
-            }
-
-            @Override // com.baidu.rtc.RtcConfig.RtcHandler
-            public void onMuteStatusChanged(boolean z) {
-                if (a.this.euO != null) {
-                    JSONObject jSONObject = new JSONObject();
-                    try {
-                        if (z) {
-                            jSONObject.putOpt("state", "4001");
-                            jSONObject.putOpt("stateMsg", "change to mute");
-                        } else {
-                            jSONObject.putOpt("state", "4002");
-                            jSONObject.putOpt("stateMsg", "change to unmute");
-                        }
-                        a.this.euO.g("onStateChange", jSONObject);
-                    } catch (JSONException e) {
-                        if (a.DEBUG) {
-                            Log.d("SwanAudiodRTCContext", Log.getStackTraceString(e));
-                        }
-                    }
-                }
-            }
-
-            @Override // com.baidu.rtc.RtcConfig.RtcHandler
-            public void onStop(int i, int i2) {
-                if (a.this.euO != null) {
-                    a.this.euO.qx(MissionEvent.MESSAGE_STOP);
-                }
-            }
-
-            @Override // com.baidu.rtc.RtcConfig.RtcHandler
-            public void onFailed(int i) {
-            }
-
-            @Override // com.baidu.rtc.RtcConfig.RtcHandler
-            public boolean onLoadLibrary(String str2) {
-                try {
-                    System.loadLibrary(str2);
-                    return true;
-                } catch (Throwable th) {
-                    th.printStackTrace();
-                    return false;
-                }
-            }
-        });
+    public a(boolean z, boolean z2, String str, String str2, String str3, int i) {
+        this.oPb = z;
+        this.oPc = z2;
+        this.oPd = str;
+        this.oPe = str2;
+        this.oPf = str3;
+        this.mStatusCode = i;
     }
 
-    public void a(com.baidu.p.c.a aVar) {
-        if (DEBUG) {
-            Log.d("SwanAudiodRTCContext", "===open audioRTC");
-        }
-        this.euO = aVar;
+    public String ejV() {
+        return TextUtils.isEmpty(this.oPd) ? this.oPd : new com.baidu.p.a.c.b("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).encode(this.oPd.getBytes());
     }
 
-    public void start() {
-        if (this.euP != null) {
-            this.euP.start();
-            if (DEBUG) {
-                Log.d("SwanAudiodRTCContext", "===start audioRTC");
-            }
-        }
-    }
-
-    public void stop() {
-        if (this.euP != null) {
-            this.euP.stop();
-            if (DEBUG) {
-                Log.d("SwanAudiodRTCContext", "===stop audioRTC");
-            }
-        }
-    }
-
-    public void mute() {
-        if (this.euP != null) {
-            this.euP.mute();
-            if (DEBUG) {
-                Log.d("SwanAudiodRTCContext", "===mute audioRTC");
-            }
-        }
-    }
-
-    public void unMute() {
-        if (this.euP != null) {
-            this.euP.unMute();
-            if (DEBUG) {
-                Log.d("SwanAudiodRTCContext", "===unMute audioRTC");
-            }
-        }
-    }
-
-    public void g(String str, JSONObject jSONObject) {
-        if (this.euO != null) {
-            this.euO.g(str, jSONObject);
-        }
+    public String toString() {
+        return "UnionIDInfo{isTrackLimited=" + this.oPb + ", isSupport=" + this.oPc + ", OAID='" + this.oPd + "', EncodedOAID='" + ejV() + "', AAID='" + this.oPe + "', VAID='" + this.oPf + "', StatusCode='" + this.mStatusCode + "'}";
     }
 }

@@ -1,13 +1,13 @@
 package com.baidu.tbadk.o;
 /* loaded from: classes.dex */
 public class b {
-    public long MU = -1;
-    public long MV = -1;
-    public long MW = -1;
+    public long Mr = -1;
+    public long Ms = -1;
+    public long Mt = -1;
     private int errorCode;
     private String exception;
-    private int fDV;
-    private String fDW;
+    private int fNA;
+    private String fNB;
     private String url;
 
     public void setErrorCode(int i) {
@@ -18,8 +18,8 @@ public class b {
         this.exception = str;
     }
 
-    public void Ew(String str) {
-        this.fDW = str;
+    public void Et(String str) {
+        this.fNB = str;
     }
 
     public String getUrl() {
@@ -30,11 +30,11 @@ public class b {
         this.url = str;
     }
 
-    public String bFB() {
-        return "-netErrorCode-" + this.errorCode + "-serverCode-" + this.fDV + "-dnsStatus-" + this.fDW + "-exception-" + this.exception + "-url-" + this.url + "-dataLenth-" + this.MU + "-fileLength-" + this.MV + "-contentLen-" + this.MW;
+    public String bHW() {
+        return "-netErrorCode-" + this.errorCode + "-serverCode-" + this.fNA + "-dnsStatus-" + this.fNB + "-exception-" + this.exception + "-url-" + this.url + "-dataLenth-" + this.Mr + "-fileLength-" + this.Ms + "-contentLen-" + this.Mt;
     }
 
-    public void sM(int i) {
-        this.fDV = i;
+    public void sX(int i) {
+        this.fNA = i;
     }
 }

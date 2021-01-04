@@ -1,11 +1,11 @@
 package com.baidu.fsg.face.liveness;
 
 import com.baidu.fsg.face.base.e;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class SapiLivenessOperation implements e {
     public OperationType operationType;
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes6.dex */
     public enum OperationType {
         RECOGNIZE("RECOGNIZE"),
         VIDEORECOG("VIDEOREOCG");

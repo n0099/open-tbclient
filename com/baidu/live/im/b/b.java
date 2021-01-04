@@ -1,9 +1,9 @@
 package com.baidu.live.im.b;
 
-import android.support.annotation.NonNull;
 import android.view.View;
-import com.baidu.live.data.ci;
-/* loaded from: classes4.dex */
+import androidx.annotation.NonNull;
+import com.baidu.live.data.ck;
+/* loaded from: classes11.dex */
 public interface b {
     @NonNull
     View getView();
@@ -12,5 +12,5 @@ public interface b {
 
     void setPreview();
 
-    void setUIInfo(ci ciVar, boolean z);
+    void setUIInfo(ck ckVar, boolean z);
 }

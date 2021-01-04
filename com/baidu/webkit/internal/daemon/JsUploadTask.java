@@ -12,7 +12,7 @@ import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public class JsUploadTask implements INoProGuard {
     private static final int CONN_TIMEOUT = 5000;
     private static final int READ_TIMEOUT = 10000;
@@ -70,7 +70,7 @@ public class JsUploadTask implements INoProGuard {
     private static JumpType mFirstJumpType = JumpType.DefaultJump;
     private static JumpType mLastJumpType = JumpType.DefaultJump;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public enum JumpType {
         DefaultJump,
         JsJump,
@@ -173,8 +173,8 @@ public class JsUploadTask implements INoProGuard {
             addRawLogItem(sb2, ETAG.KEY_PAGE_FINISHED, mPageFinishedTime);
             addRawLogItem(sb2, ETAG.KEY_UPLOAD_NUM, mUpLoadNum);
             addRawLogItem(sb2, ETAG.KEY_SYS_PROXY, WebSettingsGlobalBlink.getSysProxyEnabled());
-            addRawLogItem(sb2, ETAG.KEY_NET_ERROR, mNetError);
-            addRawLogItem(sb2, ETAG.KEY_HTTP_CODE, mHttpcode);
+            addRawLogItem(sb2, "net_error", mNetError);
+            addRawLogItem(sb2, "http_code", mHttpcode);
             addRawLogItem(sb2, ETAG.KEY_NET_CODE, mNetcode);
             addRawLogItem(sb2, ETAG.KEY_FIRST_JUMP_TYPE, mFirstJumpType.ordinal());
             addRawLogItem(sb2, ETAG.KEY_LAST_JUMP_TYPE, mLastJumpType.ordinal());
@@ -234,8 +234,8 @@ public class JsUploadTask implements INoProGuard {
                         CloudSettings.NetRecordList.remove(0);
                         Log.w(TAG, "NetRecordList size1 " + CloudSettings.NetRecordList.size());
                         jSONObject.put(ETAG.KEY_CRONET_ENABLE, aVar.c);
-                        jSONObject.put(ETAG.KEY_CRONET_NET_TIME, aVar.f3940a);
-                        jSONObject.put(ETAG.KEY_CRONET_NET_RES, aVar.b);
+                        jSONObject.put(ETAG.KEY_CRONET_NET_TIME, aVar.f5966a);
+                        jSONObject.put(ETAG.KEY_CRONET_NET_RES, aVar.f5967b);
                     }
                     if (WebSettingsGlobalBlink.isFeedProxyAdUrl(mCurrentUrl)) {
                         jSONObject.put(ETAG.KEY_FEED_PROXY_AD, 1);

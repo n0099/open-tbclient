@@ -1,69 +1,69 @@
 package com.baidu.swan.apps.env.b;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.swan.pms.e.b;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public final class a implements com.baidu.swan.pms.e.b {
-    private String cXB;
-    private boolean cXC;
-    private com.baidu.swan.pms.e.b cXD;
+    private boolean dcx;
+    private com.baidu.swan.pms.e.b dcy;
+    private String libName;
 
     private a() {
     }
 
     @Override // com.baidu.swan.pms.e.b
     public void a(String str, b.a aVar) {
-        if (this.cXD != null) {
-            this.cXD.a(str, aVar);
+        if (this.dcy != null) {
+            this.dcy.a(str, aVar);
         } else if (aVar != null) {
-            aVar.fv(true);
+            aVar.fE(true);
         }
     }
 
-    public String avP() {
-        return this.cXB;
+    public String axh() {
+        return this.libName;
     }
 
-    public boolean avQ() {
-        return this.cXC;
+    public boolean axi() {
+        return this.dcx;
     }
 
     @NonNull
     public String toString() {
-        return "SoLib:: libName=" + this.cXB + " buildin=" + this.cXC;
+        return "SoLib:: libName=" + this.libName + " buildin=" + this.dcx;
     }
 
     /* renamed from: com.baidu.swan.apps.env.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes25.dex */
-    public static class C0448a {
-        private a cXE;
+    /* loaded from: classes9.dex */
+    public static class C0440a {
+        private a dcz;
 
-        private a avR() {
-            if (this.cXE == null) {
-                this.cXE = new a();
+        private a axj() {
+            if (this.dcz == null) {
+                this.dcz = new a();
             }
-            return this.cXE;
+            return this.dcz;
         }
 
-        public C0448a oy(String str) {
-            avR().cXB = str;
+        public C0440a or(String str) {
+            axj().libName = str;
             return this;
         }
 
-        public C0448a fu(boolean z) {
-            avR().cXC = z;
+        public C0440a fD(boolean z) {
+            axj().dcx = z;
             return this;
         }
 
-        public C0448a a(com.baidu.swan.pms.e.b bVar) {
-            avR().cXD = bVar;
+        public C0440a a(com.baidu.swan.pms.e.b bVar) {
+            axj().dcy = bVar;
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public a avS() {
-            a aVar = this.cXE;
-            this.cXE = null;
+        public a axk() {
+            a aVar = this.dcz;
+            this.dcz = null;
             return aVar;
         }
     }

@@ -11,50 +11,50 @@ import com.heytap.mcssdk.mode.CommandMessage;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a {
     public static String TAG = a.class.getSimpleName();
-    private static volatile a oWy = new a();
+    private static volatile a pcs = new a();
 
-    public static a enZ() {
-        a aVar = oWy;
+    public static a eoe() {
+        a aVar = pcs;
         if (aVar == null) {
             synchronized (a.class) {
-                aVar = oWy;
+                aVar = pcs;
                 if (aVar == null) {
                     aVar = new a();
-                    oWy = aVar;
+                    pcs = aVar;
                 }
             }
         }
         return aVar;
     }
 
-    public boolean D(Context context, String str, String str2) {
+    public boolean E(Context context, String str, String str2) {
         TextMsg textMsg = new TextMsg();
         textMsg.setContacter(ChatInfo.mContacter);
-        textMsg.setFromUser(ChatInfo.oNB);
+        textMsg.setFromUser(ChatInfo.oTJ);
         textMsg.setText(str);
         textMsg.setStatus(1);
-        textMsg.setSenderUid(com.baidu.yuyinala.privatemessage.implugin.d.b.elh().getUserId(context) != null ? com.baidu.yuyinala.privatemessage.implugin.d.b.elh().getUserId(context) : "0");
-        if (ChatInfo.oNz == ChatInfo.ChatCategory.C2C) {
+        textMsg.setSenderUid(com.baidu.yuyinala.privatemessage.implugin.d.b.ell().getUserId(context) != null ? com.baidu.yuyinala.privatemessage.implugin.d.b.ell().getUserId(context) : "0");
+        if (ChatInfo.oTH == ChatInfo.ChatCategory.C2C) {
             textMsg.setCategory(0);
             textMsg.setChatType(0);
             textMsg.setContacterBduid(ChatInfo.mUid + "");
-        } else if (ChatInfo.oNz == ChatInfo.ChatCategory.GROUP) {
+        } else if (ChatInfo.oTH == ChatInfo.ChatCategory.GROUP) {
             textMsg.setCategory(1);
             textMsg.setChatType(3);
             textMsg.setContacterBduid(ChatInfo.mUid + "");
-        } else if (ChatInfo.oNz == ChatInfo.ChatCategory.DUZHAN) {
+        } else if (ChatInfo.oTH == ChatInfo.ChatCategory.DUZHAN) {
             textMsg.setCategory(0);
             textMsg.setChatType(7);
             textMsg.setContacterBduid(ChatInfo.mUid + "");
         }
         textMsg.setMsgTime(System.currentTimeMillis() / 1000);
         c(context, textMsg);
-        c YK = d.emA().YK(str2);
-        if (YK != null) {
-            YK.h(textMsg);
+        c Yu = d.emC().Yu(str2);
+        if (Yu != null) {
+            Yu.h(textMsg);
         }
         return true;
     }
@@ -69,18 +69,18 @@ public class a {
     public void c(Context context, ChatMsg chatMsg) {
         JSONObject jSONObject;
         long j = 0;
-        if (ChatInfo.kpk == 2) {
+        if (ChatInfo.oTM == 2) {
             try {
-                j = Long.valueOf(com.baidu.yuyinala.privatemessage.implugin.d.b.elh().getUserId(context)).longValue();
+                j = Long.valueOf(com.baidu.yuyinala.privatemessage.implugin.d.b.ell().getUserId(context)).longValue();
             } catch (Exception e) {
                 com.baidu.yuyinala.privatemessage.implugin.util.c.e(TAG, "transfer build to long value exception");
             }
-            String d = com.baidu.yuyinala.privatemessage.implugin.d.b.elh().d(context, String.valueOf(ChatInfo.mContacter), j);
+            String d = com.baidu.yuyinala.privatemessage.implugin.d.b.ell().d(context, String.valueOf(ChatInfo.mContacter), j);
             com.baidu.yuyinala.privatemessage.implugin.util.c.d(TAG, "nickname " + d + " " + ChatInfo.mContacter + " " + j);
             JSONObject jSONObject2 = new JSONObject();
             try {
-                jSONObject2.put("sex", ChatInfo.oNE);
-                jSONObject2.put("portrait", ChatInfo.oNC);
+                jSONObject2.put("sex", ChatInfo.oTN);
+                jSONObject2.put("portrait", ChatInfo.oTK);
                 if (!TextUtils.isEmpty(d)) {
                     jSONObject2.put("name", d);
                 } else if (!TextUtils.isEmpty(ChatInfo.nickname)) {
@@ -90,11 +90,11 @@ public class a {
                 }
                 jSONObject2.put("isVip", ChatInfo.vip);
                 JSONArray jSONArray = new JSONArray();
-                if (!TextUtils.isEmpty(ChatInfo.oNF)) {
-                    jSONArray.put(ChatInfo.oNF);
+                if (!TextUtils.isEmpty(ChatInfo.oTO)) {
+                    jSONArray.put(ChatInfo.oTO);
                 }
-                if (!TextUtils.isEmpty(ChatInfo.oNG)) {
-                    jSONArray.put(ChatInfo.oNG);
+                if (!TextUtils.isEmpty(ChatInfo.oTP)) {
+                    jSONArray.put(ChatInfo.oTP);
                 }
                 if (jSONArray.length() > 0) {
                     jSONObject2.put(CommandMessage.TYPE_TAGS, jSONArray);
@@ -104,17 +104,17 @@ public class a {
             }
             chatMsg.setStarContentExtra(jSONObject2.toString());
             chatMsg.setChatType(4);
-        } else if (ChatInfo.kpk == 1) {
+        } else if (ChatInfo.oTM == 1) {
             try {
-                j = Long.valueOf(com.baidu.yuyinala.privatemessage.implugin.d.b.elh().getUserId(context)).longValue();
+                j = Long.valueOf(com.baidu.yuyinala.privatemessage.implugin.d.b.ell().getUserId(context)).longValue();
             } catch (Exception e3) {
                 com.baidu.yuyinala.privatemessage.implugin.util.c.e(TAG, "transfer build to long value exception");
             }
-            String d2 = com.baidu.yuyinala.privatemessage.implugin.d.b.elh().d(context, String.valueOf(ChatInfo.mContacter), j);
+            String d2 = com.baidu.yuyinala.privatemessage.implugin.d.b.ell().d(context, String.valueOf(ChatInfo.mContacter), j);
             com.baidu.yuyinala.privatemessage.implugin.util.c.d(TAG, "nickname " + d2 + " " + ChatInfo.mContacter + " " + j);
             ?? jSONObject3 = new JSONObject();
             try {
-                jSONObject3.put("portrait", ChatInfo.oNC);
+                jSONObject3.put("portrait", ChatInfo.oTK);
                 if (!TextUtils.isEmpty(d2)) {
                     jSONObject3.put("name", d2);
                     jSONObject = jSONObject3;

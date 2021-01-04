@@ -18,7 +18,7 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class c extends BdBaseModel {
     public c() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021048, TbConfig.SERVER_ADDRESS + "ala/sys/gatherData");
@@ -62,8 +62,8 @@ public class c extends BdBaseModel {
                 jSONObject3.putOpt("dropa", Long.valueOf(alaLiveRecorderPerfData.dropACount));
                 jSONObject.putOpt(CloudStabilityUBCUtils.VALUE_TYPE, jSONObject3);
                 JSONObject jSONObject4 = new JSONObject();
-                jSONObject4.putOpt("mem", cE(alaLiveRecorderPerfData.memoryArray));
-                jSONObject4.putOpt("cpu", cE(alaLiveRecorderPerfData.cpuArray));
+                jSONObject4.putOpt("mem", cL(alaLiveRecorderPerfData.memoryArray));
+                jSONObject4.putOpt("cpu", cL(alaLiveRecorderPerfData.cpuArray));
                 jSONObject4.putOpt("bat", String.format("%.2f", Float.valueOf(alaLiveRecorderPerfData.energyUsage)));
                 jSONObject4.putOpt("charge", Boolean.valueOf(alaLiveRecorderPerfData.isCharging));
                 jSONObject.putOpt("perf", jSONObject4);
@@ -97,7 +97,7 @@ public class c extends BdBaseModel {
         MessageManager.getInstance().unRegisterTask(1021049);
     }
 
-    private String cE(List list) {
+    private String cL(List list) {
         if (list == null || list.size() == 0) {
             return "";
         }

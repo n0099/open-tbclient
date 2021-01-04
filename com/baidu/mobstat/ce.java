@@ -12,7 +12,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class ce extends cd {
     static final /* synthetic */ boolean f;
     private ByteBuffer g;
@@ -23,16 +23,18 @@ public class ce extends cd {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     public class a extends Throwable {
-        private int b;
+
+        /* renamed from: b  reason: collision with root package name */
+        private int f3829b;
 
         public a(int i) {
-            this.b = i;
+            this.f3829b = i;
         }
 
         public int a() {
-            return this.b;
+            return this.f3829b;
         }
     }
 
@@ -157,8 +159,8 @@ public class ce extends cd {
         return bArr;
     }
 
-    private cq.a a(byte b) throws ci {
-        switch (b) {
+    private cq.a a(byte b2) throws ci {
+        switch (b2) {
             case 0:
                 return cq.a.CONTINUOUS;
             case 1:
@@ -171,7 +173,7 @@ public class ce extends cd {
             case 6:
             case 7:
             default:
-                throw new ci("unknow optcode " + ((int) b));
+                throw new ci("unknow optcode " + ((int) b2));
             case 8:
                 return cq.a.CLOSING;
             case 9:
@@ -227,22 +229,22 @@ public class ce extends cd {
     }
 
     public cq e(ByteBuffer byteBuffer) throws a, ch {
-        byte b;
+        byte b2;
         cp crVar;
         int i = 2;
         int remaining = byteBuffer.remaining();
         if (remaining < 2) {
             throw new a(2);
         }
-        byte b2 = byteBuffer.get();
-        boolean z = (b2 >> 8) != 0;
-        if (((byte) ((b2 & Byte.MAX_VALUE) >> 4)) != 0) {
-            throw new ci("bad rsv " + ((int) b));
-        }
         byte b3 = byteBuffer.get();
-        boolean z2 = (b3 & Byte.MIN_VALUE) != 0;
-        int i2 = (byte) (b3 & Byte.MAX_VALUE);
-        cq.a a2 = a((byte) (b2 & 15));
+        boolean z = (b3 >> 8) != 0;
+        if (((byte) ((b3 & Byte.MAX_VALUE) >> 4)) != 0) {
+            throw new ci("bad rsv " + ((int) b2));
+        }
+        byte b4 = byteBuffer.get();
+        boolean z2 = (b4 & Byte.MIN_VALUE) != 0;
+        int i2 = (byte) (b4 & Byte.MAX_VALUE);
+        cq.a a2 = a((byte) (b3 & 15));
         if (!z && (a2 == cq.a.PING || a2 == cq.a.PONG || a2 == cq.a.CLOSING)) {
             throw new ci("control frames may no be fragmented");
         }
@@ -256,20 +258,20 @@ public class ce extends cd {
                 }
                 i2 = new BigInteger(new byte[]{0, byteBuffer.get(), byteBuffer.get()}).intValue();
                 i = 4;
-            } else if (remaining < 10) {
-                throw new a(10);
             } else {
+                i = 10;
+                if (remaining < 10) {
+                    throw new a(10);
+                }
                 byte[] bArr = new byte[8];
                 for (int i3 = 0; i3 < 8; i3++) {
                     bArr[i3] = byteBuffer.get();
                 }
                 long longValue = new BigInteger(bArr).longValue();
-                if (longValue <= 2147483647L) {
-                    i = 10;
-                    i2 = (int) longValue;
-                } else {
+                if (longValue > 2147483647L) {
                     throw new ck("Payloadsize is to big...");
                 }
+                i2 = (int) longValue;
             }
         }
         int i4 = (z2 ? 4 : 0) + i + i2;

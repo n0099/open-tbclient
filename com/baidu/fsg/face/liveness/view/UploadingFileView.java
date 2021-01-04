@@ -12,12 +12,14 @@ import android.view.animation.ScaleAnimation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class UploadingFileView extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private UploadCircleView f1781a;
-    private ImageView b;
+    private UploadCircleView f2434a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private ImageView f2435b;
     private ImageView c;
     public DynamicWaveView dynamicWaveView;
 
@@ -33,28 +35,28 @@ public class UploadingFileView extends FrameLayout {
         super(context, attributeSet, i);
         View inflate = LayoutInflater.from(context).inflate(R.layout.layout_sapi_liveness_uploading_file_view, (ViewGroup) this, true);
         this.dynamicWaveView = (DynamicWaveView) findViewById(R.id.dynamic_wave);
-        this.f1781a = (UploadCircleView) inflate.findViewById(R.id.my_circle);
-        this.b = (ImageView) inflate.findViewById(R.id.circle);
+        this.f2434a = (UploadCircleView) inflate.findViewById(R.id.my_circle);
+        this.f2435b = (ImageView) inflate.findViewById(R.id.circle);
         this.c = (ImageView) inflate.findViewById(R.id.tick);
     }
 
     public void setProgress(int i) {
         if (i < 100) {
-            this.f1781a.setProgress(i);
+            this.f2434a.setProgress(i);
             if (i == 0) {
                 this.dynamicWaveView.setVisibility(0);
                 return;
             }
             return;
         }
-        this.f1781a.setProgress(100);
+        this.f2434a.setProgress(100);
         this.dynamicWaveView.stopAnim();
     }
 
     public void showUpSucView() {
-        this.f1781a.setVisibility(8);
+        this.f2434a.setVisibility(8);
         this.dynamicWaveView.setVisibility(8);
-        this.b.setVisibility(0);
+        this.f2435b.setVisibility(0);
         a();
     }
 
@@ -63,7 +65,7 @@ public class UploadingFileView extends FrameLayout {
         scaleAnimation.setInterpolator(new a());
         scaleAnimation.setDuration(1000L);
         scaleAnimation.setFillAfter(true);
-        this.b.startAnimation(scaleAnimation);
+        this.f2435b.startAnimation(scaleAnimation);
         postDelayed(new Runnable() { // from class: com.baidu.fsg.face.liveness.view.UploadingFileView.1
             @Override // java.lang.Runnable
             public void run() {
@@ -86,16 +88,18 @@ public class UploadingFileView extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes6.dex */
     public class a implements Interpolator {
-        private float b = 0.5f;
+
+        /* renamed from: b  reason: collision with root package name */
+        private float f2438b = 0.5f;
 
         public a() {
         }
 
         @Override // android.animation.TimeInterpolator
         public float getInterpolation(float f) {
-            return (float) ((Math.pow(2.0d, (-10.0f) * f) * Math.sin(((f - (this.b / 4.0f)) * 6.283185307179586d) / this.b)) + 1.0d);
+            return (float) ((Math.pow(2.0d, (-10.0f) * f) * Math.sin(((f - (this.f2438b / 4.0f)) * 6.283185307179586d) / this.f2438b)) + 1.0d);
         }
     }
 }

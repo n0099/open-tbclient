@@ -18,19 +18,21 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    static volatile a f4068a = null;
-    private Context b;
+    static volatile a f11405a = null;
+
+    /* renamed from: b  reason: collision with root package name */
+    private Context f11406b;
     private Map<Integer, c> c;
     private Map<String, com.meizu.cloud.pushsdk.handler.a> d;
 
     /* renamed from: com.meizu.cloud.pushsdk.a$a  reason: collision with other inner class name */
-    /* loaded from: classes16.dex */
-    public class C1007a extends com.meizu.cloud.pushsdk.handler.a {
-        public C1007a() {
+    /* loaded from: classes6.dex */
+    public class C1138a extends com.meizu.cloud.pushsdk.handler.a {
+        public C1138a() {
         }
 
         @Override // com.meizu.cloud.pushsdk.handler.a
@@ -198,43 +200,43 @@ public class a {
         if (context == null) {
             throw new IllegalArgumentException("Context must not be null.");
         }
-        this.b = context.getApplicationContext();
+        this.f11406b = context.getApplicationContext();
         this.d = new HashMap();
-        C1007a c1007a = new C1007a();
+        C1138a c1138a = new C1138a();
         if (list != null) {
             a(list);
             return;
         }
-        a(new com.meizu.cloud.pushsdk.handler.a.c(context, c1007a));
-        a(new b(context, c1007a));
-        a(new e(context, c1007a));
-        a(new com.meizu.cloud.pushsdk.handler.a.c.b(context, c1007a));
-        a(new d(context, c1007a));
-        a(new f(context, c1007a));
-        a(new com.meizu.cloud.pushsdk.handler.a.c.c(context, c1007a));
-        a(new com.meizu.cloud.pushsdk.handler.a.d.a(context, c1007a));
-        a(new com.meizu.cloud.pushsdk.handler.a.d.c(context, c1007a));
-        a(new com.meizu.cloud.pushsdk.handler.a.d.f(context, c1007a));
-        a(new com.meizu.cloud.pushsdk.handler.a.d.d(context, c1007a));
-        a(new com.meizu.cloud.pushsdk.handler.a.d.e(context, c1007a));
-        a(new com.meizu.cloud.pushsdk.handler.a.e.a(context, c1007a));
-        a(new com.meizu.cloud.pushsdk.handler.a.d.b(context, c1007a));
-        a(new com.meizu.cloud.pushsdk.handler.a.c.d(context, c1007a));
-        a(new com.meizu.cloud.pushsdk.handler.a.a.a(context, c1007a));
-        a(new com.meizu.cloud.pushsdk.handler.a.c.a(context, c1007a));
-        a(new com.meizu.cloud.pushsdk.handler.a.c.e(context, c1007a));
+        a(new com.meizu.cloud.pushsdk.handler.a.c(context, c1138a));
+        a(new b(context, c1138a));
+        a(new e(context, c1138a));
+        a(new com.meizu.cloud.pushsdk.handler.a.c.b(context, c1138a));
+        a(new d(context, c1138a));
+        a(new f(context, c1138a));
+        a(new com.meizu.cloud.pushsdk.handler.a.c.c(context, c1138a));
+        a(new com.meizu.cloud.pushsdk.handler.a.d.a(context, c1138a));
+        a(new com.meizu.cloud.pushsdk.handler.a.d.c(context, c1138a));
+        a(new com.meizu.cloud.pushsdk.handler.a.d.f(context, c1138a));
+        a(new com.meizu.cloud.pushsdk.handler.a.d.d(context, c1138a));
+        a(new com.meizu.cloud.pushsdk.handler.a.d.e(context, c1138a));
+        a(new com.meizu.cloud.pushsdk.handler.a.e.a(context, c1138a));
+        a(new com.meizu.cloud.pushsdk.handler.a.d.b(context, c1138a));
+        a(new com.meizu.cloud.pushsdk.handler.a.c.d(context, c1138a));
+        a(new com.meizu.cloud.pushsdk.handler.a.a.a(context, c1138a));
+        a(new com.meizu.cloud.pushsdk.handler.a.c.a(context, c1138a));
+        a(new com.meizu.cloud.pushsdk.handler.a.c.e(context, c1138a));
     }
 
     public static a a(Context context) {
-        if (f4068a == null) {
+        if (f11405a == null) {
             synchronized (a.class) {
-                if (f4068a == null) {
+                if (f11405a == null) {
                     com.meizu.cloud.a.a.i("PushMessageProxy", "PushMessageProxy init");
-                    f4068a = new a(context);
+                    f11405a = new a(context);
                 }
             }
         }
-        return f4068a;
+        return f11405a;
     }
 
     public a a(c cVar) {
@@ -272,6 +274,6 @@ public class a {
     }
 
     protected boolean a() {
-        return Thread.currentThread() == this.b.getMainLooper().getThread();
+        return Thread.currentThread() == this.f11406b.getMainLooper().getThread();
     }
 }

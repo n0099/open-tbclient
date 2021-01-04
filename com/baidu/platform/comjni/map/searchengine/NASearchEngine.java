@@ -1,7 +1,7 @@
 package com.baidu.platform.comjni.map.searchengine;
 
 import com.baidu.platform.comjni.NativeComponent;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class NASearchEngine extends NativeComponent {
     public NASearchEngine() {
         create();

@@ -9,12 +9,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class BioAlertDialog extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    private ViewSwitcher f1737a;
-    private TextView b;
+    private ViewSwitcher f2367a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private TextView f2368b;
     private TextView c;
     private TextView d;
     private Button e;
@@ -42,8 +44,8 @@ public class BioAlertDialog extends Dialog {
     private void a() {
         setContentView(R.layout.layout_sapi_liveness_alert_dialog);
         setCanceledOnTouchOutside(false);
-        this.f1737a = (ViewSwitcher) findViewById(R.id.view_switcher);
-        this.b = (TextView) findViewById(R.id.dialog_title);
+        this.f2367a = (ViewSwitcher) findViewById(R.id.view_switcher);
+        this.f2368b = (TextView) findViewById(R.id.dialog_title);
         this.c = (TextView) findViewById(R.id.dialog_msg);
         this.d = (TextView) findViewById(R.id.msg_text);
         this.e = (Button) findViewById(R.id.positive_btn);
@@ -55,7 +57,7 @@ public class BioAlertDialog extends Dialog {
     }
 
     public void setTitleMsg(String str) {
-        this.b.setText(str);
+        this.f2368b.setText(str);
     }
 
     public void setDialogMsg(String str) {
@@ -69,9 +71,9 @@ public class BioAlertDialog extends Dialog {
 
     public void setTitleVisible(boolean z) {
         if (z) {
-            this.b.setVisibility(0);
+            this.f2368b.setVisibility(0);
         } else {
-            this.b.setVisibility(8);
+            this.f2368b.setVisibility(8);
         }
     }
 
@@ -82,9 +84,9 @@ public class BioAlertDialog extends Dialog {
             i = 2;
         }
         if (i == 2) {
-            this.f1737a.setDisplayedChild(0);
+            this.f2367a.setDisplayedChild(0);
         } else {
-            this.f1737a.setDisplayedChild(1);
+            this.f2367a.setDisplayedChild(1);
         }
     }
 

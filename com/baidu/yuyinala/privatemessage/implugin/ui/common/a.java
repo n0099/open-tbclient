@@ -7,15 +7,15 @@ import android.text.method.BaseMovementMethod;
 import android.text.style.ClickableSpan;
 import android.view.MotionEvent;
 import android.widget.TextView;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a extends BaseMovementMethod {
-    private static a oPP;
+    private static a oVZ;
 
-    public static a elM() {
-        if (oPP == null) {
-            oPP = new a();
+    public static a elQ() {
+        if (oVZ == null) {
+            oVZ = new a();
         }
-        return oPP;
+        return oVZ;
     }
 
     @Override // android.text.method.BaseMovementMethod, android.text.method.MovementMethod

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static String a(Context context, String str) {
         return a(context, PushConstants.PUSH_ID_PREFERENCE_NAME, str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + PushConstants.KEY_PUSH_ID);
@@ -123,10 +123,10 @@ public class b {
     }
 
     public static int j(Context context, String str) {
-        int b = b(context, "mz_push_preference", str + ".message_seq") + 1;
-        c(context, str, b);
-        com.meizu.cloud.a.a.e("mz_push_preference", "current messageSeq " + b);
-        return b;
+        int b2 = b(context, "mz_push_preference", str + ".message_seq") + 1;
+        c(context, str, b2);
+        com.meizu.cloud.a.a.e("mz_push_preference", "current messageSeq " + b2);
+        return b2;
     }
 
     public static boolean j(Context context, String str, String str2) {

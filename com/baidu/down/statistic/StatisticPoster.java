@@ -16,7 +16,6 @@ import com.baidu.down.utils.DownPrefUtils;
 import com.baidu.down.utils.IdentityManager;
 import com.baidu.down.utils.NamingThreadFactory;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
-import com.baidu.searchbox.ugc.model.UgcConstant;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URI;
@@ -31,7 +30,7 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public final class StatisticPoster {
     private static final boolean DEBUG = false;
     public static final int DOWNLOAD_STATUS_ERROR = 2;
@@ -93,9 +92,9 @@ public final class StatisticPoster {
                 String str4 = str3;
                 if (it.hasNext()) {
                     HttpDNSInfo next = it.next();
-                    String str5 = next.mCDNSequence + UgcConstant.AT_RULE_TAG;
+                    String str5 = next.mCDNSequence + "@";
                     try {
-                        str5 = str5 + new URI(next.mUrl).getHost() + UgcConstant.AT_RULE_TAG;
+                        str5 = str5 + new URI(next.mUrl).getHost() + "@";
                     } catch (URISyntaxException e) {
                         e.printStackTrace();
                     }
@@ -105,7 +104,7 @@ public final class StatisticPoster {
                             if (next.mDownloadTimes == 0) {
                                 str2 = str6 + "0@";
                             } else {
-                                str2 = str6 + next.getTestAverageSpeed() + UgcConstant.AT_RULE_TAG;
+                                str2 = str6 + next.getTestAverageSpeed() + "@";
                             }
                             if (next.mHttpConnectTime != null && next.mHttpConnectTime.size() > 0) {
                                 long j2 = 0;

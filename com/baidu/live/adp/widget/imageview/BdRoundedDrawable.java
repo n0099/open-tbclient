@@ -17,7 +17,7 @@ import android.graphics.drawable.LayerDrawable;
 import android.graphics.drawable.StateListDrawable;
 import android.util.Log;
 import android.widget.ImageView;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class BdRoundedDrawable extends Drawable {
     public static final int DEFAULT_BORDER_COLOR = 0;
     public static final String TAG = "BdRoundedDrawable";
@@ -112,8 +112,8 @@ public class BdRoundedDrawable extends Drawable {
     private void updateShaderMatrix() {
         float min;
         float width;
+        float height;
         float f;
-        float f2 = 0.0f;
         this.mBorderRect.set(this.mBounds);
         this.mDrawableRect.set(this.mBorderWidth, this.mBorderWidth, this.mBorderRect.width() - this.mBorderWidth, this.mBorderRect.height() - this.mBorderWidth);
         switch (AnonymousClass1.$SwitchMap$android$widget$ImageView$ScaleType[this.mScaleType.ordinal()]) {
@@ -130,13 +130,14 @@ public class BdRoundedDrawable extends Drawable {
                 if (this.mBitmapWidth * this.mDrawableRect.height() > this.mDrawableRect.width() * this.mBitmapHeight) {
                     width = this.mDrawableRect.height() / this.mBitmapHeight;
                     f = (this.mDrawableRect.width() - (this.mBitmapWidth * width)) * 0.5f;
+                    height = 0.0f;
                 } else {
                     width = this.mDrawableRect.width() / this.mBitmapWidth;
+                    height = (this.mDrawableRect.height() - (this.mBitmapHeight * width)) * 0.5f;
                     f = 0.0f;
-                    f2 = (this.mDrawableRect.height() - (this.mBitmapHeight * width)) * 0.5f;
                 }
                 this.mShaderMatrix.setScale(width, width);
-                this.mShaderMatrix.postTranslate(((int) (f + 0.5f)) + this.mBorderWidth, ((int) (f2 + 0.5f)) + this.mBorderWidth);
+                this.mShaderMatrix.postTranslate(((int) (f + 0.5f)) + this.mBorderWidth, ((int) (height + 0.5f)) + this.mBorderWidth);
                 break;
             case 3:
                 this.mShaderMatrix.set(null);
@@ -186,7 +187,7 @@ public class BdRoundedDrawable extends Drawable {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.live.adp.widget.imageview.BdRoundedDrawable$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public static /* synthetic */ class AnonymousClass1 {
         static final /* synthetic */ int[] $SwitchMap$android$widget$ImageView$ScaleType = new int[ImageView.ScaleType.values().length];
 

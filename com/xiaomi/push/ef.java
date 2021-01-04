@@ -6,30 +6,32 @@ import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class ef extends ed {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f4644a;
-    private boolean b;
+    private boolean f14264a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private boolean f14265b;
     private boolean c;
     private boolean d;
     private boolean e;
 
     public ef(Context context, int i, boolean z, boolean z2, boolean z3, boolean z4, boolean z5) {
         super(context, i);
-        this.f4644a = z;
-        this.b = z2;
+        this.f14264a = z;
+        this.f14265b = z2;
         this.c = z3;
         this.d = z4;
         this.e = z5;
     }
 
     private String b() {
-        if (this.f4644a) {
+        if (this.f14264a) {
             try {
                 DisplayMetrics displayMetrics = new DisplayMetrics();
-                ((WindowManager) this.f232a.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
+                ((WindowManager) this.f310a.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
                 return displayMetrics.heightPixels + "," + displayMetrics.widthPixels;
             } catch (Throwable th) {
                 return "";
@@ -39,7 +41,7 @@ public class ef extends ed {
     }
 
     private String c() {
-        if (this.b) {
+        if (this.f14265b) {
             try {
                 return Build.VERSION.RELEASE;
             } catch (Throwable th) {
@@ -63,7 +65,7 @@ public class ef extends ed {
     private String e() {
         if (this.d) {
             try {
-                return Settings.Secure.getString(this.f232a.getContentResolver(), "android_id");
+                return Settings.Secure.getString(this.f310a.getContentResolver(), "android_id");
             } catch (Throwable th) {
                 return "";
             }
@@ -74,7 +76,7 @@ public class ef extends ed {
     private String f() {
         if (this.e) {
             try {
-                return ((TelephonyManager) this.f232a.getSystemService("phone")).getSimOperator();
+                return ((TelephonyManager) this.f310a.getSystemService("phone")).getSimOperator();
             } catch (Throwable th) {
                 return "";
             }
@@ -84,19 +86,19 @@ public class ef extends ed {
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo159a() {
+    public int mo185a() {
         return 3;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public ho mo159a() {
+    public ho mo185a() {
         return ho.DeviceInfoV2;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo159a() {
+    public String mo185a() {
         return b() + "|" + c() + "|" + d() + "|" + e() + "|" + f();
     }
 }

@@ -1,77 +1,77 @@
 package com.baidu.swan.apps.setting.oauth;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Set;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public abstract class b<ResultDataT> {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public final h<ResultDataT> dCW = new h<>();
-    private final Set<com.baidu.swan.apps.ap.e.b<h<ResultDataT>>> cXV = new HashSet();
-    private final LinkedList<d> dCX = new LinkedList<>();
-    private boolean dCY = false;
-    private boolean dCZ = false;
+    public final h<ResultDataT> dLA = new h<>();
+    private final Set<com.baidu.swan.apps.ao.e.b<h<ResultDataT>>> dcQ = new HashSet();
+    private final LinkedList<d> dLB = new LinkedList<>();
+    private boolean dLC = false;
+    private boolean dLD = false;
 
-    protected abstract void aLN();
+    protected abstract void aOd();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract ResultDataT bQ(JSONObject jSONObject) throws JSONException;
+    public abstract ResultDataT bY(JSONObject jSONObject) throws JSONException;
 
-    private void aLG() {
+    private void aNW() {
         new d() { // from class: com.baidu.swan.apps.setting.oauth.b.1
             @Override // com.baidu.swan.apps.setting.oauth.d
-            protected boolean aLO() throws Exception {
-                if (b.this.aLI()) {
+            protected boolean aOe() throws Exception {
+                if (b.this.aNY()) {
                     return true;
                 }
                 c.c("initialPrepare failed", true);
                 throw new OAuthException(10001);
             }
-        }.a(this).aLP();
-        this.dCY = true;
+        }.a(this).aOf();
+        this.dLC = true;
     }
 
-    private void aLH() {
+    private void aNX() {
         new d() { // from class: com.baidu.swan.apps.setting.oauth.b.2
             @Override // com.baidu.swan.apps.setting.oauth.d
-            protected boolean aLO() throws Exception {
-                if (b.this.aLJ()) {
+            protected boolean aOe() throws Exception {
+                if (b.this.aNZ()) {
                     return true;
                 }
                 c.c("finalPrepare failed", true);
                 throw new OAuthException(10001);
             }
-        }.a(this).aLP();
-        this.dCZ = true;
+        }.a(this).aOf();
+        this.dLD = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean aLI() {
+    public boolean aNY() {
         return true;
     }
 
-    protected boolean aLJ() {
+    protected boolean aNZ() {
         return true;
     }
 
-    public b<ResultDataT> A(com.baidu.swan.apps.ap.e.b<h<ResultDataT>> bVar) {
-        if (this.dCW.dDN.isCallbackAvailable()) {
-            this.cXV.add(bVar);
+    public b<ResultDataT> A(com.baidu.swan.apps.ao.e.b<h<ResultDataT>> bVar) {
+        if (this.dLA.dMr.isCallbackAvailable()) {
+            this.dcQ.add(bVar);
         }
         return this;
     }
 
-    private void aLK() {
-        for (final com.baidu.swan.apps.ap.e.b<h<ResultDataT>> bVar : this.cXV) {
-            c.h(new Runnable() { // from class: com.baidu.swan.apps.setting.oauth.b.3
+    private void aOa() {
+        for (final com.baidu.swan.apps.ao.e.b<h<ResultDataT>> bVar : this.dcQ) {
+            c.g(new Runnable() { // from class: com.baidu.swan.apps.setting.oauth.b.3
                 @Override // java.lang.Runnable
                 public void run() {
                     if (bVar != null) {
-                        bVar.M(b.this.dCW);
+                        bVar.L(b.this.dLA);
                     }
                 }
             });
@@ -79,27 +79,27 @@ public abstract class b<ResultDataT> {
     }
 
     @NonNull
-    public b aLL() {
-        if (TaskState.INIT == aLM()) {
+    public b aOb() {
+        if (TaskState.INIT == aOc()) {
             a(TaskState.CALLING);
             prepare();
         }
         return this;
     }
 
-    public TaskState aLM() {
-        return this.dCW.dDN;
+    public TaskState aOc() {
+        return this.dLA.dMr;
     }
 
-    public void rG() {
-        this.dCW.dDN = TaskState.INIT;
-        this.dCY = false;
-        this.dCZ = false;
+    public void rh() {
+        this.dLA.dMr = TaskState.INIT;
+        this.dLC = false;
+        this.dLD = false;
     }
 
     public b a(@NonNull d dVar) {
         dVar.a(this);
-        this.dCX.offer(dVar);
+        this.dLB.offer(dVar);
         return this;
     }
 
@@ -108,57 +108,57 @@ public abstract class b<ResultDataT> {
         if (dVar.isOk()) {
             prepare();
         } else {
-            v(dVar.getException());
+            w(dVar.getException());
         }
     }
 
     private void prepare() {
-        if (!TaskState.CALLING.equals(aLM())) {
+        if (!TaskState.CALLING.equals(aOc())) {
             if (DEBUG) {
                 c.c("IllegalState on prepare", false);
             }
-        } else if (!this.dCY) {
-            aLG();
-        } else if (!this.dCX.isEmpty()) {
-            this.dCX.poll().aLP();
-        } else if (!this.dCZ) {
-            aLH();
+        } else if (!this.dLC) {
+            aNW();
+        } else if (!this.dLB.isEmpty()) {
+            this.dLB.poll().aOf();
+        } else if (!this.dLD) {
+            aNX();
         } else {
             exec();
         }
     }
 
     private synchronized void exec() {
-        aLN();
+        aOd();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Z(ResultDataT resultdatat) {
-        this.dCW.mData = resultdatat;
+    public void aa(ResultDataT resultdatat) {
+        this.dLA.mData = resultdatat;
     }
 
     private void a(TaskState taskState) {
-        this.dCW.dDN = taskState;
+        this.dLA.dMr = taskState;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void finish() {
-        v(null);
+        w(null);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void v(@Nullable Exception exc) {
+    public void w(@Nullable Exception exc) {
         if (exc instanceof OAuthException) {
-            this.dCW.dDO = (OAuthException) exc;
+            this.dLA.dMs = (OAuthException) exc;
         } else if (exc != null) {
-            this.dCW.dDO = new OAuthException(exc, 10001);
+            this.dLA.dMs = new OAuthException(exc, 10001);
         }
-        if (!this.dCW.isOk() && DEBUG && exc != null) {
+        if (!this.dLA.isOk() && DEBUG && exc != null) {
             exc.printStackTrace();
         }
         a(TaskState.FINISHED);
         c.c(toString(), false);
-        aLK();
-        this.cXV.clear();
+        aOa();
+        this.dcQ.clear();
     }
 }

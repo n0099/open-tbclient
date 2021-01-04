@@ -7,9 +7,9 @@ import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class e {
-    private static e OH;
-    private HashMap<String, a> OF = new HashMap<>();
-    private HashMap<String, b> OG = new HashMap<>();
+    private static e OL;
+    private HashMap<String, a> OI = new HashMap<>();
+    private HashMap<String, b> OJ = new HashMap<>();
     private Handler mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.adp.lib.stats.e.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
@@ -17,9 +17,9 @@ public class e {
             switch (message.what) {
                 case 5:
                     if ((message.obj instanceof a) && (aVar = (a) message.obj) != null) {
+                        aVar.am(false);
                         aVar.an(false);
-                        aVar.ao(false);
-                        aVar.ay(0);
+                        aVar.az(0);
                         aVar.G(System.currentTimeMillis());
                         return;
                     }
@@ -30,81 +30,81 @@ public class e {
         }
     };
 
-    public static e nc() {
-        if (OH == null) {
+    public static e mF() {
+        if (OL == null) {
             synchronized (e.class) {
-                if (OH == null) {
-                    OH = new e();
+                if (OL == null) {
+                    OL = new e();
                 }
             }
         }
-        return OH;
+        return OL;
     }
 
     public e() {
         b bVar = new b();
-        bVar.az(3000);
-        bVar.aA(BdStatisticsManager.UPLOAD_TIMER_INTERVAL);
-        bVar.aB(500);
-        this.OG.put("net", bVar);
-        this.OG.put("op", bVar);
-        this.OG.put("stat", bVar);
-        this.OG.put("crash", bVar);
-        this.OG.put(BdStatsConstant.StatsType.PERFORMANCE, bVar);
+        bVar.aA(3000);
+        bVar.aB(BdStatisticsManager.UPLOAD_TIMER_INTERVAL);
+        bVar.aC(500);
+        this.OJ.put("net", bVar);
+        this.OJ.put("op", bVar);
+        this.OJ.put("stat", bVar);
+        this.OJ.put("crash", bVar);
+        this.OJ.put(BdStatsConstant.StatsType.PERFORMANCE, bVar);
         b bVar2 = new b();
-        bVar2.az(3000);
-        bVar2.aA(BdStatisticsManager.UPLOAD_TIMER_INTERVAL);
-        bVar2.aB(1500);
-        this.OG.put("file", bVar2);
-        this.OG.put(BdStatsConstant.OpSubType.DB, bVar2);
-        this.OG.put("img", bVar2);
-        this.OG.put("voice", bVar2);
-        this.OG.put(BdStatsConstant.StatsType.ERROR, bVar2);
+        bVar2.aA(3000);
+        bVar2.aB(BdStatisticsManager.UPLOAD_TIMER_INTERVAL);
+        bVar2.aC(1500);
+        this.OJ.put("file", bVar2);
+        this.OJ.put(BdStatsConstant.OpSubType.DB, bVar2);
+        this.OJ.put("img", bVar2);
+        this.OJ.put("voice", bVar2);
+        this.OJ.put(BdStatsConstant.StatsType.ERROR, bVar2);
         b bVar3 = new b();
-        bVar3.az(3000);
-        bVar3.aA(BdStatisticsManager.UPLOAD_TIMER_INTERVAL);
-        bVar3.aB(1500);
-        this.OG.put("dbg", bVar3);
+        bVar3.aA(3000);
+        bVar3.aB(BdStatisticsManager.UPLOAD_TIMER_INTERVAL);
+        bVar3.aC(1500);
+        this.OJ.put("dbg", bVar3);
     }
 
-    public synchronized boolean bZ(String str) {
+    public synchronized boolean bT(String str) {
         a aVar;
         boolean z;
-        b bVar = this.OG.get(str);
+        b bVar = this.OJ.get(str);
         if (bVar == null) {
             z = false;
         } else {
-            a aVar2 = this.OF.get(str);
+            a aVar2 = this.OI.get(str);
             long currentTimeMillis = System.currentTimeMillis();
             if (aVar2 == null) {
                 a aVar3 = new a();
-                aVar3.ao(false);
                 aVar3.an(false);
+                aVar3.am(false);
                 aVar3.G(currentTimeMillis);
-                this.OF.put(str, aVar3);
+                this.OI.put(str, aVar3);
                 aVar = aVar3;
             } else {
                 aVar = aVar2;
             }
-            if (aVar.nd()) {
+            if (aVar.mG()) {
                 z = true;
             } else {
-                if (aVar.nh()) {
-                    aVar.ay(aVar.nf() + 1);
-                    if (currentTimeMillis - aVar.ne() < bVar.nj()) {
-                        if (aVar.nf() >= bVar.nk()) {
-                            aVar.an(true);
+                if (aVar.mK()) {
+                    aVar.az(aVar.mI() + 1);
+                    if (currentTimeMillis - aVar.mH() < bVar.mM()) {
+                        if (aVar.mI() >= bVar.mN()) {
+                            aVar.am(true);
                             BdStatisticsManager.getInstance().op(false, "d", "logfast", null, 0L, BdStatsConstant.ErrorCode.ERR_LOG_FAST, str, new Object[0]);
                             a(aVar);
                             z = true;
                         }
                     } else {
-                        aVar.ao(false);
-                        aVar.ay(0);
+                        aVar.an(false);
+                        aVar.az(0);
                         aVar.G(currentTimeMillis);
                     }
-                } else if (currentTimeMillis - aVar.ng() < bVar.ni()) {
-                    aVar.ao(true);
+                } else if (currentTimeMillis - aVar.mJ() < bVar.mL()) {
+                    aVar.an(true);
                     aVar.F(currentTimeMillis);
                 } else {
                     aVar.G(currentTimeMillis);
@@ -126,55 +126,55 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a {
-        private long OJ;
-        private long OL;
-        private boolean OM;
+        private long OO;
+        private long OP;
+        private boolean OQ;
         private int mCount;
         private boolean mIsRunning;
 
         private a() {
             this.mIsRunning = false;
             this.mCount = 0;
-            this.OM = false;
+            this.OQ = false;
         }
 
-        public boolean nd() {
-            return this.OM;
+        public boolean mG() {
+            return this.OQ;
         }
 
-        public void an(boolean z) {
-            this.OM = z;
+        public void am(boolean z) {
+            this.OQ = z;
         }
 
-        public long ne() {
-            return this.OL;
+        public long mH() {
+            return this.OP;
         }
 
         public void F(long j) {
-            this.OL = j;
+            this.OP = j;
         }
 
-        public int nf() {
+        public int mI() {
             return this.mCount;
         }
 
-        public void ay(int i) {
+        public void az(int i) {
             this.mCount = i;
         }
 
-        public long ng() {
-            return this.OJ;
+        public long mJ() {
+            return this.OO;
         }
 
         public void G(long j) {
-            this.OJ = j;
+            this.OO = j;
         }
 
-        public boolean nh() {
+        public boolean mK() {
             return this.mIsRunning;
         }
 
-        public void ao(boolean z) {
+        public void an(boolean z) {
             this.mIsRunning = z;
         }
     }
@@ -182,35 +182,35 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b {
-        private int OO;
-        private int OP;
+        private int OR;
+        private int OT;
         private int mInterval;
 
         private b() {
         }
 
-        public int ni() {
+        public int mL() {
             return this.mInterval;
         }
 
-        public void az(int i) {
+        public void aA(int i) {
             this.mInterval = i;
         }
 
-        public int nj() {
-            return this.OO;
-        }
-
-        public void aA(int i) {
-            this.OO = i;
-        }
-
-        public int nk() {
-            return this.OP;
+        public int mM() {
+            return this.OR;
         }
 
         public void aB(int i) {
-            this.OP = i;
+            this.OR = i;
+        }
+
+        public int mN() {
+            return this.OT;
+        }
+
+        public void aC(int i) {
+            this.OT = i;
         }
     }
 }

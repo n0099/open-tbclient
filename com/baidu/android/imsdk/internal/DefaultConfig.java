@@ -8,7 +8,7 @@ import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class DefaultConfig implements IIMConfig {
     public static final String TOKEN_SEPARATOR = ".";
     private boolean mRootComplete = true;

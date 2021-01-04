@@ -1,7 +1,7 @@
 package com.baidu.android.imsdk.group;
 
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class CreateResultInfo {
     public String groupid = "0";
     public ArrayList<GroupMember> memberlist = new ArrayList<>();

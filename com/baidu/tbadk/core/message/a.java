@@ -8,18 +8,18 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.by;
+import com.baidu.tbadk.core.data.bz;
 import com.baidu.tbadk.core.data.d;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.mutiprocess.agree.AgreeEvent;
 import com.baidu.tbadk.mutiprocess.f;
 import com.baidu.tbadk.mutiprocess.g;
 import com.baidu.tbadk.pageInfo.c;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.tieba.tbadkCore.data.e;
-/* loaded from: classes21.dex */
+/* loaded from: classes.dex */
 public class a {
     public void a(AgreeData agreeData, int i, BdUniqueId bdUniqueId, boolean z) {
         if (agreeData != null) {
@@ -84,45 +84,45 @@ public class a {
         g.publishEvent(agreeEvent);
     }
 
-    public void a(Context context, d dVar, AgreeData agreeData, by byVar) {
+    public void a(Context context, d dVar, AgreeData agreeData, bz bzVar) {
         if (dVar != null && agreeData != null) {
             int i = 0;
             if (agreeData.baijiahaoData != null) {
                 i = agreeData.baijiahaoData.oriUgcType;
             }
-            ar dY = new ar("c13271").al("obj_type", dVar.eEO).al("obj_locate", dVar.eEP).al("obj_id", dVar.eEQ).al("obj_name", i).dY("post_id", agreeData.postId).dY("nid", agreeData.nid);
-            if (byVar != null) {
-                dY.dY("tid", byVar.getId()).dY("nid", byVar.getNid()).w("fid", byVar.getFid()).dY("ab_tag", byVar.mRecomAbTag).dY(IntentConfig.RECOM_SOURCE, byVar.mRecomSource).dY("weight", byVar.mRecomWeight).dY("extra", byVar.mRecomExtra);
-                if (byVar.getBaijiahaoData() != null) {
-                    dY.dY("obj_param4", byVar.getBaijiahaoData().oriUgcNid);
-                    if (byVar.bny() || byVar.bqN()) {
-                        dY.dY("obj_param6", byVar.getBaijiahaoData().oriUgcVid);
+            aq dX = new aq("c13271").an("obj_type", dVar.eOE).an("obj_locate", dVar.eOF).an("obj_id", dVar.eOG).an("obj_name", i).dX("post_id", agreeData.postId).dX(IntentConfig.NID, agreeData.nid);
+            if (bzVar != null) {
+                dX.dX("tid", bzVar.getId()).dX(IntentConfig.NID, bzVar.bpO()).w("fid", bzVar.getFid()).dX("ab_tag", bzVar.mRecomAbTag).dX(IntentConfig.RECOM_SOURCE, bzVar.mRecomSource).dX("weight", bzVar.mRecomWeight).dX("extra", bzVar.mRecomExtra);
+                if (bzVar.getBaijiahaoData() != null) {
+                    dX.dX("obj_param4", bzVar.getBaijiahaoData().oriUgcNid);
+                    if (bzVar.bpY() || bzVar.btp()) {
+                        dX.dX("obj_param6", bzVar.getBaijiahaoData().oriUgcVid);
                     }
                 }
-                if (byVar.bqL()) {
-                    dY.al("obj_param5", 2);
-                } else if (byVar.bnx() || byVar.bny()) {
-                    dY.al("obj_param5", 3);
-                } else if (byVar.threadType == 0 || byVar.threadType == 40) {
-                    dY.al("obj_param5", 1);
+                if (bzVar.btn()) {
+                    dX.an("obj_param5", 2);
+                } else if (bzVar.bpX() || bzVar.bpY()) {
+                    dX.an("obj_param5", 3);
+                } else if (bzVar.threadType == 0 || bzVar.threadType == 40) {
+                    dX.an("obj_param5", 1);
                 }
             } else {
-                dY.dY("tid", agreeData.threadId);
-                dY.dY("nid", agreeData.nid);
-                dY.dY("fid", agreeData.forumId);
-                dY.al(IntentConfig.CARD_TYPE, agreeData.cardType);
-                dY.dY("ab_tag", agreeData.recomAbTag);
-                dY.dY(IntentConfig.RECOM_SOURCE, agreeData.recomSource);
-                dY.dY("weight", agreeData.recomWeight);
-                dY.dY("extra", agreeData.recomExtra);
+                dX.dX("tid", agreeData.threadId);
+                dX.dX(IntentConfig.NID, agreeData.nid);
+                dX.dX("fid", agreeData.forumId);
+                dX.an(IntentConfig.CARD_TYPE, agreeData.cardType);
+                dX.dX("ab_tag", agreeData.recomAbTag);
+                dX.dX(IntentConfig.RECOM_SOURCE, agreeData.recomSource);
+                dX.dX("weight", agreeData.recomWeight);
+                dX.dX("extra", agreeData.recomExtra);
                 if (agreeData.baijiahaoData != null) {
-                    dY.dY("obj_param6", agreeData.baijiahaoData.oriUgcVid);
+                    dX.dX("obj_param6", agreeData.baijiahaoData.oriUgcVid);
                 }
             }
             if (context != null) {
-                c.a(context, dY);
+                c.a(context, dX);
             }
-            TiebaStatic.log(dY);
+            TiebaStatic.log(dX);
         }
     }
 }

@@ -6,10 +6,11 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
-/* loaded from: classes24.dex */
-public class d extends com.baidu.tieba.b.a<f, com.baidu.tieba.person.b.d> {
+import com.baidu.tieba.person.holder.PersonInfoUserPicsHolder;
+/* loaded from: classes8.dex */
+public class d extends com.baidu.tieba.adapter.a<f, PersonInfoUserPicsHolder> {
     private TbPageContext mPageContext;
-    private View.OnClickListener miC;
+    private View.OnClickListener mnK;
 
     public d(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
@@ -19,20 +20,20 @@ public class d extends com.baidu.tieba.b.a<f, com.baidu.tieba.person.b.d> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cD */
-    public com.baidu.tieba.person.b.d c(ViewGroup viewGroup) {
-        com.baidu.tieba.person.b.d dVar = new com.baidu.tieba.person.b.d(LayoutInflater.from(this.mContext).inflate(R.layout.person_info_user_pics_layout, viewGroup, false), this.mPageContext);
-        dVar.mjd.setItemOnclickListener(this.miC);
-        return dVar;
+    /* renamed from: cP */
+    public PersonInfoUserPicsHolder e(ViewGroup viewGroup) {
+        PersonInfoUserPicsHolder personInfoUserPicsHolder = new PersonInfoUserPicsHolder(LayoutInflater.from(this.mContext).inflate(R.layout.person_info_user_pics_layout, viewGroup, false), this.mPageContext);
+        personInfoUserPicsHolder.mol.setItemOnclickListener(this.mnK);
+        return personInfoUserPicsHolder;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, f fVar, com.baidu.tieba.person.b.d dVar) {
-        if (fVar != null && dVar != null) {
-            dVar.dyj();
-            dVar.a(fVar);
+    public View a(int i, View view, ViewGroup viewGroup, f fVar, PersonInfoUserPicsHolder personInfoUserPicsHolder) {
+        if (fVar != null && personInfoUserPicsHolder != null) {
+            personInfoUserPicsHolder.dxY();
+            personInfoUserPicsHolder.a(fVar);
         }
         return view;
     }

@@ -4,28 +4,28 @@ import com.baidu.adp.BdUniqueId;
 import java.util.List;
 import tbclient.FrsPage.RecommendBook;
 /* loaded from: classes.dex */
-public class ag extends by {
-    public static final BdUniqueId eGw = BdUniqueId.gen();
-    public String eFj;
-    public int eGx;
-    public List<String> eGy;
+public class ag extends bz {
+    public static final BdUniqueId eQm = BdUniqueId.gen();
+    public String eOZ;
+    public int eQn;
+    public List<String> eQo;
     public String image;
     public String linkUrl;
     public String title;
 
     public void a(RecommendBook recommendBook) {
         if (recommendBook != null) {
-            this.eGx = recommendBook.type.intValue();
-            this.eFj = recommendBook.book_id;
+            this.eQn = recommendBook.type.intValue();
+            this.eOZ = recommendBook.book_id;
             this.title = recommendBook.title;
             this.image = recommendBook.image;
-            this.eGy = recommendBook.desc;
+            this.eQo = recommendBook.desc;
             this.linkUrl = recommendBook.link_url;
         }
     }
 
-    @Override // com.baidu.tbadk.core.data.by, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.tbadk.core.data.bz, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return eGw;
+        return eQm;
     }
 }

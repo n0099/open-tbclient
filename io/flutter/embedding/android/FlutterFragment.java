@@ -7,7 +7,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import io.flutter.Log;
 import io.flutter.embedding.android.FlutterActivityAndFragmentDelegate;
 import io.flutter.embedding.engine.FlutterEngine;
@@ -15,7 +19,7 @@ import io.flutter.embedding.engine.FlutterShellArgs;
 import io.flutter.embedding.engine.renderer.FlutterUiDisplayListener;
 import io.flutter.plugin.platform.PlatformPlugin;
 import io.flutter.view.FlutterMain;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class FlutterFragment extends Fragment implements FlutterActivityAndFragmentDelegate.Host {
     protected static final String ARG_APP_BUNDLE_PATH = "app_bundle_path";
     protected static final String ARG_CACHED_ENGINE_ID = "cached_engine_id";
@@ -27,26 +31,30 @@ public class FlutterFragment extends Fragment implements FlutterActivityAndFragm
     protected static final String ARG_INITIAL_ROUTE = "initial_route";
     protected static final String ARG_SHOULD_ATTACH_ENGINE_TO_ACTIVITY = "should_attach_engine_to_activity";
     private static final String TAG = "FlutterFragment";
+    @VisibleForTesting
     FlutterActivityAndFragmentDelegate delegate;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     @interface ActivityCallThrough {
     }
 
-    @Override // io.flutter.embedding.android.FlutterActivityAndFragmentDelegate.Host
+    @Override // androidx.fragment.app.Fragment, com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
+    @Nullable
     public /* bridge */ /* synthetic */ Activity getActivity() {
         return super.getActivity();
     }
 
+    @NonNull
     public static FlutterFragment createDefault() {
         return new NewEngineFragmentBuilder().build();
     }
 
+    @NonNull
     public static NewEngineFragmentBuilder withNewEngine() {
         return new NewEngineFragmentBuilder();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     public static class NewEngineFragmentBuilder {
         private String appBundlePath;
         private String dartEntrypoint;
@@ -68,7 +76,7 @@ public class FlutterFragment extends Fragment implements FlutterActivityAndFragm
             this.fragmentClass = FlutterFragment.class;
         }
 
-        public NewEngineFragmentBuilder(Class<? extends FlutterFragment> cls) {
+        public NewEngineFragmentBuilder(@NonNull Class<? extends FlutterFragment> cls) {
             this.dartEntrypoint = "main";
             this.initialRoute = "/";
             this.appBundlePath = null;
@@ -79,41 +87,49 @@ public class FlutterFragment extends Fragment implements FlutterActivityAndFragm
             this.fragmentClass = cls;
         }
 
-        public NewEngineFragmentBuilder dartEntrypoint(String str) {
+        @NonNull
+        public NewEngineFragmentBuilder dartEntrypoint(@NonNull String str) {
             this.dartEntrypoint = str;
             return this;
         }
 
-        public NewEngineFragmentBuilder initialRoute(String str) {
+        @NonNull
+        public NewEngineFragmentBuilder initialRoute(@NonNull String str) {
             this.initialRoute = str;
             return this;
         }
 
-        public NewEngineFragmentBuilder appBundlePath(String str) {
+        @NonNull
+        public NewEngineFragmentBuilder appBundlePath(@NonNull String str) {
             this.appBundlePath = str;
             return this;
         }
 
-        public NewEngineFragmentBuilder flutterShellArgs(FlutterShellArgs flutterShellArgs) {
+        @NonNull
+        public NewEngineFragmentBuilder flutterShellArgs(@NonNull FlutterShellArgs flutterShellArgs) {
             this.shellArgs = flutterShellArgs;
             return this;
         }
 
-        public NewEngineFragmentBuilder renderMode(RenderMode renderMode) {
+        @NonNull
+        public NewEngineFragmentBuilder renderMode(@NonNull RenderMode renderMode) {
             this.renderMode = renderMode;
             return this;
         }
 
-        public NewEngineFragmentBuilder transparencyMode(TransparencyMode transparencyMode) {
+        @NonNull
+        public NewEngineFragmentBuilder transparencyMode(@NonNull TransparencyMode transparencyMode) {
             this.transparencyMode = transparencyMode;
             return this;
         }
 
+        @NonNull
         public NewEngineFragmentBuilder shouldAttachEngineToActivity(boolean z) {
             this.shouldAttachEngineToActivity = z;
             return this;
         }
 
+        @NonNull
         protected Bundle createArgs() {
             Bundle bundle = new Bundle();
             bundle.putString(FlutterFragment.ARG_INITIAL_ROUTE, this.initialRoute);
@@ -129,6 +145,7 @@ public class FlutterFragment extends Fragment implements FlutterActivityAndFragm
             return bundle;
         }
 
+        @NonNull
         public <T extends FlutterFragment> T build() {
             try {
                 T t = (T) this.fragmentClass.getDeclaredConstructor(new Class[0]).newInstance(new Object[0]);
@@ -143,11 +160,12 @@ public class FlutterFragment extends Fragment implements FlutterActivityAndFragm
         }
     }
 
-    public static CachedEngineFragmentBuilder withCachedEngine(String str) {
+    @NonNull
+    public static CachedEngineFragmentBuilder withCachedEngine(@NonNull String str) {
         return new CachedEngineFragmentBuilder(str);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     public static class CachedEngineFragmentBuilder {
         private boolean destroyEngineWithFragment;
         private final String engineId;
@@ -156,11 +174,11 @@ public class FlutterFragment extends Fragment implements FlutterActivityAndFragm
         private boolean shouldAttachEngineToActivity;
         private TransparencyMode transparencyMode;
 
-        private CachedEngineFragmentBuilder(String str) {
+        private CachedEngineFragmentBuilder(@NonNull String str) {
             this(FlutterFragment.class, str);
         }
 
-        protected CachedEngineFragmentBuilder(Class<? extends FlutterFragment> cls, String str) {
+        protected CachedEngineFragmentBuilder(@NonNull Class<? extends FlutterFragment> cls, @NonNull String str) {
             this.destroyEngineWithFragment = false;
             this.renderMode = RenderMode.surface;
             this.transparencyMode = TransparencyMode.transparent;
@@ -169,26 +187,31 @@ public class FlutterFragment extends Fragment implements FlutterActivityAndFragm
             this.engineId = str;
         }
 
+        @NonNull
         public CachedEngineFragmentBuilder destroyEngineWithFragment(boolean z) {
             this.destroyEngineWithFragment = z;
             return this;
         }
 
-        public CachedEngineFragmentBuilder renderMode(RenderMode renderMode) {
+        @NonNull
+        public CachedEngineFragmentBuilder renderMode(@NonNull RenderMode renderMode) {
             this.renderMode = renderMode;
             return this;
         }
 
-        public CachedEngineFragmentBuilder transparencyMode(TransparencyMode transparencyMode) {
+        @NonNull
+        public CachedEngineFragmentBuilder transparencyMode(@NonNull TransparencyMode transparencyMode) {
             this.transparencyMode = transparencyMode;
             return this;
         }
 
+        @NonNull
         public CachedEngineFragmentBuilder shouldAttachEngineToActivity(boolean z) {
             this.shouldAttachEngineToActivity = z;
             return this;
         }
 
+        @NonNull
         protected Bundle createArgs() {
             Bundle bundle = new Bundle();
             bundle.putString(FlutterFragment.ARG_CACHED_ENGINE_ID, this.engineId);
@@ -199,6 +222,7 @@ public class FlutterFragment extends Fragment implements FlutterActivityAndFragm
             return bundle;
         }
 
+        @NonNull
         public <T extends FlutterFragment> T build() {
             try {
                 T t = (T) this.fragmentClass.getDeclaredConstructor(new Class[0]).newInstance(new Object[0]);
@@ -217,30 +241,37 @@ public class FlutterFragment extends Fragment implements FlutterActivityAndFragm
         setArguments(new Bundle());
     }
 
-    void setDelegate(FlutterActivityAndFragmentDelegate flutterActivityAndFragmentDelegate) {
+    @VisibleForTesting
+    void setDelegate(@NonNull FlutterActivityAndFragmentDelegate flutterActivityAndFragmentDelegate) {
         this.delegate = flutterActivityAndFragmentDelegate;
     }
 
-    public void onAttach(Context context) {
+    @Override // androidx.fragment.app.Fragment
+    public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         this.delegate = new FlutterActivityAndFragmentDelegate(this);
         this.delegate.onAttach(context);
     }
 
-    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+    @Override // androidx.fragment.app.Fragment
+    @Nullable
+    public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         return this.delegate.onCreateView(layoutInflater, viewGroup, bundle);
     }
 
-    public void onActivityCreated(Bundle bundle) {
+    @Override // androidx.fragment.app.Fragment
+    public void onActivityCreated(@Nullable Bundle bundle) {
         super.onActivityCreated(bundle);
         this.delegate.onActivityCreated(bundle);
     }
 
+    @Override // androidx.fragment.app.Fragment
     public void onStart() {
         super.onStart();
         this.delegate.onStart();
     }
 
+    @Override // androidx.fragment.app.Fragment
     public void onResume() {
         super.onResume();
         this.delegate.onResume();
@@ -251,26 +282,31 @@ public class FlutterFragment extends Fragment implements FlutterActivityAndFragm
         this.delegate.onPostResume();
     }
 
+    @Override // androidx.fragment.app.Fragment
     public void onPause() {
         super.onPause();
         this.delegate.onPause();
     }
 
+    @Override // androidx.fragment.app.Fragment
     public void onStop() {
         super.onStop();
         this.delegate.onStop();
     }
 
+    @Override // androidx.fragment.app.Fragment
     public void onDestroyView() {
         super.onDestroyView();
         this.delegate.onDestroyView();
     }
 
+    @Override // androidx.fragment.app.Fragment
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
         this.delegate.onSaveInstanceState(bundle);
     }
 
+    @Override // androidx.fragment.app.Fragment
     public void onDetach() {
         super.onDetach();
         this.delegate.onDetach();
@@ -278,13 +314,14 @@ public class FlutterFragment extends Fragment implements FlutterActivityAndFragm
         this.delegate = null;
     }
 
+    @Override // androidx.fragment.app.Fragment, com.baidu.n.a.a.InterfaceC0277a
     @ActivityCallThrough
-    public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
+    public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         this.delegate.onRequestPermissionsResult(i, strArr, iArr);
     }
 
     @ActivityCallThrough
-    public void onNewIntent(Intent intent) {
+    public void onNewIntent(@NonNull Intent intent) {
         this.delegate.onNewIntent(intent);
     }
 
@@ -293,6 +330,7 @@ public class FlutterFragment extends Fragment implements FlutterActivityAndFragm
         this.delegate.onBackPressed();
     }
 
+    @Override // androidx.fragment.app.Fragment
     public void onActivityResult(int i, int i2, Intent intent) {
         this.delegate.onActivityResult(i, i2, intent);
     }
@@ -307,12 +345,14 @@ public class FlutterFragment extends Fragment implements FlutterActivityAndFragm
         this.delegate.onTrimMemory(i);
     }
 
+    @Override // androidx.fragment.app.Fragment, android.content.ComponentCallbacks
     public void onLowMemory() {
         super.onLowMemory();
         this.delegate.onLowMemory();
     }
 
     @Override // io.flutter.embedding.android.FlutterActivityAndFragmentDelegate.Host
+    @NonNull
     public FlutterShellArgs getFlutterShellArgs() {
         String[] stringArray = getArguments().getStringArray(ARG_FLUTTER_INITIALIZATION_ARGS);
         if (stringArray == null) {
@@ -322,6 +362,7 @@ public class FlutterFragment extends Fragment implements FlutterActivityAndFragm
     }
 
     @Override // io.flutter.embedding.android.FlutterActivityAndFragmentDelegate.Host
+    @Nullable
     public String getCachedEngineId() {
         return getArguments().getString(ARG_CACHED_ENGINE_ID, null);
     }
@@ -333,55 +374,64 @@ public class FlutterFragment extends Fragment implements FlutterActivityAndFragm
     }
 
     @Override // io.flutter.embedding.android.FlutterActivityAndFragmentDelegate.Host
+    @NonNull
     public String getDartEntrypointFunctionName() {
         return getArguments().getString(ARG_DART_ENTRYPOINT, "main");
     }
 
     @Override // io.flutter.embedding.android.FlutterActivityAndFragmentDelegate.Host
+    @NonNull
     public String getAppBundlePath() {
         return getArguments().getString(ARG_APP_BUNDLE_PATH, FlutterMain.findAppBundlePath());
     }
 
     @Override // io.flutter.embedding.android.FlutterActivityAndFragmentDelegate.Host
+    @Nullable
     public String getInitialRoute() {
         return getArguments().getString(ARG_INITIAL_ROUTE);
     }
 
     @Override // io.flutter.embedding.android.FlutterActivityAndFragmentDelegate.Host
+    @NonNull
     public RenderMode getRenderMode() {
         return RenderMode.valueOf(getArguments().getString(ARG_FLUTTERVIEW_RENDER_MODE, RenderMode.surface.name()));
     }
 
     @Override // io.flutter.embedding.android.FlutterActivityAndFragmentDelegate.Host
+    @NonNull
     public TransparencyMode getTransparencyMode() {
         return TransparencyMode.valueOf(getArguments().getString(ARG_FLUTTERVIEW_TRANSPARENCY_MODE, TransparencyMode.transparent.name()));
     }
 
     @Override // io.flutter.embedding.android.FlutterActivityAndFragmentDelegate.Host, io.flutter.embedding.android.SplashScreenProvider
+    @Nullable
     public SplashScreen provideSplashScreen() {
-        SplashScreenProvider activity = getActivity();
+        FragmentActivity activity = getActivity();
         if (activity instanceof SplashScreenProvider) {
-            return activity.provideSplashScreen();
+            return ((SplashScreenProvider) activity).provideSplashScreen();
         }
         return null;
     }
 
     @Override // io.flutter.embedding.android.FlutterActivityAndFragmentDelegate.Host, io.flutter.embedding.android.FlutterEngineProvider
-    public FlutterEngine provideFlutterEngine(Context context) {
-        FlutterEngineProvider activity = getActivity();
+    @Nullable
+    public FlutterEngine provideFlutterEngine(@NonNull Context context) {
+        FragmentActivity activity = getActivity();
         if (!(activity instanceof FlutterEngineProvider)) {
             return null;
         }
         Log.v(TAG, "Deferring to attached Activity to provide a FlutterEngine.");
-        return activity.provideFlutterEngine(getContext());
+        return ((FlutterEngineProvider) activity).provideFlutterEngine(getContext());
     }
 
+    @Nullable
     public FlutterEngine getFlutterEngine() {
         return this.delegate.getFlutterEngine();
     }
 
     @Override // io.flutter.embedding.android.FlutterActivityAndFragmentDelegate.Host
-    public PlatformPlugin providePlatformPlugin(Activity activity, FlutterEngine flutterEngine) {
+    @Nullable
+    public PlatformPlugin providePlatformPlugin(@Nullable Activity activity, @NonNull FlutterEngine flutterEngine) {
         if (activity != null) {
             return new PlatformPlugin(getActivity(), flutterEngine.getPlatformChannel());
         }
@@ -389,18 +439,18 @@ public class FlutterFragment extends Fragment implements FlutterActivityAndFragm
     }
 
     @Override // io.flutter.embedding.android.FlutterActivityAndFragmentDelegate.Host, io.flutter.embedding.android.FlutterEngineConfigurator
-    public void configureFlutterEngine(FlutterEngine flutterEngine) {
-        FlutterEngineConfigurator activity = getActivity();
+    public void configureFlutterEngine(@NonNull FlutterEngine flutterEngine) {
+        FragmentActivity activity = getActivity();
         if (activity instanceof FlutterEngineConfigurator) {
-            activity.configureFlutterEngine(flutterEngine);
+            ((FlutterEngineConfigurator) activity).configureFlutterEngine(flutterEngine);
         }
     }
 
     @Override // io.flutter.embedding.android.FlutterActivityAndFragmentDelegate.Host, io.flutter.embedding.android.FlutterEngineConfigurator
-    public void cleanUpFlutterEngine(FlutterEngine flutterEngine) {
-        FlutterEngineConfigurator activity = getActivity();
+    public void cleanUpFlutterEngine(@NonNull FlutterEngine flutterEngine) {
+        FragmentActivity activity = getActivity();
         if (activity instanceof FlutterEngineConfigurator) {
-            activity.cleanUpFlutterEngine(flutterEngine);
+            ((FlutterEngineConfigurator) activity).cleanUpFlutterEngine(flutterEngine);
         }
     }
 
@@ -410,26 +460,26 @@ public class FlutterFragment extends Fragment implements FlutterActivityAndFragm
     }
 
     @Override // io.flutter.embedding.android.FlutterActivityAndFragmentDelegate.Host
-    public void onFlutterSurfaceViewCreated(FlutterSurfaceView flutterSurfaceView) {
+    public void onFlutterSurfaceViewCreated(@NonNull FlutterSurfaceView flutterSurfaceView) {
     }
 
     @Override // io.flutter.embedding.android.FlutterActivityAndFragmentDelegate.Host
-    public void onFlutterTextureViewCreated(FlutterTextureView flutterTextureView) {
+    public void onFlutterTextureViewCreated(@NonNull FlutterTextureView flutterTextureView) {
     }
 
     @Override // io.flutter.embedding.android.FlutterActivityAndFragmentDelegate.Host
     public void onFlutterUiDisplayed() {
-        FlutterUiDisplayListener activity = getActivity();
+        FragmentActivity activity = getActivity();
         if (activity instanceof FlutterUiDisplayListener) {
-            activity.onFlutterUiDisplayed();
+            ((FlutterUiDisplayListener) activity).onFlutterUiDisplayed();
         }
     }
 
     @Override // io.flutter.embedding.android.FlutterActivityAndFragmentDelegate.Host
     public void onFlutterUiNoLongerDisplayed() {
-        FlutterUiDisplayListener activity = getActivity();
+        FragmentActivity activity = getActivity();
         if (activity instanceof FlutterUiDisplayListener) {
-            activity.onFlutterUiNoLongerDisplayed();
+            ((FlutterUiDisplayListener) activity).onFlutterUiNoLongerDisplayed();
         }
     }
 }

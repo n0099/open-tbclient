@@ -8,7 +8,7 @@ import io.reactivex.m;
 import io.reactivex.o;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class MaybeFlatMapSingleElement<T, R> extends k<R> {
     final h<? super T, ? extends aa<? extends R>> mapper;
     final o<T> source;
@@ -18,7 +18,7 @@ public final class MaybeFlatMapSingleElement<T, R> extends k<R> {
         this.source.a(new FlatMapMaybeObserver(mVar, this.mapper));
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class FlatMapMaybeObserver<T, R> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, m<T> {
         private static final long serialVersionUID = 4827726964688405508L;
         final m<? super R> actual;
@@ -51,7 +51,7 @@ public final class MaybeFlatMapSingleElement<T, R> extends k<R> {
             try {
                 ((aa) io.reactivex.internal.functions.a.m(this.mapper.apply(t), "The mapper returned a null SingleSource")).a(new a(this, this.actual));
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.J(th);
+                io.reactivex.exceptions.a.O(th);
                 onError(th);
             }
         }
@@ -67,19 +67,19 @@ public final class MaybeFlatMapSingleElement<T, R> extends k<R> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class a<R> implements y<R> {
         final m<? super R> actual;
-        final AtomicReference<io.reactivex.disposables.b> pFa;
+        final AtomicReference<io.reactivex.disposables.b> qgC;
 
         a(AtomicReference<io.reactivex.disposables.b> atomicReference, m<? super R> mVar) {
-            this.pFa = atomicReference;
+            this.qgC = atomicReference;
             this.actual = mVar;
         }
 
         @Override // io.reactivex.y
         public void onSubscribe(io.reactivex.disposables.b bVar) {
-            DisposableHelper.replace(this.pFa, bVar);
+            DisposableHelper.replace(this.qgC, bVar);
         }
 
         @Override // io.reactivex.y

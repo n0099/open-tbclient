@@ -6,7 +6,7 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class i extends a {
     @Override // com.baidu.swan.apps.canvas.a.a
     public /* bridge */ /* synthetic */ void a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, boolean z) {
@@ -14,13 +14,13 @@ public class i extends a {
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a
-    public /* bridge */ /* synthetic */ com.baidu.swan.apps.canvas.b.a d(UnitedSchemeEntity unitedSchemeEntity) {
-        return super.d(unitedSchemeEntity);
+    public /* bridge */ /* synthetic */ com.baidu.swan.apps.canvas.b.a c(UnitedSchemeEntity unitedSchemeEntity) {
+        return super.c(unitedSchemeEntity);
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a
-    public /* bridge */ /* synthetic */ JSONObject hW(int i) {
-        return super.hW(i);
+    public /* bridge */ /* synthetic */ JSONObject hQ(int i) {
+        return super.hQ(i);
     }
 
     public i(j jVar) {
@@ -29,26 +29,26 @@ public class i extends a {
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        com.baidu.swan.apps.canvas.b.a d = d(unitedSchemeEntity);
-        if (d == null) {
-            unitedSchemeEntity.result = hW(201);
+        com.baidu.swan.apps.canvas.b.a c = c(unitedSchemeEntity);
+        if (c == null) {
+            unitedSchemeEntity.result = hQ(201);
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "update action parse model is null");
             return false;
         }
-        String str = d.cIV;
-        com.baidu.swan.apps.model.a.a.a aVar = d.cIZ;
+        String str = c.cNO;
+        com.baidu.swan.apps.model.a.a.a aVar = c.cNS;
         if (TextUtils.isEmpty(str) || aVar == null || !aVar.isValid()) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "some params invalid");
-            unitedSchemeEntity.result = hW(202);
+            unitedSchemeEntity.result = hQ(202);
             return false;
         }
-        com.baidu.swan.apps.component.components.d.a aVar2 = (com.baidu.swan.apps.component.components.d.a) com.baidu.swan.apps.component.container.a.d(d);
+        com.baidu.swan.apps.component.components.d.a aVar2 = (com.baidu.swan.apps.component.components.d.a) com.baidu.swan.apps.component.container.a.d(c);
         if (aVar2 == null) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "update canvas fail: fina a null component");
-            unitedSchemeEntity.result = hW(1001);
+            unitedSchemeEntity.result = hQ(1001);
             return false;
         }
-        com.baidu.swan.apps.component.b.c a2 = aVar2.a((com.baidu.swan.apps.component.components.d.a) d);
+        com.baidu.swan.apps.component.b.c a2 = aVar2.a((com.baidu.swan.apps.component.components.d.a) c);
         boolean isSuccess = a2.isSuccess();
         if (!isSuccess) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "update canvas fail: " + a2.msg);

@@ -57,25 +57,30 @@ public final class AssetUtils {
 
     public static boolean extractFolderFromAsset(AssetManager assetManager, String str, String str2) {
         String[] list;
-        boolean z = false;
         try {
+            boolean z = false;
             for (String str3 : assetManager.list(str)) {
-                if (!TextUtils.isEmpty(str3)) {
-                    String str4 = str + File.separator + str3;
-                    String[] list2 = assetManager.list(str4);
-                    if (list2 == null || list2.length == 0) {
-                        z = extractFileFromAsset(assetManager, str4, str2 + File.separator + str3);
-                    } else {
-                        z = extractFolderFromAsset(assetManager, str4, str2 + File.separator + str3);
+                try {
+                    if (!TextUtils.isEmpty(str3)) {
+                        String str4 = str + File.separator + str3;
+                        String[] list2 = assetManager.list(str4);
+                        if (list2 == null || list2.length == 0) {
+                            z = extractFileFromAsset(assetManager, str4, str2 + File.separator + str3);
+                        } else {
+                            z = extractFolderFromAsset(assetManager, str4, str2 + File.separator + str3);
+                        }
+                        if (!z) {
+                            return z;
+                        }
                     }
-                    if (!z) {
-                        break;
-                    }
+                } catch (IOException e) {
+                    return z;
                 }
             }
-        } catch (IOException e) {
+            return z;
+        } catch (IOException e2) {
+            return false;
         }
-        return z;
     }
 
     public static boolean extractFileFromAsset(AssetManager assetManager, String str, String str2) {
@@ -96,31 +101,33 @@ public final class AssetUtils {
     }
 
     public static String loadFile(Context context, String str) {
-        InputStream inputStream;
         Throwable th;
+        InputStream inputStream;
+        InputStream inputStream2;
         String str2 = null;
         try {
-            inputStream = context.getAssets().open(str);
-            if (inputStream != null) {
+            inputStream2 = context.getAssets().open(str);
+            if (inputStream2 != null) {
                 try {
-                    str2 = StreamUtils.streamToString(inputStream);
-                    Closeables.closeSafely(inputStream);
+                    str2 = StreamUtils.streamToString(inputStream2);
+                    Closeables.closeSafely(inputStream2);
                 } catch (IOException e) {
-                    Closeables.closeSafely(inputStream);
+                    Closeables.closeSafely(inputStream2);
                     return str2;
                 } catch (Throwable th2) {
                     th = th2;
+                    inputStream = inputStream2;
                     Closeables.closeSafely(inputStream);
                     throw th;
                 }
             } else {
-                Closeables.closeSafely(inputStream);
+                Closeables.closeSafely(inputStream2);
             }
         } catch (IOException e2) {
-            inputStream = null;
+            inputStream2 = null;
         } catch (Throwable th3) {
-            inputStream = null;
             th = th3;
+            inputStream = null;
         }
         return str2;
     }
@@ -129,9 +136,9 @@ public final class AssetUtils {
     public static boolean unzipFileFromAsset(String str, String str2, Context context) {
         ZipInputStream zipInputStream;
         InputStream inputStream;
+        ZipInputStream zipInputStream2;
         InputStream inputStream2;
         BufferedOutputStream bufferedOutputStream;
-        ZipInputStream zipInputStream2 = null;
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return false;
         }
@@ -144,6 +151,7 @@ public final class AssetUtils {
             try {
                 zipInputStream = new ZipInputStream(inputStream);
             } catch (IOException e) {
+                zipInputStream2 = null;
                 inputStream2 = inputStream;
             } catch (Throwable th) {
                 th = th;
@@ -205,6 +213,7 @@ public final class AssetUtils {
                 throw th;
             }
         } catch (IOException e3) {
+            zipInputStream2 = null;
             inputStream2 = null;
         } catch (Throwable th5) {
             th = th5;
@@ -214,26 +223,28 @@ public final class AssetUtils {
     }
 
     public static String readAsset(Context context, String str) {
-        InputStream inputStream;
         Throwable th;
+        InputStream inputStream;
+        InputStream inputStream2;
         String str2 = null;
         if (context != null && !TextUtils.isEmpty(str)) {
             try {
-                inputStream = context.getAssets().open(str);
+                inputStream2 = context.getAssets().open(str);
             } catch (IOException e) {
-                inputStream = null;
+                inputStream2 = null;
             } catch (Throwable th2) {
-                inputStream = null;
                 th = th2;
+                inputStream = null;
             }
             try {
-                str2 = FileUtils.readInputStream(inputStream);
-                Closeables.closeSafely(inputStream);
+                str2 = FileUtils.readInputStream(inputStream2);
+                Closeables.closeSafely(inputStream2);
             } catch (IOException e2) {
-                Closeables.closeSafely(inputStream);
+                Closeables.closeSafely(inputStream2);
                 return str2;
             } catch (Throwable th3) {
                 th = th3;
+                inputStream = inputStream2;
                 Closeables.closeSafely(inputStream);
                 throw th;
             }

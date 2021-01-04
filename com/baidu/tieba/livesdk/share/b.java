@@ -2,16 +2,16 @@ package com.baidu.tieba.livesdk.share;
 
 import com.baidu.live.tbadk.share.single.interfaces.IShareChannel;
 import com.baidu.live.tbadk.share.single.interfaces.IShareChannelBuild;
-/* loaded from: classes4.dex */
+/* loaded from: classes10.dex */
 public class b implements IShareChannelBuild {
-    private IShareChannel kYA;
+    private IShareChannel lee;
 
     public b(IShareChannel iShareChannel) {
-        this.kYA = iShareChannel;
+        this.lee = iShareChannel;
     }
 
     @Override // com.baidu.live.tbadk.share.single.interfaces.IShareChannelBuild
     public IShareChannel build() {
-        return this.kYA;
+        return this.lee;
     }
 }

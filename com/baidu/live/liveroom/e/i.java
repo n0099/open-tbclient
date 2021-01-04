@@ -1,66 +1,66 @@
 package com.baidu.live.liveroom.e;
 
 import android.content.Context;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class i {
-    private static volatile i bqX = null;
-    private e bqY;
-    private e bqZ;
-    private c bra;
-    private com.baidu.live.u.d brb;
+    private static volatile i bsR = null;
+    private e bsS;
+    private e bsT;
+    private c bsU;
+    private com.baidu.live.v.d bsV;
 
     private i() {
     }
 
-    public static i PB() {
-        if (bqX == null) {
+    public static i Pq() {
+        if (bsR == null) {
             synchronized (i.class) {
-                if (bqX == null) {
-                    bqX = new i();
+                if (bsR == null) {
+                    bsR = new i();
                 }
             }
         }
-        return bqX;
+        return bsR;
     }
 
     public void a(e eVar) {
-        this.bqY = eVar;
+        this.bsS = eVar;
     }
 
     public void b(e eVar) {
-        this.bqZ = eVar;
+        this.bsT = eVar;
     }
 
-    public boolean PC() {
-        return this.bqY != null;
+    public boolean Pr() {
+        return this.bsS != null;
     }
 
-    public d bc(Context context) {
-        if (this.bqY != null) {
-            return this.bqY.bb(context);
+    public d bb(Context context) {
+        if (this.bsS != null) {
+            return this.bsS.ba(context);
         }
         return null;
     }
 
-    public d bd(Context context) {
-        if (this.bqZ != null) {
-            return this.bqZ.bb(context);
+    public d bc(Context context) {
+        if (this.bsT != null) {
+            return this.bsT.ba(context);
         }
         return null;
     }
 
     public void a(c cVar) {
-        this.bra = cVar;
+        this.bsU = cVar;
     }
 
-    public b PD() {
-        if (this.bra != null) {
-            return this.bra.PA();
+    public b Ps() {
+        if (this.bsU != null) {
+            return this.bsU.Po();
         }
         return null;
     }
 
-    public com.baidu.live.u.d PE() {
-        return this.brb;
+    public com.baidu.live.v.d Pt() {
+        return this.bsV;
     }
 }

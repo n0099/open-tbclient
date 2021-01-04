@@ -1,22 +1,22 @@
 package com.baidu.swan.gamecenter.appmanager.a;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.process.ipc.agent.activity.PluginDelegateActivity;
 import com.baidu.searchbox.process.ipc.delegate.DelegateListener;
 import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
 import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
 import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.ap.v;
+import com.baidu.swan.apps.ao.v;
 import java.lang.ref.WeakReference;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.json.JSONObject;
-/* loaded from: classes16.dex */
+/* loaded from: classes3.dex */
 public class b extends com.baidu.swan.gamecenter.c.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     public static ExecutorService sExecutorService = Executors.newSingleThreadExecutor();
@@ -40,26 +40,26 @@ public class b extends com.baidu.swan.gamecenter.c.a {
         if (TextUtils.equals(optString, "installApp")) {
             a(bundle, optString2, bVar);
         } else {
-            com.baidu.swan.apps.process.messaging.client.a aJL = com.baidu.swan.apps.runtime.d.aJQ().aJL();
-            if (aJL != null) {
+            com.baidu.swan.apps.process.messaging.client.a aMb = com.baidu.swan.apps.runtime.d.aMg().aMb();
+            if (aMb != null) {
                 a aVar = new a(optString2, optString, bVar);
-                aJL.b(bundle, com.baidu.swan.gamecenter.appmanager.download.d.class, aVar);
-                aJL.f(new RunnableC0533b(aVar));
+                aMb.b(bundle, com.baidu.swan.gamecenter.appmanager.download.d.class, aVar);
+                aMb.e(new RunnableC0526b(aVar));
             }
         }
         return null;
     }
 
     private void a(@NonNull Bundle bundle, @Nullable final String str, @NonNull final com.baidu.swan.apps.o.b bVar) {
-        SwanAppActivity aJO = com.baidu.swan.apps.runtime.d.aJQ().aJO();
-        if (aJO == null) {
+        SwanAppActivity aMe = com.baidu.swan.apps.runtime.d.aMg().aMe();
+        if (aMe == null) {
             bVar.onFail(1001, "");
             return;
         }
         if (DEBUG) {
             Log.d("appManagerAction", "InstallAppDelegation handleInstall");
         }
-        DelegateUtils.callOnMainWithActivity(aJO, PluginDelegateActivity.class, com.baidu.swan.gamecenter.appmanager.install.b.class, bundle, new DelegateListener() { // from class: com.baidu.swan.gamecenter.appmanager.a.b.1
+        DelegateUtils.callOnMainWithActivity(aMe, PluginDelegateActivity.class, com.baidu.swan.gamecenter.appmanager.install.b.class, bundle, new DelegateListener() { // from class: com.baidu.swan.gamecenter.appmanager.a.b.1
             @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
             public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
                 if (b.DEBUG) {
@@ -67,8 +67,8 @@ public class b extends com.baidu.swan.gamecenter.c.a {
                 }
                 String string = delegateResult.mResult.getString("packageName");
                 if (!TextUtils.isEmpty(str) && !TextUtils.equals(str, string)) {
-                    if (com.baidu.swan.gamecenter.appmanager.install.a.am(AppRuntime.getAppContext(), str)) {
-                        bVar.aA(new JSONObject());
+                    if (com.baidu.swan.gamecenter.appmanager.install.a.au(AppRuntime.getAppContext(), str)) {
+                        bVar.aI(new JSONObject());
                     } else {
                         bVar.onFail(31003, "apk install cancel");
                     }
@@ -110,7 +110,7 @@ public class b extends com.baidu.swan.gamecenter.c.a {
         }
         switch (c) {
             case 0:
-                bVar.aA(v.parseString(string2));
+                bVar.aI(v.parseString(string2));
                 return;
             case 1:
                 bVar.onFail(i, string2);
@@ -121,46 +121,46 @@ public class b extends com.baidu.swan.gamecenter.c.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void j(String str, String str2, int i) {
-        com.baidu.swan.gamecenter.appmanager.d.c.a(str, str2, "fail", String.valueOf(i), null);
+    public static void m(String str, String str2, int i) {
+        com.baidu.swan.gamecenter.appmanager.d.c.a(str, str2, com.baidu.pass.biometrics.face.liveness.c.a.p, String.valueOf(i), null);
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes3.dex */
     private static class a extends com.baidu.swan.apps.process.a.b.c.c {
-        private String dUW;
-        private com.baidu.swan.apps.o.b dUX;
+        private String edT;
+        private com.baidu.swan.apps.o.b edU;
         private String mPackageName;
 
         a(String str, String str2, com.baidu.swan.apps.o.b bVar) {
             this.mPackageName = str;
-            this.dUW = str2;
-            this.dUX = bVar;
+            this.edT = str2;
+            this.edU = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.process.a.b.c.a
         public void onEvent(@NonNull com.baidu.swan.apps.process.a.b.a.b bVar) {
             Bundle result = bVar.getResult();
-            if (this.dUX != null) {
+            if (this.edU != null) {
                 if (result != null) {
-                    b.a(result, this.dUX);
+                    b.a(result, this.edU);
                 } else {
-                    this.dUX.onFail(1001, "");
+                    this.edU.onFail(1001, "");
                 }
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void aHT() {
-            if (this.dUX != null) {
-                this.dUX.onFail(31018, "download process is killed");
-                b.j(this.mPackageName, this.dUW, 31018);
-                this.dUX = null;
+        public void aJm() {
+            if (this.edU != null) {
+                this.edU.onFail(31018, "download process is killed");
+                b.m(this.mPackageName, this.edT, 31018);
+                this.edU = null;
             }
         }
 
         @Override // com.baidu.swan.apps.process.a.b.c.a
-        public boolean aHy() {
+        public boolean aIR() {
             return true;
         }
 
@@ -171,12 +171,12 @@ public class b extends com.baidu.swan.gamecenter.c.a {
     }
 
     /* renamed from: com.baidu.swan.gamecenter.appmanager.a.b$b  reason: collision with other inner class name */
-    /* loaded from: classes16.dex */
-    private static class RunnableC0533b implements Runnable {
-        private WeakReference<a> dUY;
+    /* loaded from: classes3.dex */
+    private static class RunnableC0526b implements Runnable {
+        private WeakReference<a> edV;
 
-        RunnableC0533b(a aVar) {
-            this.dUY = new WeakReference<>(aVar);
+        RunnableC0526b(a aVar) {
+            this.edV = new WeakReference<>(aVar);
         }
 
         @Override // java.lang.Runnable
@@ -184,8 +184,8 @@ public class b extends com.baidu.swan.gamecenter.c.a {
             if (b.DEBUG) {
                 Log.d("appManagerAction", "onConnectionDown");
             }
-            if (this.dUY.get() != null) {
-                this.dUY.get().aHT();
+            if (this.edV.get() != null) {
+                this.edV.get().aJm();
             }
         }
     }

@@ -5,52 +5,52 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import com.baidu.live.data.ah;
+import com.baidu.live.data.aj;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a extends BaseAdapter {
-    private InterfaceC0687a hqI;
-    private boolean hqJ;
+    private InterfaceC0679a hCE;
+    private boolean hCF;
     private Context mContext;
-    public List<ah> hqH = new ArrayList();
-    private int gmo = -1;
+    public List<aj> hCD = new ArrayList();
+    private int gwM = -1;
 
     /* renamed from: com.baidu.tieba.ala.liveroom.exclusive.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public interface InterfaceC0687a {
-        void a(View view, int i, ah ahVar);
+    /* loaded from: classes11.dex */
+    public interface InterfaceC0679a {
+        void a(View view, int i, aj ajVar);
     }
 
     public a(Context context, boolean z) {
         this.mContext = context;
-        this.hqJ = z;
+        this.hCF = z;
     }
 
-    public void wF(int i) {
-        this.gmo = i;
+    public void wQ(int i) {
+        this.gwM = i;
         notifyDataSetChanged();
     }
 
-    public void a(InterfaceC0687a interfaceC0687a) {
-        this.hqI = interfaceC0687a;
+    public void a(InterfaceC0679a interfaceC0679a) {
+        this.hCE = interfaceC0679a;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.hqH == null) {
+        if (this.hCD == null) {
             return 0;
         }
-        return this.hqH.size();
+        return this.hCD.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: wG */
-    public ah getItem(int i) {
-        return (ah) ListUtils.getItem(this.hqH, i);
+    /* renamed from: wR */
+    public aj getItem(int i) {
+        return (aj) ListUtils.getItem(this.hCD, i);
     }
 
     @Override // android.widget.Adapter
@@ -58,10 +58,10 @@ public class a extends BaseAdapter {
         return i;
     }
 
-    public void setDatas(List<ah> list) {
+    public void setDatas(List<aj> list) {
         if (!ListUtils.isEmpty(list)) {
-            this.hqH.clear();
-            this.hqH.addAll(list);
+            this.hCD.clear();
+            this.hCD.addAll(list);
             notifyDataSetChanged();
         }
     }
@@ -71,7 +71,7 @@ public class a extends BaseAdapter {
         g gVar;
         View inflate;
         if (view == null) {
-            if (this.hqJ) {
+            if (this.hCF) {
                 inflate = LayoutInflater.from(this.mContext).inflate(a.g.ala_exclusive_scene_item, (ViewGroup) null);
             } else {
                 inflate = LayoutInflater.from(this.mContext).inflate(a.g.ala_exclusive_scene_land_item, (ViewGroup) null);
@@ -82,19 +82,19 @@ public class a extends BaseAdapter {
         } else {
             gVar = (g) view.getTag();
         }
-        final ah ahVar = this.hqH.get(i);
-        if (this.gmo == i) {
-            gVar.a(ahVar, true, this.hqJ);
+        final aj ajVar = this.hCD.get(i);
+        if (this.gwM == i) {
+            gVar.a(ajVar, true, this.hCF);
         } else {
-            gVar.a(ahVar, false, this.hqJ);
+            gVar.a(ajVar, false, this.hCF);
         }
         view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.exclusive.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                a.this.gmo = i;
+                a.this.gwM = i;
                 a.this.notifyDataSetChanged();
-                if (a.this.hqI != null) {
-                    a.this.hqI.a(view2, i, ahVar);
+                if (a.this.hCE != null) {
+                    a.this.hCE.a(view2, i, ajVar);
                 }
             }
         });

@@ -11,34 +11,34 @@ import android.widget.TextView;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tbadk.util.ScreenHelper;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class b extends Dialog implements View.OnClickListener {
-    private Activity beD;
+    private Activity mContext;
     private TextView mTipView;
     private View mView;
 
     public b(Activity activity) {
         super(activity, a.i.DialogConnectionWheatStyle_3);
-        this.beD = activity;
+        this.mContext = activity;
     }
 
     @Override // android.app.Dialog
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(a.g.yuyin_sdk_custom_loading_toast);
-        Zo();
+        aaD();
         initView();
         initListener();
     }
 
-    private void Zo() {
+    private void aaD() {
         Window window;
-        if (this.beD != null && (window = this.beD.getWindow()) != null) {
+        if (this.mContext != null && (window = this.mContext.getWindow()) != null) {
             window.getDecorView().setPadding(0, 0, 0, 0);
             if (((WindowManager) getContext().getSystemService("window")) != null) {
                 WindowManager.LayoutParams attributes = window.getAttributes();
-                if (UtilHelper.getRealScreenOrientation(this.beD) == 2) {
-                    attributes.width = ScreenHelper.getRealScreenHeight(this.beD);
+                if (UtilHelper.getRealScreenOrientation(this.mContext) == 2) {
+                    attributes.width = ScreenHelper.getRealScreenHeight(this.mContext);
                     attributes.height = -1;
                 } else {
                     attributes.width = -1;

@@ -1,0 +1,211 @@
+package com.tencent.turingfd.sdk.ams.au;
+
+import com.baidu.ar.arplay.core.message.ARPMessageType;
+import com.baidu.ar.constants.DebugConstants;
+import com.baidu.webkit.internal.blink.VideoFreeFlowConfigManager;
+/* JADX WARN: $VALUES field not found */
+/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+/* loaded from: classes3.dex */
+public final class u {
+    public final int aO;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final u f13847a = new u("TIMESTAMP", 0, 0);
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final u f13848b = new u("DEVICE_ID", 1, 1);
+    public static final u c = new u("IMEI", 2, 2);
+    public static final u d = new u("ANDROID_ID", 3, 3);
+    public static final u e = new u("CID", 4, 4);
+    public static final u f = new u("SERIAL_ID", 5, 5);
+    public static final u g = new u("MAC", 6, 6);
+    public static final u h = new u("KERNEL_VERSION", 7, 7);
+    public static final u i = new u("FINGERPRINT", 8, 8);
+    public static final u j = new u("SYS_DF", 9, 9);
+    public static final u k = new u("STORAGE", 10, 10);
+    public static final u l = new u("SENSORS", 11, 11);
+    public static final u m = new u("CPU_ABI", 12, 12);
+    public static final u n = new u("BATTERY", 13, 13);
+    public static final u o = new u("DISPLAY", 14, 14);
+    public static final u p = new u("DEFAULT_RINGTONE", 15, 15);
+    public static final u q = new u("FONTS", 16, 16);
+    public static final u r = new u("PKG_LIST", 17, 17);
+    public static final u s = new u("FILES1", 18, 18);
+    public static final u t = new u("FILES2", 19, 19);
+    public static final u u = new u("ROOT", 20, 20);
+    public static final u v = new u("EMULATOR", 21, 21);
+    public static final u w = new u("DUAL_APP", 22, 22);
+    public static final u x = new u("BRAND", 23, 23);
+    public static final u y = new u("MODEL", 24, 24);
+    public static final u z = new u("SYSTEM_VER", 25, 25);
+    public static final u A = new u("UUID", 26, 26);
+    public static final u B = new u("INODE", 27, 27);
+    public static final u C = new u("TICKET_ID", 28, 28);
+    public static final u D = new u("TURINGMM_UNIQUEID", 29, 29);
+    public static final u E = new u("QQPIM_VID", 30, 30);
+    public static final u F = new u("QQPIM_GUID", 31, 31);
+    public static final u G = new u("IMSI", 32, 32);
+    public static final u H = new u("API_LEVEL", 33, 33);
+    public static final u I = new u("DEBUG_INFO", 34, 34);
+    public static final u J = new u("BOOT_TIME", 35, 35);
+    public static final u K = new u("PHYSICAL_DISPLAY", 36, 36);
+    public static final u L = new u("API_AVAILABILITY", 37, 37);
+    public static final u M = new u("WIFI_CONFIGS", 38, 38);
+    public static final u N = new u("FRAMEWORK_RES", 39, 39);
+    public static final u O = new u("PKG_LIST_HASH", 40, 40);
+    public static final u P = new u("OAID", 41, 41);
+    public static final u Q = new u("MANUFACTURER", 42, 42);
+    public static final u R = new u("PKG_LIST_2", 43, 43);
+    public static final u S = new u("INJECT", 44, 100);
+    public static final u T = new u("HOOK_FRAMEWORK", 45, 101);
+    public static final u U = new u("SIMULATOR_LOCATION", 46, 102);
+    public static final u V = new u("USB_TYPE", 47, 103);
+    public static final u W = new u("CHARGE_STATE", 48, 104);
+    public static final u X = new u("BATTERY_LEVEL", 49, 105);
+    public static final u Y = new u("RISK_PROCESS", 50, 106);
+    public static final u Z = new u("PKG_SIGMD5", 51, 107);
+    public static final u aa = new u("EMULATOR_RAW", 52, 108);
+    public static final u ab = new u("LOCAL_NETWORK_MACS", 53, 109);
+    public static final u ac = new u("DEVICE_SPHERICAL", 54, 110);
+    public static final u ad = new u("DEVICE_ORIENTATION", 55, 111);
+    public static final u ae = new u("TRACE_IP", 56, 112);
+    public static final u af = new u("VPN", 57, 113);
+    public static final u ag = new u(VideoFreeFlowConfigManager.PROXY, 58, 114);
+    public static final u ah = new u("DISABLE_FEATURE_ID", 59, 200);
+    public static final u ai = new u("IOS_IDFA", 60, 1001);
+    public static final u aj = new u("IOS_IDFV", 61, 1002);
+    public static final u ak = new u("IOS_BOOT_TIMESTAMP", 62, 1003);
+    public static final u al = new u("IOS_CURRENT_TIMESTAMP", 63, 1004);
+    public static final u am = new u("IOS_FREE_SPACE", 64, 1005);
+    public static final u an = new u("IOS_TOTAL_SPACE", 65, 1006);
+    public static final u ao = new u("IOS_TOTAL_MEMORY", 66, 1007);
+    public static final u ap = new u("IOS_SCREEN_BRIGHTNESS", 67, 1008);
+    public static final u aq = new u("IOS_WIFI_IP_ADDRESS", 68, 1009);
+    public static final u ar = new u("IOS_CELLULAR_WIFI_IP_ADDRESS", 69, 1010);
+    public static final u as = new u("IOS_VPN_IP_ADDRESS", 70, 1011);
+    public static final u at = new u("IOS_MAC_ADDRESS", 71, 1012);
+    public static final u au = new u("IOS_NETWORK_TYPE", 72, 1013);
+    public static final u av = new u("IOS_ROUNTER_SSID", 73, 1014);
+    public static final u aw = new u("IOS_ROUNTER_BSSID", 74, 1015);
+    public static final u ax = new u("IOS_PROXY_TYPE", 75, 1016);
+    public static final u ay = new u("IOS_PROXY_URL", 76, 1017);
+    public static final u az = new u("IOS_DNS", 77, 1018);
+    public static final u aA = new u("IOS_JAILBROKEN", 78, 1019);
+    public static final u aB = new u("IOS_IPHONE_MODEL", 79, 1020);
+    public static final u aC = new u("IOS_SYSTEM_VERSION", 80, 1021);
+    public static final u aD = new u("IOS_DEVICE_NAME", 81, 1022);
+    public static final u aE = new u("IOS_CARRIER", 82, 1023);
+    public static final u aF = new u("IOS_COUNTRY_ISO", 83, 1024);
+    public static final u aG = new u("IOS_MCC", 84, 1025);
+    public static final u aH = new u("IOS_MNC", 85, ARPMessageType.MSG_TYPE_VIDEO_RESUME_RES);
+    public static final u aI = new u("IOS_BUNDLE_ID", 86, ARPMessageType.MSG_TYPE_VIDEO_STOP);
+    public static final u aJ = new u("IOS_LANGUAGES", 87, ARPMessageType.MSG_TYPE_VIDEO_STOP_RES);
+    public static final u aK = new u("IOS_TIMESTAMP_APP_INSTALLED", 88, ARPMessageType.MSG_TYPE_VIDEO_PLAY_FAILED);
+    public static final u aL = new u("IOS_TIMESTAMP_LIST_FOR_ALBUM", 89, 1030);
+    public static final u aM = new u("IOS_AVAILABLE_SENSORS", 90, 1031);
+    public static final u aN = new u("IOS_RING_VOLUME", 91, DebugConstants.HTTP_ERRCODE_NOT_FIND);
+
+    static {
+        u uVar = f13847a;
+        u uVar2 = f13848b;
+        u uVar3 = c;
+        u uVar4 = d;
+        u uVar5 = e;
+        u uVar6 = f;
+        u uVar7 = g;
+        u uVar8 = h;
+        u uVar9 = i;
+        u uVar10 = j;
+        u uVar11 = k;
+        u uVar12 = l;
+        u uVar13 = m;
+        u uVar14 = n;
+        u uVar15 = o;
+        u uVar16 = p;
+        u uVar17 = q;
+        u uVar18 = r;
+        u uVar19 = s;
+        u uVar20 = t;
+        u uVar21 = u;
+        u uVar22 = v;
+        u uVar23 = w;
+        u uVar24 = x;
+        u uVar25 = y;
+        u uVar26 = z;
+        u uVar27 = A;
+        u uVar28 = B;
+        u uVar29 = C;
+        u uVar30 = D;
+        u uVar31 = E;
+        u uVar32 = F;
+        u uVar33 = G;
+        u uVar34 = H;
+        u uVar35 = I;
+        u uVar36 = J;
+        u uVar37 = K;
+        u uVar38 = L;
+        u uVar39 = M;
+        u uVar40 = N;
+        u uVar41 = O;
+        u uVar42 = P;
+        u uVar43 = Q;
+        u uVar44 = R;
+        u uVar45 = S;
+        u uVar46 = T;
+        u uVar47 = U;
+        u uVar48 = V;
+        u uVar49 = W;
+        u uVar50 = X;
+        u uVar51 = Y;
+        u uVar52 = Z;
+        u uVar53 = aa;
+        u uVar54 = ab;
+        u uVar55 = ac;
+        u uVar56 = ad;
+        u uVar57 = ae;
+        u uVar58 = af;
+        u uVar59 = ag;
+        u uVar60 = ah;
+        u uVar61 = ai;
+        u uVar62 = aj;
+        u uVar63 = ak;
+        u uVar64 = al;
+        u uVar65 = am;
+        u uVar66 = an;
+        u uVar67 = ao;
+        u uVar68 = ap;
+        u uVar69 = aq;
+        u uVar70 = ar;
+        u uVar71 = as;
+        u uVar72 = at;
+        u uVar73 = au;
+        u uVar74 = av;
+        u uVar75 = aw;
+        u uVar76 = ax;
+        u uVar77 = ay;
+        u uVar78 = az;
+        u uVar79 = aA;
+        u uVar80 = aB;
+        u uVar81 = aC;
+        u uVar82 = aD;
+        u uVar83 = aE;
+        u uVar84 = aF;
+        u uVar85 = aG;
+        u uVar86 = aH;
+        u uVar87 = aI;
+        u uVar88 = aJ;
+        u uVar89 = aK;
+        u uVar90 = aL;
+        u uVar91 = aM;
+        u uVar92 = aN;
+    }
+
+    public u(String str, int i2, int i3) {
+        this.aO = i3;
+    }
+
+    @Override // java.lang.Enum
+    public String toString() {
+        return name() + ":" + this.aO;
+    }
+}

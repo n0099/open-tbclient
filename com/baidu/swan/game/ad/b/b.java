@@ -1,88 +1,88 @@
 package com.baidu.swan.game.ad.b;
 
-import com.baidu.swan.apps.ap.ah;
-/* loaded from: classes14.dex */
+import com.baidu.swan.apps.ao.ah;
+/* loaded from: classes3.dex */
 public class b {
-    private int aat;
-    private String dSA;
-    private int dSB;
-    private int dSC;
-    private String dSy;
-    private String dSz;
+    private int abd;
+    private String ebv;
+    private String ebw;
+    private String ebx;
+    private int eby;
+    private int ebz;
 
     private b(a aVar) {
-        this.dSz = aVar.dSz;
-        this.dSy = aVar.dSy;
-        this.dSB = aVar.dSB;
-        this.dSC = aVar.dSC;
-        this.dSA = aVar.dSA;
-        this.aat = aVar.aat;
+        this.ebw = aVar.ebw;
+        this.ebv = aVar.ebv;
+        this.eby = aVar.eby;
+        this.ebz = aVar.ebz;
+        this.ebx = aVar.ebx;
+        this.abd = aVar.abd;
     }
 
-    public int aTo() {
-        return this.dSB;
+    public int aVI() {
+        return this.eby;
     }
 
-    public int aTp() {
-        return this.dSC;
+    public int aVJ() {
+        return this.ebz;
     }
 
     public String getAppSid() {
-        return this.dSz;
+        return this.ebw;
     }
 
-    public String aTq() {
-        return this.dSy;
+    public String aVK() {
+        return this.ebv;
     }
 
-    public String aTr() {
-        return this.dSA;
+    public String aVL() {
+        return this.ebx;
     }
 
-    public int rV() {
-        return this.aat;
+    public int rw() {
+        return this.abd;
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public static class a {
-        private int aat;
-        private String dSA;
-        private int dSB;
-        private int dSC;
-        private String dSy;
-        private String dSz;
+        private int abd;
+        private String ebv;
+        private String ebw;
+        private String ebx;
+        private int eby;
+        private int ebz;
+
+        public a wj(String str) {
+            this.ebw = str;
+            return this;
+        }
 
         public a wk(String str) {
-            this.dSz = str;
+            this.ebv = str;
             return this;
         }
 
         public a wl(String str) {
-            this.dSy = str;
+            this.ebx = str;
             return this;
         }
 
-        public a wm(String str) {
-            this.dSA = str;
+        public a mr(int i) {
+            this.eby = ah.O(i);
             return this;
         }
 
-        public a mj(int i) {
-            this.dSB = ah.M(i);
+        public a ms(int i) {
+            this.ebz = ah.O(i);
             return this;
         }
 
-        public a mk(int i) {
-            this.dSC = ah.M(i);
+        public a mt(int i) {
+            this.abd = i;
             return this;
         }
 
-        public a ml(int i) {
-            this.aat = i;
-            return this;
-        }
-
-        public b aTs() {
+        public b aVM() {
             return new b(this);
         }
     }

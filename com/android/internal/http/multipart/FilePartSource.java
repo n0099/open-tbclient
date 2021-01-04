@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes11.dex */
+/* loaded from: classes6.dex */
 public class FilePartSource implements PartSource {
     public FilePartSource(File file) throws FileNotFoundException {
         throw new RuntimeException("Stub!");

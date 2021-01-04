@@ -1,37 +1,33 @@
 package com.baidu.tieba.im.util;
 
-import android.text.InputFilter;
-import android.text.Spanned;
-/* loaded from: classes23.dex */
-public class a implements InputFilter {
-    private int mMax;
+import com.baidu.platform.comapi.map.MapBundleKey;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.z;
+/* loaded from: classes.dex */
+public class a extends Thread {
+    private String mGroupId;
+    private String mObj;
+    private String mObjTp;
 
-    public a(int i) {
-        this.mMax = i;
+    public a(String str, String str2, String str3) {
+        this.mObj = null;
+        this.mObjTp = null;
+        this.mGroupId = null;
+        this.mObj = str;
+        this.mObjTp = str2;
+        this.mGroupId = str3;
     }
 
-    @Override // android.text.InputFilter
-    public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
-        int i5 = i4 - i3;
-        int length = this.mMax - (spanned.length() - i5);
-        String obj = spanned.toString();
-        int textLength = f.getTextLength(obj);
-        if (i5 > 0) {
-            int i6 = i3;
-            while (i6 < i5 + i3 && obj.length() < i6) {
-                int charLength = textLength - f.getCharLength(obj.charAt(i6));
-                i6++;
-                textLength = charLength;
-            }
-        } else {
-            textLength += f.getTextLength(charSequence.toString());
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        super.run();
+        if (!TbadkCoreApplication.getInst().checkInterrupt()) {
+            z zVar = new z(TbConfig.SERVER_ADDRESS + TbConfig.LOAD_REG_PV_ADDRESS);
+            zVar.addPostData(MapBundleKey.MapObjKey.OBJ_SL_OBJ, this.mObj);
+            zVar.addPostData("obj_tp", this.mObjTp);
+            zVar.addPostData("group_id", this.mGroupId);
+            zVar.postNetData();
         }
-        if (textLength > this.mMax || length <= 0) {
-            return "";
-        }
-        if (length >= i2 - i) {
-            return null;
-        }
-        return charSequence.subSequence(i, i + length);
     }
 }

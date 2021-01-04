@@ -13,7 +13,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class Detector {
     private final BitMatrix image;
     private final WhiteRectangleDetector rectangleDetector;
@@ -27,17 +27,16 @@ public final class Detector {
         ResultPoint resultPoint;
         ResultPoint correctTopRightRectangular;
         BitMatrix sampleGrid;
-        ResultPoint resultPoint2 = null;
         ResultPoint[] detect = this.rectangleDetector.detect();
-        ResultPoint resultPoint3 = detect[0];
-        ResultPoint resultPoint4 = detect[1];
-        ResultPoint resultPoint5 = detect[2];
-        ResultPoint resultPoint6 = detect[3];
+        ResultPoint resultPoint2 = detect[0];
+        ResultPoint resultPoint3 = detect[1];
+        ResultPoint resultPoint4 = detect[2];
+        ResultPoint resultPoint5 = detect[3];
         ArrayList arrayList = new ArrayList(4);
-        arrayList.add(transitionsBetween(resultPoint3, resultPoint4));
+        arrayList.add(transitionsBetween(resultPoint2, resultPoint3));
+        arrayList.add(transitionsBetween(resultPoint2, resultPoint4));
         arrayList.add(transitionsBetween(resultPoint3, resultPoint5));
-        arrayList.add(transitionsBetween(resultPoint4, resultPoint6));
-        arrayList.add(transitionsBetween(resultPoint5, resultPoint6));
+        arrayList.add(transitionsBetween(resultPoint4, resultPoint5));
         Collections.sort(arrayList, new ResultPointsAndTransitionsComparator());
         ResultPointsAndTransitions resultPointsAndTransitions = (ResultPointsAndTransitions) arrayList.get(0);
         ResultPointsAndTransitions resultPointsAndTransitions2 = (ResultPointsAndTransitions) arrayList.get(1);
@@ -46,32 +45,33 @@ public final class Detector {
         increment(hashMap, resultPointsAndTransitions.getTo());
         increment(hashMap, resultPointsAndTransitions2.getFrom());
         increment(hashMap, resultPointsAndTransitions2.getTo());
+        ResultPoint resultPoint6 = null;
         ResultPoint resultPoint7 = null;
         ResultPoint resultPoint8 = null;
         for (Map.Entry entry : hashMap.entrySet()) {
             ResultPoint resultPoint9 = (ResultPoint) entry.getKey();
             if (((Integer) entry.getValue()).intValue() == 2) {
-                resultPoint7 = resultPoint9;
-            } else if (resultPoint8 == null) {
                 resultPoint8 = resultPoint9;
+            } else if (resultPoint6 == null) {
+                resultPoint6 = resultPoint9;
             } else {
-                resultPoint2 = resultPoint9;
+                resultPoint7 = resultPoint9;
             }
         }
-        if (resultPoint8 == null || resultPoint7 == null || resultPoint2 == null) {
+        if (resultPoint6 == null || resultPoint8 == null || resultPoint7 == null) {
             throw NotFoundException.getNotFoundInstance();
         }
-        ResultPoint[] resultPointArr = {resultPoint8, resultPoint7, resultPoint2};
+        ResultPoint[] resultPointArr = {resultPoint6, resultPoint8, resultPoint7};
         ResultPoint.orderBestPatterns(resultPointArr);
         ResultPoint resultPoint10 = resultPointArr[0];
         ResultPoint resultPoint11 = resultPointArr[1];
         ResultPoint resultPoint12 = resultPointArr[2];
-        if (!hashMap.containsKey(resultPoint3)) {
-            resultPoint = resultPoint3;
-        } else if (hashMap.containsKey(resultPoint4)) {
-            resultPoint = !hashMap.containsKey(resultPoint5) ? resultPoint5 : resultPoint6;
+        if (!hashMap.containsKey(resultPoint2)) {
+            resultPoint = resultPoint2;
+        } else if (hashMap.containsKey(resultPoint3)) {
+            resultPoint = !hashMap.containsKey(resultPoint4) ? resultPoint4 : resultPoint5;
         } else {
-            resultPoint = resultPoint4;
+            resultPoint = resultPoint3;
         }
         int transitions = transitionsBetween(resultPoint12, resultPoint).getTransitions();
         int transitions2 = transitionsBetween(resultPoint10, resultPoint).getTransitions();
@@ -161,48 +161,60 @@ public final class Detector {
     }
 
     private ResultPointsAndTransitions transitionsBetween(ResultPoint resultPoint, ResultPoint resultPoint2) {
+        int i;
+        int i2;
+        int i3;
+        int i4;
+        boolean z;
         int x = (int) resultPoint.getX();
         int y = (int) resultPoint.getY();
         int x2 = (int) resultPoint2.getX();
         int y2 = (int) resultPoint2.getY();
-        boolean z = Math.abs(y2 - y) > Math.abs(x2 - x);
-        if (!z) {
-            y2 = x2;
-            x2 = y2;
-            y = x;
-            x = y;
+        boolean z2 = Math.abs(y2 - y) > Math.abs(x2 - x);
+        if (z2) {
+            i = x2;
+            i2 = y2;
+            i3 = x;
+            i4 = y;
+        } else {
+            i = y2;
+            i2 = x2;
+            i3 = y;
+            i4 = x;
         }
-        int abs = Math.abs(y2 - y);
-        int abs2 = Math.abs(x2 - x);
-        int i = (-abs) / 2;
-        int i2 = x < x2 ? 1 : -1;
-        int i3 = y < y2 ? 1 : -1;
-        int i4 = 0;
-        boolean z2 = this.image.get(z ? x : y, z ? y : x);
-        int i5 = x;
-        int i6 = i;
-        while (y != y2) {
-            boolean z3 = this.image.get(z ? i5 : y, z ? y : i5);
-            if (z3 != z2) {
-                i4++;
-                z2 = z3;
+        int abs = Math.abs(i2 - i4);
+        int abs2 = Math.abs(i - i3);
+        int i5 = (-abs) / 2;
+        int i6 = i3 < i ? 1 : -1;
+        int i7 = i4 < i2 ? 1 : -1;
+        int i8 = 0;
+        boolean z3 = this.image.get(z2 ? i3 : i4, z2 ? i4 : i3);
+        int i9 = i4;
+        while (i9 != i2) {
+            boolean z4 = this.image.get(z2 ? i3 : i9, z2 ? i9 : i3);
+            if (z4 != z3) {
+                i8++;
+                z = z4;
+            } else {
+                z = z3;
             }
-            int i7 = i6 + abs2;
-            if (i7 > 0) {
-                if (i5 == x2) {
+            int i10 = i5 + abs2;
+            if (i10 > 0) {
+                if (i3 == i) {
                     break;
                 }
-                i5 += i2;
-                i7 -= abs;
+                i3 += i6;
+                i10 -= abs;
             }
-            y += i3;
-            i6 = i7;
+            i9 += i7;
+            z3 = z;
+            i5 = i10;
         }
-        return new ResultPointsAndTransitions(resultPoint, resultPoint2, i4);
+        return new ResultPointsAndTransitions(resultPoint, resultPoint2, i8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes6.dex */
     public static final class ResultPointsAndTransitions {
         private final ResultPoint from;
         private final ResultPoint to;
@@ -231,7 +243,7 @@ public final class Detector {
         }
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes6.dex */
     private static final class ResultPointsAndTransitionsComparator implements Serializable, Comparator<ResultPointsAndTransitions> {
         private ResultPointsAndTransitionsComparator() {
         }

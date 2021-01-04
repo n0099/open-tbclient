@@ -5,13 +5,15 @@ import android.os.Parcelable;
 import com.baidu.mapapi.model.LatLng;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class RouteStep implements Parcelable {
     public static final Parcelable.Creator<RouteStep> CREATOR = new k();
 
     /* renamed from: a  reason: collision with root package name */
-    int f2110a;
-    int b;
+    int f2973a;
+
+    /* renamed from: b  reason: collision with root package name */
+    int f2974b;
     String c;
     protected List<LatLng> mWayPoints;
 
@@ -21,8 +23,8 @@ public class RouteStep implements Parcelable {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public RouteStep(Parcel parcel) {
-        this.f2110a = parcel.readInt();
-        this.b = parcel.readInt();
+        this.f2973a = parcel.readInt();
+        this.f2974b = parcel.readInt();
         this.c = parcel.readString();
         this.mWayPoints = new ArrayList();
         parcel.readList(this.mWayPoints, LatLng.class.getClassLoader());
@@ -37,11 +39,11 @@ public class RouteStep implements Parcelable {
     }
 
     public int getDistance() {
-        return this.f2110a;
+        return this.f2973a;
     }
 
     public int getDuration() {
-        return this.b;
+        return this.f2974b;
     }
 
     public String getName() {
@@ -53,11 +55,11 @@ public class RouteStep implements Parcelable {
     }
 
     public void setDistance(int i) {
-        this.f2110a = i;
+        this.f2973a = i;
     }
 
     public void setDuration(int i) {
-        this.b = i;
+        this.f2974b = i;
     }
 
     public void setName(String str) {
@@ -70,8 +72,8 @@ public class RouteStep implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.f2110a);
-        parcel.writeInt(this.b);
+        parcel.writeInt(this.f2973a);
+        parcel.writeInt(this.f2974b);
         parcel.writeString(this.c);
         parcel.writeList(this.mWayPoints);
     }

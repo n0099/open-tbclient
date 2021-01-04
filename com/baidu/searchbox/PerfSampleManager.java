@@ -1,37 +1,38 @@
 package com.baidu.searchbox;
 
 import android.text.TextUtils;
+import com.baidu.h.a.b;
 import com.baidu.pyramid.a.a;
-import com.baidu.pyramid.a.a.b;
 import com.baidu.pyramid.a.a.d;
 import com.baidu.searchbox.anr.ubc.ANRPerfSampleCallback;
 import com.baidu.searchbox.ruka.ubc.LooperPerfSampleCallback;
-import com.baidu.tieba.r.n;
+import com.baidu.tieba.q.p;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes20.dex */
+/* loaded from: classes7.dex */
 public class PerfSampleManager {
     private d<IPerfSampleCallback> mCallbackList;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public interface IPerfSampleCallback {
         String getSampleFlag();
     }
 
-    /* loaded from: classes20.dex */
+    /* loaded from: classes7.dex */
     public class IPerfSampleCallback_PerfSampleManager_ListProvider implements a {
         @Override // com.baidu.pyramid.a.a
         public Object get() {
             ArrayList arrayList = new ArrayList();
+            arrayList.add(new b());
             arrayList.add(new ANRPerfSampleCallback());
             arrayList.add(new LooperPerfSampleCallback());
-            arrayList.add(new n());
+            arrayList.add(new p());
             return arrayList;
         }
     }
 
     public void initmCallbackList() {
-        this.mCallbackList = b.afE();
+        this.mCallbackList = com.baidu.pyramid.a.a.b.ahA();
         this.mCallbackList.b(new IPerfSampleCallback_PerfSampleManager_ListProvider());
     }
 

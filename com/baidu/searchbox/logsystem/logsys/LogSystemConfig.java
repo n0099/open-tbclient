@@ -1,11 +1,11 @@
 package com.baidu.searchbox.logsystem.logsys;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.searchbox.logsystem.logsys.LogDiskStoreConfig;
 import com.baidu.searchbox.logsystem.logsys.LogUploadConfig;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class LogSystemConfig {
     @NonNull
     private Context mContext;
@@ -53,7 +53,7 @@ public class LogSystemConfig {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     public static class Builder {
         @NonNull
         private Context mContext;

@@ -6,7 +6,7 @@ import android.webkit.CookieSyncManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.setting.oauth.g;
 import java.util.List;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class b extends g {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -37,13 +37,13 @@ public class b extends g {
             for (String str2 : list) {
                 CookieManager.getInstance().setCookie(str, str2);
             }
-            aPF();
+            aRX();
         } catch (Exception e) {
         }
     }
 
-    public void aPF() {
-        if (com.baidu.swan.apps.ap.c.hasLollipop()) {
+    public void aRX() {
+        if (com.baidu.swan.apps.ao.c.hasLollipop()) {
             CookieManager.getInstance().flush();
             return;
         }

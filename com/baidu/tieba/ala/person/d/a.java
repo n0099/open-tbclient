@@ -1,31 +1,32 @@
 package com.baidu.tieba.ala.person.d;
 
+import android.text.TextUtils;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.data.AlaLocationData;
 import com.baidu.live.data.AlaRelationData;
 import com.baidu.live.data.PersonUserData;
-import com.baidu.live.data.ar;
-import com.baidu.live.data.bf;
+import com.baidu.live.data.at;
+import com.baidu.live.data.bh;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a {
-    public static PersonUserData a(bf bfVar) {
+    public static PersonUserData a(bh bhVar) {
         PersonUserData personUserData = new PersonUserData();
-        personUserData.user_info = new ar();
+        personUserData.user_info = new at();
         personUserData.relation_info = new AlaRelationData();
         personUserData.location_info = new AlaLocationData();
-        personUserData.user_info.aPp = bfVar.metaKey;
-        personUserData.user_info.user_id = bfVar.id;
-        personUserData.user_info.user_name = bfVar.name;
-        personUserData.user_info.user_nickname = bfVar.name_show;
-        personUserData.user_info.description = bfVar.intro;
-        personUserData.user_info.portrait = bfVar.portrait;
-        personUserData.relation_info.follow_status = bfVar.aQa;
+        personUserData.user_info.aQe = bhVar.metaKey;
+        personUserData.user_info.user_id = bhVar.id;
+        personUserData.user_info.user_name = bhVar.name;
+        personUserData.user_info.user_nickname = bhVar.name_show;
+        personUserData.user_info.description = bhVar.intro;
+        personUserData.user_info.portrait = bhVar.portrait;
+        personUserData.relation_info.follow_status = bhVar.aQP;
         return personUserData;
     }
 
-    public static String u(int i, String str) {
+    public static String w(int i, String str) {
         String str2;
         String str3;
         String str4 = null;
@@ -34,7 +35,8 @@ public class a {
                 JSONObject jSONObject = new JSONObject(str);
                 if (i == 0) {
                     str3 = jSONObject.optString("user_list");
-                    str2 = new JSONObject(jSONObject.optString("page")).optString("has_more");
+                    String optString = jSONObject.optString("page");
+                    str2 = !TextUtils.isEmpty(optString) ? new JSONObject(optString).optString("has_more") : null;
                 } else if (i == 1) {
                     str3 = jSONObject.optString("follow_list").trim();
                     if ("".equals(str3)) {

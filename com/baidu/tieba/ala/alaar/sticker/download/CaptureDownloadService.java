@@ -4,10 +4,10 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
-import android.support.v4.content.LocalBroadcastManager;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import com.baidu.tieba.ala.alaar.sticker.download.c;
 import com.baidu.tieba.ala.alaar.sticker.download.exception.DownloadException;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class CaptureDownloadService extends Service {
     public static final String ACTION_CANCEL = "com.baidu.ugc.download.ACTION_CANCEL";
     public static final String ACTION_CANCEL_ALL = "com.baidu.ugc.download.ACTION_CANCEL_ALL";
@@ -158,12 +158,12 @@ public class CaptureDownloadService extends Service {
     }
 
     private void download(int i, d dVar, String str) {
-        this.mDownloadManager.a(new c.a().Gn(dVar.getUrl()).bQy(), str, new a(i, dVar, getApplicationContext()));
+        this.mDownloadManager.a(new c.a().Gm(dVar.getUrl()).bSX(), str, new a(i, dVar, getApplicationContext()));
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public static class a extends com.baidu.tieba.ala.alaar.sticker.download.a.a {
-        private d gkj;
+        private d guI;
         private int mLastProgress;
         private long mLastTime;
         private LocalBroadcastManager mLocalBroadcastManager;
@@ -171,7 +171,7 @@ public class CaptureDownloadService extends Service {
 
         public a(int i, d dVar, Context context) {
             this.mPosition = i;
-            this.gkj = dVar;
+            this.guI = dVar;
             this.mLocalBroadcastManager = LocalBroadcastManager.getInstance(context);
         }
 
@@ -180,41 +180,41 @@ public class CaptureDownloadService extends Service {
             if (this.mLastTime == 0) {
                 this.mLastTime = System.currentTimeMillis();
             }
-            this.gkj.setStatus(3);
-            this.gkj.setProgress(i);
-            this.gkj.setDownloadPerSize(com.baidu.tieba.ala.alaar.sticker.b.b.getDownloadPerSize(j, j2));
+            this.guI.setStatus(3);
+            this.guI.setProgress(i);
+            this.guI.setDownloadPerSize(com.baidu.tieba.ala.alaar.sticker.b.b.getDownloadPerSize(j, j2));
             if (checkSendBroadLimit(i)) {
-                a(this.gkj);
+                a(this.guI);
             }
         }
 
         @Override // com.baidu.tieba.ala.alaar.sticker.download.a.a
         public void onCompleted(String str) {
-            this.gkj.setStatus(6);
-            this.gkj.setProgress(100);
-            this.gkj.setSavePath(str);
-            a(this.gkj);
+            this.guI.setStatus(6);
+            this.guI.setProgress(100);
+            this.guI.setSavePath(str);
+            a(this.guI);
         }
 
         @Override // com.baidu.tieba.ala.alaar.sticker.download.a.a
         public void onDownloadPaused() {
-            this.gkj.setStatus(4);
-            a(this.gkj);
+            this.guI.setStatus(4);
+            a(this.guI);
         }
 
         @Override // com.baidu.tieba.ala.alaar.sticker.download.a.a
         public void onDownloadCanceled() {
-            this.gkj.setStatus(0);
-            this.gkj.setProgress(0);
-            this.gkj.setDownloadPerSize("");
-            a(this.gkj);
+            this.guI.setStatus(0);
+            this.guI.setProgress(0);
+            this.guI.setDownloadPerSize("");
+            a(this.guI);
         }
 
         @Override // com.baidu.tieba.ala.alaar.sticker.download.a.a
         public void a(DownloadException downloadException) {
             downloadException.printStackTrace();
-            this.gkj.setStatus(5);
-            a(this.gkj);
+            this.guI.setStatus(5);
+            a(this.guI);
         }
 
         private void a(d dVar) {
@@ -239,7 +239,7 @@ public class CaptureDownloadService extends Service {
     @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
-        this.mDownloadManager = b.bQx();
+        this.mDownloadManager = b.bSW();
     }
 
     @Override // android.app.Service

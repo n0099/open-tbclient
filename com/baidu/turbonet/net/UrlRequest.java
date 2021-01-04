@@ -12,25 +12,23 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.concurrent.Executor;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public interface UrlRequest {
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static abstract class StatusListener {
-        public abstract void Ox(int i);
+        public abstract void onStatus(int i);
     }
 
-    void Oe(int i);
+    void NX(int i);
 
-    void Of(int i);
+    void NY(int i);
 
-    void Og(int i);
+    void NZ(int i);
 
-    void Xl(String str);
+    void WV(String str);
 
-    void Xm(String str);
-
-    void Xn(String str);
+    void WW(String str);
 
     void a(UploadDataProvider uploadDataProvider, Executor executor);
 
@@ -38,15 +36,17 @@ public interface UrlRequest {
 
     void cancel();
 
-    void ehh();
+    void ehC();
 
-    void ehi();
+    void ehD();
 
-    void ehj();
+    void followRedirect();
 
     Object getTag();
 
-    void n(ByteBuffer byteBuffer);
+    void read(ByteBuffer byteBuffer);
+
+    void setHttpMethod(String str);
 
     void setTag(Object obj);
 
@@ -54,33 +54,33 @@ public interface UrlRequest {
 
     void start();
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static final class Builder {
-        String dXK;
+        boolean mDisableCache;
+        boolean mDisableConnectionMigration;
         final Executor mExecutor;
+        String mMethod;
         Object mTag;
+        Executor mUploadDataProviderExecutor;
         final String mUrl;
-        final Callback oCM;
-        boolean oDc;
-        boolean oDd;
-        boolean oDe;
-        boolean oDg;
-        int oDh;
-        int oDi;
-        int oDj;
-        int oDk;
-        String oDl;
-        String oDm;
-        final TurbonetEngine oEy;
-        UploadDataProvider oFk;
-        Executor oFl;
-        boolean oFm;
-        final ArrayList<Pair<String, String>> oFj = new ArrayList<>();
+        final Callback oJQ;
+        boolean oKf;
+        boolean oKh;
+        int oKi;
+        int oKj;
+        int oKk;
+        int oKl;
+        String oKm;
+        String oKn;
+        UploadDataProvider oLJ;
+        boolean oLK;
+        final TurbonetEngine oLf;
+        final ArrayList<Pair<String, String>> mRequestHeaders = new ArrayList<>();
         int mPriority = 3;
-        Collection<Object> oDb = Collections.emptyList();
+        Collection<Object> mRequestAnnotations = Collections.emptyList();
 
         @Retention(RetentionPolicy.SOURCE)
-        /* loaded from: classes14.dex */
+        /* loaded from: classes5.dex */
         public @interface RequestPriority {
         }
 
@@ -98,29 +98,29 @@ public interface UrlRequest {
                 throw new NullPointerException("TurbonetEngine is required.");
             }
             this.mUrl = str;
-            this.oCM = callback;
+            this.oJQ = callback;
             this.mExecutor = executor;
-            this.oEy = turbonetEngine;
-            this.oFm = false;
-            this.oDg = false;
-            this.oDh = 0;
-            this.oDi = 0;
-            this.oDj = 0;
-            this.oDk = 0;
+            this.oLf = turbonetEngine;
+            this.oLK = false;
+            this.oKh = false;
+            this.oKi = 0;
+            this.oKj = 0;
+            this.oKk = 0;
+            this.oKl = 0;
             this.mTag = null;
-            this.oDl = null;
-            this.oDm = null;
+            this.oKm = null;
+            this.oKn = null;
         }
 
-        public Builder Xx(String str) {
+        public Builder Xg(String str) {
             if (str == null) {
                 throw new NullPointerException("Method is required.");
             }
-            this.dXK = str;
+            this.mMethod = str;
             return this;
         }
 
-        public Builder gV(String str, String str2) {
+        public Builder gT(String str, String str2) {
             if (str == null) {
                 throw new NullPointerException("Invalid header name.");
             }
@@ -130,48 +130,48 @@ public interface UrlRequest {
             if (Headers.ACCEPT_ENCODING.equalsIgnoreCase(str)) {
                 Log.w("cronet", "It's not necessary to set Accept-Encoding on requests - cronet will do this automatically for you, and setting it yourself has no effect. See https://crbug.com/581399 for details.", new Exception());
             } else {
-                this.oFj.add(Pair.create(str, str2));
+                this.mRequestHeaders.add(Pair.create(str, str2));
             }
             return this;
         }
 
-        public Builder eia() {
-            this.oDc = true;
+        public Builder ein() {
+            this.mDisableCache = true;
             return this;
         }
 
-        public Builder eib() {
-            this.oFm = true;
+        public Builder eio() {
+            this.oLK = true;
             return this;
         }
 
-        public Builder eic() {
-            this.oDe = true;
+        public Builder eip() {
+            this.oKf = true;
             return this;
         }
 
-        public Builder Ot(int i) {
-            this.oDh = i;
+        public Builder Oj(int i) {
+            this.oKi = i;
             return this;
         }
 
-        public Builder Ou(int i) {
-            this.oDi = i;
+        public Builder Ok(int i) {
+            this.oKj = i;
             return this;
         }
 
-        public Builder Ov(int i) {
-            this.oDj = i;
+        public Builder Ol(int i) {
+            this.oKk = i;
             return this;
         }
 
-        public Builder Xy(String str) {
-            this.oDl = str;
+        public Builder Xh(String str) {
+            this.oKm = str;
             return this;
         }
 
-        public Builder Xz(String str) {
-            this.oDm = str;
+        public Builder Xi(String str) {
+            this.oKn = str;
             return this;
         }
 
@@ -182,59 +182,59 @@ public interface UrlRequest {
             if (executor == null) {
                 throw new NullPointerException("Invalid UploadDataProvider Executor.");
             }
-            if (this.dXK == null) {
-                this.dXK = "POST";
+            if (this.mMethod == null) {
+                this.mMethod = "POST";
             }
-            this.oFk = uploadDataProvider;
-            this.oFl = executor;
+            this.oLJ = uploadDataProvider;
+            this.mUploadDataProviderExecutor = executor;
             return this;
         }
 
-        public UrlRequest eid() {
-            UrlRequest a2 = this.oEy.a(this.mUrl, this.oCM, this.mExecutor, this.mPriority, this.oDb, this.oDc, this.oDd, this.oDe);
-            if (this.dXK != null) {
-                a2.Xl(this.dXK);
+        public UrlRequest eiq() {
+            UrlRequest a2 = this.oLf.a(this.mUrl, this.oJQ, this.mExecutor, this.mPriority, this.mRequestAnnotations, this.mDisableCache, this.mDisableConnectionMigration, this.oKf);
+            if (this.mMethod != null) {
+                a2.setHttpMethod(this.mMethod);
             }
-            Iterator<Pair<String, String>> it = this.oFj.iterator();
+            Iterator<Pair<String, String>> it = this.mRequestHeaders.iterator();
             while (it.hasNext()) {
                 Pair<String, String> next = it.next();
                 a2.addHeader((String) next.first, (String) next.second);
             }
-            if (this.oFk != null) {
-                a2.a(this.oFk, this.oFl);
+            if (this.oLJ != null) {
+                a2.a(this.oLJ, this.mUploadDataProviderExecutor);
             }
-            if (this.oFm) {
-                a2.ehi();
+            if (this.oLK) {
+                a2.ehC();
             }
-            if (this.oDg) {
-                a2.ehj();
+            if (this.oKh) {
+                a2.ehD();
             }
-            if (this.oDh > 0) {
-                a2.setTimeout(this.oDh);
+            if (this.oKi > 0) {
+                a2.setTimeout(this.oKi);
             }
-            if (this.oDi > 0) {
-                a2.Oe(this.oDi);
+            if (this.oKj > 0) {
+                a2.NX(this.oKj);
             }
-            if (this.oDj > 0) {
-                a2.Of(this.oDj);
+            if (this.oKk > 0) {
+                a2.NY(this.oKk);
             }
-            if (this.oDk > 0) {
-                a2.Og(this.oDk);
+            if (this.oKl > 0) {
+                a2.NZ(this.oKl);
             }
             if (this.mTag != null) {
                 a2.setTag(this.mTag);
             }
-            if (!TextUtils.isEmpty(this.oDl)) {
-                a2.Xm(this.oDl);
+            if (!TextUtils.isEmpty(this.oKm)) {
+                a2.WV(this.oKm);
             }
-            if (!TextUtils.isEmpty(this.oDm)) {
-                a2.Xn(this.oDm);
+            if (!TextUtils.isEmpty(this.oKn)) {
+                a2.WW(this.oKn);
             }
             return a2;
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static abstract class Callback {
         public abstract void a(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo) throws Exception;
 
@@ -250,12 +250,12 @@ public interface UrlRequest {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static class Status {
         static final /* synthetic */ boolean $assertionsDisabled;
 
         @Retention(RetentionPolicy.SOURCE)
-        /* loaded from: classes14.dex */
+        /* loaded from: classes5.dex */
         public @interface StatusValues {
         }
 
@@ -267,7 +267,7 @@ public interface UrlRequest {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public static int Ow(int i) {
+        public static int Om(int i) {
             if ($assertionsDisabled || (i >= 0 && i <= 15)) {
                 switch (i) {
                     case 0:

@@ -4,25 +4,25 @@ import android.content.Intent;
 import android.net.Uri;
 import android.widget.Toast;
 import com.baidu.sapi2.utils.SapiUtils;
-/* loaded from: classes22.dex */
+/* loaded from: classes8.dex */
 final class bx implements eq {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackInputActivity f3794a;
+    final /* synthetic */ FeedbackInputActivity f5760a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bx(FeedbackInputActivity feedbackInputActivity) {
-        this.f3794a = feedbackInputActivity;
+        this.f5760a = feedbackInputActivity;
     }
 
     @Override // com.baidu.ufosdk.ui.eq
     public final void a(String str) {
         if (str.equals("我的反馈")) {
-            this.f3794a.t = true;
-            Intent intent = new Intent(this.f3794a, FeedbackListActivity.class);
+            this.f5760a.t = true;
+            Intent intent = new Intent(this.f5760a, FeedbackListActivity.class);
             intent.putExtra("feedback_channel", com.baidu.ufosdk.b.j);
-            this.f3794a.startActivity(intent);
-            this.f3794a.finish();
+            this.f5760a.startActivity(intent);
+            this.f5760a.finish();
         } else if (str.equals("人工反馈")) {
             new Thread(new by(this)).start();
         } else if (str.toLowerCase().startsWith("href")) {
@@ -36,7 +36,7 @@ final class bx implements eq {
                 try {
                     com.baidu.ufosdk.f.c.a("打开浏览器...");
                     com.baidu.ufosdk.f.c.a(">>跳转链接：" + substring);
-                    this.f3794a.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(substring)));
+                    this.f5760a.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(substring)));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -47,10 +47,10 @@ final class bx implements eq {
                     Intent intent2 = new Intent();
                     intent2.setAction("android.intent.action.VIEW");
                     intent2.setData(Uri.parse(substring));
-                    this.f3794a.startActivity(intent2);
+                    this.f5760a.startActivity(intent2);
                 } catch (Exception e2) {
                     e2.printStackTrace();
-                    Toast.makeText(this.f3794a.getApplicationContext(), "打开失败，未安装百度地图！", 0).show();
+                    Toast.makeText(this.f5760a.getApplicationContext(), "打开失败，未安装百度地图！", 0).show();
                 }
             }
         }

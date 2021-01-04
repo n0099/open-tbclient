@@ -19,7 +19,7 @@ import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.sapi2.result.OneKeyLoginResult;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class VerticalTranslateLayout extends FrameLayout {
     static final /* synthetic */ boolean $assertionsDisabled;
     public static final String BOTTOM = "bottom";
@@ -62,20 +62,20 @@ public class VerticalTranslateLayout extends FrameLayout {
     private final Tracker mTracker;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface OnBottomAnimationListener {
         void onBottomAnimationEnd();
 
         void onRightAnimationStart();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     interface OnBottomTrackListener {
         void onBottomTrackStart();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface OnOpenAnimationListener {
         void onOpenAnimationEnd();
 
@@ -83,26 +83,26 @@ public class VerticalTranslateLayout extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface OnTopAnimationListener {
         void onLeftAnimationStart();
 
         void onTopAnimationEnd();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     interface OnTopTrackListener {
         void onTopTrackStart();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface OnVerticalTrackListener {
         void onStartVerticalTrack(int i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public enum TrackDirection {
         top,
         bottom,
@@ -141,7 +141,7 @@ public class VerticalTranslateLayout extends FrameLayout {
             if (canTop() && canBottom() && VERTICAL.equals(string)) {
                 BdLog.d("VerticalTranslateLayout@parseTrack vertical");
                 this.mTrackDirection = TrackDirection.vertical;
-            } else if (canBottom() && BOTTOM.equals(string)) {
+            } else if (canBottom() && "bottom".equals(string)) {
                 BdLog.d("VerticalTranslateLayout@parseTrack bottom");
                 this.mTrackDirection = TrackDirection.bottom;
             } else if (canTop() && TOP.equals(string)) {
@@ -159,7 +159,7 @@ public class VerticalTranslateLayout extends FrameLayout {
                 BdLog.d("VerticalTranslateLayout@loadAttrs tap area " + str);
                 if (TOP.equals(str) && this.mTopOffset != -1.0f) {
                     this.mTopTapBack = true;
-                } else if (BOTTOM.equals(str) && this.mBottomOffset != -1.0f) {
+                } else if ("bottom".equals(str) && this.mBottomOffset != -1.0f) {
                     this.mBottomTapBack = true;
                 } else {
                     BdLog.d("VerticalTranslateLayout@loadAttrs tap_back_area value illegal");
@@ -480,7 +480,7 @@ public class VerticalTranslateLayout extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public class AnimationHandler extends Handler {
         private AnimationHandler() {
         }
@@ -511,7 +511,7 @@ public class VerticalTranslateLayout extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public class Tracker {
         static final float MIN_VELOCITY = 500.0f;
         static final int VELOCITY_UNIT = 200;
@@ -652,7 +652,7 @@ public class VerticalTranslateLayout extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public class Animator {
         static final String TAG = "Animator";
         static final int VELOCITY = 600;

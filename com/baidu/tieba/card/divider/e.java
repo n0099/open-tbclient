@@ -2,12 +2,12 @@ package com.baidu.tieba.card.divider;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.card.data.BaseCardInfo;
-/* loaded from: classes21.dex */
+/* loaded from: classes.dex */
 public class e extends BaseCardInfo {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
     public String title;
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
         return TYPE;
     }

@@ -25,6 +25,7 @@ import android.view.WindowManager;
 import com.baidu.down.manage.DownloadConstants;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import com.baidu.mobads.interfaces.utils.IBase64;
 import com.baidu.mobads.interfaces.utils.IXAdCommonUtils;
 import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
@@ -48,12 +49,14 @@ import java.util.concurrent.atomic.AtomicLong;
 import org.json.JSONArray;
 import org.json.JSONObject;
 @SuppressLint({"NewApi"})
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class e implements IXAdCommonUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f2439a;
-    private static String b;
+    private static String f3529a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private static String f3530b;
     private static String c;
     private static String d;
     private final String e = "_cpr";
@@ -157,7 +160,7 @@ public class e implements IXAdCommonUtils {
         byte[] bytes = str.getBytes();
         char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            MessageDigest messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
             messageDigest.update(bytes);
             byte[] digest = messageDigest.digest();
             char[] cArr2 = new char[32];
@@ -249,10 +252,10 @@ public class e implements IXAdCommonUtils {
     @Override // com.baidu.mobads.interfaces.utils.IXAdCommonUtils
     public String getDebugToken(Context context) {
         try {
-            if (b == null) {
-                b = d(context, IXAdCommonUtils.DEBUG_TOKEN);
+            if (f3530b == null) {
+                f3530b = d(context, IXAdCommonUtils.DEBUG_TOKEN);
             }
-            return b;
+            return f3530b;
         } catch (Exception e) {
             return "";
         }
@@ -261,10 +264,10 @@ public class e implements IXAdCommonUtils {
     @Override // com.baidu.mobads.interfaces.utils.IXAdCommonUtils
     public String getAppId(Context context) {
         try {
-            if (f2439a == null) {
-                f2439a = d(context, IXAdCommonUtils.APPSID);
+            if (f3529a == null) {
+                f3529a = d(context, IXAdCommonUtils.APPSID);
             }
-            return f2439a;
+            return f3529a;
         } catch (Exception e) {
             return "";
         }
@@ -299,7 +302,7 @@ public class e implements IXAdCommonUtils {
     @Override // com.baidu.mobads.interfaces.utils.IXAdCommonUtils
     public String md5(String str) {
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            MessageDigest messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
             messageDigest.update(str.getBytes());
             byte[] digest = messageDigest.digest();
             StringBuffer stringBuffer = new StringBuffer();
@@ -563,7 +566,7 @@ public class e implements IXAdCommonUtils {
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdCommonUtils
     public void setAppId(String str) {
-        f2439a = str;
+        f3529a = str;
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:51:0x010a -> B:13:0x004f). Please submit an issue!!! */
@@ -756,7 +759,6 @@ public class e implements IXAdCommonUtils {
     @Override // com.baidu.mobads.interfaces.utils.IXAdCommonUtils
     public JSONArray array2Json(double[] dArr) {
         JSONArray jSONArray;
-        Exception e;
         if (dArr == null) {
             return null;
         }
@@ -765,16 +767,16 @@ public class e implements IXAdCommonUtils {
             for (double d2 : dArr) {
                 try {
                     jSONArray.put(d2);
-                } catch (Exception e2) {
-                    e = e2;
+                } catch (Exception e) {
+                    e = e;
                     XAdSDKFoundationFacade.getInstance().getAdLogger().d(e);
                     return jSONArray;
                 }
             }
             return jSONArray;
-        } catch (Exception e3) {
+        } catch (Exception e2) {
+            e = e2;
             jSONArray = null;
-            e = e3;
         }
     }
 

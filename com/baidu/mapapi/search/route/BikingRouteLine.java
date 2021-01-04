@@ -12,11 +12,11 @@ import com.baidu.mapapi.search.core.RouteStep;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class BikingRouteLine extends RouteLine<BikingStep> implements Parcelable {
     public static final Parcelable.Creator<BikingRouteLine> CREATOR = new a();
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public static class BikingStep extends RouteStep implements Parcelable {
         public static final Parcelable.Creator<BikingStep> CREATOR = new b();
         private int d;

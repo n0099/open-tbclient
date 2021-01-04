@@ -1,13 +1,13 @@
 package io.reactivex;
 
 import io.reactivex.internal.subscribers.StrictSubscriber;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public abstract class g<T> implements org.a.b<T> {
     static final int BUFFER_SIZE = Math.max(1, Integer.getInteger("rx2.buffer-size", 128).intValue());
 
     protected abstract void a(org.a.c<? super T> cVar);
 
-    public static int eCS() {
+    public static int eLa() {
         return BUFFER_SIZE;
     }
 
@@ -35,7 +35,7 @@ public abstract class g<T> implements org.a.b<T> {
         } catch (NullPointerException e) {
             throw e;
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.J(th);
+            io.reactivex.exceptions.a.O(th);
             io.reactivex.d.a.onError(th);
             NullPointerException nullPointerException = new NullPointerException("Actually not, but can't throw other exceptions due to RS");
             nullPointerException.initCause(th);

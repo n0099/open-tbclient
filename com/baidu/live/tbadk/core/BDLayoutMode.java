@@ -20,11 +20,10 @@ import com.baidu.live.adp.base.BdBaseApplication;
 import com.baidu.live.adp.lib.safe.JavaTypesHelper;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.TbConfig;
-import com.baidu.searchbox.ugc.model.UgcConstant;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class BDLayoutMode {
     private static final String ATTR_NAME_BACKGROUND = "tb_background";
     private static final String ATTR_NAME_DIVIDER = "tb_divider";
@@ -49,13 +48,13 @@ public class BDLayoutMode {
     public void initModeInfos(String str, Context context, AttributeSet attributeSet) {
         int[] resID;
         int i;
-        boolean z = false;
         try {
             this.contextRes = context.getResources();
             this.pluginRes = this.contextRes;
             int attributeCount = attributeSet.getAttributeCount();
             BDLayoutInfo bDLayoutInfo = new BDLayoutInfo();
             bDLayoutInfo.setViewClassName(str);
+            boolean z = false;
             for (int i2 = 0; i2 < attributeCount; i2++) {
                 String attributeName = attributeSet.getAttributeName(i2);
                 String attributeValue = attributeSet.getAttributeValue(i2);
@@ -151,12 +150,10 @@ public class BDLayoutMode {
     }
 
     public static int getNightResouce(Resources resources, Resources resources2, int i) {
-        String str;
         int i2;
         if (IS_SUPPORT_NIGHT) {
             String resourceName = resources.getResourceName(i);
             if (TextUtils.isEmpty(resourceName)) {
-                str = resourceName;
                 i2 = i;
             } else {
                 if (sPacknameLength == 0) {
@@ -166,12 +163,10 @@ public class BDLayoutMode {
                 if (resourceName.length() > sPacknameLength && resourceName.charAt(sPacknameLength) != ':' && resourceName.startsWith(sPackagename)) {
                     resourceName = sPackagename + resourceName.substring(resourceName.indexOf(":"));
                 }
-                String str2 = resourceName;
                 i2 = resources2.getIdentifier(resourceName + nightSufix, null, null);
-                str = str2;
             }
             if (i2 == 0) {
-                BdLog.e(str + " 缺少夜间资源,使用了日间资源");
+                BdLog.e(resourceName + " 缺少夜间资源,使用了日间资源");
                 return i;
             }
             return i2;
@@ -201,7 +196,7 @@ public class BDLayoutMode {
     }
 
     private void changeForViewGroup(ViewGroup viewGroup) {
-        String str = UgcConstant.AT_RULE_TAG + viewGroup.getId();
+        String str = "@" + viewGroup.getId();
         if (this.viewModeInfos != null && this.viewModeInfos.containsKey(str)) {
             BDLayoutInfo bDLayoutInfo = this.viewModeInfos.get(str);
             if (viewGroup instanceof AdapterView) {
@@ -237,7 +232,7 @@ public class BDLayoutMode {
         Drawable drawable2;
         Drawable drawable3;
         int styleResID;
-        String str = UgcConstant.AT_RULE_TAG + view.getId();
+        String str = "@" + view.getId();
         if (this.viewModeInfos != null && this.viewModeInfos.containsKey(str)) {
             BDLayoutInfo bDLayoutInfo = this.viewModeInfos.get(str);
             if (view instanceof TextView) {

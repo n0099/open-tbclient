@@ -1,16 +1,16 @@
 package com.baidu.adp.widget.ListView;
 
-import android.view.View;
 import android.view.ViewGroup;
+import java.util.List;
 /* loaded from: classes.dex */
 public interface s<V extends ViewGroup> {
-    int getContentViewsCount();
+    void addAdapters(List<a> list);
 
-    int getFooterViewsCount();
+    List<n> getData();
 
-    int getHeaderViewsCount();
+    o getListAdapter();
 
     V getListView();
 
-    boolean removeHeaderView(View view);
+    void setData(List<? extends n> list);
 }

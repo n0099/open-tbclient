@@ -3,12 +3,14 @@ package com.baidu.ufosdk.ui;
 import android.content.Context;
 import android.widget.LinearLayout;
 import java.util.ArrayList;
-/* loaded from: classes22.dex */
+/* loaded from: classes8.dex */
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    LinearLayout.LayoutParams f3874a;
-    LinearLayout b;
+    LinearLayout.LayoutParams f5867a;
+
+    /* renamed from: b  reason: collision with root package name */
+    LinearLayout f5868b;
     LinearLayout c;
     private ArrayList d = new ArrayList();
     private ArrayList e = new ArrayList();
@@ -32,22 +34,22 @@ public final class f {
     }
 
     public final LinearLayout a() {
-        this.b = new LinearLayout(this.f);
-        this.b.setOrientation(1);
-        this.b.setBackgroundColor(-1);
-        this.f3874a = new LinearLayout.LayoutParams(-1, -1);
-        this.f3874a.setMargins(com.baidu.ufosdk.f.i.a(this.f, 15.0f), com.baidu.ufosdk.f.i.a(this.f, 2.0f), com.baidu.ufosdk.f.i.a(this.f, 15.0f), com.baidu.ufosdk.f.i.a(this.f, 14.0f));
+        this.f5868b = new LinearLayout(this.f);
+        this.f5868b.setOrientation(1);
+        this.f5868b.setBackgroundColor(-1);
+        this.f5867a = new LinearLayout.LayoutParams(-1, -1);
+        this.f5867a.setMargins(com.baidu.ufosdk.f.i.a(this.f, 15.0f), com.baidu.ufosdk.f.i.a(this.f, 2.0f), com.baidu.ufosdk.f.i.a(this.f, 15.0f), com.baidu.ufosdk.f.i.a(this.f, 14.0f));
         int i = 0;
         while (true) {
             int i2 = i;
             if (i2 >= this.d.size()) {
-                return this.b;
+                return this.f5868b;
             }
             e eVar = new e(this.f);
             eVar.a();
             eVar.a((String) this.d.get(i2));
             eVar.a(com.baidu.ufosdk.b.U);
-            this.b.addView(eVar, this.f3874a);
+            this.f5868b.addView(eVar, this.f5867a);
             eVar.setOnClickListener(new g(this, eVar));
             i = i2 + 1;
         }
@@ -57,8 +59,8 @@ public final class f {
         this.c = new LinearLayout(this.f);
         this.c.setOrientation(1);
         this.c.setBackgroundColor(-1);
-        this.f3874a = new LinearLayout.LayoutParams(-1, -1);
-        this.f3874a.setMargins(com.baidu.ufosdk.f.i.a(this.f, 5.0f), com.baidu.ufosdk.f.i.a(this.f, 2.0f), com.baidu.ufosdk.f.i.a(this.f, 15.0f), com.baidu.ufosdk.f.i.a(this.f, 14.0f));
+        this.f5867a = new LinearLayout.LayoutParams(-1, -1);
+        this.f5867a.setMargins(com.baidu.ufosdk.f.i.a(this.f, 5.0f), com.baidu.ufosdk.f.i.a(this.f, 2.0f), com.baidu.ufosdk.f.i.a(this.f, 15.0f), com.baidu.ufosdk.f.i.a(this.f, 14.0f));
         int i = 0;
         while (true) {
             int i2 = i;
@@ -69,7 +71,7 @@ public final class f {
             eVar.a();
             eVar.a((String) this.e.get(i2));
             eVar.a(com.baidu.ufosdk.b.U);
-            this.c.addView(eVar, this.f3874a);
+            this.c.addView(eVar, this.f5867a);
             eVar.setOnClickListener(new h(this, eVar));
             i = i2 + 1;
         }

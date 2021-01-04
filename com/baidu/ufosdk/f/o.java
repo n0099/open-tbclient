@@ -12,7 +12,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.reflect.Field;
-/* loaded from: classes22.dex */
+/* loaded from: classes8.dex */
 public final class o {
     private static int a(byte[] bArr, int i) {
         return bArr[i + 0] | (bArr[i + 1] << 8) | (bArr[i + 2] << 16) | (bArr[i + 3] << 24);
@@ -116,8 +116,8 @@ public final class o {
         bitmap.getPixels(iArr, 0, width, 1, 0, width - 2, 1);
         boolean z = iArr[0] == -16777216;
         boolean z2 = iArr[iArr.length + (-1)] == -16777216;
-        int length = iArr.length;
         int i2 = 0;
+        int length = iArr.length;
         int i3 = 0;
         for (int i4 = 0; i4 < length; i4++) {
             if (i2 != iArr[i4]) {
@@ -138,8 +138,8 @@ public final class o {
         bitmap.getPixels(iArr2, 0, 1, 0, 1, 1, height - 2);
         boolean z3 = iArr2[0] == -16777216;
         boolean z4 = iArr2[iArr2.length + (-1)] == -16777216;
-        int length2 = iArr2.length;
         int i9 = 0;
+        int length2 = iArr2.length;
         int i10 = 0;
         for (int i11 = 0; i11 < length2; i11++) {
             if (i9 != iArr2[i11]) {

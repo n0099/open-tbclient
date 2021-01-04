@@ -2,7 +2,7 @@ package com.google.zxing.datamatrix.decoder;
 
 import com.google.zxing.FormatException;
 import com.google.zxing.common.BitMatrix;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 final class BitMatrixParser {
     private final BitMatrix mappingBitMatrix;
     private final BitMatrix readMappingMatrix;
@@ -35,93 +35,85 @@ final class BitMatrixParser {
         int i3;
         int i4;
         int i5;
-        int i6;
-        boolean z = false;
         byte[] bArr = new byte[this.version.getTotalCodewords()];
         int height = this.mappingBitMatrix.getHeight();
         int width = this.mappingBitMatrix.getWidth();
+        boolean z = false;
         boolean z2 = false;
         boolean z3 = false;
         boolean z4 = false;
-        int i7 = 0;
-        int i8 = 4;
-        int i9 = 0;
+        int i6 = 0;
+        int i7 = 4;
+        int i8 = 0;
         while (true) {
-            if (i8 == height && i7 == 0 && !z4) {
-                bArr[i9] = (byte) readCorner1(height, width);
-                int i10 = i7 + 2;
-                i3 = i9 + 1;
-                i5 = i8 - 2;
-                i6 = i10;
+            if (i7 == height && i6 == 0 && !z4) {
+                i3 = i8 + 1;
+                bArr[i8] = (byte) readCorner1(height, width);
+                i5 = i7 - 2;
+                i6 += 2;
                 z4 = true;
-            } else if (i8 == height - 2 && i7 == 0 && (width & 3) != 0 && !z3) {
-                bArr[i9] = (byte) readCorner2(height, width);
-                int i11 = i7 + 2;
-                i3 = i9 + 1;
-                i5 = i8 - 2;
-                i6 = i11;
+            } else if (i7 == height - 2 && i6 == 0 && (width & 3) != 0 && !z3) {
+                i3 = i8 + 1;
+                bArr[i8] = (byte) readCorner2(height, width);
+                i5 = i7 - 2;
+                i6 += 2;
                 z3 = true;
-            } else if (i8 == height + 4 && i7 == 2 && (width & 7) == 0 && !z2) {
-                bArr[i9] = (byte) readCorner3(height, width);
-                int i12 = i7 + 2;
-                i3 = i9 + 1;
-                i5 = i8 - 2;
-                i6 = i12;
+            } else if (i7 == height + 4 && i6 == 2 && (width & 7) == 0 && !z2) {
+                i3 = i8 + 1;
+                bArr[i8] = (byte) readCorner3(height, width);
+                i5 = i7 - 2;
+                i6 += 2;
                 z2 = true;
-            } else if (i8 == height - 2 && i7 == 0 && (width & 7) == 4 && !z) {
-                bArr[i9] = (byte) readCorner4(height, width);
-                int i13 = i7 + 2;
-                i3 = i9 + 1;
-                i5 = i8 - 2;
-                i6 = i13;
+            } else if (i7 == height - 2 && i6 == 0 && (width & 7) == 4 && !z) {
+                i3 = i8 + 1;
+                bArr[i8] = (byte) readCorner4(height, width);
+                i5 = i7 - 2;
+                i6 += 2;
                 z = true;
             } else {
-                int i14 = i7;
-                int i15 = i8;
-                int i16 = i9;
-                int i17 = i15;
+                int i9 = i6;
+                int i10 = i7;
+                int i11 = i8;
                 while (true) {
-                    if (i17 >= height || i14 < 0 || this.readMappingMatrix.get(i14, i17)) {
-                        i = i16;
+                    if (i10 >= height || i9 < 0 || this.readMappingMatrix.get(i9, i10)) {
+                        i = i11;
                     } else {
-                        i = i16 + 1;
-                        bArr[i16] = (byte) readUtah(i17, i14, height, width);
+                        i = i11 + 1;
+                        bArr[i11] = (byte) readUtah(i10, i9, height, width);
                     }
-                    i17 -= 2;
-                    i2 = i14 + 2;
-                    if (i17 < 0 || i2 >= width) {
+                    i10 -= 2;
+                    i2 = i9 + 2;
+                    if (i10 < 0 || i2 >= width) {
                         break;
                     }
-                    i14 = i2;
-                    i16 = i;
+                    i9 = i2;
+                    i11 = i;
                 }
-                int i18 = i17 + 1;
-                int i19 = i2 + 3;
-                int i20 = i;
+                int i12 = i2 + 3;
+                int i13 = i10 + 1;
                 while (true) {
-                    if (i18 < 0 || i19 >= width || this.readMappingMatrix.get(i19, i18)) {
-                        i3 = i20;
+                    if (i13 < 0 || i12 >= width || this.readMappingMatrix.get(i12, i13)) {
+                        i3 = i;
                     } else {
-                        i3 = i20 + 1;
-                        bArr[i20] = (byte) readUtah(i18, i19, height, width);
+                        i3 = i + 1;
+                        bArr[i] = (byte) readUtah(i13, i12, height, width);
                     }
-                    i18 += 2;
-                    i4 = i19 - 2;
-                    if (i18 >= height || i4 < 0) {
+                    i13 += 2;
+                    i4 = i12 - 2;
+                    if (i13 >= height || i4 < 0) {
                         break;
                     }
-                    i19 = i4;
-                    i20 = i3;
+                    i12 = i4;
+                    i = i3;
                 }
-                i5 = i18 + 3;
+                i5 = i13 + 3;
                 i6 = i4 + 1;
             }
             if (i5 >= height && i6 >= width) {
                 break;
             }
-            i9 = i3;
-            i7 = i6;
-            i8 = i5;
+            i7 = i5;
+            i8 = i3;
         }
         if (i3 != this.version.getTotalCodewords()) {
             throw FormatException.getFormatInstance();

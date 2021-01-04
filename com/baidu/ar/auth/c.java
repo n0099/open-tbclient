@@ -3,7 +3,6 @@ package com.baidu.ar.auth;
 import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.ar.auth.k;
 import com.baidu.ar.bean.ARConfig;
 import com.baidu.ar.bean.DuMixARConfig;
@@ -18,7 +17,7 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashSet;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 class c implements k {
     private boolean jr;
     private k.a ju;
@@ -47,7 +46,7 @@ class c implements k {
             jSONObject.put(HttpConstants.FUNCTION_TYPE, com.baidu.ar.h.c.gy());
             jSONObject.put(HttpConstants.SDK_VERSION_CODE, com.baidu.ar.h.c.getVersionCode());
             jSONObject.put(HttpConstants.SDK_VERSION_NAME, com.baidu.ar.h.c.getVersionName());
-            jSONObject.put(HttpConstants.HTTP_OS_TYPE, "android");
+            jSONObject.put(HttpConstants.HTTP_OS_TYPE, HttpConstants.OS_TYPE_VALUE);
             jSONObject.put("os_version", Build.VERSION.RELEASE);
             jSONObject.put("device_id", Build.MODEL.toLowerCase());
             jSONObject.put("ar_key", ARConfig.getARKey());
@@ -107,9 +106,9 @@ class c implements k {
                 if (jSONObject == null) {
                     return;
                 }
-                if (jSONObject != null && jSONObject.has(AlaRecorderLog.KEY_ERROR_MSG)) {
+                if (jSONObject != null && jSONObject.has("error_msg")) {
                     try {
-                        message = jSONObject.getString(AlaRecorderLog.KEY_ERROR_MSG);
+                        message = jSONObject.getString("error_msg");
                     } catch (JSONException e2) {
                         message = e2.getMessage();
                     }

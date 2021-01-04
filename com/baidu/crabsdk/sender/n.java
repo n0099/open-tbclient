@@ -2,22 +2,22 @@ package com.baidu.crabsdk.sender;
 
 import android.content.Context;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public final class n implements Runnable {
-    final /* synthetic */ Context arn;
-    final /* synthetic */ Throwable aro;
+    final /* synthetic */ Context arJ;
+    final /* synthetic */ Throwable arK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(Context context, Throwable th) {
-        this.arn = context;
-        this.aro = th;
+        this.arJ = context;
+        this.arK = th;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         try {
-            i.c(this.arn, i.e(g.a(this.arn, this.aro, false)));
-            k.n(this.arn);
+            i.c(this.arJ, i.e(g.a(this.arJ, this.arK, false)));
+            k.n(this.arJ);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -1,22 +1,11 @@
 package com.baidu.tieba.tbadkCore.data;
+
+import android.graphics.Bitmap;
 /* loaded from: classes.dex */
 public class p {
-    private String lCg;
-    private int nmV;
-
-    public int dPu() {
-        return this.nmV;
-    }
-
-    public void KW(int i) {
-        this.nmV = i;
-    }
-
-    public String dPv() {
-        return this.lCg;
-    }
-
-    public void TH(String str) {
-        this.lCg = str;
-    }
+    public String nsD;
+    public Bitmap nsE;
+    public String nsF;
+    public String nsG;
+    public int type = 0;
 }

@@ -5,12 +5,14 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-/* loaded from: classes22.dex */
+/* loaded from: classes8.dex */
 final class da {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f3824a;
-    public ImageView b;
+    public TextView f5797a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public ImageView f5798b;
     public ListView c;
     public TextView d;
     public TextView e;

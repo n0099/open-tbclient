@@ -8,7 +8,7 @@ import java.io.ByteArrayOutputStream;
 import java.math.BigInteger;
 import java.nio.charset.Charset;
 import java.util.Arrays;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 final class DecodedBitStreamParser {
     private static final int AL = 28;
     private static final int AS = 27;
@@ -36,7 +36,7 @@ final class DecodedBitStreamParser {
     private static final Charset DEFAULT_ENCODING = Charset.forName("ISO-8859-1");
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes6.dex */
     public enum Mode {
         ALPHA,
         LOWER,
@@ -73,11 +73,11 @@ final class DecodedBitStreamParser {
                 case 900:
                     decodeMacroBlock = textCompaction(iArr, i, sb);
                     break;
-                case BYTE_COMPACTION_MODE_LATCH /* 901 */:
+                case 901:
                 case 924:
                     decodeMacroBlock = byteCompaction(i2, iArr, charset, i, sb);
                     break;
-                case NUMERIC_COMPACTION_MODE_LATCH /* 902 */:
+                case 902:
                     decodeMacroBlock = numericCompaction(iArr, i, sb);
                     break;
                 case MODE_SHIFT_TO_BYTE_COMPACTION_MODE /* 913 */:
@@ -137,9 +137,9 @@ final class DecodedBitStreamParser {
         if (iArr[textCompaction] == 923) {
             int i3 = textCompaction + 1;
             int[] iArr3 = new int[iArr[0] - i3];
+            boolean z = false;
             int i4 = 0;
             int i5 = i3;
-            boolean z = false;
             while (i5 < iArr[0] && !z) {
                 int i6 = i5 + 1;
                 int i7 = iArr[i5];
@@ -151,8 +151,8 @@ final class DecodedBitStreamParser {
                     switch (i7) {
                         case 922:
                             pDF417ResultMetadata.setLastSegment(true);
-                            i5 = i6 + 1;
                             z = true;
+                            i5 = i6 + 1;
                             break;
                         default:
                             throw FormatException.getFormatInstance();
@@ -189,8 +189,8 @@ final class DecodedBitStreamParser {
                         i2++;
                         i = i3;
                         continue;
-                    case BYTE_COMPACTION_MODE_LATCH /* 901 */:
-                    case NUMERIC_COMPACTION_MODE_LATCH /* 902 */:
+                    case 901:
+                    case 902:
                     case 922:
                     case 923:
                     case 924:
@@ -214,158 +214,229 @@ final class DecodedBitStreamParser {
         return i;
     }
 
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     private static void decodeTextCompaction(int[] iArr, int[] iArr2, int i, StringBuilder sb) {
-        Mode mode = Mode.ALPHA;
-        Mode mode2 = Mode.ALPHA;
-        for (int i2 = 0; i2 < i; i2++) {
+        Mode mode;
+        Mode mode2;
+        Mode mode3 = Mode.ALPHA;
+        Mode mode4 = Mode.ALPHA;
+        int i2 = 0;
+        while (i2 < i) {
             int i3 = iArr[i2];
             char c = 0;
-            switch (mode) {
+            switch (mode3) {
                 case ALPHA:
                     if (i3 < 26) {
                         c = (char) (i3 + 65);
-                        break;
-                    } else if (i3 == 26) {
-                        c = ' ';
-                        break;
-                    } else if (i3 == 27) {
-                        mode = Mode.LOWER;
-                        break;
-                    } else if (i3 == 28) {
-                        mode = Mode.MIXED;
-                        break;
-                    } else if (i3 == 29) {
-                        Mode mode3 = mode;
-                        mode = Mode.PUNCT_SHIFT;
+                        mode = mode4;
                         mode2 = mode3;
                         break;
-                    } else if (i3 == MODE_SHIFT_TO_BYTE_COMPACTION_MODE) {
-                        sb.append((char) iArr2[i2]);
-                        break;
-                    } else if (i3 == 900) {
-                        mode = Mode.ALPHA;
+                    } else if (i3 != 26) {
+                        if (i3 == 27) {
+                            mode = mode4;
+                            mode2 = Mode.LOWER;
+                            break;
+                        } else if (i3 == 28) {
+                            mode = mode4;
+                            mode2 = Mode.MIXED;
+                            break;
+                        } else if (i3 == 29) {
+                            mode = mode3;
+                            mode2 = Mode.PUNCT_SHIFT;
+                            break;
+                        } else if (i3 == MODE_SHIFT_TO_BYTE_COMPACTION_MODE) {
+                            sb.append((char) iArr2[i2]);
+                            mode = mode4;
+                            mode2 = mode3;
+                            break;
+                        } else {
+                            if (i3 == 900) {
+                                mode = mode4;
+                                mode2 = Mode.ALPHA;
+                                break;
+                            }
+                            mode = mode4;
+                            mode2 = mode3;
+                            break;
+                        }
+                    } else {
+                        c = ' ';
+                        mode = mode4;
+                        mode2 = mode3;
                         break;
                     }
-                    break;
                 case LOWER:
                     if (i3 < 26) {
                         c = (char) (i3 + 97);
+                        mode = mode4;
+                        mode2 = mode3;
                         break;
-                    } else if (i3 == 26) {
+                    } else if (i3 != 26) {
+                        if (i3 == 27) {
+                            mode = mode3;
+                            mode2 = Mode.ALPHA_SHIFT;
+                            break;
+                        } else if (i3 == 28) {
+                            mode = mode4;
+                            mode2 = Mode.MIXED;
+                            break;
+                        } else if (i3 == 29) {
+                            mode = mode3;
+                            mode2 = Mode.PUNCT_SHIFT;
+                            break;
+                        } else if (i3 == MODE_SHIFT_TO_BYTE_COMPACTION_MODE) {
+                            sb.append((char) iArr2[i2]);
+                            mode = mode4;
+                            mode2 = mode3;
+                            break;
+                        } else {
+                            if (i3 == 900) {
+                                mode = mode4;
+                                mode2 = Mode.ALPHA;
+                                break;
+                            }
+                            mode = mode4;
+                            mode2 = mode3;
+                            break;
+                        }
+                    } else {
                         c = ' ';
-                        break;
-                    } else if (i3 == 27) {
-                        Mode mode4 = mode;
-                        mode = Mode.ALPHA_SHIFT;
-                        mode2 = mode4;
-                        break;
-                    } else if (i3 == 28) {
-                        mode = Mode.MIXED;
-                        break;
-                    } else if (i3 == 29) {
-                        Mode mode5 = mode;
-                        mode = Mode.PUNCT_SHIFT;
-                        mode2 = mode5;
-                        break;
-                    } else if (i3 == MODE_SHIFT_TO_BYTE_COMPACTION_MODE) {
-                        sb.append((char) iArr2[i2]);
-                        break;
-                    } else if (i3 == 900) {
-                        mode = Mode.ALPHA;
+                        mode = mode4;
+                        mode2 = mode3;
                         break;
                     }
-                    break;
                 case MIXED:
                     if (i3 < 25) {
                         c = MIXED_CHARS[i3];
+                        mode = mode4;
+                        mode2 = mode3;
                         break;
                     } else if (i3 == 25) {
-                        mode = Mode.PUNCT;
+                        mode = mode4;
+                        mode2 = Mode.PUNCT;
                         break;
-                    } else if (i3 == 26) {
+                    } else if (i3 != 26) {
+                        if (i3 == 27) {
+                            mode = mode4;
+                            mode2 = Mode.LOWER;
+                            break;
+                        } else if (i3 == 28) {
+                            mode = mode4;
+                            mode2 = Mode.ALPHA;
+                            break;
+                        } else if (i3 == 29) {
+                            mode = mode3;
+                            mode2 = Mode.PUNCT_SHIFT;
+                            break;
+                        } else if (i3 == MODE_SHIFT_TO_BYTE_COMPACTION_MODE) {
+                            sb.append((char) iArr2[i2]);
+                            mode = mode4;
+                            mode2 = mode3;
+                            break;
+                        } else {
+                            if (i3 == 900) {
+                                mode = mode4;
+                                mode2 = Mode.ALPHA;
+                                break;
+                            }
+                            mode = mode4;
+                            mode2 = mode3;
+                            break;
+                        }
+                    } else {
                         c = ' ';
-                        break;
-                    } else if (i3 == 27) {
-                        mode = Mode.LOWER;
-                        break;
-                    } else if (i3 == 28) {
-                        mode = Mode.ALPHA;
-                        break;
-                    } else if (i3 == 29) {
-                        Mode mode6 = mode;
-                        mode = Mode.PUNCT_SHIFT;
-                        mode2 = mode6;
-                        break;
-                    } else if (i3 == MODE_SHIFT_TO_BYTE_COMPACTION_MODE) {
-                        sb.append((char) iArr2[i2]);
-                        break;
-                    } else if (i3 == 900) {
-                        mode = Mode.ALPHA;
+                        mode = mode4;
+                        mode2 = mode3;
                         break;
                     }
-                    break;
                 case PUNCT:
                     if (i3 < 29) {
                         c = PUNCT_CHARS[i3];
+                        mode = mode4;
+                        mode2 = mode3;
                         break;
                     } else if (i3 == 29) {
-                        mode = Mode.ALPHA;
+                        mode = mode4;
+                        mode2 = Mode.ALPHA;
                         break;
                     } else if (i3 == MODE_SHIFT_TO_BYTE_COMPACTION_MODE) {
                         sb.append((char) iArr2[i2]);
-                        break;
-                    } else if (i3 == 900) {
-                        mode = Mode.ALPHA;
-                        break;
-                    }
-                    break;
-                case ALPHA_SHIFT:
-                    if (i3 < 26) {
-                        c = (char) (i3 + 65);
-                        mode = mode2;
-                        break;
-                    } else if (i3 == 26) {
-                        c = ' ';
-                        mode = mode2;
+                        mode = mode4;
+                        mode2 = mode3;
                         break;
                     } else {
                         if (i3 == 900) {
-                            mode = Mode.ALPHA;
+                            mode = mode4;
+                            mode2 = Mode.ALPHA;
                             break;
                         }
-                        mode = mode2;
+                        mode = mode4;
+                        mode2 = mode3;
+                        break;
+                    }
+                case ALPHA_SHIFT:
+                    if (i3 < 26) {
+                        c = (char) (i3 + 65);
+                        mode = mode4;
+                        mode2 = mode4;
+                        break;
+                    } else if (i3 != 26) {
+                        if (i3 == 900) {
+                            mode = mode4;
+                            mode2 = Mode.ALPHA;
+                            break;
+                        }
+                        mode = mode4;
+                        mode2 = mode4;
+                        break;
+                    } else {
+                        c = ' ';
+                        mode = mode4;
+                        mode2 = mode4;
                         break;
                     }
                 case PUNCT_SHIFT:
                     if (i3 < 29) {
                         c = PUNCT_CHARS[i3];
-                        mode = mode2;
+                        mode = mode4;
+                        mode2 = mode4;
                         break;
                     } else if (i3 == 29) {
-                        mode = Mode.ALPHA;
+                        mode = mode4;
+                        mode2 = Mode.ALPHA;
                         break;
                     } else if (i3 == MODE_SHIFT_TO_BYTE_COMPACTION_MODE) {
                         sb.append((char) iArr2[i2]);
-                        mode = mode2;
+                        mode = mode4;
+                        mode2 = mode4;
                         break;
                     } else {
                         if (i3 == 900) {
-                            mode = Mode.ALPHA;
+                            mode = mode4;
+                            mode2 = Mode.ALPHA;
                             break;
                         }
-                        mode = mode2;
+                        mode = mode4;
+                        mode2 = mode4;
                         break;
                     }
+                default:
+                    mode = mode4;
+                    mode2 = mode3;
+                    break;
             }
             if (c != 0) {
                 sb.append(c);
             }
+            i2++;
+            mode4 = mode;
+            mode3 = mode2;
         }
     }
 
     private static int byteCompaction(int i, int[] iArr, Charset charset, int i2, StringBuilder sb) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        if (i == BYTE_COMPACTION_MODE_LATCH) {
+        if (i == 901) {
             int i3 = 0;
             long j = 0;
             int[] iArr2 = new int[6];
@@ -378,9 +449,9 @@ final class DecodedBitStreamParser {
                 j = (j * 900) + i4;
                 int i7 = i5 + 1;
                 i4 = iArr[i5];
-                if (i4 == 900 || i4 == BYTE_COMPACTION_MODE_LATCH || i4 == NUMERIC_COMPACTION_MODE_LATCH || i4 == 924 || i4 == 928 || i4 == 923 || i4 == 922) {
-                    z = true;
+                if (i4 == 900 || i4 == 901 || i4 == 902 || i4 == 924 || i4 == 928 || i4 == 923 || i4 == 922) {
                     i5 = i7 - 1;
+                    z = true;
                     i3 = i6;
                 } else if (i6 % 5 != 0 || i6 <= 0) {
                     i3 = i6;
@@ -413,7 +484,7 @@ final class DecodedBitStreamParser {
                     i10++;
                     j2 = (j2 * 900) + i12;
                     i2 = i11;
-                } else if (i12 == 900 || i12 == BYTE_COMPACTION_MODE_LATCH || i12 == NUMERIC_COMPACTION_MODE_LATCH || i12 == 924 || i12 == 928 || i12 == 923 || i12 == 922) {
+                } else if (i12 == 900 || i12 == 901 || i12 == 902 || i12 == 924 || i12 == 928 || i12 == 923 || i12 == 922) {
                     i2 = i11 - 1;
                     z2 = true;
                 } else {
@@ -453,13 +524,13 @@ final class DecodedBitStreamParser {
                 iArr2[i2] = i4;
                 i2++;
                 i = i3;
-            } else if (i4 == 900 || i4 == BYTE_COMPACTION_MODE_LATCH || i4 == 924 || i4 == 928 || i4 == 923 || i4 == 922) {
+            } else if (i4 == 900 || i4 == 901 || i4 == 924 || i4 == 928 || i4 == 923 || i4 == 922) {
                 i = i3 - 1;
                 z = true;
             } else {
                 i = i3;
             }
-            if (i2 % 15 == 0 || i4 == NUMERIC_COMPACTION_MODE_LATCH || z) {
+            if (i2 % 15 == 0 || i4 == 902 || z) {
             }
         }
         return i;

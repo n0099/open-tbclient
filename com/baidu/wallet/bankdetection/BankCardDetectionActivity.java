@@ -24,8 +24,9 @@ import com.baidu.wallet.base.camera.internal.Yuv;
 import com.baidu.wallet.base.widget.MistView;
 import com.baidu.wallet.core.utils.LogUtil;
 import com.baidu.wallet.utils.AccessibilityUtils;
+import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class BankCardDetectionActivity extends CameraBaseActivity implements View.OnClickListener, IImageProcess {
     private static final String e = BankCardDetectionActivity.class.getSimpleName();
     private MistView f;
@@ -160,7 +161,7 @@ public class BankCardDetectionActivity extends CameraBaseActivity implements Vie
             return null;
         }
         this.j.set(2);
-        Yuv.rotateCrop(bArr, i, i2, rect, 270, bArr2);
+        Yuv.rotateCrop(bArr, i, i2, rect, (int) SubsamplingScaleImageView.ORIENTATION_270, bArr2);
         BCResult runBankCardProcess = this.i.runBankCardProcess(bArr2, rect.width(), rect.height(), 1, 1, rect.height() - 1, rect.width() - 1, 1, false);
         this.j.set(1);
         if (runBankCardProcess == null || !runBankCardProcess.bFlag) {

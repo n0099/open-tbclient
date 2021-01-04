@@ -2,21 +2,25 @@ package com.baidu.live.yuyingift.a;
 
 import com.baidu.live.gift.g;
 import com.baidu.live.gift.l;
-import com.baidu.live.utils.r;
+import com.baidu.live.utils.s;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class c implements Cloneable {
-    public long aWT;
+    public long aYz;
+    public long aZQ;
     public String appId;
-    public g bcN;
-    public int bcP;
-    public long bcU;
-    private long bcW;
-    public boolean bcX;
-    public String bcY;
-    public String bnb;
+    public boolean bZN;
+    public int bZO;
+    public boolean bZP;
+    public long beC;
+    private long beE;
+    public boolean beF;
+    public String beG;
+    public g bex;
+    public int bez;
+    public String boI;
     public String chatMCastId;
     public String description;
     public String ensureMCastId;
@@ -29,75 +33,77 @@ public class c implements Cloneable {
     public String userId;
     public String userName;
     public int userStatus;
-    public boolean bcM = false;
-    public String bcO = "";
-    public long bcQ = 0;
-    public long bcR = 0;
+    public boolean bew = false;
+    public String bey = "";
+    public long followCount = 0;
+    public long fansCount = 0;
     public String location = "";
     public int priority = 1;
-    public long bcV = 0;
-    private boolean bcZ = true;
-    public boolean bda = false;
-    public boolean bdb = false;
-    public boolean bde = false;
-    public List<l> aXs = new ArrayList();
+    public long beD = 0;
+    private boolean beH = true;
+    public boolean beI = false;
+    public boolean beJ = false;
+    public boolean beM = false;
+    public List<l> aYX = new ArrayList();
 
-    public c(String str, long j, g gVar, String str2, String str3, String str4, String str5, String str6, boolean z, String str7, String str8, long j2, String str9) {
+    public c(String str, long j, g gVar, String str2, String str3, String str4, String str5, String str6, boolean z, String str7, String str8, long j2, String str9, long j3) {
         this.giftId = str;
-        this.bcU = j;
-        this.bcN = gVar;
+        this.beC = j;
+        this.bex = gVar;
         this.userId = str2;
         this.portrait = str3;
         this.userName = str4;
         this.liveId = str5;
         this.groupId = str6;
-        this.bcX = z;
-        this.bcY = str7;
+        this.beF = z;
+        this.beG = str7;
         this.appId = str8;
         this.msgId = j2;
-        this.bnb = str9;
-        JJ();
+        this.aZQ = j3;
+        this.boI = str9;
+        Jl();
     }
 
-    public c(String str, long j, g gVar, String str2, String str3, String str4, int i, int i2, String str5, int i3, String str6, String str7, boolean z, String str8, String str9, long j2, String str10) {
+    public c(String str, long j, g gVar, String str2, String str3, String str4, int i, int i2, String str5, int i3, String str6, String str7, boolean z, String str8, String str9, long j2, String str10, long j3) {
         this.giftId = str;
-        this.bcU = j;
-        this.bcN = gVar;
+        this.beC = j;
+        this.bex = gVar;
         this.userId = str2;
         this.portrait = str3;
         this.userName = str4;
-        this.bcP = i;
+        this.bez = i;
         this.sex = i2;
         this.description = str5;
         this.userStatus = i3;
         this.liveId = str6;
         this.groupId = str7;
-        this.bcX = z;
-        this.bcY = str8;
+        this.beF = z;
+        this.aZQ = j3;
+        this.beG = str8;
         this.appId = str9;
         this.msgId = j2;
-        this.bnb = str10;
-        JJ();
+        this.boI = str10;
+        Jl();
     }
 
-    public void aQ(long j) {
-        this.bcW = j;
+    public void aP(long j) {
+        this.beE = j;
     }
 
-    public long JI() {
-        return this.bcW;
+    public long Jk() {
+        return this.beE;
     }
 
-    private void JJ() {
-        this.bcO = r.D(this.giftId, this.userId, this.bnb);
+    private void Jl() {
+        this.bey = s.a(this.aZQ, this.giftId, this.userId, this.boI);
     }
 
-    public String JK() {
-        return this.bcO;
+    public String Jm() {
+        return this.bey;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: Zt */
+    /* renamed from: aaS */
     public c clone() {
         try {
             return (c) super.clone();
@@ -107,15 +113,15 @@ public class c implements Cloneable {
         }
     }
 
-    public boolean JM() {
-        return this.bcZ;
+    public boolean Jo() {
+        return this.beH;
     }
 
-    public void bY(boolean z) {
-        this.bcZ = z;
+    public void bW(boolean z) {
+        this.beH = z;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public static class a implements Comparator<c> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
@@ -128,10 +134,10 @@ public class c implements Cloneable {
                 if (cVar.priority < cVar2.priority) {
                     return -1;
                 }
-                if (cVar.bcN != null && cVar2.bcN != null) {
+                if (cVar.bex != null && cVar2.bex != null) {
                     try {
-                        long parseLong = Long.parseLong(cVar.bcN.getPrice());
-                        long parseLong2 = Long.parseLong(cVar2.bcN.getPrice());
+                        long parseLong = Long.parseLong(cVar.bex.getPrice());
+                        long parseLong2 = Long.parseLong(cVar2.bex.getPrice());
                         if (parseLong <= parseLong2) {
                             return parseLong < parseLong2 ? -1 : 0;
                         }

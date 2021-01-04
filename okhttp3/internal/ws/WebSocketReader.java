@@ -1,12 +1,13 @@
 package okhttp3.internal.ws;
 
+import com.baidu.live.tbadk.log.LogConfig;
 import java.io.IOException;
 import java.net.ProtocolException;
 import java.util.concurrent.TimeUnit;
 import okio.Buffer;
 import okio.BufferedSource;
 import okio.ByteString;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 final class WebSocketReader {
     boolean closed;
     final FrameCallback frameCallback;
@@ -21,7 +22,7 @@ final class WebSocketReader {
     private final Buffer controlFrameBuffer = new Buffer();
     private final Buffer messageFrameBuffer = new Buffer();
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public interface FrameCallback {
         void onReadClose(int i, String str);
 
@@ -63,7 +64,7 @@ final class WebSocketReader {
     /* JADX WARN: Finally extract failed */
     private void readHeader() throws IOException {
         if (this.closed) {
-            throw new IOException("closed");
+            throw new IOException(LogConfig.TYPE_CLOSED);
         }
         long timeoutNanos = this.source.timeout().timeoutNanos();
         this.source.timeout().clearTimeout();
@@ -192,6 +193,6 @@ final class WebSocketReader {
                 return;
             }
         }
-        throw new IOException("closed");
+        throw new IOException(LogConfig.TYPE_CLOSED);
     }
 }

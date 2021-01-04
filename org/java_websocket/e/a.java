@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a {
     static final /* synthetic */ boolean $assertionsDisabled;
     private static final byte[] _ORDERED_ALPHABET;
@@ -109,11 +109,9 @@ public class a {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [695=5, 696=4, 697=4] */
     public static byte[] encodeBytesToBytes(byte[] bArr, int i, int i2, int i3) throws IOException {
-        C1058a c1058a;
-        ByteArrayOutputStream byteArrayOutputStream;
-        ByteArrayOutputStream byteArrayOutputStream2;
+        C1276a c1276a;
         GZIPOutputStream gZIPOutputStream;
-        GZIPOutputStream gZIPOutputStream2 = null;
+        ByteArrayOutputStream byteArrayOutputStream;
         if (bArr == null) {
             throw new IllegalArgumentException("Cannot serialize a null array.");
         }
@@ -163,76 +161,70 @@ public class a {
         try {
             byteArrayOutputStream = new ByteArrayOutputStream();
             try {
-                c1058a = new C1058a(byteArrayOutputStream, i3 | 1);
-                try {
-                    gZIPOutputStream = new GZIPOutputStream(c1058a);
-                } catch (IOException e) {
-                    e = e;
-                    byteArrayOutputStream2 = byteArrayOutputStream;
-                } catch (Throwable th) {
-                    th = th;
-                }
-            } catch (IOException e2) {
-                e = e2;
-                c1058a = null;
-                byteArrayOutputStream2 = byteArrayOutputStream;
-            } catch (Throwable th2) {
-                th = th2;
-                c1058a = null;
+                c1276a = new C1276a(byteArrayOutputStream, i3 | 1);
+            } catch (IOException e) {
+                throw e;
+            } catch (Throwable th) {
+                th = th;
+                c1276a = null;
+                gZIPOutputStream = null;
             }
-        } catch (IOException e3) {
-            e = e3;
-            c1058a = null;
-            byteArrayOutputStream2 = null;
-        } catch (Throwable th3) {
-            th = th3;
-            c1058a = null;
+        } catch (IOException e2) {
+            c1276a = null;
+            gZIPOutputStream = null;
+            byteArrayOutputStream = null;
+            throw e2;
+        } catch (Throwable th2) {
+            th = th2;
+            c1276a = null;
+            gZIPOutputStream = null;
             byteArrayOutputStream = null;
         }
         try {
-            gZIPOutputStream.write(bArr, i, i2);
-            gZIPOutputStream.close();
+            gZIPOutputStream = new GZIPOutputStream(c1276a);
             try {
-                gZIPOutputStream.close();
-            } catch (Exception e4) {
-            }
-            try {
-                c1058a.close();
-            } catch (Exception e5) {
-            }
-            try {
-                byteArrayOutputStream.close();
-            } catch (Exception e6) {
-            }
-            return byteArrayOutputStream.toByteArray();
-        } catch (IOException e7) {
-            e = e7;
-            gZIPOutputStream2 = gZIPOutputStream;
-            byteArrayOutputStream2 = byteArrayOutputStream;
-            try {
-                throw e;
-            } catch (Throwable th4) {
-                th = th4;
-                byteArrayOutputStream = byteArrayOutputStream2;
                 try {
-                    gZIPOutputStream2.close();
+                    gZIPOutputStream.write(bArr, i, i2);
+                    gZIPOutputStream.close();
+                    try {
+                        gZIPOutputStream.close();
+                    } catch (Exception e3) {
+                    }
+                    try {
+                        c1276a.close();
+                    } catch (Exception e4) {
+                    }
+                    try {
+                        byteArrayOutputStream.close();
+                    } catch (Exception e5) {
+                    }
+                    return byteArrayOutputStream.toByteArray();
+                } catch (IOException e6) {
+                    throw e6;
+                }
+            } catch (Throwable th3) {
+                th = th3;
+                try {
+                    gZIPOutputStream.close();
+                } catch (Exception e7) {
+                }
+                try {
+                    c1276a.close();
                 } catch (Exception e8) {
                 }
                 try {
-                    c1058a.close();
-                } catch (Exception e9) {
-                }
-                try {
                     byteArrayOutputStream.close();
-                } catch (Exception e10) {
+                } catch (Exception e9) {
                 }
                 throw th;
             }
-        } catch (Throwable th5) {
-            th = th5;
-            gZIPOutputStream2 = gZIPOutputStream;
-            gZIPOutputStream2.close();
-            c1058a.close();
+        } catch (IOException e10) {
+            throw e10;
+        } catch (Throwable th4) {
+            th = th4;
+            gZIPOutputStream = null;
+            gZIPOutputStream.close();
+            c1276a.close();
             byteArrayOutputStream.close();
             throw th;
         }
@@ -271,8 +263,8 @@ public class a {
     }
 
     /* renamed from: org.java_websocket.e.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static class C1058a extends FilterOutputStream {
+    /* loaded from: classes4.dex */
+    public static class C1276a extends FilterOutputStream {
         private byte[] b4;
         private boolean breakLines;
         private byte[] buffer;
@@ -284,7 +276,7 @@ public class a {
         private int position;
         private boolean suspendEncoding;
 
-        public C1058a(OutputStream outputStream, int i) {
+        public C1276a(OutputStream outputStream, int i) {
             super(outputStream);
             this.breakLines = (i & 8) != 0;
             this.encode = (i & 1) != 0;

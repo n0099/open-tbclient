@@ -3,7 +3,6 @@ package com.baidu.live.tbadk.img;
 import android.graphics.BitmapFactory;
 import android.text.TextUtils;
 import com.baidu.live.adp.lib.safe.BdCloseHelper;
-import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.Md5;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.sdk.a;
@@ -15,11 +14,12 @@ import com.baidu.live.tbadk.core.util.FileHelper;
 import com.baidu.live.tbadk.core.util.NetWork;
 import com.baidu.live.tbadk.core.util.TbEnum;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
+import com.kwad.sdk.core.imageloader.utils.IoUtils;
 import java.io.Closeable;
 import java.io.File;
 import java.io.RandomAccessFile;
 import java.util.LinkedList;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class ImageUploader {
     private int bigHeight;
     private int bigWidth;
@@ -30,11 +30,11 @@ public class ImageUploader {
     private Object progressObject;
     private int smallHeight;
     private int smallWidth;
-    private int chunkSize = 512000;
+    private int chunkSize = IoUtils.DEFAULT_IMAGE_TOTAL_SIZE;
     private String groupId = "1";
     private NetWork mNetwork = null;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface ImageUploadProgressCallback {
         void onImageDataSentInBackground(String str, Object obj, long j, long j2);
     }
@@ -152,37 +152,131 @@ public class ImageUploader {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [426=6, 427=4] */
-    /* JADX WARN: Code restructure failed: missing block: B:121:0x03af, code lost:
-        r5 = null;
+    /* JADX DEBUG: Multi-variable search result rejected for r6v7, resolved type: int */
+    /* JADX WARN: Code restructure failed: missing block: B:101:0x035c, code lost:
+        if (r24.isCancelled != false) goto L109;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:122:0x03b0, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:102:0x035e, code lost:
+        r20.append("|request cancelled.");
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:103:0x0366, code lost:
+        if (r6 != null) goto L111;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:104:0x0368, code lost:
+        r4 = r6.error_code;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:105:0x036a, code lost:
+        if (r6 != null) goto L113;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:106:0x036c, code lost:
+        r4 = r6.error_msg;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:107:0x036e, code lost:
+        com.baidu.live.adp.lib.safe.BdCloseHelper.close(r8);
+        r24.mNetwork = null;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:114:0x0393, code lost:
+        r5 = false;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:122:0x03a5, code lost:
         r20.append("|startChunk=");
         r20.append(r8);
      */
+    /* JADX WARN: Code restructure failed: missing block: B:123:0x03b2, code lost:
+        r6 = null;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:136:0x040b, code lost:
+        com.baidu.live.adp.lib.util.BdLog.e(r7.getMessage());
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:137:0x0414, code lost:
+        r4 = move-exception;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:138:0x0415, code lost:
+        r6 = r4;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:139:0x0418, code lost:
+        r7.getMessage();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:151:0x0439, code lost:
+        r7 = e;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:152:0x043a, code lost:
+        r8 = r4;
+        r6 = null;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:155:0x0444, code lost:
+        r6 = r12;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:176:?, code lost:
+        return r6;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x017b, code lost:
+        r20.append("|startChunk=");
+        r20.append(r8);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x0188, code lost:
+        r6 = r5;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:78:0x02dd, code lost:
+        r20.append("|startChunk=");
+        r20.append(r8);
+        r20.append("|picNull=");
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:79:0x02f2, code lost:
+        if (r12 != null) goto L85;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:80:0x02f4, code lost:
+        r5 = true;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:81:0x02f5, code lost:
+        r20.append(r5);
+        r20.append("|picErrNo=");
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:82:0x0302, code lost:
+        if (r12 == null) goto L84;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:83:0x0304, code lost:
+        r20.append(r12.error_code);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:84:0x030b, code lost:
+        r6 = r12;
+     */
+    /* JADX WARN: Multi-variable type inference failed */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public ImageUploadResult uploadInBackground(String str, boolean z, boolean z2) {
+        Exception e;
         RandomAccessFile randomAccessFile;
         ImageUploadResult imageUploadResult;
+        Throwable th;
+        ImageUploadResult imageUploadResult2;
         RandomAccessFile randomAccessFile2;
-        int i;
         byte[] bArr;
+        int i;
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeFile(str, options);
         if (options.outWidth == 0 || options.outHeight == 0) {
             return null;
         }
-        ImageUploadResult imageUploadResult2 = null;
-        RandomAccessFile randomAccessFile3 = null;
+        ImageUploadResult imageUploadResult3 = null;
         StringBuilder sb = new StringBuilder();
         try {
             try {
                 File file = new File(str);
                 long length = file.length();
                 long j = 0;
-                if (length <= ImageUploadStrategy.FILE_SIZE_5M) {
+                int i2 = (length > ImageUploadStrategy.FILE_SIZE_5M ? 1 : (length == ImageUploadStrategy.FILE_SIZE_5M ? 0 : -1));
+                try {
+                    if (i2 > 0) {
+                        ImageUploadResult imageUploadResult4 = new ImageUploadResult();
+                        imageUploadResult4.error_code = ImageUploadResult.INTER_ERROR_FILE_ERROR;
+                        imageUploadResult4.error_msg = TbadkCoreApplication.getInst().getApp().getString(a.h.sdk_file_size_over);
+                        BdCloseHelper.close((Closeable) null);
+                        this.mNetwork = null;
+                        return imageUploadResult4;
+                    }
                     String md5 = Md5.toMd5(FileHelper.GetStreamFromFile(file));
                     sb.append("path=");
                     sb.append(str);
@@ -191,18 +285,11 @@ public class ImageUploader {
                     sb.append("|md5=");
                     sb.append(md5);
                     if (length == 0 || md5 == null) {
-                        ImageUploadResult imageUploadResult3 = new ImageUploadResult();
-                        try {
-                            imageUploadResult3.error_code = ImageUploadResult.INTER_ERROR_FILE_ERROR;
-                            imageUploadResult3.error_msg = TbadkCoreApplication.getInst().getApp().getString(a.h.sdk_file_not_exist);
-                            TiebaInitialize.imgError(-1007, "file error: " + imageUploadResult3.error_msg, sb.toString());
-                            imageUploadResult = imageUploadResult3;
-                            randomAccessFile2 = null;
-                        } catch (Exception e) {
-                            randomAccessFile = null;
-                            imageUploadResult = imageUploadResult3;
-                            e = e;
-                        }
+                        imageUploadResult2 = new ImageUploadResult();
+                        imageUploadResult2.error_code = ImageUploadResult.INTER_ERROR_FILE_ERROR;
+                        imageUploadResult2.error_msg = TbadkCoreApplication.getInst().getApp().getString(a.h.sdk_file_not_exist);
+                        TiebaInitialize.imgError(-1007, "file error: " + imageUploadResult2.error_msg, sb.toString());
+                        randomAccessFile2 = null;
                     } else {
                         String str2 = md5 + this.chunkSize;
                         long j2 = length % ((long) this.chunkSize) == 0 ? length / this.chunkSize : (length / this.chunkSize) + 1;
@@ -222,38 +309,37 @@ public class ImageUploader {
                                 sb.append(this.smallHeight);
                                 sb.append("|groupId=");
                                 sb.append(this.groupId);
-                                int i2 = 1;
-                                int i3 = 0;
+                                int i3 = 1;
+                                int i4 = 0;
                                 while (true) {
-                                    long j3 = j;
-                                    i = i2;
-                                    imageUploadResult = imageUploadResult2;
-                                    if (i > j2) {
+                                    ImageUploadResult imageUploadResult5 = imageUploadResult3;
+                                    if (i3 > j2) {
+                                        imageUploadResult2 = imageUploadResult5;
                                         break;
                                     }
                                     try {
                                         if (!this.isCancelled) {
-                                            int i4 = 0;
-                                            if (i > j2) {
-                                                i4 = 0;
+                                            int i5 = 0;
+                                            if (i3 > j2) {
+                                                i5 = 0;
                                                 bArr = null;
                                             } else {
-                                                if (i < j2) {
-                                                    i4 = this.chunkSize;
-                                                } else if (i == j2) {
-                                                    i4 = (int) (length - (this.chunkSize * (j2 - 1)));
+                                                if (i3 < j2) {
+                                                    i5 = this.chunkSize;
+                                                } else if (i3 == j2) {
+                                                    i5 = (int) (length - (this.chunkSize * (j2 - 1)));
                                                 }
-                                                if (bArr2 == null || bArr2.length != i4) {
-                                                    bArr2 = new byte[i4];
+                                                if (bArr2 == null || bArr2.length != i5) {
+                                                    bArr2 = new byte[i5];
                                                 }
-                                                randomAccessFile2.seek(this.chunkSize * (i - 1));
-                                                randomAccessFile2.read(bArr2, 0, i4);
+                                                randomAccessFile2.seek(this.chunkSize * (i3 - 1));
+                                                randomAccessFile2.read(bArr2, 0, i5);
                                                 bArr = bArr2;
                                             }
                                             this.mNetwork = new NetWork(TbConfig.UPLOAD_IMG_URL);
                                             this.mNetwork.addPostData("resourceId", str2);
-                                            this.mNetwork.addPostData("chunkNo", String.valueOf(i));
-                                            if (i >= j2) {
+                                            this.mNetwork.addPostData("chunkNo", String.valueOf(i3));
+                                            if (i3 >= j2) {
                                                 this.mNetwork.addPostData("isFinish", String.valueOf(1));
                                             } else {
                                                 this.mNetwork.addPostData("isFinish", String.valueOf(0));
@@ -291,123 +377,79 @@ public class ImageUploader {
                                                 }
                                             }
                                             String postMultiNetData = this.mNetwork.postMultiNetData();
-                                            imageUploadResult2 = ImageUploadResult.parser(postMultiNetData);
-                                            if (postMultiNetData == null || imageUploadResult2 == null) {
+                                            imageUploadResult3 = ImageUploadResult.parser(postMultiNetData);
+                                            if (postMultiNetData == null || imageUploadResult3 == null) {
                                                 break;
                                             }
                                             try {
-                                                if (imageUploadResult2.error_code != 0 && imageUploadResult2.error_code != ImageUploadResult.CHUNK_ERROR) {
+                                                if (imageUploadResult3.error_code != 0 && imageUploadResult3.error_code != ImageUploadResult.CHUNK_ERROR) {
                                                     break;
                                                 }
-                                                if (imageUploadResult2.error_code != ImageUploadResult.CHUNK_ERROR) {
-                                                    int i5 = i + 1;
-                                                    long j4 = j3 + i4;
-                                                    long j5 = i5 > 1 ? j4 + ((i5 - 1) * this.chunkSize) : j4;
+                                                if (imageUploadResult3.error_code != ImageUploadResult.CHUNK_ERROR) {
+                                                    int i6 = i3 + 1;
+                                                    j += i5;
+                                                    long j3 = i6 > 1 ? j + ((i6 - 1) * this.chunkSize) : j;
                                                     if (this.progressCallback != null) {
-                                                        this.progressCallback.onImageDataSentInBackground(str, this.progressObject, j5, length);
+                                                        this.progressCallback.onImageDataSentInBackground(str, this.progressObject, j3, length);
                                                     }
-                                                    i2 = i5;
-                                                    j = j4;
-                                                } else if (i == imageUploadResult2.chunkNo || imageUploadResult2.chunkNo <= 0) {
+                                                    i = i6;
+                                                } else if (i3 == imageUploadResult3.chunkNo || imageUploadResult3.chunkNo <= 0) {
                                                     break;
                                                 } else {
-                                                    i2 = imageUploadResult2.chunkNo;
-                                                    j = j3;
+                                                    i = imageUploadResult3.chunkNo;
                                                 }
-                                                int i6 = i3 + 1;
-                                                if (i6 > 2 * j2) {
-                                                    sb.append("|possbile dead loop found. tryCount=").append(i6).append(", chunkNo=").append(j2);
-                                                    imageUploadResult = imageUploadResult2;
+                                                int i7 = i4 + 1;
+                                                if (i7 > 2 * j2) {
+                                                    sb.append("|possbile dead loop found. tryCount=").append(i7).append(", chunkNo=").append(j2);
+                                                    imageUploadResult2 = imageUploadResult3;
                                                     break;
                                                 }
-                                                i3 = i6;
+                                                i3 = i;
+                                                i4 = i7;
                                                 bArr2 = bArr;
                                             } catch (Exception e2) {
-                                                randomAccessFile = randomAccessFile2;
                                                 e = e2;
-                                                imageUploadResult = imageUploadResult2;
+                                                randomAccessFile = randomAccessFile2;
+                                                imageUploadResult = imageUploadResult3;
                                             }
                                         } else {
-                                            sb.append("|startChunk=");
-                                            sb.append(i);
                                             break;
                                         }
                                     } catch (Exception e3) {
-                                        randomAccessFile = randomAccessFile2;
                                         e = e3;
+                                        randomAccessFile = randomAccessFile2;
+                                        imageUploadResult = imageUploadResult5;
                                     }
                                 }
-                                sb.append("|startChunk=");
-                                sb.append(i);
-                                sb.append("|picNull=");
-                                sb.append(imageUploadResult2 == null);
-                                sb.append("|picErrNo=");
-                                if (imageUploadResult2 != null) {
-                                    sb.append(imageUploadResult2.error_code);
-                                    imageUploadResult = imageUploadResult2;
-                                } else {
-                                    imageUploadResult = imageUploadResult2;
-                                }
-                            } catch (Throwable th) {
-                                randomAccessFile3 = randomAccessFile2;
-                                th = th;
-                                BdCloseHelper.close(randomAccessFile3);
-                                this.mNetwork = null;
-                                throw th;
+                            } catch (Exception e4) {
+                                e = e4;
+                                randomAccessFile = randomAccessFile2;
+                                imageUploadResult = null;
                             }
-                        } catch (Exception e4) {
+                        } catch (Throwable th2) {
+                            th = th2;
                             randomAccessFile = randomAccessFile2;
-                            e = e4;
-                            imageUploadResult = null;
+                            BdCloseHelper.close(randomAccessFile);
+                            this.mNetwork = null;
+                            throw th;
                         }
                     }
                     BdCloseHelper.close(randomAccessFile2);
                     this.mNetwork = null;
-                    return imageUploadResult;
-                }
-                ImageUploadResult imageUploadResult4 = new ImageUploadResult();
-                try {
-                    imageUploadResult4.error_code = ImageUploadResult.INTER_ERROR_FILE_ERROR;
-                    imageUploadResult4.error_msg = TbadkCoreApplication.getInst().getApp().getString(a.h.sdk_file_size_over);
-                    BdCloseHelper.close((Closeable) null);
-                    this.mNetwork = null;
-                    return imageUploadResult4;
+                    return imageUploadResult2;
                 } catch (Exception e5) {
-                    randomAccessFile = null;
-                    imageUploadResult = imageUploadResult4;
                     e = e5;
+                    randomAccessFile = null;
+                    imageUploadResult = i2;
                 }
-            } catch (Exception e6) {
-                e = e6;
+            } catch (Throwable th3) {
+                th = th3;
                 randomAccessFile = null;
-                imageUploadResult = null;
             }
-            try {
-                if (this.isCancelled) {
-                    sb.append("|request cancelled.");
-                } else {
-                    BdLog.e(e.getMessage());
-                }
-                if (imageUploadResult != null) {
-                    int i7 = imageUploadResult.error_code;
-                }
-                if (imageUploadResult != null) {
-                    String str3 = imageUploadResult.error_msg;
-                } else {
-                    e.getMessage();
-                }
-                BdCloseHelper.close(randomAccessFile);
-                this.mNetwork = null;
-                return imageUploadResult;
-            } catch (Throwable th2) {
-                th = th2;
-                randomAccessFile3 = randomAccessFile;
-                BdCloseHelper.close(randomAccessFile3);
-                this.mNetwork = null;
-                throw th;
-            }
-        } catch (Throwable th3) {
-            th = th3;
+        } catch (Exception e6) {
+            e = e6;
+            randomAccessFile = null;
+            imageUploadResult = null;
         }
     }
 

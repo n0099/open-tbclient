@@ -7,7 +7,7 @@ import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.core.d.i;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class f extends i {
     @Override // com.baidu.swan.apps.core.d.i
     protected void e(FrameLayout frameLayout) {
@@ -15,29 +15,29 @@ public class f extends i {
     }
 
     @Override // com.baidu.swan.apps.core.d.i
-    public com.baidu.swan.apps.adaptation.b.f ala() {
-        return com.baidu.swan.apps.core.turbo.d.aui().auj().cd(getContext());
+    public com.baidu.swan.apps.adaptation.b.f amk() {
+        return com.baidu.swan.apps.core.turbo.d.avA().avB().ck(getContext());
     }
 
     @Override // com.baidu.swan.apps.core.d.i
-    protected com.baidu.swan.apps.core.f.d alB() {
+    protected com.baidu.swan.apps.core.f.d amL() {
         return new com.baidu.swan.apps.core.f.a() { // from class: com.baidu.swan.apps.aa.f.1
             @Override // com.baidu.swan.apps.core.f.a, com.baidu.swan.apps.core.f.d
-            public boolean jo(String str) {
+            public boolean jh(String str) {
                 if (str == null || !str.startsWith("weixin://wap/pay")) {
-                    return super.jo(str);
+                    return super.jh(str);
                 }
                 com.baidu.swan.apps.console.c.i("SwanAppWxPayFragment", " weixin  url:   " + str);
-                i.arP();
+                i.ath();
                 return false;
             }
         };
     }
 
     @Override // com.baidu.swan.apps.core.d.i, com.baidu.swan.apps.core.d.c
-    protected void at(View view) {
-        super.at(view);
-        this.cPk.setTitle(getResources().getString(a.h.aiapps_wx_pay_title));
-        fe(false);
+    protected void av(View view) {
+        super.av(view);
+        this.cUf.setTitle(getResources().getString(a.h.aiapps_wx_pay_title));
+        fn(false);
     }
 }

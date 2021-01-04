@@ -4,17 +4,19 @@ import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.baidu.platform.comapi.map.MapController;
 import com.baidu.platform.comapi.map.MapViewInterface;
 import java.util.IllegalFormatException;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private float f2912a;
-    private StringBuffer b = new StringBuffer();
+    private float f4328a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private StringBuffer f4329b = new StringBuffer();
     private StringBuffer c = new StringBuffer();
     private MapController d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public enum a {
         ZOOM_OUT,
         ZOOM_IN,
@@ -32,18 +34,18 @@ public class d {
 
     private void a(a aVar) {
         MapViewInterface mapView;
-        String b;
+        String b2;
         if (this.d == null || (mapView = this.d.getMapView()) == null) {
             return;
         }
         GeoPoint mapCenter = mapView.getMapCenter();
         try {
-            b = String.format("(%s,%d,%d,%d,%d)", b(aVar), Double.valueOf(mapCenter.getLongitudeE6()), Double.valueOf(mapCenter.getLatitudeE6()), Integer.valueOf((int) mapView.getZoomLevel()), Long.valueOf(System.currentTimeMillis()));
+            b2 = String.format("(%s,%d,%d,%d,%d)", b(aVar), Double.valueOf(mapCenter.getLongitudeE6()), Double.valueOf(mapCenter.getLatitudeE6()), Integer.valueOf((int) mapView.getZoomLevel()), Long.valueOf(System.currentTimeMillis()));
         } catch (IllegalFormatException e) {
-            b = b(aVar);
+            b2 = b(aVar);
         }
-        if (this.b != null) {
-            this.b.append(b);
+        if (this.f4329b != null) {
+            this.f4329b.append(b2);
             if (this.c != null) {
                 this.c.append(b(aVar));
             }
@@ -73,15 +75,15 @@ public class d {
     }
 
     private void d(float f) {
-        this.f2912a = f;
+        this.f4328a = f;
     }
 
     private boolean e(float f) {
-        return f > this.f2912a;
+        return f > this.f4328a;
     }
 
     private boolean f(float f) {
-        return f < this.f2912a;
+        return f < this.f4328a;
     }
 
     public void a() {

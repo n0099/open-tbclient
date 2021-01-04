@@ -1,6 +1,5 @@
 package com.googlecode.mp4parser.authoring.adaptivestreaming;
 
-import android.support.media.ExifInterface;
 import com.coremedia.iso.Hex;
 import com.coremedia.iso.boxes.SoundMediaHeaderBox;
 import com.coremedia.iso.boxes.VideoMediaHeaderBox;
@@ -32,7 +31,7 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class FlatManifestWriterImpl extends AbstractManifestWriter {
     static final /* synthetic */ boolean $assertionsDisabled;
     private static final Logger LOG;
@@ -101,7 +100,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 createElement3.setAttribute("MaxWidth", Long.toString(aVar.width));
                 createElement3.setAttribute("MaxHeight", Long.toString(aVar.height));
                 createElement3.setAttribute("CodecPrivateData", aVar.codecPrivateData);
-                createElement3.setAttribute("NALUnitLengthField", Integer.toString(aVar.pxc));
+                createElement3.setAttribute("NALUnitLengthField", Integer.toString(aVar.pPr));
                 createElement2.appendChild(createElement3);
             }
             for (int i2 = 0; i2 < this.videoFragmentsDurations.length; i2++) {
@@ -127,7 +126,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                     createElement6.setAttribute("AudioTag", Integer.toString(audioQuality.audioTag));
                     createElement6.setAttribute("SamplingRate", Long.toString(audioQuality.samplingRate));
                     createElement6.setAttribute("Channels", Integer.toString(audioQuality.channels));
-                    createElement6.setAttribute(ExifInterface.TAG_BITS_PER_SAMPLE, Integer.toString(audioQuality.bitPerSample));
+                    createElement6.setAttribute("BitsPerSample", Integer.toString(audioQuality.bitPerSample));
                     createElement6.setAttribute("PacketSize", Integer.toString(audioQuality.packetSize));
                     createElement6.setAttribute("CodecPrivateData", audioQuality.codecPrivateData);
                     createElement5.appendChild(createElement6);
@@ -197,8 +196,8 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
         if (eC3SpecificBox == null) {
             throw new RuntimeException("EC-3 track misses EC3SpecificBox!");
         }
-        byte b = 0;
         byte b2 = 0;
+        byte b3 = 0;
         short s = 0;
         short s2 = 0;
         for (EC3SpecificBox.Entry entry : eC3SpecificBox.getEntries()) {
@@ -209,92 +208,92 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 case 1:
                     s2 = (short) (s2 + 1);
                     if (entry.num_dep_sub > 0) {
-                        a ezl = new a(b2, b, entry).ezl();
-                        b2 = (byte) (b2 | ezl.ezj());
-                        b = (byte) (b | ezl.ezk());
+                        a eCZ = new a(b3, b2, entry).eCZ();
+                        b3 = (byte) (b3 | eCZ.eCX());
+                        b2 = (byte) (b2 | eCZ.eCY());
                         break;
                     } else {
-                        b2 = (byte) (b2 | 32);
+                        b3 = (byte) (b3 | 32);
                         break;
                     }
                 case 2:
                     s2 = (short) (s2 + 2);
                     if (entry.num_dep_sub > 0) {
-                        a ezl2 = new a(b2, b, entry).ezl();
-                        b2 = (byte) (b2 | ezl2.ezj());
-                        b = (byte) (b | ezl2.ezk());
+                        a eCZ2 = new a(b3, b2, entry).eCZ();
+                        b3 = (byte) (b3 | eCZ2.eCX());
+                        b2 = (byte) (b2 | eCZ2.eCY());
                         break;
                     } else {
-                        b2 = (byte) (b2 | 192);
+                        b3 = (byte) (b3 | 192);
                         break;
                     }
                 case 3:
                     s2 = (short) (s2 + 3);
                     if (entry.num_dep_sub > 0) {
-                        a ezl3 = new a(b2, b, entry).ezl();
-                        b2 = (byte) (b2 | ezl3.ezj());
-                        b = (byte) (b | ezl3.ezk());
+                        a eCZ3 = new a(b3, b2, entry).eCZ();
+                        b3 = (byte) (b3 | eCZ3.eCX());
+                        b2 = (byte) (b2 | eCZ3.eCY());
                         break;
                     } else {
-                        b2 = (byte) (b2 | 224);
+                        b3 = (byte) (b3 | 224);
                         break;
                     }
                 case 4:
                     s2 = (short) (s2 + 3);
                     if (entry.num_dep_sub > 0) {
-                        a ezl4 = new a(b2, b, entry).ezl();
-                        b2 = (byte) (b2 | ezl4.ezj());
-                        b = (byte) (b | ezl4.ezk());
+                        a eCZ4 = new a(b3, b2, entry).eCZ();
+                        b3 = (byte) (b3 | eCZ4.eCX());
+                        b2 = (byte) (b2 | eCZ4.eCY());
                         break;
                     } else {
-                        b2 = (byte) (b2 | 192);
-                        b = (byte) (b | 128);
+                        b3 = (byte) (b3 | 192);
+                        b2 = (byte) (b2 | 128);
                         break;
                     }
                 case 5:
                     s2 = (short) (s2 + 4);
                     if (entry.num_dep_sub > 0) {
-                        a ezl5 = new a(b2, b, entry).ezl();
-                        b2 = (byte) (b2 | ezl5.ezj());
-                        b = (byte) (b | ezl5.ezk());
+                        a eCZ5 = new a(b3, b2, entry).eCZ();
+                        b3 = (byte) (b3 | eCZ5.eCX());
+                        b2 = (byte) (b2 | eCZ5.eCY());
                         break;
                     } else {
-                        b2 = (byte) (b2 | 224);
-                        b = (byte) (b | 128);
+                        b3 = (byte) (b3 | 224);
+                        b2 = (byte) (b2 | 128);
                         break;
                     }
                 case 6:
                     s2 = (short) (s2 + 4);
                     if (entry.num_dep_sub > 0) {
-                        a ezl6 = new a(b2, b, entry).ezl();
-                        b2 = (byte) (b2 | ezl6.ezj());
-                        b = (byte) (b | ezl6.ezk());
+                        a eCZ6 = new a(b3, b2, entry).eCZ();
+                        b3 = (byte) (b3 | eCZ6.eCX());
+                        b2 = (byte) (b2 | eCZ6.eCY());
                         break;
                     } else {
-                        b2 = (byte) (b2 | 204);
+                        b3 = (byte) (b3 | 204);
                         break;
                     }
                 case 7:
                     s2 = (short) (s2 + 5);
                     if (entry.num_dep_sub > 0) {
-                        a ezl7 = new a(b2, b, entry).ezl();
-                        b2 = (byte) (b2 | ezl7.ezj());
-                        b = (byte) (b | ezl7.ezk());
+                        a eCZ7 = new a(b3, b2, entry).eCZ();
+                        b3 = (byte) (b3 | eCZ7.eCX());
+                        b2 = (byte) (b2 | eCZ7.eCY());
                         break;
                     } else {
-                        b2 = (byte) (b2 | 236);
+                        b3 = (byte) (b3 | 236);
                         break;
                     }
             }
             if (entry.lfeon == 1) {
                 s = (short) (s + 1);
-                b2 = (byte) (b2 | 16);
+                b3 = (byte) (b3 | 16);
             }
         }
         ByteBuffer allocate2 = ByteBuffer.allocate(22);
         allocate2.put(new byte[]{0, 6});
+        allocate2.put(b3);
         allocate2.put(b2);
-        allocate2.put(b);
         allocate2.put(new byte[2]);
         allocate2.put(new byte[]{-81, -121, -5, -89, 2, 45, -5, 66, -92, -44, 5, -51, -109, -124, 59, -35});
         eC3SpecificBox.getContent(ByteBuffer.allocate((int) eC3SpecificBox.getContentSize()));
@@ -366,8 +365,6 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
     private int[] getNumChannelsAndMask(DTSSpecificBox dTSSpecificBox) {
         int i;
         int i2;
-        int i3;
-        int i4;
         int channelLayout = dTSSpecificBox.getChannelLayout();
         if ((channelLayout & 1) == 1) {
             i = 4;
@@ -433,21 +430,16 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
             i |= 65536;
         }
         if ((channelLayout & 32768) == 32768) {
-            int i5 = i | 32768 | 131072;
-            i3 = i2 + 2;
-            i4 = i5;
-        } else {
-            int i6 = i;
-            i3 = i2;
-            i4 = i6;
+            i2 += 2;
+            i = i | 32768 | 131072;
         }
         if ((channelLayout & 65536) == 65536) {
-            i3++;
+            i2++;
         }
         if ((channelLayout & 131072) == 131072) {
-            i3 += 2;
+            i2 += 2;
         }
-        return new int[]{i3, i4};
+        return new int[]{i2, i};
     }
 
     private String getAudioCodecPrivateData(AudioSpecificConfig audioSpecificConfig) {
@@ -463,7 +455,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
             aVar.fourCC = "AVC1";
             aVar.width = visualSampleEntry.getWidth();
             aVar.height = visualSampleEntry.getHeight();
-            aVar.pxc = avcConfigurationBox.getLengthSizeMinusOne() + 1;
+            aVar.pPr = avcConfigurationBox.getLengthSizeMinusOne() + 1;
             return aVar;
         }
         throw new InternalError("I don't know how to handle video of type " + getFormat(visualSampleEntry));
@@ -493,45 +485,45 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class a {
-        private byte pwY;
-        private byte pwZ;
-        private EC3SpecificBox.Entry pxa;
+        private byte pPn;
+        private byte pPo;
+        private EC3SpecificBox.Entry pPp;
 
-        public a(byte b, byte b2, EC3SpecificBox.Entry entry) {
-            this.pwY = b;
-            this.pwZ = b2;
-            this.pxa = entry;
+        public a(byte b2, byte b3, EC3SpecificBox.Entry entry) {
+            this.pPn = b2;
+            this.pPo = b3;
+            this.pPp = entry;
         }
 
-        public byte ezj() {
-            return this.pwY;
+        public byte eCX() {
+            return this.pPn;
         }
 
-        public byte ezk() {
-            return this.pwZ;
+        public byte eCY() {
+            return this.pPo;
         }
 
-        public a ezl() {
-            switch (this.pxa.chan_loc) {
+        public a eCZ() {
+            switch (this.pPp.chan_loc) {
                 case 0:
-                    this.pwY = (byte) (this.pwY | 3);
+                    this.pPn = (byte) (this.pPn | 3);
                     break;
                 case 1:
-                    this.pwY = (byte) (this.pwY | 12);
+                    this.pPn = (byte) (this.pPn | 12);
                     break;
                 case 2:
-                    this.pwZ = (byte) (this.pwZ | 128);
+                    this.pPo = (byte) (this.pPo | 128);
                     break;
                 case 3:
-                    this.pwZ = (byte) (this.pwZ | 8);
+                    this.pPo = (byte) (this.pPo | 8);
                     break;
                 case 6:
-                    this.pwZ = (byte) (this.pwZ | 5);
+                    this.pPo = (byte) (this.pPo | 5);
                     break;
                 case 7:
-                    this.pwZ = (byte) (this.pwZ | 2);
+                    this.pPo = (byte) (this.pPo | 2);
                     break;
             }
             return this;

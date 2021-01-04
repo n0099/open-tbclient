@@ -2,121 +2,122 @@ package com.baidu.tieba.play;
 
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.aq;
 /* loaded from: classes.dex */
 public class o {
-    public String amY;
-    public String eGn;
-    public String fFV;
+    public String anD;
+    public String eQd;
+    public String eVY;
+    public String fPy;
+    public String mDH;
+    public String mDI;
+    public String mDJ;
+    public int mDK;
+    public String mDL;
+    public String mDM;
+    public String mDN;
+    public String mDO;
+    public String mDP;
+    public String mDQ;
     public String mExtra;
     public String mFloor;
     public String mGroupId;
     public String mLocate;
-    public String mNid;
     public String mSource;
     public String mType;
     public String mUid;
     public String mVid;
-    public String myq;
-    public String myr;
-    public String mys;
-    public int myt;
-    public String myu;
-    public String myv;
-    public String myw;
-    public String myx;
-    public String myy;
-    public String myz;
 
-    public ar f(ar arVar) {
-        if (arVar != null) {
+    public aq f(aq aqVar) {
+        if (aqVar != null) {
             if (!StringUtils.isNull(this.mLocate)) {
-                arVar.dY("obj_locate", this.mLocate);
+                aqVar.dX("obj_locate", this.mLocate);
             }
-            if (!StringUtils.isNull(this.amY)) {
-                arVar.dY("tid", this.amY);
+            if (!StringUtils.isNull(this.anD)) {
+                aqVar.dX("tid", this.anD);
             }
-            if (!StringUtils.isNull(this.fFV)) {
-                arVar.dY("fid", this.fFV);
+            if (!StringUtils.isNull(this.fPy)) {
+                aqVar.dX("fid", this.fPy);
             }
             if (!StringUtils.isNull(this.mUid)) {
-                arVar.dY("uid", this.mUid);
+                aqVar.dX("uid", this.mUid);
             }
             if (!StringUtils.isNull(this.mSource)) {
-                arVar.dY("obj_source", this.mSource);
+                aqVar.dX("obj_source", this.mSource);
             } else {
-                arVar.al("obj_source", 0);
+                aqVar.an("obj_source", 0);
             }
-            if (!StringUtils.isNull(this.myq)) {
-                arVar.dY("obj_param1", this.myq);
+            if (!StringUtils.isNull(this.mDH)) {
+                aqVar.dX("obj_param1", this.mDH);
             } else {
-                arVar.al("obj_param1", 0);
+                aqVar.an("obj_param1", 0);
             }
-            if (!StringUtils.isNull(this.myr)) {
-                arVar.dY(TiebaInitialize.Params.OBJ_PARAM2, this.myr);
+            if (!StringUtils.isNull(this.mDI)) {
+                aqVar.dX(TiebaInitialize.Params.OBJ_PARAM2, this.mDI);
             }
-            if (!StringUtils.isNull(this.mys)) {
-                arVar.dY(TiebaInitialize.Params.OBJ_PARAM3, this.mys);
+            if (!StringUtils.isNull(this.mDJ)) {
+                aqVar.dX(TiebaInitialize.Params.OBJ_PARAM3, this.mDJ);
             }
-            if (this.myt > 0) {
-                arVar.al("obj_param5", this.myt);
+            if (this.mDK > 0) {
+                aqVar.an("obj_param5", this.mDK);
             }
-            if (!StringUtils.isNull(this.eGn)) {
-                arVar.dY("obj_id", this.eGn);
+            if (!StringUtils.isNull(this.eQd)) {
+                aqVar.dX("obj_id", this.eQd);
             }
-            if (!StringUtils.isNull(this.myu)) {
-                arVar.dY("ab_tag", this.myu);
+            if (!StringUtils.isNull(this.mDL)) {
+                aqVar.dX("ab_tag", this.mDL);
             } else {
-                arVar.al("ab_tag", 0);
+                aqVar.an("ab_tag", 0);
             }
-            if (!StringUtils.isNull(this.myw)) {
-                arVar.dY("topic_type", this.myw);
+            if (!StringUtils.isNull(this.mDN)) {
+                aqVar.dX("topic_type", this.mDN);
             }
             if (!StringUtils.isNull(this.mExtra)) {
-                arVar.dY("extra", this.mExtra);
+                aqVar.dX("extra", this.mExtra);
             } else {
-                arVar.al("extra", 0);
+                aqVar.an("extra", 0);
             }
-            if (!StringUtils.isNull(this.myx)) {
-                arVar.dY("is_vertical", this.myx);
+            if (!StringUtils.isNull(this.mDO)) {
+                aqVar.dX("is_vertical", this.mDO);
             }
             if (!StringUtils.isNull(this.mFloor)) {
-                arVar.dY("obj_floor", this.mFloor);
+                aqVar.dX("obj_floor", this.mFloor);
             }
-            if (!StringUtils.isNull(this.myy)) {
-                arVar.dY("resource_id", this.myy);
+            if (!StringUtils.isNull(this.mDP)) {
+                aqVar.dX("resource_id", this.mDP);
             }
             if (!StringUtils.isNull(this.mGroupId)) {
-                arVar.dY("group_id", this.mGroupId);
+                aqVar.dX("group_id", this.mGroupId);
             }
-            arVar.dY("obj_param4", StringUtils.isNull(this.mNid) ? "" : this.mNid);
-            arVar.dY("obj_param6", StringUtils.isNull(this.mVid) ? "" : this.mVid);
-            arVar.dY("nid", StringUtils.isNull(this.myz) ? "" : this.myz);
+            aqVar.dX("obj_param4", StringUtils.isNull(this.eVY) ? "" : this.eVY);
+            aqVar.dX("obj_param6", StringUtils.isNull(this.mVid) ? "" : this.mVid);
+            aqVar.dX(IntentConfig.NID, StringUtils.isNull(this.mDQ) ? "" : this.mDQ);
         }
-        return arVar;
+        return aqVar;
     }
 
-    public o dCb() {
+    public o dBQ() {
         o oVar = new o();
         oVar.mLocate = this.mLocate;
         oVar.mType = this.mType;
-        oVar.amY = this.amY;
-        oVar.fFV = this.fFV;
+        oVar.anD = this.anD;
+        oVar.fPy = this.fPy;
         oVar.mUid = this.mUid;
         oVar.mSource = this.mSource;
-        oVar.myq = this.myq;
-        oVar.myr = this.myr;
-        oVar.mys = this.mys;
-        oVar.eGn = this.eGn;
-        oVar.myu = this.myu;
-        oVar.myv = this.myv;
-        oVar.myw = this.myw;
+        oVar.mDH = this.mDH;
+        oVar.mDI = this.mDI;
+        oVar.mDJ = this.mDJ;
+        oVar.eQd = this.eQd;
+        oVar.mDL = this.mDL;
+        oVar.mDM = this.mDM;
+        oVar.mDN = this.mDN;
         oVar.mFloor = this.mFloor;
-        oVar.myy = this.myy;
+        oVar.mDP = this.mDP;
         oVar.mGroupId = this.mGroupId;
-        oVar.mNid = this.mNid;
+        oVar.eVY = this.eVY;
         oVar.mVid = this.mVid;
-        oVar.myz = this.myz;
+        oVar.mDQ = this.mDQ;
         return oVar;
     }
 }

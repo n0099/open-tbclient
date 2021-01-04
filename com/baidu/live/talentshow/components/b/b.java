@@ -4,48 +4,48 @@ import android.app.Activity;
 import android.view.View;
 import android.widget.FrameLayout;
 import com.baidu.live.talentshow.components.b.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class b {
-    private FrameLayout byb;
-    private a bzI;
+    private FrameLayout bCN;
+    private a bEv;
 
-    public b(Activity activity, a.InterfaceC0210a interfaceC0210a) {
-        this.bzI = new a(activity, interfaceC0210a);
+    public b(Activity activity, a.InterfaceC0208a interfaceC0208a) {
+        this.bEv = new a(activity, interfaceC0208a);
     }
 
     public void a(View view, int i, long j, boolean z, boolean z2) {
         if (i == 0) {
-            this.bzI.aa(view);
+            this.bEv.aa(view);
         } else if (i == 1) {
-            this.bzI.a(view, z, j, z2);
+            this.bEv.a(view, z, j, z2);
         } else if (i == 2) {
-            this.bzI.b(view, z, j, z2);
+            this.bEv.b(view, z, j, z2);
         }
     }
 
-    public void fG(int i) {
+    public void fH(int i) {
         if (i == 0) {
-            this.bzI.Tc();
+            this.bEv.Uh();
         } else if (i == 1) {
-            this.bzI.Ta();
+            this.bEv.Uf();
         } else if (i == 2) {
-            this.bzI.Tb();
+            this.bEv.Ug();
         }
     }
 
-    public void Td() {
-        this.bzI.release();
+    public void Ui() {
+        this.bEv.release();
     }
 
-    public void Te() {
-        this.bzI.c(this.byb);
+    public void Uj() {
+        this.bEv.c(this.bCN);
     }
 
     public void a(int i, long j, boolean z, boolean z2) {
-        this.bzI.a(i, j, z, z2);
+        this.bEv.a(i, j, z, z2);
     }
 
     public void d(FrameLayout frameLayout) {
-        this.byb = frameLayout;
+        this.bCN = frameLayout;
     }
 }

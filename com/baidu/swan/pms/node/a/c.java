@@ -5,15 +5,15 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class c extends com.baidu.swan.pms.node.b {
     @Override // com.baidu.swan.pms.node.b
-    public JSONObject beI() {
-        b beL = b.beL();
+    public JSONObject bhd() {
+        b bhg = b.bhg();
         JSONObject jSONObject = new JSONObject();
         try {
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("version", beL.beM());
+            jSONObject2.put("version", bhg.bhh());
             jSONObject.put("ceres_info", jSONObject2);
             JSONObject jSONObject3 = new JSONObject();
-            jSONObject3.put("version", beL.beN());
+            jSONObject3.put("version", bhg.bhi());
             jSONObject.put("global_info", jSONObject3);
         } catch (JSONException e) {
             if (com.baidu.swan.pms.d.DEBUG) {

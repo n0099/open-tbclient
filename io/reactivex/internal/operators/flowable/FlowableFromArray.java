@@ -3,7 +3,7 @@ package io.reactivex.internal.operators.flowable;
 import io.reactivex.g;
 import io.reactivex.internal.subscriptions.BasicQueueSubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class FlowableFromArray<T> extends g<T> {
     final T[] array;
 
@@ -16,7 +16,7 @@ public final class FlowableFromArray<T> extends g<T> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static abstract class BaseArraySubscription<T> extends BasicQueueSubscription<T> {
         private static final long serialVersionUID = -2252972430506210021L;
         final T[] array;
@@ -74,7 +74,7 @@ public final class FlowableFromArray<T> extends g<T> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class ArraySubscription<T> extends BaseArraySubscription<T> {
         private static final long serialVersionUID = 2587302975077663557L;
         final org.a.c<? super T> actual;
@@ -150,7 +150,7 @@ public final class FlowableFromArray<T> extends g<T> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class ArrayConditionalSubscription<T> extends BaseArraySubscription<T> {
         private static final long serialVersionUID = 2587302975077663557L;
         final io.reactivex.internal.a.a<? super T> actual;
@@ -188,12 +188,11 @@ public final class FlowableFromArray<T> extends g<T> {
             int length = tArr.length;
             int i = this.index;
             io.reactivex.internal.a.a<? super T> aVar = this.actual;
-            int i2 = i;
             long j2 = 0;
             while (true) {
-                if (j2 != j && i2 != length) {
+                if (j2 != j && i != length) {
                     if (!this.cancelled) {
-                        T t = tArr[i2];
+                        T t = tArr[i];
                         if (t == null) {
                             aVar.onError(new NullPointerException("array element is null"));
                             return;
@@ -201,11 +200,11 @@ public final class FlowableFromArray<T> extends g<T> {
                         if (aVar.tryOnNext(t)) {
                             j2++;
                         }
-                        i2++;
+                        i++;
                     } else {
                         return;
                     }
-                } else if (i2 == length) {
+                } else if (i == length) {
                     if (!this.cancelled) {
                         aVar.onComplete();
                         return;
@@ -214,7 +213,7 @@ public final class FlowableFromArray<T> extends g<T> {
                 } else {
                     j = get();
                     if (j2 == j) {
-                        this.index = i2;
+                        this.index = i;
                         j = addAndGet(-j2);
                         if (j == 0) {
                             return;

@@ -4,9 +4,9 @@ import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public abstract class f {
-    public TextView oMc;
+    public TextView oSk;
 
     public abstract void b(Context context, ChatMsg chatMsg);
 

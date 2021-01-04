@@ -1,8 +1,8 @@
 package com.baidu.fsg.face.liveness.datamodel;
 
 import android.content.Context;
-import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
+import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.fsg.base.restnet.beans.IBeanResponse;
 import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
 import com.baidu.live.tbadk.core.util.StringHelper;
@@ -10,7 +10,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class VideoGetPortraitModel implements IBeanResponse, Serializable {
     public String cutTimePoints;
     public String display_name;

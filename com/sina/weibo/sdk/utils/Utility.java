@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.webkit.internal.ETAG;
@@ -108,7 +109,7 @@ public class Utility {
         } catch (Exception e) {
             sb.append("unknown");
         }
-        sb.append("__").append("android").append("__android").append(Build.VERSION.RELEASE);
+        sb.append("__").append(HttpConstants.OS_TYPE_VALUE).append("__android").append(Build.VERSION.RELEASE);
         return sb.toString();
     }
 

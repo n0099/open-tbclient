@@ -14,9 +14,9 @@ import com.baidu.tbadk.core.atomData.WXEntryActivityConfig;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tieba.im.c;
+import com.baidu.tieba.im.c.a.d;
 import com.baidu.tieba.im.c.a.e;
 import com.baidu.tieba.im.c.a.f;
-import com.baidu.tieba.im.c.a.g;
 import com.baidu.tieba.im.chat.GroupMsgImageActivity;
 import com.baidu.tieba.im.message.ResponseAddGroupUserMessage;
 import com.baidu.tieba.im.message.ResponseCommitGroupMessage;
@@ -27,7 +27,7 @@ import com.baidu.tieba.im.message.ResponseUpdateGroupMessage;
 import com.baidu.tieba.im.message.ResponseUpgradeMemberGroupMessage;
 import com.baidu.tieba.im.message.ResponseUserPermissionMessage;
 import com.baidu.tieba.wxapi.WXEntryActivity;
-/* loaded from: classes21.dex */
+/* loaded from: classes.dex */
 public class TbLaunchStatic {
     public static String Tag = "tag";
 
@@ -51,9 +51,9 @@ public class TbLaunchStatic {
         c.b(CmdConfigSocket.CMD_GET_USER_PERMISSION, ResponseUserPermissionMessage.class, false).a(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
         c.b(CmdConfigSocket.CMD_UPDATE_GROUP, ResponseUpdateGroupMessage.class, false).a(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
         c.b(CmdConfigSocket.CMD_DISSMISS_GROUP, ResponseDismissGroupMessage.class, false);
-        c.b(CmdConfigCustom.CMD_LOAD_DRAFT_GROUP, e.class);
-        c.b(CmdConfigCustom.CMD_LOAD_HISTORY_GROUP, g.class);
-        c.b(CmdConfigCustom.CMD_SAVE_DRAFT_GROUP, f.class);
+        c.e(CmdConfigCustom.CMD_LOAD_DRAFT_GROUP, d.class);
+        c.e(CmdConfigCustom.CMD_LOAD_HISTORY_GROUP, f.class);
+        c.e(CmdConfigCustom.CMD_SAVE_DRAFT_GROUP, e.class);
     }
 
     private static void initRegisterListeners() {
@@ -62,11 +62,11 @@ public class TbLaunchStatic {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage instanceof BackgroundSwitchMessage) && ((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                    long j = b.bsO().getLong(SharedPrefConfig.CLEAR_REDUNDANCE_FILES_TIME, 0L);
+                    long j = b.bvq().getLong(SharedPrefConfig.CLEAR_REDUNDANCE_FILES_TIME, 0L);
                     long currentTimeMillis = System.currentTimeMillis();
                     if (currentTimeMillis - j > 86400000) {
-                        PluginPackageManager.pV().ql();
-                        b.bsO().putLong(SharedPrefConfig.CLEAR_REDUNDANCE_FILES_TIME, currentTimeMillis);
+                        PluginPackageManager.px().pN();
+                        b.bvq().putLong(SharedPrefConfig.CLEAR_REDUNDANCE_FILES_TIME, currentTimeMillis);
                     }
                 }
             }

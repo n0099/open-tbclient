@@ -2,7 +2,6 @@ package com.baidu.android.imsdk.shield.request;
 
 import android.content.Context;
 import android.util.Pair;
-import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
@@ -18,7 +17,7 @@ import java.security.NoSuchAlgorithmException;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class IMGetOneShieldAndTopRequest extends IMSettingBaseHttpRequest {
     private static final String TAG = "IMGetOneShieldAndTopRequest";
     private int mChatType;
@@ -80,37 +79,36 @@ public class IMGetOneShieldAndTopRequest extends IMSettingBaseHttpRequest {
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     public void onSuccess(int i, byte[] bArr) {
-        int i2;
         String str;
+        int i2;
         String str2 = new String(bArr);
         LogUtils.d(TAG, "IMGetOneShieldAndTopRequest onSuccess :" + str2);
         try {
             JSONObject jSONObject = new JSONObject(str2);
-            int optInt = jSONObject.optInt("error_code");
-            String optString = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG);
+            i2 = jSONObject.optInt("error_code");
+            String optString = jSONObject.optString("error_msg");
             JSONArray optJSONArray = jSONObject.optJSONArray("contacter");
             if (optJSONArray != null) {
                 for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
                     JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i3);
-                    int optInt2 = jSONObject2.optInt("sub_business");
-                    if (optInt2 == 2) {
+                    int optInt = jSONObject2.optInt("sub_business");
+                    if (optInt == 2) {
                         this.mMarkTop = jSONObject2.optInt(FuFaceItem.JK_ABILITY);
                         this.mMarkTopTime = jSONObject2.optLong("timestamp");
-                    } else if (optInt2 == 1) {
+                    } else if (optInt == 1) {
                         this.mShield = jSONObject2.optInt(FuFaceItem.JK_ABILITY);
                         this.mShieldTime = jSONObject2.optLong("timestamp");
-                    } else if (optInt2 == 3) {
+                    } else if (optInt == 3) {
                         this.mDisturb = jSONObject2.optInt(FuFaceItem.JK_ABILITY);
                         this.mDisturbTime = jSONObject2.optLong("timestamp");
                     }
                 }
             }
             str = optString;
-            i2 = optInt;
         } catch (JSONException e) {
             LogUtils.e(TAG, "JSONException", e);
-            i2 = 1010;
             str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
+            i2 = 1010;
         }
         GetShieldAndTopResult getShieldAndTopResult = new GetShieldAndTopResult();
         getShieldAndTopResult.setErrorCode(i2);

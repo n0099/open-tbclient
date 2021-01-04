@@ -7,16 +7,16 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.tbadk.core.util.a.e;
-import com.baidu.tbadk.core.util.ae;
+import com.baidu.tbadk.core.util.ad;
+import com.baidu.tbadk.core.util.b.e;
 import com.baidu.tbadk.core.util.r;
 import com.baidu.tieba.imageProblem.cdnOptimize.TbCDNTachometerService;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.tieba.imageProblem.util.CDNProblemUploader;
 import java.util.ArrayList;
-/* loaded from: classes13.dex */
+/* loaded from: classes8.dex */
 public class Static {
-    private static CustomMessageTask kNq = new CustomMessageTask(CmdConfigCustom.CMD_CDN_TACHOMETER, new CustomMessageTask.CustomRunnable<TbCDNTachometerService.CustomMsgData>() { // from class: com.baidu.tieba.imageProblem.cdnOptimize.Static.1
+    private static CustomMessageTask kSU = new CustomMessageTask(CmdConfigCustom.CMD_CDN_TACHOMETER, new CustomMessageTask.CustomRunnable<TbCDNTachometerService.CustomMsgData>() { // from class: com.baidu.tieba.imageProblem.cdnOptimize.Static.1
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<TbCDNTachometerService.CustomMsgData> customMessage) {
             String str;
@@ -26,15 +26,15 @@ public class Static {
                 try {
                     long currentTimeMillis = System.currentTimeMillis();
                     TbCDNTachometerService.CustomMsgData data = customMessage.getData();
-                    if (data == null || data.ipListData == null || data.ipListData.kNv == null) {
+                    if (data == null || data.ipListData == null || data.ipListData.kSZ == null) {
                         return null;
                     }
-                    if (data.kNs == null) {
-                        if (data.pos >= data.ipListData.kNv.size()) {
+                    if (data.kSW == null) {
+                        if (data.pos >= data.ipListData.kSZ.size()) {
                             z = false;
                             str = "";
                         } else {
-                            ArrayList<String> arrayList = data.ipListData.kNv.get(data.pos);
+                            ArrayList<String> arrayList = data.ipListData.kSZ.get(data.pos);
                             if (arrayList.size() <= 0) {
                                 str2 = "";
                             } else {
@@ -43,18 +43,18 @@ public class Static {
                             z = false;
                             str = str2;
                         }
-                    } else if (data.kNs.length() <= 0) {
+                    } else if (data.kSW.length() <= 0) {
                         return null;
                     } else {
-                        str = data.kNs;
+                        str = data.kSW;
                         z = true;
                     }
-                    if (ae.btD() && str.length() > 0) {
-                        data.isSuccess = data.cdnTachometerModel.getTestImageData(data.ipListData.imageUrl, str, data.ipListData.kNx, data.ipListData.kNu, data.isNormal);
+                    if (ad.bvY() && str.length() > 0) {
+                        data.isSuccess = data.cdnTachometerModel.getTestImageData(data.ipListData.imageUrl, str, data.ipListData.kTb, data.ipListData.kSY, data.isNormal);
                         data.costTime = System.currentTimeMillis() - currentTimeMillis;
                         data.cdnIp = str;
                         if (z) {
-                            data.kNs = str;
+                            data.kSW = str;
                         }
                         return new CustomResponsedMessage<>(CmdConfigCustom.CMD_CDN_TACHOMETER, data);
                     }
@@ -79,7 +79,7 @@ public class Static {
                 return new CustomResponsedMessage<>(CmdConfigCustom.CMD_CDN_IP_DIRECT_CONNECT, CDNIPDirectConnect.getInstance());
             }
         }).setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        kNq.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
-        kNq.setTaskParallel(new BdAsyncTaskParallel(BdUniqueId.gen(), 10));
+        kSU.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
+        kSU.setTaskParallel(new BdAsyncTaskParallel(BdUniqueId.gen(), 10));
     }
 }

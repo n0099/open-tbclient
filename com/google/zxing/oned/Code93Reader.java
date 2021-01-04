@@ -15,7 +15,7 @@ import java.util.Arrays;
 import java.util.Map;
 import okhttp3.internal.http.StatusLine;
 import org.apache.http.HttpStatus;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class Code93Reader extends OneDReader {
     private static final int ASTERISK_ENCODING;
     static final int[] CHARACTER_ENCODINGS;
@@ -78,26 +78,26 @@ public final class Code93Reader extends OneDReader {
         Arrays.fill(this.counters, 0);
         int[] iArr = this.counters;
         int length = iArr.length;
+        int i = 0;
         boolean z = false;
-        int i = nextSet;
-        int i2 = 0;
+        int i2 = nextSet;
         for (int i3 = nextSet; i3 < size; i3++) {
             if (bitArray.get(i3) ^ z) {
-                iArr[i2] = iArr[i2] + 1;
+                iArr[i] = iArr[i] + 1;
             } else {
-                if (i2 == length - 1) {
+                if (i == length - 1) {
                     if (toPattern(iArr) == ASTERISK_ENCODING) {
-                        return new int[]{i, i3};
+                        return new int[]{i2, i3};
                     }
-                    i += iArr[0] + iArr[1];
+                    i2 += iArr[0] + iArr[1];
                     System.arraycopy(iArr, 2, iArr, 0, length - 2);
                     iArr[length - 2] = 0;
                     iArr[length - 1] = 0;
-                    i2--;
+                    i--;
                 } else {
-                    i2++;
+                    i++;
                 }
-                iArr[i2] = 1;
+                iArr[i] = 1;
                 z = !z;
             }
         }
@@ -120,9 +120,7 @@ public final class Code93Reader extends OneDReader {
                 return -1;
             }
             if ((i4 & 1) == 0) {
-                int i5 = 0;
-                while (i5 < round) {
-                    i5++;
+                for (int i5 = 0; i5 < round; i5++) {
                     i3 = (i3 << 1) | 1;
                 }
             } else {
@@ -223,20 +221,19 @@ public final class Code93Reader extends OneDReader {
     }
 
     private static void checkOneChecksum(CharSequence charSequence, int i, int i2) throws ChecksumException {
-        int i3 = 1;
+        int i3 = 0;
         int i4 = i - 1;
-        int i5 = 0;
+        int i5 = 1;
         while (i4 >= 0) {
-            int indexOf = (ALPHABET_STRING.indexOf(charSequence.charAt(i4)) * i3) + i5;
-            int i6 = i3 + 1;
+            i3 += ALPHABET_STRING.indexOf(charSequence.charAt(i4)) * i5;
+            int i6 = i5 + 1;
             if (i6 > i2) {
                 i6 = 1;
             }
             i4--;
-            i3 = i6;
-            i5 = indexOf;
+            i5 = i6;
         }
-        if (charSequence.charAt(i) != ALPHABET[i5 % 47]) {
+        if (charSequence.charAt(i) != ALPHABET[i3 % 47]) {
             throw ChecksumException.getChecksumInstance();
         }
     }

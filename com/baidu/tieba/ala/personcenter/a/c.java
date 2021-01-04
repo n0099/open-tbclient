@@ -5,54 +5,55 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.card.ab;
-/* loaded from: classes6.dex */
-public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.personcenter.c.f, com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.b>> {
+import com.baidu.tieba.card.aa;
+import com.baidu.tieba.card.holder.CardViewHolder;
+/* loaded from: classes10.dex */
+public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.personcenter.c.f, CardViewHolder<com.baidu.tieba.ala.personcenter.e.b>> {
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.personcenter.c.f.hNw);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.personcenter.c.f.hZS);
         this.mPageContext = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aL */
-    public com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.b> c(ViewGroup viewGroup) {
-        return new com.baidu.tieba.card.a.a<>(new com.baidu.tieba.ala.personcenter.e.b(this.mPageContext));
+    /* renamed from: aX */
+    public CardViewHolder<com.baidu.tieba.ala.personcenter.e.b> e(ViewGroup viewGroup) {
+        return new CardViewHolder<>(new com.baidu.tieba.ala.personcenter.e.b(this.mPageContext));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.personcenter.c.f fVar, com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.b> aVar) {
-        if (aVar.csN() == null) {
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.personcenter.c.f fVar, CardViewHolder<com.baidu.tieba.ala.personcenter.e.b> cardViewHolder) {
+        if (cardViewHolder.cvG() == null) {
             return null;
         }
-        aVar.csN().a(fVar);
-        aVar.csN().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        aVar.csN().c(new ab<com.baidu.tieba.ala.personcenter.c.f>() { // from class: com.baidu.tieba.ala.personcenter.a.c.1
+        cardViewHolder.cvG().a(fVar);
+        cardViewHolder.cvG().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        cardViewHolder.cvG().c(new aa<com.baidu.tieba.ala.personcenter.c.f>() { // from class: com.baidu.tieba.ala.personcenter.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.card.ab
+            @Override // com.baidu.tieba.card.aa
             public void a(View view2, com.baidu.tieba.ala.personcenter.c.f fVar2) {
                 c.this.a(fVar2);
             }
         });
-        return aVar.csN().getView();
+        return cardViewHolder.cvG().getView();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.ala.personcenter.c.f fVar) {
         com.baidu.tieba.ala.personcenter.c.c personCenterData;
-        if (fVar != null && (personCenterData = fVar.getPersonCenterData()) != null && personCenterData.cmQ() != null) {
+        if (fVar != null && (personCenterData = fVar.getPersonCenterData()) != null && personCenterData.cpI() != null) {
             if (!personCenterData.isHost()) {
                 TiebaStatic.log("c11864");
             } else {
                 TiebaStatic.log("c11857");
             }
-            String string = com.baidu.tbadk.core.sharedPref.b.bsO().getString("ala_personal_exp_detail_url", "https://sv.baidu.com/cashliveui/userLevel.html#/level");
+            String string = com.baidu.tbadk.core.sharedPref.b.bvq().getString("ala_personal_exp_detail_url", "https://sv.baidu.com/cashliveui/userLevel.html#/level");
             if (string != null) {
                 if (string.endsWith("/")) {
                     string = string.substring(0, string.length() - 1);

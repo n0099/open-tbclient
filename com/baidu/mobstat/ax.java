@@ -2,13 +2,15 @@ package com.baidu.mobstat;
 
 import android.text.TextUtils;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class ax {
     private static final ax c = new ax();
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f2573a = false;
-    private volatile boolean b;
+    private boolean f3766a = false;
+
+    /* renamed from: b  reason: collision with root package name */
+    private volatile boolean f3767b;
 
     public static ax a() {
         return c;
@@ -18,14 +20,14 @@ public class ax {
         if (!TextUtils.isEmpty(str)) {
             try {
                 JSONObject jSONObject = (JSONObject) new JSONObject(str).opt("full");
-                this.f2573a = (jSONObject != null ? jSONObject.optInt("close") : 0) != 0;
+                this.f3766a = (jSONObject != null ? jSONObject.optInt("close") : 0) != 0;
             } catch (Exception e) {
             }
-            this.b = true;
+            this.f3767b = true;
         }
     }
 
     public boolean b() {
-        return this.f2573a;
+        return this.f3766a;
     }
 }

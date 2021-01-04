@@ -1,5 +1,5 @@
 package com.google.zxing.oned;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public abstract class UPCEANWriter extends OneDimensionalCodeWriter {
     @Override // com.google.zxing.oned.OneDimensionalCodeWriter
     public int getDefaultMargin() {

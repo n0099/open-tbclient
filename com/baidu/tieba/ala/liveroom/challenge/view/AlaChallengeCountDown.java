@@ -16,13 +16,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaChallengeCountDown extends LinearLayout {
     private int count;
-    private ImageView hmW;
-    private TextView hmX;
-    private boolean hmY;
-    private boolean hmZ;
+    private ImageView hyR;
+    private TextView hyS;
+    private boolean hyT;
+    private boolean hyU;
     private Context mContext;
     private int maxCount;
     private View rootView;
@@ -31,8 +31,8 @@ public class AlaChallengeCountDown extends LinearLayout {
         super(context);
         this.maxCount = 3;
         this.count = this.maxCount;
-        this.hmY = false;
-        this.hmZ = false;
+        this.hyT = false;
+        this.hyU = false;
         init(context);
     }
 
@@ -40,8 +40,8 @@ public class AlaChallengeCountDown extends LinearLayout {
         super(context, attributeSet);
         this.maxCount = 3;
         this.count = this.maxCount;
-        this.hmY = false;
-        this.hmZ = false;
+        this.hyT = false;
+        this.hyU = false;
         init(context);
     }
 
@@ -49,50 +49,50 @@ public class AlaChallengeCountDown extends LinearLayout {
         super(context, attributeSet, i);
         this.maxCount = 3;
         this.count = this.maxCount;
-        this.hmY = false;
-        this.hmZ = false;
+        this.hyT = false;
+        this.hyU = false;
         init(context);
     }
 
     public void init(Context context) {
         this.mContext = context;
         this.rootView = View.inflate(context, a.g.ala_challenge_count_down, this);
-        this.hmW = (ImageView) this.rootView.findViewById(a.f.ala_challenge_count_down_bg);
-        this.hmX = (TextView) this.rootView.findViewById(a.f.ala_challenge_count_down_time);
-        this.hmW.setAlpha(0.0f);
-        this.hmX.setVisibility(8);
+        this.hyR = (ImageView) this.rootView.findViewById(a.f.ala_challenge_count_down_bg);
+        this.hyS = (TextView) this.rootView.findViewById(a.f.ala_challenge_count_down_time);
+        this.hyR.setAlpha(0.0f);
+        this.hyS.setVisibility(8);
     }
 
     public void setMaxCountDownNum(int i) {
         this.maxCount = i;
     }
 
-    private void cdS() {
+    private void cgI() {
         ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
         ofFloat.setDuration(300L);
         ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeCountDown.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                AlaChallengeCountDown.this.hmW.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                AlaChallengeCountDown.this.hyR.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
             }
         });
         ofFloat.start();
-        Animation loadAnimation = AnimationUtils.loadAnimation(this.mContext, a.C0205a.challenge_count_down_roll);
+        Animation loadAnimation = AnimationUtils.loadAnimation(this.mContext, a.C0203a.challenge_count_down_roll);
         LinearInterpolator linearInterpolator = new LinearInterpolator();
         loadAnimation.setDuration(700L);
         loadAnimation.setInterpolator(linearInterpolator);
-        this.hmW.setVisibility(0);
-        this.hmW.startAnimation(loadAnimation);
+        this.hyR.setVisibility(0);
+        this.hyR.startAnimation(loadAnimation);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cdT() {
+    public void cgJ() {
         if (this.count <= 0) {
-            cdV();
+            cgL();
             return;
         }
-        this.hmX.setText(String.valueOf(this.count));
-        this.hmX.setVisibility(0);
+        this.hyS.setText(String.valueOf(this.count));
+        this.hyS.setVisibility(0);
         this.count--;
         AnimationSet animationSet = new AnimationSet(true);
         AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
@@ -106,44 +106,44 @@ public class AlaChallengeCountDown extends LinearLayout {
         animationSet.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeCountDown.2
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
-                AlaChallengeCountDown.this.hmX.setVisibility(0);
+                AlaChallengeCountDown.this.hyS.setVisibility(0);
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                AlaChallengeCountDown.this.cdT();
+                AlaChallengeCountDown.this.cgJ();
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationRepeat(Animation animation) {
             }
         });
-        this.hmX.startAnimation(animationSet);
+        this.hyS.startAnimation(animationSet);
     }
 
-    public void cdU() {
-        this.hmY = false;
-        this.hmZ = false;
-        if (this.hmW != null) {
-            this.hmW.setVisibility(8);
-            this.hmW.clearAnimation();
+    public void cgK() {
+        this.hyT = false;
+        this.hyU = false;
+        if (this.hyR != null) {
+            this.hyR.setVisibility(8);
+            this.hyR.clearAnimation();
         }
-        if (this.hmX != null) {
-            this.hmX.setVisibility(8);
-            this.hmX.clearAnimation();
+        if (this.hyS != null) {
+            this.hyS.setVisibility(8);
+            this.hyS.clearAnimation();
         }
     }
 
-    public void cdV() {
-        if (!this.hmZ) {
-            this.hmZ = true;
-            if (this.hmW != null) {
-                this.hmW.setVisibility(8);
-                this.hmW.clearAnimation();
+    public void cgL() {
+        if (!this.hyU) {
+            this.hyU = true;
+            if (this.hyR != null) {
+                this.hyR.setVisibility(8);
+                this.hyR.clearAnimation();
             }
-            if (this.hmX != null) {
-                this.hmX.setVisibility(8);
-                this.hmX.clearAnimation();
+            if (this.hyS != null) {
+                this.hyS.setVisibility(8);
+                this.hyS.clearAnimation();
             }
             ValueAnimator ofFloat = ValueAnimator.ofFloat(1.0f, 0.0f);
             ofFloat.setDuration(300L);
@@ -160,8 +160,8 @@ public class AlaChallengeCountDown extends LinearLayout {
 
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    AlaChallengeCountDown.this.hmY = false;
-                    AlaChallengeCountDown.this.hmZ = false;
+                    AlaChallengeCountDown.this.hyT = false;
+                    AlaChallengeCountDown.this.hyU = false;
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
@@ -177,13 +177,13 @@ public class AlaChallengeCountDown extends LinearLayout {
     }
 
     public void startCountDown() {
-        if (!this.hmY) {
-            this.hmZ = false;
-            this.hmY = true;
+        if (!this.hyT) {
+            this.hyU = false;
+            this.hyT = true;
             this.count = this.maxCount;
             this.rootView.setAlpha(1.0f);
-            cdS();
-            cdT();
+            cgI();
+            cgJ();
         }
     }
 
@@ -195,11 +195,11 @@ public class AlaChallengeCountDown extends LinearLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (this.hmX != null) {
-            this.hmX.clearAnimation();
+        if (this.hyS != null) {
+            this.hyS.clearAnimation();
         }
-        if (this.hmW != null) {
-            this.hmW.clearAnimation();
+        if (this.hyR != null) {
+            this.hyR.clearAnimation();
         }
     }
 }

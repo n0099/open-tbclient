@@ -1,51 +1,67 @@
 package com.baidu.live.view.web.a;
 
+import android.app.Activity;
 import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.live.adp.framework.MessageManager;
+import com.baidu.live.adp.framework.message.CustomMessage;
+import com.baidu.live.adp.lib.util.StringUtils;
+import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import com.baidu.live.tbadk.core.atomdata.YuyinAlaPersonCardActivityConfig;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.live.tbadk.extrajump.ExtraJumpManager;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
-import com.baidu.live.tbadk.scheme.SchemeCallback;
+import com.baidu.live.tbadk.schemeability.ISchemeAbility;
+import com.baidu.live.tbadk.schemeability.SchemeAbilityManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class b extends com.baidu.live.view.web.a {
-    private SchemeCallback bRj;
+    private Activity context;
+    private boolean isHost;
 
-    public b(SchemeCallback schemeCallback) {
-        this.bRj = schemeCallback;
+    public b(Activity activity) {
+        this.context = activity;
     }
 
     @Override // com.baidu.live.view.web.a
     public String getName() {
-        return "cuidBridge";
+        return "audioPersonalCenterBridge";
+    }
+
+    public void setHost(boolean z) {
+        this.isHost = z;
     }
 
     @Override // com.baidu.live.view.web.a
-    public void jm(String str) {
-        JSONObject jSONObject;
-        JSONException e;
-        if (this.bRj != null) {
-            String cuid = ExtraParamsManager.getInstance().buildParamsExtra().getCuid();
-            if (TextUtils.isEmpty(cuid)) {
-                this.bRj.doJsCallback(0, "", null, str);
-                return;
+    public void jf(String str) {
+        ISchemeAbility buildSchemeAbility;
+        Log.d("JsInterface", "@@ JsInterface-impl AudioPersonalCenterBridgeJsInterface params = " + str);
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            String optString = jSONObject.optString("uid");
+            boolean optBoolean = jSONObject.optBoolean("isCard");
+            String optString2 = jSONObject.optString("bd_scheme");
+            if (StringUtils.isNull(optString)) {
+                optString = ExtraParamsManager.getDecryptUserId(jSONObject.optString("uk"));
             }
-            if (TextUtils.isEmpty(cuid)) {
-                jSONObject = null;
-            } else {
-                try {
-                    jSONObject = new JSONObject();
-                    try {
-                        jSONObject.put("cuid", cuid);
-                    } catch (JSONException e2) {
-                        e = e2;
-                        e.printStackTrace();
-                        this.bRj.doJsCallback(1, "", jSONObject, str);
-                    }
-                } catch (JSONException e3) {
-                    jSONObject = null;
-                    e = e3;
+            if (optBoolean) {
+                com.baidu.live.data.x aas = com.baidu.live.aq.a.aam().aas();
+                if (aas != null && aas.aKQ != null && aas.mLiveInfo != null) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new YuyinAlaPersonCardActivityConfig(this.context, optString, null, null, 0, 0, null, null, 0L, 0L, 0L, 0, Long.toString(aas.mLiveInfo.group_id), Long.toString(aas.mLiveInfo.live_id), false, null, null, null, "")));
                 }
+            } else if (!this.isHost) {
+                if (TbadkCoreApplication.getInst().isMobileBaidu()) {
+                    if (!TextUtils.isEmpty(optString2) && (buildSchemeAbility = SchemeAbilityManager.getInstance().buildSchemeAbility()) != null) {
+                        buildSchemeAbility.openScheme(optString2);
+                        return;
+                    }
+                    return;
+                }
+                ExtraJumpManager.getInstance().buildJumpExtra().jumpToPersonalCenter(this.context, optString);
             }
-            this.bRj.doJsCallback(1, "", jSONObject, str);
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 }

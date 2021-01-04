@@ -1,10 +1,10 @@
 package com.squareup.wire;
 
-import android.support.v7.widget.ActivityChooserView;
+import androidx.appcompat.widget.ActivityChooserView;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes5.dex */
 final class WireInput {
     private static /* synthetic */ int[] $SWITCH_TABLE$com$squareup$wire$WireType = null;
     private static final int BUFFER_SIZE = 1024;

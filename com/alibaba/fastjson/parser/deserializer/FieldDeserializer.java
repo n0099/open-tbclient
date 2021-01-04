@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public abstract class FieldDeserializer {
     protected BeanContext beanContext;
     protected final Class<?> clazz;

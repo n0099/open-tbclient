@@ -7,36 +7,34 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class c extends a {
-    private TbImageView eXC;
-    private ViewGroup gzm;
+    private TbImageView fhd;
+    private ViewGroup gKp;
 
     public c(TbPageContext tbPageContext) {
         super(tbPageContext);
-        bTc();
+        bVG();
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
     public void init() {
-        this.gzm = new FrameLayout(this.mTbPageContext.getPageActivity());
-        this.eXC = new TbImageView(this.mTbPageContext.getPageActivity());
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.mScreenWidth, this.gqZ);
-        this.eXC.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.eXC.setDefaultErrorResource(R.drawable.pic_live_ufan);
-        this.eXC.setLayoutParams(layoutParams);
-        this.gzm.addView(this.eXC);
+        this.gKp = new FrameLayout(this.mTbPageContext.getPageActivity());
+        this.fhd = new TbImageView(this.mTbPageContext.getPageActivity());
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.mScreenWidth, this.gBY);
+        this.fhd.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.fhd.setLayoutParams(layoutParams);
+        this.gKp.addView(this.fhd);
         this.mMaskView.setVisibility(8);
-        this.gzm.addView(this.mMaskView);
-        this.eXC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.special_forum.b.c.1
+        this.gKp.addView(this.mMaskView);
+        this.fhd.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.special_forum.b.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (!TextUtils.isEmpty(c.this.gzl.gxx)) {
-                    bf.bua().a(c.this.mTbPageContext, new String[]{c.this.gzl.gxx}, true);
-                    com.baidu.tieba.ala.alasquare.c.a.bSH().c("c12909", c.this.gzl.gxz, 3, "-1");
+                if (!TextUtils.isEmpty(c.this.gKo.gIA)) {
+                    be.bwu().a(c.this.mTbPageContext, new String[]{c.this.gKo.gIA}, true);
+                    com.baidu.tieba.ala.alasquare.b.a.bVl().c("c12909", c.this.gKo.gIC, 3, "-1");
                 }
             }
         });
@@ -44,35 +42,35 @@ public class c extends a {
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
-    public void lX(boolean z) {
+    public void mu(boolean z) {
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
     public boolean b(com.baidu.tieba.ala.alasquare.special_forum.data.a aVar) {
-        return (aVar == null || 3 != aVar.gxy || TextUtils.isEmpty(aVar.gxv)) ? false : true;
+        return (aVar == null || 3 != aVar.gIB || TextUtils.isEmpty(aVar.gIy)) ? false : true;
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
-    public void bTd() {
-        super.bTd();
-        if (this.eXC != null) {
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.eXC.getLayoutParams();
+    public void bVH() {
+        super.bVH();
+        if (this.fhd != null) {
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.fhd.getLayoutParams();
             layoutParams.width = this.mScreenWidth;
-            layoutParams.height = this.gqZ;
-            this.eXC.setLayoutParams(layoutParams);
+            layoutParams.height = this.gBY;
+            this.fhd.setLayoutParams(layoutParams);
         }
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
     public View getContentView() {
-        return this.gzm;
+        return this.gKp;
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
     public void a(com.baidu.tieba.ala.alasquare.special_forum.data.a aVar) {
         super.a(aVar);
-        this.eXC.startLoad(aVar.gxv, 10, false);
-        com.baidu.tieba.ala.alasquare.c.a.bSH().c("c12908", this.gzl.gxz, 3, "-1");
+        this.fhd.startLoad(aVar.gIy, 10, false);
+        com.baidu.tieba.ala.alasquare.b.a.bVl().c("c12908", this.gKo.gIC, 3, "-1");
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
@@ -94,6 +92,6 @@ public class c extends a {
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
     public void onDestroy() {
-        this.eXC = null;
+        this.fhd = null;
     }
 }

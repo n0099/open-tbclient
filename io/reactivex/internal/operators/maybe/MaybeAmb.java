@@ -5,47 +5,55 @@ import io.reactivex.k;
 import io.reactivex.m;
 import io.reactivex.o;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class MaybeAmb<T> extends k<T> {
-    private final Iterable<? extends o<? extends T>> pFj;
+    private final Iterable<? extends o<? extends T>> qgL;
     private final o<? extends T>[] sources;
 
+    /* JADX DEBUG: Multi-variable search result rejected for r2v1, resolved type: java.lang.Object[] */
+    /* JADX WARN: Multi-variable type inference failed */
     @Override // io.reactivex.k
     protected void b(m<? super T> mVar) {
         int length;
+        Object[] objArr;
         o<? extends T>[] oVarArr = this.sources;
         if (oVarArr == null) {
             o<? extends T>[] oVarArr2 = new o[8];
             try {
                 int i = 0;
-                for (o<? extends T> oVar : this.pFj) {
+                o<? extends T>[] oVarArr3 = oVarArr2;
+                for (o<? extends T> oVar : this.qgL) {
                     if (oVar == null) {
                         EmptyDisposable.error(new NullPointerException("One of the sources is null"), mVar);
                         return;
                     }
-                    if (i == oVarArr2.length) {
-                        o<? extends T>[] oVarArr3 = new o[(i >> 2) + i];
-                        System.arraycopy(oVarArr2, 0, oVarArr3, 0, i);
-                        oVarArr2 = oVarArr3;
+                    int length2 = oVarArr3.length;
+                    o<? extends T>[] oVarArr4 = oVarArr3;
+                    if (i == length2) {
+                        o<? extends T>[] oVarArr5 = new o[(i >> 2) + i];
+                        System.arraycopy(oVarArr3, 0, oVarArr5, 0, i);
+                        oVarArr4 = oVarArr5;
                     }
                     int i2 = i + 1;
-                    oVarArr2[i] = oVar;
+                    oVarArr4[i] = oVar;
                     i = i2;
+                    oVarArr3 = oVarArr4;
                 }
                 length = i;
-                oVarArr = oVarArr2;
+                objArr = oVarArr3;
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.J(th);
+                io.reactivex.exceptions.a.O(th);
                 EmptyDisposable.error(th, mVar);
                 return;
             }
         } else {
             length = oVarArr.length;
+            objArr = oVarArr;
         }
         AmbMaybeObserver ambMaybeObserver = new AmbMaybeObserver(mVar);
         mVar.onSubscribe(ambMaybeObserver);
         for (int i3 = 0; i3 < length; i3++) {
-            o<? extends T> oVar2 = oVarArr[i3];
+            o<? extends T> oVar2 = objArr[i3];
             if (!ambMaybeObserver.isDisposed()) {
                 if (oVar2 == null) {
                     ambMaybeObserver.onError(new NullPointerException("One of the MaybeSources is null"));
@@ -61,7 +69,7 @@ public final class MaybeAmb<T> extends k<T> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class AmbMaybeObserver<T> extends AtomicBoolean implements io.reactivex.disposables.b, m<T> {
         private static final long serialVersionUID = -7044685185359438206L;
         final m<? super T> actual;

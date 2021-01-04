@@ -3,18 +3,16 @@ package com.baidu.android.imsdk.account;
 import android.content.Context;
 import android.util.Log;
 import com.baidu.android.imsdk.BIMManager;
-import com.baidu.android.imsdk.ResponseCode;
 import com.baidu.android.imsdk.account.request.IMUserLoginByTokenMsg;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConnection;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.ar.recorder.MovieRecorder;
-import com.baidu.h.a;
+import com.baidu.i.a;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class LoginManager {
     private static Context mContext;
     private static LoginManager mInstance = null;
@@ -29,7 +27,7 @@ public class LoginManager {
         }
     };
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public enum LoginState {
         NOT_LOGIN,
         LOGINING,
@@ -96,11 +94,11 @@ public class LoginManager {
             this.cidTryLoginedTimes--;
             this.mLoginState = LoginState.NOT_LOGIN;
         } else if (110 != i && 7 != i && 23 != i && 1004 != i && 1001 != i && 8010 != i) {
-            LogUtils.d(this.TAG, "error :" + i + ", and retry ：" + IMUserLoginByTokenMsg.sRetrytimes + "， isLcp :" + a.ayO);
+            LogUtils.d(this.TAG, "error :" + i + ", and retry ：" + IMUserLoginByTokenMsg.sRetrytimes + "， isLcp :" + a.aze);
             this.mLoginState = LoginState.NOT_LOGIN;
-            if (a.ayO && IMUserLoginByTokenMsg.sRetrytimes < 3) {
+            if (a.aze && IMUserLoginByTokenMsg.sRetrytimes < 3) {
                 imRetryLogin(i);
-            } else if (!a.ayO && IMConnection.getInstance(mContext).shouldRetryLogin()) {
+            } else if (!a.aze && IMConnection.getInstance(mContext).shouldRetryLogin()) {
                 LogUtils.d(this.TAG, "IMConnection，im login ：" + IMUserLoginByTokenMsg.sRetrytimes);
                 IMConnection.getInstance(mContext).disconnectedByPeer();
             }
@@ -116,13 +114,13 @@ public class LoginManager {
             case 4001:
                 imLogin(false);
                 return;
-            case MovieRecorder.ERROR_CODE_ON_STOP /* 4002 */:
+            case 4002:
             default:
                 imLogin(false);
                 return;
-            case ResponseCode.ERROR_LOGIN_INVALID_REQUEST /* 4003 */:
-            case ResponseCode.ERROR_LOGIN_LOGIN_FAILED /* 4004 */:
-            case ResponseCode.ERROR_LOGIN_CALL_BACKEND_FAILED /* 4005 */:
+            case 4003:
+            case 4004:
+            case 4005:
                 imLogin(true);
                 return;
         }

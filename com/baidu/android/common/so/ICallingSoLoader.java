@@ -1,5 +1,5 @@
 package com.baidu.android.common.so;
-/* loaded from: classes21.dex */
+/* loaded from: classes.dex */
 public interface ICallingSoLoader {
     void load(String str) throws Throwable;
 

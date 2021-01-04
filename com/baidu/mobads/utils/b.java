@@ -5,13 +5,15 @@ import android.text.TextUtils;
 import dalvik.system.DexClassLoader;
 import java.io.File;
 import java.lang.reflect.Method;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Context f2438a;
+    private static Context f3527a;
     private static File e;
-    private static String b = null;
+
+    /* renamed from: b  reason: collision with root package name */
+    private static String f3528b = null;
     private static String c = "galaxy_sdk_dex.jar";
     private static String d = null;
     private static DexClassLoader f = null;
@@ -61,15 +63,15 @@ public class b {
     }
 
     private static void c(Context context) {
-        f2438a = context.getApplicationContext();
-        d = f2438a.getFilesDir().getAbsolutePath();
+        f3527a = context.getApplicationContext();
+        d = f3527a.getFilesDir().getAbsolutePath();
         d(context);
-        e = new File(b + c);
+        e = new File(f3528b + c);
     }
 
     private static void d(Context context) {
-        if (TextUtils.isEmpty(b)) {
-            b = f2438a.getDir("baidu_ad_sdk", 0).getAbsolutePath() + "/";
+        if (TextUtils.isEmpty(f3528b)) {
+            f3528b = f3527a.getDir("baidu_ad_sdk", 0).getAbsolutePath() + "/";
         }
     }
 
@@ -78,7 +80,7 @@ public class b {
             synchronized (b.class) {
                 String absolutePath = e.getAbsolutePath();
                 if (new File(absolutePath).exists()) {
-                    f = new DexClassLoader(absolutePath, d, null, f2438a.getClass().getClassLoader());
+                    f = new DexClassLoader(absolutePath, d, null, f3527a.getClass().getClassLoader());
                 } else {
                     f = null;
                 }

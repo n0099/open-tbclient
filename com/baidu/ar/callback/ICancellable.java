@@ -1,5 +1,5 @@
 package com.baidu.ar.callback;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public interface ICancellable {
     void cancel();
 }

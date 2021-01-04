@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InterruptedIOException;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class AsyncTimeout extends Timeout {
     private static final long IDLE_TIMEOUT_MILLIS = TimeUnit.SECONDS.toMillis(60);
     private static final long IDLE_TIMEOUT_NANOS = TimeUnit.MILLISECONDS.toNanos(IDLE_TIMEOUT_MILLIS);
@@ -115,14 +115,12 @@ public class AsyncTimeout extends Timeout {
                         if (j3 >= 65536) {
                             break;
                         }
-                        long j4 = (segment.limit - segment.pos) + j3;
-                        if (j4 >= j2) {
+                        j3 += segment.limit - segment.pos;
+                        if (j3 >= j2) {
                             j3 = j2;
                             break;
-                        } else {
-                            segment = segment.next;
-                            j3 = j4;
                         }
+                        segment = segment.next;
                     }
                     AsyncTimeout.this.enter();
                     try {
@@ -247,7 +245,7 @@ public class AsyncTimeout extends Timeout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class Watchdog extends Thread {
         Watchdog() {
             super("Okio Watchdog");

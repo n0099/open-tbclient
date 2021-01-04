@@ -20,7 +20,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class AppConfig {
     private static final String CONFIG_FILE = "searchbox_config.ini";
     private static final String DAILY_CONFIG_FILE = "daily_searchbox_config.ini";
@@ -43,7 +43,7 @@ public class AppConfig {
     public static boolean useQADefaultDings = false;
     public static boolean userProfileForbidFlag = false;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public interface ConfigValueFilter {
         boolean isIllegalContent(String str);
     }
@@ -61,7 +61,7 @@ public class AppConfig {
         return false;
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public static class AppInfo {
         private static final String DEFAULT_PACKAGE_NAME = "com.baidu.searchbox";
         private static final String PREVIEW_PACKAGE_NAME = "com.baidu.searchbox.preview";
@@ -156,7 +156,7 @@ public class AppConfig {
         return i;
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public static class HTTPSConfig {
         private static final long TMP_USE_HTTP_DELTA = 518400000;
 
@@ -179,8 +179,8 @@ public class AppConfig {
         return "2分钟";
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:31:0x0071 A[Catch: Exception -> 0x0075, TRY_LEAVE, TryCatch #6 {Exception -> 0x0075, blocks: (B:29:0x006c, B:31:0x0071), top: B:51:0x006c }] */
-    /* JADX WARN: Removed duplicated region for block: B:51:0x006c A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:31:0x0072 A[Catch: Exception -> 0x0076, TRY_LEAVE, TryCatch #5 {Exception -> 0x0076, blocks: (B:29:0x006d, B:31:0x0072), top: B:49:0x006d }] */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x006d A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -188,77 +188,72 @@ public class AppConfig {
         File file;
         DataOutputStream dataOutputStream;
         FileOutputStream fileOutputStream;
-        FileOutputStream fileOutputStream2 = null;
         if (!sDebug && context != null && (file = new File(context.getFilesDir(), TIMESTAMP_FILE)) != null) {
             try {
                 fileOutputStream = new FileOutputStream(file);
                 try {
                     dataOutputStream = new DataOutputStream(fileOutputStream);
-                } catch (Exception e) {
-                    e = e;
-                    dataOutputStream = null;
-                    fileOutputStream2 = fileOutputStream;
-                } catch (Throwable th) {
-                    th = th;
-                    dataOutputStream = null;
-                }
-            } catch (Exception e2) {
-                e = e2;
-                dataOutputStream = null;
-            } catch (Throwable th2) {
-                th = th2;
-                dataOutputStream = null;
-                fileOutputStream = null;
-            }
-            try {
-                dataOutputStream.writeLong(System.currentTimeMillis());
-                dataOutputStream.flush();
-                if (dataOutputStream != null) {
                     try {
-                        dataOutputStream.close();
-                    } catch (Exception e3) {
-                    }
-                }
-                if (fileOutputStream != null) {
-                    fileOutputStream.close();
-                }
-            } catch (Exception e4) {
-                e = e4;
-                fileOutputStream2 = fileOutputStream;
-                try {
-                    e.printStackTrace();
-                    if (dataOutputStream != null) {
                         try {
-                            dataOutputStream.close();
-                        } catch (Exception e5) {
+                            dataOutputStream.writeLong(System.currentTimeMillis());
+                            dataOutputStream.flush();
+                            if (dataOutputStream != null) {
+                                try {
+                                    dataOutputStream.close();
+                                } catch (Exception e) {
+                                }
+                            }
+                            if (fileOutputStream != null) {
+                                fileOutputStream.close();
+                            }
+                        } catch (Exception e2) {
+                            e = e2;
+                            e.printStackTrace();
+                            if (dataOutputStream != null) {
+                                try {
+                                    dataOutputStream.close();
+                                } catch (Exception e3) {
+                                }
+                            }
+                            if (fileOutputStream != null) {
+                                fileOutputStream.close();
+                            }
+                            Toast.makeText(context, "配置文件有效时间：" + getActiveDuration(), 0).show();
                         }
+                    } catch (Throwable th) {
+                        th = th;
+                        if (dataOutputStream != null) {
+                            try {
+                                dataOutputStream.close();
+                            } catch (Exception e4) {
+                                throw th;
+                            }
+                        }
+                        if (fileOutputStream != null) {
+                            fileOutputStream.close();
+                        }
+                        throw th;
                     }
-                    if (fileOutputStream2 != null) {
-                        fileOutputStream2.close();
-                    }
-                    Toast.makeText(context, "配置文件有效时间：" + getActiveDuration(), 0).show();
-                } catch (Throwable th3) {
-                    th = th3;
-                    fileOutputStream = fileOutputStream2;
+                } catch (Exception e5) {
+                    e = e5;
+                    dataOutputStream = null;
+                } catch (Throwable th2) {
+                    th = th2;
+                    dataOutputStream = null;
                     if (dataOutputStream != null) {
-                        try {
-                            dataOutputStream.close();
-                        } catch (Exception e6) {
-                            throw th;
-                        }
                     }
                     if (fileOutputStream != null) {
-                        fileOutputStream.close();
                     }
                     throw th;
                 }
-            } catch (Throwable th4) {
-                th = th4;
-                if (dataOutputStream != null) {
-                }
-                if (fileOutputStream != null) {
-                }
-                throw th;
+            } catch (Exception e6) {
+                e = e6;
+                dataOutputStream = null;
+                fileOutputStream = null;
+            } catch (Throwable th3) {
+                th = th3;
+                dataOutputStream = null;
+                fileOutputStream = null;
             }
             Toast.makeText(context, "配置文件有效时间：" + getActiveDuration(), 0).show();
         }
@@ -312,7 +307,7 @@ public class AppConfig {
         return getStringConfig("XSEARCH_DATA_URL", "http://m.baidu.com/microapp");
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public static class Speed {
         public static boolean getSpeedEnable() {
             return AppConfig.getBooleanConfig("SPEED_MONITOR", false);
@@ -385,90 +380,86 @@ public class AppConfig {
         return CONFIG_FILE;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [630=4] */
     private static void parseInternalConfig(HashMap<String, String> hashMap, ConfigValueFilter configValueFilter) {
-        InputStream inputStream;
-        Throwable th;
         AssetManager assets = AppRuntime.getAppContext().getResources().getAssets();
-        InputStream inputStream2 = null;
+        InputStream inputStream = null;
         try {
-            try {
-                inputStream2 = sIsDaily ? assets.open(DAILY_CONFIG_FILE) : sIsWeekly ? assets.open(WEEKLY_CONFIG_FILE) : assets.open(CONFIG_FILE);
+            if (sIsDaily) {
+                inputStream = assets.open(DAILY_CONFIG_FILE);
+            } else if (sIsWeekly) {
+                inputStream = assets.open(WEEKLY_CONFIG_FILE);
+            } else {
+                inputStream = assets.open(CONFIG_FILE);
+            }
+            parseStream(inputStream, hashMap, configValueFilter, true);
+            if (inputStream != null) {
                 try {
-                    parseStream(inputStream2, hashMap, configValueFilter, true);
-                    if (inputStream2 != null) {
-                        try {
-                            inputStream2.close();
-                        } catch (Exception e) {
-                        }
-                    }
-                } catch (Throwable th2) {
-                    inputStream = inputStream2;
-                    th = th2;
-                    if (inputStream != null) {
-                        try {
-                            inputStream.close();
-                        } catch (Exception e2) {
-                        }
-                    }
-                    throw th;
-                }
-            } catch (Exception e3) {
-                if (inputStream2 != null) {
-                    try {
-                        inputStream2.close();
-                    } catch (Exception e4) {
-                    }
+                    inputStream.close();
+                } catch (Exception e) {
                 }
             }
-        } catch (Throwable th3) {
-            inputStream = null;
-            th = th3;
+        } catch (Exception e2) {
+            if (inputStream != null) {
+                try {
+                    inputStream.close();
+                } catch (Exception e3) {
+                }
+            }
+        } catch (Throwable th) {
+            if (inputStream != null) {
+                try {
+                    inputStream.close();
+                } catch (Exception e4) {
+                }
+            }
+            throw th;
         }
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [654=4] */
     private static boolean parseExternalConfig(HashMap<String, String> hashMap, ConfigValueFilter configValueFilter) {
+        Throwable th;
         FileInputStream fileInputStream;
+        FileInputStream fileInputStream2;
         boolean z = false;
         try {
             File file = new File(AppRuntime.getAppContext().getFilesDir().getPath(), CONFIG_FILE);
             if (file.exists()) {
-                FileInputStream fileInputStream2 = null;
                 try {
-                    fileInputStream = new FileInputStream(file);
-                    try {
-                        parseStream(fileInputStream, hashMap, configValueFilter, false);
-                        z = true;
-                        if (fileInputStream != null) {
-                            try {
-                                fileInputStream.close();
-                            } catch (Exception e) {
-                            }
-                        }
-                    } catch (Exception e2) {
-                        if (fileInputStream != null) {
-                            try {
-                                fileInputStream.close();
-                            } catch (Exception e3) {
-                            }
-                        }
-                        return z;
-                    } catch (Throwable th) {
-                        fileInputStream2 = fileInputStream;
-                        th = th;
-                        if (fileInputStream2 != null) {
-                            try {
-                                fileInputStream2.close();
-                            } catch (Exception e4) {
-                            }
-                        }
-                        throw th;
-                    }
-                } catch (Exception e5) {
-                    fileInputStream = null;
+                    fileInputStream2 = new FileInputStream(file);
+                } catch (Exception e) {
+                    fileInputStream2 = null;
                 } catch (Throwable th2) {
                     th = th2;
+                    fileInputStream = null;
+                }
+                try {
+                    parseStream(fileInputStream2, hashMap, configValueFilter, false);
+                    z = true;
+                    if (fileInputStream2 != null) {
+                        try {
+                            fileInputStream2.close();
+                        } catch (Exception e2) {
+                        }
+                    }
+                } catch (Exception e3) {
+                    if (fileInputStream2 != null) {
+                        try {
+                            fileInputStream2.close();
+                        } catch (Exception e4) {
+                        }
+                    }
+                    return z;
+                } catch (Throwable th3) {
+                    th = th3;
+                    fileInputStream = fileInputStream2;
+                    if (fileInputStream != null) {
+                        try {
+                            fileInputStream.close();
+                        } catch (Exception e5) {
+                        }
+                    }
+                    throw th;
                 }
             }
         } catch (Exception e6) {
@@ -502,7 +493,7 @@ public class AppConfig {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public static class ConfigWhiteList {
         static final String[] WHITE_LIST = {"GRAB_SERVER_COMMAND", "XSEARCH_FORCE_HTML5", "DREAM_QR_PAGEID", "USER_PROTOCOL_SWITCH", "SILENT_WEBKIT", "SILENT_VIDEO", "FORBID_CONFIG_FILE_WARNING", "ANTIHIJACK_WEBSEARCH_URL", "ANTIHIJACK_UPLOAD_URL", "USE_AUTO_FOCUS", "VOICE_PID", "IMG_SEARCH_URL", "LOAD_IN_MAIN_BROWSER", "DOWNLOAD_DEST_MODE", "DOWNLOAD_DEST_DIR", "USER_PROFILE_FORBIDDEN_CONFIG", "NETTRAFFIC_UPLOAD_NUM_LIMIT", "SPEED_MONITOR", "SPEED_MONITOR_UPLOAD"};
 
@@ -528,7 +519,7 @@ public class AppConfig {
         return sIsBeta;
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public static class Downloads {
         public static String getDestinationMode() {
             return AppConfig.getStringConfig("DOWNLOAD_DEST_MODE", null);
@@ -547,7 +538,7 @@ public class AppConfig {
         return getStringConfig(UBC_DEBUG_HOST, UBC_DEBUG_URL);
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public static class Debug {
         public static String getJacocoUploadUrl() {
             return AppConfig.getStringConfig("JACOCO_UPLOAD_URL", "http://cp01-searchbbox-andriod-cqa01.epc.baidu.com:8666/Coverage/fileUploadAPI/fileManager.php");

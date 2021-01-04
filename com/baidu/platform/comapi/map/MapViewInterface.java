@@ -5,7 +5,7 @@ import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.baidu.platform.comapi.basestruct.MapBound;
 import com.baidu.platform.comapi.map.MapStatus;
 import java.util.List;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public interface MapViewInterface {
     boolean addOverlay(Overlay overlay);
 

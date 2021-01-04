@@ -1,6 +1,6 @@
 package com.baidu.swan.a.c;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.http.request.HttpCommonRequestBuilder;
 import com.baidu.searchbox.http.request.HttpRequestBuilder;
 import org.apache.http.client.methods.HttpDelete;
@@ -8,11 +8,11 @@ import org.apache.http.client.methods.HttpHead;
 import org.apache.http.client.methods.HttpOptions;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.methods.HttpTrace;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class b {
     @NonNull
     public static HttpRequestBuilder d(@NonNull com.baidu.swan.a.b.a aVar) {
-        HttpCommonRequestBuilder bdm;
+        HttpCommonRequestBuilder bfI;
         String str = aVar.method;
         char c = 65535;
         switch (str.hashCode()) {
@@ -67,34 +67,34 @@ public class b {
         }
         switch (c) {
             case 0:
-                return a.bdi().getRequest();
+                return a.bfE().getRequest();
             case 1:
-                return a.bdi().headerRequest();
+                return a.bfE().headerRequest();
             case 2:
-                bdm = a.bdi().bdk();
+                bfI = a.bfE().bfG();
                 break;
             case 3:
-                bdm = a.bdi().postRequest();
+                bfI = a.bfE().postRequest();
                 break;
             case 4:
-                bdm = a.bdi().putRequest();
+                bfI = a.bfE().putRequest();
                 break;
             case 5:
-                bdm = a.bdi().deleteRequest();
+                bfI = a.bfE().deleteRequest();
                 break;
             case 6:
-                bdm = a.bdi().bdl();
+                bfI = a.bfE().bfH();
                 break;
             case 7:
-                bdm = a.bdi().bdm();
+                bfI = a.bfE().bfI();
                 break;
             default:
-                return a.bdi().getRequest();
+                return a.bfE().getRequest();
         }
         if (aVar.requestBody != null) {
-            bdm.requestBody(aVar.requestBody);
-            return bdm;
+            bfI.requestBody(aVar.requestBody);
+            return bfI;
         }
-        return bdm;
+        return bfI;
     }
 }

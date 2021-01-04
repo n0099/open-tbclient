@@ -1,5 +1,5 @@
 package com.baidu.ar.marker;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public enum TrackerType {
     NO_TRACKER_DATA(0),
     STANDARD_TRACKER_DATA(1),

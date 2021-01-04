@@ -20,16 +20,17 @@ import android.os.Looper;
 import android.util.Log;
 import android.view.Surface;
 import com.baidu.ala.helper.AlaFrameTrack;
+import com.baidu.ala.ndk.AlaNdkAdapter;
 import com.baidu.ala.recorder.video.AlaLiveVideoConfig;
 import com.baidu.ala.recorder.video.IVideoRecorder;
 import com.baidu.ala.recorder.video.RecorderHandler;
 import com.baidu.ala.recorder.video.gles.AFullFrameRect;
 import com.baidu.ala.recorder.video.gles.GlUtil;
 import com.baidu.ala.recorder.video.gles.Texture2dProgram;
-import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import com.baidu.ala.tbadk.core.TbadkCoreApplicationProxy;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class AlaScreenRecorderThread extends Thread {
     private static final String TAG = "ScreenRecorder";
     private volatile Handler mDataThreadHandler;
@@ -89,7 +90,7 @@ public class AlaScreenRecorderThread extends Thread {
             try {
                 prepareEncoder();
                 if (!this.mIsQuit) {
-                    this.mVirtualDisplay = this.mMediaProjection.createVirtualDisplay("ScreenRecorder-display", videoHeight, videoWidth, TbadkCoreApplication.getInst().getResources().getDisplayMetrics().densityDpi, 1, this.mRenderWindow.getSurface(), null, null);
+                    this.mVirtualDisplay = this.mMediaProjection.createVirtualDisplay("ScreenRecorder-display", videoHeight, videoWidth, TbadkCoreApplicationProxy.getInst().getAppContext().getResources().getDisplayMetrics().densityDpi, 1, this.mRenderWindow.getSurface(), null, null);
                     this.mIsVideoThreadRun = true;
                     Looper.loop();
                 }
@@ -142,7 +143,7 @@ public class AlaScreenRecorderThread extends Thread {
                                 buffer.get(AlaScreenRecorderThread.this.mSendBuffer);
                                 image.close();
                                 if (AlaScreenRecorderThread.this.mVideoDataCallback != null) {
-                                    AlaScreenRecorderThread.this.mVideoDataCallback.onRawVideoFrameReceived(AlaScreenRecorderThread.this.mSendBuffer, remaining, 0, AlaScreenRecorderThread.this.mImgLineSize);
+                                    AlaScreenRecorderThread.this.mVideoDataCallback.onRawVideoFrameReceived(AlaScreenRecorderThread.this.mSendBuffer, remaining, 0, AlaScreenRecorderThread.this.mImgLineSize, AlaNdkAdapter.getMediaStreamTS(false));
                                 }
                             } catch (OutOfMemoryError e2) {
                             }
@@ -199,7 +200,7 @@ public class AlaScreenRecorderThread extends Thread {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes15.dex */
     public static class RenderWindow {
         private static final int MAX_FPS = 30;
         private AFullFrameRect mFullScreen;

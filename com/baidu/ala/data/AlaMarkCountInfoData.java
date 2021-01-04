@@ -3,7 +3,7 @@ package com.baidu.ala.data;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class AlaMarkCountInfoData extends OrmObject implements Serializable {
     public long user_enter_effect_count;
     public long user_mark_count;

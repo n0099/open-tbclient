@@ -15,11 +15,11 @@ import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public abstract class i implements a.a.a.b.a.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f960a;
+    public String f1043a;
     public volatile int e;
     public volatile int f = 0;
     public final c zv;
@@ -30,22 +30,23 @@ public abstract class i implements a.a.a.b.a.b {
         this.zv = cVar;
         this.zw = eVar;
         this.zx = aVar;
-        this.f960a = c();
-        if (TextUtils.isEmpty(this.f960a)) {
-            this.f960a = getClass().getSimpleName();
+        this.f1043a = c();
+        if (TextUtils.isEmpty(this.f1043a)) {
+            this.f1043a = getClass().getSimpleName();
         }
     }
-
-    public abstract RandomAccessFile a(File file, String str, long j);
 
     public abstract Map<String, String> a(e eVar);
 
     public final void a() {
+        Throwable th;
+        IOException e;
+        ProtocolException e2;
         HttpURLConnection httpURLConnection = null;
         try {
             try {
                 try {
-                    HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(this.zw.f957a).openConnection();
+                    HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(this.zw.f1039a).openConnection();
                     try {
                         httpURLConnection2.setConnectTimeout(4000);
                         httpURLConnection2.setReadTimeout(4000);
@@ -58,32 +59,32 @@ public abstract class i implements a.a.a.b.a.b {
                             return;
                         }
                         throw new DownloadException(108, "UnSupported response code:" + responseCode);
-                    } catch (ProtocolException e) {
-                        e = e;
-                        throw new DownloadException(108, "Protocol error", e);
-                    } catch (IOException e2) {
-                        e = e2;
+                    } catch (ProtocolException e3) {
+                        e2 = e3;
+                        throw new DownloadException(108, "Protocol error", e2);
+                    } catch (IOException e4) {
+                        e = e4;
                         throw new DownloadException(108, "IO error", e);
-                    } catch (Throwable th) {
-                        th = th;
+                    } catch (Throwable th2) {
+                        th = th2;
                         httpURLConnection = httpURLConnection2;
                         if (httpURLConnection != null) {
                             httpURLConnection.disconnect();
                         }
                         throw th;
                     }
-                } catch (ProtocolException e3) {
-                    e = e3;
-                } catch (IOException e4) {
-                    e = e4;
-                } catch (Throwable th2) {
-                    th = th2;
+                } catch (ProtocolException e5) {
+                    e2 = e5;
+                } catch (IOException e6) {
+                    e = e6;
+                } catch (Throwable th3) {
+                    th = th3;
                 }
-            } catch (Throwable th3) {
-                th = th3;
+            } catch (Throwable th4) {
+                th = th4;
             }
-        } catch (MalformedURLException e5) {
-            throw new DownloadException(108, "Bad url.", e5);
+        } catch (MalformedURLException e7) {
+            throw new DownloadException(108, "Bad url.", e7);
         }
     }
 
@@ -152,35 +153,35 @@ public abstract class i implements a.a.a.b.a.b {
     }
 
     public final void a(HttpURLConnection httpURLConnection) {
-        Throwable th;
+        InputStream inputStream;
         Closeable closeable;
-        RandomAccessFile randomAccessFile = null;
+        Throwable th;
         try {
             try {
-                InputStream inputStream = httpURLConnection.getInputStream();
+                inputStream = httpURLConnection.getInputStream();
                 try {
-                    long j = this.zw.b;
+                    long j = this.zw.f1040b;
                     long j2 = this.zw.d;
                     try {
-                        File file = this.zv.b;
+                        File file = this.zv.f1038b;
                         if (!file.exists()) {
                             file.mkdirs();
                         }
-                        randomAccessFile = a(file, this.zv.f956a, j + j2);
+                        RandomAccessFile c = c(file, this.zv.f1037a, j + j2);
                         try {
-                            a(inputStream, randomAccessFile);
+                            a(inputStream, c);
                             try {
                                 a(inputStream);
-                                a(randomAccessFile);
+                                a(c);
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
                         } catch (Throwable th2) {
+                            closeable = c;
                             th = th2;
-                            closeable = inputStream;
                             try {
+                                a(inputStream);
                                 a(closeable);
-                                a(randomAccessFile);
                             } catch (IOException e2) {
                                 e2.printStackTrace();
                             }
@@ -192,15 +193,16 @@ public abstract class i implements a.a.a.b.a.b {
                         throw new DownloadException(108, "Occur Exception ", e4);
                     }
                 } catch (Throwable th3) {
+                    closeable = null;
                     th = th3;
-                    closeable = inputStream;
                 }
             } catch (IOException e5) {
                 throw new DownloadException(108, "http get inputStream error", e5);
             }
         } catch (Throwable th4) {
-            th = th4;
+            inputStream = null;
             closeable = null;
+            th = th4;
         }
     }
 
@@ -215,6 +217,8 @@ public abstract class i implements a.a.a.b.a.b {
     public abstract int b();
 
     public abstract void b(e eVar);
+
+    public abstract RandomAccessFile c(File file, String str, long j);
 
     public abstract String c();
 
@@ -234,7 +238,7 @@ public abstract class i implements a.a.a.b.a.b {
             synchronized (this.zx) {
                 this.e = 105;
                 b.a aVar = this.zx;
-                ((g) aVar).a(this.zv.b.getAbsolutePath() + File.separator + this.zv.f956a);
+                ((g) aVar).a(this.zv.f1038b.getAbsolutePath() + File.separator + this.zv.f1037a);
             }
         } catch (DownloadException e) {
             a(e);

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.SparseArray;
+import com.kwai.video.player.PlayerProps;
 import com.vivo.push.b.ab;
 import com.vivo.push.b.ac;
 import com.vivo.push.b.ad;
@@ -17,12 +18,14 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public final class p {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Object f4458a = new Object();
-    private static volatile p b;
+    private static final Object f13961a = new Object();
+
+    /* renamed from: b  reason: collision with root package name */
+    private static volatile p f13962b;
     private Context i;
     private com.vivo.push.util.a k;
     private String l;
@@ -46,14 +49,14 @@ public final class p {
     }
 
     public static p a() {
-        if (b == null) {
-            synchronized (f4458a) {
-                if (b == null) {
-                    b = new p();
+        if (f13962b == null) {
+            synchronized (f13961a) {
+                if (f13962b == null) {
+                    f13962b = new p();
                 }
             }
         }
-        return b;
+        return f13962b;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -374,13 +377,13 @@ public final class p {
                     String a2 = a(new a(aVar, iPushActionListener));
                     aVar.b(a2);
                     if (TextUtils.isEmpty(this.l)) {
-                        a(a2, 30001);
+                        a(a2, PlayerProps.FFP_PROP_FLOAT_MIN_AVDIFF_REALTIME);
                         return;
                     } else if (TextUtils.isEmpty(str)) {
-                        a(a2, 30002);
+                        a(a2, PlayerProps.FFP_PROP_INT64_CPU);
                         return;
                     } else if (str.length() > 70) {
-                        a(a2, 30003);
+                        a(a2, PlayerProps.FFP_PROP_INT64_MEMORY);
                         return;
                     } else {
                         a(aVar);
@@ -445,13 +448,13 @@ public final class p {
                     String a2 = a(new a(aVar, iPushActionListener));
                     aVar.b(a2);
                     if (TextUtils.isEmpty(this.l)) {
-                        a(a2, 30001);
+                        a(a2, PlayerProps.FFP_PROP_FLOAT_MIN_AVDIFF_REALTIME);
                         return;
                     } else if (TextUtils.isEmpty(str)) {
-                        a(a2, 30002);
+                        a(a2, PlayerProps.FFP_PROP_INT64_CPU);
                         return;
                     } else if (str.length() > 70) {
-                        a(a2, 30003);
+                        a(a2, PlayerProps.FFP_PROP_INT64_MEMORY);
                         return;
                     } else {
                         a(aVar);
@@ -550,19 +553,19 @@ public final class p {
                 String a2 = a(new a(adVar, iPushActionListener));
                 adVar.b(a2);
                 if (TextUtils.isEmpty(this.l)) {
-                    a(a2, com.baidu.sapi2.share.b.h);
+                    a(a2, 20001);
                     return;
                 } else if (arrayList.size() < 0) {
-                    a(a2, 20002);
+                    a(a2, PlayerProps.FFP_PROP_INT64_SELECTED_AUDIO_STREAM);
                     return;
                 } else if (c().size() + arrayList.size() > 500) {
-                    a(a2, 20004);
+                    a(a2, PlayerProps.FFP_PROP_INT64_AUDIO_DECODER);
                     return;
                 } else {
                     Iterator<String> it = arrayList.iterator();
                     while (it.hasNext()) {
                         if (it.next().length() > 70) {
-                            a(a2, 20003);
+                            a(a2, PlayerProps.FFP_PROP_INT64_VIDEO_DECODER);
                             return;
                         }
                     }
@@ -625,19 +628,19 @@ public final class p {
                 String a2 = a(new a(adVar, iPushActionListener));
                 adVar.b(a2);
                 if (TextUtils.isEmpty(this.l)) {
-                    a(a2, com.baidu.sapi2.share.b.h);
+                    a(a2, 20001);
                     return;
                 } else if (arrayList.size() < 0) {
-                    a(a2, 20002);
+                    a(a2, PlayerProps.FFP_PROP_INT64_SELECTED_AUDIO_STREAM);
                     return;
                 } else if (arrayList.size() > 500) {
-                    a(a2, 20004);
+                    a(a2, PlayerProps.FFP_PROP_INT64_AUDIO_DECODER);
                     return;
                 } else {
                     Iterator<String> it = arrayList.iterator();
                     while (it.hasNext()) {
                         if (it.next().length() > 70) {
-                            a(a2, 20003);
+                            a(a2, PlayerProps.FFP_PROP_INT64_VIDEO_DECODER);
                             return;
                         }
                     }
@@ -776,19 +779,21 @@ public final class p {
         return this.p.booleanValue();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private IPushActionListener f4459a;
-        private com.vivo.push.b.c b;
+        private IPushActionListener f13963a;
+
+        /* renamed from: b  reason: collision with root package name */
+        private com.vivo.push.b.c f13964b;
         private IPushActionListener c;
         private Runnable d;
         private Object[] e;
 
         public a(com.vivo.push.b.c cVar, IPushActionListener iPushActionListener) {
-            this.b = cVar;
-            this.f4459a = iPushActionListener;
+            this.f13964b = cVar;
+            this.f13963a = iPushActionListener;
         }
 
         public final void a(int i, Object... objArr) {
@@ -796,8 +801,8 @@ public final class p {
             if (this.c != null) {
                 this.c.onStateChanged(i);
             }
-            if (this.f4459a != null) {
-                this.f4459a.onStateChanged(i);
+            if (this.f13963a != null) {
+                this.f13963a.onStateChanged(i);
             }
         }
 

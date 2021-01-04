@@ -8,22 +8,23 @@ import android.media.MediaExtractor;
 import android.media.MediaFormat;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v7.widget.ActivityChooserView;
 import android.util.Log;
 import android.view.Surface;
+import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.searchbox.afx.callback.ErrorInfo;
 import com.baidu.searchbox.afx.callback.OnReportListener;
 import com.baidu.searchbox.afx.callback.OnVideoEndedListener;
 import com.baidu.searchbox.afx.callback.OnVideoErrorListener;
 import com.baidu.searchbox.afx.callback.PlaySuccessInfo;
 import com.baidu.searchbox.afx.gl.GLTextureView;
+import com.kwai.video.player.misc.IMediaFormat;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.File;
 import java.io.FileDescriptor;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class VideoPlayer {
     private static final int DEFAULT_FPS = 25;
     public static final int MEDIA_INFO_EXTRA_NONE = 0;
@@ -47,7 +48,7 @@ public class VideoPlayer {
     private volatile long mStartFrameTimeUs = 0;
     private volatile int mPlayFrames = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface FrameCallback {
         void loopReset();
 
@@ -56,7 +57,7 @@ public class VideoPlayer {
         void reset();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface OnInfoListener {
         boolean onInfo(VideoPlayer videoPlayer, int i, int i2);
     }
@@ -213,7 +214,7 @@ public class VideoPlayer {
         mediaExtractor.selectTrack(selectVideoTrackIndex);
         if (mediaCodec == null) {
             MediaFormat trackFormat = mediaExtractor.getTrackFormat(selectVideoTrackIndex);
-            mediaCodec = MediaCodec.createDecoderByType(trackFormat.getString("mime"));
+            mediaCodec = MediaCodec.createDecoderByType(trackFormat.getString(IMediaFormat.KEY_MIME));
             if (this.mOutputSurface == null) {
                 throw new IllegalStateException("The output surface is not prepared.");
             }
@@ -267,38 +268,35 @@ public class VideoPlayer {
     private static int selectVideoTrackIndex(MediaExtractor mediaExtractor) {
         int trackCount = mediaExtractor.getTrackCount();
         for (int i = 0; i < trackCount; i++) {
-            if (mediaExtractor.getTrackFormat(i).getString("mime").startsWith("video/")) {
+            if (mediaExtractor.getTrackFormat(i).getString(IMediaFormat.KEY_MIME).startsWith("video/")) {
                 return i;
             }
         }
         return -1;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:74:0x0170  */
-    /* JADX WARN: Removed duplicated region for block: B:76:0x0175  */
-    /* JADX WARN: Removed duplicated region for block: B:82:0x0198  */
+    /* JADX WARN: Removed duplicated region for block: B:72:0x0172  */
+    /* JADX WARN: Removed duplicated region for block: B:74:0x0177  */
+    /* JADX WARN: Removed duplicated region for block: B:80:0x0195  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private void doExtract(MediaExtractor mediaExtractor, int i, MediaCodec mediaCodec, FrameCallback frameCallback) {
         boolean z;
-        boolean z2;
         long j;
         int i2;
+        boolean z2;
         boolean z3;
-        boolean z4;
-        boolean z5;
-        int i3;
         int dequeueInputBuffer;
         GLTextureView gLTextureView = this.mGLTextureView;
         ByteBuffer[] inputBuffers = mediaCodec.getInputBuffers();
-        int i4 = 1;
-        long j2 = -1;
-        boolean z6 = false;
+        boolean z4 = false;
+        boolean z5 = false;
+        boolean z6 = true;
         boolean z7 = false;
-        boolean z8 = true;
-        boolean z9 = false;
-        while (!z6) {
+        long j2 = -1;
+        int i3 = 1;
+        while (!z5) {
             if (this.mIsStopRequested) {
                 this.mIsPauseRequested = false;
                 this.mIsStopRequested = false;
@@ -320,122 +318,105 @@ public class VideoPlayer {
             }
             if (z7 || (dequeueInputBuffer = mediaCodec.dequeueInputBuffer(10000L)) < 0) {
                 z = z7;
-                z2 = z9;
                 j = j2;
-                i2 = i4;
+                i2 = i3;
             } else {
                 long nanoTime = j2 == -1 ? System.nanoTime() : j2;
                 int readSampleData = mediaExtractor.readSampleData(inputBuffers[dequeueInputBuffer], 0);
                 if (readSampleData < 0) {
                     mediaCodec.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
                     z = true;
+                    z4 = true;
                     j = nanoTime;
-                    i2 = i4;
-                    z2 = true;
+                    i2 = i3;
                 } else {
                     if (mediaExtractor.getSampleTrackIndex() != i) {
                         Log.w(TAG, "WEIRD: got sample from track " + mediaExtractor.getSampleTrackIndex() + ", expected " + i);
                     }
-                    if (z9 && i4 == this.mPlayFrames + 1) {
+                    if (z4 && i3 == this.mPlayFrames + 1) {
                         mediaCodec.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
                         z = true;
                         j = nanoTime;
-                        i2 = i4;
-                        z2 = z9;
+                        i2 = i3;
                     } else {
                         mediaCodec.queueInputBuffer(dequeueInputBuffer, 0, readSampleData, mediaExtractor.getSampleTime(), 0);
-                        i2 = i4 + 1;
+                        i2 = i3 + 1;
                         mediaExtractor.advance();
                         z = z7;
                         j = nanoTime;
-                        z2 = z9;
                     }
                 }
             }
-            if (z6) {
+            if (z5) {
                 z7 = z;
-                z9 = z2;
                 j2 = j;
-                i4 = i2;
+                i3 = i2;
             } else {
                 int dequeueOutputBuffer = mediaCodec.dequeueOutputBuffer(this.mBufferInfo, 10000L);
-                if (dequeueOutputBuffer == -1) {
-                    j2 = j;
-                    z5 = z;
-                    i3 = i2;
-                } else if (dequeueOutputBuffer == -3) {
-                    j2 = j;
-                    z5 = z;
-                    i3 = i2;
-                } else if (dequeueOutputBuffer == -2) {
-                    mediaCodec.getOutputFormat();
-                    j2 = j;
-                    z5 = z;
-                    i3 = i2;
-                } else if (dequeueOutputBuffer < 0) {
-                    throw new RuntimeException("unexpected result from decoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
-                } else {
-                    if (j != 0) {
-                        System.nanoTime();
-                        j = 0;
-                    }
-                    boolean z10 = false;
-                    if ((this.mBufferInfo.flags & 4) == 0) {
-                        z3 = z6;
-                    } else if (this.mLoop) {
-                        z10 = true;
-                        z3 = z6;
+                if (dequeueOutputBuffer != -1 && dequeueOutputBuffer != -3) {
+                    if (dequeueOutputBuffer == -2) {
+                        mediaCodec.getOutputFormat();
+                    } else if (dequeueOutputBuffer < 0) {
+                        throw new RuntimeException("unexpected result from decoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
                     } else {
-                        z3 = true;
-                    }
-                    boolean z11 = this.mBufferInfo.size != 0;
-                    if (z11 && frameCallback != null) {
-                        frameCallback.preRender(this.mBufferInfo.presentationTimeUs);
-                    }
-                    if (gLTextureView != null) {
-                        gLTextureView.requestRender();
-                        if (this.mOnInfoListener != null && z8) {
-                            z4 = false;
-                            this.mOnInfoListener.onInfo(this, 3, 0);
-                            mediaCodec.releaseOutputBuffer(dequeueOutputBuffer, z11);
-                            if (gLTextureView != null) {
-                                gLTextureView.requestRender();
-                            }
-                            if (z10) {
-                                z8 = z4;
-                                z6 = z3;
-                                j2 = j;
-                                z5 = z;
-                                i3 = i2;
-                            } else {
-                                mediaExtractor.seekTo(this.mStartFrameTimeUs, 2);
-                                mediaCodec.flush();
-                                if (frameCallback != null) {
-                                    frameCallback.loopReset();
+                        if (j != 0) {
+                            System.nanoTime();
+                            j = 0;
+                        }
+                        boolean z8 = false;
+                        if ((this.mBufferInfo.flags & 4) == 0) {
+                            z2 = z5;
+                        } else if (this.mLoop) {
+                            z8 = true;
+                            z2 = z5;
+                        } else {
+                            z2 = true;
+                        }
+                        boolean z9 = this.mBufferInfo.size != 0;
+                        if (z9 && frameCallback != null) {
+                            frameCallback.preRender(this.mBufferInfo.presentationTimeUs);
+                        }
+                        if (gLTextureView != null) {
+                            gLTextureView.requestRender();
+                            if (this.mOnInfoListener != null && z6) {
+                                z3 = false;
+                                this.mOnInfoListener.onInfo(this, 3, 0);
+                                mediaCodec.releaseOutputBuffer(dequeueOutputBuffer, z9);
+                                if (gLTextureView != null) {
+                                    gLTextureView.requestRender();
                                 }
-                                z8 = z4;
-                                z6 = z3;
-                                j2 = j;
-                                z5 = false;
-                                i3 = 1;
+                                if (z8) {
+                                    z6 = z3;
+                                    z5 = z2;
+                                } else {
+                                    i2 = 1;
+                                    mediaExtractor.seekTo(this.mStartFrameTimeUs, 2);
+                                    mediaCodec.flush();
+                                    if (frameCallback != null) {
+                                        frameCallback.loopReset();
+                                    }
+                                    z6 = z3;
+                                    z = false;
+                                    z5 = z2;
+                                }
                             }
                         }
-                    }
-                    z4 = z8;
-                    mediaCodec.releaseOutputBuffer(dequeueOutputBuffer, z11);
-                    if (gLTextureView != null) {
-                    }
-                    if (z10) {
+                        z3 = z6;
+                        mediaCodec.releaseOutputBuffer(dequeueOutputBuffer, z9);
+                        if (gLTextureView != null) {
+                        }
+                        if (z8) {
+                        }
                     }
                 }
-                z7 = z5;
-                z9 = z2;
-                i4 = i3;
+                z7 = z;
+                j2 = j;
+                i3 = i2;
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class PlayTask implements Runnable {
         private static final int MSG_PLAY_ERROR = 1;
         private static final int MSG_PLAY_STOPPED = 0;
@@ -516,7 +497,7 @@ public class VideoPlayer {
             }
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes3.dex */
         private static class LocalHandler extends Handler {
             private OnVideoEndedListener mOnEndedListener;
             private OnVideoErrorListener mOnErrorListener;

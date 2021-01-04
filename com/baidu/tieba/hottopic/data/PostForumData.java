@@ -2,27 +2,26 @@ package com.baidu.tieba.hottopic.data;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.R;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Hottopic.RelateForum;
-/* loaded from: classes21.dex */
+/* loaded from: classes8.dex */
 public class PostForumData extends com.baidu.tieba.card.data.a implements Serializable {
     public static final BdUniqueId TYPE_POST_FORUM = BdUniqueId.gen();
     private static final long serialVersionUID = -2078662294751243784L;
-    public List<q> mRelateForumDataList = null;
+    public List<com.baidu.adp.widget.ListView.n> mRelateForumDataList = null;
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
         return TYPE_POST_FORUM;
     }
 
     public void parserProtobuf(List<RelateForum> list) {
-        if (!y.isEmpty(list)) {
+        if (!x.isEmpty(list)) {
             this.showTopDivider = true;
             this.mGroupTitle = TbadkCoreApplication.getInst().getString(R.string.recommend_relative_forum);
             this.mRelateForumDataList = new ArrayList();
@@ -37,10 +36,10 @@ public class PostForumData extends com.baidu.tieba.card.data.a implements Serial
     }
 
     public int getCount() {
-        return y.getCount(this.mRelateForumDataList);
+        return x.getCount(this.mRelateForumDataList);
     }
 
-    public q getForumData(int i) {
-        return (q) y.getItem(this.mRelateForumDataList, i);
+    public com.baidu.adp.widget.ListView.n getForumData(int i) {
+        return (com.baidu.adp.widget.ListView.n) x.getItem(this.mRelateForumDataList, i);
     }
 }

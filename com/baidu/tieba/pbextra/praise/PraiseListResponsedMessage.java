@@ -1,12 +1,11 @@
 package com.baidu.tieba.pbextra.praise;
 
-import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class PraiseListResponsedMessage extends JsonHttpResponsedMessage {
     private int mErrCode;
     private String mErrMsg;
@@ -43,7 +42,7 @@ public class PraiseListResponsedMessage extends JsonHttpResponsedMessage {
         int error = getError();
         if (statusCode == 200 && error == 0) {
             this.mErrCode = jSONObject.optInt("error_code");
-            this.mErrMsg = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG);
+            this.mErrMsg = jSONObject.optString("error_msg");
             this.mTotalNum = jSONObject.optInt("num");
             JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
             if (optJSONArray != null) {

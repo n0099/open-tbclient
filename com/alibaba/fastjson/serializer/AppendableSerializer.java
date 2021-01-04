@@ -2,7 +2,7 @@ package com.alibaba.fastjson.serializer;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class AppendableSerializer implements ObjectSerializer {
     public static final AppendableSerializer instance = new AppendableSerializer();
 

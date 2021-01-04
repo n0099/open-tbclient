@@ -3,8 +3,8 @@ package com.baidu.webkit.sdk;
 import android.content.Context;
 import android.os.Build;
 import android.os.Process;
-import android.support.annotation.Keep;
 import android.text.TextUtils;
+import androidx.annotation.Keep;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.webkit.internal.CpuInfo;
 import com.baidu.webkit.internal.ETAG;
@@ -34,7 +34,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public final class WebKitFactory {
     private static final String ARCH_ARM = "armv";
     private static final int ARCH_ARM_INT = 7;
@@ -82,7 +82,7 @@ public final class WebKitFactory {
     private static boolean sEnableIntegratedCrashpad = true;
     private static SwitchState sEnableMultipleProcess = SwitchState.Invalid;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     private static class DelayedInitTask extends Thread {
         private boolean mResult;
 
@@ -195,7 +195,7 @@ public final class WebKitFactory {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public interface IForceInitZeusListener {
         @Keep
         void onForceInitZeusFinish(boolean z);
@@ -204,14 +204,14 @@ public final class WebKitFactory {
         void onForceInitZeusStart();
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public enum SwitchState {
         Invalid,
         On,
         Off
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public interface WebkitInstallListener {
         public static final int RET_CANCELED = 3;
         public static final int RET_FAILED_ALREADY_RUNNING = 8;

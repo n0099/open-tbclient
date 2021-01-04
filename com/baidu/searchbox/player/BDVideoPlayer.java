@@ -3,10 +3,10 @@ package com.baidu.searchbox.player;
 import android.app.Activity;
 import android.content.Context;
 import android.media.AudioManager;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.callback.IVideoPlayerCallback;
@@ -31,7 +31,7 @@ import com.baidu.searchbox.player.ubc.IPlayerStatisticsDispatcher;
 import com.baidu.searchbox.player.ubc.SimpleVideoStatisticsDispatcher;
 import com.baidu.searchbox.player.utils.BdVideoLog;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     private static final String TAG = "BDVideoPlayer";
     private static boolean sGlobalMute = false;
@@ -135,8 +135,8 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         this.mLayerContainer.attachKernelLayer(baseKernelLayer);
     }
 
-    @PublicMethod
     @Nullable
+    @PublicMethod
     public BaseKernelLayer detachKernelLayer() {
         if (this.mKernelLayer != null) {
             BaseKernelLayer baseKernelLayer = this.mKernelLayer;
@@ -148,8 +148,8 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         return null;
     }
 
-    @PublicMethod
     @Nullable
+    @PublicMethod
     public BaseKernelLayer getPlayerKernelLayer() {
         return this.mKernelLayer;
     }
@@ -406,8 +406,8 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         resumePlayer(false);
     }
 
-    @PublicMethod
     @NonNull
+    @PublicMethod
     public LayerContainer getLayerContainer() {
         return this.mLayerContainer;
     }
@@ -743,14 +743,14 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         return -1;
     }
 
-    @PublicMethod
     @NonNull
+    @PublicMethod
     public Context getAppContext() {
         return BDPlayerConfig.getAppContext();
     }
 
-    @PublicMethod
     @Nullable
+    @PublicMethod
     public Activity getActivity() {
         if (this.mPlayerContainer == null || !(this.mPlayerContainer.getContext() instanceof Activity)) {
             return null;
@@ -782,8 +782,8 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         this.mKey = str;
     }
 
-    @PublicMethod
     @NonNull
+    @PublicMethod
     public String getVideoUniqueKey() {
         return this.mKey;
     }
@@ -793,8 +793,8 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         return this.mVideoTask;
     }
 
-    @PublicMethod
     @NonNull
+    @PublicMethod
     public VideoPlayerCallbackBaseManager getPlayerCallbackManager() {
         return this.mCallbackManager;
     }
@@ -802,8 +802,8 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     protected void setupPlugin(@NonNull Context context) {
     }
 
-    @PublicMethod
     @NonNull
+    @PublicMethod
     public IPlayerStatisticsDispatcher getStatDispatcher() {
         return SimpleVideoStatisticsDispatcher.EMPTY;
     }
@@ -814,7 +814,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     public class AudioFocusChangedListener implements AudioManager.OnAudioFocusChangeListener {
         private AudioFocusChangedListener() {
         }
@@ -848,8 +848,8 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         }
     }
 
-    @PublicMethod
     @Nullable
+    @PublicMethod
     public String getServerIpInfo() {
         if (this.mKernelLayer != null) {
             return this.mKernelLayer.getServerIpInfo();
@@ -878,8 +878,8 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         }
     }
 
-    @PublicMethod(version = "11.24.0.0")
     @NonNull
+    @PublicMethod(version = "11.24.0.0")
     public StatisticsEventTrigger getStatEventTrigger() {
         return this.mStatEventTrigger;
     }

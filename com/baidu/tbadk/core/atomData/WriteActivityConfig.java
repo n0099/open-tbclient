@@ -1,11 +1,20 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.l;
+import com.baidu.live.tbadk.core.data.RequestResponseCode;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AdditionData;
 import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.data.PostPrefixData;
 import com.baidu.tbadk.core.data.PostTopicData;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
@@ -13,8 +22,11 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.data.VideoInfo;
 import com.baidu.tbadk.coreExtra.data.WriteVoteData;
 import com.baidu.tbadk.img.WriteImagesInfo;
+import com.baidu.tieba.frs.ForumWriteData;
 import com.baidu.tieba.frs.FrsTabInfoData;
 import com.baidu.tieba.frs.SerializableItemInfo;
+import com.baidu.tieba.tbadkCore.writeModel.b;
+import com.baidu.tieba.tbadkCore.writeModel.c;
 /* loaded from: classes.dex */
 public class WriteActivityConfig extends IntentConfig {
     public static final String ADDITION_DATA = "addition_data";
@@ -24,7 +36,6 @@ public class WriteActivityConfig extends IntentConfig {
     public static final String DISABLE_AUDIO_MESSAGE = "disable_audio_message";
     public static final String ENABLE_AUDIO = "enable_audio";
     public static final String FEED_BACK = "feed_back";
-    public static final String FILE_NAME = "file_name";
     public static final String FLOOR_ID = "floor_id";
     public static final String FLOOR_NUM = "floor_num";
     public static final String FORUM_ID = "forum_id";
@@ -35,41 +46,24 @@ public class WriteActivityConfig extends IntentConfig {
     public static final String HOT_TOPIC = "hot_topic";
     public static final String HOT_TOPIC_ID = "hot_topic_id";
     public static final String HOT_TOPIC_POST_FORUM = "hot_topic_forum_list";
-    public static final String IS_AD = "is_ad";
-    public static final String IS_ADDITION = "is_addition";
-    public static final String IS_LIVE_POST = "is_live_post";
+    public static final String IS_FROM_ERROR_DIALOG = "is_from_error_dialog";
     public static final String IS_SAVE_DRAFTE = "need_save_draft";
     public static final String ITEM_INFO = "item_info";
     public static final String ITEM_IS_SCHOOL = "item_is_school";
-    public static final String KEY_ANTI_POLL_LEVEL = "key_anti_poll_level";
     public static final String KEY_CALL_FROM = "KEY_CALL_FROM";
-    public static final String KEY_FORUM_AVATAR = "forum_avatar";
     public static final String KEY_PROFESSION_ZONE = "profession_zone";
     public static final String KEY_SHOW_HOMEPAGE_TEST_BTN = "key_show_homepage_test_btn";
-    public static final String KEY_TOPIC_ID = "topic_id";
+    public static final String KEY_STATISTIS_FROM = "key_statistic_from";
     public static final String KEY_WRITE_IMAGES_INFO_STRING = "KEY_WRITE_IMAGES_INFO_STRING";
     public static final String KEY_WRITE_LEVEL = "key_write_level";
-    public static final String LIVE_DATE = "live_date";
-    public static final String LIVE_GROUP_HEAD = "live_group_head";
-    public static final String LIVE_GROUP_ID = "live_group_id";
-    public static final String LIVE_GROUP_INTRO = "live_group_intro";
-    public static final String LIVE_GROUP_MEMBER_COUNT = "live_group_member_count";
-    public static final String LIVE_GROUP_NAME = "live_group_name";
-    public static final String LIVE_GROUP_PUBLISH_HEAD = "live_group_author_head";
-    public static final String LIVE_GROUP_PUBLISH_NAME = "live_group_author";
-    public static final String LIVE_GROUP_ZAN_COUNT = "live_group_zan_count";
-    public static final String LIVE_TIME_IS_MODIFY = "live_time_is_modify";
-    public static final String MEMBER_TYPE = "mem_type";
     public static final String MORE_FORUM_IMG = "more_forum_img";
     public static final String MORE_FORUM_TITLE = "more_forum_title";
     public static final String MORE_FORUM_URL = "more_forum_url";
-    public static final String PHOTO_LIVE_COVER_IMAGE = "photolivecoverimage";
     public static final String PHOTO_NAME = "photo_name";
     public static final String POST_WRITE_CALLBACK_DATA = "post_write_callback_data";
     public static final String PREFIX_DATA = "prefix_data";
     public static final String PRIVATE_THREAD = "private_thread";
     public static final int PROFESSION_ZONE_TYPE_DEFAULT = -1;
-    public static final String REFRESH_PIC = "refresh_pic";
     public static final String REPLY_SUB_PB = "reply_sub_pb";
     public static final String STAR_COUNT = "star_count";
     public static final String SUB_USER_NAME = "sub_user_name";
@@ -77,202 +71,290 @@ public class WriteActivityConfig extends IntentConfig {
     public static final String TITLE = "write_title";
     public static final String TYPE = "type";
     public static final String VCODE_FEED_BACK = "vcode_feed_back";
-    public static final String WRITE_IMAGES = "write_images";
+    public static final String VIDEO_INFO = "video_info";
+    public static final String VIDEO_TITLE = "video_title";
 
-    public WriteActivityConfig(Activity activity, int i, String str, String str2, String str3, String str4, int i2, AntiData antiData, int i3, boolean z, boolean z2, String str5, boolean z3, boolean z4, String str6, AdditionData additionData, PostPrefixData postPrefixData, int i4) {
-        this(activity, i, str, str2, str3, str4, i2, antiData, i3, z, z2, str5, z3, z4, str6, additionData, postPrefixData, i4, "");
+    public static boolean isAsyncWriting() {
+        return isAsyncWriting(true);
     }
 
-    public WriteActivityConfig(Activity activity, int i, String str, String str2, String str3, String str4, int i2, AntiData antiData, int i3, boolean z, boolean z2, String str5, boolean z3, boolean z4, String str6, AdditionData additionData, PostPrefixData postPrefixData, int i4, String str7) {
-        super(activity);
-        setIntentAction(IntentAction.ActivityForResult);
-        setRequestCode(i3);
-        if (antiData != null && antiData.getIfpost() == 0 && !StringUtils.isNull(antiData.getForbid_info())) {
-            l.showToast(activity, antiData.getForbid_info());
-            return;
+    public static boolean isAsyncWriting(boolean z) {
+        Activity currentActivity;
+        boolean isAsyncWriting = com.baidu.tieba.tbadkCore.writeModel.a.dQA().isAsyncWriting();
+        b.d("发帖阻拦状态 = " + isAsyncWriting);
+        if (isAsyncWriting && z && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null) {
+            l.showToast(currentActivity, "正在发布，请稍后");
         }
+        return isAsyncWriting;
+    }
+
+    public static WriteActivityConfig newInstance(@NonNull Context context) {
+        return new WriteActivityConfig(context);
+    }
+
+    private WriteActivityConfig(Context context) {
+        super(context);
+        setIntentAction(IntentAction.ActivityForResult);
+        setRequestCode(RequestResponseCode.REQUEST_WRITE_NEW);
+    }
+
+    public WriteActivityConfig setFrom(String str) {
+        getIntent().putExtra("from", str);
+        return this;
+    }
+
+    public WriteActivityConfig setType(int i) {
         getIntent().putExtra("type", i);
-        getIntent().putExtra("forum_id", str);
-        getIntent().putExtra("forum_name", str2);
-        getIntent().putExtra(REPLY_SUB_PB, z2);
-        getIntent().putExtra("is_ad", z3);
-        getIntent().putExtra(MEMBER_TYPE, i4);
-        if (antiData == null) {
-            getIntent().putExtra(ENABLE_AUDIO, true);
-            getIntent().putExtra(DISABLE_AUDIO_MESSAGE, "");
-        } else {
+        return this;
+    }
+
+    public WriteActivityConfig setForumId(String str) {
+        Intent intent = getIntent();
+        if (str == null) {
+            str = "0";
+        }
+        intent.putExtra("forum_id", str);
+        return this;
+    }
+
+    public WriteActivityConfig setForumName(String str) {
+        getIntent().putExtra("forum_name", str);
+        return this;
+    }
+
+    public WriteActivityConfig setIsReplySubPb(boolean z) {
+        getIntent().putExtra(REPLY_SUB_PB, z);
+        return this;
+    }
+
+    public WriteActivityConfig setAntiData(AntiData antiData) {
+        if (antiData != null) {
             getIntent().putExtra(ENABLE_AUDIO, antiData.isIfvoice());
             getIntent().putExtra(DISABLE_AUDIO_MESSAGE, antiData.getVoice_message());
             getIntent().putExtra(CAN_GOODS, antiData.getCanGoods());
         }
-        if (antiData != null) {
-            getIntent().putExtra(KEY_ANTI_POLL_LEVEL, antiData.getPollLevel());
-        }
-        if (str6 != null) {
-            getIntent().putExtra("file_name", str6);
-        }
-        getIntent().putExtra(REFRESH_PIC, z4);
-        if (z) {
-            getIntent().putExtra(FEED_BACK, true);
-        }
-        if (str3 != null) {
-            getIntent().putExtra("thread_id", str3);
-        }
-        if (str4 != null) {
-            getIntent().putExtra(FLOOR_ID, str4);
-        }
-        if (i2 > 0) {
-            getIntent().putExtra("floor_num", i2);
-        }
-        if (str5 != null) {
-            getIntent().putExtra(SUB_USER_NAME, str5);
-        }
+        return this;
+    }
+
+    public WriteActivityConfig setFeedBack(boolean z) {
+        getIntent().putExtra(FEED_BACK, z);
+        return this;
+    }
+
+    public WriteActivityConfig setThreadId(String str) {
+        getIntent().putExtra("thread_id", str);
+        return this;
+    }
+
+    public WriteActivityConfig setFloorId(String str) {
+        getIntent().putExtra(FLOOR_ID, str);
+        return this;
+    }
+
+    public WriteActivityConfig setFloorNum(int i) {
+        getIntent().putExtra("floor_num", i);
+        return this;
+    }
+
+    public WriteActivityConfig setSubUserName(String str) {
+        getIntent().putExtra(SUB_USER_NAME, str);
+        return this;
+    }
+
+    public WriteActivityConfig setAdditionData(AdditionData additionData) {
         if (additionData != null) {
             getIntent().putExtra("addition_data", additionData);
         }
+        return this;
+    }
+
+    public WriteActivityConfig setPrefixData(PostPrefixData postPrefixData) {
         if (postPrefixData != null) {
             getIntent().putExtra("prefix_data", postPrefixData);
         }
-        getIntent().putExtra("from", str7);
+        return this;
     }
 
-    public void setForumDir(String str, String str2) {
+    public WriteActivityConfig setForumDir(@Nullable String str, @Nullable String str2) {
         Intent intent = getIntent();
+        if (str == null) {
+            str = "";
+        }
         intent.putExtra("forum_first_dir", str);
-        intent.putExtra("forum_second_dir", str2);
+        Intent intent2 = getIntent();
+        if (str2 == null) {
+            str2 = "";
+        }
+        intent2.putExtra("forum_second_dir", str2);
+        return this;
     }
 
-    public void setCanGoods(boolean z) {
+    public WriteActivityConfig setCanGoods(boolean z) {
         getIntent().putExtra(CAN_GOODS, z);
+        return this;
     }
 
-    public void addHotTopicInfo(PostTopicData postTopicData) {
+    public WriteActivityConfig setHotTopicInfo(PostTopicData postTopicData) {
         getIntent().putExtra("hot_topic", postTopicData);
+        return this;
     }
 
-    public void setCategroyId(int i) {
+    public WriteActivityConfig setCategoryId(int i) {
         getIntent().putExtra("category_id", i);
+        return this;
     }
 
-    public void setTitle(String str, boolean z) {
+    public WriteActivityConfig setForumData(ForumData forumData) {
+        if (forumData != null) {
+            setForumId(forumData.getId() == null ? "0" : forumData.getId());
+            setForumName(forumData.getName());
+            setPrefixData(forumData.getPrefixData());
+            setPrivateThread(forumData.getIsPrivateForum());
+            setForumDir(forumData.getFirst_class(), forumData.getSecond_class());
+        } else {
+            setForumId("0");
+            setForumDir("", "");
+        }
+        return this;
+    }
+
+    public WriteActivityConfig setForumWriteData(ForumWriteData forumWriteData) {
+        if (forumWriteData != null) {
+            setForumId(forumWriteData.forumId == null ? "0" : forumWriteData.forumId);
+            setForumName(forumWriteData.forumName);
+            setAntiData(forumWriteData.antiData);
+            setPrefixData(forumWriteData.prefixData);
+            setPrivateThread(forumWriteData.privateThread);
+            setForumDir(forumWriteData.firstDir, forumWriteData.secondDir);
+            setProfessionZone(forumWriteData.defaultZone);
+            setFrsTabInfo(forumWriteData.frsTabInfo);
+            setFrom(forumWriteData.mFrom);
+            setCallFrom(forumWriteData.writeCallFrom);
+            setStatisticFrom(forumWriteData.statisticFrom);
+        } else {
+            setForumId("0");
+            setProfessionZone(-1);
+            setForumDir("", "");
+        }
+        return this;
+    }
+
+    public WriteActivityConfig setTitle(String str) {
         getIntent().putExtra("write_title", str);
+        return this;
+    }
+
+    public WriteActivityConfig setIsSaveDraft(boolean z) {
         getIntent().putExtra("need_save_draft", z);
+        return this;
     }
 
-    public void setIsVcodeFeedBack() {
-        if (getIntent() != null) {
-            getIntent().putExtra(VCODE_FEED_BACK, true);
-        }
+    public WriteActivityConfig setIsVcodeFeedBack() {
+        getIntent().putExtra(VCODE_FEED_BACK, true);
+        return this;
     }
 
-    public void setCallFrom(String str) {
-        if (getIntent() != null) {
-            getIntent().putExtra("KEY_CALL_FROM", str);
-        }
+    public WriteActivityConfig setPrivateThread(int i) {
+        getIntent().putExtra("private_thread", i);
+        return this;
     }
 
-    public void setForumLevel(int i) {
-        if (getIntent() != null) {
-            getIntent().putExtra("key_write_level", i);
-        }
+    public WriteActivityConfig setAlbumThread(int i) {
+        getIntent().putExtra("album_thread", i);
+        return this;
     }
 
-    public void setForumAvatar(String str) {
-        if (getIntent() != null) {
-            getIntent().putExtra("forum_avatar", str);
-        }
-    }
-
-    public void setPrivateThread(int i) {
-        if (getIntent() != null) {
-            getIntent().putExtra("private_thread", i);
-        }
-    }
-
-    public void setAlbumThread(int i) {
-        if (getIntent() != null) {
-            getIntent().putExtra("album_thread", i);
-        }
-    }
-
-    public void setWriteImagesInfo(WriteImagesInfo writeImagesInfo) {
-        if (getIntent() != null && writeImagesInfo != null) {
+    public WriteActivityConfig setWriteImagesInfo(WriteImagesInfo writeImagesInfo) {
+        if (writeImagesInfo != null) {
             getIntent().putExtra("KEY_WRITE_IMAGES_INFO_STRING", writeImagesInfo.toJsonString());
         }
+        return this;
     }
 
-    public void setMoreForumImg(String str) {
-        if (getIntent() != null) {
-            getIntent().putExtra("more_forum_img", str);
-        }
-    }
-
-    public void setMoreForumTitle(String str) {
-        if (getIntent() != null) {
-            getIntent().putExtra("more_forum_title", str);
-        }
-    }
-
-    public void setMoreForumUrl(String str) {
-        if (getIntent() != null) {
-            getIntent().putExtra("more_forum_url", str);
-        }
-    }
-
-    public void setProfessionZone(int i) {
+    public WriteActivityConfig setProfessionZone(int i) {
         getIntent().putExtra(KEY_PROFESSION_ZONE, i);
+        return this;
     }
 
-    public void setTopicId(String str) {
+    public WriteActivityConfig setTopicId(String str) {
         getIntent().putExtra(HOT_TOPIC_ID, str);
+        return this;
     }
 
-    public void setContent(String str) {
+    public WriteActivityConfig setContent(String str) {
         getIntent().putExtra("write_content", str);
+        return this;
     }
 
-    public void setFrsTabInfo(FrsTabInfoData frsTabInfoData) {
+    public WriteActivityConfig setFrsTabInfo(FrsTabInfoData frsTabInfoData) {
         getIntent().putExtra("tab_list", frsTabInfoData);
+        return this;
     }
 
-    public void setShowHomepageTestBtn(boolean z) {
+    public WriteActivityConfig setShowHomepageTestBtn(boolean z) {
         getIntent().putExtra(KEY_SHOW_HOMEPAGE_TEST_BTN, z);
+        return this;
     }
 
-    public void setShowVoteData(WriteVoteData writeVoteData) {
+    public WriteActivityConfig setShowVoteData(WriteVoteData writeVoteData) {
         getIntent().putExtra(IntentConfig.WRITE_VOTE_DATA, writeVoteData);
+        return this;
     }
 
-    public void setVideoInfo(VideoInfo videoInfo) {
-        getIntent().putExtra(WriteVideoActivityConfig.VIDEO_INFO, videoInfo);
+    public WriteActivityConfig setVideoInfo(VideoInfo videoInfo) {
+        getIntent().putExtra(VIDEO_INFO, videoInfo);
+        return this;
     }
 
-    public void setIntentActionActivityForwardResult() {
-        setIntentAction(IntentAction.Activity);
-        getIntent().addFlags(33554432);
-    }
-
-    public void setGoodsList(String str) {
+    public WriteActivityConfig setGoodsList(String str) {
         if (!StringUtils.isNull(str)) {
             getIntent().putExtra("goods_list", str);
         }
+        return this;
     }
 
-    public void setItemIsSchool(boolean z) {
-        if (getIntent() != null) {
-            getIntent().putExtra("item_is_school", z);
-        }
+    public WriteActivityConfig setItemIsSchool(boolean z) {
+        getIntent().putExtra("item_is_school", z);
+        return this;
     }
 
-    public void setScoreItemInfo(SerializableItemInfo serializableItemInfo) {
-        if (getIntent() != null) {
-            getIntent().putExtra("item_info", serializableItemInfo);
-        }
+    public WriteActivityConfig setScoreItemInfo(SerializableItemInfo serializableItemInfo) {
+        getIntent().putExtra("item_info", serializableItemInfo);
+        return this;
     }
 
-    public void setStarCount(int i) {
-        if (getIntent() != null) {
-            getIntent().putExtra(STAR_COUNT, i);
-        }
+    public WriteActivityConfig setStarCount(int i) {
+        getIntent().putExtra(STAR_COUNT, i);
+        return this;
+    }
+
+    public WriteActivityConfig setFromErrorDialog(boolean z) {
+        getIntent().putExtra(IS_FROM_ERROR_DIALOG, z);
+        return this;
+    }
+
+    public WriteActivityConfig setCallFrom(String str) {
+        getIntent().putExtra("KEY_CALL_FROM", str);
+        return this;
+    }
+
+    public WriteActivityConfig setStatisticFrom(int i) {
+        getIntent().putExtra(KEY_STATISTIS_FROM, i);
+        return this;
+    }
+
+    public WriteActivityConfig setIsEvaluate(boolean z) {
+        getIntent().putExtra(IntentConfig.IS_EVALUATE, z);
+        return this;
+    }
+
+    public WriteActivityConfig setIsItemDetail(boolean z) {
+        getIntent().putExtra(IntentConfig.IS_ITEM_DETAIL, z);
+        return this;
+    }
+
+    public void send() {
+        c.nvJ = new Intent(getIntent());
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, this));
     }
 }

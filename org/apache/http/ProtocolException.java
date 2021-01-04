@@ -1,6 +1,6 @@
 package org.apache.http;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes6.dex */
 public class ProtocolException extends HttpException {
     public ProtocolException() {
         throw new RuntimeException("Stub!");

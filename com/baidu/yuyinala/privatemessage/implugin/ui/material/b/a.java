@@ -13,11 +13,11 @@ import android.graphics.Shader;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
-import android.support.v4.view.ViewCompat;
 import android.widget.ImageView;
+import androidx.core.view.ViewCompat;
 import com.baidu.yuyinala.privatemessage.implugin.ui.theme.ThemeManager;
 import com.baidu.yuyinala.privatemessage.implugin.util.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a extends Drawable {
     private final int mBitmapHeight;
     private final Paint mBitmapPaint;
@@ -34,7 +34,7 @@ public class a extends Drawable {
     private float mBorderWidth = 0.0f;
     private ColorStateList mBorderColor = ColorStateList.valueOf(ViewCompat.MEASURED_STATE_MASK);
     private ImageView.ScaleType mScaleType = ImageView.ScaleType.FIT_CENTER;
-    private boolean oSu = false;
+    private boolean oYz = false;
 
     public a(Bitmap bitmap) {
         this.mBitmapWidth = bitmap.getWidth();
@@ -53,7 +53,7 @@ public class a extends Drawable {
         this.mBorderPaint.setStrokeWidth(this.mBorderWidth);
     }
 
-    public static a Z(Bitmap bitmap) {
+    public static a Y(Bitmap bitmap) {
         if (bitmap != null) {
             return new a(bitmap);
         }
@@ -113,7 +113,7 @@ public class a extends Drawable {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.yuyinala.privatemessage.implugin.ui.material.b.a$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public static /* synthetic */ class AnonymousClass1 {
         static final /* synthetic */ int[] $SwitchMap$android$widget$ImageView$ScaleType = new int[ImageView.ScaleType.values().length];
 
@@ -152,8 +152,8 @@ public class a extends Drawable {
     private void updateShaderMatrix() {
         float min;
         float width;
+        float height;
         float f;
-        float f2 = 0.0f;
         switch (AnonymousClass1.$SwitchMap$android$widget$ImageView$ScaleType[this.mScaleType.ordinal()]) {
             case 1:
                 this.mBorderRect.set(this.mBounds);
@@ -168,13 +168,14 @@ public class a extends Drawable {
                 if (this.mBitmapWidth * this.mBorderRect.height() > this.mBorderRect.width() * this.mBitmapHeight) {
                     width = this.mBorderRect.height() / this.mBitmapHeight;
                     f = (this.mBorderRect.width() - (this.mBitmapWidth * width)) * 0.5f;
+                    height = 0.0f;
                 } else {
                     width = this.mBorderRect.width() / this.mBitmapWidth;
+                    height = (this.mBorderRect.height() - (this.mBitmapHeight * width)) * 0.5f;
                     f = 0.0f;
-                    f2 = (this.mBorderRect.height() - (this.mBitmapHeight * width)) * 0.5f;
                 }
                 this.mShaderMatrix.setScale(width, width);
-                this.mShaderMatrix.postTranslate(((int) (f + 0.5f)) + this.mBorderWidth, ((int) (f2 + 0.5f)) + this.mBorderWidth);
+                this.mShaderMatrix.postTranslate(((int) (f + 0.5f)) + this.mBorderWidth, ((int) (height + 0.5f)) + this.mBorderWidth);
                 break;
             case 3:
                 this.mShaderMatrix.set(null);
@@ -248,7 +249,7 @@ public class a extends Drawable {
             canvas.drawRoundRect(this.mDrawableRect, this.mCornerRadius, this.mCornerRadius, this.mBitmapPaint);
         }
         try {
-            if (ThemeManager.enO() == ThemeManager.ThemeMode.NIGHT && this.oSu) {
+            if (ThemeManager.enQ() == ThemeManager.ThemeMode.NIGHT && this.oYz) {
                 Paint paint = new Paint();
                 paint.setAntiAlias(true);
                 paint.setColor(1342177280);
@@ -298,12 +299,12 @@ public class a extends Drawable {
         return this.mBitmapHeight;
     }
 
-    public a bj(float f) {
+    public a bu(float f) {
         this.mCornerRadius = f;
         return this;
     }
 
-    public a bk(float f) {
+    public a bv(float f) {
         this.mBorderWidth = f;
         this.mBorderPaint.setStrokeWidth(this.mBorderWidth);
         return this;
@@ -335,6 +336,6 @@ public class a extends Drawable {
     }
 
     public void AD(boolean z) {
-        this.oSu = z;
+        this.oYz = z;
     }
 }

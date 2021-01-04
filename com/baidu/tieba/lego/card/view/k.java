@@ -1,7 +1,7 @@
 package com.baidu.tieba.lego.card.view;
 /* loaded from: classes.dex */
 public interface k {
-    void aSi();
+    void aUC();
 
     boolean isPlaying();
 

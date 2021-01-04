@@ -1,39 +1,47 @@
 package com.baidu.tieba.homepage.topic.topicdetail.a;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.homepage.topic.topicdetail.view.e;
-/* loaded from: classes22.dex */
-public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.topic.topicdetail.b.d, com.baidu.tieba.card.a.a<e>> {
-    private TbPageContext<?> mPageContext;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.bz;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import tbclient.NewHottopic.TopicThread;
+/* loaded from: classes2.dex */
+public class c extends BaseCardInfo {
+    public static final BdUniqueId kkZ = BdUniqueId.gen();
+    public bz eMv;
+    public long kla;
+    public int klb;
+    public boolean klc;
+    public int source;
+    public long topicId;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public c(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.homepage.topic.topicdetail.b.d.jXR);
-        this.mPageContext = tbPageContext;
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
+    public BdUniqueId getType() {
+        return kkZ;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aL */
-    public com.baidu.tieba.card.a.a<e> c(ViewGroup viewGroup) {
-        e eVar = new e(this.mPageContext);
-        eVar.setTag(this.mPageId);
-        return new com.baidu.tieba.card.a.a<>(eVar);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.topic.topicdetail.b.d dVar, com.baidu.tieba.card.a.a<e> aVar) {
-        if (dVar == null || aVar == null || aVar.csN() == null) {
-            return null;
+    public void a(TopicThread topicThread) {
+        if (topicThread != null) {
+            this.kla = topicThread.feed_id.longValue();
+            if (topicThread.thread_info != null) {
+                this.eMv = new bz();
+                this.eMv.a(topicThread.thread_info);
+                this.eMv.bsq();
+            }
+            this.klb = topicThread.user_agree.intValue();
+            this.source = topicThread.source.intValue();
         }
-        aVar.csN().a(dVar);
-        aVar.csN().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        return aVar.getView();
+    }
+
+    public void a(tbclient.NewTopicThread.TopicThread topicThread) {
+        if (topicThread != null) {
+            this.kla = topicThread.feed_id.longValue();
+            if (topicThread.thread_info != null) {
+                this.eMv = new bz();
+                this.eMv.a(topicThread.thread_info);
+                this.eMv.bsq();
+            }
+            this.klb = Integer.parseInt(topicThread.user_agree);
+            this.source = topicThread.source.intValue();
+        }
     }
 }

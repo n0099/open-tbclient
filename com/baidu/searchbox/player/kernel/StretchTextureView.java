@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.TextureView;
 import android.view.View;
 import com.baidu.searchbox.player.utils.BdVideoLog;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class StretchTextureView extends TextureView {
     public static final int STYLE_DEFAULT = 0;
     public static final int STYLE_MATCH_HEIGHT = 1;
@@ -40,8 +40,17 @@ public class StretchTextureView extends TextureView {
         this.mVideoHeight = i2;
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:35:0x00fb, code lost:
+        if (r1 > r2) goto L13;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:19:0x00a0  */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x0121  */
     @Override // android.view.View
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     protected void onMeasure(int i, int i2) {
+        int i3;
         int defaultSize = getDefaultSize(this.mVideoWidth, i);
         int defaultSize2 = getDefaultSize(this.mVideoHeight, i2);
         BdVideoLog.d(TAG, "onMeasure ** mVideoWidth : " + this.mVideoWidth + ", mVideoHeight : " + this.mVideoHeight + ", TextureViewWidth : " + defaultSize + ", TextureViewHeight : " + defaultSize2);
@@ -50,64 +59,61 @@ public class StretchTextureView extends TextureView {
             int defaultSize4 = getDefaultSize(this.mVideoHeight, i2);
             if (this.mVideoWidth > 0 && this.mVideoHeight > 0) {
                 int mode = View.MeasureSpec.getMode(i);
-                int size = View.MeasureSpec.getSize(i);
+                i3 = View.MeasureSpec.getSize(i);
                 int mode2 = View.MeasureSpec.getMode(i2);
                 defaultSize2 = View.MeasureSpec.getSize(i2);
                 if (mode == 1073741824 && mode2 == 1073741824) {
-                    if (this.mVideoWidth * defaultSize2 < this.mVideoHeight * size) {
-                        defaultSize = (this.mVideoWidth * defaultSize2) / this.mVideoHeight;
-                    } else if (this.mVideoWidth * defaultSize2 > this.mVideoHeight * size) {
-                        defaultSize2 = (this.mVideoHeight * size) / this.mVideoWidth;
-                        defaultSize = size;
-                    } else {
-                        defaultSize = size;
+                    if (this.mVideoWidth * defaultSize2 < this.mVideoHeight * i3) {
+                        i3 = (this.mVideoWidth * defaultSize2) / this.mVideoHeight;
+                    } else if (this.mVideoWidth * defaultSize2 > this.mVideoHeight * i3) {
+                        defaultSize2 = (this.mVideoHeight * i3) / this.mVideoWidth;
                     }
                 } else if (mode == 1073741824) {
-                    int i3 = (this.mVideoHeight * size) / this.mVideoWidth;
-                    if (mode2 != Integer.MIN_VALUE || i3 <= defaultSize2) {
-                        defaultSize2 = i3;
-                        defaultSize = size;
-                    } else {
-                        defaultSize = size;
+                    int i4 = (this.mVideoHeight * i3) / this.mVideoWidth;
+                    if (mode2 != Integer.MIN_VALUE || i4 <= defaultSize2) {
+                        defaultSize2 = i4;
                     }
                 } else if (mode2 == 1073741824) {
                     defaultSize = (this.mVideoWidth * defaultSize2) / this.mVideoHeight;
-                    if (mode == Integer.MIN_VALUE && defaultSize > size) {
-                        defaultSize = size;
+                    if (mode == Integer.MIN_VALUE) {
                     }
                 } else {
-                    int i4 = this.mVideoWidth;
+                    defaultSize = this.mVideoWidth;
                     int i5 = this.mVideoHeight;
                     if (mode2 != Integer.MIN_VALUE || i5 <= defaultSize2) {
                         defaultSize2 = i5;
-                        defaultSize = i4;
                     } else {
                         defaultSize = (this.mVideoWidth * defaultSize2) / this.mVideoHeight;
                     }
-                    if (mode == Integer.MIN_VALUE && defaultSize > size) {
-                        defaultSize2 = (this.mVideoHeight * size) / this.mVideoWidth;
-                        defaultSize = size;
+                    if (mode == Integer.MIN_VALUE && defaultSize > i3) {
+                        defaultSize2 = (this.mVideoHeight * i3) / this.mVideoWidth;
                     }
                 }
-            }
-            if (getRotation() == 0.0f || getRotation() % 90.0f != 0.0f) {
-                defaultSize3 = defaultSize;
-            } else if (defaultSize3 < defaultSize4) {
-                if (defaultSize > defaultSize2) {
-                    int i6 = (int) ((defaultSize * defaultSize3) / defaultSize2);
-                    defaultSize2 = defaultSize3;
-                    defaultSize3 = i6;
-                } else {
-                    defaultSize2 = (int) ((defaultSize2 * defaultSize) / defaultSize3);
+                if (getRotation() != 0.0f && getRotation() % 90.0f == 0.0f) {
+                    if (defaultSize3 >= defaultSize4) {
+                        if (i3 > defaultSize2) {
+                            i3 = (int) ((i3 * defaultSize3) / defaultSize2);
+                            defaultSize2 = defaultSize3;
+                        } else {
+                            defaultSize2 = (int) ((defaultSize2 * i3) / defaultSize3);
+                            i3 = defaultSize3;
+                        }
+                    } else if (i3 > defaultSize2) {
+                        defaultSize2 = (int) ((defaultSize2 * i3) / defaultSize3);
+                        i3 = defaultSize3;
+                    } else {
+                        i3 = (int) ((i3 * defaultSize3) / defaultSize2);
+                        defaultSize2 = defaultSize3;
+                    }
                 }
-            } else if (defaultSize > defaultSize2) {
-                defaultSize2 = (int) ((defaultSize2 * defaultSize) / defaultSize3);
-            } else {
-                int i7 = (int) ((defaultSize * defaultSize3) / defaultSize2);
-                defaultSize2 = defaultSize3;
-                defaultSize3 = i7;
+                defaultSize = i3;
             }
-            defaultSize = defaultSize3;
+            i3 = defaultSize;
+            if (getRotation() != 0.0f) {
+                if (defaultSize3 >= defaultSize4) {
+                }
+            }
+            defaultSize = i3;
         } else if (this.mStyle == 1) {
             defaultSize = setStyleMatchHeight(defaultSize, defaultSize2, this.mVideoWidth, this.mVideoHeight);
         } else if (this.mStyle == 2) {

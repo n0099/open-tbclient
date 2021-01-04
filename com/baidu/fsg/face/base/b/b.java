@@ -12,11 +12,11 @@ import java.io.File;
 import java.io.UnsupportedEncodingException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f1570a = 100;
+    public static final int f2109a = 100;
     private static final String c = ".BD_SAPI_CACHE";
     private static final String d = "so_zips";
     private static final String e = "1.0.1";
@@ -24,15 +24,19 @@ public class b {
     private static final String g = "FaceSDKLibs";
     private static final String[] h = {"idl_license", "FaceSDK"};
     private static b i;
-    private String b;
+
+    /* renamed from: b  reason: collision with root package name */
+    private String f2110b;
     private SharedPreferences j;
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f1571a;
-        public String b;
+        public String f2111a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public String f2112b;
         public String c;
         public String[] d;
     }
@@ -58,11 +62,11 @@ public class b {
     }
 
     public static String c(Context context, a aVar) {
-        return new File(a(context, aVar) + File.separator + aVar.f1571a + File.separator + aVar.f1571a + Constants.ACCEPT_TIME_SEPARATOR_SERVER + aVar.b + ".zip").getAbsolutePath();
+        return new File(a(context, aVar) + File.separator + aVar.f2111a + File.separator + aVar.f2111a + Constants.ACCEPT_TIME_SEPARATOR_SERVER + aVar.f2112b + ".zip").getAbsolutePath();
     }
 
     public static String a(a aVar) {
-        return ".BD_SAPI_CACHE/" + aVar.f1571a + "/" + aVar.f1571a + Constants.ACCEPT_TIME_SEPARATOR_SERVER + aVar.b + ".zip";
+        return ".BD_SAPI_CACHE/" + aVar.f2111a + "/" + aVar.f2111a + Constants.ACCEPT_TIME_SEPARATOR_SERVER + aVar.f2112b + ".zip";
     }
 
     private String a(String str) {
@@ -86,10 +90,10 @@ public class b {
     public c a(Context context, String str) {
         String a2 = a(str);
         if (!TextUtils.isEmpty(a2)) {
-            String b = i.b(a2, b(context));
-            if (!TextUtils.isEmpty(b)) {
+            String b2 = i.b(a2, b(context));
+            if (!TextUtils.isEmpty(b2)) {
                 try {
-                    return c.a(new JSONObject(b));
+                    return c.a(new JSONObject(b2));
                 } catch (JSONException e2) {
                     com.baidu.fsg.face.base.d.d.a(e2);
                 }
@@ -99,22 +103,22 @@ public class b {
     }
 
     private String b(Context context) {
-        if (TextUtils.isEmpty(this.b)) {
+        if (TextUtils.isEmpty(this.f2110b)) {
             try {
-                this.b = MD5Util.toMd5((context.getPackageName() + h.a(context, context.getPackageName())).getBytes("UTF-8"), false).substring(0, 16);
+                this.f2110b = MD5Util.toMd5((context.getPackageName() + h.a(context, context.getPackageName())).getBytes("UTF-8"), false).substring(0, 16);
             } catch (UnsupportedEncodingException e2) {
                 com.baidu.fsg.face.base.d.d.a(e2);
             }
         }
-        return this.b;
+        return this.f2110b;
     }
 
     public static a a(int i2) {
         a aVar = new a();
         switch (i2) {
             case 4:
-                aVar.f1571a = d;
-                aVar.b = "1.0.3";
+                aVar.f2111a = d;
+                aVar.f2112b = "1.0.3";
                 aVar.c = g;
                 aVar.d = h;
                 return aVar;

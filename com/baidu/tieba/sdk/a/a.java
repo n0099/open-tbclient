@@ -7,7 +7,7 @@ import com.baidu.live.adp.lib.util.Md5;
 import java.net.URLEncoder;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a extends HttpRule {
     public a(int i) {
         super(i);
@@ -35,7 +35,7 @@ public class a extends HttpRule {
     @Override // com.baidu.live.adp.framework.controller.MessageRule
     public HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         if (httpMessage != null && httpMessage.getCmd() < 1030999 && httpMessage.getCmd() >= 1021000) {
-            String str = "release/4.1.0/tieba|2020-12-06 17:34:30|323dd0a";
+            String str = "release/4.2.0/tieba|2020-12-31 17:32:55|8cc384f";
             try {
                 str = URLEncoder.encode(str);
             } catch (Exception e) {

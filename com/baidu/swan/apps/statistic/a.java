@@ -1,15 +1,15 @@
 package com.baidu.swan.apps.statistic;
 
 import com.baidu.swan.ubc.Flow;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class a {
-    private final Flow dEO;
+    private final Flow dNs;
 
     public a(Flow flow) {
-        this.dEO = flow;
+        this.dNs = flow;
     }
 
-    public Flow aMB() {
-        return this.dEO;
+    public Flow aOR() {
+        return this.dNs;
     }
 }

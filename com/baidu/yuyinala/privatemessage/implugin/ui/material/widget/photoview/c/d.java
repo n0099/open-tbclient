@@ -2,7 +2,7 @@ package com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.
 
 import android.content.Context;
 import android.os.Build;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public abstract class d {
     public abstract void AF(boolean z);
 
@@ -16,7 +16,7 @@ public abstract class d {
 
     public abstract boolean isFinished();
 
-    public static d hq(Context context) {
+    public static d hD(Context context) {
         if (Build.VERSION.SDK_INT < 9) {
             return new c(context);
         }

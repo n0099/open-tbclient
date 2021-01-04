@@ -1,31 +1,31 @@
 package com.baidu.helios.common.b.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class e {
-    private long axu;
+    private long axN;
 
     public e() {
         this(0L);
     }
 
     public e(long j) {
-        this.axu = j;
+        this.axN = j;
     }
 
-    public boolean d(long j, long j2) {
-        long j3 = this.axu;
-        this.axu = (this.axu & ((-1) ^ j2)) | (j & j2);
-        return (j3 ^ this.axu) != 0;
+    public boolean g(long j, long j2) {
+        long j3 = this.axN;
+        this.axN = (this.axN & ((-1) ^ j2)) | (j & j2);
+        return (j3 ^ this.axN) != 0;
     }
 
-    public void P(long j) {
-        this.axu = j;
+    public void O(long j) {
+        this.axN = j;
     }
 
-    public long Q(long j) {
-        return this.axu & j;
+    public long P(long j) {
+        return this.axN & j;
     }
 
-    public long zL() {
-        return this.axu;
+    public long zc() {
+        return this.axN;
     }
 }

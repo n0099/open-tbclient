@@ -7,7 +7,6 @@ import android.os.Message;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.recorder.CyberAudioRecorder;
 import com.baidu.media.duplayer.Keep;
-import com.baidu.searchbox.ugc.transcoder.TranscoderPlugin;
 import java.lang.ref.WeakReference;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -17,15 +16,15 @@ import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes18.dex */
+/* loaded from: classes15.dex */
 public class DuAudioRecorder extends CyberAudioRecorder {
     private static ArrayList<String> r = new ArrayList<>();
-    private CyberAudioRecorder.OnPreparedListener ccC;
-    private CyberAudioRecorder.OnCompletionListener ccD;
-    private CyberAudioRecorder.OnErrorListener ccE;
-    private CyberAudioRecorder.OnInfoListener ccF;
-    private CyberAudioRecorder.OnEncBufferCallbackListener ccG;
-    private ByteBuffer ccH;
+    private CyberAudioRecorder.OnPreparedListener cjh;
+    private CyberAudioRecorder.OnCompletionListener cji;
+    private CyberAudioRecorder.OnErrorListener cjj;
+    private CyberAudioRecorder.OnInfoListener cjk;
+    private CyberAudioRecorder.OnEncBufferCallbackListener cjl;
+    private ByteBuffer cjm;
     private long g;
     private long h;
     private long i;
@@ -38,67 +37,69 @@ public class DuAudioRecorder extends CyberAudioRecorder {
     @Keep
     private long mNativeContext;
     private int n;
-    private ExecutorService ccI = null;
-    private AudioRecord ccJ = null;
+    private ExecutorService cjn = null;
+    private AudioRecord cjo = null;
     private final Object q = new Object();
-    private com.baidu.media.recorder.a ccK = new com.baidu.media.recorder.a();
-    private Map<String, String> ccL = new HashMap();
-    private Map<String, Long> ccM = new HashMap();
+    private com.baidu.media.recorder.a cjp = new com.baidu.media.recorder.a();
+    private Map<String, String> t = new HashMap();
+    private Map<String, Long> cjq = new HashMap();
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes18.dex */
+    /* loaded from: classes15.dex */
     public class a extends Handler {
-        private final WeakReference<DuAudioRecorder> b;
+
+        /* renamed from: b  reason: collision with root package name */
+        private final WeakReference<DuAudioRecorder> f3250b;
 
         public a(DuAudioRecorder duAudioRecorder, Looper looper) {
             super(looper);
-            this.b = new WeakReference<>(duAudioRecorder);
+            this.f3250b = new WeakReference<>(duAudioRecorder);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            DuAudioRecorder duAudioRecorder = this.b.get();
+            DuAudioRecorder duAudioRecorder = this.f3250b.get();
             if (duAudioRecorder == null || duAudioRecorder.mNativeContext == 0) {
                 return;
             }
             switch (message.what) {
                 case -1:
                     synchronized (DuAudioRecorder.this.q) {
-                        DuAudioRecorder.this.ccK.a(2);
+                        DuAudioRecorder.this.cjp.a(2);
                         DuAudioRecorder.this.q.notifyAll();
                     }
-                    if (DuAudioRecorder.this.ccE != null) {
-                        DuAudioRecorder.this.ccE.onError(message.arg1, message.arg2, message.obj);
+                    if (DuAudioRecorder.this.cjj != null) {
+                        DuAudioRecorder.this.cjj.onError(message.arg1, message.arg2, message.obj);
                         return;
                     }
                     return;
                 case 0:
-                    if (DuAudioRecorder.this.ccF != null) {
-                        DuAudioRecorder.this.ccF.onInfo(message.arg1, message.arg2, message.obj);
+                    if (DuAudioRecorder.this.cjk != null) {
+                        DuAudioRecorder.this.cjk.onInfo(message.arg1, message.arg2, message.obj);
                         return;
                     }
                     return;
                 case 1:
                     DuAudioRecorder.this.nativeStart();
                     synchronized (DuAudioRecorder.this.q) {
-                        DuAudioRecorder.this.ccK.a(32);
+                        DuAudioRecorder.this.cjp.a(32);
                         DuAudioRecorder.this.q.notifyAll();
                     }
-                    if (DuAudioRecorder.this.ccC != null) {
-                        DuAudioRecorder.this.ccC.onPrepared();
+                    if (DuAudioRecorder.this.cjh != null) {
+                        DuAudioRecorder.this.cjh.onPrepared();
                         return;
                     }
                     return;
                 case 2:
-                    if (DuAudioRecorder.this.ccD != null) {
-                        DuAudioRecorder.this.ccD.onCompletion();
+                    if (DuAudioRecorder.this.cji != null) {
+                        DuAudioRecorder.this.cji.onCompletion();
                         return;
                     }
                     return;
                 case 3:
-                    if (DuAudioRecorder.this.ccG != null) {
-                        DuAudioRecorder.this.ccG.onFrameRecorded(DuAudioRecorder.this.ccH, message.arg2, (message.arg1 == 1).booleanValue());
-                        DuAudioRecorder.this.ccH.rewind();
+                    if (DuAudioRecorder.this.cjl != null) {
+                        DuAudioRecorder.this.cjl.onFrameRecorded(DuAudioRecorder.this.cjm, message.arg2, (message.arg1 == 1).booleanValue());
+                        DuAudioRecorder.this.cjm.rewind();
                         DuAudioRecorder.this.nativeHandledMsgCallback();
                         return;
                     }
@@ -111,7 +112,7 @@ public class DuAudioRecorder extends CyberAudioRecorder {
 
     static {
         r.add("mp3");
-        r.add(TranscoderPlugin.AUDIO_CODEC);
+        r.add("aac");
     }
 
     public DuAudioRecorder() {
@@ -127,7 +128,7 @@ public class DuAudioRecorder extends CyberAudioRecorder {
             }
         }
         nativeSetup(new WeakReference(this));
-        this.ccK.a(8);
+        this.cjp.a(8);
         d();
     }
 
@@ -145,14 +146,14 @@ public class DuAudioRecorder extends CyberAudioRecorder {
     }
 
     private void a() {
-        if (this.ccL != null) {
-            for (String str : this.ccL.keySet()) {
-                nativeSetParameter(str, this.ccL.get(str));
+        if (this.t != null) {
+            for (String str : this.t.keySet()) {
+                nativeSetParameter(str, this.t.get(str));
             }
         }
-        if (this.ccM != null) {
-            for (String str2 : this.ccM.keySet()) {
-                long longValue = this.ccM.get(str2).longValue();
+        if (this.cjq != null) {
+            for (String str2 : this.cjq.keySet()) {
+                long longValue = this.cjq.get(str2).longValue();
                 char c = 65535;
                 switch (str2.hashCode()) {
                     case -2122425275:
@@ -232,10 +233,10 @@ public class DuAudioRecorder extends CyberAudioRecorder {
         if (this.n < 0) {
             throw new IllegalArgumentException("AudioRecord.getMinBufferSize error");
         }
-        this.ccJ = new AudioRecord(this.m, this.j, i, this.k, this.n);
-        this.l = this.ccJ.getChannelCount();
-        this.k = this.ccJ.getAudioFormat();
-        this.j = this.ccJ.getSampleRate();
+        this.cjo = new AudioRecord(this.m, this.j, i, this.k, this.n);
+        this.l = this.cjo.getChannelCount();
+        this.k = this.cjo.getAudioFormat();
+        this.j = this.cjo.getSampleRate();
         nativeSetParameter(CyberAudioRecorder.KEY_INT_IN_CHANNEL_NB, this.l);
         nativeSetParameter(CyberAudioRecorder.KEY_INT_IN_SAMPLE_FORMAT, this.k);
         nativeSetParameter(CyberAudioRecorder.KEY_INT_IN_SAMPLE_RATE, this.j);
@@ -247,15 +248,15 @@ public class DuAudioRecorder extends CyberAudioRecorder {
             }
         }
         if (this.i > 0) {
-            this.ccH = ByteBuffer.allocateDirect((int) this.i).order(ByteOrder.nativeOrder());
-            nativeSetEncCallbackCacheBuffer(this.ccH);
+            this.cjm = ByteBuffer.allocateDirect((int) this.i).order(ByteOrder.nativeOrder());
+            nativeSetEncCallbackCacheBuffer(this.cjm);
         }
     }
 
     private void c() {
-        if (this.ccJ != null) {
-            this.ccJ.release();
-            this.ccJ = null;
+        if (this.cjo != null) {
+            this.cjo.release();
+            this.cjo = null;
         }
         d();
     }
@@ -269,7 +270,7 @@ public class DuAudioRecorder extends CyberAudioRecorder {
     }
 
     private void d() {
-        this.ccH = null;
+        this.cjm = null;
         this.g = 0L;
         this.h = -1L;
         this.j = 44100;
@@ -289,9 +290,9 @@ public class DuAudioRecorder extends CyberAudioRecorder {
             nativePrepare();
             byte[] bArr = new byte[this.n];
             while (true) {
-                if (this.ccK.a() != 64) {
+                if (this.cjp.a() != 64) {
                     synchronized (this.q) {
-                        int a2 = this.ccK.a();
+                        int a2 = this.cjp.a();
                         if (a2 == 256 || a2 == 4) {
                             break;
                         } else if (a2 != 64) {
@@ -302,7 +303,7 @@ public class DuAudioRecorder extends CyberAudioRecorder {
                             }
                         }
                     }
-                } else if (this.ccJ.getRecordingState() == 3 && (read = this.ccJ.read(bArr, 0, this.n)) > 0) {
+                } else if (this.cjo.getRecordingState() == 3 && (read = this.cjo.read(bArr, 0, this.n)) > 0) {
                     a(bArr, 0, read);
                 }
             }
@@ -348,7 +349,7 @@ public class DuAudioRecorder extends CyberAudioRecorder {
         if (obj != null && (duAudioRecorder = (DuAudioRecorder) ((WeakReference) obj).get()) != null) {
             if (duAudioRecorder.mEventHandler != null) {
                 synchronized (duAudioRecorder.q) {
-                    if (duAudioRecorder.ccK.a() == 4) {
+                    if (duAudioRecorder.cjp.a() == 4) {
                         duAudioRecorder.mEventHandler.removeCallbacksAndMessages(null);
                         duAudioRecorder.nativeHandledMsgCallback();
                     } else {
@@ -369,14 +370,14 @@ public class DuAudioRecorder extends CyberAudioRecorder {
     @Override // com.baidu.cyberplayer.sdk.recorder.CyberAudioRecorder
     public void pause() {
         synchronized (this.q) {
-            int a2 = this.ccK.a(128);
+            int a2 = this.cjp.a(128);
             if (a2 > 0) {
-                this.ccJ.stop();
+                this.cjo.stop();
             } else if (a2 < 0) {
-                CyberLog.d("DuAudioRecorder", "pause() called on an error status:" + this.ccK.a());
-                d(-1, -1, "pause() called on an error status:" + this.ccK.a());
+                CyberLog.d("DuAudioRecorder", "pause() called on an error status:" + this.cjp.a());
+                d(-1, -1, "pause() called on an error status:" + this.cjp.a());
             }
-            CyberLog.d("DuAudioRecorder", "pause:" + this.ccK.a() + "ret:" + a2);
+            CyberLog.d("DuAudioRecorder", "pause:" + this.cjp.a() + "ret:" + a2);
             this.q.notifyAll();
         }
     }
@@ -385,17 +386,17 @@ public class DuAudioRecorder extends CyberAudioRecorder {
     public void prepare() {
         CyberLog.d("DuAudioRecorder", "prepare in");
         synchronized (this.q) {
-            if (this.ccK.a(16) > 0) {
-                this.ccI = Executors.newSingleThreadExecutor();
-                this.ccI.submit(new Runnable() { // from class: com.baidu.media.recorder.DuAudioRecorder.1
+            if (this.cjp.a(16) > 0) {
+                this.cjn = Executors.newSingleThreadExecutor();
+                this.cjn.submit(new Runnable() { // from class: com.baidu.media.recorder.DuAudioRecorder.1
                     @Override // java.lang.Runnable
                     public void run() {
                         DuAudioRecorder.this.e();
                     }
                 });
             } else {
-                CyberLog.d("DuAudioRecorder", "prepare() called on an error status:" + this.ccK.a());
-                d(-1, -1, "prepare() called on an error status:" + this.ccK.a());
+                CyberLog.d("DuAudioRecorder", "prepare() called on an error status:" + this.cjp.a());
+                d(-1, -1, "prepare() called on an error status:" + this.cjp.a());
             }
         }
         CyberLog.d("DuAudioRecorder", "prepare out");
@@ -405,18 +406,18 @@ public class DuAudioRecorder extends CyberAudioRecorder {
     public void release() {
         CyberLog.d("DuAudioRecorder", "release in");
         synchronized (this.q) {
-            this.ccK.a(4);
+            this.cjp.a(4);
             this.q.notifyAll();
         }
         this.mEventHandler.removeCallbacksAndMessages(null);
         nativeHandledMsgCallback();
-        if (this.ccI != null) {
+        if (this.cjn != null) {
             try {
-                if (!this.ccI.isShutdown()) {
-                    this.ccI.shutdown();
+                if (!this.cjn.isShutdown()) {
+                    this.cjn.shutdown();
                 }
-                this.ccI.awaitTermination(Long.MAX_VALUE, TimeUnit.DAYS);
-                this.ccI = null;
+                this.cjn.awaitTermination(Long.MAX_VALUE, TimeUnit.DAYS);
+                this.cjn = null;
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -427,50 +428,50 @@ public class DuAudioRecorder extends CyberAudioRecorder {
 
     @Override // com.baidu.cyberplayer.sdk.recorder.CyberAudioRecorder
     public void setOnCompletionListener(CyberAudioRecorder.OnCompletionListener onCompletionListener) {
-        this.ccD = onCompletionListener;
+        this.cji = onCompletionListener;
     }
 
     @Override // com.baidu.cyberplayer.sdk.recorder.CyberAudioRecorder
     public void setOnEncBufferListener(CyberAudioRecorder.OnEncBufferCallbackListener onEncBufferCallbackListener) {
-        this.ccG = onEncBufferCallbackListener;
+        this.cjl = onEncBufferCallbackListener;
     }
 
     @Override // com.baidu.cyberplayer.sdk.recorder.CyberAudioRecorder
     public void setOnErrorListener(CyberAudioRecorder.OnErrorListener onErrorListener) {
-        this.ccE = onErrorListener;
+        this.cjj = onErrorListener;
     }
 
     @Override // com.baidu.cyberplayer.sdk.recorder.CyberAudioRecorder
     public void setOnInfoListener(CyberAudioRecorder.OnInfoListener onInfoListener) {
-        this.ccF = onInfoListener;
+        this.cjk = onInfoListener;
     }
 
     @Override // com.baidu.cyberplayer.sdk.recorder.CyberAudioRecorder
     public void setOnPreparedListener(CyberAudioRecorder.OnPreparedListener onPreparedListener) {
-        this.ccC = onPreparedListener;
+        this.cjh = onPreparedListener;
     }
 
     @Override // com.baidu.cyberplayer.sdk.recorder.CyberAudioRecorder
     public void setParameter(String str, long j) {
-        this.ccM.put(str, Long.valueOf(j));
+        this.cjq.put(str, Long.valueOf(j));
     }
 
     @Override // com.baidu.cyberplayer.sdk.recorder.CyberAudioRecorder
     public void setParameter(String str, String str2) {
-        this.ccL.put(str, str2);
+        this.t.put(str, str2);
     }
 
     @Override // com.baidu.cyberplayer.sdk.recorder.CyberAudioRecorder
     public void start() {
         synchronized (this.q) {
-            int a2 = this.ccK.a(64);
+            int a2 = this.cjp.a(64);
             if (a2 > 0) {
-                this.ccJ.startRecording();
+                this.cjo.startRecording();
             } else if (a2 < 0) {
-                CyberLog.d("DuAudioRecorder", "start() called on an error status:" + this.ccK.a());
-                d(-1, -1, "start() called on an error status:" + this.ccK.a());
+                CyberLog.d("DuAudioRecorder", "start() called on an error status:" + this.cjp.a());
+                d(-1, -1, "start() called on an error status:" + this.cjp.a());
             }
-            CyberLog.d("DuAudioRecorder", "start:" + this.ccK.a() + "ret:" + a2);
+            CyberLog.d("DuAudioRecorder", "start:" + this.cjp.a() + "ret:" + a2);
             this.q.notifyAll();
         }
     }
@@ -478,9 +479,9 @@ public class DuAudioRecorder extends CyberAudioRecorder {
     @Override // com.baidu.cyberplayer.sdk.recorder.CyberAudioRecorder
     public void stop() {
         synchronized (this.q) {
-            if (this.ccK.a(256) > 0 && this.ccI != null) {
+            if (this.cjp.a(256) > 0 && this.cjn != null) {
                 CyberLog.d("DuAudioRecorder", "stop in");
-                this.ccI.shutdown();
+                this.cjn.shutdown();
                 CyberLog.d("DuAudioRecorder", "stop out");
             }
             this.q.notifyAll();

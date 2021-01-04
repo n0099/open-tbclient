@@ -5,15 +5,16 @@ import com.baidu.adp.lib.util.c;
 import com.baidu.afd.d;
 import com.baidu.afd.i;
 import com.baidu.tbadk.core.atomData.MissonDetailsActivityConfig;
-import com.baidu.tbadk.core.atomData.WriteVideoActivityConfig;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.lego.card.b.b;
+import com.baidu.tieba.lego.card.a.b;
 import com.baidu.tieba.lego.card.model.BaseLegoCardInfo;
+import com.baidu.tieba.recapp.activity.newstyle.AdWebVideoActivityConfig;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.VideoInfo;
-/* loaded from: classes26.dex */
+/* loaded from: classes8.dex */
 public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements i, b, com.baidu.tieba.lego.card.view.i {
     private d adFacadeData;
     public boolean autoPlay;
@@ -38,12 +39,12 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements i, b, com
         if (TextUtils.isEmpty(this.tagName)) {
             this.tagName = "广告";
         }
-        JSONObject optJSONObject = jSONObject.optJSONObject(WriteVideoActivityConfig.VIDEO_INFO);
+        JSONObject optJSONObject = jSONObject.optJSONObject(WriteActivityConfig.VIDEO_INFO);
         if (optJSONObject != null && optJSONObject.length() > 0) {
             VideoInfo.Builder builder = new VideoInfo.Builder();
             builder.video_md5 = optJSONObject.optString("video_md5", "");
             builder.video_url = optJSONObject.optString("video_url", "");
-            builder.video_duration = Integer.valueOf(optJSONObject.optInt("video_duration", 0));
+            builder.video_duration = Integer.valueOf(optJSONObject.optInt(AdWebVideoActivityConfig.KEY_VIDEO_DURATION, 0));
             builder.video_width = Integer.valueOf(optJSONObject.optInt("video_width", 0));
             builder.video_height = Integer.valueOf(optJSONObject.optInt("video_height", 0));
             builder.thumbnail_url = optJSONObject.optString("thumbnail_url", "");
@@ -56,7 +57,7 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements i, b, com
         } else {
             this.video = null;
         }
-        JSONObject optJSONObject2 = jSONObject.optJSONObject("tail_frame");
+        JSONObject optJSONObject2 = jSONObject.optJSONObject(AdWebVideoActivityConfig.KEY_TAIL_FRAME);
         this.tailFrame = new AdCard.f();
         this.tailFrame.parseFromJson(optJSONObject2);
         JSONObject optJSONObject3 = jSONObject.optJSONObject("operate");
@@ -64,8 +65,8 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements i, b, com
         this.operateData.parseFromJson(optJSONObject3);
         this.parallelChargeInfo = new b.a();
         this.parallelChargeInfo.parseFromJson(jSONObject);
-        if (TextUtils.isEmpty(this.operateData.mJc)) {
-            this.operateData.mJc = this.userName;
+        if (TextUtils.isEmpty(this.operateData.mOk)) {
+            this.operateData.mOk = this.userName;
         }
     }
 
@@ -124,16 +125,16 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements i, b, com
                 jSONObject2.put("thumbnail_width", this.video.thumbnail_width);
                 jSONObject2.put("thumbnail_height", this.video.video_height);
                 jSONObject2.put("thumbnail_width", this.video.thumbnail_width);
-                jSONObject2.put("video_duration", this.video.video_duration);
+                jSONObject2.put(AdWebVideoActivityConfig.KEY_VIDEO_DURATION, this.video.video_duration);
                 jSONObject2.put("video_width", this.video.video_width);
                 jSONObject2.put("video_height", this.video.video_height);
                 jSONObject2.put("video_url", this.video.video_url);
             }
-            jSONObject.put(WriteVideoActivityConfig.VIDEO_INFO, jSONObject2);
-            jSONObject.put("tail_frame", this.tailFrame.toJson());
+            jSONObject.put(WriteActivityConfig.VIDEO_INFO, jSONObject2);
+            jSONObject.put(AdWebVideoActivityConfig.KEY_TAIL_FRAME, this.tailFrame.toJson());
             jSONObject.put("operate", this.operateData.toJsonObject());
-            if (this.adFacadeData != null && this.adFacadeData.rt() != null) {
-                jSONObject.put("extraparams", this.adFacadeData.rt().ext);
+            if (this.adFacadeData != null && this.adFacadeData.qV() != null) {
+                jSONObject.put("extraparams", this.adFacadeData.qV().ext);
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -141,7 +142,7 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements i, b, com
         return jSONObject;
     }
 
-    @Override // com.baidu.tieba.lego.card.b.b
+    @Override // com.baidu.tieba.lego.card.a.b
     public b.a getParallelCharge() {
         return this.parallelChargeInfo;
     }

@@ -1,20 +1,20 @@
 package com.baidu.tieba.ala.frsgamelive.message;
 
-import com.baidu.adp.widget.ListView.q;
+import com.baidu.adp.widget.ListView.n;
 import com.baidu.ala.AlaCmdConfigHttp;
-import com.baidu.tbadk.core.data.by;
+import com.baidu.tbadk.core.data.bz;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.ala.frsgamelive.b.c;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
     private boolean hasMore;
     private int liveCount;
-    private List<q> liveList;
-    private List<q> recommandList;
+    private List<n> liveList;
+    private List<n> recommandList;
 
     public AlaGameFrsLiveThreadsRespMessage() {
         super(AlaCmdConfigHttp.CMD_ALA_LIVE_FRS_GAME);
@@ -39,9 +39,9 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
                 JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
                 if (optJSONObject2 != null) {
                     c cVar = new c();
-                    by byVar = new by();
-                    byVar.parserJson(optJSONObject2);
-                    cVar.eCR = byVar;
+                    bz bzVar = new bz();
+                    bzVar.parserJson(optJSONObject2);
+                    cVar.eMv = bzVar;
                     this.liveList.add(cVar);
                 }
             }
@@ -53,20 +53,20 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
                 JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i3);
                 if (optJSONObject3 != null) {
                     c cVar2 = new c();
-                    by byVar2 = new by();
-                    byVar2.parserJson(optJSONObject3);
-                    cVar2.eCR = byVar2;
+                    bz bzVar2 = new bz();
+                    bzVar2.parserJson(optJSONObject3);
+                    cVar2.eMv = bzVar2;
                     this.recommandList.add(cVar2);
                 }
             }
         }
     }
 
-    public List<q> getLiveList() {
+    public List<n> getLiveList() {
         return this.liveList;
     }
 
-    public List<q> getRecommandList() {
+    public List<n> getRecommandList() {
         return this.recommandList;
     }
 

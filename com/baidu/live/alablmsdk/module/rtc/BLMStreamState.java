@@ -1,5 +1,5 @@
 package com.baidu.live.alablmsdk.module.rtc;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public enum BLMStreamState {
     BLMSTREAMSTATE_ARRIVAL,
     BLMSTREAMSTATE_REMOVE

@@ -4,11 +4,12 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.utils.LogUtils;
+import com.kwai.video.player.KsMediaMeta;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class AudioMsg extends RichMediaMsg {
     public static final Parcelable.Creator<AudioMsg> CREATOR = new Parcelable.Creator<AudioMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.AudioMsg.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -70,7 +71,7 @@ public class AudioMsg extends RichMediaMsg {
         try {
             JSONObject jSONObject = new JSONObject(this.mjsonContent);
             this.mRemoteUrl = jSONObject.optString("url");
-            this.mFormat = jSONObject.optInt("format");
+            this.mFormat = jSONObject.optInt(KsMediaMeta.KSM_KEY_FORMAT);
             this.mDuration = jSONObject.optInt("duration");
             if (this.mRemoteUrl.regionMatches(0, "http%3A", 0, 7)) {
                 transCodeUrl(jSONObject);
@@ -113,7 +114,7 @@ public class AudioMsg extends RichMediaMsg {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("url", str);
-                jSONObject.put("format", i);
+                jSONObject.put(KsMediaMeta.KSM_KEY_FORMAT, i);
                 jSONObject.put("duration", i2);
                 return jSONObject.toString();
             } catch (JSONException e) {

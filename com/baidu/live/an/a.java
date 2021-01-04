@@ -1,5 +1,40 @@
 package com.baidu.live.an;
-/* loaded from: classes4.dex */
+
+import android.view.KeyEvent;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import com.baidu.live.data.x;
+/* loaded from: classes11.dex */
 public interface a {
-    boolean Sv();
+    void H(Object obj);
+
+    boolean Ty();
+
+    void XH();
+
+    boolean XI();
+
+    void XJ();
+
+    void XK();
+
+    void XL();
+
+    void a(FrameLayout frameLayout);
+
+    void a(b bVar);
+
+    void onDestroy();
+
+    boolean onKeyDown(int i, KeyEvent keyEvent);
+
+    void onKeyboardVisibilityChanged(boolean z);
+
+    void setMute(boolean z);
+
+    void t(x xVar);
+
+    void x(ViewGroup viewGroup);
+
+    void y(ViewGroup viewGroup);
 }

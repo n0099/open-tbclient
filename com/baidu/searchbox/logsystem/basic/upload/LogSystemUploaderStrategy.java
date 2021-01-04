@@ -1,13 +1,13 @@
 package com.baidu.searchbox.logsystem.basic.upload;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.JsonWriter;
 import android.util.Log;
 import android.util.Pair;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.util.io.Closeables;
 import com.baidu.live.adp.lib.cache.BdKVCache;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -26,6 +26,7 @@ import com.baidu.searchbox.logsystem.util.LLog;
 import com.baidu.searchbox.logsystem.util.Utility;
 import com.baidu.searchbox.logsystem.util.ZipUtils;
 import com.baidu.searchbox.track.ui.TrackUI;
+import com.kwad.sdk.collector.AppStatusRules;
 import java.io.ByteArrayOutputStream;
 import java.io.Closeable;
 import java.io.File;
@@ -47,7 +48,7 @@ import java.util.regex.Matcher;
 import java.util.zip.GZIPOutputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
     private static final boolean DEBUG = LLog.sDebug;
     private static final String TAG = "LSStrategy";
@@ -56,7 +57,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
     private boolean mInvalidDirDeleted;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public enum Type {
         CONTENT,
         ATTACHMENT
@@ -73,8 +74,8 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
     public LogSystemUploaderStrategy(boolean z, boolean z2, @Nullable BaseUploaderStrategy.UploadListener uploadListener) {
         super(z, z2, uploadListener);
         this.mInvalidDirDeleted = false;
-        this.mContentExecutor = new ThreadPoolExecutor(1, 1, 60000L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
-        this.mAttachmentExecutor = new ThreadPoolExecutor(1, 1, 60000L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
+        this.mContentExecutor = new ThreadPoolExecutor(1, 1, AppStatusRules.DEFAULT_GRANULARITY, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
+        this.mAttachmentExecutor = new ThreadPoolExecutor(1, 1, AppStatusRules.DEFAULT_GRANULARITY, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
     }
 
     public static boolean checkFlag() {
@@ -313,7 +314,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
     /* JADX INFO: Access modifiers changed from: private */
     public void cleanDiskCache(Type type) {
         File[] listFiles;
-        int i;
+        int i = 0;
         switch (type) {
             case CONTENT:
                 listFiles = StoreUtil.getContentDir().listFiles();
@@ -324,7 +325,6 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
                 i = 100;
                 break;
             default:
-                i = 0;
                 listFiles = null;
                 break;
         }
@@ -486,43 +486,46 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void updateFileFlag(Type type) {
-        File contentFlag;
-        File file = null;
+        File contentDir;
+        File file;
         switch (type) {
             case CONTENT:
-                contentFlag = StoreUtil.getContentFlag();
-                file = StoreUtil.getContentDir();
+                File contentFlag = StoreUtil.getContentFlag();
+                contentDir = StoreUtil.getContentDir();
+                file = contentFlag;
                 break;
             case ATTACHMENT:
-                contentFlag = StoreUtil.getAttachFlag();
-                file = StoreUtil.getAttachDir();
+                File attachFlag = StoreUtil.getAttachFlag();
+                contentDir = StoreUtil.getAttachDir();
+                file = attachFlag;
                 break;
             default:
-                contentFlag = null;
+                contentDir = null;
+                file = null;
                 break;
         }
-        if (contentFlag != null && file != null) {
-            String[] list = file.list();
+        if (file != null && contentDir != null) {
+            String[] list = contentDir.list();
             boolean z = false;
             if (list != null && list.length > 0) {
                 z = true;
             }
-            boolean exists = contentFlag.exists();
+            boolean exists = file.exists();
             if (z) {
                 if (!exists) {
                     try {
-                        contentFlag.createNewFile();
+                        file.createNewFile();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                 }
             } else if (exists) {
-                contentFlag.delete();
+                file.delete();
             }
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     private static final class Constants {
         private static final int KEEP_ALIVE_TIME = 60000;
         private static final int MAX_COUNT_ATTACHMENT = 100;
@@ -537,7 +540,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static final class TrimConfig {
         private long mLifeTime;
         private int mMaxCount;
@@ -549,7 +552,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static final class StoreUtil {
         private static final String BASE_GZIP_TMP = ".gz.tmp";
         private static final String BASE_TMP = ".tmp";
@@ -599,7 +602,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static final class FileEntity implements Comparable<FileEntity> {
         @NonNull
         private File mFile;
@@ -634,7 +637,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static final class FileName {
         private static final String FILE_ID_SEPARATOR = "_";
         private static final String SEPARATOR = "#";
@@ -715,7 +718,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static final class CrashPadUtil {
         private static final int MAX_READ_BDMP = 102400;
         private static final int MAX_READ_EXTRA = 20480;
@@ -724,73 +727,75 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         }
 
         /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1083=4] */
+        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:31:0x0085 */
         /* JADX INFO: Access modifiers changed from: private */
+        /* JADX WARN: Multi-variable type inference failed */
+        /* JADX WARN: Type inference failed for: r1v0, types: [boolean] */
+        /* JADX WARN: Type inference failed for: r1v1, types: [java.io.Closeable] */
+        /* JADX WARN: Type inference failed for: r1v2 */
+        /* JADX WARN: Type inference failed for: r1v5 */
         public static void createMiniBDMPInfo(@NonNull File file, @NonNull JsonWriter jsonWriter) {
-            ByteArrayOutputStream byteArrayOutputStream;
             FileInputStream fileInputStream;
-            FileInputStream fileInputStream2 = null;
+            ByteArrayOutputStream byteArrayOutputStream;
             int i = 0;
-            if (file == null || jsonWriter == null || !file.exists()) {
+            if (file == null || jsonWriter == null) {
                 return;
             }
+            ?? exists = file.exists();
             try {
-                fileInputStream = new FileInputStream(file);
-                try {
-                    byteArrayOutputStream = new ByteArrayOutputStream();
-                } catch (Exception e) {
-                    e = e;
-                    byteArrayOutputStream = null;
-                    fileInputStream2 = fileInputStream;
-                } catch (Throwable th) {
-                    th = th;
-                    byteArrayOutputStream = null;
+                if (exists == 0) {
+                    return;
                 }
                 try {
-                    byte[] bArr = new byte[1024];
-                    int round = Math.round(76800.0f);
-                    while (true) {
-                        int read = fileInputStream.read(bArr);
-                        if (read == -1 || i >= round) {
-                            break;
-                        }
-                        byteArrayOutputStream.write(bArr, 0, read);
-                        i += read;
-                    }
-                    byteArrayOutputStream.flush();
-                    String encodeToString = Base64.encodeToString(byteArrayOutputStream.toByteArray(), 11);
-                    if (LogSystemUploaderStrategy.DEBUG) {
-                        DebugUtil.saveLog("mini-bdmp : " + encodeToString);
-                    }
-                    jsonWriter.name("stacktrace_crashpad_bdmp").value(encodeToString);
-                    Closeables.closeSafely(fileInputStream);
-                    Closeables.closeSafely(byteArrayOutputStream);
-                } catch (Exception e2) {
-                    e = e2;
-                    fileInputStream2 = fileInputStream;
+                    fileInputStream = new FileInputStream(file);
                     try {
-                        e.printStackTrace();
-                        Closeables.closeSafely(fileInputStream2);
-                        Closeables.closeSafely(byteArrayOutputStream);
-                    } catch (Throwable th2) {
-                        th = th2;
-                        fileInputStream = fileInputStream2;
+                        byteArrayOutputStream = new ByteArrayOutputStream();
+                        try {
+                            byte[] bArr = new byte[1024];
+                            int round = Math.round(76800.0f);
+                            while (true) {
+                                int read = fileInputStream.read(bArr);
+                                if (read == -1 || i >= round) {
+                                    break;
+                                }
+                                byteArrayOutputStream.write(bArr, 0, read);
+                                i += read;
+                            }
+                            byteArrayOutputStream.flush();
+                            String encodeToString = Base64.encodeToString(byteArrayOutputStream.toByteArray(), 11);
+                            if (LogSystemUploaderStrategy.DEBUG) {
+                                DebugUtil.saveLog("mini-bdmp : " + encodeToString);
+                            }
+                            jsonWriter.name("stacktrace_crashpad_bdmp").value(encodeToString);
+                            Closeables.closeSafely(fileInputStream);
+                            Closeables.closeSafely(byteArrayOutputStream);
+                        } catch (Exception e) {
+                            e = e;
+                            e.printStackTrace();
+                            Closeables.closeSafely(fileInputStream);
+                            Closeables.closeSafely(byteArrayOutputStream);
+                        }
+                    } catch (Exception e2) {
+                        e = e2;
+                        byteArrayOutputStream = null;
+                    } catch (Throwable th) {
+                        th = th;
+                        exists = 0;
                         Closeables.closeSafely(fileInputStream);
-                        Closeables.closeSafely(byteArrayOutputStream);
+                        Closeables.closeSafely((Closeable) exists);
                         throw th;
                     }
-                } catch (Throwable th3) {
-                    th = th3;
-                    Closeables.closeSafely(fileInputStream);
-                    Closeables.closeSafely(byteArrayOutputStream);
-                    throw th;
+                } catch (Exception e3) {
+                    e = e3;
+                    byteArrayOutputStream = null;
+                    fileInputStream = null;
+                } catch (Throwable th2) {
+                    th = th2;
+                    exists = 0;
+                    fileInputStream = null;
                 }
-            } catch (Exception e3) {
-                e = e3;
-                byteArrayOutputStream = null;
-            } catch (Throwable th4) {
-                th = th4;
-                byteArrayOutputStream = null;
-                fileInputStream = null;
+            } catch (Throwable th3) {
+                th = th3;
             }
         }
 
@@ -814,7 +819,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static final class ContentUtil {
         private static final byte GZIP_HEAD_1 = 117;
         private static final byte GZIP_HEAD_2 = 123;
@@ -822,8 +827,8 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         private ContentUtil() {
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:70:0x01e7 A[LOOP:0: B:22:0x00a3->B:70:0x01e7, LOOP_END] */
-        /* JADX WARN: Removed duplicated region for block: B:78:0x00ca A[EDGE_INSN: B:78:0x00ca->B:31:0x00ca ?: BREAK  , SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:70:0x01e4 A[LOOP:0: B:22:0x00a4->B:70:0x01e4, LOOP_END] */
+        /* JADX WARN: Removed duplicated region for block: B:77:0x00c9 A[EDGE_INSN: B:77:0x00c9->B:31:0x00c9 ?: BREAK  , SYNTHETIC] */
         @NonNull
         /*
             Code decompiled incorrectly, please refer to instructions dump.
@@ -831,9 +836,6 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         private static void createCrashInfo(@NonNull LogObject logObject, @Nullable List<LogFile> list, @NonNull JsonWriter jsonWriter) {
             String string;
             File file;
-            File file2;
-            int i;
-            File file3 = null;
             try {
                 LogExtra logExtra = logObject.getLogExtra();
                 if (logExtra != null) {
@@ -856,41 +858,35 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
                     }
                     if (logObject.mLogType == LogType.NATIVE_CRASH && list != null && list.size() > 0) {
                         Iterator<LogFile> it = list.iterator();
-                        int i2 = 0;
-                        File file4 = null;
+                        int i = 0;
+                        File file2 = null;
+                        File file3 = null;
                         while (true) {
                             if (!it.hasNext()) {
-                                file = file3;
-                                file2 = file4;
+                                file = file2;
                                 break;
                             }
                             LogFile next = it.next();
                             if (next != null) {
                                 if (next.mFile.getName().startsWith(CrashUtil.CrashpadConstant.MIND_BDMP_PREFIX)) {
-                                    File file5 = next.mFile;
-                                    file = file3;
-                                    file2 = file5;
-                                    i = i2 + 1;
+                                    file3 = next.mFile;
+                                    i++;
+                                    file = file2;
                                 } else if (next.mFile.getName().startsWith(CrashUtil.CrashpadConstant.JSON_EXTRA)) {
+                                    i++;
                                     file = next.mFile;
-                                    file2 = file4;
-                                    i = i2 + 1;
                                 }
                                 if (i != 2) {
                                     break;
                                 }
-                                i2 = i;
-                                file4 = file2;
-                                file3 = file;
+                                file2 = file;
                             }
-                            file = file3;
-                            file2 = file4;
-                            i = i2;
+                            file = file2;
                             if (i != 2) {
                             }
                         }
-                        if (file2 != null) {
-                            CrashPadUtil.createMiniBDMPInfo(file2, jsonWriter);
+                        if (file3 != null) {
+                            CrashPadUtil.createMiniBDMPInfo(file3, jsonWriter);
                         }
                         if (file != null) {
                             CrashPadUtil.createJsonExtraInfo(file, jsonWriter);
@@ -1081,18 +1077,17 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         }
 
         /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1422=4] */
-        /* JADX WARN: Removed duplicated region for block: B:50:0x00d1  */
+        /* JADX WARN: Removed duplicated region for block: B:25:0x0064  */
+        /* JADX WARN: Removed duplicated region for block: B:51:0x00d0  */
+        /* JADX WARN: Removed duplicated region for block: B:94:? A[ADDED_TO_REGION, RETURN, SYNTHETIC] */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public static void gzipContent(@NonNull File file, @NonNull File file2) {
             File file3;
+            FileOutputStream fileOutputStream;
             FileInputStream fileInputStream;
             GZIPOutputStream gZIPOutputStream;
-            FileInputStream fileInputStream2;
-            GZIPOutputStream gZIPOutputStream2;
-            FileOutputStream fileOutputStream;
-            FileOutputStream fileOutputStream2 = null;
             if (file == null || file2 == null || !file.exists() || !file2.exists()) {
                 return;
             }
@@ -1101,147 +1096,153 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
                 file3 = new File(file2.getAbsolutePath() + ".tmp");
                 try {
                     if (Utility.createNewEmptyFile(file3)) {
-                        gZIPOutputStream2 = new GZIPOutputStream(new FileOutputStream(file3));
+                        gZIPOutputStream = new GZIPOutputStream(new FileOutputStream(file3));
                         try {
-                            fileInputStream2 = new FileInputStream(file);
+                            fileInputStream = new FileInputStream(file);
                             while (true) {
                                 try {
-                                    int read = fileInputStream2.read(bArr);
+                                    int read = fileInputStream.read(bArr);
                                     if (read == -1) {
                                         break;
                                     }
-                                    gZIPOutputStream2.write(bArr, 0, read);
+                                    gZIPOutputStream.write(bArr, 0, read);
                                 } catch (IOException e) {
                                     e = e;
-                                } catch (Throwable th) {
-                                    th = th;
-                                    gZIPOutputStream = gZIPOutputStream2;
-                                    fileInputStream = fileInputStream2;
-                                }
-                            }
-                            gZIPOutputStream2.flush();
-                            gZIPOutputStream2.close();
-                            try {
-                                fileInputStream2.close();
-                            } catch (IOException e2) {
-                                e = e2;
-                                gZIPOutputStream2 = null;
-                                try {
-                                    e.printStackTrace();
-                                    Closeables.closeSafely(fileOutputStream2);
-                                    Closeables.closeSafely(gZIPOutputStream2);
-                                    Closeables.closeSafely(fileInputStream2);
-                                    if (file3 == null && file3.exists()) {
+                                    fileOutputStream = null;
+                                    try {
+                                        e.printStackTrace();
+                                        Closeables.closeSafely(fileOutputStream);
+                                        Closeables.closeSafely(gZIPOutputStream);
+                                        Closeables.closeSafely(fileInputStream);
+                                        if (file3 == null || !file3.exists()) {
+                                            return;
+                                        }
                                         file3.delete();
                                         return;
+                                    } catch (Throwable th) {
+                                        th = th;
+                                        Closeables.closeSafely(fileOutputStream);
+                                        Closeables.closeSafely(gZIPOutputStream);
+                                        Closeables.closeSafely(fileInputStream);
+                                        if (file3 != null && file3.exists()) {
+                                            file3.delete();
+                                        }
+                                        throw th;
                                     }
                                 } catch (Throwable th2) {
                                     th = th2;
-                                    FileInputStream fileInputStream3 = fileInputStream2;
-                                    gZIPOutputStream = gZIPOutputStream2;
-                                    fileInputStream = fileInputStream3;
-                                    Closeables.closeSafely(fileOutputStream2);
+                                    fileOutputStream = null;
+                                    Closeables.closeSafely(fileOutputStream);
                                     Closeables.closeSafely(gZIPOutputStream);
                                     Closeables.closeSafely(fileInputStream);
-                                    if (file3 != null && file3.exists()) {
+                                    if (file3 != null) {
                                         file3.delete();
                                     }
                                     throw th;
                                 }
+                            }
+                            gZIPOutputStream.flush();
+                            gZIPOutputStream.close();
+                            try {
+                                fileInputStream.close();
+                            } catch (IOException e2) {
+                                e = e2;
+                                fileOutputStream = null;
+                                gZIPOutputStream = null;
+                                e.printStackTrace();
+                                Closeables.closeSafely(fileOutputStream);
+                                Closeables.closeSafely(gZIPOutputStream);
+                                Closeables.closeSafely(fileInputStream);
+                                if (file3 == null) {
+                                    return;
+                                }
+                                return;
                             } catch (Throwable th3) {
                                 th = th3;
-                                fileInputStream = fileInputStream2;
+                                fileOutputStream = null;
                                 gZIPOutputStream = null;
-                                Closeables.closeSafely(fileOutputStream2);
+                                Closeables.closeSafely(fileOutputStream);
                                 Closeables.closeSafely(gZIPOutputStream);
                                 Closeables.closeSafely(fileInputStream);
                                 if (file3 != null) {
-                                    file3.delete();
                                 }
                                 throw th;
                             }
                         } catch (IOException e3) {
                             e = e3;
-                            fileInputStream2 = null;
+                            fileOutputStream = null;
+                            fileInputStream = null;
                         } catch (Throwable th4) {
                             th = th4;
-                            gZIPOutputStream = gZIPOutputStream2;
+                            fileOutputStream = null;
                             fileInputStream = null;
                         }
                     }
                     fileInputStream = new FileInputStream(file3);
-                    try {
-                        fileOutputStream = new FileOutputStream(file2);
-                    } catch (IOException e4) {
-                        e = e4;
-                        fileInputStream2 = fileInputStream;
-                        gZIPOutputStream2 = null;
-                    } catch (Throwable th5) {
-                        th = th5;
-                        gZIPOutputStream = null;
-                    }
-                    try {
-                        fileOutputStream.write(new byte[]{GZIP_HEAD_1, GZIP_HEAD_2});
-                        if (fileInputStream.read(new byte[2]) != -1) {
-                            while (true) {
-                                int read2 = fileInputStream.read(bArr);
-                                if (read2 == -1) {
-                                    break;
-                                }
-                                fileOutputStream.write(bArr, 0, read2);
-                            }
-                        }
-                        fileOutputStream.flush();
-                        fileOutputStream.close();
-                        fileInputStream.close();
-                        Closeables.closeSafely((Closeable) null);
-                        Closeables.closeSafely((Closeable) null);
-                        Closeables.closeSafely((Closeable) null);
-                        if (file3 == null || !file3.exists()) {
-                            return;
-                        }
-                        file3.delete();
-                    } catch (IOException e5) {
-                        e = e5;
-                        fileInputStream2 = fileInputStream;
-                        gZIPOutputStream2 = null;
-                        fileOutputStream2 = fileOutputStream;
-                        e.printStackTrace();
-                        Closeables.closeSafely(fileOutputStream2);
-                        Closeables.closeSafely(gZIPOutputStream2);
-                        Closeables.closeSafely(fileInputStream2);
-                        if (file3 == null) {
-                        }
-                    } catch (Throwable th6) {
-                        th = th6;
-                        gZIPOutputStream = null;
-                        fileOutputStream2 = fileOutputStream;
-                        Closeables.closeSafely(fileOutputStream2);
-                        Closeables.closeSafely(gZIPOutputStream);
-                        Closeables.closeSafely(fileInputStream);
-                        if (file3 != null) {
-                        }
-                        throw th;
-                    }
-                } catch (IOException e6) {
-                    e = e6;
-                    fileInputStream2 = null;
-                    gZIPOutputStream2 = null;
-                } catch (Throwable th7) {
-                    th = th7;
+                    fileOutputStream = new FileOutputStream(file2);
+                } catch (IOException e4) {
+                    e = e4;
+                    fileOutputStream = null;
+                    fileInputStream = null;
+                    gZIPOutputStream = null;
+                } catch (Throwable th5) {
+                    th = th5;
+                    fileOutputStream = null;
                     fileInputStream = null;
                     gZIPOutputStream = null;
                 }
-            } catch (IOException e7) {
-                e = e7;
+            } catch (IOException e5) {
+                e = e5;
                 file3 = null;
-                fileInputStream2 = null;
-                gZIPOutputStream2 = null;
-            } catch (Throwable th8) {
-                th = th8;
-                file3 = null;
+                fileOutputStream = null;
                 fileInputStream = null;
                 gZIPOutputStream = null;
+            } catch (Throwable th6) {
+                th = th6;
+                file3 = null;
+                fileOutputStream = null;
+                fileInputStream = null;
+                gZIPOutputStream = null;
+            }
+            try {
+                fileOutputStream.write(new byte[]{GZIP_HEAD_1, GZIP_HEAD_2});
+                if (fileInputStream.read(new byte[2]) != -1) {
+                    while (true) {
+                        int read2 = fileInputStream.read(bArr);
+                        if (read2 == -1) {
+                            break;
+                        }
+                        fileOutputStream.write(bArr, 0, read2);
+                    }
+                }
+                fileOutputStream.flush();
+                fileOutputStream.close();
+                fileInputStream.close();
+                Closeables.closeSafely((Closeable) null);
+                Closeables.closeSafely((Closeable) null);
+                Closeables.closeSafely((Closeable) null);
+                if (file3 == null || !file3.exists()) {
+                    return;
+                }
+                file3.delete();
+            } catch (IOException e6) {
+                e = e6;
+                gZIPOutputStream = null;
+                e.printStackTrace();
+                Closeables.closeSafely(fileOutputStream);
+                Closeables.closeSafely(gZIPOutputStream);
+                Closeables.closeSafely(fileInputStream);
+                if (file3 == null) {
+                }
+            } catch (Throwable th7) {
+                th = th7;
+                gZIPOutputStream = null;
+                Closeables.closeSafely(fileOutputStream);
+                Closeables.closeSafely(gZIPOutputStream);
+                Closeables.closeSafely(fileInputStream);
+                if (file3 != null) {
+                }
+                throw th;
             }
         }
     }

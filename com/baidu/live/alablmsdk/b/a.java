@@ -5,63 +5,63 @@ import com.baidu.android.imrtc.utils.IStatusListener;
 import com.baidu.live.alablmsdk.a.d;
 import com.baidu.live.alablmsdk.module.UserPermission;
 import com.baidu.live.alablmsdk.module.state.BLMLegacyRoomStatus;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a {
-    private static String aBQ = "";
-    private com.baidu.live.alablmsdk.e.b aBO;
-    com.baidu.live.alablmsdk.module.b.a aBP;
+    private static String aCh = "";
+    private com.baidu.live.alablmsdk.e.b aCf;
+    com.baidu.live.alablmsdk.module.b.a aCg;
 
     public a(com.baidu.live.alablmsdk.e.b bVar) {
-        this.aBO = bVar;
+        this.aCf = bVar;
     }
 
-    public static void ga(String str) {
-        com.baidu.live.alablmsdk.a.b.a.ak("setCurrentRoomId " + str, "");
-        aBQ = str;
+    public static void fK(String str) {
+        com.baidu.live.alablmsdk.a.b.a.aj("setCurrentRoomId " + str, "");
+        aCh = str;
     }
 
     public void a(String str, UserPermission userPermission) {
-        this.aBP = new com.baidu.live.alablmsdk.module.b.a(str, userPermission.getPermission(), BLMLegacyRoomStatus.LOGIC_ACTIVE.getStatus());
-        String jsonString = this.aBP.toJsonString();
+        this.aCg = new com.baidu.live.alablmsdk.module.b.a(str, userPermission.getPermission(), BLMLegacyRoomStatus.LOGIC_ACTIVE.getStatus());
+        String jsonString = this.aCg.toJsonString();
         com.baidu.live.alablmsdk.a.b.a.d(" putCurrentRoomInfo roomInfo=" + jsonString);
-        com.baidu.live.alablmsdk.a.b.a.fY(" putCurrentRoomInfo roomInfo " + jsonString);
-        d.BT().putString("legacy_room_info_kye", jsonString);
+        com.baidu.live.alablmsdk.a.b.a.fI(" putCurrentRoomInfo roomInfo " + jsonString);
+        d.Bk().putString("legacy_room_info_kye", jsonString);
     }
 
     public void a(BLMLegacyRoomStatus bLMLegacyRoomStatus) {
-        if (this.aBP != null) {
-            this.aBP.aCI = bLMLegacyRoomStatus.getStatus();
-            String jsonString = this.aBP.toJsonString();
+        if (this.aCg != null) {
+            this.aCg.aCZ = bLMLegacyRoomStatus.getStatus();
+            String jsonString = this.aCg.toJsonString();
             com.baidu.live.alablmsdk.a.b.a.d(" updateCurrentRoomStatus  roomInfo=" + jsonString);
-            com.baidu.live.alablmsdk.a.b.a.fY(" updateCurrentRoomStatus roomInfo " + jsonString);
-            d.BT().putString("legacy_room_info_kye", jsonString);
+            com.baidu.live.alablmsdk.a.b.a.fI(" updateCurrentRoomStatus roomInfo " + jsonString);
+            d.Bk().putString("legacy_room_info_kye", jsonString);
         }
     }
 
-    public void Cu() {
-        d.BT().putString("legacy_room_info_kye", "");
+    public void BL() {
+        d.Bk().putString("legacy_room_info_kye", "");
     }
 
-    public void Cv() {
+    public void BM() {
         com.baidu.live.alablmsdk.a.b.a.d(" handleLongConnectionLegacyRoom ");
-        com.baidu.live.alablmsdk.a.b.a.fY(" handleLongConnectionLegacyRoom ");
-        if (this.aBP != null && !TextUtils.isEmpty(this.aBP.roomId) && this.aBP.aCI == BLMLegacyRoomStatus.LOGIC_END_FAIL.getStatus() && this.aBO != null) {
-            final String str = this.aBP.roomId;
-            if (this.aBP.permission == UserPermission.OWNER.getPermission()) {
+        com.baidu.live.alablmsdk.a.b.a.fI(" handleLongConnectionLegacyRoom ");
+        if (this.aCg != null && !TextUtils.isEmpty(this.aCg.roomId) && this.aCg.aCZ == BLMLegacyRoomStatus.LOGIC_END_FAIL.getStatus() && this.aCf != null) {
+            final String str = this.aCg.roomId;
+            if (this.aCg.permission == UserPermission.OWNER.getPermission()) {
                 com.baidu.live.alablmsdk.a.b.a.d(" handleLongConnectionLegacyRoom  closeRoom");
-                com.baidu.live.alablmsdk.a.b.a.fY(" handleLongConnectionLegacyRoom  closeRoom");
-                this.aBO.a(this.aBP.roomId, new IStatusListener() { // from class: com.baidu.live.alablmsdk.b.a.1
+                com.baidu.live.alablmsdk.a.b.a.fI(" handleLongConnectionLegacyRoom  closeRoom");
+                this.aCf.a(this.aCg.roomId, new IStatusListener() { // from class: com.baidu.live.alablmsdk.b.a.1
                     @Override // com.baidu.android.imrtc.utils.IStatusListener
                     public void onResult(int i, String str2) {
                         com.baidu.live.alablmsdk.a.b.a.d(" handleLongConnectionLegacyRoom closeRoom onResult code=" + i);
-                        com.baidu.live.alablmsdk.a.b.a.fY(" handleLongConnectionLegacyRoom closeRoom onResult code=" + i);
+                        com.baidu.live.alablmsdk.a.b.a.fI(" handleLongConnectionLegacyRoom closeRoom onResult code=" + i);
                         if (i == 0) {
                             com.baidu.live.alablmsdk.a.b.a.d(" handleLongConnectionLegacyRoom closeRoom  success");
-                            com.baidu.live.alablmsdk.a.b.a.fY(" handleLongConnectionLegacyRoom closeRoom  success");
-                            if (!TextUtils.isEmpty(str) && str.equals(a.this.aBP.roomId)) {
+                            com.baidu.live.alablmsdk.a.b.a.fI(" handleLongConnectionLegacyRoom closeRoom  success");
+                            if (!TextUtils.isEmpty(str) && str.equals(a.this.aCg.roomId)) {
                                 com.baidu.live.alablmsdk.a.b.a.d(" handleLongConnectionLegacyRoom  clearLegacyRoomInfo");
-                                com.baidu.live.alablmsdk.a.b.a.fY(" handleLongConnectionLegacyRoom  clearLegacyRoomInfo");
-                                a.this.Cu();
+                                com.baidu.live.alablmsdk.a.b.a.fI(" handleLongConnectionLegacyRoom  clearLegacyRoomInfo");
+                                a.this.BL();
                             }
                         }
                     }
@@ -69,55 +69,55 @@ public class a {
                 return;
             }
             com.baidu.live.alablmsdk.a.b.a.d(" handleLongConnectionLegacyRoom  hangout");
-            com.baidu.live.alablmsdk.a.b.a.fY(" handleLongConnectionLegacyRoom  hangout");
-            this.aBO.hangout(this.aBP.roomId, new IStatusListener() { // from class: com.baidu.live.alablmsdk.b.a.2
+            com.baidu.live.alablmsdk.a.b.a.fI(" handleLongConnectionLegacyRoom  hangout");
+            this.aCf.hangout(this.aCg.roomId, new IStatusListener() { // from class: com.baidu.live.alablmsdk.b.a.2
                 @Override // com.baidu.android.imrtc.utils.IStatusListener
                 public void onResult(int i, String str2) {
                     if (i == 0) {
                         com.baidu.live.alablmsdk.a.b.a.d(" handleLongConnectionLegacyRoom hangout onResult code=" + i);
-                        com.baidu.live.alablmsdk.a.b.a.fY(" handleLongConnectionLegacyRoom hangout onResult code=" + i);
-                        if (!TextUtils.isEmpty(str) && str.equals(a.this.aBP.roomId)) {
-                            a.this.Cu();
+                        com.baidu.live.alablmsdk.a.b.a.fI(" handleLongConnectionLegacyRoom hangout onResult code=" + i);
+                        if (!TextUtils.isEmpty(str) && str.equals(a.this.aCg.roomId)) {
+                            a.this.BL();
                             return;
                         }
                         return;
                     }
                     com.baidu.live.alablmsdk.a.b.a.d(" handleLongConnectionLegacyRoom hangout fail , code=" + i);
-                    com.baidu.live.alablmsdk.a.b.a.fY(" handleLongConnectionLegacyRoom hangout fail code " + i);
+                    com.baidu.live.alablmsdk.a.b.a.fI(" handleLongConnectionLegacyRoom hangout fail code " + i);
                 }
             });
         }
     }
 
-    public void Cw() {
-        String string = d.BT().getString("legacy_room_info_kye");
-        com.baidu.live.alablmsdk.a.b.a.ak(" closeLegacyRoom legacyRoomInfo " + string + " , mCurrentRoomId=" + aBQ, "");
-        this.aBP = com.baidu.live.alablmsdk.module.b.a.gg(string);
-        if (this.aBP != null && !TextUtils.isEmpty(this.aBP.roomId) && !this.aBP.roomId.equals(aBQ)) {
-            if ((this.aBP.aCI == BLMLegacyRoomStatus.LOGIC_ACTIVE.getStatus() || this.aBP.aCI == BLMLegacyRoomStatus.LOGIC_END_FAIL.getStatus()) && this.aBO != null) {
-                com.baidu.live.alablmsdk.a.b.a.ak(" closeLegacyRoom  closeRoom, mLegacyRoomInfo.roomId=" + this.aBP.roomId, "");
-                if (this.aBP.permission == UserPermission.OWNER.getPermission()) {
-                    this.aBO.a(this.aBP.roomId, new IStatusListener() { // from class: com.baidu.live.alablmsdk.b.a.3
+    public void BN() {
+        String string = d.Bk().getString("legacy_room_info_kye");
+        com.baidu.live.alablmsdk.a.b.a.aj(" closeLegacyRoom legacyRoomInfo " + string + " , mCurrentRoomId=" + aCh, "");
+        this.aCg = com.baidu.live.alablmsdk.module.b.a.fQ(string);
+        if (this.aCg != null && !TextUtils.isEmpty(this.aCg.roomId) && !this.aCg.roomId.equals(aCh)) {
+            if ((this.aCg.aCZ == BLMLegacyRoomStatus.LOGIC_ACTIVE.getStatus() || this.aCg.aCZ == BLMLegacyRoomStatus.LOGIC_END_FAIL.getStatus()) && this.aCf != null) {
+                com.baidu.live.alablmsdk.a.b.a.aj(" closeLegacyRoom  closeRoom, mLegacyRoomInfo.roomId=" + this.aCg.roomId, "");
+                if (this.aCg.permission == UserPermission.OWNER.getPermission()) {
+                    this.aCf.a(this.aCg.roomId, new IStatusListener() { // from class: com.baidu.live.alablmsdk.b.a.3
                         @Override // com.baidu.android.imrtc.utils.IStatusListener
                         public void onResult(int i, String str) {
                             if (i == 0) {
                                 com.baidu.live.alablmsdk.a.b.a.d(" handleInitLegacyRoom closeRoom  success , clearLegacyRoomInfo");
-                                com.baidu.live.alablmsdk.a.b.a.fY(" handleInitLegacyRoom closeRoom success clearLegacyRoomInfo");
-                                a.this.Cu();
+                                com.baidu.live.alablmsdk.a.b.a.fI(" handleInitLegacyRoom closeRoom success clearLegacyRoomInfo");
+                                a.this.BL();
                             }
                         }
                     });
                     return;
                 }
                 com.baidu.live.alablmsdk.a.b.a.d(" handleInitLegacyRoom  hangout");
-                com.baidu.live.alablmsdk.a.b.a.fY(" handleInitLegacyRoom  hangout");
-                this.aBO.hangout(this.aBP.roomId, new IStatusListener() { // from class: com.baidu.live.alablmsdk.b.a.4
+                com.baidu.live.alablmsdk.a.b.a.fI(" handleInitLegacyRoom  hangout");
+                this.aCf.hangout(this.aCg.roomId, new IStatusListener() { // from class: com.baidu.live.alablmsdk.b.a.4
                     @Override // com.baidu.android.imrtc.utils.IStatusListener
                     public void onResult(int i, String str) {
                         if (i == 0) {
                             com.baidu.live.alablmsdk.a.b.a.d(" handleInitLegacyRoom hangout success , clearLegacyRoomInfo");
-                            com.baidu.live.alablmsdk.a.b.a.fY(" handleInitLegacyRoom hangout success clearLegacyRoomInfo");
-                            a.this.Cu();
+                            com.baidu.live.alablmsdk.a.b.a.fI(" handleInitLegacyRoom hangout success clearLegacyRoomInfo");
+                            a.this.BL();
                         }
                     }
                 });
@@ -126,6 +126,6 @@ public class a {
     }
 
     public void release() {
-        aBQ = "";
+        aCh = "";
     }
 }

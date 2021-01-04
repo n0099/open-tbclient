@@ -9,7 +9,7 @@ import java.util.Collection;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class n extends aa {
     public n(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/getStorageInfo");
@@ -21,12 +21,12 @@ public class n extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
             return false;
         }
-        com.baidu.swan.apps.storage.c aKf = eVar.aKf();
+        com.baidu.swan.apps.storage.c aMv = eVar.aMv();
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("keys", new JSONArray((Collection) aKf.aNb().aNq()));
-            jSONObject.put("currentSize", aKf.aNd() / 1024);
-            jSONObject.put("limitSize", aKf.aNe() / 1024);
+            jSONObject.put("keys", new JSONArray((Collection) aMv.aPr().aPG()));
+            jSONObject.put("currentSize", aMv.aPt() / 1024);
+            jSONObject.put("limitSize", aMv.aPu() / 1024);
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
             return true;
         } catch (JSONException e) {

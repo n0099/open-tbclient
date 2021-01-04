@@ -11,12 +11,14 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.baidu.mapapi.common.SysOSUtil;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class ab extends LinearLayout implements View.OnTouchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private ImageView f2224a;
-    private ImageView b;
+    private ImageView f3167a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private ImageView f3168b;
     private Context c;
     private Bitmap d;
     private Bitmap e;
@@ -40,23 +42,23 @@ public class ab extends LinearLayout implements View.OnTouchListener {
         if (this.d == null || this.e == null || this.f == null || this.g == null) {
             return;
         }
-        this.f2224a = new ImageView(this.c);
-        this.b = new ImageView(this.c);
-        this.f2224a.setImageBitmap(this.d);
-        this.b.setImageBitmap(this.f);
+        this.f3167a = new ImageView(this.c);
+        this.f3168b = new ImageView(this.c);
+        this.f3167a.setImageBitmap(this.d);
+        this.f3168b.setImageBitmap(this.f);
         this.l = a(this.f.getHeight() / 6);
-        a(this.f2224a, "main_topbtn_up.9.png");
-        a(this.b, "main_bottombtn_up.9.png");
-        this.f2224a.setId(0);
-        this.b.setId(1);
-        this.f2224a.setClickable(true);
-        this.b.setClickable(true);
-        this.f2224a.setOnTouchListener(this);
-        this.b.setOnTouchListener(this);
+        a(this.f3167a, "main_topbtn_up.9.png");
+        a(this.f3168b, "main_bottombtn_up.9.png");
+        this.f3167a.setId(0);
+        this.f3168b.setId(1);
+        this.f3167a.setClickable(true);
+        this.f3168b.setClickable(true);
+        this.f3167a.setOnTouchListener(this);
+        this.f3168b.setOnTouchListener(this);
         setOrientation(1);
         setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-        addView(this.f2224a);
-        addView(this.b);
+        addView(this.f3167a);
+        addView(this.f3168b);
         this.n = true;
     }
 
@@ -66,17 +68,17 @@ public class ab extends LinearLayout implements View.OnTouchListener {
         this.n = false;
         this.c = context;
         this.m = z;
-        this.f2224a = new ImageView(this.c);
-        this.b = new ImageView(this.c);
+        this.f3167a = new ImageView(this.c);
+        this.f3168b = new ImageView(this.c);
         if (z) {
             d();
             if (this.h == null || this.i == null || this.j == null || this.k == null) {
                 return;
             }
-            this.f2224a.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-            this.b.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-            this.f2224a.setImageBitmap(this.h);
-            this.b.setImageBitmap(this.j);
+            this.f3167a.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
+            this.f3168b.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
+            this.f3167a.setImageBitmap(this.h);
+            this.f3168b.setImageBitmap(this.j);
             setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
             setOrientation(0);
         } else {
@@ -84,22 +86,22 @@ public class ab extends LinearLayout implements View.OnTouchListener {
             if (this.d == null || this.e == null || this.f == null || this.g == null) {
                 return;
             }
-            this.f2224a.setImageBitmap(this.d);
-            this.b.setImageBitmap(this.f);
+            this.f3167a.setImageBitmap(this.d);
+            this.f3168b.setImageBitmap(this.f);
             this.l = a(this.f.getHeight() / 6);
-            a(this.f2224a, "main_topbtn_up.9.png");
-            a(this.b, "main_bottombtn_up.9.png");
+            a(this.f3167a, "main_topbtn_up.9.png");
+            a(this.f3168b, "main_bottombtn_up.9.png");
             setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
             setOrientation(1);
         }
-        this.f2224a.setId(0);
-        this.b.setId(1);
-        this.f2224a.setClickable(true);
-        this.b.setClickable(true);
-        this.f2224a.setOnTouchListener(this);
-        this.b.setOnTouchListener(this);
-        addView(this.f2224a);
-        addView(this.b);
+        this.f3167a.setId(0);
+        this.f3168b.setId(1);
+        this.f3167a.setClickable(true);
+        this.f3168b.setClickable(true);
+        this.f3167a.setOnTouchListener(this);
+        this.f3168b.setOnTouchListener(this);
+        addView(this.f3167a);
+        addView(this.f3168b);
         this.n = true;
     }
 
@@ -147,15 +149,15 @@ public class ab extends LinearLayout implements View.OnTouchListener {
     }
 
     public void a(View.OnClickListener onClickListener) {
-        this.f2224a.setOnClickListener(onClickListener);
+        this.f3167a.setOnClickListener(onClickListener);
     }
 
     public void a(boolean z) {
-        this.f2224a.setEnabled(z);
+        this.f3167a.setEnabled(z);
         if (z) {
-            this.f2224a.setImageBitmap(this.d);
+            this.f3167a.setImageBitmap(this.d);
         } else {
-            this.f2224a.setImageBitmap(this.e);
+            this.f3167a.setImageBitmap(this.e);
         }
     }
 
@@ -200,15 +202,15 @@ public class ab extends LinearLayout implements View.OnTouchListener {
     }
 
     public void b(View.OnClickListener onClickListener) {
-        this.b.setOnClickListener(onClickListener);
+        this.f3168b.setOnClickListener(onClickListener);
     }
 
     public void b(boolean z) {
-        this.b.setEnabled(z);
+        this.f3168b.setEnabled(z);
         if (z) {
-            this.b.setImageBitmap(this.f);
+            this.f3168b.setImageBitmap(this.f);
         } else {
-            this.b.setImageBitmap(this.g);
+            this.f3168b.setImageBitmap(this.g);
         }
     }
 
@@ -219,17 +221,17 @@ public class ab extends LinearLayout implements View.OnTouchListener {
                 case 0:
                     if (motionEvent.getAction() == 0) {
                         if (this.m) {
-                            this.f2224a.setImageBitmap(this.i);
+                            this.f3167a.setImageBitmap(this.i);
                             return false;
                         }
-                        a(this.f2224a, "main_topbtn_down.9.png");
+                        a(this.f3167a, "main_topbtn_down.9.png");
                         return false;
                     } else if (motionEvent.getAction() == 1) {
                         if (this.m) {
-                            this.f2224a.setImageBitmap(this.h);
+                            this.f3167a.setImageBitmap(this.h);
                             return false;
                         }
-                        a(this.f2224a, "main_topbtn_up.9.png");
+                        a(this.f3167a, "main_topbtn_up.9.png");
                         return false;
                     } else {
                         return false;
@@ -237,17 +239,17 @@ public class ab extends LinearLayout implements View.OnTouchListener {
                 case 1:
                     if (motionEvent.getAction() == 0) {
                         if (this.m) {
-                            this.b.setImageBitmap(this.k);
+                            this.f3168b.setImageBitmap(this.k);
                             return false;
                         }
-                        a(this.b, "main_bottombtn_down.9.png");
+                        a(this.f3168b, "main_bottombtn_down.9.png");
                         return false;
                     } else if (motionEvent.getAction() == 1) {
                         if (this.m) {
-                            this.b.setImageBitmap(this.j);
+                            this.f3168b.setImageBitmap(this.j);
                             return false;
                         }
-                        a(this.b, "main_bottombtn_up.9.png");
+                        a(this.f3168b, "main_bottombtn_up.9.png");
                         return false;
                     } else {
                         return false;

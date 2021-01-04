@@ -1,18 +1,18 @@
 package com.baidu.mobads.production;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class e implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f2403a;
+    final /* synthetic */ b f3475a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(b bVar) {
-        this.f2403a = bVar;
+        this.f3475a = bVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f2403a.h.pause();
+        this.f3475a.h.pause();
     }
 }

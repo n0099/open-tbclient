@@ -5,13 +5,15 @@ import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.LatLngBounds;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public final class GroundOverlay extends Overlay {
     private static final String j = GroundOverlay.class.getSimpleName();
 
     /* renamed from: a  reason: collision with root package name */
-    int f2011a;
-    BitmapDescriptor b;
+    int f2816a;
+
+    /* renamed from: b  reason: collision with root package name */
+    BitmapDescriptor f2817b;
     LatLng c;
     double d;
     double e;
@@ -29,8 +31,8 @@ public final class GroundOverlay extends Overlay {
     @Override // com.baidu.mapapi.map.Overlay
     public Bundle a(Bundle bundle) {
         super.a(bundle);
-        bundle.putBundle("image_info", this.b.b());
-        if (this.f2011a == 1) {
+        bundle.putBundle("image_info", this.f2817b.b());
+        if (this.f2816a == 1) {
             GeoPoint ll2mc = CoordUtil.ll2mc(this.h.southwest);
             double longitudeE6 = ll2mc.getLongitudeE6();
             double latitudeE6 = ll2mc.getLatitudeE6();
@@ -48,7 +50,7 @@ public final class GroundOverlay extends Overlay {
         }
         bundle.putDouble("x_distance", this.d);
         if (this.e == 2.147483647E9d) {
-            this.e = (int) ((this.d * this.b.f2001a.getHeight()) / this.b.f2001a.getWidth());
+            this.e = (int) ((this.d * this.f2817b.f2797a.getHeight()) / this.f2817b.f2797a.getWidth());
         }
         bundle.putDouble("y_distance", this.e);
         GeoPoint ll2mc3 = CoordUtil.ll2mc(this.c);
@@ -77,7 +79,7 @@ public final class GroundOverlay extends Overlay {
     }
 
     public BitmapDescriptor getImage() {
-        return this.b;
+        return this.f2817b;
     }
 
     public LatLng getPosition() {
@@ -117,7 +119,7 @@ public final class GroundOverlay extends Overlay {
         if (bitmapDescriptor == null) {
             throw new IllegalArgumentException("BDMapSDKException: image can not be null");
         }
-        this.b = bitmapDescriptor;
+        this.f2817b = bitmapDescriptor;
         this.listener.b(this);
     }
 
@@ -125,7 +127,7 @@ public final class GroundOverlay extends Overlay {
         if (latLng == null) {
             throw new IllegalArgumentException("BDMapSDKException: position can not be null");
         }
-        this.f2011a = 2;
+        this.f2816a = 2;
         this.c = latLng;
         this.listener.b(this);
     }
@@ -134,7 +136,7 @@ public final class GroundOverlay extends Overlay {
         if (latLngBounds == null) {
             throw new IllegalArgumentException("BDMapSDKException: bounds can not be null");
         }
-        this.f2011a = 1;
+        this.f2816a = 1;
         this.h = latLngBounds;
         this.listener.b(this);
     }

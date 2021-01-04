@@ -1,130 +1,93 @@
 package com.baidu.live.yuyingift.yuyinhousegift;
 
 import android.content.Context;
-import android.text.TextUtils;
-import android.widget.RelativeLayout;
-import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import com.baidu.live.yuyingift.a.c;
-import com.baidu.live.yuyingift.b;
-import com.baidu.live.yuyingift.yuyinhousegift.YuyinAlaRoomGiftView;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-/* loaded from: classes4.dex */
-public class a {
-    private com.baidu.live.yuyingift.a bWF;
-    private YuyinAlaRoomGiftView bWG;
-    private List<c> bWH;
-    private boolean bWI = false;
-    private c bWJ;
-    private Context mContext;
+import com.baidu.live.yuyingift.yuyinhousegift.view.YuyinAlaRoomComboGiftView;
+/* loaded from: classes11.dex */
+public class a extends d {
+    private YuyinAlaRoomComboGiftView ccj;
+    private InterfaceC0247a cck;
 
-    public a(Context context, com.baidu.live.yuyingift.a aVar) {
-        this.mContext = context;
-        this.bWF = aVar;
-        initData();
-        initView();
+    /* renamed from: com.baidu.live.yuyingift.yuyinhousegift.a$a  reason: collision with other inner class name */
+    /* loaded from: classes11.dex */
+    public interface InterfaceC0247a {
+        void a(YuyinAlaRoomComboGiftView yuyinAlaRoomComboGiftView);
+
+        void abu();
+
+        void b(YuyinAlaRoomComboGiftView yuyinAlaRoomComboGiftView);
     }
 
-    private void initView() {
-        this.bWG = new YuyinAlaRoomGiftView(this.mContext);
-        this.bWG.setCallBack(new YuyinAlaRoomGiftView.a() { // from class: com.baidu.live.yuyingift.yuyinhousegift.a.1
-            @Override // com.baidu.live.yuyingift.yuyinhousegift.YuyinAlaRoomGiftView.a
-            public void onAnimEnd() {
-                a.this.bWJ = null;
-                a.this.bWI = false;
-                a.this.bWF.Zm();
-                a.this.ZT();
+    /* JADX INFO: Access modifiers changed from: protected */
+    public a(Context context) {
+        super(context);
+        init();
+    }
+
+    private void init() {
+        this.ccj = new YuyinAlaRoomComboGiftView(this.mContext);
+        this.ccj.setAnimCallback(new YuyinAlaRoomComboGiftView.a() { // from class: com.baidu.live.yuyingift.yuyinhousegift.a.1
+            @Override // com.baidu.live.yuyingift.yuyinhousegift.view.YuyinAlaRoomComboGiftView.a
+            public void s(com.baidu.live.yuyingift.a.c cVar) {
+                if (a.this.cck != null) {
+                    a.this.cck.a(a.this.ccj);
+                }
+            }
+
+            @Override // com.baidu.live.yuyingift.yuyinhousegift.view.YuyinAlaRoomComboGiftView.a
+            public void t(com.baidu.live.yuyingift.a.c cVar) {
+                if (a.this.cck != null) {
+                    a.this.cck.abu();
+                }
+            }
+
+            @Override // com.baidu.live.yuyingift.yuyinhousegift.view.YuyinAlaRoomComboGiftView.a
+            public void u(com.baidu.live.yuyingift.a.c cVar) {
+                if (a.this.cck != null) {
+                    a.this.cck.b(a.this.ccj);
+                }
+                if (a.this.cck != null) {
+                    a.this.cck.abu();
+                }
             }
         });
     }
 
-    private void initData() {
-        this.bWH = new ArrayList();
-    }
-
-    private boolean c(c cVar, c cVar2) {
-        return cVar != null && cVar2 != null && TextUtils.equals(cVar.giftId, cVar2.giftId) && TextUtils.equals(cVar.userId, cVar2.userId) && TextUtils.equals(cVar.bnb, cVar2.bnb);
-    }
-
-    public void h(c cVar) {
-        if (cVar != null) {
-            boolean c = c(cVar, this.bWJ);
-            boolean z = false;
-            if (c) {
-                b.a(this.bWJ, cVar);
-                z = this.bWG.s(cVar);
-            }
-            if (!c || !z) {
-                if (TextUtils.equals(cVar.userId, TbadkCoreApplication.getCurrentAccount())) {
-                    r(cVar);
-                } else {
-                    this.bWH.add(cVar);
-                }
-                play();
-            }
+    public void p(com.baidu.live.yuyingift.a.c cVar) {
+        if (this.ccj != null) {
+            this.ccj.b(cVar, x(cVar), false);
         }
     }
 
-    public void r(c cVar) {
-        if (this.bWH == null) {
-            this.bWH = new ArrayList();
-        }
-        if (cVar != null) {
-            int i = 0;
-            while (true) {
-                if (i >= this.bWH.size()) {
-                    i = 0;
-                    break;
-                } else if (!TextUtils.equals(this.bWH.get(i).userId, TbadkCoreApplication.getCurrentAccount())) {
-                    break;
-                } else {
-                    i++;
-                }
-            }
-            this.bWH.add(i, cVar);
+    public void q(com.baidu.live.yuyingift.a.c cVar) {
+        if (this.ccj != null) {
+            this.ccj.q(cVar);
         }
     }
 
-    public void play() {
-        if (!this.bWI) {
-            ZT();
+    public com.baidu.live.yuyingift.a.c getLastShowGift() {
+        if (this.ccj != null) {
+            return this.ccj.getLastShowGift();
+        }
+        return null;
+    }
+
+    public boolean isRunning() {
+        return this.ccj != null && this.ccj.abB();
+    }
+
+    public void r(com.baidu.live.yuyingift.a.c cVar) {
+        if (this.ccj != null) {
+            this.ccj.b(cVar, x(cVar), true);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void ZT() {
-        this.bWJ = ZU();
-        if (this.bWJ != null) {
-            Iterator<c> it = this.bWH.iterator();
-            while (it.hasNext()) {
-                c next = it.next();
-                if (!c(this.bWJ, next)) {
-                    break;
-                }
-                b.a(this.bWJ, next);
-                this.bWJ.bcU += next.bcU;
-                it.remove();
-            }
-            this.bWI = true;
-            this.bWG.setData(this.bWJ);
-            this.bWF.a(this.bWG, new RelativeLayout.LayoutParams(-1, -1));
-        }
-    }
-
-    private c ZU() {
-        if (this.bWH.isEmpty()) {
-            return null;
-        }
-        return this.bWH.remove(0);
+    public void a(InterfaceC0247a interfaceC0247a) {
+        this.cck = interfaceC0247a;
     }
 
     public void onDestory() {
-        if (this.bWH != null) {
-            this.bWH.clear();
-        }
-        if (this.bWG != null) {
-            this.bWG.onDestory();
+        if (this.ccj != null) {
+            this.ccj.onDestory();
         }
     }
 }

@@ -4,10 +4,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import com.baidu.live.adp.lib.util.BdLog;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class b {
-    private static b aIu;
-    private a aIq = new a() { // from class: com.baidu.live.core.layer.b.1
+    private static b aIQ;
+    private a aIM = new a() { // from class: com.baidu.live.core.layer.b.1
         @Override // com.baidu.live.core.layer.a
         public void a(LayerChildView layerChildView) {
         }
@@ -15,60 +15,60 @@ public class b {
         @Override // com.baidu.live.core.layer.a
         public void b(LayerChildView layerChildView) {
             layerChildView.release();
-            if (b.this.aIv != null) {
-                b.this.aIv.removeView(layerChildView);
-                if (b.this.aIv.getChildCount() <= 1) {
-                    b.this.aIv.setVisibility(8);
+            if (b.this.aIR != null) {
+                b.this.aIR.removeView(layerChildView);
+                if (b.this.aIR.getChildCount() <= 1) {
+                    b.this.aIR.setVisibility(8);
                 }
             }
         }
     };
-    private ViewGroup aIv;
+    private ViewGroup aIR;
 
     private b() {
     }
 
-    public static b EY() {
-        if (aIu == null) {
+    public static b En() {
+        if (aIQ == null) {
             synchronized (b.class) {
-                if (aIu == null) {
-                    aIu = new b();
+                if (aIQ == null) {
+                    aIQ = new b();
                 }
             }
         }
-        return aIu;
+        return aIQ;
     }
 
-    public void j(ViewGroup viewGroup) {
-        this.aIv = viewGroup;
-        this.aIv.setVisibility(8);
+    public void l(ViewGroup viewGroup) {
+        this.aIR = viewGroup;
+        this.aIR.setVisibility(8);
     }
 
     public void d(LayerChildView layerChildView) {
-        if (this.aIv == null) {
+        if (this.aIR == null) {
             BdLog.e("LAYER_ERRORparams error LayerParentView is null");
         } else if (layerChildView == null || layerChildView.getRootView() == null) {
             BdLog.e("LAYER_ERRORparams error layer or layer view is null");
         } else {
             long currentTimeMillis = System.currentTimeMillis();
-            if (this.aIv.indexOfChild(layerChildView) != -1) {
+            if (this.aIR.indexOfChild(layerChildView) != -1) {
                 BdLog.e("LAYER_ERRORerror layer has showed");
                 return;
             }
-            this.aIv.addView(layerChildView, new RelativeLayout.LayoutParams(-1, -1));
-            this.aIv.setVisibility(0);
-            layerChildView.setLayerCallback(this.aIq);
-            layerChildView.EQ();
+            this.aIR.addView(layerChildView, new RelativeLayout.LayoutParams(-1, -1));
+            this.aIR.setVisibility(0);
+            layerChildView.setLayerCallback(this.aIM);
+            layerChildView.Ef();
             BdLog.d("layer show cost time is" + (System.currentTimeMillis() - currentTimeMillis));
         }
     }
 
     public boolean e(LayerChildView layerChildView) {
-        if (this.aIv == null || layerChildView == null) {
+        if (this.aIR == null || layerChildView == null) {
             BdLog.e("LAYER_ERRORremove layer error, param error, mLayerParentView is null or layerView is null");
             return false;
-        } else if (this.aIv.indexOfChild(layerChildView) >= 0) {
-            layerChildView.ER();
+        } else if (this.aIR.indexOfChild(layerChildView) >= 0) {
+            layerChildView.Eg();
             return true;
         } else {
             BdLog.e("LAYER_ERRORremove layer error, layerView is " + layerChildView);
@@ -77,13 +77,13 @@ public class b {
     }
 
     public boolean onBackPressed() {
-        if (this.aIv == null || this.aIv.getChildCount() <= 0) {
+        if (this.aIR == null || this.aIR.getChildCount() <= 0) {
             return false;
         }
-        View childAt = this.aIv.getChildAt(this.aIv.getChildCount() - 1);
+        View childAt = this.aIR.getChildAt(this.aIR.getChildCount() - 1);
         if (childAt instanceof LayerChildView) {
             LayerChildView layerChildView = (LayerChildView) childAt;
-            if (layerChildView.cancelableFlag && !layerChildView.aIr) {
+            if (layerChildView.cancelableFlag && !layerChildView.aIN) {
                 return e(layerChildView);
             }
             return true;
@@ -91,24 +91,24 @@ public class b {
         return false;
     }
 
-    public void EZ() {
+    public void Eo() {
         long currentTimeMillis = System.currentTimeMillis();
-        if (this.aIv != null && this.aIv.getChildCount() > 0) {
+        if (this.aIR != null && this.aIR.getChildCount() > 0) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 >= this.aIv.getChildCount()) {
+                if (i2 >= this.aIR.getChildCount()) {
                     break;
                 }
-                View childAt = this.aIv.getChildAt(i2);
+                View childAt = this.aIR.getChildAt(i2);
                 if (childAt instanceof LayerChildView) {
                     ((LayerChildView) childAt).release();
                 }
                 i = i2 + 1;
             }
-            this.aIv.clearAnimation();
-            this.aIv.removeAllViews();
-            this.aIv.setVisibility(8);
+            this.aIR.clearAnimation();
+            this.aIR.removeAllViews();
+            this.aIR.setVisibility(8);
         }
         BdLog.d("layer clear cost time is" + (System.currentTimeMillis() - currentTimeMillis));
     }
@@ -120,7 +120,7 @@ public class b {
     }
 
     public void onDestroy() {
-        EZ();
-        this.aIv = null;
+        Eo();
+        this.aIR = null;
     }
 }

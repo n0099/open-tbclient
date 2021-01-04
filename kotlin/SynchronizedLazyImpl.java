@@ -4,7 +4,7 @@ import java.io.Serializable;
 import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.p;
 @e
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 final class SynchronizedLazyImpl<T> implements Serializable, c<T> {
     private volatile Object _value;
     private kotlin.jvm.a.a<? extends T> initializer;
@@ -13,7 +13,7 @@ final class SynchronizedLazyImpl<T> implements Serializable, c<T> {
     public SynchronizedLazyImpl(kotlin.jvm.a.a<? extends T> aVar, Object obj) {
         p.o(aVar, "initializer");
         this.initializer = aVar;
-        this._value = g.pJZ;
+        this._value = g.qlC;
         this.lock = obj == null ? this : obj;
     }
 
@@ -24,13 +24,13 @@ final class SynchronizedLazyImpl<T> implements Serializable, c<T> {
     @Override // kotlin.c
     public T getValue() {
         T t = (T) this._value;
-        if (t == g.pJZ) {
+        if (t == g.qlC) {
             synchronized (this.lock) {
                 t = this._value;
-                if (t == g.pJZ) {
+                if (t == g.qlC) {
                     kotlin.jvm.a.a<? extends T> aVar = this.initializer;
                     if (aVar == null) {
-                        p.eEa();
+                        p.eMi();
                     }
                     T invoke = aVar.invoke();
                     this._value = invoke;
@@ -43,7 +43,7 @@ final class SynchronizedLazyImpl<T> implements Serializable, c<T> {
     }
 
     public boolean isInitialized() {
-        return this._value != g.pJZ;
+        return this._value != g.qlC;
     }
 
     public String toString() {

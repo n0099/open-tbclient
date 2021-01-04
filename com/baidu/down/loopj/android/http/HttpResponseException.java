@@ -1,7 +1,7 @@
 package com.baidu.down.loopj.android.http;
 
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public class HttpResponseException extends IOException {
     private int mStatusCode;
 

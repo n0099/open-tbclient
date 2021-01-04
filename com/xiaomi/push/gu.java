@@ -2,18 +2,20 @@ package com.xiaomi.push;
 
 import com.baidu.webkit.internal.ETAG;
 import java.util.Random;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class gu {
 
     /* renamed from: a  reason: collision with other field name */
-    private static final char[] f407a = "&quot;".toCharArray();
-    private static final char[] b = "&apos;".toCharArray();
+    private static final char[] f485a = "&quot;".toCharArray();
+
+    /* renamed from: b  reason: collision with root package name */
+    private static final char[] f14366b = "&apos;".toCharArray();
     private static final char[] c = "&amp;".toCharArray();
     private static final char[] d = "&lt;".toCharArray();
     private static final char[] e = "&gt;".toCharArray();
 
     /* renamed from: a  reason: collision with root package name */
-    private static Random f4704a = new Random();
+    private static Random f14365a = new Random();
     private static char[] f = "0123456789abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
 
     public static String a(int i) {
@@ -22,19 +24,19 @@ public class gu {
         }
         char[] cArr = new char[i];
         for (int i2 = 0; i2 < cArr.length; i2++) {
-            cArr[i2] = f[f4704a.nextInt(71)];
+            cArr[i2] = f[f14365a.nextInt(71)];
         }
         return new String(cArr);
     }
 
     public static String a(String str) {
-        int i = 0;
         if (str == null) {
             return null;
         }
         char[] charArray = str.toCharArray();
         int length = charArray.length;
         StringBuilder sb = new StringBuilder((int) (length * 1.3d));
+        int i = 0;
         int i2 = 0;
         while (i2 < length) {
             char c2 = charArray[i2];
@@ -64,13 +66,13 @@ public class gu {
                         sb.append(charArray, i, i2 - i);
                     }
                     i = i2 + 1;
-                    sb.append(f407a);
+                    sb.append(f485a);
                 } else if (c2 == '\'') {
                     if (i2 > i) {
                         sb.append(charArray, i, i2 - i);
                     }
                     i = i2 + 1;
-                    sb.append(b);
+                    sb.append(f14366b);
                 }
             }
             i2++;
@@ -99,12 +101,13 @@ public class gu {
         sb.append(charArray, 0, indexOf).append(charArray2);
         int i = indexOf + length;
         while (true) {
+            int i2 = i;
             int indexOf2 = str.indexOf(str2, i);
             if (indexOf2 <= 0) {
-                sb.append(charArray, i, charArray.length - i);
+                sb.append(charArray, i2, charArray.length - i2);
                 return sb.toString();
             }
-            sb.append(charArray, i, indexOf2 - i).append(charArray2);
+            sb.append(charArray, i2, indexOf2 - i2).append(charArray2);
             i = indexOf2 + length;
         }
     }

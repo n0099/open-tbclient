@@ -8,15 +8,17 @@ import android.os.Build;
 import android.os.Bundle;
 import java.util.LinkedHashSet;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class ActivityLifeObserver {
-    private static final ActivityLifeObserver b = new ActivityLifeObserver();
+
+    /* renamed from: b  reason: collision with root package name */
+    private static final ActivityLifeObserver f3565b = new ActivityLifeObserver();
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f2460a;
+    private boolean f3566a;
     private Set<IActivityLifeCallback> c = new LinkedHashSet();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     public interface IActivityLifeCallback {
         void onActivityCreated(Activity activity, Bundle bundle);
 
@@ -34,7 +36,7 @@ public class ActivityLifeObserver {
     }
 
     public static ActivityLifeObserver instance() {
-        return b;
+        return f3565b;
     }
 
     public void addObserver(IActivityLifeCallback iActivityLifeCallback) {
@@ -56,9 +58,9 @@ public class ActivityLifeObserver {
     }
 
     public void registerActivityLifeCallback(Context context) {
-        if (!this.f2460a && Build.VERSION.SDK_INT >= 14) {
+        if (!this.f3566a && Build.VERSION.SDK_INT >= 14) {
             doRegister(context);
-            this.f2460a = true;
+            this.f3566a = true;
         }
     }
 

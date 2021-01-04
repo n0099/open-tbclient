@@ -3,15 +3,15 @@ package com.baidu.swan.apps.adaptation.a;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-/* loaded from: classes25.dex */
+import androidx.annotation.NonNull;
+/* loaded from: classes9.dex */
 public interface e {
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes9.dex */
     public interface a {
-        void eE(boolean z);
+        void eN(boolean z);
 
-        void m(Exception exc);
+        void n(Exception exc);
     }
 
     void a(Activity activity, Bundle bundle, com.baidu.swan.apps.a.a aVar);
@@ -20,11 +20,11 @@ public interface e {
 
     void b(com.baidu.swan.apps.a.a aVar);
 
-    boolean bU(Context context);
+    boolean cb(Context context);
 
-    String bV(Context context);
+    String cc(Context context);
 
-    String bW(@NonNull Context context);
+    String cd(@NonNull Context context);
 
-    String bX(@NonNull Context context);
+    String ce(@NonNull Context context);
 }

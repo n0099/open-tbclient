@@ -1,52 +1,45 @@
 package com.baidu.tieba.ala;
 
-import android.os.CountDownTimer;
-/* loaded from: classes4.dex */
-public class d extends CountDownTimer {
-    private a gis;
-    private boolean isRunning;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.x;
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes10.dex */
+public class d {
+    private static d gsD;
+    private List<aq> gik;
 
-    /* loaded from: classes4.dex */
-    public interface a {
-        void onFinish();
-
-        void onTick(long j);
+    public static d bRR() {
+        if (gsD == null) {
+            synchronized (d.class) {
+                if (gsD == null) {
+                    gsD = new d();
+                }
+            }
+        }
+        return gsD;
     }
 
-    public d(long j, long j2) {
-        super(j, j2);
-        this.isRunning = false;
-    }
-
-    @Override // android.os.CountDownTimer
-    public void onTick(long j) {
-        if (this.gis != null) {
-            this.gis.onTick(j);
+    public void e(aq aqVar) {
+        if (aqVar != null) {
+            if (this.gik == null) {
+                this.gik = new ArrayList();
+            }
+            if (this.gik != null) {
+                this.gik.add(aqVar);
+            }
         }
     }
 
-    @Override // android.os.CountDownTimer
-    public void onFinish() {
-        if (this.gis != null) {
-            this.gis.onFinish();
+    public void bRS() {
+        if (x.getCount(this.gik) != 0) {
+            for (aq aqVar : this.gik) {
+                if (aqVar != null) {
+                    TiebaStatic.log(aqVar);
+                }
+            }
+            this.gik.clear();
         }
-    }
-
-    public void startTimer() {
-        this.isRunning = true;
-        start();
-    }
-
-    public void cancelTimer() {
-        this.isRunning = false;
-        cancel();
-    }
-
-    public boolean isRunning() {
-        return this.isRunning;
-    }
-
-    public void a(a aVar) {
-        this.gis = aVar;
     }
 }

@@ -7,17 +7,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes8.dex */
 public class b {
-    private final ArrayList<MetaData> nWv = new ArrayList<>();
-    private HashMap<String, String> nWw = null;
+    private final ArrayList<MetaData> nZV = new ArrayList<>();
+    private HashMap<String, String> nZW = null;
 
-    public void h(JSONObject jSONObject, boolean z) {
+    public void j(JSONObject jSONObject, boolean z) {
         if (jSONObject != null) {
             if (z) {
                 try {
-                    if (this.nWw == null) {
-                        this.nWw = new HashMap<>();
+                    if (this.nZW == null) {
+                        this.nZW = new HashMap<>();
                     }
                 } catch (Exception e) {
                     BdLog.detailException(e);
@@ -30,9 +30,9 @@ public class b {
                     MetaData metaData = new MetaData();
                     metaData.parserJson(optJSONArray.getJSONObject(i));
                     if (!TextUtils.isEmpty(metaData.getName_show())) {
-                        this.nWv.add(metaData);
+                        this.nZV.add(metaData);
                         if (z) {
-                            this.nWw.put(metaData.getName_show(), metaData.getPortrait());
+                            this.nZW.put(metaData.getName_show(), metaData.getPortrait());
                         }
                     }
                 }
@@ -40,15 +40,15 @@ public class b {
         }
     }
 
-    public void VH(String str) {
+    public void Vm(String str) {
         try {
-            h(new JSONObject(str), true);
+            j(new JSONObject(str), true);
         } catch (Exception e) {
             BdLog.detailException(e);
         }
     }
 
-    public ArrayList<MetaData> dZa() {
-        return this.nWv;
+    public ArrayList<MetaData> dYH() {
+        return this.nZV;
     }
 }

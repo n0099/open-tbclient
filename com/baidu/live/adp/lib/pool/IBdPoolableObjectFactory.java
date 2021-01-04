@@ -1,5 +1,5 @@
 package com.baidu.live.adp.lib.pool;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public interface IBdPoolableObjectFactory<T> {
     T activateObject(T t);
 

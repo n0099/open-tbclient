@@ -2,7 +2,6 @@ package com.baidu.tieba.ala.live.pkpanel.web;
 
 import android.content.Context;
 import android.os.Build;
-import android.support.annotation.RequiresApi;
 import android.text.TextUtils;
 import android.view.MotionEvent;
 import android.view.View;
@@ -12,6 +11,7 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
+import androidx.annotation.RequiresApi;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.scheme.SchemeCallback;
 import com.baidu.live.tbadk.scheme.SchemeUtils;
@@ -19,31 +19,31 @@ import com.baidu.live.view.web.CommonWebView;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaPkPanelWebView extends FrameLayout {
-    private CommonWebView bQZ;
-    private List<String> bRa;
-    private SchemeCallback bRc;
-    private String eFu;
-    private a hbe;
-    private boolean hbf;
+    private CommonWebView bWG;
+    private List<String> bWH;
+    private SchemeCallback bWJ;
+    private String ePk;
+    private a hmQ;
+    private boolean hmR;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface a {
-        void na(boolean z);
+        void nz(boolean z);
     }
 
     public AlaPkPanelWebView(Context context) {
         super(context);
-        this.bRc = new SchemeCallback() { // from class: com.baidu.tieba.ala.live.pkpanel.web.AlaPkPanelWebView.3
+        this.bWJ = new SchemeCallback() { // from class: com.baidu.tieba.ala.live.pkpanel.web.AlaPkPanelWebView.3
             @Override // com.baidu.live.tbadk.scheme.SchemeCallback
             public void doJsCallback(int i, String str, JSONObject jSONObject, String str2) {
                 try {
                     String assembJavaScript = SchemeUtils.assembJavaScript(i, str, jSONObject, str2);
                     if (Build.VERSION.SDK_INT >= 19) {
-                        AlaPkPanelWebView.this.bQZ.evaluateJavascript(assembJavaScript, null);
+                        AlaPkPanelWebView.this.bWG.evaluateJavascript(assembJavaScript, null);
                     } else {
-                        AlaPkPanelWebView.this.bQZ.loadUrl(assembJavaScript);
+                        AlaPkPanelWebView.this.bWG.loadUrl(assembJavaScript);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -54,48 +54,67 @@ public class AlaPkPanelWebView extends FrameLayout {
     }
 
     public void setCallback(a aVar) {
-        this.hbe = aVar;
+        this.hmQ = aVar;
     }
 
     public void addJavascriptInterface(Object obj, String str) {
-        if (this.bRa == null) {
-            this.bRa = new ArrayList();
+        if (this.bWH == null) {
+            this.bWH = new ArrayList();
         }
-        this.bRa.add(str);
-        this.bQZ.addJavascriptInterface(obj, str);
+        this.bWH.add(str);
+        this.bWG.addJavascriptInterface(obj, str);
     }
 
     public void loadUrl(String str) {
-        if (this.bQZ != null) {
-            this.bQZ.loadUrl(str);
+        if (this.bWG != null) {
+            this.bWG.loadUrl(str);
         }
     }
 
     public String getOriginalUrl() {
-        return this.bQZ != null ? this.bQZ.getOriginalUrl() : "";
+        return this.bWG != null ? this.bWG.getOriginalUrl() : "";
     }
 
-    public boolean bYW() {
-        return this.hbf;
+    public boolean cbD() {
+        return this.hmR;
     }
 
     @RequiresApi(19)
     public void evaluateJavascript(String str, ValueCallback<String> valueCallback) {
-        if (this.bQZ != null) {
-            this.bQZ.evaluateJavascript(str, valueCallback);
+        if (this.bWG != null) {
+            this.bWG.evaluateJavascript(str, valueCallback);
+        }
+    }
+
+    public void release() {
+        this.hmQ = null;
+        this.hmR = false;
+        removeAllViews();
+        if (this.bWG != null) {
+            if (this.bWH != null) {
+                for (String str : this.bWH) {
+                    this.bWG.removeJavascriptInterface(str);
+                }
+                this.bWH.clear();
+            }
+            this.bWG.stopLoading();
+            this.bWG.removeAllViews();
+            this.bWG.loadUrl("about:blank");
+            this.bWG.freeMemory();
+            this.bWG.destroy();
         }
     }
 
     private void init() {
-        this.hbf = false;
+        this.hmR = false;
         setBackgroundColor(0);
         if (getBackground() != null) {
             getBackground().setAlpha(0);
         }
-        this.bQZ = new CommonWebView(getContext());
-        this.bQZ.setVerticalScrollEnabled(false);
-        this.bQZ.setHorizontalScrollEnabled(false);
-        this.bQZ.setWebViewClient(new WebViewClient() { // from class: com.baidu.tieba.ala.live.pkpanel.web.AlaPkPanelWebView.1
+        this.bWG = new CommonWebView(getContext());
+        this.bWG.setVerticalScrollEnabled(false);
+        this.bWG.setHorizontalScrollEnabled(false);
+        this.bWG.setWebViewClient(new WebViewClient() { // from class: com.baidu.tieba.ala.live.pkpanel.web.AlaPkPanelWebView.1
             @Override // android.webkit.WebViewClient
             public void onPageFinished(WebView webView, String str) {
                 super.onPageFinished(webView, str);
@@ -104,9 +123,9 @@ public class AlaPkPanelWebView extends FrameLayout {
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // android.webkit.ValueCallback
                         public void onReceiveValue(String str2) {
-                            AlaPkPanelWebView.this.hbf = Boolean.valueOf(str2).booleanValue();
-                            if (AlaPkPanelWebView.this.hbe != null) {
-                                AlaPkPanelWebView.this.hbe.na(Boolean.valueOf(str2).booleanValue());
+                            AlaPkPanelWebView.this.hmR = Boolean.valueOf(str2).booleanValue();
+                            if (AlaPkPanelWebView.this.hmQ != null) {
+                                AlaPkPanelWebView.this.hmQ.nz(Boolean.valueOf(str2).booleanValue());
                             }
                         }
                     });
@@ -117,7 +136,7 @@ public class AlaPkPanelWebView extends FrameLayout {
             public void onReceivedError(WebView webView, int i, String str, String str2) {
                 super.onReceivedError(webView, i, str, str2);
                 if (Build.VERSION.SDK_INT < 23) {
-                    AlaPkPanelWebView.this.sl(str2);
+                    AlaPkPanelWebView.this.se(str2);
                 }
             }
 
@@ -127,25 +146,25 @@ public class AlaPkPanelWebView extends FrameLayout {
                 String uri;
                 super.onReceivedError(webView, webResourceRequest, webResourceError);
                 if (webResourceRequest.isForMainFrame() && webResourceRequest.getUrl() != null && (uri = webResourceRequest.getUrl().toString()) != null && !uri.equals("file:///android_asset/web/error.html")) {
-                    AlaPkPanelWebView.this.sl(uri);
+                    AlaPkPanelWebView.this.se(uri);
                 }
             }
         });
-        addView(this.bQZ, new FrameLayout.LayoutParams(-1, -1));
+        addView(this.bWG, new FrameLayout.LayoutParams(-1, -1));
         if (TbadkCoreApplication.getInst().isHaokan()) {
-            this.bQZ.resumeTimers();
+            this.bWG.resumeTimers();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void sl(String str) {
-        this.eFu = str;
-        this.bQZ.loadUrl("file:///android_asset/web/error.html");
-        this.bQZ.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.ala.live.pkpanel.web.AlaPkPanelWebView.2
+    public void se(String str) {
+        this.ePk = str;
+        this.bWG.loadUrl("file:///android_asset/web/error.html");
+        this.bWG.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.ala.live.pkpanel.web.AlaPkPanelWebView.2
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                if (AlaPkPanelWebView.this.bQZ != null && AlaPkPanelWebView.this.bQZ.getUrl() != null && AlaPkPanelWebView.this.bQZ.getUrl().equals("file:///android_asset/web/error.html") && !TextUtils.isEmpty(AlaPkPanelWebView.this.eFu)) {
-                    AlaPkPanelWebView.this.bQZ.loadUrl(AlaPkPanelWebView.this.eFu);
+                if (AlaPkPanelWebView.this.bWG != null && AlaPkPanelWebView.this.bWG.getUrl() != null && AlaPkPanelWebView.this.bWG.getUrl().equals("file:///android_asset/web/error.html") && !TextUtils.isEmpty(AlaPkPanelWebView.this.ePk)) {
+                    AlaPkPanelWebView.this.bWG.loadUrl(AlaPkPanelWebView.this.ePk);
                     return false;
                 }
                 return false;
@@ -154,6 +173,6 @@ public class AlaPkPanelWebView extends FrameLayout {
     }
 
     public SchemeCallback getSchemeCallback() {
-        return this.bRc;
+        return this.bWJ;
     }
 }

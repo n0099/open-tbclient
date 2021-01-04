@@ -12,25 +12,25 @@ import com.baidu.live.tbadk.core.data.AccountData;
 import com.baidu.live.tbadk.core.dialog.BdToast;
 import com.baidu.tieba.yuyinala.liveroom.wheat.message.AlaEndConnectionWheatHttpResponseMessage;
 import com.baidu.tieba.yuyinala.liveroom.wheat.message.AlaLinkCallBackHttpResponseMessage;
-import com.baidu.tieba.yuyinala.liveroom.wheat.model.h;
-/* loaded from: classes4.dex */
+import com.baidu.tieba.yuyinala.liveroom.wheat.model.i;
+/* loaded from: classes11.dex */
 public class h {
-    private static h ouI;
-    private TbPageContext otA;
-    private com.baidu.tieba.yuyinala.liveroom.wheat.dialog.e ouJ;
-    private boolean ouK;
-    private boolean ouL;
-    private com.baidu.tieba.yuyinala.liveroom.wheat.model.h ouf;
+    private static h oBt;
+    private com.baidu.tieba.yuyinala.liveroom.wheat.model.i oAR;
+    private TbPageContext oAf;
+    private com.baidu.tieba.yuyinala.liveroom.wheat.dialog.e oBu;
+    private boolean oBv;
+    private boolean oBw;
 
-    public static h eeT() {
-        if (ouI == null) {
-            ouI = new h();
+    public static h eeU() {
+        if (oBt == null) {
+            oBt = new h();
         }
-        return ouI;
+        return oBt;
     }
 
     public void a(TbPageContext tbPageContext, AlaLinkCallBackHttpResponseMessage alaLinkCallBackHttpResponseMessage) {
-        if (tbPageContext != null && alaLinkCallBackHttpResponseMessage != null && alaLinkCallBackHttpResponseMessage.efN() && eeT().eeU()) {
+        if (tbPageContext != null && alaLinkCallBackHttpResponseMessage != null && alaLinkCallBackHttpResponseMessage.efW() && eeU().eeV()) {
             Activity pageActivity = tbPageContext.getPageActivity();
             if (Build.VERSION.SDK_INT >= 17) {
                 if (pageActivity == null || pageActivity.isFinishing() || pageActivity.isDestroyed()) {
@@ -39,31 +39,31 @@ public class h {
             } else if (pageActivity == null || pageActivity.isFinishing()) {
                 return;
             }
-            if (tbPageContext != null && tbPageContext != this.otA) {
-                this.otA = tbPageContext;
+            if (tbPageContext != null && tbPageContext != this.oAf) {
+                this.oAf = tbPageContext;
                 hide();
             }
-            if (this.ouJ == null) {
-                this.ouK = false;
-                this.ouJ = new com.baidu.tieba.yuyinala.liveroom.wheat.dialog.e(tbPageContext);
-                this.ouJ.g(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.h.1
+            if (this.oBu == null) {
+                this.oBv = false;
+                this.oBu = new com.baidu.tieba.yuyinala.liveroom.wheat.dialog.e(tbPageContext);
+                this.oBu.g(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.h.1
                     @Override // android.content.DialogInterface.OnDismissListener
                     public void onDismiss(DialogInterface dialogInterface) {
-                        h.this.ouK = false;
-                        h.this.ouJ = null;
+                        h.this.oBv = false;
+                        h.this.oBu = null;
                     }
                 });
             }
-            this.ouJ.show();
+            this.oBu.show();
             AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
             if (currentAccountInfo != null) {
-                this.ouJ.c(currentAccountInfo.getPortrait(), currentAccountInfo.getAccountNameShow(), alaLinkCallBackHttpResponseMessage.efO(), alaLinkCallBackHttpResponseMessage.dbE(), alaLinkCallBackHttpResponseMessage.efP());
+                this.oBu.d(currentAccountInfo.getPortrait(), currentAccountInfo.getAccountNameShow(), alaLinkCallBackHttpResponseMessage.efX(), alaLinkCallBackHttpResponseMessage.dbh(), alaLinkCallBackHttpResponseMessage.efY());
             }
         }
     }
 
     public void a(TbPageContext tbPageContext, AlaEndConnectionWheatHttpResponseMessage alaEndConnectionWheatHttpResponseMessage) {
-        if (tbPageContext != null && alaEndConnectionWheatHttpResponseMessage != null && alaEndConnectionWheatHttpResponseMessage.efN() && eeT().eeU()) {
+        if (tbPageContext != null && alaEndConnectionWheatHttpResponseMessage != null && alaEndConnectionWheatHttpResponseMessage.efW() && eeU().eeV()) {
             Activity pageActivity = tbPageContext.getPageActivity();
             if (Build.VERSION.SDK_INT >= 17) {
                 if (pageActivity == null || pageActivity.isFinishing() || pageActivity.isDestroyed()) {
@@ -72,67 +72,69 @@ public class h {
             } else if (pageActivity == null || pageActivity.isFinishing()) {
                 return;
             }
-            if (tbPageContext != null && tbPageContext != this.otA) {
-                this.otA = tbPageContext;
+            if (tbPageContext != null && tbPageContext != this.oAf) {
+                this.oAf = tbPageContext;
                 hide();
             }
-            if (this.ouJ == null) {
-                this.ouK = false;
-                this.ouJ = new com.baidu.tieba.yuyinala.liveroom.wheat.dialog.e(tbPageContext);
-                this.ouJ.g(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.h.2
+            if (this.oBu == null) {
+                this.oBv = false;
+                this.oBu = new com.baidu.tieba.yuyinala.liveroom.wheat.dialog.e(tbPageContext);
+                this.oBu.g(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.h.2
                     @Override // android.content.DialogInterface.OnDismissListener
                     public void onDismiss(DialogInterface dialogInterface) {
-                        h.this.ouK = false;
-                        h.this.ouJ = null;
+                        h.this.oBv = false;
+                        h.this.oBu = null;
                     }
                 });
             }
-            this.ouJ.show();
+            this.oBu.show();
             AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
             if (currentAccountInfo != null) {
-                this.ouJ.c(currentAccountInfo.getPortrait(), currentAccountInfo.getAccountNameShow(), alaEndConnectionWheatHttpResponseMessage.efO(), alaEndConnectionWheatHttpResponseMessage.dbE(), alaEndConnectionWheatHttpResponseMessage.efP());
+                this.oBu.d(currentAccountInfo.getPortrait(), currentAccountInfo.getAccountNameShow(), alaEndConnectionWheatHttpResponseMessage.efX(), alaEndConnectionWheatHttpResponseMessage.dbh(), alaEndConnectionWheatHttpResponseMessage.efY());
             }
         }
     }
 
-    public void zL(boolean z) {
-        this.ouL = z;
-        if (this.ouf == null) {
-            this.ouf = new com.baidu.tieba.yuyinala.liveroom.wheat.model.h(null, new h.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.h.3
-                @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.h.a
-                public void a(AlaLinkCallBackHttpResponseMessage alaLinkCallBackHttpResponseMessage) {
-                    h.this.a(o.efe().efj(), alaLinkCallBackHttpResponseMessage);
-                    if (h.this.ouL) {
-                        BdToast.makeText(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_hung_up_text)).show();
+    public void zN(boolean z) {
+        this.oBw = z;
+        if (o.eff().jm(o.eff().aar())) {
+            if (this.oAR == null) {
+                this.oAR = new com.baidu.tieba.yuyinala.liveroom.wheat.model.i(null, new i.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.h.3
+                    @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.i.a
+                    public void a(AlaLinkCallBackHttpResponseMessage alaLinkCallBackHttpResponseMessage) {
+                        h.this.a(o.eff().efl(), alaLinkCallBackHttpResponseMessage);
+                        if (h.this.oBw) {
+                            BdToast.makeText(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(a.h.yuyin_ala_connection_wheat_hung_up_text)).show();
+                        }
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501009));
+                        h.this.onDestroy();
                     }
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501009));
-                    h.this.onDestroy();
-                }
 
-                @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.h.a
-                public void b(AlaLinkCallBackHttpResponseMessage alaLinkCallBackHttpResponseMessage) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501009));
-                    h.this.onDestroy();
-                }
-            });
+                    @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.i.a
+                    public void b(AlaLinkCallBackHttpResponseMessage alaLinkCallBackHttpResponseMessage) {
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501009));
+                        h.this.onDestroy();
+                    }
+                });
+            }
+            this.oAR.request("end");
         }
-        this.ouf.request("end");
     }
 
     public void hide() {
-        if (this.ouJ != null) {
-            this.ouJ.dismiss();
-            this.ouJ = null;
+        if (this.oBu != null) {
+            this.oBu.dismiss();
+            this.oBu = null;
         }
     }
 
-    public h zM(boolean z) {
-        this.ouK = z;
+    public h zO(boolean z) {
+        this.oBv = z;
         return this;
     }
 
-    public boolean eeU() {
-        return this.ouK;
+    public boolean eeV() {
+        return this.oBv;
     }
 
     public void onDestroy() {

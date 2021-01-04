@@ -4,79 +4,79 @@ import android.view.View;
 import android.widget.AbsListView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.live.data.bf;
+import com.baidu.live.data.bh;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.SkinManager;
 import com.baidu.live.tbadk.core.view.HeadImageView;
-/* loaded from: classes4.dex */
-public class b extends c {
-    public HeadImageView hLw;
-    public DrawableTextView hLx;
-    public TextView hLy;
-    private LinearLayout hLz;
+/* loaded from: classes11.dex */
+public class b extends d {
+    public HeadImageView hXJ;
+    public DrawableTextView hXK;
+    public TextView hXL;
+    private LinearLayout hXM;
 
     public b(View view, int i) {
         super(view, i);
-        this.hLx = (DrawableTextView) view.findViewById(a.f.attention_btn);
-        this.hLw = (HeadImageView) view.findViewById(a.f.user_icon);
-        this.hLw.setAutoChangeStyle(false);
-        this.hLw.setIsRound(true);
-        this.hLy = (TextView) view.findViewById(a.f.user_name);
+        this.hXK = (DrawableTextView) view.findViewById(a.f.attention_btn);
+        this.hXJ = (HeadImageView) view.findViewById(a.f.user_icon);
+        this.hXJ.setAutoChangeStyle(false);
+        this.hXJ.setIsRound(true);
+        this.hXL = (TextView) view.findViewById(a.f.user_name);
         if (i == 1) {
             view.setLayoutParams(new AbsListView.LayoutParams(-1, view.getContext().getResources().getDimensionPixelSize(a.d.sdk_ds96)));
         }
         if (i == 2) {
-            this.hLz = (LinearLayout) view.findViewById(a.f.live_tail_light);
+            this.hXM = (LinearLayout) view.findViewById(a.f.live_tail_light);
         }
         if (TbadkCoreApplication.getInst().isHaokan()) {
-            this.hLx.setVisibility(8);
+            this.hXK.setVisibility(8);
         } else {
-            this.hLx.setVisibility(0);
+            this.hXK.setVisibility(0);
         }
     }
 
-    @Override // com.baidu.tieba.ala.person.view.c
-    public void H(final Object obj) {
-        if (obj instanceof bf) {
-            bf bfVar = (bf) obj;
-            if (bfVar != null) {
-                this.hLw.startLoad(bfVar.portrait, 10, false);
-                this.hLy.setText(bfVar.getNameShow());
-                if (bfVar.aQa == 0) {
+    @Override // com.baidu.tieba.ala.person.view.d
+    public void D(final Object obj) {
+        if (obj instanceof bh) {
+            bh bhVar = (bh) obj;
+            if (bhVar != null) {
+                this.hXJ.startLoad(bhVar.portrait, 10, false);
+                this.hXL.setText(bhVar.getNameShow());
+                if (bhVar.aQP == 0) {
                     if (TbadkCoreApplication.getInst().isHaokan()) {
-                        this.hLx.setBackgroundResource(a.e.sdk_person_follow_btn_bg_seletor);
-                        this.hLx.setTextColor(this.mRootView.getContext().getResources().getColorStateList(a.e.sdk_person_follow_text_seletor));
+                        this.hXK.setBackgroundResource(a.e.sdk_person_follow_btn_bg_seletor);
+                        this.hXK.setTextColor(this.mRootView.getContext().getResources().getColorStateList(a.e.sdk_person_follow_text_seletor));
                     } else {
-                        this.hLx.setBackgroundResource(a.e.sdk_qm_ala_person_follow_btn_bg_seletor);
-                        this.hLx.setTextColor(this.mRootView.getContext().getResources().getColorStateList(a.e.sdk_qm_ala_person_follow_text_seletor));
+                        this.hXK.setBackgroundResource(a.e.sdk_qm_ala_person_follow_btn_bg_seletor);
+                        this.hXK.setTextColor(this.mRootView.getContext().getResources().getColorStateList(a.e.sdk_qm_ala_person_follow_text_seletor));
                     }
-                    this.hLx.setText(this.mRootView.getContext().getString(a.h.ala_person_attention));
+                    this.hXK.setText(this.mRootView.getContext().getString(a.h.ala_person_attention));
                 } else {
-                    this.hLx.setBackgroundResource(a.e.sdk_unfollow_btn_bg);
-                    this.hLx.setTextColor(this.mRootView.getContext().getResources().getColor(a.c.sdk_common_color_10037));
-                    this.hLx.setText(this.mRootView.getContext().getString(a.h.ala_person_has_attention));
+                    this.hXK.setBackgroundResource(a.e.sdk_unfollow_btn_bg);
+                    this.hXK.setTextColor(this.mRootView.getContext().getResources().getColor(a.c.sdk_common_color_10037));
+                    this.hXK.setText(this.mRootView.getContext().getString(a.h.ala_person_has_attention));
                 }
-                if (bfVar.id.equals(TbadkCoreApplication.getCurrentAccount())) {
-                    this.hLx.setVisibility(8);
+                if (bhVar.id.equals(TbadkCoreApplication.getCurrentAccount())) {
+                    this.hXK.setVisibility(8);
                 } else if (TbadkCoreApplication.getInst().isHaokan()) {
-                    this.hLx.setVisibility(8);
+                    this.hXK.setVisibility(8);
                 } else {
-                    this.hLx.setVisibility(0);
+                    this.hXK.setVisibility(0);
                 }
-                if (bfVar.live_status == 1) {
-                    if (this.hLz != null) {
-                        this.hLz.setVisibility(0);
+                if (bhVar.live_status == 1) {
+                    if (this.hXM != null) {
+                        this.hXM.setVisibility(0);
                     }
-                } else if (this.hLz != null) {
-                    this.hLz.setVisibility(8);
+                } else if (this.hXM != null) {
+                    this.hXM.setVisibility(8);
                 }
             }
-            this.hLx.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.person.view.b.1
+            this.hXK.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.person.view.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (b.this.hJs != null) {
-                        b.this.hJs.a((bf) obj, view);
+                    if (b.this.hVE != null) {
+                        b.this.hVE.a((bh) obj, view);
                     }
                 }
             });
@@ -84,8 +84,8 @@ public class b extends c {
                 this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.person.view.b.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (b.this.hJt != null) {
-                            b.this.hJt.b((bf) obj, view);
+                        if (b.this.hVF != null) {
+                            b.this.hVF.b((bh) obj, view);
                         }
                     }
                 });
@@ -93,9 +93,9 @@ public class b extends c {
         }
     }
 
-    @Override // com.baidu.tieba.ala.person.view.c
+    @Override // com.baidu.tieba.ala.person.view.d
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        SkinManager.setViewTextColor(this.hLy, a.c.sdk_cp_cont_b, 1, i);
+        SkinManager.setViewTextColor(this.hXL, a.c.sdk_cp_cont_b, 1, i);
     }
 }

@@ -3,9 +3,6 @@ package com.idlefish.flutterboost;
 import android.annotation.SuppressLint;
 import android.os.Build;
 import android.provider.Settings;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
 import android.text.Editable;
 import android.text.Selection;
 import android.view.View;
@@ -13,10 +10,13 @@ import android.view.inputmethod.BaseInputConnection;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputMethodManager;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import io.flutter.embedding.engine.dart.DartExecutor;
 import io.flutter.embedding.engine.systemchannels.TextInputChannel;
 import io.flutter.plugin.platform.PlatformViewsController;
-/* loaded from: classes19.dex */
+/* loaded from: classes7.dex */
 public class XTextInputPlugin {
     private static XTextInputPlugin xTextInputPlugin;
     @Nullable
@@ -262,14 +262,14 @@ public class XTextInputPlugin {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes19.dex */
+    /* loaded from: classes7.dex */
     public static class InputTarget {
         int id;
         @NonNull
         Type type;
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes19.dex */
+        /* loaded from: classes7.dex */
         public enum Type {
             NO_TARGET,
             FRAMEWORK_CLIENT,

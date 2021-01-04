@@ -1,10 +1,10 @@
 package com.baidu.swan.apps.network.c.b;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public abstract class b {
-    public abstract void aFt();
+    public abstract void aGN();
 
     @NonNull
     public abstract String getNodeName();

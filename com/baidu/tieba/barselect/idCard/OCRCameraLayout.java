@@ -11,19 +11,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import com.baidu.tieba.R;
-/* loaded from: classes21.dex */
+/* loaded from: classes8.dex */
 public class OCRCameraLayout extends FrameLayout {
     public static int ORIENTATION_PORTRAIT = 0;
-    public static int ifj = 1;
+    public static int irE = 1;
     private View contentView;
-    private View ifk;
-    private View ifl;
-    private View ifm;
-    private int ifn;
-    private int ifo;
-    private int ifp;
-    private int ifq;
-    private Rect ifr;
+    private View irF;
+    private View irG;
+    private View irH;
+    private int irI;
+    private int irJ;
+    private int irK;
+    private int irL;
+    private Rect irM;
     private int orientation;
     private Paint paint;
 
@@ -38,7 +38,7 @@ public class OCRCameraLayout extends FrameLayout {
         super(context);
         this.orientation = ORIENTATION_PORTRAIT;
         setWillNotDraw(false);
-        this.ifr = new Rect();
+        this.irM = new Rect();
         this.paint = new Paint();
         this.paint.setStyle(Paint.Style.FILL);
         this.paint.setColor(Color.argb(83, 0, 0, 0));
@@ -48,31 +48,31 @@ public class OCRCameraLayout extends FrameLayout {
         super(context, attributeSet);
         this.orientation = ORIENTATION_PORTRAIT;
         setWillNotDraw(false);
-        this.ifr = new Rect();
+        this.irM = new Rect();
         this.paint = new Paint();
         this.paint.setStyle(Paint.Style.FILL);
         this.paint.setColor(Color.argb(83, 0, 0, 0));
-        h(attributeSet);
+        l(attributeSet);
     }
 
     public OCRCameraLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.orientation = ORIENTATION_PORTRAIT;
         setWillNotDraw(false);
-        this.ifr = new Rect();
+        this.irM = new Rect();
         this.paint = new Paint();
         this.paint.setStyle(Paint.Style.FILL);
         this.paint.setColor(Color.argb(83, 0, 0, 0));
-        h(attributeSet);
+        l(attributeSet);
     }
 
-    private void h(AttributeSet attributeSet) {
+    private void l(AttributeSet attributeSet) {
         TypedArray obtainStyledAttributes = getContext().getTheme().obtainStyledAttributes(attributeSet, R.styleable.OCRCameraLayout, 0, 0);
         try {
-            this.ifn = obtainStyledAttributes.getResourceId(R.styleable.OCRCameraLayout_contentView, -1);
-            this.ifo = obtainStyledAttributes.getResourceId(R.styleable.OCRCameraLayout_centerView, -1);
-            this.ifp = obtainStyledAttributes.getResourceId(R.styleable.OCRCameraLayout_leftDownView, -1);
-            this.ifq = obtainStyledAttributes.getResourceId(R.styleable.OCRCameraLayout_rightUpView, -1);
+            this.irI = obtainStyledAttributes.getResourceId(R.styleable.OCRCameraLayout_contentView, -1);
+            this.irJ = obtainStyledAttributes.getResourceId(R.styleable.OCRCameraLayout_centerView, -1);
+            this.irK = obtainStyledAttributes.getResourceId(R.styleable.OCRCameraLayout_leftDownView, -1);
+            this.irL = obtainStyledAttributes.getResourceId(R.styleable.OCRCameraLayout_rightUpView, -1);
         } finally {
             obtainStyledAttributes.recycle();
         }
@@ -81,64 +81,64 @@ public class OCRCameraLayout extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        this.contentView = findViewById(this.ifn);
-        if (this.ifo != -1) {
-            this.ifk = findViewById(this.ifo);
+        this.contentView = findViewById(this.irI);
+        if (this.irJ != -1) {
+            this.irF = findViewById(this.irJ);
         }
-        this.ifl = findViewById(this.ifp);
-        this.ifm = findViewById(this.ifq);
+        this.irG = findViewById(this.irK);
+        this.irH = findViewById(this.irL);
     }
 
     @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         int width = getWidth();
         int height = getHeight();
-        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.ifl.getLayoutParams();
-        ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.ifm.getLayoutParams();
+        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.irG.getLayoutParams();
+        ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.irH.getLayoutParams();
         if (i3 < i4) {
             int i5 = (width * 4) / 3;
             int i6 = height - i5;
             this.contentView.layout(i, i2, i3, i5);
-            this.ifr.left = 0;
-            this.ifr.top = i5;
-            this.ifr.right = width;
-            this.ifr.bottom = height;
-            if (this.ifk != null) {
-                int measuredWidth = (width - this.ifk.getMeasuredWidth()) / 2;
-                int measuredHeight = ((i6 - this.ifk.getMeasuredHeight()) / 2) + i5;
-                this.ifk.layout(measuredWidth, measuredHeight, this.ifk.getMeasuredWidth() + measuredWidth, this.ifk.getMeasuredHeight() + measuredHeight);
+            this.irM.left = 0;
+            this.irM.top = i5;
+            this.irM.right = width;
+            this.irM.bottom = height;
+            if (this.irF != null) {
+                int measuredWidth = (width - this.irF.getMeasuredWidth()) / 2;
+                int measuredHeight = ((i6 - this.irF.getMeasuredHeight()) / 2) + i5;
+                this.irF.layout(measuredWidth, measuredHeight, this.irF.getMeasuredWidth() + measuredWidth, this.irF.getMeasuredHeight() + measuredHeight);
             }
             int i7 = marginLayoutParams.leftMargin;
-            int measuredHeight2 = ((i6 - this.ifl.getMeasuredHeight()) / 2) + i5;
-            this.ifl.layout(i7, measuredHeight2, this.ifl.getMeasuredWidth() + i7, this.ifl.getMeasuredHeight() + measuredHeight2);
-            int measuredWidth2 = (width - this.ifm.getMeasuredWidth()) - marginLayoutParams2.rightMargin;
-            int measuredHeight3 = ((i6 - this.ifm.getMeasuredHeight()) / 2) + i5;
-            this.ifm.layout(measuredWidth2, measuredHeight3, this.ifm.getMeasuredWidth() + measuredWidth2, this.ifm.getMeasuredHeight() + measuredHeight3);
+            int measuredHeight2 = ((i6 - this.irG.getMeasuredHeight()) / 2) + i5;
+            this.irG.layout(i7, measuredHeight2, this.irG.getMeasuredWidth() + i7, this.irG.getMeasuredHeight() + measuredHeight2);
+            int measuredWidth2 = (width - this.irH.getMeasuredWidth()) - marginLayoutParams2.rightMargin;
+            int measuredHeight3 = ((i6 - this.irH.getMeasuredHeight()) / 2) + i5;
+            this.irH.layout(measuredWidth2, measuredHeight3, this.irH.getMeasuredWidth() + measuredWidth2, this.irH.getMeasuredHeight() + measuredHeight3);
             return;
         }
         int i8 = (height * 4) / 3;
         int i9 = width - i8;
         this.contentView.layout(i, i2, i8, height);
-        this.ifr.left = i8;
-        this.ifr.top = 0;
-        this.ifr.right = width;
-        this.ifr.bottom = height;
-        if (this.ifk != null) {
-            int measuredWidth3 = ((i9 - this.ifk.getMeasuredWidth()) / 2) + i8;
-            int measuredHeight4 = (height - this.ifk.getMeasuredHeight()) / 2;
-            this.ifk.layout(measuredWidth3, measuredHeight4, this.ifk.getMeasuredWidth() + measuredWidth3, this.ifk.getMeasuredHeight() + measuredHeight4);
+        this.irM.left = i8;
+        this.irM.top = 0;
+        this.irM.right = width;
+        this.irM.bottom = height;
+        if (this.irF != null) {
+            int measuredWidth3 = ((i9 - this.irF.getMeasuredWidth()) / 2) + i8;
+            int measuredHeight4 = (height - this.irF.getMeasuredHeight()) / 2;
+            this.irF.layout(measuredWidth3, measuredHeight4, this.irF.getMeasuredWidth() + measuredWidth3, this.irF.getMeasuredHeight() + measuredHeight4);
         }
-        int measuredWidth4 = ((i9 - this.ifl.getMeasuredWidth()) / 2) + i8;
-        int measuredHeight5 = (height - this.ifl.getMeasuredHeight()) - marginLayoutParams.bottomMargin;
-        this.ifl.layout(measuredWidth4, measuredHeight5, this.ifl.getMeasuredWidth() + measuredWidth4, this.ifl.getMeasuredHeight() + measuredHeight5);
-        int measuredWidth5 = ((i9 - this.ifm.getMeasuredWidth()) / 2) + i8;
+        int measuredWidth4 = ((i9 - this.irG.getMeasuredWidth()) / 2) + i8;
+        int measuredHeight5 = (height - this.irG.getMeasuredHeight()) - marginLayoutParams.bottomMargin;
+        this.irG.layout(measuredWidth4, measuredHeight5, this.irG.getMeasuredWidth() + measuredWidth4, this.irG.getMeasuredHeight() + measuredHeight5);
+        int measuredWidth5 = ((i9 - this.irH.getMeasuredWidth()) / 2) + i8;
         int i10 = marginLayoutParams2.topMargin;
-        this.ifm.layout(measuredWidth5, i10, this.ifm.getMeasuredWidth() + measuredWidth5, this.ifm.getMeasuredHeight() + i10);
+        this.irH.layout(measuredWidth5, i10, this.irH.getMeasuredWidth() + measuredWidth5, this.irH.getMeasuredHeight() + i10);
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawRect(this.ifr, this.paint);
+        canvas.drawRect(this.irM, this.paint);
     }
 }

@@ -1,6 +1,5 @@
 package com.googlecode.mp4parser;
 
-import com.baidu.searchbox.account.contants.AccountConstants;
 import com.coremedia.iso.BoxParser;
 import com.coremedia.iso.Hex;
 import com.coremedia.iso.IsoFile;
@@ -14,7 +13,7 @@ import com.googlecode.mp4parser.util.Path;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class AbstractBox implements Box {
     static final /* synthetic */ boolean $assertionsDisabled;
     private static Logger LOG;
@@ -191,13 +190,13 @@ public abstract class AbstractBox implements Box {
         int limit = byteBuffer.limit() - 1;
         int limit2 = allocate.limit() - 1;
         while (limit >= position) {
-            byte b = byteBuffer.get(limit);
-            byte b2 = allocate.get(limit2);
-            if (b == b2) {
+            byte b2 = byteBuffer.get(limit);
+            byte b3 = allocate.get(limit2);
+            if (b2 == b3) {
                 limit--;
                 limit2--;
             } else {
-                LOG.logError(String.format("%s: buffers differ at %d: %2X/%2X", getType(), Integer.valueOf(limit), Byte.valueOf(b), Byte.valueOf(b2)));
+                LOG.logError(String.format("%s: buffers differ at %d: %2X/%2X", getType(), Integer.valueOf(limit), Byte.valueOf(b2), Byte.valueOf(b3)));
                 byte[] bArr = new byte[byteBuffer.remaining()];
                 byte[] bArr2 = new byte[allocate.remaining()];
                 byteBuffer.get(bArr);
@@ -216,11 +215,11 @@ public abstract class AbstractBox implements Box {
             i = 24;
         }
         if (!this.isRead) {
-            return this.memMapSize + ((long) i) < AccountConstants.TYPE_MODIFY_EXT_FIELDS;
+            return this.memMapSize + ((long) i) < 4294967296L;
         } else if (this.isParsed) {
-            return (getContentSize() + ((long) (this.deadBytes != null ? this.deadBytes.limit() : 0))) + ((long) i) < AccountConstants.TYPE_MODIFY_EXT_FIELDS;
+            return (getContentSize() + ((long) (this.deadBytes != null ? this.deadBytes.limit() : 0))) + ((long) i) < 4294967296L;
         } else {
-            return ((long) (i + this.content.limit())) < AccountConstants.TYPE_MODIFY_EXT_FIELDS;
+            return ((long) (i + this.content.limit())) < 4294967296L;
         }
     }
 

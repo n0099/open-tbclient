@@ -7,13 +7,15 @@ import android.os.Build;
 import android.util.DisplayMetrics;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class f {
     private static f j;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2675a;
-    private int b;
+    private int f3948a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private int f3949b;
     private int c;
     private int d;
     private String e = "-1";
@@ -115,11 +117,11 @@ public class f {
     }
 
     private int i() {
-        return this.f2675a;
+        return this.f3948a;
     }
 
     private int j() {
-        return this.b;
+        return this.f3949b;
     }
 
     private int k() {
@@ -141,8 +143,8 @@ public class f {
     private void n() {
         DisplayMetrics displayMetrics = this.i.getResources().getDisplayMetrics();
         if (displayMetrics != null) {
-            this.f2675a = displayMetrics.widthPixels;
-            this.b = displayMetrics.heightPixels;
+            this.f3948a = displayMetrics.widthPixels;
+            this.f3949b = displayMetrics.heightPixels;
         }
     }
 }

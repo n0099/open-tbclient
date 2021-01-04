@@ -4,136 +4,136 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.e.b;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes24.dex */
+/* loaded from: classes8.dex */
 public class a {
-    private static b ezZ = null;
-    private static a eAa = null;
-    private static boolean eAb = false;
-    private static String eAc = "";
-    private static transient List<String> eAd = new ArrayList(5);
+    private static b eJC = null;
+    private static a eJD = null;
+    private static boolean eJE = false;
+    private static String eJF = "";
+    private static transient List<String> eJG = new ArrayList(5);
 
     private a() {
     }
 
     public static a b(BaseFragmentActivity baseFragmentActivity) {
-        if (eAa == null) {
+        if (eJD == null) {
             synchronized (a.class) {
-                if (eAa == null) {
-                    eAa = new a();
-                    ezZ = b.c(baseFragmentActivity);
+                if (eJD == null) {
+                    eJD = new a();
+                    eJC = b.c(baseFragmentActivity);
                 }
             }
-        } else if (ezZ != null) {
-            ezZ.a(baseFragmentActivity.getPageContext());
+        } else if (eJC != null) {
+            eJC.a(baseFragmentActivity.getPageContext());
         }
-        if (eAb && ezZ != null) {
-            ezZ.blk();
-            ezZ.bll();
-            eAb = false;
+        if (eJE && eJC != null) {
+            eJC.bnJ();
+            eJC.bnK();
+            eJE = false;
         }
-        return eAa;
+        return eJD;
     }
 
     public void a(boolean z, boolean z2, boolean z3, b.a aVar) {
-        blh();
+        bnG();
         if (z) {
-            blc();
+            bnB();
         }
         if (z2) {
-            bld();
+            bnC();
         }
-        iI(z3);
+        jd(z3);
         a(aVar);
     }
 
-    public void blc() {
-        blh();
-        if (ezZ != null) {
-            ezZ.blk();
-            eAb = false;
+    public void bnB() {
+        bnG();
+        if (eJC != null) {
+            eJC.bnJ();
+            eJE = false;
         }
     }
 
-    public void bld() {
-        blh();
-        if (ezZ != null) {
-            ezZ.bll();
-            eAb = false;
+    public void bnC() {
+        bnG();
+        if (eJC != null) {
+            eJC.bnK();
+            eJE = false;
         }
     }
 
-    public void iI(boolean z) {
-        blh();
-        if (ezZ != null) {
-            ezZ.iI(z);
+    public void jd(boolean z) {
+        bnG();
+        if (eJC != null) {
+            eJC.jd(z);
         }
     }
 
     public void a(b.a aVar) {
-        blh();
-        if (ezZ != null) {
-            ezZ.c(aVar);
+        bnG();
+        if (eJC != null) {
+            eJC.c(aVar);
         }
     }
 
     public void b(b.a aVar) {
-        blh();
-        if (ezZ != null) {
-            if (ezZ.bli()) {
-                ezZ.c(aVar);
+        bnG();
+        if (eJC != null) {
+            if (eJC.bnH()) {
+                eJC.c(aVar);
             }
-            ezZ.blj();
+            eJC.bnI();
         }
     }
 
     public void a(int i, b.a aVar) {
-        blh();
-        if (ezZ != null) {
-            if (ezZ.bli()) {
-                ezZ.c(aVar);
+        bnG();
+        if (eJC != null) {
+            if (eJC.bnH()) {
+                eJC.c(aVar);
             }
-            ezZ.od(i);
+            eJC.on(i);
         }
     }
 
-    public void ble() {
-        blh();
-        if (ezZ != null) {
-            ezZ.ble();
-            eAb = true;
+    public void bnD() {
+        bnG();
+        if (eJC != null) {
+            eJC.bnD();
+            eJE = true;
         }
     }
 
-    public void blf() {
-        blh();
-        if (ezZ != null) {
-            ezZ.blf();
+    public void bnE() {
+        bnG();
+        if (eJC != null) {
+            eJC.bnE();
         }
     }
 
-    public void blg() {
-        blh();
-        blf();
-        ble();
+    public void bnF() {
+        bnG();
+        bnE();
+        bnD();
     }
 
-    private void blh() {
-        if (ezZ == null) {
+    private void bnG() {
+        if (eJC == null) {
         }
     }
 
-    public static void resetAll() {
+    public static void aKs() {
         try {
-            if (ezZ != null) {
-                if (eAa != null) {
-                    eAa.blg();
+            if (eJC != null) {
+                if (eJD != null) {
+                    eJD.bnF();
                 }
-                ezZ.removeCallBack();
-                ezZ.blm();
-                ezZ = null;
+                eJC.removeCallBack();
+                eJC.bnL();
+                eJC = null;
             }
-            if (eAa != null) {
-                eAa = null;
+            if (eJD != null) {
+                eJD = null;
             }
         } catch (Throwable th) {
             th.printStackTrace();

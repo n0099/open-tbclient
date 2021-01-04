@@ -4,9 +4,9 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.af;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
-/* loaded from: classes21.dex */
+/* loaded from: classes8.dex */
 public class f<ViewGroup, Object> extends com.baidu.adp.widget.ListView.a {
     protected TbPageContext mPageContext;
 
@@ -21,13 +21,13 @@ public class f<ViewGroup, Object> extends com.baidu.adp.widget.ListView.a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public af.a c(ViewGroup viewGroup) {
+    public TypeAdapter.ViewHolder e(ViewGroup viewGroup) {
         return null;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, Object obj, af.a aVar) {
+    public View a(int i, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
         return null;
     }
 

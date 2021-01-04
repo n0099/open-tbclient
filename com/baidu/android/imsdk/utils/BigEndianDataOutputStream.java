@@ -3,7 +3,7 @@ package com.baidu.android.imsdk.utils;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class BigEndianDataOutputStream {
     byte[] buff = new byte[8];
     private DataOutputStream mDos;
@@ -12,8 +12,8 @@ public class BigEndianDataOutputStream {
         this.mDos = new DataOutputStream(outputStream);
     }
 
-    public final void writeByte(byte b) throws IOException {
-        this.buff[0] = b;
+    public final void writeByte(byte b2) throws IOException {
+        this.buff[0] = b2;
         this.mDos.write(this.buff, 0, 1);
     }
 

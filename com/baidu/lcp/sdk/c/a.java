@@ -7,9 +7,9 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class a {
-    private static a aAo;
+    private static a aAE;
     private Context context;
     private ThreadPoolExecutor service;
     private ExecutorService singleThreadService;
@@ -26,18 +26,18 @@ public class a {
         this.singleThreadService = Executors.newSingleThreadExecutor();
     }
 
-    public static a aH(Context context) {
+    public static a aG(Context context) {
         if (context == null) {
             return null;
         }
-        if (aAo == null) {
+        if (aAE == null) {
             synchronized (a.class) {
-                if (aAo == null) {
-                    aAo = new a(context);
+                if (aAE == null) {
+                    aAE = new a(context);
                 }
             }
         }
-        return aAo;
+        return aAE;
     }
 
     public void submitForNetWork(Runnable runnable) {

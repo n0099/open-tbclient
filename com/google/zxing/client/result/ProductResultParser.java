@@ -3,7 +3,7 @@ package com.google.zxing.client.result;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
 import com.google.zxing.oned.UPCEReader;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class ProductResultParser extends ResultParser {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.zxing.client.result.ResultParser

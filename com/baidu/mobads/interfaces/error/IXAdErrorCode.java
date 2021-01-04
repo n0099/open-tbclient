@@ -1,7 +1,7 @@
 package com.baidu.mobads.interfaces.error;
 
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public interface IXAdErrorCode {
     String genCompleteErrorMessage(XAdErrorCode xAdErrorCode, String str);
 

@@ -1,7 +1,7 @@
 package com.baidu.tieba.yuyinala.liveroom.introduce;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class b extends HttpMessage {
     public b(String str, String str2, String str3, String str4) {
         super(1031034);

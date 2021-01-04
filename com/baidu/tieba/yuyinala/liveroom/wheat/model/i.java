@@ -5,55 +5,54 @@ import com.baidu.live.adp.base.BdBaseModel;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.HttpMessageListener;
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
-import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.yuyinala.liveroom.wheat.message.AlaManagerMikeHttpResponseMessage;
-/* loaded from: classes4.dex */
+import com.baidu.tieba.yuyinala.liveroom.wheat.message.AlaLinkCallBackHttpResponseMessage;
+/* loaded from: classes11.dex */
 public class i extends BdBaseModel {
     private TbPageContext mPageContext;
-    private a oxT;
-    private HttpMessageListener messageListener = new HttpMessageListener(1031012) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.model.i.1
+    private a oEJ;
+    private HttpMessageListener messageListener = new HttpMessageListener(1031027) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.model.i.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaManagerMikeHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == i.this.brR && i.this.oxT != null) {
-                AlaManagerMikeHttpResponseMessage alaManagerMikeHttpResponseMessage = (AlaManagerMikeHttpResponseMessage) httpResponsedMessage;
-                if (alaManagerMikeHttpResponseMessage.getError() != 0 || !alaManagerMikeHttpResponseMessage.isSuccess()) {
-                    i.this.oxT.b(alaManagerMikeHttpResponseMessage);
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaLinkCallBackHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == i.this.bwz && i.this.oEJ != null) {
+                AlaLinkCallBackHttpResponseMessage alaLinkCallBackHttpResponseMessage = (AlaLinkCallBackHttpResponseMessage) httpResponsedMessage;
+                if (alaLinkCallBackHttpResponseMessage.getError() != 0 || !alaLinkCallBackHttpResponseMessage.isSuccess()) {
+                    i.this.oEJ.b(alaLinkCallBackHttpResponseMessage);
                 } else {
-                    i.this.oxT.a(alaManagerMikeHttpResponseMessage);
+                    i.this.oEJ.a(alaLinkCallBackHttpResponseMessage);
                 }
             }
         }
     };
-    private BdUniqueId brR = BdUniqueId.gen();
+    private BdUniqueId bwz = BdUniqueId.gen();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface a {
-        void a(AlaManagerMikeHttpResponseMessage alaManagerMikeHttpResponseMessage);
+        void a(AlaLinkCallBackHttpResponseMessage alaLinkCallBackHttpResponseMessage);
 
-        void b(AlaManagerMikeHttpResponseMessage alaManagerMikeHttpResponseMessage);
+        void b(AlaLinkCallBackHttpResponseMessage alaLinkCallBackHttpResponseMessage);
     }
 
     public i(TbPageContext tbPageContext, a aVar) {
-        setUniqueId(this.brR);
+        setUniqueId(this.bwz);
         this.mPageContext = tbPageContext;
-        this.oxT = aVar;
-        bjQ();
+        this.oEJ = aVar;
+        bmf();
         registerListener(this.messageListener);
     }
 
-    private void bjQ() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031012, TbConfig.SERVER_ADDRESS + "ala/audio/link/setMike");
+    private void bmf() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031027, com.baidu.live.a.aAH + "ala/audio/link/callback");
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
-        tbHttpMessageTask.setResponsedClass(AlaManagerMikeHttpResponseMessage.class);
+        tbHttpMessageTask.setResponsedClass(AlaLinkCallBackHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void aQ(String str, String str2, String str3) {
-        sendMessage(new com.baidu.tieba.yuyinala.liveroom.wheat.message.i(str, str2, str3));
+    public void request(String str) {
+        sendMessage(new com.baidu.tieba.yuyinala.liveroom.wheat.message.i(str));
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
@@ -64,5 +63,10 @@ public class i extends BdBaseModel {
     @Override // com.baidu.live.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         return false;
+    }
+
+    public void onDestroy() {
+        cancelMessage();
+        MessageManager.getInstance().unRegisterListener(this.messageListener);
     }
 }

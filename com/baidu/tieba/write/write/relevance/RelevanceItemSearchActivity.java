@@ -8,26 +8,26 @@ import android.widget.LinearLayout;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
 import com.baidu.tbadk.suspended.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes8.dex */
 public class RelevanceItemSearchActivity extends SuspendedActivity {
-    private RelevanceItemSearchView ofP;
+    private RelevanceItemSearchView oht;
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
     protected a a(LinearLayout linearLayout, NavigationBar navigationBar) {
-        this.ofP = new RelevanceItemSearchView(this, linearLayout, navigationBar);
-        return this.ofP;
+        this.oht = new RelevanceItemSearchView(this, linearLayout, navigationBar);
+        return this.oht;
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    protected void bFR() {
+    protected void bIm() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.ofP != null) {
-            this.ofP.onDestroy();
+        if (this.oht != null) {
+            this.oht.onDestroy();
         }
     }
 
@@ -36,7 +36,7 @@ public class RelevanceItemSearchActivity extends SuspendedActivity {
         InputMethodManager inputMethodManager;
         if (motionEvent.getAction() == 0) {
             View currentFocus = getCurrentFocus();
-            if (f(currentFocus, motionEvent) && (inputMethodManager = (InputMethodManager) getSystemService("input_method")) != null) {
+            if (m(currentFocus, motionEvent) && (inputMethodManager = (InputMethodManager) getSystemService("input_method")) != null) {
                 inputMethodManager.hideSoftInputFromWindow(currentFocus.getWindowToken(), 0);
             }
             return super.dispatchTouchEvent(motionEvent);
@@ -47,7 +47,7 @@ public class RelevanceItemSearchActivity extends SuspendedActivity {
         }
     }
 
-    public boolean f(View view, MotionEvent motionEvent) {
+    public boolean m(View view, MotionEvent motionEvent) {
         if (view == null || !(view instanceof EditText)) {
             return false;
         }
@@ -56,5 +56,9 @@ public class RelevanceItemSearchActivity extends SuspendedActivity {
         int i = iArr[0];
         int i2 = iArr[1];
         return motionEvent.getX() <= ((float) i) || motionEvent.getX() >= ((float) (view.getWidth() + i)) || motionEvent.getY() <= ((float) i2) || motionEvent.getY() >= ((float) (view.getHeight() + i2));
+    }
+
+    public RelevanceItemSearchView ebh() {
+        return this.oht;
     }
 }

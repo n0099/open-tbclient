@@ -8,22 +8,23 @@ import com.baidu.live.adp.widget.listview.IAdapterData;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.tieba.recommendlist.data.AlaRecommendLiveData;
-import com.baidu.tieba.recommendlist.data.c;
-import com.baidu.tieba.recommendlist.data.e;
+import com.baidu.tieba.recommendlist.data.d;
+import com.baidu.tieba.recommendlist.data.f;
+import com.baidu.tieba.recommendlist.data.g;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class b extends BdBaseModel {
     public long duration;
-    public long hTY;
     public boolean hasMore;
-    private a mQI;
-    public List<AlaRecommendLiveData> mQJ;
-    public List<AlaRecommendLiveData> mQK;
-    private long mQL;
-    private HttpMessageListener mQM;
+    public long igy;
+    private a mWi;
+    public List<AlaRecommendLiveData> mWj;
+    public List<AlaRecommendLiveData> mWk;
+    private long mWl;
+    private HttpMessageListener mWm;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void onFail(int i, String str);
 
@@ -32,18 +33,19 @@ public class b extends BdBaseModel {
 
     public b(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.mQL = 0L;
+        this.mWl = 0L;
         this.duration = 1800000L;
-        this.mQM = new HttpMessageListener(1021193) { // from class: com.baidu.tieba.recommendlist.model.b.1
+        this.mWm = new HttpMessageListener(1021193) { // from class: com.baidu.tieba.recommendlist.model.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 int i;
                 int i2;
+                f dVar;
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021193 && (httpResponsedMessage instanceof AlaRecommendLiveResponseMessage)) {
                     if (httpResponsedMessage.hasError() || httpResponsedMessage.getError() != 0) {
-                        if (b.this.mQI != null) {
-                            b.this.mQI.onFail(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                        if (b.this.mWi != null) {
+                            b.this.mWi.onFail(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                             return;
                         }
                         return;
@@ -54,96 +56,99 @@ public class b extends BdBaseModel {
                         i2 = 0;
                     } else {
                         com.baidu.tieba.recommendlist.model.a aVar = (com.baidu.tieba.recommendlist.model.a) httpResponsedMessage.getOrginalMessage();
-                        int i3 = aVar.ZJ;
-                        i = aVar.mQG;
-                        i2 = i3;
+                        i2 = aVar.aas;
+                        i = aVar.mWg;
                     }
                     if (i2 == 0) {
-                        b.this.mQJ = new ArrayList();
-                        b.this.mQK = new ArrayList();
+                        b.this.mWj = new ArrayList();
+                        b.this.mWk = new ArrayList();
                     } else {
-                        if (b.this.mQJ == null) {
-                            b.this.mQJ = new ArrayList();
+                        if (b.this.mWj == null) {
+                            b.this.mWj = new ArrayList();
                         }
-                        if (b.this.mQK == null) {
-                            b.this.mQK = new ArrayList();
+                        if (b.this.mWk == null) {
+                            b.this.mWk = new ArrayList();
                         }
                     }
-                    if (alaRecommendLiveResponseMessage.mQO != null && !ListUtils.isEmpty(alaRecommendLiveResponseMessage.mQO.list)) {
-                        b.this.mQJ.addAll(alaRecommendLiveResponseMessage.mQO.list);
+                    if (alaRecommendLiveResponseMessage.mWo != null && !ListUtils.isEmpty(alaRecommendLiveResponseMessage.mWo.list)) {
+                        b.this.mWj.addAll(alaRecommendLiveResponseMessage.mWo.list);
                     }
                     ArrayList arrayList = new ArrayList();
-                    if (b.this.mQJ != null && !b.this.mQJ.isEmpty()) {
-                        arrayList.add(new e(0));
+                    if (b.this.mWj != null && !b.this.mWj.isEmpty()) {
+                        arrayList.add(new g(0));
                         ArrayList arrayList2 = new ArrayList();
-                        for (int i4 = 0; i4 < b.this.mQJ.size(); i4++) {
+                        for (int i3 = 0; i3 < b.this.mWj.size(); i3++) {
                             com.baidu.tieba.recommendlist.data.a aVar2 = new com.baidu.tieba.recommendlist.data.a();
                             aVar2.type = 0;
-                            aVar2.mQy = b.this.mQJ.get(i4);
+                            aVar2.mVX = b.this.mWj.get(i3);
                             arrayList2.add(aVar2);
                         }
                         arrayList.add(new com.baidu.tieba.recommendlist.data.b(arrayList2));
                     }
-                    if (alaRecommendLiveResponseMessage.mQP != null && !ListUtils.isEmpty(alaRecommendLiveResponseMessage.mQP.list)) {
-                        b.this.mQK.addAll(alaRecommendLiveResponseMessage.mQP.list);
-                        b.this.hasMore = alaRecommendLiveResponseMessage.mQP.jFO == 1;
+                    if (alaRecommendLiveResponseMessage.mWp != null && !ListUtils.isEmpty(alaRecommendLiveResponseMessage.mWp.list)) {
+                        b.this.mWk.addAll(alaRecommendLiveResponseMessage.mWp.list);
+                        b.this.hasMore = alaRecommendLiveResponseMessage.mWp.jTg == 1;
                     } else {
                         b.this.hasMore = false;
                     }
-                    if (b.this.mQK != null && !b.this.mQK.isEmpty()) {
-                        e eVar = new e(1);
-                        eVar.title = com.baidu.live.ae.a.RB().RJ();
-                        arrayList.add(eVar);
-                        for (int i5 = 0; i5 < b.this.mQK.size(); i5 += 2) {
-                            c cVar = new c();
-                            cVar.type = 1;
-                            cVar.mQC = b.this.mQK.get(i5);
-                            if (i5 + 1 < b.this.mQK.size()) {
-                                cVar.mQD = b.this.mQK.get(i5 + 1);
+                    if (b.this.mWk != null && !b.this.mWk.isEmpty()) {
+                        g gVar = new g(1);
+                        gVar.title = com.baidu.live.af.a.SE().SM();
+                        arrayList.add(gVar);
+                        for (int i4 = 0; i4 < b.this.mWk.size(); i4 += 2) {
+                            if (com.baidu.live.af.a.SE().SO() == 1) {
+                                dVar = new f();
+                            } else {
+                                dVar = new d();
                             }
-                            arrayList.add(cVar);
+                            dVar.type = 1;
+                            dVar.mWb = b.this.mWk.get(i4);
+                            if (i4 + 1 < b.this.mWk.size()) {
+                                dVar.mWc = b.this.mWk.get(i4 + 1);
+                            }
+                            arrayList.add(dVar);
                         }
                     }
-                    if (b.this.mQI != null) {
-                        b.this.mQI.t(arrayList, i);
+                    if (b.this.mWi != null) {
+                        b.this.mWi.t(arrayList, i);
                     }
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.mQM);
+        MessageManager.getInstance().registerListener(this.mWm);
     }
 
     public void g(long j, int i, int i2) {
         com.baidu.tieba.recommendlist.model.a aVar = new com.baidu.tieba.recommendlist.model.a();
-        aVar.mQG = i;
+        aVar.mWg = i;
         if (i == 0) {
-            this.hTY = 0L;
+            this.igy = 0L;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.mQL >= this.duration) {
-            this.hTY = 0L;
+        if (currentTimeMillis - this.mWl >= this.duration) {
+            this.igy = 0L;
         }
-        this.mQL = currentTimeMillis;
-        if (this.hTY == 0) {
-            this.hTY = System.currentTimeMillis();
+        this.mWl = currentTimeMillis;
+        if (this.igy == 0) {
+            this.igy = System.currentTimeMillis();
             i = 0;
         }
         aVar.setTag(getUniqueId());
         aVar.liveId = j;
-        aVar.hTY = this.hTY;
-        aVar.ZJ = i;
-        aVar.mQF = 1;
-        aVar.aRK = i2;
+        aVar.igy = this.igy;
+        aVar.aas = i;
+        aVar.mWf = 1;
+        aVar.aSz = i2;
         if (i2 == 1 && i == 1) {
-            aVar.mQH = dGJ();
+            aVar.mWh = dGy();
         }
         aVar.setParams();
         MessageManager.getInstance().sendMessage(aVar);
     }
 
-    private long dGJ() {
+    private long dGy() {
         AlaRecommendLiveData alaRecommendLiveData;
-        if (!ListUtils.isEmpty(this.mQK) && (alaRecommendLiveData = this.mQK.get(this.mQK.size() - 1)) != null) {
+        if (!ListUtils.isEmpty(this.mWk) && (alaRecommendLiveData = this.mWk.get(this.mWk.size() - 1)) != null) {
             return alaRecommendLiveData.live_id;
         }
         return 0L;
@@ -156,9 +161,9 @@ public class b extends BdBaseModel {
 
     public void reset() {
         cancelMessage();
-        this.hTY = 0L;
-        this.mQJ = null;
-        this.mQK = null;
+        this.igy = 0L;
+        this.mWj = null;
+        this.mWk = null;
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
@@ -167,17 +172,17 @@ public class b extends BdBaseModel {
         return false;
     }
 
-    public boolean bEO() {
-        return (this.mQJ == null || this.mQJ.isEmpty()) && (this.mQK == null || this.mQK.isEmpty());
+    public boolean isDataEmpty() {
+        return (this.mWj == null || this.mWj.isEmpty()) && (this.mWk == null || this.mWk.isEmpty());
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.mQM);
+        MessageManager.getInstance().unRegisterListener(this.mWm);
         cancelMessage();
-        this.mQI = null;
+        this.mWi = null;
     }
 
     public void a(a aVar) {
-        this.mQI = aVar;
+        this.mWi = aVar;
     }
 }

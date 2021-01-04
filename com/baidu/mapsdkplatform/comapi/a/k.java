@@ -3,24 +3,24 @@ package com.baidu.mapsdkplatform.comapi.a;
 import android.animation.Animator;
 import com.baidu.mapapi.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class k implements Animator.AnimatorListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ j f2201a;
+    final /* synthetic */ j f3133a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(j jVar) {
-        this.f2201a = jVar;
+        this.f3133a = jVar;
     }
 
     @Override // android.animation.Animator.AnimatorListener
     public void onAnimationCancel(Animator animator) {
         Animation.AnimationListener animationListener;
         Animation.AnimationListener animationListener2;
-        animationListener = this.f2201a.d;
+        animationListener = this.f3133a.d;
         if (animationListener != null) {
-            animationListener2 = this.f2201a.d;
+            animationListener2 = this.f3133a.d;
             animationListener2.onAnimationCancel();
         }
     }
@@ -29,9 +29,9 @@ public class k implements Animator.AnimatorListener {
     public void onAnimationEnd(Animator animator) {
         Animation.AnimationListener animationListener;
         Animation.AnimationListener animationListener2;
-        animationListener = this.f2201a.d;
+        animationListener = this.f3133a.d;
         if (animationListener != null) {
-            animationListener2 = this.f2201a.d;
+            animationListener2 = this.f3133a.d;
             animationListener2.onAnimationEnd();
         }
     }
@@ -40,9 +40,9 @@ public class k implements Animator.AnimatorListener {
     public void onAnimationRepeat(Animator animator) {
         Animation.AnimationListener animationListener;
         Animation.AnimationListener animationListener2;
-        animationListener = this.f2201a.d;
+        animationListener = this.f3133a.d;
         if (animationListener != null) {
-            animationListener2 = this.f2201a.d;
+            animationListener2 = this.f3133a.d;
             animationListener2.onAnimationRepeat();
         }
     }
@@ -51,9 +51,9 @@ public class k implements Animator.AnimatorListener {
     public void onAnimationStart(Animator animator) {
         Animation.AnimationListener animationListener;
         Animation.AnimationListener animationListener2;
-        animationListener = this.f2201a.d;
+        animationListener = this.f3133a.d;
         if (animationListener != null) {
-            animationListener2 = this.f2201a.d;
+            animationListener2 = this.f3133a.d;
             animationListener2.onAnimationStart();
         }
     }

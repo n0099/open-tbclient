@@ -1,9 +1,9 @@
 package org.webrtc;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import java.nio.ByteBuffer;
 import org.webrtc.VideoEncoder;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 class VideoEncoderWrapper {
     VideoEncoderWrapper() {
     }
@@ -18,14 +18,14 @@ class VideoEncoderWrapper {
         };
     }
 
-    @CalledByNative
     @Nullable
+    @CalledByNative
     static Integer getScalingSettingsHigh(VideoEncoder.ScalingSettings scalingSettings) {
         return scalingSettings.high;
     }
 
-    @CalledByNative
     @Nullable
+    @CalledByNative
     static Integer getScalingSettingsLow(VideoEncoder.ScalingSettings scalingSettings) {
         return scalingSettings.low;
     }

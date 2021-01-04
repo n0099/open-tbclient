@@ -14,10 +14,12 @@ import java.io.File;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Set;
-/* loaded from: classes18.dex */
+/* loaded from: classes15.dex */
 public class e {
-    private static e ccw;
-    private static String b = null;
+    private static e cjb;
+
+    /* renamed from: b  reason: collision with root package name */
+    private static String f3244b = null;
     private static String c = null;
     private static final Set<String> d = new LinkedHashSet();
 
@@ -25,11 +27,11 @@ public class e {
     }
 
     private String a(Context context, d dVar) {
-        if (dVar.abN() == d.a.LIB_TYPE_JAR) {
-            return (dVar.b().equals(a(dVar.a())) && com.baidu.media.ext.a.b(context.getClassLoader())) ? "apk_internal_jar" : c + File.separator + dVar.a() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar.b() + ".jar";
-        } else if (dVar.abN() == d.a.LIB_TYPE_SO) {
+        if (dVar.adz() == d.a.LIB_TYPE_JAR) {
+            return (dVar.b().equals(a(dVar.a())) && com.baidu.media.ext.a.c(context.getClassLoader())) ? "apk_internal_jar" : c + File.separator + dVar.a() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar.b() + ".jar";
+        } else if (dVar.adz() == d.a.LIB_TYPE_SO) {
             String findLibrary = dVar.b().equals(a(dVar.a())) ? ((BaseDexClassLoader) context.getClassLoader()).findLibrary(dVar.a()) : null;
-            return TextUtils.isEmpty(findLibrary) ? c + File.separator + b + File.separator + dVar.a() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar.b() + File.separator + "lib" + dVar.a() + PluginInstallerService.APK_LIB_SUFFIX : findLibrary;
+            return TextUtils.isEmpty(findLibrary) ? c + File.separator + f3244b + File.separator + dVar.a() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar.b() + File.separator + "lib" + dVar.a() + PluginInstallerService.APK_LIB_SUFFIX : findLibrary;
         } else {
             return null;
         }
@@ -50,14 +52,14 @@ public class e {
         }
     }
 
-    public static synchronized e abO() {
+    public static synchronized e adA() {
         e eVar;
         synchronized (e.class) {
-            if (ccw == null) {
-                b = Utils.f();
-                ccw = new e();
+            if (cjb == null) {
+                f3244b = Utils.f();
+                cjb = new e();
             }
-            eVar = ccw;
+            eVar = cjb;
         }
         return eVar;
     }
@@ -67,7 +69,7 @@ public class e {
         for (d dVar : LibsInfoDef.getAllGroupMap().values()) {
             String a2 = a(context, dVar);
             dVar.a(a2);
-            if (dVar.abN() == d.a.LIB_TYPE_SO) {
+            if (dVar.adz() == d.a.LIB_TYPE_SO) {
                 File parentFile = new File(a2).getParentFile();
                 if (!parentFile.exists() || parentFile.isFile()) {
                     parentFile.mkdirs();
@@ -135,7 +137,15 @@ public class e {
     }
 
     public String c() {
-        return b;
+        return f3244b;
+    }
+
+    public String c(int i) {
+        d ha = ha(i);
+        if (ha == null) {
+            return null;
+        }
+        return f3244b + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + ha.a() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + ha.b() + ".zip";
     }
 
     public void d() {
@@ -151,7 +161,7 @@ public class e {
                         for (File file : new File(e.c).listFiles()) {
                             if (file.isFile()) {
                                 e.this.a(file);
-                            } else if (file.getName().equals(e.b)) {
+                            } else if (file.getName().equals(e.f3244b)) {
                                 e.this.b(file);
                             } else {
                                 Utils.a(file);
@@ -168,14 +178,6 @@ public class e {
         return (i & 28) == i;
     }
 
-    public String du(int i) {
-        d gZ = gZ(i);
-        if (gZ == null) {
-            return null;
-        }
-        return b + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + gZ.a() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + gZ.b() + ".zip";
-    }
-
     public boolean e(int i) {
         return (i & 32) == i;
     }
@@ -184,19 +186,19 @@ public class e {
         return (i & 64) == i;
     }
 
-    public d gZ(int i) {
-        return LibsInfoDef.getAllGroupMap().get(Integer.valueOf(i));
+    public boolean g(int i) {
+        return (i & 896) == i;
     }
 
     public boolean h(int i) {
         return (i & 2048) == i;
     }
 
-    public boolean ha(int i) {
-        return (i & 896) == i;
+    public d ha(int i) {
+        return LibsInfoDef.getAllGroupMap().get(Integer.valueOf(i));
     }
 
-    public boolean hb(int i) {
+    public boolean i(int i) {
         return (i & 3) == i;
     }
 }

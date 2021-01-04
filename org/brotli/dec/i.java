@@ -5,14 +5,14 @@ import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 import com.baidu.ar.face.algo.FAUEnum;
 import com.baidu.down.manage.DownloadConstants;
 import com.baidu.fsg.base.activity.BaseActivity;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 final class i {
-    static final int[] pME = {1, 5, 9, 13, 17, 25, 33, 41, 49, 65, 81, 97, 113, 145, Opcodes.RETURN, FAUEnum.PR_TIMEOUT, BaseActivity.DIALOG_PROMPT, 305, 369, 497, 753, 1265, 2289, 4337, 8433, 16625};
-    static final int[] pMF = {2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 8, 9, 10, 11, 12, 13, 24};
-    static final int[] pMG = {0, 1, 2, 3, 4, 5, 6, 8, 10, 14, 18, 26, 34, 50, 66, 98, IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER, DownloadConstants.STATUS_WAITING_TO_RETRY, 322, 578, 1090, 2114, 6210, 22594};
-    static final int[] pMH = {0, 0, 0, 0, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 7, 8, 9, 10, 12, 14, 24};
-    static final int[] pMI = {2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 18, 22, 30, 38, 54, 70, 102, 134, Opcodes.IFNULL, 326, 582, 1094, 2118};
-    static final int[] pMJ = {0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 7, 8, 9, 10, 24};
-    static final int[] pMK = {0, 0, 8, 8, 0, 16, 8, 16, 16};
-    static final int[] pML = {0, 8, 0, 8, 16, 0, 16, 8, 16};
+    static final int[] qoh = {1, 5, 9, 13, 17, 25, 33, 41, 49, 65, 81, 97, 113, 145, Opcodes.RETURN, FAUEnum.PR_TIMEOUT, BaseActivity.DIALOG_PROMPT, 305, 369, 497, 753, 1265, 2289, 4337, 8433, 16625};
+    static final int[] qoi = {2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 8, 9, 10, 11, 12, 13, 24};
+    static final int[] qoj = {0, 1, 2, 3, 4, 5, 6, 8, 10, 14, 18, 26, 34, 50, 66, 98, IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER, DownloadConstants.STATUS_WAITING_TO_RETRY, 322, 578, 1090, 2114, 6210, 22594};
+    static final int[] qok = {0, 0, 0, 0, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 7, 8, 9, 10, 12, 14, 24};
+    static final int[] qol = {2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 18, 22, 30, 38, 54, 70, 102, 134, Opcodes.IFNULL, 326, 582, 1094, 2118};
+    static final int[] qom = {0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 7, 8, 9, 10, 24};
+    static final int[] qon = {0, 0, 8, 8, 0, 16, 8, 16, 16};
+    static final int[] qoo = {0, 8, 0, 8, 16, 0, 16, 8, 16};
 }

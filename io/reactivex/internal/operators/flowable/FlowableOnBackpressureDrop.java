@@ -5,7 +5,7 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicLong;
 import org.a.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class FlowableOnBackpressureDrop<T> extends a<T, T> implements g<T> {
     final g<? super T> onDrop;
 
@@ -15,10 +15,10 @@ public final class FlowableOnBackpressureDrop<T> extends a<T, T> implements g<T>
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.pFi.a((j) new BackpressureDropSubscriber(cVar, this.onDrop));
+        this.qgK.a((j) new BackpressureDropSubscriber(cVar, this.onDrop));
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class BackpressureDropSubscriber<T> extends AtomicLong implements j<T>, d {
         private static final long serialVersionUID = -6246093802440953054L;
         final org.a.c<? super T> actual;
@@ -51,7 +51,7 @@ public final class FlowableOnBackpressureDrop<T> extends a<T, T> implements g<T>
                 try {
                     this.onDrop.accept(t);
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.J(th);
+                    io.reactivex.exceptions.a.O(th);
                     cancel();
                     onError(th);
                 }

@@ -1,5 +1,5 @@
 package com.baidu.mapapi.navi;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class BaiduMapAppNotSupportNaviException extends RuntimeException {
     public BaiduMapAppNotSupportNaviException() {
     }

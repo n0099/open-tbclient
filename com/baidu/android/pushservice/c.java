@@ -6,39 +6,41 @@ import com.baidu.android.pushservice.d.g;
 import com.baidu.android.pushservice.d.j;
 import java.util.List;
 import java.util.Random;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile c f1021a;
-    private Context b;
+    private static volatile c f1188a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private Context f1189b;
     private Handler c;
     private Runnable d;
     private volatile boolean e;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(int i, String str);
     }
 
     private c(Context context) {
-        this.b = context.getApplicationContext();
+        this.f1189b = context.getApplicationContext();
         this.c = new Handler(context.getMainLooper());
     }
 
     public static c a(Context context) {
-        if (f1021a == null) {
+        if (f1188a == null) {
             synchronized (c.class) {
-                if (f1021a == null) {
-                    f1021a = new c(context);
+                if (f1188a == null) {
+                    f1188a = new c(context);
                 }
             }
         }
-        return f1021a;
+        return f1188a;
     }
 
     private com.baidu.android.pushservice.g.c a(final a aVar, String str) {
-        return new com.baidu.android.pushservice.d.g(this.b, str, new g.a() { // from class: com.baidu.android.pushservice.c.2
+        return new com.baidu.android.pushservice.d.g(this.f1189b, str, new g.a() { // from class: com.baidu.android.pushservice.c.2
             @Override // com.baidu.android.pushservice.d.g.a
             public void a(List<String> list) {
                 if (c.this.c != null) {
@@ -56,7 +58,7 @@ public class c {
     }
 
     private com.baidu.android.pushservice.g.c b(final a aVar, String str) {
-        return new com.baidu.android.pushservice.d.j(this.b, str, new j.a() { // from class: com.baidu.android.pushservice.c.3
+        return new com.baidu.android.pushservice.d.j(this.f1189b, str, new j.a() { // from class: com.baidu.android.pushservice.c.3
             @Override // com.baidu.android.pushservice.d.j.a
             public void a(int i, String[] strArr) {
                 String str2 = null;
@@ -72,9 +74,9 @@ public class c {
         com.baidu.android.pushservice.g.c a2;
         if (aVar != null) {
             if (i == 0) {
-                a2 = b(aVar, h.d(this.b));
+                a2 = b(aVar, h.d(this.f1189b));
             } else if (i == 1) {
-                a2 = b(aVar, h.c(this.b));
+                a2 = b(aVar, h.c(this.f1189b));
             } else if (i != 2) {
                 return;
             } else {
@@ -88,7 +90,7 @@ public class c {
                     };
                 }
                 this.c.postDelayed(this.d, 5000L);
-                a2 = a(aVar, h.c(this.b));
+                a2 = a(aVar, h.c(this.f1189b));
             }
             if (a2 != null) {
                 com.baidu.android.pushservice.g.d.a().a(a2);

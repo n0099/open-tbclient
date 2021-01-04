@@ -1,5 +1,5 @@
 package com.facebook.common.internal;
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 public interface h<T> {
-    boolean bb(T t);
+    boolean apply(T t);
 }

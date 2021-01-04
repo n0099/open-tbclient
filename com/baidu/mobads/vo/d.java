@@ -6,6 +6,7 @@ import android.content.Context;
 import android.graphics.Rect;
 import android.os.Build;
 import android.util.DisplayMetrics;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.mobads.AdSettings;
 import com.baidu.mobads.g.g;
@@ -19,7 +20,7 @@ import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import com.baidu.mobads.utils.e;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public abstract class d implements IXAdRequestInfo {
     protected Context d;
     protected Activity e;
@@ -32,7 +33,7 @@ public abstract class d implements IXAdRequestInfo {
     protected String c = "TODO";
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2458a = "android";
+    private String f3561a = HttpConstants.OS_TYPE_VALUE;
     private String j = "";
     private int m = XAdSDKFoundationFacade.getInstance().getAdConstants().getAdCreativeTypeImage();
     private String n = "LP,DL";
@@ -40,7 +41,9 @@ public abstract class d implements IXAdRequestInfo {
     private int q = 0;
     private boolean s = true;
     private long t = System.currentTimeMillis();
-    protected String b = "";
+
+    /* renamed from: b  reason: collision with root package name */
+    protected String f3562b = "";
     protected IXAdConstants h = XAdSDKFoundationFacade.getInstance().getAdConstants();
     protected IXAdURIUitls i = XAdSDKFoundationFacade.getInstance().getURIUitls();
 
@@ -145,7 +148,7 @@ public abstract class d implements IXAdRequestInfo {
             hashMap.put("sdc", systemUtils.getAppSDC() + "," + systemUtils.getMem());
             hashMap.put("act", getAct());
             hashMap.put("prod", getProd());
-            hashMap.put("os", "android");
+            hashMap.put("os", HttpConstants.OS_TYPE_VALUE);
             hashMap.put(IXAdRequestInfo.OSV, Build.VERSION.RELEASE);
             hashMap.put(IXAdRequestInfo.BDR, "" + Build.VERSION.SDK_INT);
             hashMap.put("apinfo", commonUtils.getBaiduMapsInfo(this.d));
@@ -176,7 +179,7 @@ public abstract class d implements IXAdRequestInfo {
     public String b() {
         HashMap<String, String> e = e();
         e.putAll(a());
-        return XAdSDKFoundationFacade.getInstance().getURIUitls().getRequestAdUrl(this.b, e);
+        return XAdSDKFoundationFacade.getInstance().getURIUitls().getRequestAdUrl(this.f3562b, e);
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdRequestInfo
@@ -189,11 +192,11 @@ public abstract class d implements IXAdRequestInfo {
     }
 
     public String f() {
-        return this.f2458a;
+        return this.f3561a;
     }
 
     public void a(String str) {
-        this.f2458a = str;
+        this.f3561a = str;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdRequestInfo
@@ -299,9 +302,9 @@ public abstract class d implements IXAdRequestInfo {
 
     private void a(Context context) {
         if ("0.0".equals(com.baidu.mobads.a.a.c)) {
-            double b = g.b(context);
-            if (b > 0.0d) {
-                com.baidu.mobads.a.a.c = String.valueOf(b);
+            double b2 = g.b(context);
+            if (b2 > 0.0d) {
+                com.baidu.mobads.a.a.c = String.valueOf(b2);
             }
         }
     }

@@ -1,58 +1,58 @@
 package com.baidu.live.data;
 
-import android.os.Build;
-import android.text.TextUtils;
-import org.json.JSONException;
+import com.baidu.live.adp.lib.util.BdLog;
+import com.baidu.live.data.p;
+import com.baidu.live.tbadk.core.data.BaseData;
+import java.util.ArrayList;
+import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class bm {
-    private String aQC;
-    private String aQD;
-    private String aQE;
-    private String aQF;
-    private String aQG;
+/* loaded from: classes11.dex */
+public class bm extends BaseData {
+    public int aMk;
+    public ArrayList<p> aRm = new ArrayList<>();
+    public ae aRn = new ae();
+    public z aRo = new z();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bm(String str) {
-        parserJson(str);
-    }
-
-    public boolean FR() {
-        return true;
-    }
-
-    public boolean FS() {
-        return "1".equals(this.aQE);
-    }
-
-    public boolean FT() {
-        return "1".equals(this.aQG);
-    }
-
-    private void parserJson(String str) {
-        if (!TextUtils.isEmpty(str)) {
+    @Override // com.baidu.live.tbadk.core.data.BaseData
+    public void parserJson(JSONObject jSONObject) {
+        p.a aVar;
+        if (jSONObject != null) {
             try {
-                JSONObject jSONObject = new JSONObject(str);
-                this.aQC = jSONObject.optString("is_prettify");
-                this.aQD = jSONObject.optString("is_stickers");
-                this.aQE = jSONObject.optString("is_privilegewin");
-                this.aQF = jSONObject.optString("unused_text");
-                this.aQG = jSONObject.optString("is_wishlist", "1");
-            } catch (JSONException e) {
-                e.printStackTrace();
+                JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                if (optJSONObject != null) {
+                    this.aMk = optJSONObject.optInt("interval");
+                }
+                if (this.aMk <= 0) {
+                    this.aMk = 5;
+                }
+                JSONObject optJSONObject2 = jSONObject.optJSONObject("im_rate");
+                if (optJSONObject2 == null) {
+                    aVar = null;
+                } else {
+                    aVar = new p.a(optJSONObject2);
+                }
+                JSONObject optJSONObject3 = jSONObject.optJSONObject("live_activity_new");
+                long optLong = jSONObject.optLong("time", 0L);
+                if (optJSONObject3 != null) {
+                    JSONArray optJSONArray = optJSONObject3.optJSONArray("activity_info");
+                    if (optJSONArray != null && optJSONArray.length() > 0) {
+                        for (int i = 0; i < optJSONArray.length(); i++) {
+                            JSONObject optJSONObject4 = optJSONArray.optJSONObject(i);
+                            if (optJSONObject4 != null) {
+                                p pVar = new p();
+                                pVar.a(aVar);
+                                pVar.parseJson(optJSONObject4);
+                                pVar.serverTime = optLong;
+                                this.aRm.add(pVar);
+                            }
+                        }
+                    }
+                    this.aRn.parseJson(optJSONObject3.optJSONObject("gongyanfang_pkpanel"));
+                    this.aRo.parserJson(optJSONObject3.optJSONObject("lottery_info"));
+                }
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
         }
-    }
-
-    public static boolean a(bo boVar) {
-        return false;
-    }
-
-    public static boolean b(bo boVar) {
-        return Build.VERSION.SDK_INT > 19 && boVar != null && boVar.aQK != null && "1".equals(boVar.aQK.aQC);
-    }
-
-    public static boolean c(bo boVar) {
-        return !b(boVar);
     }
 }

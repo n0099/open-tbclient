@@ -6,9 +6,9 @@ import android.util.Log;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class b {
-    public static String Xa(String str) {
+    public static String WM(String str) {
         try {
             byte[] decode = Base64.decode(str, 9);
             if (decode != null) {

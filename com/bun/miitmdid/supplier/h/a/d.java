@@ -1,21 +1,21 @@
 package com.bun.miitmdid.supplier.h.a;
 
 import android.content.Context;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class d {
     public static String a(Context context, String str) {
-        return b.hy(context).a(str);
+        return b.hM(context).a(str);
     }
 
     public static boolean a(Context context) {
-        return b.hy(context).a();
+        return b.hM(context).a();
     }
 
     public static String b(Context context) {
-        return b.hy(context).b();
+        return b.hM(context).b();
     }
 
     public static String b(Context context, String str) {
-        return b.hy(context).b(str);
+        return b.hM(context).b(str);
     }
 }

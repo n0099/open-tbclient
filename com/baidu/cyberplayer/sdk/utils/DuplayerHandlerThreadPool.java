@@ -7,55 +7,60 @@ import android.os.Message;
 import android.os.SystemClock;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.Keep;
+import com.fun.ad.sdk.FunAdConfig;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicInteger;
 @Keep
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class DuplayerHandlerThreadPool {
     public static final int MSG_CHECK_IDLE_LONG_TIME_OUT = 100;
     public static final int MSG_CHECK_IDLE_SHORT_TIME_OUT = 101;
     public static final String TAG = "DuplayerHandlerThreadPool";
-    private static final Object b = new Object();
+
+    /* renamed from: b  reason: collision with root package name */
+    private static final Object f1899b = new Object();
 
     /* renamed from: a  reason: collision with root package name */
-    a f1441a;
+    a f1900a;
     private ArrayList<DuplayerHandlerThread> c;
     private ArrayList<DuplayerHandlerThread> d;
     private c e;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private final AtomicInteger f1442a = new AtomicInteger(1);
-        private final String b;
+        private final AtomicInteger f1901a = new AtomicInteger(1);
+
+        /* renamed from: b  reason: collision with root package name */
+        private final String f1902b;
         private int c;
 
         a(String str) {
             this.c = 5;
-            this.b = str + Constants.ACCEPT_TIME_SEPARATOR_SERVER;
+            this.f1902b = str + Constants.ACCEPT_TIME_SEPARATOR_SERVER;
             this.c = 5;
         }
 
         public DuplayerHandlerThread a() {
-            DuplayerHandlerThread duplayerHandlerThread = new DuplayerHandlerThread(this.b + this.f1442a.getAndIncrement());
+            DuplayerHandlerThread duplayerHandlerThread = new DuplayerHandlerThread(this.f1902b + this.f1901a.getAndIncrement());
             duplayerHandlerThread.setPriority(this.c);
             return duplayerHandlerThread;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes6.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        private static DuplayerHandlerThreadPool f1443a = new DuplayerHandlerThreadPool();
+        private static DuplayerHandlerThreadPool f1903a = new DuplayerHandlerThreadPool();
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes6.dex */
     private static class c extends Handler {
         private c(Looper looper) {
             super(looper);
@@ -79,12 +84,12 @@ public class DuplayerHandlerThreadPool {
     private DuplayerHandlerThreadPool() {
         this.c = new ArrayList<>();
         this.d = new ArrayList<>();
-        this.f1441a = new a("duplayer-t");
+        this.f1900a = new a("duplayer-t");
         this.e = new c(Looper.getMainLooper());
     }
 
     private DuplayerHandlerThread a() {
-        DuplayerHandlerThread a2 = this.f1441a.a();
+        DuplayerHandlerThread a2 = this.f1900a.a();
         a2.start();
         return a2;
     }
@@ -107,7 +112,7 @@ public class DuplayerHandlerThreadPool {
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         int i;
-        synchronized (b) {
+        synchronized (f1899b) {
             int size = this.c.size();
             CyberLog.d(TAG, "checkIdlePoolShortTimeNoUse size:" + size);
             if (size > 3) {
@@ -135,11 +140,11 @@ public class DuplayerHandlerThreadPool {
     }
 
     public static DuplayerHandlerThreadPool getInstance() {
-        return b.f1443a;
+        return b.f1903a;
     }
 
     public void checkIdlePoolLongTimeNoUse() {
-        synchronized (b) {
+        synchronized (f1899b) {
             if (this.c.size() <= 0) {
                 return;
             }
@@ -150,7 +155,7 @@ public class DuplayerHandlerThreadPool {
                 if (next != null) {
                     long idleBeginTime = next.getIdleBeginTime();
                     CyberLog.d(TAG, "checkIdlePoolLongTimeNoUse long time no use delta:" + (SystemClock.uptimeMillis() - idleBeginTime));
-                    if (idleBeginTime > 0 && SystemClock.uptimeMillis() - idleBeginTime >= 900000) {
+                    if (idleBeginTime > 0 && SystemClock.uptimeMillis() - idleBeginTime >= FunAdConfig.Builder.AD_EXPIRED_INTERVAL) {
                         CyberLog.d(TAG, "checkIdlePoolLongTimeNoUse long time no use");
                         it.remove();
                         a(next);
@@ -164,7 +169,7 @@ public class DuplayerHandlerThreadPool {
 
     public DuplayerHandlerThread obtain() {
         DuplayerHandlerThread duplayerHandlerThread;
-        synchronized (b) {
+        synchronized (f1899b) {
             if (this.c.size() == 0) {
                 duplayerHandlerThread = a();
             } else {
@@ -191,7 +196,7 @@ public class DuplayerHandlerThreadPool {
     }
 
     public void print() {
-        synchronized (b) {
+        synchronized (f1899b) {
             int size = this.c.size();
             CyberLog.d(TAG, "-- mIdlePool size:" + size + "--");
             for (int i = 0; i < size; i++) {
@@ -210,13 +215,13 @@ public class DuplayerHandlerThreadPool {
             return;
         }
         CyberLog.d(TAG, " recycle handlerThread:" + duplayerHandlerThread);
-        synchronized (b) {
+        synchronized (f1899b) {
             duplayerHandlerThread.setIdleBeginTime(SystemClock.uptimeMillis());
             duplayerHandlerThread.setRunState(0);
             this.d.remove(duplayerHandlerThread);
             this.c.add(duplayerHandlerThread);
             if (this.c.size() > 0) {
-                this.e.sendEmptyMessageDelayed(100, 900000L);
+                this.e.sendEmptyMessageDelayed(100, FunAdConfig.Builder.AD_EXPIRED_INTERVAL);
             }
             if (this.c.size() > 3) {
                 this.e.sendEmptyMessageDelayed(101, 120000L);

@@ -1,15 +1,15 @@
 package com.baidu.searchbox.player.event;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.SparseArray;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.searchbox.player.BDPlayerConfig;
 import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.interfaces.INeuron;
 import com.baidu.searchbox.player.pool.IPoolItem;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class VideoEvent implements IPoolItem {
     public static final int PRIORITY_AT_ONCE = 1;
     public static final int PRIORITY_ENTER_QUEUE = 0;
@@ -30,12 +30,12 @@ public class VideoEvent implements IPoolItem {
     private int mType;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     public @interface Priority {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     public @interface Type {
     }
 
@@ -130,8 +130,8 @@ public class VideoEvent implements IPoolItem {
         return this.mEventBundle;
     }
 
-    @PublicMethod
     @NonNull
+    @PublicMethod
     public String getAction() {
         return this.mAction;
     }
@@ -146,8 +146,8 @@ public class VideoEvent implements IPoolItem {
         this.mSender = obj;
     }
 
-    @PublicMethod
     @Nullable
+    @PublicMethod
     public Object getSender() {
         return this.mSender;
     }

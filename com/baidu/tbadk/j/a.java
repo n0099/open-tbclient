@@ -11,10 +11,10 @@ import com.baidu.tbadk.core.util.c;
 import java.io.File;
 /* loaded from: classes.dex */
 public class a {
-    private static long eCo = 604800000;
+    private static long eLS = 604800000;
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void N(File file) {
+    public static void Q(File file) {
         if (file != null) {
             try {
                 if (file.isDirectory()) {
@@ -22,7 +22,7 @@ public class a {
                     if (listFiles != null) {
                         for (int i = 0; i < listFiles.length; i++) {
                             if (listFiles[i].isDirectory()) {
-                                N(listFiles[i]);
+                                Q(listFiles[i]);
                             } else if (!listFiles[i].delete()) {
                             }
                         }
@@ -44,25 +44,25 @@ public class a {
             /* JADX WARN: Type inference failed for: r0v5, types: [com.baidu.tbadk.j.a$1$1] */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                long j = b.bsO().getLong("key_clear_resource", 0L);
+                long j = b.bvq().getLong("key_clear_resource", 0L);
                 long currentTimeMillis = System.currentTimeMillis();
                 if (j == 0) {
-                    b.bsO().putLong("key_clear_resource", currentTimeMillis);
+                    b.bvq().putLong("key_clear_resource", currentTimeMillis);
                     j = currentTimeMillis;
                 }
-                if (currentTimeMillis - j > a.eCo) {
+                if (currentTimeMillis - j > a.eLS) {
                     new Thread() { // from class: com.baidu.tbadk.j.a.1.1
                         @Override // java.lang.Thread, java.lang.Runnable
                         public void run() {
                             super.run();
                             try {
-                                c.bsV();
-                                a.N(TbadkCoreApplication.getInst().getCacheDir());
+                                c.bvx();
+                                a.Q(TbadkCoreApplication.getInst().getCacheDir());
                             } catch (Exception e) {
                             }
                         }
                     }.start();
-                    b.bsO().putLong("key_clear_resource", currentTimeMillis);
+                    b.bvq().putLong("key_clear_resource", currentTimeMillis);
                 }
             }
         });

@@ -1,66 +1,66 @@
 package org.aspectj.a.b;
 
 import java.lang.reflect.Modifier;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 class h {
-    static h pMf = new h();
-    static h pMg;
-    static h pMh;
-    boolean pLW = true;
-    boolean pLX = true;
-    boolean pLY = false;
-    boolean pLZ = false;
-    boolean pMa = false;
-    boolean pMb = true;
-    boolean pMc = true;
-    boolean pMd = true;
-    int pMe;
+    static h qnI = new h();
+    static h qnJ;
+    static h qnK;
+    int qnH;
+    boolean qnz = true;
+    boolean qnA = true;
+    boolean qnB = false;
+    boolean qnC = false;
+    boolean qnD = false;
+    boolean qnE = true;
+    boolean qnF = true;
+    boolean qnG = true;
 
     h() {
     }
 
     static {
-        pMf.pLW = true;
-        pMf.pLX = false;
-        pMf.pLY = false;
-        pMf.pLZ = false;
-        pMf.pMa = true;
-        pMf.pMb = false;
-        pMf.pMc = false;
-        pMf.pMe = 0;
-        pMg = new h();
-        pMg.pLW = true;
-        pMg.pLX = true;
-        pMg.pLY = false;
-        pMg.pLZ = false;
-        pMg.pMa = false;
-        pMf.pMe = 1;
-        pMh = new h();
-        pMh.pLW = false;
-        pMh.pLX = true;
-        pMh.pLY = false;
-        pMh.pLZ = true;
-        pMh.pMa = false;
-        pMh.pMd = false;
-        pMh.pMe = 2;
+        qnI.qnz = true;
+        qnI.qnA = false;
+        qnI.qnB = false;
+        qnI.qnC = false;
+        qnI.qnD = true;
+        qnI.qnE = false;
+        qnI.qnF = false;
+        qnI.qnH = 0;
+        qnJ = new h();
+        qnJ.qnz = true;
+        qnJ.qnA = true;
+        qnJ.qnB = false;
+        qnJ.qnC = false;
+        qnJ.qnD = false;
+        qnI.qnH = 1;
+        qnK = new h();
+        qnK.qnz = false;
+        qnK.qnA = true;
+        qnK.qnB = false;
+        qnK.qnC = true;
+        qnK.qnD = false;
+        qnK.qnG = false;
+        qnK.qnH = 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String aav(String str) {
+    public String acp(String str) {
         int lastIndexOf = str.lastIndexOf(45);
         return lastIndexOf == -1 ? str : str.substring(lastIndexOf + 1);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String Se(int i) {
-        if (this.pLZ) {
+    public String Tx(int i) {
+        if (this.qnC) {
             String modifier = Modifier.toString(i);
             return modifier.length() == 0 ? "" : new StringBuffer().append(modifier).append(" ").toString();
         }
         return "";
     }
 
-    String aaw(String str) {
+    String acq(String str) {
         int lastIndexOf = str.lastIndexOf(46);
         return lastIndexOf == -1 ? str : str.substring(lastIndexOf + 1);
     }
@@ -73,18 +73,18 @@ class h {
             Class<?> componentType = cls.getComponentType();
             return new StringBuffer().append(b(componentType, componentType.getName(), z)).append("[]").toString();
         } else if (z) {
-            return aaw(str).replace('$', '.');
+            return acq(str).replace('$', '.');
         } else {
             return str.replace('$', '.');
         }
     }
 
-    public String N(Class cls) {
-        return b(cls, cls.getName(), this.pLW);
+    public String H(Class cls) {
+        return b(cls, cls.getName(), this.qnz);
     }
 
-    public String k(Class cls, String str) {
-        return b(cls, str, this.pMa);
+    public String l(Class cls, String str) {
+        return b(cls, str, this.qnD);
     }
 
     public void a(StringBuffer stringBuffer, Class[] clsArr) {
@@ -92,13 +92,13 @@ class h {
             if (i > 0) {
                 stringBuffer.append(", ");
             }
-            stringBuffer.append(N(clsArr[i]));
+            stringBuffer.append(H(clsArr[i]));
         }
     }
 
     public void b(StringBuffer stringBuffer, Class[] clsArr) {
         if (clsArr != null) {
-            if (!this.pLX) {
+            if (!this.qnA) {
                 if (clsArr.length == 0) {
                     stringBuffer.append("()");
                     return;
@@ -114,7 +114,7 @@ class h {
     }
 
     public void c(StringBuffer stringBuffer, Class[] clsArr) {
-        if (this.pLY && clsArr != null && clsArr.length != 0) {
+        if (this.qnB && clsArr != null && clsArr.length != 0) {
             stringBuffer.append(" throws ");
             a(stringBuffer, clsArr);
         }

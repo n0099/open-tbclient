@@ -6,12 +6,12 @@ import android.graphics.BitmapFactory;
 import android.opengl.GLES20;
 import android.opengl.GLUtils;
 import android.util.Log;
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class TextureHelper {
     private static boolean DEBUG = false;
     private static final String TAG = "TextureHelper";
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes15.dex */
     public static class TextureBean {
         public int textureId = 0;
         public int width = 0;

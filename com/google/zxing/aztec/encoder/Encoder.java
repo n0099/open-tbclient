@@ -4,7 +4,7 @@ import com.google.zxing.common.BitArray;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.common.reedsolomon.GenericGF;
 import com.google.zxing.common.reedsolomon.ReedSolomonEncoder;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class Encoder {
     public static final int DEFAULT_AZTEC_LAYERS = 0;
     public static final int DEFAULT_EC_PERCENT = 33;
@@ -20,11 +20,11 @@ public final class Encoder {
     }
 
     public static AztecCode encode(byte[] bArr, int i, int i2) {
+        boolean z;
         int i3;
         BitArray bitArray;
         int i4;
         int i5;
-        boolean z;
         int i6;
         int i7;
         BitArray encode = new HighLevelEncoder(bArr).encode();
@@ -32,113 +32,111 @@ public final class Encoder {
         int size2 = encode.getSize() + size;
         if (i2 != 0) {
             boolean z2 = i2 < 0;
-            int abs = Math.abs(i2);
-            if (abs > (z2 ? 4 : 32)) {
+            i5 = Math.abs(i2);
+            if (i5 > (z2 ? 4 : 32)) {
                 throw new IllegalArgumentException(String.format("Illegal value %s for layers", Integer.valueOf(i2)));
             }
-            int i8 = totalBitsInLayer(abs, z2);
-            int i9 = WORD_SIZE[abs];
-            int i10 = i8 - (i8 % i9);
-            BitArray stuffBits = stuffBits(encode, i9);
-            if (stuffBits.getSize() + size > i10) {
+            i3 = totalBitsInLayer(i5, z2);
+            int i8 = WORD_SIZE[i5];
+            int i9 = i3 - (i3 % i8);
+            BitArray stuffBits = stuffBits(encode, i8);
+            if (stuffBits.getSize() + size > i9) {
                 throw new IllegalArgumentException("Data to large for user specified layer");
             }
-            if (z2 && stuffBits.getSize() > (i9 << 6)) {
+            if (z2 && stuffBits.getSize() > (i8 << 6)) {
                 throw new IllegalArgumentException("Data to large for user specified layer");
             }
-            i3 = i9;
-            i5 = i8;
-            i4 = abs;
-            z = z2;
             bitArray = stuffBits;
+            i4 = i8;
+            z = z2;
         } else {
-            i3 = 0;
-            bitArray = null;
+            int i10 = 0;
+            BitArray bitArray2 = null;
             int i11 = 0;
             while (i11 <= 32) {
-                boolean z3 = i11 <= 3;
-                int i12 = z3 ? i11 + 1 : i11;
-                int i13 = totalBitsInLayer(i12, z3);
-                if (size2 <= i13) {
-                    if (i3 != WORD_SIZE[i12]) {
-                        i3 = WORD_SIZE[i12];
-                        bitArray = stuffBits(encode, i3);
+                z = i11 <= 3;
+                int i12 = z ? i11 + 1 : i11;
+                i3 = totalBitsInLayer(i12, z);
+                if (size2 <= i3) {
+                    if (i10 != WORD_SIZE[i12]) {
+                        i10 = WORD_SIZE[i12];
+                        bitArray2 = stuffBits(encode, i10);
                     }
-                    int i14 = i13 - (i13 % i3);
-                    if ((!z3 || bitArray.getSize() <= (i3 << 6)) && bitArray.getSize() + size <= i14) {
-                        i4 = i12;
-                        i5 = i13;
-                        z = z3;
+                    int i13 = i3 - (i3 % i10);
+                    if ((!z || bitArray2.getSize() <= (i10 << 6)) && bitArray2.getSize() + size <= i13) {
+                        bitArray = bitArray2;
+                        i4 = i10;
+                        i5 = i12;
                     }
                 }
                 i11++;
             }
             throw new IllegalArgumentException("Data too large for an Aztec code");
         }
-        BitArray generateCheckWords = generateCheckWords(bitArray, i5, i3);
-        int size3 = bitArray.getSize() / i3;
-        BitArray generateModeMessage = generateModeMessage(z, i4, size3);
-        int i15 = (i4 << 2) + (z ? 11 : 14);
-        int[] iArr = new int[i15];
+        BitArray generateCheckWords = generateCheckWords(bitArray, i3, i4);
+        int size3 = bitArray.getSize() / i4;
+        BitArray generateModeMessage = generateModeMessage(z, i5, size3);
+        int i14 = (i5 << 2) + (z ? 11 : 14);
+        int[] iArr = new int[i14];
         if (z) {
-            for (int i16 = 0; i16 < iArr.length; i16++) {
-                iArr[i16] = i16;
+            for (int i15 = 0; i15 < iArr.length; i15++) {
+                iArr[i15] = i15;
             }
-            i6 = i15;
+            i6 = i14;
         } else {
-            i6 = i15 + 1 + ((((i15 / 2) - 1) / 15) * 2);
-            int i17 = i15 / 2;
-            int i18 = i6 / 2;
-            for (int i19 = 0; i19 < i17; i19++) {
-                iArr[(i17 - i19) - 1] = (i18 - i7) - 1;
-                iArr[i17 + i19] = (i19 / 15) + i19 + i18 + 1;
+            i6 = i14 + 1 + ((((i14 / 2) - 1) / 15) * 2);
+            int i16 = i14 / 2;
+            int i17 = i6 / 2;
+            for (int i18 = 0; i18 < i16; i18++) {
+                iArr[(i16 - i18) - 1] = (i17 - i7) - 1;
+                iArr[i16 + i18] = (i18 / 15) + i18 + i17 + 1;
             }
         }
         BitMatrix bitMatrix = new BitMatrix(i6);
-        int i20 = 0;
-        for (int i21 = 0; i21 < i4; i21++) {
-            int i22 = ((i4 - i21) << 2) + (z ? 9 : 12);
-            for (int i23 = 0; i23 < i22; i23++) {
-                int i24 = i23 << 1;
-                for (int i25 = 0; i25 < 2; i25++) {
-                    if (generateCheckWords.get(i20 + i24 + i25)) {
-                        bitMatrix.set(iArr[(i21 << 1) + i25], iArr[(i21 << 1) + i23]);
+        int i19 = 0;
+        for (int i20 = 0; i20 < i5; i20++) {
+            int i21 = ((i5 - i20) << 2) + (z ? 9 : 12);
+            for (int i22 = 0; i22 < i21; i22++) {
+                int i23 = i22 << 1;
+                for (int i24 = 0; i24 < 2; i24++) {
+                    if (generateCheckWords.get(i19 + i23 + i24)) {
+                        bitMatrix.set(iArr[(i20 << 1) + i24], iArr[(i20 << 1) + i22]);
                     }
-                    if (generateCheckWords.get((i22 << 1) + i20 + i24 + i25)) {
-                        bitMatrix.set(iArr[(i21 << 1) + i23], iArr[((i15 - 1) - (i21 << 1)) - i25]);
+                    if (generateCheckWords.get((i21 << 1) + i19 + i23 + i24)) {
+                        bitMatrix.set(iArr[(i20 << 1) + i22], iArr[((i14 - 1) - (i20 << 1)) - i24]);
                     }
-                    if (generateCheckWords.get((i22 << 2) + i20 + i24 + i25)) {
-                        bitMatrix.set(iArr[((i15 - 1) - (i21 << 1)) - i25], iArr[((i15 - 1) - (i21 << 1)) - i23]);
+                    if (generateCheckWords.get((i21 << 2) + i19 + i23 + i24)) {
+                        bitMatrix.set(iArr[((i14 - 1) - (i20 << 1)) - i24], iArr[((i14 - 1) - (i20 << 1)) - i22]);
                     }
-                    if (generateCheckWords.get((i22 * 6) + i20 + i24 + i25)) {
-                        bitMatrix.set(iArr[((i15 - 1) - (i21 << 1)) - i23], iArr[(i21 << 1) + i25]);
+                    if (generateCheckWords.get((i21 * 6) + i19 + i23 + i24)) {
+                        bitMatrix.set(iArr[((i14 - 1) - (i20 << 1)) - i22], iArr[(i20 << 1) + i24]);
                     }
                 }
             }
-            i20 = (i22 << 3) + i20;
+            i19 = (i21 << 3) + i19;
         }
         drawModeMessage(bitMatrix, z, i6, generateModeMessage);
         if (z) {
             drawBullsEye(bitMatrix, i6 / 2, 5);
         } else {
             drawBullsEye(bitMatrix, i6 / 2, 7);
+            int i25 = 0;
             int i26 = 0;
-            int i27 = 0;
-            while (i26 < (i15 / 2) - 1) {
-                for (int i28 = (i6 / 2) & 1; i28 < i6; i28 += 2) {
-                    bitMatrix.set((i6 / 2) - i27, i28);
-                    bitMatrix.set((i6 / 2) + i27, i28);
-                    bitMatrix.set(i28, (i6 / 2) - i27);
-                    bitMatrix.set(i28, (i6 / 2) + i27);
+            while (i25 < (i14 / 2) - 1) {
+                for (int i27 = (i6 / 2) & 1; i27 < i6; i27 += 2) {
+                    bitMatrix.set((i6 / 2) - i26, i27);
+                    bitMatrix.set((i6 / 2) + i26, i27);
+                    bitMatrix.set(i27, (i6 / 2) - i26);
+                    bitMatrix.set(i27, (i6 / 2) + i26);
                 }
-                i26 += 15;
-                i27 += 16;
+                i25 += 15;
+                i26 += 16;
             }
         }
         AztecCode aztecCode = new AztecCode();
         aztecCode.setCompact(z);
         aztecCode.setSize(i6);
-        aztecCode.setLayers(i4);
+        aztecCode.setLayers(i5);
         aztecCode.setCodeWords(size3);
         aztecCode.setMatrix(bitMatrix);
         return aztecCode;

@@ -3,7 +3,6 @@ package com.baidu.afd;
 import android.text.TextUtils;
 import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.platform.comapi.map.MapBundleKey;
-import com.baidu.searchbox.ugc.model.UgcConstant;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -48,7 +47,7 @@ public class f {
             }
             boolean z = optJSONObject.optInt("advisible", 1) == 0;
             if (z) {
-                str2 = optJSONObject.has(UgcConstant.EXT_INFO) ? optJSONObject.optString(UgcConstant.EXT_INFO, null) : null;
+                str2 = optJSONObject.has("ext_info") ? optJSONObject.optString("ext_info", null) : null;
             } else {
                 str2 = null;
             }
@@ -99,8 +98,8 @@ public class f {
                     throw new ParseError(1, "info array has no first element");
                 }
                 e eVar = new e();
-                eVar.ZS = z;
-                eVar.ZT = com.baidu.tieba.lego.card.b.Oo(optJSONObject4.optJSONObject("lego_card").toString());
+                eVar.aaB = z;
+                eVar.aaC = com.baidu.tieba.lego.card.b.NW(optJSONObject4.optJSONObject("lego_card").toString());
                 eVar.ext = str2;
                 return eVar;
             } catch (JSONException e) {

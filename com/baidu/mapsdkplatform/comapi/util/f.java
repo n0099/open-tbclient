@@ -4,12 +4,14 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Environment;
 import java.io.File;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private final boolean f2253a;
-    private final String b;
+    private final boolean f3219a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private final String f3220b;
     private final String c;
     private final String d;
     private final String e;
@@ -20,26 +22,26 @@ public final class f {
         if (Build.VERSION.SDK_INT >= 29) {
             File externalFilesDir = context.getExternalFilesDir(null);
             if (externalFilesDir == null || !externalFilesDir.exists()) {
-                this.b = context.getFilesDir().getPath();
+                this.f3220b = context.getFilesDir().getPath();
             } else {
-                this.b = externalFilesDir.getPath();
+                this.f3220b = externalFilesDir.getPath();
             }
         } else {
-            this.b = Environment.getExternalStorageDirectory().getAbsolutePath();
+            this.f3220b = Environment.getExternalStorageDirectory().getAbsolutePath();
         }
-        this.f2253a = false;
-        this.c = this.b + File.separator + "BaiduMapSDKNew";
+        this.f3219a = false;
+        this.c = this.f3220b + File.separator + "BaiduMapSDKNew";
         this.d = context.getCacheDir().getAbsolutePath();
         this.e = "";
         this.f = "";
     }
 
     public String a() {
-        return this.b;
+        return this.f3220b;
     }
 
     public String b() {
-        return this.b + File.separator + "BaiduMapSDKNew";
+        return this.f3220b + File.separator + "BaiduMapSDKNew";
     }
 
     public String c() {
@@ -54,6 +56,6 @@ public final class f {
         if (obj == null || !f.class.isInstance(obj)) {
             return false;
         }
-        return this.b.equals(((f) obj).b);
+        return this.f3220b.equals(((f) obj).f3220b);
     }
 }

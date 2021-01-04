@@ -2,11 +2,10 @@ package com.baidu.ar.plugin;
 
 import android.content.Context;
 import android.os.Environment;
-import com.baidu.searchbox.ugc.model.UgcConstant;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class PluginDirHelper {
     private static File sBaseDir = null;
 
@@ -75,8 +74,8 @@ public class PluginDirHelper {
 
     public static String getPluginDalvikCacheFile(Context context, String str) {
         String pluginDalvikCacheDir = getPluginDalvikCacheDir(context, str);
-        String replace = new File(getPluginApkFile(context, str)).getName().replace(File.separator, UgcConstant.AT_RULE_TAG);
-        if (replace.startsWith(UgcConstant.AT_RULE_TAG)) {
+        String replace = new File(getPluginApkFile(context, str)).getName().replace(File.separator, "@");
+        if (replace.startsWith("@")) {
             replace = replace.substring(1);
         }
         return new File(pluginDalvikCacheDir, replace + "@classes.dex").getPath();

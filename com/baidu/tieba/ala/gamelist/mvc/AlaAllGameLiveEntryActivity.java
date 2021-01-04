@@ -22,44 +22,44 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.gamelist.a.a;
 import com.baidu.tieba.view.NoScrollGridView;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
-    private LinearLayout gAf;
-    private ArrayList<AlaSquareTabInfo> gNo;
-    private LinearLayout gNs;
-    private TextView gNt;
-    private ImageView gNu;
-    private NoScrollGridView gNv;
-    private View gNw;
-    private a gNx;
-    private int gNy;
-    private IAlaSquareTabController gpS;
+    private IAlaSquareTabController gAR;
+    private LinearLayout gLi;
+    private ArrayList<AlaSquareTabInfo> gYY;
+    private LinearLayout gZc;
+    private TextView gZd;
+    private ImageView gZe;
+    private NoScrollGridView gZf;
+    private View gZg;
+    private a gZh;
+    private int gZi;
     private NavigationBar mNavigationBar;
     private LinearLayout mRootView;
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        bVX();
+        bYC();
         initView();
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(AlaCmdConfigCustom.CMD_ALA_SQUARE_TAB_CONTROLLER, IAlaSquareTabController.class);
         if (runTask != null && runTask.getData() != null) {
-            this.gpS = (IAlaSquareTabController) runTask.getData();
+            this.gAR = (IAlaSquareTabController) runTask.getData();
         }
     }
 
-    private void bVX() {
+    private void bYC() {
         Intent intent = getIntent();
         if (intent != null) {
-            this.gNy = intent.getIntExtra(AlaAllGameLiveEntryActivityConfig.ALA_ALL_GAME_ENTRY_HAS_SEARCH, 0);
-            this.gNo = intent.getParcelableArrayListExtra(AlaAllGameLiveEntryActivityConfig.ALA_ALL_GAME_ENTRY_DATA);
+            this.gZi = intent.getIntExtra(AlaAllGameLiveEntryActivityConfig.ALA_ALL_GAME_ENTRY_HAS_SEARCH, 0);
+            this.gYY = intent.getParcelableArrayListExtra(AlaAllGameLiveEntryActivityConfig.ALA_ALL_GAME_ENTRY_DATA);
         }
     }
 
@@ -68,33 +68,33 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
         this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setCenterTextTitle(getResources().getString(R.string.ala_all_game_entry_title));
-        this.gNs = (LinearLayout) this.mRootView.findViewById(R.id.search_container);
-        this.gNt = (TextView) this.gNs.findViewById(R.id.search_text);
-        this.gNt.setClickable(false);
-        this.gNu = (ImageView) this.gNs.findViewById(R.id.search_icon);
-        this.gNs.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.gamelist.mvc.AlaAllGameLiveEntryActivity.1
+        this.gZc = (LinearLayout) this.mRootView.findViewById(R.id.search_container);
+        this.gZd = (TextView) this.gZc.findViewById(R.id.search_text);
+        this.gZd.setClickable(false);
+        this.gZe = (ImageView) this.gZc.findViewById(R.id.search_icon);
+        this.gZc.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.gamelist.mvc.AlaAllGameLiveEntryActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_SQUARESEARCH, new IntentConfig(AlaAllGameLiveEntryActivity.this.getPageContext().getPageActivity())));
             }
         });
-        if (this.gNy == 1) {
-            this.gNs.setVisibility(0);
+        if (this.gZi == 1) {
+            this.gZc.setVisibility(0);
         } else {
-            this.gNs.setVisibility(8);
+            this.gZc.setVisibility(8);
         }
-        this.gAf = (LinearLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.ala_all_game_no_data, (ViewGroup) null);
-        this.gNw = this.mRootView.findViewById(R.id.scroll_grid_view_root);
-        this.gNx = new a(getPageContext());
-        this.gNv = (NoScrollGridView) this.mRootView.findViewById(R.id.ala_live_list);
-        this.gNv.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.ala.gamelist.mvc.AlaAllGameLiveEntryActivity.2
+        this.gLi = (LinearLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.ala_all_game_no_data, (ViewGroup) null);
+        this.gZg = this.mRootView.findViewById(R.id.scroll_grid_view_root);
+        this.gZh = new a(getPageContext());
+        this.gZf = (NoScrollGridView) this.mRootView.findViewById(R.id.ala_live_list);
+        this.gZf.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.ala.gamelist.mvc.AlaAllGameLiveEntryActivity.2
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                AlaSquareTabInfo alaSquareTabInfo = (AlaSquareTabInfo) y.getItem(AlaAllGameLiveEntryActivity.this.gNx.getData(), i);
-                if (alaSquareTabInfo != null && AlaAllGameLiveEntryActivity.this.gpS != null) {
-                    int tabIndex = AlaAllGameLiveEntryActivity.this.gpS.getTabIndex(alaSquareTabInfo.id);
+                AlaSquareTabInfo alaSquareTabInfo = (AlaSquareTabInfo) x.getItem(AlaAllGameLiveEntryActivity.this.gZh.getData(), i);
+                if (alaSquareTabInfo != null && AlaAllGameLiveEntryActivity.this.gAR != null) {
+                    int tabIndex = AlaAllGameLiveEntryActivity.this.gAR.getTabIndex(alaSquareTabInfo.id);
                     if (tabIndex >= 0) {
-                        AlaAllGameLiveEntryActivity.this.gpS.goToTab(tabIndex);
+                        AlaAllGameLiveEntryActivity.this.gAR.goToTab(tabIndex);
                         AlaAllGameLiveEntryActivity.this.finish();
                         return;
                     }
@@ -102,14 +102,14 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
                 }
             }
         });
-        this.gNv.setAdapter((ListAdapter) this.gNx);
-        if (y.isEmpty(this.gNo)) {
-            this.gNw.setVisibility(8);
-            this.mRootView.addView(this.gAf, 1);
+        this.gZf.setAdapter((ListAdapter) this.gZh);
+        if (x.isEmpty(this.gYY)) {
+            this.gZg.setVisibility(8);
+            this.mRootView.addView(this.gLi, 1);
         } else {
-            this.mRootView.removeView(this.gAf);
-            this.gNw.setVisibility(0);
-            this.gNx.setData(this.gNo);
+            this.mRootView.removeView(this.gLi);
+            this.gZg.setVisibility(0);
+            this.gZh.setData(this.gYY);
         }
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         setContentView(this.mRootView);
@@ -118,15 +118,15 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        ap.setImageResource(this.gNu, R.drawable.icon_search);
-        ap.setViewTextColor(this.gNt, (int) R.color.enter_forum_search_text_color);
-        ap.setBackgroundResource(this.gNs, R.drawable.all_game_search_frame);
+        ao.setImageResource(this.gZe, R.drawable.icon_search);
+        ao.setViewTextColor(this.gZd, R.color.enter_forum_search_text_color);
+        ao.setBackgroundResource(this.gZc, R.drawable.all_game_search_frame);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.gpS = null;
+        this.gAR = null;
     }
 }

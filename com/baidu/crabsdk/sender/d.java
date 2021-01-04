@@ -4,81 +4,81 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import java.lang.ref.SoftReference;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public final class d extends Thread {
-    private static boolean aqX = false;
-    private final Context aoI;
-    private final SoftReference<Looper> aqY;
-    private SoftReference<Handler> aqZ;
-    private final int ara;
-    private volatile int arb;
-    private a arc;
-    private final Runnable ard;
+    private static boolean art = false;
+    private final Context api;
+    private final SoftReference<Looper> aru;
+    private SoftReference<Handler> arv;
+    private final int arw;
+    private volatile int arx;
+    private a ary;
+    private final Runnable arz;
 
     private d(Context context, int i) {
-        this.aqY = new SoftReference<>(Looper.getMainLooper());
-        this.arb = 0;
-        this.ard = new e(this);
-        this.aoI = context;
-        this.ara = 3000;
+        this.aru = new SoftReference<>(Looper.getMainLooper());
+        this.arx = 0;
+        this.arz = new e(this);
+        this.api = context;
+        this.arw = 3000;
         switch (i) {
             case 1:
-                this.arc = new b(context);
+                this.ary = new b(context);
                 return;
             case 2:
-                this.arc = new c(context);
+                this.ary = new c(context);
                 return;
             default:
                 return;
         }
     }
 
-    public d(Context context, int i, byte b) {
+    public d(Context context, int i, byte b2) {
         this(context, i);
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public final void run() {
         int i;
-        com.baidu.crabsdk.c.a.v("***isRunning = " + aqX + "***");
-        if (aqX) {
+        com.baidu.crabsdk.c.a.v("***isRunning = " + art + "***");
+        if (art) {
             return;
         }
-        aqX = true;
+        art = true;
         setName("|AnrWatchThread|");
-        com.baidu.crabsdk.c.a.dE("AnrWatchThread start!");
+        com.baidu.crabsdk.c.a.dx("AnrWatchThread start!");
         do {
             if (isInterrupted()) {
                 break;
             }
-            i = this.arb;
-            if (this.aqY.get() == null) {
-                aqX = false;
+            i = this.arx;
+            if (this.aru.get() == null) {
+                art = false;
                 break;
             }
             try {
-                if (this.aqZ == null || this.aqZ.get() == null) {
-                    this.aqZ = new SoftReference<>(new Handler(this.aqY.get()));
+                if (this.arv == null || this.arv.get() == null) {
+                    this.arv = new SoftReference<>(new Handler(this.aru.get()));
                 }
-                this.aqZ.get().post(this.ard);
-                Thread.sleep(this.ara);
+                this.arv.get().post(this.arz);
+                Thread.sleep(this.arw);
                 if (com.baidu.crabsdk.a.I == 0) {
-                    aqX = false;
-                    com.baidu.crabsdk.c.a.dF("anr watch thread is breakdown!");
+                    art = false;
+                    com.baidu.crabsdk.c.a.dy("anr watch thread is breakdown!");
                     break;
                 }
             } catch (Exception e) {
                 com.baidu.crabsdk.c.a.w("AnrWatchThread Exception: " + e.getMessage());
             }
-        } while (this.arb != i);
-        if (this.aoI != null && !com.baidu.crabsdk.a.J) {
-            com.baidu.crabsdk.c.a.dE("onAppNotResponding!");
-            if (this.arc != null) {
-                this.arc.e("/data/anr/traces.txt");
+        } while (this.arx != i);
+        if (this.api != null && !com.baidu.crabsdk.a.J) {
+            com.baidu.crabsdk.c.a.dx("onAppNotResponding!");
+            if (this.ary != null) {
+                this.ary.e("/data/anr/traces.txt");
             }
         }
-        aqX = false;
-        aqX = false;
-        com.baidu.crabsdk.c.a.dF("anr watch thread is over!");
+        art = false;
+        art = false;
+        com.baidu.crabsdk.c.a.dy("anr watch thread is over!");
     }
 }

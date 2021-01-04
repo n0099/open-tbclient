@@ -14,7 +14,6 @@ import android.graphics.drawable.NinePatchDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -27,6 +26,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.live.adp.framework.MessageConfig;
@@ -41,7 +41,7 @@ import java.lang.ref.WeakReference;
 import java.util.Timer;
 import java.util.TimerTask;
 @TargetApi(20)
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsListener {
     public static final int BT_INVIEW = 1;
     private static String c;
@@ -55,7 +55,7 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
     private boolean H;
 
     /* renamed from: a  reason: collision with root package name */
-    ScreenShape f2055a;
+    ScreenShape f2892a;
     private MapSurfaceView f;
     private BaiduMap g;
     private ImageView h;
@@ -76,7 +76,9 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
     private Context w;
     private boolean y;
     private boolean z;
-    private static final String b = MapView.class.getSimpleName();
+
+    /* renamed from: b  reason: collision with root package name */
+    private static final String f2891b = MapView.class.getSimpleName();
     private static int d = 0;
     private static int e = 0;
     private static int s = 0;
@@ -84,7 +86,7 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
     private static int u = 10;
     private static final SparseArray<Integer> x = new SparseArray<>();
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public class AnimationTask extends TimerTask {
         public AnimationTask() {
         }
@@ -97,14 +99,14 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
         }
     }
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public interface OnDismissCallback {
         void onDismiss();
 
         void onNotify();
     }
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public enum ScreenShape {
         ROUND,
         RECTANGLE,
@@ -112,17 +114,19 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public class a extends Handler {
-        private final WeakReference<Context> b;
+
+        /* renamed from: b  reason: collision with root package name */
+        private final WeakReference<Context> f2896b;
 
         public a(Context context) {
-            this.b = new WeakReference<>(context);
+            this.f2896b = new WeakReference<>(context);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            if (this.b.get() == null) {
+            if (this.f2896b.get() == null) {
                 return;
             }
             super.handleMessage(message);
@@ -166,7 +170,7 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
         super(context);
         this.k = true;
         this.v = true;
-        this.f2055a = ScreenShape.ROUND;
+        this.f2892a = ScreenShape.ROUND;
         this.y = true;
         this.z = true;
         this.H = false;
@@ -177,7 +181,7 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
         super(context, attributeSet);
         this.k = true;
         this.v = true;
-        this.f2055a = ScreenShape.ROUND;
+        this.f2892a = ScreenShape.ROUND;
         this.y = true;
         this.z = true;
         this.H = false;
@@ -188,7 +192,7 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
         super(context, attributeSet, i);
         this.k = true;
         this.v = true;
-        this.f2055a = ScreenShape.ROUND;
+        this.f2892a = ScreenShape.ROUND;
         this.y = true;
         this.z = true;
         this.H = false;
@@ -199,7 +203,7 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
         super(context);
         this.k = true;
         this.v = true;
-        this.f2055a = ScreenShape.ROUND;
+        this.f2892a = ScreenShape.ROUND;
         this.y = true;
         this.z = true;
         this.H = false;
@@ -311,13 +315,13 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
             return;
         }
         if (TextUtils.isEmpty(str)) {
-            Log.e(b, "customStyleFilePath is empty or null, please check!");
+            Log.e(f2891b, "customStyleFilePath is empty or null, please check!");
         } else if (!str.endsWith(".sty")) {
-            Log.e(b, "customStyleFile format is incorrect , please check!");
+            Log.e(f2891b, "customStyleFile format is incorrect , please check!");
         } else if (new File(str).exists()) {
             this.f.getBaseMap().a(str, i);
         } else {
-            Log.e(b, "customStyleFile does not exist , please check!");
+            Log.e(f2891b, "customStyleFile does not exist , please check!");
         }
     }
 
@@ -499,9 +503,9 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
     @Override // android.view.View.OnApplyWindowInsetsListener
     public WindowInsets onApplyWindowInsets(View view, WindowInsets windowInsets) {
         if (windowInsets.isRound()) {
-            this.f2055a = ScreenShape.ROUND;
+            this.f2892a = ScreenShape.ROUND;
         } else {
-            this.f2055a = ScreenShape.RECTANGLE;
+            this.f2892a = ScreenShape.RECTANGLE;
         }
         return windowInsets;
     }
@@ -595,8 +599,8 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
     @TargetApi(20)
     protected final void onLayout(boolean z, int i, int i2, int i3, int i4) {
         float f;
-        float f2;
         int childCount = getChildCount();
+        float f2 = 1.0f;
         a(this.h);
         if (((getWidth() - this.B) - this.C) - this.h.getMeasuredWidth() <= 0 || ((getHeight() - this.D) - this.E) - this.h.getMeasuredHeight() <= 0) {
             this.B = 0;
@@ -604,20 +608,19 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
             this.E = 0;
             this.D = 0;
             f = 1.0f;
-            f2 = 1.0f;
         } else {
-            f = ((getWidth() - this.B) - this.C) / getWidth();
-            f2 = ((getHeight() - this.D) - this.E) / getHeight();
+            f2 = ((getWidth() - this.B) - this.C) / getWidth();
+            f = ((getHeight() - this.D) - this.E) / getHeight();
         }
         for (int i5 = 0; i5 < childCount; i5++) {
             View childAt = getChildAt(i5);
             if (childAt == this.f) {
                 this.f.layout(0, 0, getWidth(), getHeight());
             } else if (childAt == this.h) {
-                int i6 = (int) (this.E + (12.0f * f2));
+                int i6 = (int) (this.E + (12.0f * f));
                 int i7 = 0;
                 int i8 = 0;
-                if (this.f2055a == ScreenShape.ROUND) {
+                if (this.f2892a == ScreenShape.ROUND) {
                     a(this.j);
                     int i9 = s / 2;
                     i8 = a(i9, this.j.getMeasuredWidth() / 2);
@@ -630,7 +633,7 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
                 if (this.j.a()) {
                     a(this.j);
                     if (this.m == null) {
-                        int a2 = (int) ((this.f2055a == ScreenShape.ROUND ? a(t / 2, this.j.getMeasuredWidth() / 2) : 0) + (12.0f * f2) + this.D);
+                        int a2 = (int) ((this.f2892a == ScreenShape.ROUND ? a(t / 2, this.j.getMeasuredWidth() / 2) : 0) + (12.0f * f) + this.D);
                         int measuredWidth = (s - this.j.getMeasuredWidth()) / 2;
                         this.j.layout(measuredWidth, a2, this.j.getMeasuredWidth() + measuredWidth, this.j.getMeasuredHeight() + a2);
                     } else {
@@ -640,7 +643,7 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
             } else if (childAt == this.n) {
                 int i12 = 0;
                 int i13 = 0;
-                if (this.f2055a == ScreenShape.ROUND) {
+                if (this.f2892a == ScreenShape.ROUND) {
                     a(this.j);
                     int i14 = s / 2;
                     i13 = a(i14, this.j.getMeasuredWidth() / 2);
@@ -650,8 +653,8 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
                 if (this.l == null) {
                     this.G = this.n.getMeasuredWidth();
                     this.F = this.n.getMeasuredHeight();
-                    int i15 = (int) (i12 + this.B + (5.0f * f));
-                    int i16 = (t - ((int) (this.E + (12.0f * f2)))) - i13;
+                    int i15 = (int) (i12 + this.B + (5.0f * f2));
+                    int i16 = (t - ((int) (this.E + (12.0f * f)))) - i13;
                     this.n.layout(i15, i16 - this.n.getMeasuredHeight(), this.G + i15, i16);
                 } else {
                     this.n.layout(this.l.x, this.l.y, this.l.x + this.n.getMeasuredWidth(), this.l.y + this.n.getMeasuredHeight());
@@ -663,7 +666,7 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
                 ViewGroup.LayoutParams layoutParams = childAt.getLayoutParams();
                 if (layoutParams instanceof MapViewLayoutParams) {
                     MapViewLayoutParams mapViewLayoutParams = (MapViewLayoutParams) layoutParams;
-                    Point a3 = mapViewLayoutParams.c == MapViewLayoutParams.ELayoutMode.absoluteMode ? mapViewLayoutParams.b : this.f.getBaseMap().a(CoordUtil.ll2mc(mapViewLayoutParams.f2028a));
+                    Point a3 = mapViewLayoutParams.c == MapViewLayoutParams.ELayoutMode.absoluteMode ? mapViewLayoutParams.f2847b : this.f.getBaseMap().a(CoordUtil.ll2mc(mapViewLayoutParams.f2846a));
                     a(childAt);
                     int measuredWidth2 = childAt.getMeasuredWidth();
                     int measuredHeight = childAt.getMeasuredHeight();
@@ -753,7 +756,7 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
     }
 
     public void setShape(ScreenShape screenShape) {
-        this.f2055a = screenShape;
+        this.f2892a = screenShape;
     }
 
     public void setViewAnimitionEnable(boolean z) {

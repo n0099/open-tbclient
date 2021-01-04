@@ -1,6 +1,7 @@
 package com.google.zxing.oned;
 
 import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
+import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.ChecksumException;
 import com.google.zxing.DecodeHintType;
@@ -15,7 +16,7 @@ import com.google.zxing.common.BitArray;
 import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.Map;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public abstract class OneDReader implements Reader {
     public abstract Result decodeRow(int i, BitArray bitArray, Map<DecodeHintType, ?> map) throws NotFoundException, ChecksumException, FormatException;
 
@@ -33,9 +34,9 @@ public abstract class OneDReader implements Reader {
                 BinaryBitmap rotateCounterClockwise = binaryBitmap.rotateCounterClockwise();
                 Result doDecode = doDecode(rotateCounterClockwise, map);
                 Map<ResultMetadataType, Object> resultMetadata = doDecode.getResultMetadata();
-                int i = 270;
+                int i = SubsamplingScaleImageView.ORIENTATION_270;
                 if (resultMetadata != null && resultMetadata.containsKey(ResultMetadataType.ORIENTATION)) {
-                    i = (((Integer) resultMetadata.get(ResultMetadataType.ORIENTATION)).intValue() + 270) % EncoderTextureDrawer.X264_WIDTH;
+                    i = (((Integer) resultMetadata.get(ResultMetadataType.ORIENTATION)).intValue() + SubsamplingScaleImageView.ORIENTATION_270) % EncoderTextureDrawer.X264_WIDTH;
                 }
                 doDecode.putMetadata(ResultMetadataType.ORIENTATION, Integer.valueOf(i));
                 ResultPoint[] resultPoints = doDecode.getResultPoints();
@@ -55,13 +56,7 @@ public abstract class OneDReader implements Reader {
     public void reset() {
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:35:0x0076 A[Catch: ReaderException -> 0x00d7, TryCatch #1 {ReaderException -> 0x00d7, blocks: (B:33:0x006d, B:35:0x0076, B:37:0x0087), top: B:53:0x006d }] */
-    /* JADX WARN: Removed duplicated region for block: B:60:0x00c5 A[SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     private Result doDecode(BinaryBitmap binaryBitmap, Map<DecodeHintType, ?> map) throws NotFoundException {
-        Map<DecodeHintType, ?> map2;
         int width = binaryBitmap.getWidth();
         int height = binaryBitmap.getHeight();
         BitArray bitArray = new BitArray(width);
@@ -69,8 +64,7 @@ public abstract class OneDReader implements Reader {
         boolean z = map != null && map.containsKey(DecodeHintType.TRY_HARDER);
         int max = Math.max(1, height >> (z ? 8 : 5));
         int i2 = z ? height : 15;
-        BitArray bitArray2 = bitArray;
-        Map<DecodeHintType, ?> map3 = map;
+        EnumMap enumMap = map;
         for (int i3 = 0; i3 < i2; i3++) {
             int i4 = (i3 + 1) / 2;
             if (!((i3 & 1) == 0)) {
@@ -81,37 +75,30 @@ public abstract class OneDReader implements Reader {
                 break;
             }
             try {
-                bitArray2 = binaryBitmap.getBlackRow(i5, bitArray2);
-                int i6 = 0;
-                while (i6 < 2) {
+                bitArray = binaryBitmap.getBlackRow(i5, bitArray);
+                for (int i6 = 0; i6 < 2; i6++) {
+                    if (i6 == 1) {
+                        bitArray.reverse();
+                        if (enumMap != null && enumMap.containsKey(DecodeHintType.NEED_RESULT_POINT_CALLBACK)) {
+                            EnumMap enumMap2 = new EnumMap(DecodeHintType.class);
+                            enumMap2.putAll(enumMap);
+                            enumMap2.remove(DecodeHintType.NEED_RESULT_POINT_CALLBACK);
+                            enumMap = enumMap2;
+                        }
+                    }
                     try {
+                        Result decodeRow = decodeRow(i5, bitArray, enumMap);
                         if (i6 == 1) {
-                            bitArray2.reverse();
-                            if (map3 != null && map3.containsKey(DecodeHintType.NEED_RESULT_POINT_CALLBACK)) {
-                                map2 = new EnumMap<>(DecodeHintType.class);
-                                map2.putAll(map3);
-                                map2.remove(DecodeHintType.NEED_RESULT_POINT_CALLBACK);
-                                Result decodeRow = decodeRow(i5, bitArray2, map2);
-                                if (i6 != 1) {
-                                    decodeRow.putMetadata(ResultMetadataType.ORIENTATION, 180);
-                                    ResultPoint[] resultPoints = decodeRow.getResultPoints();
-                                    if (resultPoints != null) {
-                                        resultPoints[0] = new ResultPoint((width - resultPoints[0].getX()) - 1.0f, resultPoints[0].getY());
-                                        resultPoints[1] = new ResultPoint((width - resultPoints[1].getX()) - 1.0f, resultPoints[1].getY());
-                                    }
-                                }
-                                return decodeRow;
+                            decodeRow.putMetadata(ResultMetadataType.ORIENTATION, 180);
+                            ResultPoint[] resultPoints = decodeRow.getResultPoints();
+                            if (resultPoints != null) {
+                                resultPoints[0] = new ResultPoint((width - resultPoints[0].getX()) - 1.0f, resultPoints[0].getY());
+                                resultPoints[1] = new ResultPoint((width - resultPoints[1].getX()) - 1.0f, resultPoints[1].getY());
                             }
                         }
-                        Result decodeRow2 = decodeRow(i5, bitArray2, map2);
-                        if (i6 != 1) {
-                        }
-                        return decodeRow2;
+                        return decodeRow;
                     } catch (ReaderException e) {
-                        i6++;
-                        map3 = map2;
                     }
-                    map2 = map3;
                 }
                 continue;
             } catch (NotFoundException e2) {
@@ -122,35 +109,26 @@ public abstract class OneDReader implements Reader {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public static void recordPattern(BitArray bitArray, int i, int[] iArr) throws NotFoundException {
-        int i2;
-        boolean z;
         int length = iArr.length;
         Arrays.fill(iArr, 0, length, 0);
         int size = bitArray.getSize();
         if (i >= size) {
             throw NotFoundException.getNotFoundInstance();
         }
-        boolean z2 = !bitArray.get(i);
-        int i3 = 0;
-        while (true) {
-            if (i >= size) {
-                i2 = i3;
-                break;
-            }
-            if (bitArray.get(i) ^ z2) {
-                iArr[i3] = iArr[i3] + 1;
-                z = z2;
+        boolean z = !bitArray.get(i);
+        int i2 = 0;
+        while (i < size) {
+            if (bitArray.get(i) ^ z) {
+                iArr[i2] = iArr[i2] + 1;
             } else {
-                i2 = i3 + 1;
+                i2++;
                 if (i2 == length) {
                     break;
                 }
                 iArr[i2] = 1;
-                z = !z2;
-                i3 = i2;
+                z = !z;
             }
             i++;
-            z2 = z;
         }
         if (i2 != length) {
             if (i2 != length - 1 || i != size) {

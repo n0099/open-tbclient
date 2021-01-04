@@ -3,10 +3,10 @@ package com.baidu.swan.impl.map.d;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.tieba.R;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class b extends c {
     public b(@NonNull Context context) {
         super("GaodeMap", context.getString(R.string.openlocation_bottommenu_gaodemap), "com.autonavi.minimap");

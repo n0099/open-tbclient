@@ -1,4 +1,4 @@
 package com.baidu.sapi2.result;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class AccountToolsResult extends SapiResult {
 }

@@ -1,19 +1,21 @@
 package com.baidu.platform.core.a;
-/* loaded from: classes26.dex */
+
+import com.tencent.connect.common.Constants;
+/* loaded from: classes15.dex */
 public class c extends com.baidu.platform.base.e {
     public c(String str) {
         a(str);
     }
 
     private void a(String str) {
-        this.f2818a.a("qt", "ext");
-        this.f2818a.a("num", "1000");
-        this.f2818a.a("l", "10");
-        this.f2818a.a("ie", "utf-8");
-        this.f2818a.a("oue", "1");
-        this.f2818a.a("res", "api");
-        this.f2818a.a("fromproduct", "android_map_sdk");
-        this.f2818a.a("uid", str);
+        this.f4177a.a("qt", "ext");
+        this.f4177a.a("num", "1000");
+        this.f4177a.a("l", Constants.VIA_REPORT_TYPE_SHARE_TO_QQ);
+        this.f4177a.a("ie", "utf-8");
+        this.f4177a.a("oue", "1");
+        this.f4177a.a("res", "api");
+        this.f4177a.a("fromproduct", "android_map_sdk");
+        this.f4177a.a("uid", str);
     }
 
     @Override // com.baidu.platform.base.e

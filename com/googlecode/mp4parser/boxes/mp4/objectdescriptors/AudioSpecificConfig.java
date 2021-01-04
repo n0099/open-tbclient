@@ -3,7 +3,6 @@ package com.googlecode.mp4parser.boxes.mp4.objectdescriptors;
 import com.baidu.ala.helper.StreamConfig;
 import com.baidu.ala.recorder.video.hardware.AudioEncoderCore;
 import com.baidu.live.tbadk.core.data.RequestResponseCode;
-import com.baidu.searchbox.ui.CoolPraiseGuideLottieView;
 import com.coremedia.iso.Hex;
 import com.coremedia.iso.IsoTypeWriter;
 import java.io.IOException;
@@ -12,7 +11,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 @Descriptor(objectTypeIndication = 64, tags = {5})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class AudioSpecificConfig extends BaseDescriptor {
     int aacScalefactorDataResilienceFlag;
     int aacSectionDataResilienceFlag;
@@ -72,7 +71,7 @@ public class AudioSpecificConfig extends BaseDescriptor {
         samplingFrequencyIndexMap.put(8, 16000);
         samplingFrequencyIndexMap.put(9, 12000);
         samplingFrequencyIndexMap.put(10, Integer.valueOf((int) RequestResponseCode.REQUEST_LOGIN_PB_AT));
-        samplingFrequencyIndexMap.put(11, Integer.valueOf((int) CoolPraiseGuideLottieView.ANIM_DURATION));
+        samplingFrequencyIndexMap.put(11, 8000);
         audioObjectTypeMap.put(1, "AAC main");
         audioObjectTypeMap.put(2, "AAC LC");
         audioObjectTypeMap.put(3, "AAC SSR");

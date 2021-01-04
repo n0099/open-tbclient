@@ -1,11 +1,11 @@
 package com.baidu.cloudbase.b;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public interface c {
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public static abstract class a implements c {
         @Override // com.baidu.cloudbase.b.c
-        public void dC(String str) {
+        public void dv(String str) {
         }
 
         @Override // com.baidu.cloudbase.b.c
@@ -17,7 +17,7 @@ public interface c {
 
     void b(String str, int i, String str2);
 
-    void dC(String str);
+    void dv(String str);
 
     void p(float f);
 }

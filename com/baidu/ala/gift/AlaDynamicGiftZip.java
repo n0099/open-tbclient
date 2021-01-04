@@ -2,7 +2,7 @@ package com.baidu.ala.gift;
 
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class AlaDynamicGiftZip implements Serializable {
     private int isLandScape;
     public int isNeedDownload;

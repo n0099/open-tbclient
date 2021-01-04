@@ -4,7 +4,6 @@ import android.graphics.Bitmap;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.util.Base64;
-import com.baidu.android.util.media.MimeType;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.smallgame.sdk.Log;
@@ -13,7 +12,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 @NotProguard
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class WebGLImage {
     private static final boolean DEBUG = false;
     private static final String TAG = "WebGLImage";
@@ -292,7 +291,7 @@ public class WebGLImage {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     private static class CanvasResult {
         @V8JavascriptField
         public String errMsg;
@@ -394,10 +393,10 @@ public class WebGLImage {
     }
 
     private static String getValidFileType(String str) {
-        if ("jpg".equalsIgnoreCase(str) || MimeType.Image.JPG.equalsIgnoreCase(str)) {
+        if ("jpg".equalsIgnoreCase(str) || "image/jpg".equalsIgnoreCase(str)) {
             return "jpg";
         }
-        if ("jpeg".equalsIgnoreCase(str) || MimeType.Image.JPEG.equalsIgnoreCase(str)) {
+        if ("jpeg".equalsIgnoreCase(str) || "image/jpeg".equalsIgnoreCase(str)) {
             return "jpeg";
         }
         return "png";

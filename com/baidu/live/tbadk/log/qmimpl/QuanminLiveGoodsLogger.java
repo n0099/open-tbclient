@@ -6,7 +6,7 @@ import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.live.tbadk.log.LogManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class QuanminLiveGoodsLogger implements ILiveGoodsLogger {
     @Override // com.baidu.live.tbadk.log.ILiveGoodsLogger
     public void doDisplayStoreIconLog(String str, String str2, String str3, String str4) {

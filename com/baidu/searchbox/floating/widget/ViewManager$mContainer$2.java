@@ -5,7 +5,7 @@ import kotlin.jvm.a.a;
 import kotlin.jvm.internal.Lambda;
 /* JADX INFO: Access modifiers changed from: package-private */
 @e
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public final class ViewManager$mContainer$2 extends Lambda implements a<FloatContainer> {
     final /* synthetic */ ViewManager this$0;
 

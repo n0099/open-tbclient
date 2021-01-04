@@ -1,5 +1,5 @@
 package android.net.http;
-/* loaded from: classes11.dex */
+/* loaded from: classes6.dex */
 public interface EventHandler {
     public static final int ERROR = -1;
     public static final int ERROR_AUTH = -4;

@@ -1,9 +1,9 @@
 package com.baidu.live.liveroom.middleware;
 
-import com.baidu.live.data.w;
-/* loaded from: classes4.dex */
+import com.baidu.live.data.x;
+/* loaded from: classes11.dex */
 public interface e extends c {
-    void Pk();
+    void OY();
 
-    void k(w wVar);
+    void l(x xVar);
 }

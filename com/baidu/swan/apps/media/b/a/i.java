@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class i extends g {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -14,7 +14,7 @@ public class i extends g {
 
     @Override // com.baidu.swan.apps.media.b.a.g
     public boolean a(com.baidu.swan.apps.media.b.a aVar, com.baidu.swan.apps.media.b.c cVar, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        com.baidu.swan.apps.console.c.i("video", "seek, video id:" + cVar.dga + " slave id: " + cVar.cIW);
+        com.baidu.swan.apps.console.c.i("video", "seek, video id:" + cVar.dkT + " slave id: " + cVar.cNP);
         a(aVar, cVar.mPos, unitedSchemeEntity, callbackHandler);
         return true;
     }

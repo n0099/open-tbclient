@@ -2,10 +2,10 @@ package com.baidu.tieba.frs.forumRule.message;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.u;
+import com.baidu.tbadk.util.t;
 import tbclient.ForumRuleDetail.DataReq;
 import tbclient.ForumRuleDetail.ForumRuleDetailReqIdl;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class ForumRuleDetailReqMsg extends NetMessage {
     private Long mForumRuleId;
 
@@ -27,7 +27,7 @@ public class ForumRuleDetailReqMsg extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.forum_id = getForumRuleId();
             if (z) {
-                u.a(builder, true, true, false);
+                t.a(builder, true, true, false);
             }
             ForumRuleDetailReqIdl.Builder builder2 = new ForumRuleDetailReqIdl.Builder();
             builder2.data = builder.build(false);

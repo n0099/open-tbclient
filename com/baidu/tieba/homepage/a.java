@@ -2,12 +2,12 @@ package com.baidu.tieba.homepage;
 
 import android.content.Context;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.af;
-import com.baidu.adp.widget.ListView.af.a;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
 import com.baidu.tieba.view.FollowUserButton;
-/* loaded from: classes21.dex */
-public abstract class a<T, V extends af.a> extends com.baidu.adp.widget.ListView.a<T, V> {
-    protected FollowUserButton.a jII;
+/* loaded from: classes.dex */
+public abstract class a<T, V extends TypeAdapter.ViewHolder> extends com.baidu.adp.widget.ListView.a<T, V> {
+    protected FollowUserButton.a jVS;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(Context context, BdUniqueId bdUniqueId) {
@@ -15,6 +15,6 @@ public abstract class a<T, V extends af.a> extends com.baidu.adp.widget.ListView
     }
 
     public void a(FollowUserButton.a aVar) {
-        this.jII = aVar;
+        this.jVS = aVar;
     }
 }

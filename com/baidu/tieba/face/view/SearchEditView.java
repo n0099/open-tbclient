@@ -15,21 +15,21 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class SearchEditView extends RelativeLayout {
-    private EditText iFA;
-    private ImageView iFB;
-    private ImageView iFC;
-    private LinearLayout iFD;
-    private a iFE;
+    private EditText iRM;
+    private ImageView iRN;
+    private ImageView iRO;
+    private LinearLayout iRP;
+    private a iRQ;
 
     /* loaded from: classes.dex */
     public interface a {
-        void JW(String str);
+        void JU(String str);
 
-        void JX(String str);
+        void JV(String str);
     }
 
     public SearchEditView(Context context) {
@@ -49,14 +49,14 @@ public class SearchEditView extends RelativeLayout {
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(R.layout.emotion_search_edit, (ViewGroup) this, true);
-        this.iFA = (EditText) findViewById(R.id.edit_search);
-        this.iFB = (ImageView) findViewById(R.id.iv_search);
-        this.iFC = (ImageView) findViewById(R.id.iv_del_all);
-        this.iFD = (LinearLayout) findViewById(R.id.iv_del_all_layout);
-        ap.setImageResource(this.iFB, R.drawable.icon_emotion_search);
-        ap.setImageResource(this.iFC, R.drawable.del_search_btn);
-        ap.setViewTextColor(this.iFA, R.color.CAM_X0105);
-        this.iFA.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.face.view.SearchEditView.1
+        this.iRM = (EditText) findViewById(R.id.edit_search);
+        this.iRN = (ImageView) findViewById(R.id.iv_search);
+        this.iRO = (ImageView) findViewById(R.id.iv_del_all);
+        this.iRP = (LinearLayout) findViewById(R.id.iv_del_all_layout);
+        ao.setImageResource(this.iRN, R.drawable.icon_emotion_search);
+        ao.setImageResource(this.iRO, R.drawable.del_search_btn);
+        ao.setViewTextColor(this.iRM, R.color.CAM_X0105);
+        this.iRM.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.face.view.SearchEditView.1
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -67,33 +67,33 @@ public class SearchEditView extends RelativeLayout {
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                if (SearchEditView.this.iFE != null) {
-                    SearchEditView.this.iFE.JX(editable.toString().trim());
+                if (SearchEditView.this.iRQ != null) {
+                    SearchEditView.this.iRQ.JV(editable.toString().trim());
                 }
                 if (editable.toString().trim().length() == 0) {
-                    SearchEditView.this.iFD.setVisibility(4);
+                    SearchEditView.this.iRP.setVisibility(4);
                 } else {
-                    SearchEditView.this.iFD.setVisibility(0);
+                    SearchEditView.this.iRP.setVisibility(0);
                 }
             }
         });
-        this.iFA.setOnEditorActionListener(new TextView.OnEditorActionListener() { // from class: com.baidu.tieba.face.view.SearchEditView.2
+        this.iRM.setOnEditorActionListener(new TextView.OnEditorActionListener() { // from class: com.baidu.tieba.face.view.SearchEditView.2
             @Override // android.widget.TextView.OnEditorActionListener
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 if (i == 3) {
-                    String trim = SearchEditView.this.iFA.getText().toString().trim();
-                    if (!TextUtils.isEmpty(trim) && SearchEditView.this.iFE != null) {
-                        SearchEditView.this.iFE.JW(trim);
+                    String trim = SearchEditView.this.iRM.getText().toString().trim();
+                    if (!TextUtils.isEmpty(trim) && SearchEditView.this.iRQ != null) {
+                        SearchEditView.this.iRQ.JU(trim);
                     }
                     return true;
                 }
                 return false;
             }
         });
-        this.iFD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.face.view.SearchEditView.3
+        this.iRP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.face.view.SearchEditView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                SearchEditView.this.iFA.setText("");
+                SearchEditView.this.iRM.setText("");
             }
         });
         onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
@@ -101,30 +101,30 @@ public class SearchEditView extends RelativeLayout {
 
     public void onChangeSkin(int i) {
         if (i == 0) {
-            this.iFA.setHintTextColor(getResources().getColor(R.color.CAM_X0109));
+            this.iRM.setHintTextColor(getResources().getColor(R.color.CAM_X0109));
         } else {
-            this.iFA.setHintTextColor(getResources().getColor(R.color.CAM_X0109_1));
+            this.iRM.setHintTextColor(getResources().getColor(R.color.CAM_X0109_1));
         }
     }
 
     public void setCallback(a aVar) {
-        this.iFE = aVar;
+        this.iRQ = aVar;
     }
 
     public void setText(String str) {
         if (str != null) {
-            this.iFA.setText(str);
-            this.iFA.setSelection(str.length());
+            this.iRM.setText(str);
+            this.iRM.setSelection(str.length());
         }
     }
 
     public void setSelection(int i) {
-        if (i <= this.iFA.getText().length()) {
-            this.iFA.setSelection(i);
+        if (i <= this.iRM.getText().length()) {
+            this.iRM.setSelection(i);
         }
     }
 
-    public boolean cya() {
-        return this.iFA.requestFocus();
+    public boolean cAT() {
+        return this.iRM.requestFocus();
     }
 }

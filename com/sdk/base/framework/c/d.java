@@ -1,28 +1,30 @@
 package com.sdk.base.framework.c;
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4255a = "";
-    private long b;
+    private String f13115a = "";
+
+    /* renamed from: b  reason: collision with root package name */
+    private long f13116b;
 
     public final String a() {
-        return this.f4255a;
+        return this.f13115a;
     }
 
     public final void a(long j) {
-        this.b = j;
+        this.f13116b = j;
     }
 
     public final void a(String str) {
-        this.f4255a = str;
+        this.f13115a = str;
     }
 
     public final long b() {
-        return this.b;
+        return this.f13116b;
     }
 
     public final String toString() {
-        return "_$101005Bean{url='" + this.f4255a + "', time=" + this.b + '}';
+        return "_$101005Bean{url='" + this.f13115a + "', time=" + this.f13116b + '}';
     }
 }

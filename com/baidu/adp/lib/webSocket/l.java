@@ -1,79 +1,79 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
 public class l {
-    private int RK;
-    private int RL;
-    private boolean RO;
-    private boolean RP;
+    private int RP;
     private int RQ;
-    private int RR;
+    private boolean RR;
     private boolean RT;
-    private boolean RU;
-    private String Rd;
+    private int RU;
+    private int RV;
+    private boolean RW;
+    private boolean RX;
+    private String Rg;
 
     public l() {
-        this.Rd = null;
-        this.RK = 32768;
-        this.RL = 131072;
-        this.RO = false;
-        this.RP = true;
-        this.RQ = 30000;
-        this.RR = 30000;
+        this.Rg = null;
+        this.RP = 32768;
+        this.RQ = 131072;
+        this.RR = false;
         this.RT = true;
-        this.RU = true;
-        this.Rd = null;
+        this.RU = 30000;
+        this.RV = 30000;
+        this.RW = true;
+        this.RX = true;
+        this.Rg = null;
     }
 
     public l(l lVar) {
-        this.Rd = null;
-        this.RK = lVar.RK;
-        this.RL = lVar.RL;
-        this.RO = lVar.RO;
+        this.Rg = null;
         this.RP = lVar.RP;
         this.RQ = lVar.RQ;
         this.RR = lVar.RR;
         this.RT = lVar.RT;
         this.RU = lVar.RU;
-        this.Rd = lVar.Rd;
+        this.RV = lVar.RV;
+        this.RW = lVar.RW;
+        this.RX = lVar.RX;
+        this.Rg = lVar.Rg;
     }
 
-    public boolean oQ() {
-        return this.RO;
-    }
-
-    public int oR() {
-        return this.RK;
-    }
-
-    public int oS() {
-        return this.RL;
-    }
-
-    public boolean oT() {
-        return this.RP;
-    }
-
-    public int oU() {
-        return this.RQ;
-    }
-
-    public int oV() {
+    public boolean or() {
         return this.RR;
     }
 
-    public boolean oW() {
+    public int os() {
+        return this.RP;
+    }
+
+    public int ot() {
+        return this.RQ;
+    }
+
+    public boolean ou() {
         return this.RT;
     }
 
-    public boolean oX() {
+    public int ov() {
         return this.RU;
     }
 
-    public String oY() {
-        return this.Rd;
+    public int ow() {
+        return this.RV;
     }
 
-    public void co(String str) {
-        this.Rd = str;
+    public boolean ox() {
+        return this.RW;
+    }
+
+    public boolean oy() {
+        return this.RX;
+    }
+
+    public String oz() {
+        return this.Rg;
+    }
+
+    public void ch(String str) {
+        this.Rg = str;
     }
 }

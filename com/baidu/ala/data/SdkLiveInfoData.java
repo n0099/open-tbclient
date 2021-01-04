@@ -2,18 +2,23 @@ package com.baidu.ala.data;
 
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
+import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.data.AlaChallengeInfoData;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class SdkLiveInfoData {
     public static final int TYPE_CHUSHOU_GAME_LIVE = 1;
     public static final int TYPE_TIEBA_GAME_LIVE = 2;
     public long createTime;
     public int from = 1;
+    public String labelUrl;
     public LiveAuthor liveAuthor;
     public String liveId;
     public AlaLiveInfo liveInfo;
+    public String location;
     public SdkMiddleStrategyInfo middleStrategyInfo;
+    public String modeUrl;
     public String nid;
     public String recom_extra_img;
     public String recom_extra_img_dark;
@@ -32,7 +37,7 @@ public class SdkLiveInfoData {
             this.liveId = jSONObject.optString("live_id");
             this.roomId = jSONObject.optString("room_id");
             this.tid = jSONObject.optString("tid");
-            this.nid = jSONObject.optString("nid");
+            this.nid = jSONObject.optString(IntentConfig.NID);
             this.routerType = jSONObject.optInt("routerType");
             this.title = jSONObject.optString("title");
             this.createTime = jSONObject.optLong("create_time");
@@ -43,6 +48,9 @@ public class SdkLiveInfoData {
             this.recom_extra_img_dark = jSONObject.optString("recom_extra_img_dark");
             this.recom_extra_img_width = jSONObject.optInt("recom_extra_img_width");
             this.recom_extra_img_height = jSONObject.optInt("recom_extra_img_height");
+            this.labelUrl = jSONObject.optString("label_url");
+            this.modeUrl = jSONObject.optString("mode_url");
+            this.location = jSONObject.optString("location");
             this.liveAuthor = new LiveAuthor();
             JSONObject optJSONObject = jSONObject.optJSONObject("author");
             if (optJSONObject != null) {
@@ -61,7 +69,7 @@ public class SdkLiveInfoData {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static class LiveAuthor {
         public int gender;
         public String name;
@@ -84,7 +92,7 @@ public class SdkLiveInfoData {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static class AlaLiveInfo {
         public long audienceCount;
         public AlaChallengeInfoData challengeInfoData;
@@ -117,7 +125,7 @@ public class SdkLiveInfoData {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static class UiTransParam {
         public String abTag;
         public String extra;
@@ -129,7 +137,7 @@ public class SdkLiveInfoData {
                 this.abTag = jSONObject.optString("ab_tag");
                 this.starId = jSONObject.optString("star_id");
                 this.extra = jSONObject.optString("extra");
-                this.sourceFrom = jSONObject.optString("source_from");
+                this.sourceFrom = jSONObject.optString(VideoPlayActivityConfig.SOURCE_FROM);
             }
         }
     }

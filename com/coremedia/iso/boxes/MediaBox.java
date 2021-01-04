@@ -1,7 +1,7 @@
 package com.coremedia.iso.boxes;
 
 import com.googlecode.mp4parser.AbstractContainerBox;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MediaBox extends AbstractContainerBox {
     public static final String TYPE = "mdia";
 

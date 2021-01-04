@@ -3,8 +3,8 @@ package com.baidu.swan.pms.b.a;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.SQLException;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +13,7 @@ public class b extends com.baidu.swan.pms.database.a.b<com.baidu.swan.pms.b.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b
     /* renamed from: a */
-    public ContentValues aj(@NonNull com.baidu.swan.pms.b.a aVar) {
+    public ContentValues al(@NonNull com.baidu.swan.pms.b.a aVar) {
         ContentValues contentValues = new ContentValues();
         contentValues.put("app_id", aVar.getAppId());
         contentValues.put("bundle_id", aVar.getBundleId());
@@ -29,20 +29,20 @@ public class b extends com.baidu.swan.pms.database.a.b<com.baidu.swan.pms.b.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b
     @Nullable
-    /* renamed from: u */
-    public com.baidu.swan.pms.b.a j(Cursor cursor) throws SQLException {
+    /* renamed from: v */
+    public com.baidu.swan.pms.b.a k(Cursor cursor) throws SQLException {
         if (cursor == null || cursor.getCount() <= 0 || !cursor.moveToFirst()) {
             return null;
         }
-        return v(cursor);
+        return w(cursor);
     }
 
     @Override // com.baidu.swan.pms.database.a.b
-    public List<com.baidu.swan.pms.b.a> h(Cursor cursor) throws SQLException {
+    public List<com.baidu.swan.pms.b.a> i(Cursor cursor) throws SQLException {
         ArrayList arrayList = new ArrayList();
         if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
             do {
-                arrayList.add(v(cursor));
+                arrayList.add(w(cursor));
             } while (cursor.moveToNext());
             return arrayList;
         }
@@ -50,9 +50,9 @@ public class b extends com.baidu.swan.pms.database.a.b<com.baidu.swan.pms.b.a> {
     }
 
     @Nullable
-    private com.baidu.swan.pms.b.a v(Cursor cursor) {
+    private com.baidu.swan.pms.b.a w(Cursor cursor) {
         if (cursor != null) {
-            return com.baidu.swan.pms.b.a.t(cursor);
+            return com.baidu.swan.pms.b.a.u(cursor);
         }
         return null;
     }

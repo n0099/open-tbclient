@@ -14,7 +14,7 @@ import com.vivo.push.util.s;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public final class a extends aa {
     private static a c;
     private static final List<Integer> f = Arrays.asList(3);
@@ -40,8 +40,8 @@ public final class a extends aa {
     }
 
     public final void a(Intent intent) {
-        if (intent == null || this.f4400a == null) {
-            p.d("CommandWorker", " sendMessage error: intent : " + intent + ", mContext: " + this.f4400a);
+        if (intent == null || this.f13859a == null) {
+            p.d("CommandWorker", " sendMessage error: intent : " + intent + ", mContext: " + this.f13859a);
             return;
         }
         Message obtain = Message.obtain();
@@ -52,23 +52,23 @@ public final class a extends aa {
     @Override // com.vivo.push.aa
     public final void b(Message message) {
         Intent intent = (Intent) message.obj;
-        if (intent == null || this.f4400a == null) {
-            p.d("CommandWorker", " handleMessage error: intent : " + intent + ", mContext: " + this.f4400a);
+        if (intent == null || this.f13859a == null) {
+            p.d("CommandWorker", " handleMessage error: intent : " + intent + ", mContext: " + this.f13859a);
             return;
         }
         int intExtra = intent.getIntExtra("command", -1);
         if (intExtra < 0) {
             intExtra = intent.getIntExtra("method", -1);
         }
-        String packageName = this.f4400a.getPackageName();
-        if (!f.contains(Integer.valueOf(intExtra)) || !s.b(this.f4400a, packageName) || s.d(this.f4400a)) {
+        String packageName = this.f13859a.getPackageName();
+        if (!f.contains(Integer.valueOf(intExtra)) || !s.b(this.f13859a, packageName) || s.d(this.f13859a)) {
             String action = intent.getAction();
             if (TextUtils.isEmpty(this.e)) {
-                this.e = a(this.f4400a, packageName, action);
+                this.e = a(this.f13859a, packageName, action);
                 if (TextUtils.isEmpty(this.e)) {
                     p.d("CommandWorker", " reflectReceiver error: receiver for: " + action + " not found, package: " + packageName);
                     intent.setPackage(packageName);
-                    this.f4400a.sendBroadcast(intent);
+                    this.f13859a.sendBroadcast(intent);
                     return;
                 }
             }
@@ -77,7 +77,7 @@ public final class a extends aa {
                 Object newInstance = cls.getConstructor(new Class[0]).newInstance(new Object[0]);
                 Method method = cls.getMethod("onReceive", Context.class, Intent.class);
                 intent.setClassName(packageName, this.e);
-                this.d.post(new b(this, method, newInstance, new Object[]{this.f4400a.getApplicationContext(), intent}));
+                this.d.post(new b(this, method, newInstance, new Object[]{this.f13859a.getApplicationContext(), intent}));
             } catch (Exception e) {
                 p.b("CommandWorker", "reflect e: ", e);
             }

@@ -1,30 +1,30 @@
 package com.baidu.tieba.yuyinala.liveroom.wheat.b.a;
 
 import com.baidu.live.data.AlaWheatInfoData;
-import com.baidu.live.data.w;
+import com.baidu.live.data.x;
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class b extends com.baidu.tieba.yuyinala.liveroom.wheat.b.a {
-    private d otW;
+    private d oAI;
 
     public b(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.otW = new d(tbPageContext);
+        this.oAI = new d(tbPageContext);
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.b.a
-    public void a(w wVar, AlaWheatInfoData alaWheatInfoData, int i, int i2) {
-        super.a(wVar, alaWheatInfoData, i, i2);
-        this.otW.a(wVar, alaWheatInfoData, i, i2);
+    public void a(x xVar, AlaWheatInfoData alaWheatInfoData, int i, int i2) {
+        super.a(xVar, alaWheatInfoData, i, i2);
+        this.oAI.a(xVar, alaWheatInfoData, i, i2);
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.b.a
-    protected void WD(String str) {
-        this.otW.WD(str);
+    protected void Wn(String str) {
+        this.oAI.Wn(str);
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.b.a
-    protected void WE(String str) {
-        this.otW.WE(str);
+    protected void Wo(String str) {
+        this.oAI.Wo(str);
     }
 }

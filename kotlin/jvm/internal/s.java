@@ -1,8 +1,8 @@
 package kotlin.jvm.internal;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public class s {
-    private static final t pKF;
-    private static final kotlin.reflect.c[] pKG;
+    private static final t qmi;
+    private static final kotlin.reflect.c[] qmj;
 
     static {
         t tVar;
@@ -20,47 +20,47 @@ public class s {
         if (tVar == null) {
             tVar = new t();
         }
-        pKF = tVar;
-        pKG = new kotlin.reflect.c[0];
+        qmi = tVar;
+        qmj = new kotlin.reflect.c[0];
     }
 
-    public static kotlin.reflect.d j(Class cls, String str) {
-        return pKF.j(cls, str);
+    public static kotlin.reflect.d k(Class cls, String str) {
+        return qmi.k(cls, str);
     }
 
-    public static kotlin.reflect.c M(Class cls) {
-        return pKF.M(cls);
+    public static kotlin.reflect.c G(Class cls) {
+        return qmi.G(cls);
     }
 
     public static String a(Lambda lambda) {
-        return pKF.a(lambda);
+        return qmi.a(lambda);
     }
 
     public static kotlin.reflect.e a(FunctionReference functionReference) {
-        return pKF.a(functionReference);
+        return qmi.a(functionReference);
     }
 
     public static kotlin.reflect.k a(PropertyReference0 propertyReference0) {
-        return pKF.a(propertyReference0);
+        return qmi.a(propertyReference0);
     }
 
     public static kotlin.reflect.g a(MutablePropertyReference0 mutablePropertyReference0) {
-        return pKF.a(mutablePropertyReference0);
+        return qmi.a(mutablePropertyReference0);
     }
 
     public static kotlin.reflect.l a(PropertyReference1 propertyReference1) {
-        return pKF.a(propertyReference1);
+        return qmi.a(propertyReference1);
     }
 
     public static kotlin.reflect.h a(MutablePropertyReference1 mutablePropertyReference1) {
-        return pKF.a(mutablePropertyReference1);
+        return qmi.a(mutablePropertyReference1);
     }
 
     public static kotlin.reflect.m a(PropertyReference2 propertyReference2) {
-        return pKF.a(propertyReference2);
+        return qmi.a(propertyReference2);
     }
 
     public static kotlin.reflect.i a(MutablePropertyReference2 mutablePropertyReference2) {
-        return pKF.a(mutablePropertyReference2);
+        return qmi.a(mutablePropertyReference2);
     }
 }

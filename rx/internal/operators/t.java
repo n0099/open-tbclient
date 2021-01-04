@@ -1,70 +1,54 @@
 package rx.internal.operators;
 
-import java.util.NoSuchElementException;
 import rx.d;
 import rx.h;
-/* loaded from: classes12.dex */
-public final class t<T> implements h.a<T> {
-    final d.a<T> pSY;
-
-    public t(d.a<T> aVar) {
-        this.pSY = aVar;
-    }
+import rx.internal.operators.s;
+import rx.internal.producers.SingleProducer;
+/* loaded from: classes15.dex */
+public final class t<T, R> implements h.a<R> {
+    final d.b<? extends R, ? super T> quA;
+    final h.a<T> quu;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // rx.functions.b
     /* renamed from: b */
-    public void call(rx.i<? super T> iVar) {
-        a aVar = new a(iVar);
+    public void call(rx.i<? super R> iVar) {
+        s.a aVar = new s.a(iVar);
         iVar.add(aVar);
-        this.pSY.call(aVar);
+        try {
+            rx.j<? super T> call = rx.c.c.c(this.quA).call(aVar);
+            rx.i c = c(call);
+            call.onStart();
+            this.quu.call(c);
+        } catch (Throwable th) {
+            rx.exceptions.a.a(th, iVar);
+        }
+    }
+
+    public static <T> rx.i<T> c(rx.j<T> jVar) {
+        a aVar = new a(jVar);
+        jVar.add(aVar);
+        return aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
-    public static final class a<T> extends rx.j<T> {
-        final rx.i<? super T> actual;
-        int state;
-        T value;
+    /* loaded from: classes15.dex */
+    public static final class a<T> extends rx.i<T> {
+        final rx.j<? super T> actual;
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public a(rx.i<? super T> iVar) {
-            this.actual = iVar;
+        public a(rx.j<? super T> jVar) {
+            this.actual = jVar;
         }
 
-        @Override // rx.e
-        public void onNext(T t) {
-            int i = this.state;
-            if (i == 0) {
-                this.state = 1;
-                this.value = t;
-            } else if (i == 1) {
-                this.state = 2;
-                this.actual.onError(new IndexOutOfBoundsException("The upstream produced more than one value"));
-            }
+        @Override // rx.i
+        public void onSuccess(T t) {
+            this.actual.setProducer(new SingleProducer(this.actual, t));
         }
 
-        @Override // rx.e
+        @Override // rx.i
         public void onError(Throwable th) {
-            if (this.state == 2) {
-                rx.c.c.onError(th);
-                return;
-            }
-            this.value = null;
             this.actual.onError(th);
-        }
-
-        @Override // rx.e
-        public void onCompleted() {
-            int i = this.state;
-            if (i == 0) {
-                this.actual.onError(new NoSuchElementException());
-            } else if (i == 1) {
-                this.state = 2;
-                T t = this.value;
-                this.value = null;
-                this.actual.onSuccess(t);
-            }
         }
     }
 }

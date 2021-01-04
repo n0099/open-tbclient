@@ -9,17 +9,19 @@ import android.content.IntentFilter;
 import android.net.LocalServerSocket;
 import android.os.Build;
 import android.os.Handler;
-import android.support.v4.app.NotificationCompat;
+import androidx.core.app.NotificationCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pushservice.i.m;
 import com.baidu.android.pushservice.jni.PushSocket;
+import com.kwad.sdk.collector.AppStatusRules;
+import com.kwai.video.player.NativeErrorCode;
 import java.io.IOException;
 @SuppressLint({"WorldReadableFiles", "InlinedApi"})
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile g f1085a;
+    private static volatile g f1299a;
     private static LocalServerSocket e;
     private static boolean m;
     private e c;
@@ -47,7 +49,9 @@ public class g {
             }
         }
     };
-    private int b = 180000;
+
+    /* renamed from: b  reason: collision with root package name */
+    private int f1300b = 180000;
 
     private g(Context context) {
         this.i = new Handler(context.getMainLooper());
@@ -55,19 +59,19 @@ public class g {
     }
 
     public static g a(Context context) {
-        if (f1085a == null) {
+        if (f1299a == null) {
             synchronized (g.class) {
-                if (f1085a == null) {
-                    f1085a = new g(context);
+                if (f1299a == null) {
+                    f1299a = new g(context);
                 }
             }
         }
-        return f1085a;
+        return f1299a;
     }
 
     public static void b() {
-        if (f1085a != null) {
-            f1085a.k();
+        if (f1299a != null) {
+            f1299a.k();
         }
         com.baidu.android.pushservice.g.d.a().b();
     }
@@ -113,7 +117,7 @@ public class g {
             if (this.j) {
                 j();
             }
-            f1085a = null;
+            f1299a = null;
         }
     }
 
@@ -125,21 +129,21 @@ public class g {
 
     private void m() {
         long j;
-        long currentTimeMillis = System.currentTimeMillis() + this.b;
+        long currentTimeMillis = System.currentTimeMillis() + this.f1300b;
         int i = ((int) (currentTimeMillis / 1000)) % 60;
-        if (((int) ((currentTimeMillis / 60000) % 5)) == 0 && i < 15) {
-            currentTimeMillis += ((long) (Math.random() * (this.b - 20000))) + 15000;
+        if (((int) ((currentTimeMillis / AppStatusRules.DEFAULT_GRANULARITY) % 5)) == 0 && i < 15) {
+            currentTimeMillis += ((long) (Math.random() * (this.f1300b + NativeErrorCode.EKS_UNKNOWN_ERROR_BASE))) + 15000;
         }
         if (Build.VERSION.SDK_INT >= 26) {
-            j = System.currentTimeMillis() + 60000;
-            this.b = 60000;
+            j = System.currentTimeMillis() + AppStatusRules.DEFAULT_GRANULARITY;
+            this.f1300b = 60000;
         } else {
             j = currentTimeMillis;
         }
         AlarmManager alarmManager = (AlarmManager) this.h.getSystemService(NotificationCompat.CATEGORY_ALARM);
         if (alarmManager != null) {
             try {
-                alarmManager.setRepeating(0, j, this.b, r());
+                alarmManager.setRepeating(0, j, this.f1300b, r());
                 m = false;
             } catch (Exception e2) {
             }
@@ -150,7 +154,7 @@ public class g {
         com.baidu.android.pushservice.g.d.a().a(new com.baidu.android.pushservice.g.c("tryConnect", (short) 98) { // from class: com.baidu.android.pushservice.g.1
             @Override // com.baidu.android.pushservice.g.c
             public void a() {
-                if (g.f1085a == null) {
+                if (g.f1299a == null) {
                     return;
                 }
                 boolean a2 = com.baidu.android.pushservice.i.g.a(g.this.h);
@@ -233,7 +237,7 @@ public class g {
         }
         com.baidu.android.pushservice.f.a.a("PushSDK", "heartbeat set : " + i + " millisecs", this.h);
         if (i > 0) {
-            this.b = i;
+            this.f1300b = i;
         }
         m();
     }
@@ -246,7 +250,7 @@ public class g {
             return false;
         }
         synchronized (g) {
-            if (PushSocket.f1159a) {
+            if (PushSocket.f1433a) {
                 if (o()) {
                     this.j = m.p(this.h);
                     if (this.j) {

@@ -2,12 +2,12 @@ package org.webrtc;
 
 import android.hardware.Camera;
 import android.os.SystemClock;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 import org.webrtc.CameraEnumerationAndroid;
 import org.webrtc.CameraVideoCapturer;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class Camera1Enumerator implements CameraEnumerator {
     private static final String TAG = "Camera1Enumerator";
     private static List<List<CameraEnumerationAndroid.CaptureFormat>> cachedSupportedFormats;
@@ -39,71 +39,61 @@ public class Camera1Enumerator implements CameraEnumerator {
         return arrayList;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:30:0x00fc */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x00fe */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:36:0x0024 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v0 */
-    /* JADX WARN: Type inference failed for: r1v2 */
-    /* JADX WARN: Type inference failed for: r1v3, types: [android.hardware.Camera] */
-    /* JADX WARN: Type inference failed for: r1v4, types: [android.hardware.Camera] */
-    /* JADX WARN: Type inference failed for: r1v5, types: [android.hardware.Camera] */
-    /* JADX WARN: Type inference failed for: r1v6, types: [java.util.List, java.util.List<org.webrtc.CameraEnumerationAndroid$CaptureFormat>, java.util.ArrayList] */
-    /* JADX WARN: Type inference failed for: r1v7 */
     private static List<CameraEnumerationAndroid.CaptureFormat> enumerateFormats(int i) {
         int i2;
-        ?? r1 = 0;
-        r1 = 0;
-        int i3 = 0;
+        int i3;
+        Camera camera = null;
         Logging.d(TAG, "Get supported formats for camera index " + i + ".");
         long elapsedRealtime = SystemClock.elapsedRealtime();
         try {
             try {
                 Logging.d(TAG, "Opening camera with index " + i);
-                r1 = Camera.open(i);
-            } catch (Throwable th) {
-                th = th;
+                camera = Camera.open(i);
+            } catch (RuntimeException e) {
+                e = e;
             }
-        } catch (RuntimeException e) {
-            e = e;
+        } catch (Throwable th) {
+            th = th;
         }
         try {
-            Camera.Parameters parameters = r1.getParameters();
-            if (r1 != 0) {
-                r1.release();
+            Camera.Parameters parameters = camera.getParameters();
+            if (camera != null) {
+                camera.release();
             }
-            r1 = new ArrayList();
+            ArrayList arrayList = new ArrayList();
             try {
                 List<int[]> supportedPreviewFpsRange = parameters.getSupportedPreviewFpsRange();
                 if (supportedPreviewFpsRange != null) {
                     int[] iArr = supportedPreviewFpsRange.get(supportedPreviewFpsRange.size() - 1);
-                    i2 = iArr[0];
-                    i3 = iArr[1];
+                    int i4 = iArr[0];
+                    i2 = iArr[1];
+                    i3 = i4;
                 } else {
                     i2 = 0;
+                    i3 = 0;
                 }
                 for (Camera.Size size : parameters.getSupportedPreviewSizes()) {
-                    r1.add(new CameraEnumerationAndroid.CaptureFormat(size.width, size.height, i2, i3));
+                    arrayList.add(new CameraEnumerationAndroid.CaptureFormat(size.width, size.height, i3, i2));
                 }
             } catch (Exception e2) {
                 Logging.e(TAG, "getSupportedFormats() failed on camera index " + i, e2);
             }
             long elapsedRealtime2 = SystemClock.elapsedRealtime();
             Logging.d(TAG, "Get supported formats for camera index " + i + " done. Time spent: " + (elapsedRealtime2 - elapsedRealtime) + " ms.");
-            return r1;
+            return arrayList;
         } catch (RuntimeException e3) {
             e = e3;
             Logging.e(TAG, "Open camera failed on camera index " + i, e);
-            ArrayList arrayList = new ArrayList();
-            if (r1 != 0) {
-                r1.release();
-                return arrayList;
+            ArrayList arrayList2 = new ArrayList();
+            if (camera != null) {
+                camera.release();
+                return arrayList2;
             }
-            return arrayList;
+            return arrayList2;
         } catch (Throwable th2) {
             th = th2;
-            if (r1 != 0) {
-                r1.release();
+            if (camera != null) {
+                camera.release();
             }
             throw th;
         }

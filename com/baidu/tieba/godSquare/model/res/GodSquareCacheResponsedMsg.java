@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.squareup.wire.Wire;
 import tbclient.GetHotGod.DataRes;
 import tbclient.GetHotGod.GetHotGodResIdl;
-/* loaded from: classes24.dex */
+/* loaded from: classes8.dex */
 public class GodSquareCacheResponsedMsg extends CustomResponsedMessage<Object> {
     private DataRes mResult;
 

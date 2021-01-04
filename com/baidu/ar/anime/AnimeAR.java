@@ -2,7 +2,6 @@ package com.baidu.ar.anime;
 
 import android.text.TextUtils;
 import com.baidu.ala.dumixar.utils.LuaMessageHelper;
-import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.ar.anime.a;
 import com.baidu.ar.anime.b;
 import com.baidu.ar.arplay.core.pixel.FramePixels;
@@ -18,7 +17,7 @@ import com.baidu.ar.lua.LuaMsgListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class AnimeAR extends c {
     private static final String TAG = AnimeAR.class.getSimpleName();
     private LuaMsgListener cc;
@@ -63,8 +62,8 @@ public class AnimeAR extends c {
         if (TextUtils.isEmpty(str2) && p.A(getContext())) {
             aVar.an();
         }
-        aVar.a(new a.InterfaceC0073a() { // from class: com.baidu.ar.anime.AnimeAR.3
-            @Override // com.baidu.ar.anime.a.InterfaceC0073a
+        aVar.a(new a.InterfaceC0065a() { // from class: com.baidu.ar.anime.AnimeAR.3
+            @Override // com.baidu.ar.anime.a.InterfaceC0065a
             public void b(FramePixels framePixels) {
                 AnimeAR.this.a(framePixels);
                 if (z && AnimeAR.this.cd != null) {
@@ -176,15 +175,15 @@ public class AnimeAR extends c {
             com.baidu.ar.h.b.b(TAG, "mAbilityName error: " + this.bD);
         }
         if (this.cd == null) {
-            this.cd = new b(new b.InterfaceC0075b() { // from class: com.baidu.ar.anime.AnimeAR.1
-                @Override // com.baidu.ar.anime.b.InterfaceC0075b
+            this.cd = new b(new b.InterfaceC0067b() { // from class: com.baidu.ar.anime.AnimeAR.1
+                @Override // com.baidu.ar.anime.b.InterfaceC0067b
                 public void a(int i, String str, long j) {
                     if (i != 200) {
                         com.baidu.ar.h.b.b(AnimeAR.TAG, "request error! code:" + i + " msg:" + str);
                         HashMap hashMap2 = new HashMap();
                         hashMap2.put(LuaMessageHelper.KEY_EVENT_NAME, "anime_network_status");
                         hashMap2.put("error_code", Integer.valueOf(i));
-                        hashMap2.put(AlaRecorderLog.KEY_ERROR_MSG, str);
+                        hashMap2.put("error_msg", str);
                         AnimeAR.this.d(hashMap2);
                         return;
                     }

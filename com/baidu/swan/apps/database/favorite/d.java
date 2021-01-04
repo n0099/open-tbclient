@@ -2,10 +2,10 @@ package com.baidu.swan.apps.database.favorite;
 
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
-import android.support.annotation.NonNull;
-/* loaded from: classes25.dex */
+import androidx.annotation.NonNull;
+/* loaded from: classes9.dex */
 public class d {
-    private static Uri cWD;
+    private static Uri dby;
 
     public static void y(@NonNull SQLiteDatabase sQLiteDatabase) {
         try {
@@ -16,13 +16,13 @@ public class d {
     }
 
     @NonNull
-    public static synchronized Uri avu() {
+    public static synchronized Uri awM() {
         Uri uri;
         synchronized (d.class) {
-            if (cWD == null) {
-                cWD = b.CONTENT_URI.buildUpon().appendPath("user_behavior").build();
+            if (dby == null) {
+                dby = b.CONTENT_URI.buildUpon().appendPath("user_behavior").build();
             }
-            uri = cWD;
+            uri = dby;
         }
         return uri;
     }

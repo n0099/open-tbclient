@@ -1,27 +1,27 @@
 package com.baidu.swan.apps;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.ViewGroup;
 import android.view.Window;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.swan.apps.ab.c;
-import com.baidu.swan.apps.ap.ak;
+import com.baidu.swan.apps.ao.ak;
 import com.baidu.swan.support.v4.app.FragmentActivity;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class SwanAppBaseActivity extends FragmentActivity {
     private static final boolean DEBUG = b.DEBUG;
-    private com.baidu.swan.apps.aj.b czJ = null;
-    private com.baidu.swan.apps.ab.c czK;
+    private com.baidu.swan.apps.ai.b cEx = null;
+    private com.baidu.swan.apps.ab.c cEy;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
     public void onPostCreate(Bundle bundle) {
         super.onPostCreate(bundle);
-        boolean nightModeSwitcherState = com.baidu.swan.apps.t.a.azw().getNightModeSwitcherState();
-        com.baidu.swan.apps.u.a.a.h(Boolean.valueOf(nightModeSwitcherState));
-        k(nightModeSwitcherState, false);
+        boolean alD = com.baidu.swan.apps.t.a.aAN().alD();
+        com.baidu.swan.apps.u.a.a.i(Boolean.valueOf(alD));
+        k(alD, false);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -41,33 +41,33 @@ public class SwanAppBaseActivity extends FragmentActivity {
             }
             return;
         }
-        if (this.czJ == null) {
-            this.czJ = new com.baidu.swan.apps.aj.b();
+        if (this.cEx == null) {
+            this.cEx = new com.baidu.swan.apps.ai.b();
         }
         ViewGroup viewGroup = (ViewGroup) window.getDecorView();
         if (z) {
-            this.czJ.C(viewGroup);
+            this.cEx.J(viewGroup);
         } else {
-            this.czJ.D(viewGroup);
+            this.cEx.K(viewGroup);
         }
         if (z2) {
-            com.baidu.swan.apps.process.messaging.a.aHE().a(new com.baidu.swan.apps.process.messaging.c(5).gy(true));
+            com.baidu.swan.apps.process.messaging.a.aIX().a(new com.baidu.swan.apps.process.messaging.c(5).gH(true));
         }
     }
 
-    public com.baidu.swan.apps.aj.b aiy() {
-        return this.czJ;
+    public com.baidu.swan.apps.ai.b ajE() {
+        return this.cEx;
     }
 
     public void a(int i, @NonNull String[] strArr, c.a aVar) {
-        this.czK = com.baidu.swan.apps.ab.c.aGQ();
-        this.czK.a(this, i, strArr, aVar);
+        this.cEy = com.baidu.swan.apps.ab.c.aIj();
+        this.cEy.a(this, i, strArr, aVar);
     }
 
-    @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity, com.baidu.swan.support.v4.app.a.InterfaceC0569a
+    @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity, com.baidu.swan.support.v4.app.a.InterfaceC0560a
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-        if (this.czK != null) {
-            this.czK.a(this, i, strArr, iArr);
+        if (this.cEy != null) {
+            this.cEy.b(this, i, strArr, iArr);
         } else {
             b(i, strArr, iArr);
         }

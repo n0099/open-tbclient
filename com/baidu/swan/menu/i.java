@@ -1,115 +1,164 @@
 package com.baidu.swan.menu;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import android.app.Activity;
 import android.content.Context;
-import android.graphics.drawable.Drawable;
-import com.baidu.swan.menu.g;
-/* loaded from: classes14.dex */
-public class i {
-    private com.baidu.swan.menu.viewpager.b elJ;
-    private int elP;
-    private boolean elQ = true;
-    private int elR = 0;
-    private int elS = -1;
-    public int elT = 0;
-    private long elU = 0;
-    private f elV;
-    private boolean mEnable;
-    private Drawable mIcon;
-    private int mIconResId;
-    private int mId;
-    private String mTitle;
+import android.graphics.drawable.ColorDrawable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
+import android.widget.FrameLayout;
+import androidx.annotation.Nullable;
+import com.baidu.swan.menu.f;
+import java.util.ArrayList;
+import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes5.dex */
+public class i extends PopupWindow implements View.OnClickListener {
+    private FrameLayout ajW;
+    private boolean cUm;
+    private View dqh;
+    private View dqj;
+    private BaseMenuView evH;
+    private MainMenuView evI;
+    private boolean evJ;
+    private a evK;
+    private int evL;
+    private Context mContext;
 
-    public i(int i, int i2, int i3, boolean z) {
-        this.elP = -1;
-        this.mIconResId = -1;
-        this.mEnable = true;
-        this.mId = i;
-        this.elP = i2;
-        this.mIconResId = i3;
-        this.mEnable = z;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public i(Context context, View view, @Nullable a aVar) {
+        super(context);
+        this.evJ = true;
+        this.cUm = true;
+        this.evL = 0;
+        this.mContext = context;
+        this.dqh = view;
+        this.evK = aVar;
+        ei(false);
+        setFocusable(true);
+        eh(true);
+        setBackgroundDrawable(new ColorDrawable(0));
+        setWidth(-1);
+        setHeight(-1);
+        initViews();
     }
 
-    public int bcR() {
-        return this.elT;
+    private void initViews() {
+        this.ajW = (FrameLayout) LayoutInflater.from(this.mContext).inflate(f.e.aiapp_menu_layout, (ViewGroup) null);
+        this.dqj = this.ajW.findViewById(f.d.mask);
+        this.evI = (MainMenuView) this.ajW.findViewById(f.d.aiapp_menu_body);
+        this.dqj.setOnClickListener(this);
+        this.evI.setClickListener(this);
+        this.ajW.measure(0, 0);
+        setContentView(this.ajW);
     }
 
-    public void nb(int i) {
-        this.elT = i;
-    }
-
-    public long bcS() {
-        return this.elU;
-    }
-
-    public void dj(long j) {
-        this.elU = j;
-    }
-
-    public int getItemId() {
-        return this.mId;
-    }
-
-    public void nc(int i) {
-        this.elP = i;
-    }
-
-    public void setIconResId(int i) {
-        this.mIconResId = i;
-    }
-
-    public boolean isEnable() {
-        return this.mEnable;
-    }
-
-    public String em(Context context) {
-        if (this.mTitle != null) {
-            return this.mTitle;
+    private void showView() {
+        if (!isShowing()) {
+            aFP();
+            this.evI.reset();
+            this.evH = this.evI;
+            if (this.cUm) {
+                setFocusable(false);
+            }
+            Activity activity = (Activity) this.mContext;
+            if (activity != null && !activity.isFinishing() && !activity.isDestroyed()) {
+                showAtLocation(this.dqh, 81, 0, 0);
+                if (this.cUm) {
+                    getContentView().setSystemUiVisibility(this.evL | 1024 | 4096);
+                    setFocusable(true);
+                    update();
+                }
+                final View contentView = this.evI.getContentView();
+                if (contentView.getHeight() == 0) {
+                    contentView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.swan.menu.i.1
+                        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+                        public void onGlobalLayout() {
+                            i.this.evI.nc(contentView.getHeight());
+                            i.this.aFQ();
+                            contentView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                        }
+                    });
+                } else {
+                    aFQ();
+                }
+            }
         }
-        if (this.elP <= 0) {
-            return null;
+    }
+
+    public void aFP() {
+        if (this.evK != null) {
+            this.evK.a(this.evI);
         }
-        return context.getResources().getString(this.elP);
     }
 
-    public Drawable en(Context context) {
-        if (this.mIcon != null) {
-            return this.mIcon;
+    public void b(List<List<h>> list, View view, boolean z, int i) {
+        this.evI.a(list, view, z, i);
+        showView();
+    }
+
+    @Override // com.baidu.swan.menu.PopupWindow
+    public void dismiss() {
+        gi(true);
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        int id = view.getId();
+        if (id == f.d.cancel || id == f.d.mask) {
+            gi(true);
         }
-        if (this.mIconResId <= 0) {
-            return null;
+    }
+
+    public void gi(boolean z) {
+        if (!z) {
+            super.dismiss();
+        } else if (isShowing()) {
+            ObjectAnimator bj = c.bj(this.dqj);
+            ObjectAnimator c = c.c(this.evH);
+            AnimatorSet animatorSet = new AnimatorSet();
+            animatorSet.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.swan.menu.i.2
+                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+                public void onAnimationEnd(Animator animator) {
+                    Context context = i.this.mContext;
+                    if (!(context instanceof Activity) || !((Activity) context).isFinishing()) {
+                        i.super.dismiss();
+                        if (i.this.evH != i.this.evI) {
+                            i.this.evH.setVisibility(8);
+                        }
+                    }
+                }
+            });
+            animatorSet.playTogether(bj, c);
+            animatorSet.start();
         }
-        return context.getResources().getDrawable(this.mIconResId);
-    }
-
-    public int bcT() {
-        return this.elR;
-    }
-
-    public boolean isVisible() {
-        return this.elQ;
-    }
-
-    public int getTitleColor() {
-        return this.elS == -1 ? g.a.aiapp_menu_item_text : this.elS;
-    }
-
-    public void a(f fVar) {
-        this.elV = fVar;
-    }
-
-    public f bcU() {
-        return this.elV;
-    }
-
-    public com.baidu.swan.menu.viewpager.b bcV() {
-        return this.elJ;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static i e(i iVar) {
-        if (iVar == null) {
-            return null;
-        }
-        return new i(iVar.mId, iVar.elP, iVar.mIconResId, iVar.mEnable);
+    public void bfi() {
+        this.evI.bfi();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void aFQ() {
+        this.dqj.setAlpha(0.0f);
+        this.evI.setTranslationY(this.evI.getHeight());
+        ObjectAnimator a2 = c.a(this.dqj, this.evI);
+        ObjectAnimator b2 = c.b(this.evI);
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(a2);
+        arrayList.add(b2);
+        AnimatorSet animatorSet = new AnimatorSet();
+        animatorSet.playTogether(arrayList);
+        animatorSet.start();
+    }
+
+    public void nh(int i) {
+        this.evL = i;
     }
 }

@@ -7,17 +7,19 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
 import android.os.SystemClock;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Context f3996a;
-    private static boolean b = false;
-    private static b oYZ = null;
-    private static a oZa = null;
-    private static c oZb = null;
-    private static c oZc = null;
-    private static c oZd = null;
+    private static Context f6055a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private static boolean f6056b = false;
+    private static b pgm = null;
+    private static a pgn = null;
+    private static c pgo = null;
+    private static c pgp = null;
+    private static c pgq = null;
     private static Object h = new Object();
     private static HandlerThread i = null;
     private static Handler j = null;
@@ -45,16 +47,16 @@ public class b {
     private static void a(Context context, int i2, String str) {
         switch (i2) {
             case 0:
-                oZb = new c(oYZ, 0, null);
-                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, oZb);
+                pgo = new c(pgm, 0, null);
+                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, pgo);
                 return;
             case 1:
-                oZc = new c(oYZ, 1, str);
-                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/VAID_" + str), false, oZc);
+                pgp = new c(pgm, 1, str);
+                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/VAID_" + str), false, pgp);
                 return;
             case 2:
-                oZd = new c(oYZ, 2, str);
-                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/AAID_" + str), false, oZd);
+                pgq = new c(pgm, 2, str);
+                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/AAID_" + str), false, pgq);
                 return;
             default:
                 return;
@@ -74,7 +76,7 @@ public class b {
     }
 
     public static void c() {
-        b = "1".equals(a("persist.sys.identifierid.supported", "0"));
+        f6056b = "1".equals(a("persist.sys.identifierid.supported", "0"));
     }
 
     private static void f() {
@@ -88,7 +90,7 @@ public class b {
                     return;
                 }
                 try {
-                    String unused = b.k = b.oZa.a(message.getData().getInt("type"), message.getData().getString("appid"));
+                    String unused = b.k = b.pgn.a(message.getData().getInt("type"), message.getData().getString("appid"));
                 } catch (Exception e) {
                     String unused2 = b.k = "";
                     com.bun.miitmdid.utils.a.a("VMS_IDLG_SDK_Client", "exception", e);
@@ -100,15 +102,15 @@ public class b {
         };
     }
 
-    public static b hy(Context context) {
-        if (oYZ == null) {
-            oYZ = new b();
-            f3996a = context;
+    public static b hM(Context context) {
+        if (pgm == null) {
+            pgm = new b();
+            f6055a = context;
             f();
-            oZa = new a(f3996a);
+            pgn = new a(f6055a);
             c();
         }
-        return oYZ;
+        return pgm;
     }
 
     public String a(String str) {
@@ -117,8 +119,8 @@ public class b {
                 return m;
             }
             a(1, str);
-            if (oZc == null && m != null) {
-                a(f3996a, 1, str);
+            if (pgp == null && m != null) {
+                a(f6055a, 1, str);
             }
             return m;
         }
@@ -166,7 +168,7 @@ public class b {
     }
 
     public boolean a() {
-        return b;
+        return f6056b;
     }
 
     public String b() {
@@ -175,8 +177,8 @@ public class b {
                 return l;
             }
             a(0, (String) null);
-            if (oZb == null) {
-                a(f3996a, 0, null);
+            if (pgo == null) {
+                a(f6055a, 0, null);
             }
             return l;
         }
@@ -189,8 +191,8 @@ public class b {
                 return n;
             }
             a(2, str);
-            if (oZd == null && n != null) {
-                a(f3996a, 2, str);
+            if (pgq == null && n != null) {
+                a(f6055a, 2, str);
             }
             return n;
         }

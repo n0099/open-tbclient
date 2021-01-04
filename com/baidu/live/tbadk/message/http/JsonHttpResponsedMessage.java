@@ -6,7 +6,7 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.data.ErrorData;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
     private long mLogId;
 
@@ -33,7 +33,6 @@ public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
 
     protected JSONObject parseServerResponsedData(String str) {
         JSONObject jSONObject;
-        Exception e;
         if (str == null) {
             return null;
         }
@@ -49,16 +48,16 @@ public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
                     setErrorString(errorData.getError_msg());
                 }
                 return jSONObject;
-            } catch (Exception e2) {
-                e = e2;
+            } catch (Exception e) {
+                e = e;
                 BdLog.e(e.getMessage());
                 setError(-1);
                 setErrorString(TbadkCoreApplication.getInst().getApp().getString(a.h.sdk_error_unkown_try_again));
                 return jSONObject;
             }
-        } catch (Exception e3) {
+        } catch (Exception e2) {
+            e = e2;
             jSONObject = null;
-            e = e3;
         }
     }
 

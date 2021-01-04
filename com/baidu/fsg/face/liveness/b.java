@@ -6,12 +6,14 @@ import com.baidu.fsg.face.liveness.dto.LivenessRecogDTO;
 import com.baidu.idl.facesdk.FaceTracker;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f1710a;
-    public int b;
+    public long f2313a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f2314b;
     public int c;
     private long i;
     private long j;
@@ -43,7 +45,7 @@ public class b {
         ArrayList arrayList = new ArrayList();
         if (d.t.equals(str)) {
             ArrayList arrayList2 = new ArrayList();
-            arrayList2.add(this.b + "");
+            arrayList2.add(this.f2314b + "");
             arrayList2.add(this.c + "");
             arrayList2.add(spno);
             RimStatisticsUtil.onEventWithValues(d.t, arrayList2);
@@ -54,7 +56,7 @@ public class b {
             arrayList.add(spno);
             RimStatisticsUtil.onEventWithValues(d.s, arrayList);
         } else if (d.f.equals(str)) {
-            arrayList.add(((System.currentTimeMillis() - this.f1710a) / 1000) + "");
+            arrayList.add(((System.currentTimeMillis() - this.f2313a) / 1000) + "");
             arrayList.add(spno);
             RimStatisticsUtil.onEventWithValues(d.f, arrayList);
         } else if (d.u.equals(str)) {
@@ -68,7 +70,7 @@ public class b {
                 } else {
                     this.p.add("");
                 }
-                this.p.add(this.b + "*" + this.c);
+                this.p.add(this.f2314b + "*" + this.c);
                 this.p.add(spno);
                 RimStatisticsUtil.onEventWithValues(str, this.p);
             }
@@ -78,7 +80,7 @@ public class b {
             arrayList.add(spno);
             RimStatisticsUtil.onEventWithValues(str, arrayList);
         } else if (d.o.equals(str)) {
-            arrayList.add((System.currentTimeMillis() - this.f1710a) + "");
+            arrayList.add((System.currentTimeMillis() - this.f2313a) + "");
             arrayList.add(spno);
             RimStatisticsUtil.onEventWithValues(str, arrayList);
         }

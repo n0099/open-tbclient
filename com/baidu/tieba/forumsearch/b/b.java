@@ -5,53 +5,53 @@ import com.baidu.tieba.card.data.BaseCardInfo;
 import java.util.List;
 import tbclient.FrsTabInfo;
 import tbclient.SearchPostForum.SearchForum;
-/* loaded from: classes24.dex */
+/* loaded from: classes8.dex */
 public class b extends BaseCardInfo {
-    public static final BdUniqueId iRk = BdUniqueId.gen();
-    private String eHR;
-    private String iQL;
-    private String iRf;
-    private String iRg;
-    private String iRh;
-    private boolean iRi;
-    private List<FrsTabInfo> iRj;
+    public static final BdUniqueId jdw = BdUniqueId.gen();
+    private String eRJ;
+    private String jcX;
+    private String jdr;
+    private String jds;
+    private String jdt;
+    private boolean jdu;
+    private List<FrsTabInfo> jdv;
     private long mForumId;
     private String mForumName;
     private String mIntro;
 
     public b(String str) {
-        this.iQL = str;
+        this.jcX = str;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return iRk;
+        return jdw;
     }
 
     public void a(SearchForum searchForum) {
         if (searchForum != null) {
             this.mForumId = searchForum.forum_id.longValue();
             this.mForumName = searchForum.forum_name;
-            this.eHR = searchForum.avatar;
-            this.iRf = searchForum.post_num;
-            this.iRg = searchForum.concern_num;
-            this.iRh = searchForum.slogan;
+            this.eRJ = searchForum.avatar;
+            this.jdr = searchForum.post_num;
+            this.jds = searchForum.concern_num;
+            this.jdt = searchForum.slogan;
             this.mIntro = searchForum.intro;
-            this.iRi = searchForum.has_concerned.intValue() != 0;
-            this.iRj = searchForum.tab_info;
+            this.jdu = searchForum.has_concerned.intValue() != 0;
+            this.jdv = searchForum.tab_info;
         }
     }
 
     public String getAvatar() {
-        return this.eHR;
+        return this.eRJ;
     }
 
-    public String cAR() {
-        return this.iRg;
+    public String cDK() {
+        return this.jds;
     }
 
-    public String cAS() {
-        return this.iRf;
+    public String cDL() {
+        return this.jdr;
     }
 
     public String getForumName() {
@@ -62,11 +62,11 @@ public class b extends BaseCardInfo {
         return this.mForumId;
     }
 
-    public String cAT() {
-        return this.iQL;
+    public String cDM() {
+        return this.jcX;
     }
 
-    public List<FrsTabInfo> cAU() {
-        return this.iRj;
+    public List<FrsTabInfo> cDN() {
+        return this.jdv;
     }
 }

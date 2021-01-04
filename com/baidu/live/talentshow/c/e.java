@@ -1,11 +1,11 @@
 package com.baidu.live.talentshow.c;
 
-import com.baidu.live.data.w;
-/* loaded from: classes4.dex */
+import com.baidu.live.data.x;
+/* loaded from: classes11.dex */
 public interface e {
-    void TP();
+    void UU();
 
-    void TQ();
+    void UV();
 
     void a(c cVar);
 
@@ -13,5 +13,5 @@ public interface e {
 
     void onDestroy();
 
-    void s(w wVar);
+    void t(x xVar);
 }

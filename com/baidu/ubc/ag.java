@@ -1,7 +1,7 @@
 package com.baidu.ubc;
-/* loaded from: classes20.dex */
+/* loaded from: classes7.dex */
 public class ag {
-    public static u ejh() {
-        return i.eiP();
+    public static u ejr() {
+        return i.eiZ();
     }
 }

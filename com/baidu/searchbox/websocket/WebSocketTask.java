@@ -8,7 +8,7 @@ import kotlin.e;
 import kotlin.jvm.internal.p;
 import org.json.JSONObject;
 @e
-/* loaded from: classes19.dex */
+/* loaded from: classes5.dex */
 public final class WebSocketTask implements IWebSocketClient {
     private final String taskId;
     private final IWebSocketClient webSocketClient;

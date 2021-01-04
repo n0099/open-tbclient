@@ -1,149 +1,144 @@
 package com.baidu.minivideo.arface.utils;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.minivideo.arface.utils.g;
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-/* loaded from: classes8.dex */
-public class b {
+import java.util.Objects;
+/* loaded from: classes6.dex */
+public class b extends d {
+    private static b cmm = null;
+    private String cmj = "arsource";
+    private File cmk;
+    private Boolean cml;
     private Context mContext;
 
-    public b(Context context) {
-        this.mContext = context;
+    public static final b aeG() {
+        if (cmm == null) {
+            createInst();
+        }
+        return cmm;
     }
 
-    public boolean assetToSD(String str, File file) {
-        boolean doAssetToSDcard = doAssetToSDcard(str, file);
+    private static synchronized void createInst() {
+        synchronized (b.class) {
+            if (cmm == null) {
+                cmm = new b();
+            }
+        }
+    }
+
+    @SuppressLint({"NewApi"})
+    public void b(Context context, String str, File file) {
+        this.mContext = ((Context) Objects.requireNonNull(context)).getApplicationContext();
+        this.cmj = (String) Objects.requireNonNull(str);
+        this.cmk = (File) Objects.requireNonNull(file);
+        if (isDebug()) {
+            log("init " + str + " to " + file.getAbsolutePath());
+        }
+    }
+
+    @SuppressLint({"NewApi"})
+    public void a(Context context, String str, File file, g.a aVar) {
+        this.mContext = ((Context) Objects.requireNonNull(context)).getApplicationContext();
+        this.cmj = (String) Objects.requireNonNull(str);
+        this.cmk = (File) Objects.requireNonNull(file);
+        if (isDebug()) {
+            log("start " + str + " to " + file.getAbsolutePath());
+        }
+        super.a(aVar);
+    }
+
+    private String aeH() {
+        return this.cmj;
+    }
+
+    private File aeI() {
+        if (this.cmk == null && com.baidu.minivideo.arface.b.adM() != null && !TextUtils.isEmpty(com.baidu.minivideo.arface.c.adU())) {
+            this.cmk = new File(com.baidu.minivideo.arface.c.adU());
+        }
+        return this.cmk;
+    }
+
+    public boolean isValid() {
+        if (this.cml != null) {
+            return this.cml.booleanValue();
+        }
+        String aeH = aeH();
+        File aeI = aeI();
+        if (isDebug()) {
+            log(String.format("from %s to %s ", aeH, aeI));
+        }
+        String t = (aeI != null && aeI.exists() && aeI.isDirectory()) ? f.t(new File(aeI, "version")) : null;
+        String Q = TextUtils.isEmpty(t) ? null : f.Q(this.mContext, aeH + "/version");
+        if (isDebug()) {
+            log("assets=" + Q + ", sdcard=" + t);
+        }
+        boolean z = TextUtils.isEmpty(t) || !TextUtils.equals(t, Q);
+        this.cml = Boolean.valueOf(!z);
+        return !z;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void bG(Context context) {
+        boolean z = true;
+        if (!isValid()) {
+            z = c(context, aeH(), aeI());
+        }
+        if (z) {
+            this.cml = null;
+            setState(2);
+        }
+        if (isDebug()) {
+            log("arVersion=" + com.baidu.minivideo.arface.b.getVersion() + ", arVersionName=" + com.baidu.minivideo.arface.b.getVersionName());
+        }
+    }
+
+    private boolean c(Context context, String str, File file) {
         if (file.isDirectory()) {
-            File file2 = new File(file, ".nomedia");
-            if (!file2.exists()) {
-                try {
-                    file2.createNewFile();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+            f.deleteDir(file);
+        } else {
+            f.r(file);
+        }
+        File file2 = new File(file + ".loading");
+        boolean assetToSD = new c(context).assetToSD(str, file2);
+        if (isDebug()) {
+            log(assetToSD + " assetsToSD " + file2.getAbsolutePath());
+        }
+        if (assetToSD) {
+            assetToSD = file2.renameTo(file);
+        }
+        if (isDebug()) {
+            log(assetToSD + " renameTo " + file);
+        }
+        if (!assetToSD) {
+            log("del temp ...");
+            f.deleteDir(file2);
+            if (file.exists()) {
+                log("del " + file);
+                f.deleteDir(file);
             }
         }
-        return doAssetToSDcard;
+        return assetToSD;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:72:0x00de */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v1, types: [android.content.res.AssetManager] */
-    /* JADX WARN: Type inference failed for: r1v3 */
-    /* JADX WARN: Type inference failed for: r1v6, types: [java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r1v9, types: [java.io.InputStream] */
-    private boolean doAssetToSDcard(String str, File file) {
-        FileOutputStream fileOutputStream;
-        Throwable th;
-        FileOutputStream fileOutputStream2;
-        Exception e;
-        InputStream inputStream;
-        FileOutputStream fileOutputStream3;
-        InputStream inputStream2 = null;
-        ?? assets = this.mContext.getAssets();
-        try {
-            try {
-                String[] list = assets.list(str);
-                if (list.length > 0) {
-                    if (!file.isDirectory() && file.exists()) {
-                        file.delete();
-                    }
-                    if (file.isDirectory() && !file.exists()) {
-                        file.mkdirs();
-                    }
-                    for (String str2 : list) {
-                        if (!TextUtils.isEmpty(str2)) {
-                            doAssetToSDcard(str + File.separator + str2, new File(file, str2));
-                        }
-                    }
-                    fileOutputStream3 = null;
-                } else {
-                    File parentFile = file.getParentFile();
-                    if (parentFile != null && !parentFile.exists()) {
-                        parentFile.mkdirs();
-                    }
-                    if (file.exists()) {
-                        file.delete();
-                    }
-                    file.createNewFile();
-                    assets = assets.open(str);
-                    try {
-                        fileOutputStream2 = new FileOutputStream(file);
-                        try {
-                            byte[] bArr = new byte[1024];
-                            while (true) {
-                                int read = assets.read(bArr);
-                                if (read == -1) {
-                                    break;
-                                }
-                                fileOutputStream2.write(bArr, 0, read);
-                            }
-                            fileOutputStream2.flush();
-                            inputStream2 = assets;
-                            fileOutputStream3 = fileOutputStream2;
-                        } catch (Exception e2) {
-                            e = e2;
-                            inputStream = assets;
-                            e.printStackTrace();
-                            if (fileOutputStream2 != null) {
-                                try {
-                                    fileOutputStream2.close();
-                                } catch (IOException e3) {
-                                    e3.printStackTrace();
-                                    return false;
-                                }
-                            }
-                            if (inputStream != null) {
-                                inputStream.close();
-                            }
-                            return false;
-                        }
-                    } catch (Exception e4) {
-                        fileOutputStream2 = null;
-                        e = e4;
-                        inputStream = assets;
-                    } catch (Throwable th2) {
-                        fileOutputStream = null;
-                        th = th2;
-                        if (fileOutputStream != null) {
-                            try {
-                                fileOutputStream.close();
-                            } catch (IOException e5) {
-                                e5.printStackTrace();
-                                throw th;
-                            }
-                        }
-                        if (assets != 0) {
-                            assets.close();
-                        }
-                        throw th;
-                    }
-                }
-                if (fileOutputStream3 != null) {
-                    try {
-                        fileOutputStream3.close();
-                    } catch (IOException e6) {
-                        e6.printStackTrace();
-                    }
-                }
-                if (inputStream2 != null) {
-                    inputStream2.close();
-                }
-                return true;
-            } catch (Throwable th3) {
-                th = th3;
+    @Override // com.baidu.minivideo.arface.utils.d
+    public void run() {
+        ThreadPool.aeK().execute(new Runnable() { // from class: com.baidu.minivideo.arface.utils.b.1
+            @Override // java.lang.Runnable
+            public void run() {
+                b.this.bG(b.this.mContext);
             }
-        } catch (Exception e7) {
-            fileOutputStream2 = null;
-            e = e7;
-            inputStream = null;
-        } catch (Throwable th4) {
-            fileOutputStream = null;
-            th = th4;
-            assets = 0;
-        }
+        });
+    }
+
+    private void log(String str) {
+        Log.d("DuAr_AssetsLoader", str);
+    }
+
+    private boolean isDebug() {
+        return com.baidu.minivideo.arface.b.isDebug();
     }
 }

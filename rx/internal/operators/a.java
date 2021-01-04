@@ -3,17 +3,17 @@ package rx.internal.operators;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.internal.util.UtilityFunctions;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class a {
     public static long e(AtomicLong atomicLong, long j) {
         long j2;
         do {
             j2 = atomicLong.get();
-        } while (!atomicLong.compareAndSet(j2, N(j2, j)));
+        } while (!atomicLong.compareAndSet(j2, S(j2, j)));
         return j2;
     }
 
-    public static long O(long j, long j2) {
+    public static long T(long j, long j2) {
         long j3 = j * j2;
         if (((j | j2) >>> 31) != 0 && j2 != 0 && j3 / j2 != j) {
             return Long.MAX_VALUE;
@@ -21,7 +21,7 @@ public final class a {
         return j3;
     }
 
-    public static long N(long j, long j2) {
+    public static long S(long j, long j2) {
         long j3 = j + j2;
         if (j3 < 0) {
             return Long.MAX_VALUE;
@@ -30,11 +30,11 @@ public final class a {
     }
 
     public static <T> void a(AtomicLong atomicLong, Queue<T> queue, rx.j<? super T> jVar) {
-        a(atomicLong, queue, jVar, UtilityFunctions.eGi());
+        a(atomicLong, queue, jVar, UtilityFunctions.eOq());
     }
 
     public static <T> boolean a(AtomicLong atomicLong, long j, Queue<T> queue, rx.j<? super T> jVar) {
-        return a(atomicLong, j, queue, jVar, UtilityFunctions.eGi());
+        return a(atomicLong, j, queue, jVar, UtilityFunctions.eOq());
     }
 
     public static <T, R> void a(AtomicLong atomicLong, Queue<T> queue, rx.j<? super R> jVar, rx.functions.f<? super T, ? extends R> fVar) {
@@ -62,7 +62,7 @@ public final class a {
         do {
             j2 = atomicLong.get();
             j3 = Long.MIN_VALUE & j2;
-        } while (!atomicLong.compareAndSet(j2, N(Long.MAX_VALUE & j2, j) | j3));
+        } while (!atomicLong.compareAndSet(j2, S(Long.MAX_VALUE & j2, j) | j3));
         if (j2 != Long.MIN_VALUE) {
             return j3 == 0;
         }
@@ -85,10 +85,9 @@ public final class a {
             }
             return;
         }
-        long j2 = j;
-        long j3 = Long.MIN_VALUE;
+        long j2 = Long.MIN_VALUE;
         while (true) {
-            if (j3 != j2) {
+            if (j2 != j) {
                 if (!jVar.isUnsubscribed()) {
                     Object poll2 = queue.poll();
                     if (poll2 == null) {
@@ -96,13 +95,13 @@ public final class a {
                         return;
                     } else {
                         jVar.onNext((R) fVar.call(poll2));
-                        j3++;
+                        j2++;
                     }
                 } else {
                     return;
                 }
             } else {
-                if (j3 == j2) {
+                if (j2 == j) {
                     if (!jVar.isUnsubscribed()) {
                         if (queue.isEmpty()) {
                             jVar.onCompleted();
@@ -112,14 +111,13 @@ public final class a {
                         return;
                     }
                 }
-                j2 = atomicLong.get();
-                if (j2 == j3) {
-                    long addAndGet = atomicLong.addAndGet(-(j3 & Long.MAX_VALUE));
-                    if (addAndGet == Long.MIN_VALUE) {
+                j = atomicLong.get();
+                if (j == j2) {
+                    j = atomicLong.addAndGet(-(j2 & Long.MAX_VALUE));
+                    if (j == Long.MIN_VALUE) {
                         return;
                     }
-                    j2 = addAndGet;
-                    j3 = Long.MIN_VALUE;
+                    j2 = Long.MIN_VALUE;
                 } else {
                     continue;
                 }

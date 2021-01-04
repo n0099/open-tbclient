@@ -19,7 +19,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class IMGetUserIdentityRequest extends IMUserBaseHttpRequest {
     public static final String TAG = "IMGetUserIdentityRequest";
     private List<Long> mBduids = new ArrayList();
@@ -80,36 +80,35 @@ public class IMGetUserIdentityRequest extends IMUserBaseHttpRequest {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:22:0x0110  */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x010f  */
     /* JADX WARN: Removed duplicated region for block: B:34:? A[RETURN, SYNTHETIC] */
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void onSuccess(int i, byte[] bArr) {
-        JSONException jSONException;
         int i2;
         ArrayList arrayList;
+        int i3;
         JSONArray optJSONArray;
         String str = new String(bArr);
         LogUtils.d(TAG, "onSuccess content = " + str);
-        ArrayList arrayList2 = null;
-        int i3 = 0;
+        int i4 = 0;
         try {
             JSONObject jSONObject = new JSONObject(str);
-            i3 = jSONObject.optInt("error_code");
-            if (i3 != 0 || (optJSONArray = jSONObject.optJSONArray("user_list")) == null || optJSONArray.length() <= 0) {
+            i4 = jSONObject.optInt("error_code");
+            if (i4 != 0 || (optJSONArray = jSONObject.optJSONArray("user_list")) == null || optJSONArray.length() <= 0) {
                 arrayList = null;
             } else {
                 arrayList = new ArrayList();
-                int i4 = 0;
+                int i5 = 0;
                 while (true) {
                     try {
-                        int i5 = i4;
-                        if (i5 >= optJSONArray.length()) {
+                        int i6 = i5;
+                        if (i6 >= optJSONArray.length()) {
                             break;
                         }
-                        JSONObject jSONObject2 = optJSONArray.getJSONObject(i5);
+                        JSONObject jSONObject2 = optJSONArray.getJSONObject(i6);
                         long optLong = jSONObject2.optLong("bd_uid");
                         long optLong2 = jSONObject2.optLong("uk", 0L);
                         String optString = jSONObject2.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
@@ -138,25 +137,25 @@ public class IMGetUserIdentityRequest extends IMUserBaseHttpRequest {
                             chatUser.setShieldTime(chatUser2.getShieldTime());
                         }
                         arrayList.add(chatUser);
-                        i4 = i5 + 1;
+                        i5 = i6 + 1;
                     } catch (JSONException e) {
-                        jSONException = e;
-                        arrayList2 = arrayList;
-                        i2 = i3;
-                        LogUtils.e(TAG, "Exception ", jSONException);
+                        e = e;
+                        i2 = i4;
+                        LogUtils.e(TAG, "Exception ", e);
+                        i3 = i2;
                         if (this.mListener == null) {
                         }
                     }
                 }
             }
-            arrayList2 = arrayList;
-            i2 = i3;
+            i3 = i4;
         } catch (JSONException e2) {
-            jSONException = e2;
-            i2 = i3;
+            e = e2;
+            i2 = i4;
+            arrayList = null;
         }
         if (this.mListener == null) {
-            this.mListener.onGetUserIdentityResult(i2, arrayList2);
+            this.mListener.onGetUserIdentityResult(i3, arrayList);
         }
     }
 

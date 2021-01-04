@@ -1,6 +1,6 @@
 package okhttp3;
 
-import android.support.v7.widget.ActivityChooserView;
+import androidx.appcompat.widget.ActivityChooserView;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
 import okhttp3.RealCall;
 import okhttp3.internal.Util;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public final class Dispatcher {
     static final /* synthetic */ boolean $assertionsDisabled;
     @Nullable

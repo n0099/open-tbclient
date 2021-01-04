@@ -1,54 +1,68 @@
 package rx.internal.operators;
 
-import rx.d;
+import rx.g;
 import rx.h;
-import rx.internal.operators.t;
-import rx.internal.producers.SingleProducer;
-/* loaded from: classes12.dex */
-public final class u<T, R> implements h.a<R> {
-    final h.a<T> pST;
-    final d.b<? extends R, ? super T> pSZ;
+/* loaded from: classes15.dex */
+public final class u<T> implements h.a<T> {
+    final h.a<T> quu;
+    final rx.g scheduler;
+
+    public u(h.a<T> aVar, rx.g gVar) {
+        this.quu = aVar;
+        this.scheduler = gVar;
+    }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // rx.functions.b
     /* renamed from: b */
-    public void call(rx.i<? super R> iVar) {
-        t.a aVar = new t.a(iVar);
+    public void call(rx.i<? super T> iVar) {
+        g.a createWorker = this.scheduler.createWorker();
+        a aVar = new a(iVar, createWorker);
+        iVar.add(createWorker);
         iVar.add(aVar);
-        try {
-            rx.j<? super T> call = rx.c.c.c(this.pSZ).call(aVar);
-            rx.i c = c(call);
-            call.onStart();
-            this.pST.call(c);
-        } catch (Throwable th) {
-            rx.exceptions.a.a(th, iVar);
-        }
-    }
-
-    public static <T> rx.i<T> c(rx.j<T> jVar) {
-        a aVar = new a(jVar);
-        jVar.add(aVar);
-        return aVar;
+        this.quu.call(aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
-    public static final class a<T> extends rx.i<T> {
-        final rx.j<? super T> actual;
+    /* loaded from: classes15.dex */
+    public static final class a<T> extends rx.i<T> implements rx.functions.a {
+        final rx.i<? super T> actual;
+        Throwable error;
+        final g.a quv;
+        T value;
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public a(rx.j<? super T> jVar) {
-            this.actual = jVar;
+        public a(rx.i<? super T> iVar, g.a aVar) {
+            this.actual = iVar;
+            this.quv = aVar;
         }
 
         @Override // rx.i
         public void onSuccess(T t) {
-            this.actual.setProducer(new SingleProducer(this.actual, t));
+            this.value = t;
+            this.quv.c(this);
         }
 
         @Override // rx.i
         public void onError(Throwable th) {
-            this.actual.onError(th);
+            this.error = th;
+            this.quv.c(this);
+        }
+
+        @Override // rx.functions.a
+        public void call() {
+            try {
+                Throwable th = this.error;
+                if (th != null) {
+                    this.error = null;
+                    this.actual.onError(th);
+                } else {
+                    T t = this.value;
+                    this.value = null;
+                    this.actual.onSuccess(t);
+                }
+            } finally {
+                this.quv.unsubscribe();
+            }
         }
     }
 }

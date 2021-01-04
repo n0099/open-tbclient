@@ -6,30 +6,30 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.layout.ConstrainImageGroup;
 import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class b extends com.baidu.tieba.card.b<c> {
-    private TbImageView iYZ;
-    private TextView iZa;
-    private TextView iZb;
-    private c iZc;
-    protected ConstrainImageGroup ijF;
+    private View dDI;
+    protected ConstrainImageGroup iwa;
+    private TbImageView jlm;
+    private TextView jln;
+    private TextView jlo;
+    private c jlp;
     private RelativeLayout mContainer;
-    private View mDivider;
 
     public b(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         View view = getView();
-        this.iYZ = (TbImageView) view.findViewById(R.id.ad_portrait);
-        this.iZa = (TextView) view.findViewById(R.id.ad_title);
-        this.iZb = (TextView) view.findViewById(R.id.ad_desc);
-        this.ijF = (ConstrainImageGroup) view.findViewById(R.id.ad_img_layout);
-        this.mDivider = view.findViewById(R.id.item_divider);
+        this.jlm = (TbImageView) view.findViewById(R.id.ad_portrait);
+        this.jln = (TextView) view.findViewById(R.id.ad_title);
+        this.jlo = (TextView) view.findViewById(R.id.ad_desc);
+        this.iwa = (ConstrainImageGroup) view.findViewById(R.id.ad_img_layout);
+        this.dDI = view.findViewById(R.id.item_divider);
         this.mContainer = (RelativeLayout) view.findViewById(R.id.frs_ad_list_item_view);
         view.setOnClickListener(this);
     }
@@ -38,10 +38,10 @@ public class b extends com.baidu.tieba.card.b<c> {
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            ap.setViewTextColor(this.iZa, R.color.CAM_X0105);
-            ap.setViewTextColor(this.iZb, R.color.CAM_X0109);
-            ap.setBackgroundResource(this.mContainer, R.drawable.ad_list_item_bg);
-            this.ijF.onChangeSkinType();
+            ao.setViewTextColor(this.jln, R.color.CAM_X0105);
+            ao.setViewTextColor(this.jlo, R.color.CAM_X0109);
+            ao.setBackgroundResource(this.mContainer, R.drawable.ad_list_item_bg);
+            this.iwa.onChangeSkinType();
         }
     }
 
@@ -51,20 +51,20 @@ public class b extends com.baidu.tieba.card.b<c> {
     }
 
     public void setSingleImageRatio(double d) {
-        if (this.ijF != null) {
-            this.ijF.setSingleImageRatio(d);
+        if (this.iwa != null) {
+            this.iwa.setSingleImageRatio(d);
         }
     }
 
     public void setConstrainLayoutPool(com.baidu.adp.lib.d.b<ConstrainImageLayout> bVar) {
-        if (this.ijF != null) {
-            this.ijF.setConstrainLayoutPool(bVar);
+        if (this.iwa != null) {
+            this.iwa.setConstrainLayoutPool(bVar);
         }
     }
 
     public void setConstrainImagePool(com.baidu.adp.lib.d.b<TbImageView> bVar) {
-        if (this.ijF != null) {
-            this.ijF.setImageViewPool(bVar);
+        if (this.iwa != null) {
+            this.iwa.setImageViewPool(bVar);
         }
     }
 
@@ -72,50 +72,50 @@ public class b extends com.baidu.tieba.card.b<c> {
     @Override // com.baidu.tieba.card.b
     public void a(c cVar) {
         if (cVar != null) {
-            this.iZc = cVar;
-            this.iYZ.setPlaceHolder(1);
-            this.iYZ.startLoad(cVar.cEK(), 10, false);
-            this.iYZ.setRadius(l.getDimens(getContext(), R.dimen.tbds26));
-            this.iYZ.setDrawerType(1);
-            this.iYZ.setDrawBorder(true);
-            this.iYZ.setBorderColor(ap.getColor(R.color.black_alpha15));
-            this.iYZ.setBorderWidth(l.getDimens(getContext(), R.dimen.tbds1));
-            this.iYZ.setDefaultResource(R.drawable.transparent_bg);
-            this.iYZ.setDefaultBgResource(R.drawable.transparent_bg);
-            this.iZa.setText(cVar.cEL());
-            this.iZb.setText(cVar.cEM());
-            ap.setViewTextColor(this.iZa, R.color.CAM_X0105);
-            ap.setViewTextColor(this.iZb, R.color.CAM_X0109);
-            ap.setBackgroundResource(this.mContainer, R.drawable.ad_list_item_bg);
-            if (y.getCount(cVar.cEN()) > 0) {
+            this.jlp = cVar;
+            this.jlm.setPlaceHolder(1);
+            this.jlm.startLoad(cVar.cHF(), 10, false);
+            this.jlm.setRadius(l.getDimens(getContext(), R.dimen.tbds26));
+            this.jlm.setDrawerType(1);
+            this.jlm.setDrawBorder(true);
+            this.jlm.setBorderColor(ao.getColor(R.color.black_alpha15));
+            this.jlm.setBorderWidth(l.getDimens(getContext(), R.dimen.tbds1));
+            this.jlm.setDefaultResource(R.drawable.transparent_bg);
+            this.jlm.setDefaultBgResource(R.drawable.transparent_bg);
+            this.jln.setText(cVar.cHG());
+            this.jlo.setText(cVar.cHH());
+            ao.setViewTextColor(this.jln, R.color.CAM_X0105);
+            ao.setViewTextColor(this.jlo, R.color.CAM_X0109);
+            ao.setBackgroundResource(this.mContainer, R.drawable.ad_list_item_bg);
+            if (x.getCount(cVar.cHI()) > 0) {
                 com.baidu.tbadk.widget.layout.f fVar = new com.baidu.tbadk.widget.layout.f(3);
                 fVar.x(1.0d);
-                this.ijF.setVisibility(0);
-                this.ijF.setFromCDN(true);
-                this.ijF.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds20));
-                this.ijF.setImageProcessor(fVar);
-                this.ijF.setImageMediaList(cVar.cEN());
-                if (!cVar.cEO()) {
+                this.iwa.setVisibility(0);
+                this.iwa.setFromCDN(true);
+                this.iwa.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds20));
+                this.iwa.setImageProcessor(fVar);
+                this.iwa.setImageMediaList(cVar.cHI());
+                if (!cVar.cHJ()) {
                     RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, l.getDimens(getContext(), R.dimen.tbds16));
                     layoutParams.addRule(12);
-                    this.mDivider.setLayoutParams(layoutParams);
-                    ap.setBackgroundColor(this.mDivider, R.color.CAM_X0204);
-                    this.mDivider.setVisibility(0);
+                    this.dDI.setLayoutParams(layoutParams);
+                    ao.setBackgroundColor(this.dDI, R.color.CAM_X0204);
+                    this.dDI.setVisibility(0);
                     return;
                 }
-                this.mDivider.setVisibility(8);
+                this.dDI.setVisibility(8);
                 return;
             }
-            this.ijF.setVisibility(8);
-            if (!cVar.cEO()) {
+            this.iwa.setVisibility(8);
+            if (!cVar.cHJ()) {
                 RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, l.getDimens(getContext(), R.dimen.tbds1));
                 layoutParams2.addRule(12);
-                this.mDivider.setLayoutParams(layoutParams2);
-                ap.setBackgroundColor(this.mDivider, R.color.CAM_X0204);
-                this.mDivider.setVisibility(0);
+                this.dDI.setLayoutParams(layoutParams2);
+                ao.setBackgroundColor(this.dDI, R.color.CAM_X0204);
+                this.dDI.setVisibility(0);
                 return;
             }
-            this.mDivider.setVisibility(8);
+            this.dDI.setVisibility(8);
         }
     }
 

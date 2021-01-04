@@ -1,5 +1,5 @@
 package com.baidu.live.liveroom.e;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public abstract class g implements f {
     @Override // com.baidu.live.liveroom.e.f
     public void onStart() {

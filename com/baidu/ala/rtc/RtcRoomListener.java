@@ -1,8 +1,10 @@
 package com.baidu.ala.rtc;
 
 import java.nio.ByteBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public interface RtcRoomListener {
+    void onEnterRoomResult(boolean z);
+
     void onError(int i, String str);
 
     void onPeerConnectStateUpdate(int i);

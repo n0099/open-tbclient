@@ -5,7 +5,7 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpResponseException;
 import org.apache.http.client.ResponseHandler;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes6.dex */
 public class BasicResponseHandler implements ResponseHandler<String> {
     public BasicResponseHandler() {
         throw new RuntimeException("Stub!");

@@ -1,32 +1,32 @@
 package com.baidu.swan.menu.viewpager;
 
 import java.util.ArrayList;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class c<T> {
-    private ArrayList<T> mPool = new ArrayList<>();
-    private final int mPoolLimit;
+    private ArrayList<T> ewa = new ArrayList<>();
+    private final int ewb;
 
     public c(int i) {
-        this.mPoolLimit = i;
+        this.ewb = i;
     }
 
-    public synchronized void recycle(T t) {
+    public synchronized void aj(T t) {
         if (t != null) {
-            if (this.mPool.size() >= this.mPoolLimit) {
-                this.mPool.remove(this.mPool.size() - 1);
+            if (this.ewa.size() >= this.ewb) {
+                this.ewa.remove(this.ewa.size() - 1);
             }
-            this.mPool.add(t);
+            this.ewa.add(t);
         }
     }
 
     public synchronized T get() {
         T t;
         while (true) {
-            if (this.mPool.size() <= 0) {
+            if (this.ewa.size() <= 0) {
                 t = null;
                 break;
             }
-            t = this.mPool.remove(this.mPool.size() - 1);
+            t = this.ewa.remove(this.ewa.size() - 1);
             if (t != null) {
                 break;
             }

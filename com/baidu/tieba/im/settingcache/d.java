@@ -3,35 +3,33 @@ package com.baidu.tieba.im.settingcache;
 import android.text.TextUtils;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.cache.l;
-import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.util.ab;
 import com.baidu.tbadk.util.ac;
-import com.baidu.tbadk.util.ad;
-import com.baidu.tbadk.util.m;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
 /* loaded from: classes.dex */
 public class d extends a {
-    private static d kDk = new d();
+    private static d kIF = new d();
 
     private d() {
     }
 
-    public static d cZZ() {
-        return kDk;
+    public static d cZM() {
+        return kIF;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.settingcache.a
-    /* renamed from: fA */
-    public OfficialSettingItemData fx(String str, String str2) {
+    /* renamed from: fB */
+    public OfficialSettingItemData fy(String str, String str2) {
         OfficialSettingItemData officialSettingItemData;
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
         }
-        String str3 = str + UgcConstant.AT_RULE_TAG + str2;
-        synchronized (this.kDd) {
-            ChatSetting chatSetting = this.kDd.get(str3);
+        String str3 = str + "@" + str2;
+        synchronized (this.kIy) {
+            ChatSetting chatSetting = this.kIy.get(str3);
             officialSettingItemData = (chatSetting == null || !(chatSetting instanceof OfficialSettingItemData)) ? null : (OfficialSettingItemData) chatSetting;
         }
         if (officialSettingItemData == null) {
@@ -44,22 +42,22 @@ public class d extends a {
         return officialSettingItemData;
     }
 
-    public void cVO() {
-        super.y(OfficialSettingItemData.class);
+    public void cXk() {
+        super.r(OfficialSettingItemData.class);
     }
 
     public void b(String str, String str2, UserData userData) {
-        OfficialSettingItemData fx;
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && userData != null && (fx = fx(str, str2)) != null) {
-            fx.setToPortrait(userData.getPortrait());
-            fx.setToName(userData.getUserName());
-            a(fx);
+        OfficialSettingItemData fy;
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && userData != null && (fy = fy(str, str2)) != null) {
+            fy.setToPortrait(userData.getPortrait());
+            fy.setToName(userData.getUserName());
+            a(fy);
         }
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
-    protected l<String> cZW() {
-        return com.baidu.tbadk.core.c.a.brq().Bo("tb.im_official_chat_setting");
+    protected l<String> cZJ() {
+        return com.baidu.tbadk.core.c.a.btS().Bn("tb.im_official_chat_setting");
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
@@ -74,18 +72,18 @@ public class d extends a {
                 }
                 return;
             }
-            l<String> cZW = cZW();
-            String str = myUid + UgcConstant.AT_RULE_TAG + toUid;
+            l<String> cZJ = cZJ();
+            String str = myUid + "@" + toUid;
             String jsonStrWithObject = OrmObject.jsonStrWithObject(officialSettingItemData);
-            synchronized (this.kDd) {
-                this.kDd.put(str, officialSettingItemData);
+            synchronized (this.kIy) {
+                this.kIy.put(str, officialSettingItemData);
             }
-            cZW.setForever(str, jsonStrWithObject);
+            cZJ.setForever(str, jsonStrWithObject);
         }
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
-    public void a(ChatSetting chatSetting, m<Void> mVar) {
+    public void a(ChatSetting chatSetting, com.baidu.tbadk.util.l<Void> lVar) {
         if (chatSetting != null && (chatSetting instanceof OfficialSettingItemData)) {
             final OfficialSettingItemData officialSettingItemData = (OfficialSettingItemData) chatSetting;
             String myUid = officialSettingItemData.getMyUid();
@@ -96,19 +94,19 @@ public class d extends a {
                 }
                 return;
             }
-            final String str = myUid + UgcConstant.AT_RULE_TAG + toUid;
-            synchronized (this.kDd) {
-                this.kDd.put(str, officialSettingItemData);
+            final String str = myUid + "@" + toUid;
+            synchronized (this.kIy) {
+                this.kIy.put(str, officialSettingItemData);
             }
-            ad.b(new ac<Void>() { // from class: com.baidu.tieba.im.settingcache.d.1
+            ac.b(new ab<Void>() { // from class: com.baidu.tieba.im.settingcache.d.1
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.tbadk.util.ac
-                /* renamed from: bMU */
+                @Override // com.baidu.tbadk.util.ab
+                /* renamed from: bPm */
                 public Void doInBackground() {
-                    d.this.cZW().setForever(str, OrmObject.jsonStrWithObject(officialSettingItemData));
+                    d.this.cZJ().setForever(str, OrmObject.jsonStrWithObject(officialSettingItemData));
                     return null;
                 }
-            }, mVar);
+            }, lVar);
         }
     }
 }

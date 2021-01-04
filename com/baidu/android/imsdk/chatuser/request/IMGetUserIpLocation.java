@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class IMGetUserIpLocation extends Message {
     private static final String TAG = "IMGetUserIpLocation";
     private Context mContext;
@@ -83,6 +83,7 @@ public class IMGetUserIpLocation extends Message {
 
     @Override // com.baidu.android.imsdk.request.Message
     public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
+        Exception e;
         ArrayList<IpInfo> arrayList;
         ArrayList<IpInfo> arrayList2 = null;
         if (getMsgType() == 1) {
@@ -122,9 +123,9 @@ public class IMGetUserIpLocation extends Message {
                         }
                         updateDB(context, arrayList3);
                         arrayList2 = arrayList3;
-                    } catch (Exception e) {
+                    } catch (Exception e2) {
+                        e = e2;
                         arrayList2 = arrayList3;
-                        e = e;
                         LogUtils.e(TAG, "IMGetUserIpLocation handleMessageResult :", e);
                         arrayList = arrayList2;
                         super.handleMessageResult(context, jSONObject, i, str);
@@ -132,8 +133,8 @@ public class IMGetUserIpLocation extends Message {
                     }
                 }
                 arrayList = arrayList2;
-            } catch (Exception e2) {
-                e = e2;
+            } catch (Exception e3) {
+                e = e3;
             }
         }
         super.handleMessageResult(context, jSONObject, i, str);

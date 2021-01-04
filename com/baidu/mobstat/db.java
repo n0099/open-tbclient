@@ -7,12 +7,14 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class db {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ boolean f2617a;
-    private static final byte[] b;
+    static final /* synthetic */ boolean f3845a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private static final byte[] f3846b;
     private static final byte[] c;
     private static final byte[] d;
     private static final byte[] e;
@@ -20,8 +22,8 @@ public class db {
     private static final byte[] g;
 
     static {
-        f2617a = !db.class.desiredAssertionStatus();
-        b = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
+        f3845a = !db.class.desiredAssertionStatus();
+        f3846b = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
         c = new byte[]{-9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -5, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, 62, -9, -9, -9, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -9, -9, -9, -1, -9, -9, -9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, Constants.GZIP_CAST_TYPE, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -9, -9, -9, -9, -9, -9, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9};
         d = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 45, 95};
         e = new byte[]{-9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -5, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, 62, -9, -9, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -9, -9, -9, -1, -9, -9, -9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, Constants.GZIP_CAST_TYPE, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -9, -9, -9, -9, 63, -9, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9};
@@ -36,7 +38,7 @@ public class db {
         if ((i & 32) == 32) {
             return f;
         }
-        return b;
+        return f3846b;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -90,11 +92,11 @@ public class db {
         try {
             str = a(bArr, 0, bArr.length, 0);
         } catch (IOException e2) {
-            if (!f2617a) {
+            if (!f3845a) {
                 throw new AssertionError(e2.getMessage());
             }
         }
-        if (f2617a || str != null) {
+        if (f3845a || str != null) {
             return str;
         }
         throw new AssertionError();
@@ -112,10 +114,8 @@ public class db {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [928=5, 929=4, 930=4] */
     public static byte[] b(byte[] bArr, int i, int i2, int i3) throws IOException {
         a aVar;
-        ByteArrayOutputStream byteArrayOutputStream;
-        ByteArrayOutputStream byteArrayOutputStream2;
         GZIPOutputStream gZIPOutputStream;
-        GZIPOutputStream gZIPOutputStream2 = null;
+        ByteArrayOutputStream byteArrayOutputStream;
         if (bArr == null) {
             throw new NullPointerException("Cannot serialize a null array.");
         }
@@ -166,74 +166,68 @@ public class db {
             byteArrayOutputStream = new ByteArrayOutputStream();
             try {
                 aVar = new a(byteArrayOutputStream, i3 | 1);
-                try {
-                    gZIPOutputStream = new GZIPOutputStream(aVar);
-                } catch (IOException e2) {
-                    e = e2;
-                    byteArrayOutputStream2 = byteArrayOutputStream;
-                } catch (Throwable th) {
-                    th = th;
-                }
-            } catch (IOException e3) {
-                e = e3;
+            } catch (IOException e2) {
+                throw e2;
+            } catch (Throwable th) {
+                th = th;
                 aVar = null;
-                byteArrayOutputStream2 = byteArrayOutputStream;
-            } catch (Throwable th2) {
-                th = th2;
-                aVar = null;
+                gZIPOutputStream = null;
             }
-        } catch (IOException e4) {
-            e = e4;
+        } catch (IOException e3) {
             aVar = null;
-            byteArrayOutputStream2 = null;
-        } catch (Throwable th3) {
-            th = th3;
+            gZIPOutputStream = null;
+            byteArrayOutputStream = null;
+            throw e3;
+        } catch (Throwable th2) {
+            th = th2;
             aVar = null;
+            gZIPOutputStream = null;
             byteArrayOutputStream = null;
         }
         try {
-            gZIPOutputStream.write(bArr, i, i2);
-            gZIPOutputStream.close();
+            gZIPOutputStream = new GZIPOutputStream(aVar);
             try {
-                gZIPOutputStream.close();
-            } catch (Exception e5) {
-            }
-            try {
-                aVar.close();
-            } catch (Exception e6) {
-            }
-            try {
-                byteArrayOutputStream.close();
-            } catch (Exception e7) {
-            }
-            return byteArrayOutputStream.toByteArray();
-        } catch (IOException e8) {
-            e = e8;
-            gZIPOutputStream2 = gZIPOutputStream;
-            byteArrayOutputStream2 = byteArrayOutputStream;
-            try {
-                throw e;
-            } catch (Throwable th4) {
-                th = th4;
-                byteArrayOutputStream = byteArrayOutputStream2;
                 try {
-                    gZIPOutputStream2.close();
-                } catch (Exception e9) {
+                    gZIPOutputStream.write(bArr, i, i2);
+                    gZIPOutputStream.close();
+                    try {
+                        gZIPOutputStream.close();
+                    } catch (Exception e4) {
+                    }
+                    try {
+                        aVar.close();
+                    } catch (Exception e5) {
+                    }
+                    try {
+                        byteArrayOutputStream.close();
+                    } catch (Exception e6) {
+                    }
+                    return byteArrayOutputStream.toByteArray();
+                } catch (IOException e7) {
+                    throw e7;
+                }
+            } catch (Throwable th3) {
+                th = th3;
+                try {
+                    gZIPOutputStream.close();
+                } catch (Exception e8) {
                 }
                 try {
                     aVar.close();
-                } catch (Exception e10) {
+                } catch (Exception e9) {
                 }
                 try {
                     byteArrayOutputStream.close();
-                } catch (Exception e11) {
+                } catch (Exception e10) {
                 }
                 throw th;
             }
-        } catch (Throwable th5) {
-            th = th5;
-            gZIPOutputStream2 = gZIPOutputStream;
-            gZIPOutputStream2.close();
+        } catch (IOException e11) {
+            throw e11;
+        } catch (Throwable th4) {
+            th = th4;
+            gZIPOutputStream = null;
+            gZIPOutputStream.close();
             aVar.close();
             byteArrayOutputStream.close();
             throw th;
@@ -272,12 +266,14 @@ public class db {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     public static class a extends FilterOutputStream {
 
         /* renamed from: a  reason: collision with root package name */
-        private boolean f2618a;
-        private int b;
+        private boolean f3847a;
+
+        /* renamed from: b  reason: collision with root package name */
+        private int f3848b;
         private byte[] c;
         private int d;
         private int e;
@@ -290,10 +286,10 @@ public class db {
         public a(OutputStream outputStream, int i) {
             super(outputStream);
             this.f = (i & 8) != 0;
-            this.f2618a = (i & 1) != 0;
-            this.d = this.f2618a ? 3 : 4;
+            this.f3847a = (i & 1) != 0;
+            this.d = this.f3847a ? 3 : 4;
             this.c = new byte[this.d];
-            this.b = 0;
+            this.f3848b = 0;
             this.e = 0;
             this.h = false;
             this.g = new byte[4];
@@ -305,28 +301,28 @@ public class db {
         public void write(int i) throws IOException {
             if (this.h) {
                 this.out.write(i);
-            } else if (this.f2618a) {
+            } else if (this.f3847a) {
                 byte[] bArr = this.c;
-                int i2 = this.b;
-                this.b = i2 + 1;
+                int i2 = this.f3848b;
+                this.f3848b = i2 + 1;
                 bArr[i2] = (byte) i;
-                if (this.b >= this.d) {
+                if (this.f3848b >= this.d) {
                     this.out.write(db.b(this.g, this.c, this.d, this.i));
                     this.e += 4;
                     if (this.f && this.e >= 76) {
                         this.out.write(10);
                         this.e = 0;
                     }
-                    this.b = 0;
+                    this.f3848b = 0;
                 }
             } else if (this.j[i & 127] > -5) {
                 byte[] bArr2 = this.c;
-                int i3 = this.b;
-                this.b = i3 + 1;
+                int i3 = this.f3848b;
+                this.f3848b = i3 + 1;
                 bArr2[i3] = (byte) i;
-                if (this.b >= this.d) {
+                if (this.f3848b >= this.d) {
                     this.out.write(this.g, 0, db.b(this.c, 0, this.g, 0, this.i));
-                    this.b = 0;
+                    this.f3848b = 0;
                 }
             } else if (this.j[i & 127] != -5) {
                 throw new IOException("Invalid character in Base64 data.");
@@ -345,10 +341,10 @@ public class db {
         }
 
         public void a() throws IOException {
-            if (this.b > 0) {
-                if (this.f2618a) {
-                    this.out.write(db.b(this.g, this.c, this.b, this.i));
-                    this.b = 0;
+            if (this.f3848b > 0) {
+                if (this.f3847a) {
+                    this.out.write(db.b(this.g, this.c, this.f3848b, this.i));
+                    this.f3848b = 0;
                     return;
                 }
                 throw new IOException("Base64 input not properly padded.");

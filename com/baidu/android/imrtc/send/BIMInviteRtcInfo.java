@@ -3,7 +3,7 @@ package com.baidu.android.imrtc.send;
 import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.android.imrtc.BIMRtcInfo;
 import com.baidu.android.imrtc.utils.IMJni;
 import com.baidu.android.imrtc.utils.LogUtils;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes6.dex */
 public class BIMInviteRtcInfo extends BIMRtcInfo {
     public static final Parcelable.Creator<BIMInviteRtcInfo> CREATOR = new Parcelable.Creator<BIMInviteRtcInfo>() { // from class: com.baidu.android.imrtc.send.BIMInviteRtcInfo.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -157,7 +157,7 @@ public class BIMInviteRtcInfo extends BIMRtcInfo {
         return "BIMInviteRtcInfo{" + super.toString() + ", mRtcRoomType=" + this.mRtcRoomType + ", mMediaType=" + this.mMediaType + '}';
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes6.dex */
     public static class BIMInviteUser implements Parcelable {
         public static final Parcelable.Creator<BIMInviteUser> CREATOR = new Parcelable.Creator<BIMInviteUser>() { // from class: com.baidu.android.imrtc.send.BIMInviteRtcInfo.BIMInviteUser.1
             /* JADX DEBUG: Method merged with bridge method */

@@ -1,5 +1,5 @@
 package com.baidu.card;
-/* loaded from: classes21.dex */
+/* loaded from: classes.dex */
 public interface p<T> {
-    void H(T t);
+    void D(T t);
 }

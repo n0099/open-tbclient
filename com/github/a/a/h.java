@@ -1,10 +1,10 @@
 package com.github.a.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class h extends a {
     private int mPid;
-    private long psA;
-    private long psB;
-    private StringBuffer psz;
+    private StringBuffer pJB;
+    private long pJC;
+    private long pJD;
 
     @Override // com.github.a.a.a
     public /* bridge */ /* synthetic */ void stop() {
@@ -13,10 +13,10 @@ public class h extends a {
 
     public h(long j) {
         super(j);
-        this.psz = new StringBuffer();
+        this.pJB = new StringBuffer();
         this.mPid = 0;
-        this.psA = 0L;
-        this.psB = 0L;
+        this.pJC = 0L;
+        this.pJD = 0L;
     }
 
     @Override // com.github.a.a.a
@@ -26,7 +26,7 @@ public class h extends a {
     }
 
     public String getCpuRateInfo() {
-        return this.psz.toString();
+        return this.pJB.toString();
     }
 
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
@@ -38,57 +38,57 @@ public class h extends a {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
     @Override // com.github.a.a.a
-    protected void exF() {
+    protected void eBq() {
         /*
             r8 = this;
-            r1 = 0
-            java.lang.StringBuffer r0 = r8.psz
             r2 = 0
-            r0.setLength(r2)
+            java.lang.StringBuffer r0 = r8.pJB
+            r1 = 0
+            r0.setLength(r1)
             java.io.BufferedReader r3 = new java.io.BufferedReader     // Catch: java.lang.Throwable -> L7f
             java.io.InputStreamReader r0 = new java.io.InputStreamReader     // Catch: java.lang.Throwable -> L7f
-            java.io.FileInputStream r2 = new java.io.FileInputStream     // Catch: java.lang.Throwable -> L7f
+            java.io.FileInputStream r1 = new java.io.FileInputStream     // Catch: java.lang.Throwable -> L7f
             java.lang.String r4 = "/proc/stat"
-            r2.<init>(r4)     // Catch: java.lang.Throwable -> L7f
-            r0.<init>(r2)     // Catch: java.lang.Throwable -> L7f
-            r2 = 1000(0x3e8, float:1.401E-42)
-            r3.<init>(r0, r2)     // Catch: java.lang.Throwable -> L7f
-            java.lang.String r0 = r3.readLine()     // Catch: java.lang.Throwable -> Lc0
-            if (r0 != 0) goto Lc7
+            r1.<init>(r4)     // Catch: java.lang.Throwable -> L7f
+            r0.<init>(r1)     // Catch: java.lang.Throwable -> L7f
+            r1 = 1000(0x3e8, float:1.401E-42)
+            r3.<init>(r0, r1)     // Catch: java.lang.Throwable -> L7f
+            java.lang.String r0 = r3.readLine()     // Catch: java.lang.Throwable -> Lbf
+            if (r0 != 0) goto Lc4
             java.lang.String r0 = ""
             r4 = r0
         L25:
-            int r0 = r8.mPid     // Catch: java.lang.Throwable -> Lc0
+            int r0 = r8.mPid     // Catch: java.lang.Throwable -> Lbf
             if (r0 != 0) goto L2f
-            int r0 = android.os.Process.myPid()     // Catch: java.lang.Throwable -> Lc0
-            r8.mPid = r0     // Catch: java.lang.Throwable -> Lc0
+            int r0 = android.os.Process.myPid()     // Catch: java.lang.Throwable -> Lbf
+            r8.mPid = r0     // Catch: java.lang.Throwable -> Lbf
         L2f:
-            java.io.BufferedReader r2 = new java.io.BufferedReader     // Catch: java.lang.Throwable -> Lc0
-            java.io.InputStreamReader r0 = new java.io.InputStreamReader     // Catch: java.lang.Throwable -> Lc0
-            java.io.FileInputStream r5 = new java.io.FileInputStream     // Catch: java.lang.Throwable -> Lc0
-            java.lang.StringBuilder r6 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> Lc0
-            r6.<init>()     // Catch: java.lang.Throwable -> Lc0
+            java.io.BufferedReader r1 = new java.io.BufferedReader     // Catch: java.lang.Throwable -> Lbf
+            java.io.InputStreamReader r0 = new java.io.InputStreamReader     // Catch: java.lang.Throwable -> Lbf
+            java.io.FileInputStream r5 = new java.io.FileInputStream     // Catch: java.lang.Throwable -> Lbf
+            java.lang.StringBuilder r6 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> Lbf
+            r6.<init>()     // Catch: java.lang.Throwable -> Lbf
             java.lang.String r7 = "/proc/"
-            java.lang.StringBuilder r6 = r6.append(r7)     // Catch: java.lang.Throwable -> Lc0
-            int r7 = r8.mPid     // Catch: java.lang.Throwable -> Lc0
-            java.lang.StringBuilder r6 = r6.append(r7)     // Catch: java.lang.Throwable -> Lc0
+            java.lang.StringBuilder r6 = r6.append(r7)     // Catch: java.lang.Throwable -> Lbf
+            int r7 = r8.mPid     // Catch: java.lang.Throwable -> Lbf
+            java.lang.StringBuilder r6 = r6.append(r7)     // Catch: java.lang.Throwable -> Lbf
             java.lang.String r7 = "/stat"
-            java.lang.StringBuilder r6 = r6.append(r7)     // Catch: java.lang.Throwable -> Lc0
-            java.lang.String r6 = r6.toString()     // Catch: java.lang.Throwable -> Lc0
-            r5.<init>(r6)     // Catch: java.lang.Throwable -> Lc0
-            r0.<init>(r5)     // Catch: java.lang.Throwable -> Lc0
+            java.lang.StringBuilder r6 = r6.append(r7)     // Catch: java.lang.Throwable -> Lbf
+            java.lang.String r6 = r6.toString()     // Catch: java.lang.Throwable -> Lbf
+            r5.<init>(r6)     // Catch: java.lang.Throwable -> Lbf
+            r0.<init>(r5)     // Catch: java.lang.Throwable -> Lbf
             r5 = 1000(0x3e8, float:1.401E-42)
-            r2.<init>(r0, r5)     // Catch: java.lang.Throwable -> Lc0
-            java.lang.String r0 = r2.readLine()     // Catch: java.lang.Throwable -> Lc3
+            r1.<init>(r0, r5)     // Catch: java.lang.Throwable -> Lbf
+            java.lang.String r0 = r1.readLine()     // Catch: java.lang.Throwable -> Lc2
             if (r0 != 0) goto L66
             java.lang.String r0 = ""
         L66:
-            r8.hj(r4, r0)     // Catch: java.lang.Throwable -> Lc3
+            r8.ho(r4, r0)     // Catch: java.lang.Throwable -> Lc2
             if (r3 == 0) goto L6e
             r3.close()     // Catch: java.io.IOException -> L74
         L6e:
-            if (r2 == 0) goto L73
-            r2.close()     // Catch: java.io.IOException -> L74
+            if (r1 == 0) goto L73
+            r1.close()     // Catch: java.io.IOException -> L74
         L73:
             return
         L74:
@@ -99,73 +99,69 @@ public class h extends a {
             goto L73
         L7f:
             r0 = move-exception
-            r2 = r1
-        L81:
-            java.lang.String r3 = "SampleCpuSampler"
+            r1 = r2
+            r3 = r2
+        L82:
+            java.lang.String r2 = "SampleCpuSampler"
             java.lang.String r4 = "doSample: "
-            android.util.Log.e(r3, r4, r0)     // Catch: java.lang.Throwable -> Lbd
-            if (r2 == 0) goto L8f
-            r2.close()     // Catch: java.io.IOException -> L95
-        L8f:
+            android.util.Log.e(r2, r4, r0)     // Catch: java.lang.Throwable -> Lbd
+            if (r3 == 0) goto L90
+            r3.close()     // Catch: java.io.IOException -> L96
+        L90:
             if (r1 == 0) goto L73
-            r1.close()     // Catch: java.io.IOException -> L95
+            r1.close()     // Catch: java.io.IOException -> L96
             goto L73
-        L95:
+        L96:
             r0 = move-exception
             java.lang.String r1 = "SampleCpuSampler"
             java.lang.String r2 = "doSample: "
             android.util.Log.e(r1, r2, r0)
             goto L73
-        La0:
+        La1:
             r0 = move-exception
-            r3 = r1
-        La2:
-            if (r3 == 0) goto La7
-            r3.close()     // Catch: java.io.IOException -> Lad
-        La7:
-            if (r1 == 0) goto Lac
-            r1.close()     // Catch: java.io.IOException -> Lad
-        Lac:
+            r1 = r2
+            r3 = r2
+        La4:
+            if (r3 == 0) goto La9
+            r3.close()     // Catch: java.io.IOException -> Laf
+        La9:
+            if (r1 == 0) goto Lae
+            r1.close()     // Catch: java.io.IOException -> Laf
+        Lae:
             throw r0
-        Lad:
+        Laf:
             r1 = move-exception
             java.lang.String r2 = "SampleCpuSampler"
             java.lang.String r3 = "doSample: "
             android.util.Log.e(r2, r3, r1)
-            goto Lac
-        Lb8:
-            r0 = move-exception
-            goto La2
+            goto Lae
         Lba:
             r0 = move-exception
             r1 = r2
-            goto La2
+            goto La4
         Lbd:
             r0 = move-exception
-            r3 = r2
-            goto La2
-        Lc0:
-            r0 = move-exception
-            r2 = r3
-            goto L81
-        Lc3:
+            goto La4
+        Lbf:
             r0 = move-exception
             r1 = r2
-            r2 = r3
-            goto L81
-        Lc7:
+            goto L82
+        Lc2:
+            r0 = move-exception
+            goto L82
+        Lc4:
             r4 = r0
             goto L25
         */
-        throw new UnsupportedOperationException("Method not decompiled: com.github.a.a.h.exF():void");
+        throw new UnsupportedOperationException("Method not decompiled: com.github.a.a.h.eBq():void");
     }
 
     private void reset() {
-        this.psA = 0L;
-        this.psB = 0L;
+        this.pJC = 0L;
+        this.pJD = 0L;
     }
 
-    private void hj(String str, String str2) {
+    private void ho(String str, String str2) {
         String[] split = str.split(" ");
         if (split.length >= 9) {
             long parseLong = Long.parseLong(split[2]);
@@ -176,11 +172,11 @@ public class h extends a {
             long parseLong6 = parseLong5 + parseLong + parseLong2 + parseLong3 + parseLong4 + Long.parseLong(split[6]) + Long.parseLong(split[7]);
             if (str2.split(" ").length >= 17) {
                 if (parseLong6 != 0) {
-                    long j = parseLong6 - this.psB;
-                    this.psz.append(((j - (parseLong4 - this.psA)) * 100) / j);
+                    long j = parseLong6 - this.pJD;
+                    this.pJB.append(((j - (parseLong4 - this.pJC)) * 100) / j);
                 }
-                this.psA = parseLong4;
-                this.psB = parseLong6;
+                this.pJC = parseLong4;
+                this.pJD = parseLong6;
             }
         }
     }

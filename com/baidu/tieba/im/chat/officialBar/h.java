@@ -1,119 +1,149 @@
 package com.baidu.tieba.im.chat.officialBar;
 
-import android.support.annotation.RequiresApi;
 import android.util.LongSparseArray;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import androidx.annotation.RequiresApi;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tieba.im.chat.e;
-import com.baidu.tieba.im.chat.officialBar.d;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.im.forum.broadcast.data.BroadcastMajorHistoryRequestMessage;
+import com.baidu.tieba.im.forum.broadcast.data.ResponseHttpMajorHistoryMessage;
+import com.baidu.tieba.im.forum.broadcast.data.ResponseSocketMajorHistoryMessage;
+import com.baidu.tieba.im.message.LoadHistoryMessage;
+import com.baidu.tieba.im.message.LoadHistoryResponsedMessage;
+import com.baidu.tieba.im.message.LoadOfficialHistoryMessage;
+import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.im.message.chat.OfficialChatMessage;
 import com.baidu.tieba.im.message.chat.a;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes26.dex */
-public class h extends BaseAdapter {
-    private d.c klJ;
-    private boolean klK;
-    private BdTypeListView knD;
-    private TbPageContext<OfficialBarFeedActivity> pageContext;
-    private List<com.baidu.tieba.im.message.chat.b> mList = null;
-    private LongSparseArray<com.baidu.tieba.im.forum.broadcast.data.b> knC = null;
-
-    public h(TbPageContext<OfficialBarFeedActivity> tbPageContext, BdTypeListView bdTypeListView, d.c cVar) {
-        this.pageContext = tbPageContext;
-        this.klJ = cVar;
-        this.knD = bdTypeListView;
-    }
-
-    private View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.im.message.chat.b bVar, e.a<b> aVar) {
-        b cTM = aVar.cTM();
-        a.C0782a cZb = bVar.cZb();
-        cZb.createTime = bVar.getCreateTime();
-        cTM.a(this.pageContext.getPageActivity().getBaseContext(), cZb, bVar.cZc(), this.knC == null ? null : this.knC.get(cZb.kAy), bVar.cZd(), bVar.cZa(), i);
-        ar arVar = new ar(this.klK ? "c13865" : "c13863");
-        arVar.dY("uid", TbadkCoreApplication.getCurrentAccount());
-        arVar.dY("tid", cZb.tid == null ? "" : cZb.tid);
-        arVar.dY("fid", cZb.fid);
-        TiebaStatic.log(arVar);
-        return view;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        if (this.mList == null) {
-            return 0;
+/* loaded from: classes8.dex */
+public class h {
+    private TbPageContext context;
+    private a kAv;
+    private String uid;
+    private CustomMessageListener mCustomMessageListener = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.chat.officialBar.h.1
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage != null) {
+                if (customResponsedMessage.getCmd() == 2001147) {
+                    h.this.j(customResponsedMessage);
+                } else if (customResponsedMessage.getCmd() == 2012123) {
+                    com.baidu.adp.lib.f.e.mB().removeCallbacks(h.this.kAx);
+                    com.baidu.adp.lib.f.e.mB().postDelayed(h.this.kAx, 1000L);
+                }
+            }
         }
-        return this.mList.size();
+    };
+    private Runnable kAx = new Runnable() { // from class: com.baidu.tieba.im.chat.officialBar.h.2
+        @Override // java.lang.Runnable
+        public void run() {
+            h.this.hz(h.this.uid);
+        }
+    };
+    private com.baidu.adp.framework.listener.a kAy = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_HISTORY, 309669) { // from class: com.baidu.tieba.im.chat.officialBar.h.3
+        @Override // com.baidu.adp.framework.listener.a
+        @RequiresApi(api = 16)
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            com.baidu.tieba.im.forum.broadcast.data.a data;
+            LongSparseArray<com.baidu.tieba.im.forum.broadcast.data.b> longSparseArray = null;
+            if (responsedMessage != null) {
+                if (responsedMessage instanceof ResponseHttpMajorHistoryMessage) {
+                    data = ((ResponseHttpMajorHistoryMessage) responsedMessage).getData();
+                } else {
+                    data = responsedMessage instanceof ResponseSocketMajorHistoryMessage ? ((ResponseSocketMajorHistoryMessage) responsedMessage).getData() : null;
+                }
+                if (data != null) {
+                    List<com.baidu.tieba.im.forum.broadcast.data.b> cXM = data.cXM();
+                    if (cXM != null && cXM.size() > 0) {
+                        LongSparseArray<com.baidu.tieba.im.forum.broadcast.data.b> longSparseArray2 = new LongSparseArray<>(cXM.size());
+                        for (com.baidu.tieba.im.forum.broadcast.data.b bVar : cXM) {
+                            longSparseArray2.put(bVar.cXS(), bVar);
+                        }
+                        longSparseArray = longSparseArray2;
+                    }
+                    if (h.this.kAv != null && longSparseArray != null) {
+                        h.this.kAv.onReadCountLoad(longSparseArray);
+                    }
+                }
+            }
+        }
+    };
+
+    /* loaded from: classes8.dex */
+    public interface a {
+        void es(List<com.baidu.tieba.im.message.chat.b> list);
+
+        void onReadCountLoad(LongSparseArray<com.baidu.tieba.im.forum.broadcast.data.b> longSparseArray);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: DO */
-    public com.baidu.tieba.im.message.chat.b getItem(int i) {
-        if (this.mList == null || this.mList.size() == 0 || i < 0 || i >= getCount()) {
-            return null;
-        }
-        return this.mList.get(i);
+    public h(TbPageContext tbPageContext) {
+        this.context = tbPageContext;
+        tbPageContext.registerListener(CmdConfigCustom.CMD_LOAD_HISTORY_OFFICICAL, this.mCustomMessageListener);
+        tbPageContext.registerListener(CmdConfigCustom.MESSAGE_LIST_OFFICIAL_CMD, this.mCustomMessageListener);
+        tbPageContext.registerListener(this.kAy);
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return i;
+    public void hz(String str) {
+        this.uid = str;
+        LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
+        aVar.limit = 150;
+        aVar.id = str;
+        this.context.sendMessage(new LoadOfficialHistoryMessage(aVar));
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        View view2;
-        a aVar = null;
-        if (view != null) {
-            aVar = (a) view.getTag();
-        }
-        if (aVar == null) {
-            b bVar = new b(this.pageContext, this.klK);
-            bVar.a(this.klJ);
-            view2 = bVar.getConvertView();
-            aVar = new a(bVar.getConvertView(), bVar);
-            view2.setTag(aVar);
-        } else {
-            view2 = view;
-        }
-        return a(i, view2, viewGroup, getItem(i), aVar);
-    }
-
-    public void setData(List<com.baidu.tieba.im.message.chat.b> list) {
-        if (this.mList == null) {
-            this.mList = new LinkedList();
-        }
-        this.mList.clear();
-        this.mList.addAll(list);
-        notifyDataSetChanged();
-    }
-
-    @RequiresApi(api = 16)
-    public void b(LongSparseArray<com.baidu.tieba.im.forum.broadcast.data.b> longSparseArray) {
-        if (this.knC == null) {
-            this.knC = new LongSparseArray<>();
-        }
-        this.knC.clear();
-        for (int i = 0; i < longSparseArray.size(); i++) {
-            this.knC.put(longSparseArray.keyAt(i), longSparseArray.valueAt(i));
-        }
-        notifyDataSetChanged();
-    }
-
-    /* loaded from: classes26.dex */
-    private class a extends e.a<b> {
-        public a(View view, b bVar) {
-            super(view, bVar);
+    /* JADX INFO: Access modifiers changed from: private */
+    public void j(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && (customResponsedMessage instanceof LoadHistoryResponsedMessage)) {
+            LoadHistoryResponsedMessage loadHistoryResponsedMessage = (LoadHistoryResponsedMessage) customResponsedMessage;
+            if (loadHistoryResponsedMessage.getData() != null) {
+                List<ChatMessage> list = loadHistoryResponsedMessage.getData().msgList;
+                ArrayList arrayList = new ArrayList();
+                for (ChatMessage chatMessage : list) {
+                    List<a.C0766a> a2 = com.baidu.tieba.im.message.chat.a.a(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
+                    if (a2 != null && a2.size() > 0 && (chatMessage instanceof OfficialChatMessage)) {
+                        int i = 0;
+                        while (i < a2.size()) {
+                            a.C0766a c0766a = a2.get(i);
+                            com.baidu.tieba.im.message.chat.b a3 = com.baidu.tieba.im.message.chat.b.a(chatMessage, c0766a);
+                            a3.sQ(i == 0 && !StringUtils.isNull(c0766a.src));
+                            arrayList.add(a3);
+                            i++;
+                        }
+                    }
+                }
+                sendReadCountMessage(arrayList);
+                if (this.kAv != null) {
+                    this.kAv.es(arrayList);
+                }
+            }
         }
     }
 
-    public void sj(boolean z) {
-        this.klK = z;
+    private void sendReadCountMessage(List<com.baidu.tieba.im.message.chat.b> list) {
+        if (list != null && list.size() > 0) {
+            ArrayList arrayList = new ArrayList(list.size());
+            for (com.baidu.tieba.im.message.chat.b bVar : list) {
+                if (bVar.cYM()) {
+                    arrayList.add(Long.valueOf(bVar.cYN().kFM));
+                }
+            }
+            BroadcastMajorHistoryRequestMessage broadcastMajorHistoryRequestMessage = new BroadcastMajorHistoryRequestMessage();
+            broadcastMajorHistoryRequestMessage.queryType = 2;
+            broadcastMajorHistoryRequestMessage.bcastIds = arrayList;
+            this.context.sendMessage(broadcastMajorHistoryRequestMessage);
+        }
+    }
+
+    public void destroy() {
+        com.baidu.adp.lib.f.e.mB().removeCallbacks(this.kAx);
+    }
+
+    public void a(a aVar) {
+        this.kAv = aVar;
     }
 }

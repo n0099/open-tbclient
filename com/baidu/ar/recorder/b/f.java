@@ -5,8 +5,9 @@ import android.media.MediaCrypto;
 import android.media.MediaFormat;
 import android.view.Surface;
 import com.baidu.ar.record.EncoderParams;
+import com.kwai.video.player.KsMediaMeta;
 import java.nio.ByteBuffer;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class f extends b {
     private static final String TAG = f.class.getSimpleName();
     private Surface uX;
@@ -27,7 +28,7 @@ public class f extends b {
             this.uP = dVar;
             MediaFormat createVideoFormat = MediaFormat.createVideoFormat(encoderParams.getVideoCodec(), encoderParams.getVideoWidth(), encoderParams.getVideoHeight());
             createVideoFormat.setInteger("color-format", 2130708361);
-            createVideoFormat.setInteger("bitrate", encoderParams.getVideoBitrate());
+            createVideoFormat.setInteger(KsMediaMeta.KSM_KEY_BITRATE, encoderParams.getVideoBitrate());
             createVideoFormat.setInteger("frame-rate", encoderParams.getVideoFrameRate());
             createVideoFormat.setInteger("i-frame-interval", encoderParams.getVideoIFrameInterval());
             try {

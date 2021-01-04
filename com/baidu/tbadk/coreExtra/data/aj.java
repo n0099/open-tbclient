@@ -5,61 +5,61 @@ import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.at;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class aj {
-    private String aNf;
-    private String aNm;
-    private String aNt;
+    private String aNJ;
+    private String aNQ;
+    private String aNX;
     private b activityPrizeData;
-    private long cxC;
-    private int fkA;
-    private String fkC;
-    private String fkD;
-    private String fkE;
-    public int fkG;
-    private String fkI;
-    private String fkJ;
-    private int fkK;
-    private int fkL;
-    private long fkM;
-    private boolean fkN;
-    private long fkO;
-    private ab fkP;
-    private String fkQ;
-    private String fkU;
-    private String fkW;
-    private int fkX;
-    private long fkY;
-    private long fkZ;
-    private String fko;
-    private String fkp;
-    private String fkq;
-    private String fkr;
-    private String fks;
-    private String fkt;
-    private String fku;
-    private String fkv;
-    private long fkw;
-    private int fkx;
-    private int fky;
-    private long fkz;
-    private ad flb;
-    private boolean flc;
-    private String fld;
-    private String fle;
-    private String flf;
-    private String flg;
-    private String flh;
-    private String fli;
-    private int flj;
+    private String ftZ;
+    private ab fuA;
+    private String fuB;
+    private String fuF;
+    private String fuH;
+    private int fuI;
+    private long fuJ;
+    private long fuK;
+    private ad fuM;
+    private boolean fuN;
+    private String fuO;
+    private String fuP;
+    private String fuQ;
+    private String fuR;
+    private String fuS;
+    private String fuT;
+    private int fuU;
+    private String fua;
+    private String fub;
+    private String fuc;
+    private String fud;
+    private String fue;
+    private String fuf;
+    private String fug;
+    private long fuh;
+    private int fui;
+    private int fuj;
+    private long fuk;
+    private int ful;
+    private String fun;
+    private String fuo;
+    private String fup;
+    public int fur;
+    private String fut;
+    private String fuu;
+    private int fuv;
+    private int fuw;
+    private long fux;
+    private boolean fuy;
+    private long fuz;
     private String infoIconUrl;
     private String infoTargetUrl;
     private long infoTimeStamp;
+    private long lastUpdateTime;
     private int mHomePageStyleAbTest;
     private String mMissionEntranceIcon;
     private String mMissionEntranceObjSource;
@@ -68,174 +68,175 @@ public class aj {
     private String mSharePanelText;
     private String mWalletSignLink;
     private String uegVoiceWarning;
-    private int fkB = 0;
-    private int fkF = 2;
-    private String fkH = "";
-    private int fkR = 0;
-    private int fkS = 0;
-    private int fkT = 0;
-    private int fkV = 0;
-    private boolean fla = false;
+    private int fum = 0;
+    private int fuq = 2;
+    private String fus = "";
+    private int fuC = 0;
+    private int fuD = 0;
+    private int fuE = 0;
+    private int fuG = 0;
+    private boolean fuL = false;
     private HashMap<Long, String> liveForumMap = new HashMap<>();
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.fko = jSONObject.optString("drop_pic");
-                this.fkp = jSONObject.optString("drop_pic_md5");
-                this.fkq = jSONObject.optString("drop_pic_num");
-                this.fkr = jSONObject.optString("drop_bg_color_day");
-                this.fks = jSONObject.optString("drop_bg_color_night");
-                this.fkt = jSONObject.optString("apply_vip_live_room_pid");
-                this.fkC = jSONObject.optString("max_cache");
-                this.fkD = jSONObject.optString("frs_max_cache");
-                this.fkE = jSONObject.optString("frs_pn");
-                this.fku = jSONObject.optString("tail_link");
-                this.fkv = jSONObject.optString("bubble_link");
-                this.fkw = jSONObject.optLong("use_duration");
-                this.fkx = jSONObject.optInt("xiaoying_time");
-                this.cxC = jSONObject.optLong(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, 0L);
-                this.fkJ = jSONObject.optString("url_analyze_text");
-                this.fky = jSONObject.optInt("new_resign", 0);
-                this.fkz = jSONObject.optLong("personalized_cache_seconds", 1800L);
-                this.fkA = jSONObject.optInt("personalized_max_count", 300);
+                this.ftZ = jSONObject.optString("drop_pic");
+                this.fua = jSONObject.optString("drop_pic_md5");
+                this.fub = jSONObject.optString("drop_pic_num");
+                this.fuc = jSONObject.optString("drop_bg_color_day");
+                this.fud = jSONObject.optString("drop_bg_color_night");
+                this.fue = jSONObject.optString("apply_vip_live_room_pid");
+                this.fun = jSONObject.optString("max_cache");
+                this.fuo = jSONObject.optString("frs_max_cache");
+                this.fup = jSONObject.optString("frs_pn");
+                this.fuf = jSONObject.optString("tail_link");
+                this.fug = jSONObject.optString("bubble_link");
+                this.fuh = jSONObject.optLong("use_duration");
+                this.fui = jSONObject.optInt("xiaoying_time");
+                this.lastUpdateTime = jSONObject.optLong(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, 0L);
+                this.fuu = jSONObject.optString("url_analyze_text");
+                this.fuj = jSONObject.optInt("new_resign", 0);
+                this.fuk = jSONObject.optLong("personalized_cache_seconds", 1800L);
+                this.ful = jSONObject.optInt("personalized_max_count", 300);
                 this.infoIconUrl = jSONObject.optString("info_icon_url");
                 this.infoTimeStamp = jSONObject.optLong("info_time_stamp", 0L);
                 this.infoTargetUrl = jSONObject.optString("info_target_url");
-                this.fkF = jSONObject.optInt("localvideo_open", 2);
-                this.fkG = jSONObject.optInt("card_show_statistic", 200);
-                this.fkH = jSONObject.optString("clean_smart_frs_cookie");
-                com.baidu.tbadk.m.e.bEZ().setMaxCostFromServer(jSONObject.optInt("statlog_path_max", 3));
-                this.fkB = jSONObject.optInt("photo_cache_num", 60);
+                this.fuq = jSONObject.optInt("localvideo_open", 2);
+                this.fur = jSONObject.optInt("card_show_statistic", 200);
+                this.fus = jSONObject.optString("clean_smart_frs_cookie");
+                com.baidu.tbadk.m.e.bHs().setMaxCostFromServer(jSONObject.optInt("statlog_path_max", 3));
+                this.fum = jSONObject.optInt("photo_cache_num", 60);
                 this.uegVoiceWarning = jSONObject.optString("ueg_voice_warning");
-                this.fkI = jSONObject.optString("nickname_activity_link");
-                this.fkK = jSONObject.optInt("android_tab_show", 55);
-                this.fkL = jSONObject.optInt("ribao_switch", 0);
-                this.fkM = jSONObject.optLong("android_new_log_upload_interval", 0L);
-                this.fkO = jSONObject.optLong("android_boss_new_log_upload_interval", 0L);
-                this.fkN = jSONObject.optInt("android_pasteboard_delaytime", 0) == 1;
-                com.baidu.tbadk.core.sharedPref.b.bsO().putBoolean("KEY_ANDROID_PASTE_BOARD_DELAY_TIME", this.fkN);
+                this.fut = jSONObject.optString("nickname_activity_link");
+                this.fuv = jSONObject.optInt("android_tab_show", 55);
+                this.fuw = jSONObject.optInt("ribao_switch", 0);
+                this.fux = jSONObject.optLong("android_new_log_upload_interval", 0L);
+                this.fuz = jSONObject.optLong("android_boss_new_log_upload_interval", 0L);
+                this.fuy = jSONObject.optInt("android_pasteboard_delaytime", 0) == 1;
+                com.baidu.tbadk.core.sharedPref.b.bvq().putBoolean("KEY_ANDROID_PASTE_BOARD_DELAY_TIME", this.fuy);
                 JSONObject optJSONObject = jSONObject.optJSONObject("laxin_config");
                 if (optJSONObject != null) {
                     this.activityPrizeData = new b();
                     this.activityPrizeData.parse(optJSONObject);
-                    com.baidu.tbadk.core.sharedPref.b.bsO().putString(SharedPrefConfig.ACTIVITY_PRIZE_DATA + TbadkCoreApplication.getCurrentAccount(), optJSONObject.toString());
+                    com.baidu.tbadk.core.sharedPref.b.bvq().putString(SharedPrefConfig.ACTIVITY_PRIZE_DATA + TbadkCoreApplication.getCurrentAccount(), optJSONObject.toString());
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("nani_video");
                 if (optJSONObject2 != null) {
-                    this.fkP = new ab();
-                    this.fkP.parse(optJSONObject2);
+                    this.fuA = new ab();
+                    this.fuA.parse(optJSONObject2);
                 }
-                com.baidu.tieba.im.db.n.DZ(jSONObject.optInt("android_max_stranger"));
-                this.fkR = jSONObject.optInt("style_ab_switch", 0);
-                this.fkS = jSONObject.optInt("abstract_ab_switch", 0);
-                this.fkQ = jSONObject.optString("android_splash_video");
-                com.baidu.tbadk.core.sharedPref.b.bsO().putString(SharedPrefConfig.KEY_VIDEO_SPLASH_CONFIG, this.fkQ);
-                this.fkT = jSONObject.optInt("android_smart_frs_cache_time", -1);
-                this.fkU = jSONObject.optString("shoubai_regex", "");
-                if (!au.isEmpty(this.fkU)) {
-                    com.baidu.tbadk.core.sharedPref.b.bsO().putString("key_baidu_password_re", this.fkU);
+                com.baidu.tieba.im.db.n.Ej(jSONObject.optInt("android_max_stranger"));
+                this.fuC = jSONObject.optInt("style_ab_switch", 0);
+                this.fuD = jSONObject.optInt("abstract_ab_switch", 0);
+                this.fuB = jSONObject.optString("android_splash_video");
+                com.baidu.tbadk.core.sharedPref.b.bvq().putString(SharedPrefConfig.KEY_VIDEO_SPLASH_CONFIG, this.fuB);
+                this.fuE = jSONObject.optInt("android_smart_frs_cache_time", -1);
+                this.fuF = jSONObject.optString("shoubai_regex", "");
+                if (!at.isEmpty(this.fuF)) {
+                    com.baidu.tbadk.core.sharedPref.b.bvq().putString("key_baidu_password_re", this.fuF);
                 }
-                this.fkW = jSONObject.optString("redpacket_pop", "");
-                if (!au.isEmpty(this.fkW)) {
-                    com.baidu.tbadk.core.sharedPref.b.bsO().putString("key_redpacket_pop", this.fkW);
+                this.fuH = jSONObject.optString("redpacket_pop", "");
+                if (!at.isEmpty(this.fuH)) {
+                    com.baidu.tbadk.core.sharedPref.b.bvq().putString("key_redpacket_pop", this.fuH);
                 }
-                this.fkX = jSONObject.optInt("android_video_slide_guide_count", 0);
-                com.baidu.tbadk.core.sharedPref.b.bsO().putInt("key_video_guide_max_count", this.fkX);
-                this.fkV = jSONObject.optInt("android_show_ba_concern", 0);
-                com.baidu.tbadk.core.sharedPref.b.bsO().putInt("key_concern_tab_tips_switch", this.fkV);
-                this.fkY = jSONObject.optInt("dialog_pull_time", 60) * au.MS_TO_MIN;
-                this.fkZ = jSONObject.optInt("android_dialog_lock_show_time", 300) * 1000;
-                this.fla = jSONObject.optInt("android_show_lock_perm_dialog", 0) == 1;
+                this.fuI = jSONObject.optInt("android_video_slide_guide_count", 0);
+                com.baidu.tbadk.core.sharedPref.b.bvq().putInt("key_video_guide_max_count", this.fuI);
+                this.fuG = jSONObject.optInt("android_show_ba_concern", 0);
+                com.baidu.tbadk.core.sharedPref.b.bvq().putInt("key_concern_tab_tips_switch", this.fuG);
+                this.fuJ = jSONObject.optInt("dialog_pull_time", 60) * at.MS_TO_MIN;
+                this.fuK = jSONObject.optInt("android_dialog_lock_show_time", 300) * 1000;
+                this.fuL = jSONObject.optInt("android_show_lock_perm_dialog", 0) == 1;
                 String optString = jSONObject.optString("android_spring_shake", "");
                 if (!StringUtils.isNull(optString)) {
-                    if (this.flb == null) {
-                        this.flb = new ad();
+                    if (this.fuM == null) {
+                        this.fuM = new ad();
                     }
-                    this.flb.parserJson(optString);
-                    com.baidu.tbadk.core.sharedPref.b.bsO().putString("shake_data", optString);
+                    this.fuM.parserJson(optString);
+                    com.baidu.tbadk.core.sharedPref.b.bvq().putString("shake_data", optString);
                 }
                 this.mSharePanelText = jSONObject.optString("share_panel_text", "");
-                com.baidu.tbadk.core.sharedPref.b.bsO().putInt("key_personalized_refresh_type", jSONObject.optInt("personalized_refresh_type", 0));
+                com.baidu.tbadk.core.sharedPref.b.bvq().putInt("key_personalized_refresh_type", jSONObject.optInt("personalized_refresh_type", 0));
                 int optInt = jSONObject.optInt("audit_package_switch", 1);
                 if (optInt == 0) {
-                    this.flc = false;
+                    this.fuN = false;
                 } else if (optInt == 1) {
-                    this.flc = true;
+                    this.fuN = true;
                 }
-                com.baidu.tbadk.core.sharedPref.b.bsO().putBoolean("person_center_show_lite_game", this.flc);
-                this.fld = jSONObject.optString("profile_swan_app_key");
-                com.baidu.tbadk.core.sharedPref.b.bsO().putString("profile_swan_app_key", this.fld);
+                com.baidu.tbadk.core.sharedPref.b.bvq().putBoolean("person_center_show_lite_game", this.fuN);
+                this.fuO = jSONObject.optString("profile_swan_app_key");
+                com.baidu.tbadk.core.sharedPref.b.bvq().putString("profile_swan_app_key", this.fuO);
                 this.mMissionEntranceUrl = jSONObject.optString("android_mission_system_entrance_url");
-                com.baidu.tbadk.core.sharedPref.b.bsO().putString("index_activity_abtest_url", this.mMissionEntranceUrl);
+                com.baidu.tbadk.core.sharedPref.b.bvq().putString("index_activity_abtest_url", this.mMissionEntranceUrl);
                 this.mMissionEntranceIcon = jSONObject.optString("android_mission_system_entrance_icon");
-                com.baidu.tbadk.core.sharedPref.b.bsO().putString("index_activity_abtest_icon_url", this.mMissionEntranceIcon);
+                com.baidu.tbadk.core.sharedPref.b.bvq().putString("index_activity_abtest_icon_url", this.mMissionEntranceIcon);
                 this.mMissionEntranceObjSource = jSONObject.optString("obj_source");
-                com.baidu.tbadk.core.sharedPref.b.bsO().putString("index_activity_abtest_obj_source", this.mMissionEntranceObjSource);
+                com.baidu.tbadk.core.sharedPref.b.bvq().putString("index_activity_abtest_obj_source", this.mMissionEntranceObjSource);
                 this.mWalletSignLink = jSONObject.optString("duxiaoman_sign_link");
                 this.mHomePageStyleAbTest = jSONObject.optInt("home_page_style_ab_test", 0);
-                com.baidu.tbadk.core.sharedPref.b.bsO().putInt("index_activity_abtest_switch_json", this.mHomePageStyleAbTest);
+                com.baidu.tbadk.core.sharedPref.b.bvq().putInt("index_activity_abtest_switch_json", this.mHomePageStyleAbTest);
                 this.mSampleId = jSONObject.optString("sample_id");
-                com.baidu.tbadk.core.sharedPref.b.bsO().putString("key_ubs_sample_id" + TbadkCoreApplication.getCurrentAccount(), this.mSampleId);
-                y.CT(jSONObject.optString("js_whitelist"));
-                com.baidu.tbadk.pageExtra.f.bEV().Eq(jSONObject.optString("stat_keys_list"));
+                com.baidu.tbadk.core.sharedPref.b.bvq().putString("key_ubs_sample_id" + TbadkCoreApplication.getCurrentAccount(), this.mSampleId);
+                y.CR(jSONObject.optString("js_whitelist"));
+                com.baidu.tbadk.pageExtra.f.bHo().En(jSONObject.optString("stat_keys_list"));
                 long optLong = jSONObject.optLong("android_plugin_wait_time", 0L);
                 if (optLong > 0) {
-                    com.baidu.tbadk.core.sharedPref.b.bsO().putLong("plugin_wait_time", optLong);
+                    com.baidu.tbadk.core.sharedPref.b.bvq().putLong("plugin_wait_time", optLong);
                 }
-                this.aNf = jSONObject.optString("frs_new_live_tab_video_h5", "https://tieba.baidu.com/n/interact/video/game?");
-                com.baidu.tbadk.core.sharedPref.b.bsO().putString("ala_game_frs_live_tab_video_url", this.aNf);
-                this.aNm = jSONObject.optString("ala_personal_income_detail_url", "https://tieba.baidu.com/mo/q/ala/getUserLives");
-                com.baidu.tbadk.core.sharedPref.b.bsO().putString("ala_personal_income_detail_url", this.aNm);
-                this.fle = jSONObject.optString("ala_personal_privilege_detail_url", "http://lumotian.rmb.rmb.otp.baidu.com/cashliveui/privilege.html");
-                com.baidu.tbadk.core.sharedPref.b.bsO().putString("ala_personal_privilege_detail_url", this.fle);
-                this.flf = jSONObject.optString("ala_personal_exp_detail_url", "https://sv.baidu.com/cashliveui/userLevel.html#/level");
-                com.baidu.tbadk.core.sharedPref.b.bsO().putString("ala_personal_exp_detail_url", this.flf);
+                this.aNJ = jSONObject.optString("frs_new_live_tab_video_h5", "https://tieba.baidu.com/n/interact/video/game?");
+                com.baidu.tbadk.core.sharedPref.b.bvq().putString("ala_game_frs_live_tab_video_url", this.aNJ);
+                this.aNQ = jSONObject.optString("ala_personal_income_detail_url", "https://tieba.baidu.com/mo/q/ala/getUserLives");
+                com.baidu.tbadk.core.sharedPref.b.bvq().putString("ala_personal_income_detail_url", this.aNQ);
+                this.fuP = jSONObject.optString("ala_personal_privilege_detail_url", "http://lumotian.rmb.rmb.otp.baidu.com/cashliveui/privilege.html");
+                com.baidu.tbadk.core.sharedPref.b.bvq().putString("ala_personal_privilege_detail_url", this.fuP);
+                this.fuQ = jSONObject.optString("ala_personal_exp_detail_url", "https://sv.baidu.com/cashliveui/userLevel.html#/level");
+                com.baidu.tbadk.core.sharedPref.b.bvq().putString("ala_personal_exp_detail_url", this.fuQ);
                 String optString2 = jSONObject.optString("showlive_forum");
                 if (!StringUtils.isNull(optString2)) {
                     JSONObject jSONObject2 = new JSONObject(optString2);
-                    this.aNt = jSONObject2.optString("go_url", "http://tieba.baidu.com/f?kw=百度直播");
-                    com.baidu.tbadk.core.sharedPref.b.bsO().putString("show_live_forum_url", this.aNt);
-                    this.flg = jSONObject2.optString("forum_name", "百度直播");
-                    com.baidu.tbadk.core.sharedPref.b.bsO().putString("show_live_forum_name", this.flg);
+                    this.aNX = jSONObject2.optString("go_url", "http://tieba.baidu.com/f?kw=百度直播");
+                    com.baidu.tbadk.core.sharedPref.b.bvq().putString("show_live_forum_url", this.aNX);
+                    this.fuR = jSONObject2.optString("forum_name", "百度直播");
+                    com.baidu.tbadk.core.sharedPref.b.bvq().putString("show_live_forum_name", this.fuR);
                 }
                 String optString3 = jSONObject.optString("user_live_mark_page");
                 if (!StringUtils.isNull(optString3)) {
                     JSONObject jSONObject3 = new JSONObject(optString3);
-                    this.flh = jSONObject3.optString("mark_introduce_page", "http://ufanzhib0.baiduux.com/h5/xuzhangshuoming.html");
-                    this.fli = jSONObject3.optString("effect_introduce_page", "http://ufanzhib0.baiduux.com/h5/jinchangtexiaoshuoming.html");
-                    com.baidu.tbadk.core.sharedPref.b.bsO().putString("ala_my_live_privilege_mark_detail_url", this.flh);
-                    com.baidu.tbadk.core.sharedPref.b.bsO().putString("ala_my_live_privilege_effect_detail_url", this.fli);
+                    this.fuS = jSONObject3.optString("mark_introduce_page", "http://ufanzhib0.baiduux.com/h5/xuzhangshuoming.html");
+                    this.fuT = jSONObject3.optString("effect_introduce_page", "http://ufanzhib0.baiduux.com/h5/jinchangtexiaoshuoming.html");
+                    com.baidu.tbadk.core.sharedPref.b.bvq().putString("ala_my_live_privilege_mark_detail_url", this.fuS);
+                    com.baidu.tbadk.core.sharedPref.b.bvq().putString("ala_my_live_privilege_effect_detail_url", this.fuT);
                 }
                 String optString4 = jSONObject.optString("credit_conf");
                 if (!StringUtils.isNull(optString4)) {
-                    this.flj = new JSONObject(optString4).optInt("ucenter_display");
-                    com.baidu.tbadk.core.sharedPref.b.bsO().putInt("baidu_financial_display", this.flj);
+                    this.fuU = new JSONObject(optString4).optInt("ucenter_display");
+                    com.baidu.tbadk.core.sharedPref.b.bvq().putInt("baidu_financial_display", this.fuU);
                 }
                 String optString5 = jSONObject.optString("live_bar");
-                gH(optString5);
-                com.baidu.tbadk.core.sharedPref.b.bsO().putString("ala_live_bar_map_str", optString5);
-                com.baidu.tbadk.core.sharedPref.b.bsO().putInt("key_home_refresh_button_test", jSONObject.optInt("homepage_refresh_test"));
-                com.baidu.tbadk.core.sharedPref.b.bsO().putInt("key_is_show_shoubai_dynamic_guide", jSONObject.optInt("is_show_shoubai_dynamic_guide"));
-                com.baidu.tbadk.core.sharedPref.b.bsO().putInt("chushou_game_tab", jSONObject.optInt("chushou_game_tab_new"));
-                com.baidu.tbadk.core.sharedPref.b.bsO().putInt("key_show_ala_friend_tab", jSONObject.optInt("live_dating_tab_switch"));
-                com.baidu.tbadk.core.sharedPref.b.bsO().putBoolean("key_show_vivo_badge", jSONObject.optInt("is_vivo_test_uid") == 1);
+                gq(optString5);
+                com.baidu.tbadk.core.sharedPref.b.bvq().putString("ala_live_bar_map_str", optString5);
+                com.baidu.tbadk.core.sharedPref.b.bvq().putInt("key_home_refresh_button_test", jSONObject.optInt("homepage_refresh_test"));
+                com.baidu.tbadk.core.sharedPref.b.bvq().putInt("key_is_show_shoubai_dynamic_guide", jSONObject.optInt("is_show_shoubai_dynamic_guide"));
+                com.baidu.tbadk.core.sharedPref.b.bvq().putInt("chushou_game_tab", jSONObject.optInt("chushou_game_tab_new"));
+                com.baidu.tbadk.core.sharedPref.b.bvq().putInt("key_show_ala_friend_tab", jSONObject.optInt("live_dating_tab_switch"));
+                com.baidu.tbadk.core.sharedPref.b.bvq().putBoolean("key_show_vivo_badge", jSONObject.optInt("is_vivo_test_uid") == 1);
+                new e().dv(jSONObject);
                 ae aeVar = new ae();
                 aeVar.parseJson(jSONObject.optJSONObject("share_panel_conf"));
                 TbSingleton.getInstance().setSharePanelConfData(aeVar);
                 String optString6 = jSONObject.optString("BackMechanism_sid1");
                 String optString7 = jSONObject.optString("BackMechanism_sid2");
-                com.baidu.tbadk.core.sharedPref.b.bsO().putString("key_pb_back_sid1", optString6);
-                com.baidu.tbadk.core.sharedPref.b.bsO().putString("key_pb_back_sid2", optString7);
+                com.baidu.tbadk.core.sharedPref.b.bvq().putString("key_pb_back_sid1", optString6);
+                com.baidu.tbadk.core.sharedPref.b.bvq().putString("key_pb_back_sid2", optString7);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
-    private void gH(String str) {
+    private void gq(String str) {
         if (StringUtils.isNull(str)) {
-            str = com.baidu.tbadk.core.sharedPref.b.bsO().getString("ala_live_bar_map_str", "");
+            str = com.baidu.tbadk.core.sharedPref.b.bvq().getString("ala_live_bar_map_str", "");
             if (StringUtils.isNull(str)) {
                 return;
             }
@@ -258,180 +259,180 @@ public class aj {
         }
     }
 
-    public HashMap<Long, String> bxT() {
+    public HashMap<Long, String> bAn() {
         return this.liveForumMap;
     }
 
-    public String bxU() {
-        return this.fkt;
+    public String bAo() {
+        return this.fue;
     }
 
-    public String bxV() {
-        return this.fko;
+    public String bAp() {
+        return this.ftZ;
     }
 
-    public String bxW() {
-        return this.fkp;
+    public String bAq() {
+        return this.fua;
     }
 
-    public String bxX() {
-        return this.fkq;
+    public String bAr() {
+        return this.fub;
     }
 
-    public String bxY() {
-        return this.fkr;
+    public String bAs() {
+        return this.fuc;
     }
 
-    public String bxZ() {
-        return this.fks;
+    public String bAt() {
+        return this.fud;
     }
 
-    public String bya() {
-        return this.fkC;
+    public String bAu() {
+        return this.fun;
     }
 
-    public String byb() {
-        return this.fkD;
+    public String bAv() {
+        return this.fuo;
     }
 
-    public String byc() {
-        return this.fkE;
+    public String bAw() {
+        return this.fup;
     }
 
-    public String byd() {
-        return this.fku;
+    public String bAx() {
+        return this.fuf;
     }
 
-    public String bye() {
-        return this.fkv;
+    public String bAy() {
+        return this.fug;
     }
 
-    public long byf() {
-        return this.fkw;
+    public long bAz() {
+        return this.fuh;
     }
 
-    public int byg() {
-        return this.fkx;
+    public int bAA() {
+        return this.fui;
     }
 
-    public long byh() {
-        return this.cxC;
+    public long bAB() {
+        return this.lastUpdateTime;
     }
 
-    public int byi() {
-        return this.fkK;
+    public int bAC() {
+        return this.fuv;
     }
 
-    public int byj() {
-        return this.fkL;
+    public int bAD() {
+        return this.fuw;
     }
 
-    public long byk() {
-        return this.fkz;
+    public long bAE() {
+        return this.fuk;
     }
 
-    public int byl() {
-        return this.fkA;
+    public int bAF() {
+        return this.ful;
     }
 
-    public int bym() {
-        return this.fky;
+    public int bAG() {
+        return this.fuj;
     }
 
-    public String byn() {
+    public String bAH() {
         return this.infoIconUrl;
     }
 
-    public String byo() {
+    public String bAI() {
         return this.infoTargetUrl;
     }
 
-    public long byp() {
+    public long bAJ() {
         return this.infoTimeStamp;
     }
 
-    public String byq() {
-        return this.fkH;
+    public String bAK() {
+        return this.fus;
     }
 
-    public boolean byr() {
-        return this.fkF == 1;
+    public boolean bAL() {
+        return this.fuq == 1;
     }
 
-    public int bys() {
-        return this.fkB;
+    public int bAM() {
+        return this.fum;
     }
 
     public String getUegVoiceWarning() {
         return this.uegVoiceWarning;
     }
 
-    public String byt() {
-        return this.fkI;
+    public String bAN() {
+        return this.fut;
     }
 
-    public String byu() {
-        return this.fkJ;
+    public String bAO() {
+        return this.fuu;
     }
 
-    public long byv() {
-        return this.fkM;
+    public long bAP() {
+        return this.fux;
     }
 
-    public boolean byw() {
-        return this.fkN;
+    public boolean bAQ() {
+        return this.fuy;
     }
 
-    public long byx() {
-        return this.fkO;
+    public long bAR() {
+        return this.fuz;
     }
 
     public b getActivityPrizeData() {
         return this.activityPrizeData;
     }
 
-    public int byy() {
-        return this.fkR;
+    public int bAS() {
+        return this.fuC;
     }
 
-    public int byz() {
-        return this.fkS;
+    public int bAT() {
+        return this.fuD;
     }
 
-    public ab byA() {
-        return this.fkP;
+    public ab bAU() {
+        return this.fuA;
     }
 
-    public int byB() {
-        return this.fkT;
+    public int bAV() {
+        return this.fuE;
     }
 
-    public long byC() {
-        return this.fkY;
+    public long bAW() {
+        return this.fuJ;
     }
 
-    public long byD() {
-        return this.fkZ;
+    public long bAX() {
+        return this.fuK;
     }
 
-    public boolean byE() {
-        return this.fla;
+    public boolean bAY() {
+        return this.fuL;
     }
 
-    public ad byF() {
-        return this.flb;
+    public ad bAZ() {
+        return this.fuM;
     }
 
     public String getSharePanelText() {
         return this.mSharePanelText;
     }
 
-    public boolean byG() {
-        return this.flc;
+    public boolean bBa() {
+        return this.fuN;
     }
 
-    public String byH() {
-        return this.fld;
+    public String bBb() {
+        return this.fuO;
     }
 
     public String getMissionEntranceUrl() {

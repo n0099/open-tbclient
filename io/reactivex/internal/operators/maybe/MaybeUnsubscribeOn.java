@@ -4,7 +4,7 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.m;
 import io.reactivex.v;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class MaybeUnsubscribeOn<T> extends a<T, T> {
     final v scheduler;
 
@@ -13,7 +13,7 @@ public final class MaybeUnsubscribeOn<T> extends a<T, T> {
         this.source.a(new UnsubscribeOnMaybeObserver(mVar, this.scheduler));
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class UnsubscribeOnMaybeObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, m<T>, Runnable {
         private static final long serialVersionUID = 3256698449646456986L;
         final m<? super T> actual;
@@ -30,7 +30,7 @@ public final class MaybeUnsubscribeOn<T> extends a<T, T> {
             io.reactivex.disposables.b andSet = getAndSet(DisposableHelper.DISPOSED);
             if (andSet != DisposableHelper.DISPOSED) {
                 this.ds = andSet;
-                this.scheduler.G(this);
+                this.scheduler.E(this);
             }
         }
 

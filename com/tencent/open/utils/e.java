@@ -2,21 +2,21 @@ package com.tencent.open.utils;
 
 import android.content.Context;
 import java.io.File;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Context f4384a;
+    private static Context f13730a;
 
     public static final Context a() {
-        if (f4384a == null) {
+        if (f13730a == null) {
             return null;
         }
-        return f4384a;
+        return f13730a;
     }
 
     public static final void a(Context context) {
-        f4384a = context;
+        f13730a = context;
     }
 
     public static final String b() {

@@ -1,7 +1,5 @@
 package com.baidu.tieba.card;
-/* loaded from: classes21.dex */
+/* loaded from: classes.dex */
 public interface z {
-    void setForumName(String str);
-
-    void wi(int i);
+    void px(boolean z);
 }

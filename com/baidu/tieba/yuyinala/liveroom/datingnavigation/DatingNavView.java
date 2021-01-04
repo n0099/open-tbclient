@@ -8,131 +8,148 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.live.adp.framework.MessageManager;
+import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
-import com.baidu.live.data.w;
+import com.baidu.live.data.x;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.live.tbadk.ubc.UbcStatisticItem;
 import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
 import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import com.baidu.tieba.yuyinala.liveroom.datingnavigation.d;
-import com.baidu.tieba.yuyinala.liveroom.wheat.e.g;
+import com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class DatingNavView extends LinearLayout {
-    private w aFN;
-    private com.baidu.live.ao.a gTT;
+    private x aGe;
+    private com.baidu.live.ap.a hfG;
     protected Activity mActivity;
-    protected LinearLayout omb;
-    protected TextView omc;
-    protected TextView omd;
-    protected TextView ome;
-    protected TextView omf;
-    protected TextView omg;
-    protected TextView omh;
-    protected LinearLayout omi;
-    protected TextView omj;
-    protected MarqueeTextView omk;
-    private int oml;
-    private d omm;
-    private d omn;
-    private LinearLayout omo;
+    public CustomMessageListener ooJ;
+    protected LinearLayout ooW;
+    protected TextView ooX;
+    protected TextView ooY;
+    protected TextView ooZ;
+    protected TextView opa;
+    protected TextView opb;
+    protected TextView opc;
+    protected LinearLayout opd;
+    protected TextView ope;
+    protected MarqueeView opf;
+    private int opg;
+    private d oph;
+    private d opi;
+    private LinearLayout opj;
+    private g opk;
 
     public DatingNavView(Activity activity) {
         super(activity);
-        this.oml = 0;
-        H(activity);
+        this.opg = 0;
+        this.ooJ = new CustomMessageListener(2501014) { // from class: com.baidu.tieba.yuyinala.liveroom.datingnavigation.DatingNavView.6
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.live.adp.framework.listener.MessageListener
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2501014 && (customResponsedMessage.getData() instanceof com.baidu.live.data.g) && ((com.baidu.live.data.g) customResponsedMessage.getData()).Ex() != 1) {
+                    if (DatingNavView.this.opk != null && DatingNavView.this.opk.isShowing()) {
+                        DatingNavView.this.opk.dismiss();
+                    }
+                    if (DatingNavView.this.hfG != null) {
+                        DatingNavView.this.hfG.dismiss();
+                    }
+                }
+            }
+        };
+        G(activity);
     }
 
-    protected void H(Activity activity) {
+    protected void G(Activity activity) {
         ViewGroup.LayoutParams layoutParams;
         LayoutInflater.from(activity).inflate(a.g.yuyin_ala_liveroom_dating_nav_layout, this);
         this.mActivity = activity;
-        this.omb = (LinearLayout) findViewById(a.f.ll_rule);
-        this.omc = (TextView) findViewById(a.f.tv_inter);
-        this.omo = (LinearLayout) findViewById(a.f.ll_rule);
+        this.ooW = (LinearLayout) findViewById(a.f.ll_rule);
+        this.ooX = (TextView) findViewById(a.f.tv_inter);
+        this.opj = (LinearLayout) findViewById(a.f.ll_rule);
         int i = BdUtilHelper.getScreenSize(activity).widthPixels;
-        if (this.omo != null && this.omo.getLayoutParams() != null && (layoutParams = this.omo.getLayoutParams()) != null) {
+        if (this.opj != null && this.opj.getLayoutParams() != null && (layoutParams = this.opj.getLayoutParams()) != null) {
             layoutParams.width = (i - BdUtilHelper.dip2px(activity, 110.0f)) / 4;
         }
-        this.omd = (TextView) findViewById(a.f.tv_choose);
-        this.ome = (TextView) findViewById(a.f.tv_publish);
-        this.omf = (TextView) findViewById(a.f.tv_confession);
-        this.omg = (TextView) findViewById(a.f.tv_end);
-        this.omh = (TextView) findViewById(a.f.tv_next);
-        this.omi = (LinearLayout) findViewById(a.f.tv_operate);
-        this.omj = (TextView) findViewById(a.f.tv_start);
-        this.omk = (MarqueeTextView) findViewById(a.f.tv_progress);
-        this.omk.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.datingnavigation.DatingNavView.1
+        this.ooY = (TextView) findViewById(a.f.tv_choose);
+        this.ooZ = (TextView) findViewById(a.f.tv_publish);
+        this.opa = (TextView) findViewById(a.f.tv_confession);
+        this.opb = (TextView) findViewById(a.f.tv_end);
+        this.opc = (TextView) findViewById(a.f.tv_next);
+        this.opd = (LinearLayout) findViewById(a.f.tv_operate);
+        this.ope = (TextView) findViewById(a.f.tv_start);
+        this.opf = (MarqueeView) findViewById(a.f.tv_progress);
+        this.opf.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.datingnavigation.DatingNavView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                DatingNavView.this.edr();
+                DatingNavView.this.ecA();
             }
         });
-        this.omb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.datingnavigation.DatingNavView.3
+        this.ooW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.datingnavigation.DatingNavView.7
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                DatingNavView.this.edr();
+                DatingNavView.this.ecA();
             }
         });
-        aA(activity);
+        aE(activity);
     }
 
-    private void aA(Activity activity) {
-        this.omm = new d(activity);
-        this.omn = new d(activity);
-        this.omj.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.datingnavigation.DatingNavView.4
+    private void aE(Activity activity) {
+        this.oph = new d(activity);
+        this.opi = new d(activity);
+        this.ope.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.datingnavigation.DatingNavView.8
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                DatingNavView.this.edu();
+                DatingNavView.this.ecD();
             }
         });
-        this.omg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.datingnavigation.DatingNavView.5
+        this.opb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.datingnavigation.DatingNavView.9
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                DatingNavView.this.edt();
+                DatingNavView.this.ecC();
             }
         });
-        this.omh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.datingnavigation.DatingNavView.6
+        this.opc.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.datingnavigation.DatingNavView.10
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                switch (DatingNavView.this.oml) {
+                switch (DatingNavView.this.opg) {
                     case 1:
-                        DatingNavView.this.bZ(DatingNavView.this.oml, "确认进入 心动选择 环节？");
+                        DatingNavView.this.bZ(DatingNavView.this.opg, "确认进入 心动选择 环节？");
                         return;
                     case 2:
-                        DatingNavView.this.bZ(DatingNavView.this.oml, "确认进入 结果公布 环节？");
+                        DatingNavView.this.bZ(DatingNavView.this.opg, "确认进入 结果公布 环节？");
                         return;
                     case 3:
-                        DatingNavView.this.bZ(DatingNavView.this.oml, "确认进入 祝福时刻 环节？");
+                        DatingNavView.this.bZ(DatingNavView.this.opg, "确认进入 祝福时刻 环节？");
                         return;
                     default:
                         return;
                 }
             }
         });
-        this.omm.a(new d.a() { // from class: com.baidu.tieba.yuyinala.liveroom.datingnavigation.DatingNavView.7
+        this.oph.a(new d.a() { // from class: com.baidu.tieba.yuyinala.liveroom.datingnavigation.DatingNavView.11
             @Override // com.baidu.tieba.yuyinala.liveroom.datingnavigation.d.a
             public void a(DatingStageHttpResponseMessage datingStageHttpResponseMessage) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501032));
-                DatingNavView.this.omj.setEnabled(true);
-                DatingNavView.this.omh.setEnabled(true);
-                b edv = datingStageHttpResponseMessage.edv();
-                if (edv != null) {
+                DatingNavView.this.ope.setEnabled(true);
+                DatingNavView.this.opc.setEnabled(true);
+                b ecE = datingStageHttpResponseMessage.ecE();
+                if (ecE != null) {
                     try {
-                        DatingNavView.this.oml = Integer.parseInt(edv.oms);
+                        DatingNavView.this.opg = Integer.parseInt(ecE.opo);
                     } catch (Exception e) {
-                        DatingNavView.this.oml = 0;
+                        DatingNavView.this.opg = 0;
                     }
-                    DatingNavView.this.setMasterStageView(DatingNavView.this.oml);
-                    switch (DatingNavView.this.oml) {
+                    DatingNavView.this.setMasterStageView(DatingNavView.this.opg);
+                    switch (DatingNavView.this.opg) {
                         case 1:
                             JSONObject jSONObject = new JSONObject();
                             try {
                                 jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-                                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, DatingNavView.this.aFN.aKL.croom_id);
+                                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, DatingNavView.this.aGe.aLl.croom_id);
                             } catch (Exception e2) {
                                 BdLog.e(e2);
                             }
@@ -157,25 +174,25 @@ public class DatingNavView extends LinearLayout {
             @Override // com.baidu.tieba.yuyinala.liveroom.datingnavigation.d.a
             public void onFail(int i, String str) {
                 if (i == 110003) {
-                    DatingNavView.this.oml = 0;
+                    DatingNavView.this.opg = 0;
                     DatingNavView.this.setMasterStageView(0);
                 } else {
                     BdUtilHelper.showToast(DatingNavView.this.getContext(), "进入下一环节失败，请重试");
                 }
-                DatingNavView.this.omj.setEnabled(true);
-                DatingNavView.this.omh.setEnabled(true);
+                DatingNavView.this.ope.setEnabled(true);
+                DatingNavView.this.opc.setEnabled(true);
             }
         });
-        this.omn.a(new d.a() { // from class: com.baidu.tieba.yuyinala.liveroom.datingnavigation.DatingNavView.8
+        this.opi.a(new d.a() { // from class: com.baidu.tieba.yuyinala.liveroom.datingnavigation.DatingNavView.12
             @Override // com.baidu.tieba.yuyinala.liveroom.datingnavigation.d.a
             public void a(DatingStageHttpResponseMessage datingStageHttpResponseMessage) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501032));
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-                    jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, DatingNavView.this.aFN.aKL.croom_id);
+                    jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, DatingNavView.this.aGe.aLl.croom_id);
                     String str = "";
-                    switch (DatingNavView.this.oml) {
+                    switch (DatingNavView.this.opg) {
                         case 1:
                             str = "interact";
                             break;
@@ -194,134 +211,136 @@ public class DatingNavView extends LinearLayout {
                     BdLog.e(e);
                 }
                 UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Page.VOICE_ROOM, "enddating_suc").setContentExt(jSONObject));
-                DatingNavView.this.oml = 0;
-                DatingNavView.this.omg.setEnabled(true);
+                DatingNavView.this.opg = 0;
+                DatingNavView.this.opb.setEnabled(true);
                 DatingNavView.this.setMasterStageView(0);
             }
 
             @Override // com.baidu.tieba.yuyinala.liveroom.datingnavigation.d.a
             public void onFail(int i, String str) {
-                DatingNavView.this.omg.setEnabled(true);
+                DatingNavView.this.opb.setEnabled(true);
                 BdUtilHelper.showToast(DatingNavView.this.getContext(), "约会结束失败，请重试");
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void edr() {
-        if (this.aFN != null && this.aFN.aKM != null && !TextUtils.isEmpty(this.aFN.aKM.aTT)) {
-            if (this.gTT == null) {
-                this.gTT = new com.baidu.live.ao.a(this.mActivity);
+    public void ecA() {
+        if (this.aGe != null && this.aGe.aLm != null && !TextUtils.isEmpty(this.aGe.aLm.aUR)) {
+            if (this.hfG == null) {
+                this.hfG = new com.baidu.live.ap.a(this.mActivity);
             }
-            com.baidu.live.ao.c cVar = new com.baidu.live.ao.c();
-            cVar.url = this.aFN.aKM.aTT;
-            cVar.bRy = 0.5f;
-            this.gTT.a(cVar);
+            com.baidu.live.ap.c cVar = new com.baidu.live.ap.c();
+            cVar.url = this.aGe.aLm.aUR;
+            cVar.bXf = 0.5f;
+            this.hfG.a(cVar);
         }
     }
 
     public void destory() {
-        this.oml = 0;
+        this.opg = 0;
+        MessageManager.getInstance().unRegisterListener(this.ooJ);
     }
 
-    public void e(w wVar, boolean z) {
-        if (wVar != null && wVar.aKQ != null) {
-            this.aFN = wVar;
-            this.oml = wVar.aKQ.getActivityStage();
-            if (g.efZ()) {
-                setMasterStageView(this.oml);
+    public void f(x xVar, boolean z) {
+        if (xVar != null && xVar.aLq != null) {
+            this.aGe = xVar;
+            this.opg = xVar.aLq.getActivityStage();
+            if (com.baidu.tieba.yuyinala.liveroom.wheat.e.g.egj()) {
+                setMasterStageView(this.opg);
             } else {
-                j(this.oml, true, z);
+                j(this.opg, true, z);
             }
+            MessageManager.getInstance().registerListener(this.ooJ);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setMasterStageView(int i) {
-        Nu(i);
-        Nv(i);
-        this.omi.setVisibility(0);
+        Ng(i);
+        Nh(i);
+        this.opd.setVisibility(0);
     }
 
-    private void eds() {
-        this.omc.setBackgroundDrawable(null);
-        this.omc.setTextColor(getResources().getColor(a.c.sdk_white_alpha80));
-        g.f(this.omc, false);
-        this.omd.setBackgroundDrawable(null);
-        this.omd.setTextColor(getResources().getColor(a.c.sdk_white_alpha80));
-        g.f(this.omd, false);
-        this.ome.setBackgroundDrawable(null);
-        this.ome.setTextColor(getResources().getColor(a.c.sdk_white_alpha80));
-        g.f(this.ome, false);
-        this.omf.setBackgroundDrawable(null);
-        this.omf.setTextColor(getResources().getColor(a.c.sdk_white_alpha80));
-        g.f(this.omf, false);
+    private void ecB() {
+        this.ooX.setBackgroundDrawable(null);
+        this.ooX.setTextColor(getResources().getColor(a.c.sdk_white_alpha80));
+        com.baidu.tieba.yuyinala.liveroom.wheat.e.g.f(this.ooX, false);
+        this.ooY.setBackgroundDrawable(null);
+        this.ooY.setTextColor(getResources().getColor(a.c.sdk_white_alpha80));
+        com.baidu.tieba.yuyinala.liveroom.wheat.e.g.f(this.ooY, false);
+        this.ooZ.setBackgroundDrawable(null);
+        this.ooZ.setTextColor(getResources().getColor(a.c.sdk_white_alpha80));
+        com.baidu.tieba.yuyinala.liveroom.wheat.e.g.f(this.ooZ, false);
+        this.opa.setBackgroundDrawable(null);
+        this.opa.setTextColor(getResources().getColor(a.c.sdk_white_alpha80));
+        com.baidu.tieba.yuyinala.liveroom.wheat.e.g.f(this.opa, false);
     }
 
-    private void Nu(int i) {
+    private void Ng(int i) {
         switch (i) {
             case 1:
-                eds();
-                this.omc.setBackgroundResource(a.e.shape_yuin_dating_nav_select_bg);
-                this.omc.setTextColor(getResources().getColor(a.c.sdk_color_FF51B3_alpha20));
-                g.f(this.omc, true);
-                this.omk.setScrollText(g.d(this.aFN, 1));
+                ecB();
+                this.ooX.setBackgroundResource(a.e.shape_yuin_dating_nav_select_bg);
+                this.ooX.setTextColor(getResources().getColor(a.c.sdk_color_FF51B3_alpha20));
+                com.baidu.tieba.yuyinala.liveroom.wheat.e.g.f(this.ooX, true);
+                this.opf.setContent(com.baidu.tieba.yuyinala.liveroom.wheat.e.g.d(this.aGe, 1));
                 return;
             case 2:
-                eds();
-                this.omd.setBackgroundResource(a.e.shape_yuin_dating_nav_select_bg);
-                this.omd.setTextColor(getResources().getColor(a.c.sdk_color_FF51B3_alpha20));
-                g.f(this.omd, true);
-                this.omk.setScrollText(g.d(this.aFN, 2));
+                ecB();
+                this.ooY.setBackgroundResource(a.e.shape_yuin_dating_nav_select_bg);
+                this.ooY.setTextColor(getResources().getColor(a.c.sdk_color_FF51B3_alpha20));
+                com.baidu.tieba.yuyinala.liveroom.wheat.e.g.f(this.ooY, true);
+                this.opf.setContent(com.baidu.tieba.yuyinala.liveroom.wheat.e.g.d(this.aGe, 2));
                 return;
             case 3:
-                eds();
-                this.ome.setBackgroundResource(a.e.shape_yuin_dating_nav_select_bg);
-                this.ome.setTextColor(getResources().getColor(a.c.sdk_color_FF51B3_alpha20));
-                g.f(this.ome, true);
-                this.omk.setScrollText(g.d(this.aFN, 3));
+                ecB();
+                this.ooZ.setBackgroundResource(a.e.shape_yuin_dating_nav_select_bg);
+                this.ooZ.setTextColor(getResources().getColor(a.c.sdk_color_FF51B3_alpha20));
+                com.baidu.tieba.yuyinala.liveroom.wheat.e.g.f(this.ooZ, true);
+                this.opf.setContent(com.baidu.tieba.yuyinala.liveroom.wheat.e.g.d(this.aGe, 3));
                 return;
             case 4:
-                eds();
-                this.omf.setBackgroundResource(a.e.shape_yuin_dating_nav_select_bg);
-                this.omf.setTextColor(getResources().getColor(a.c.sdk_color_FF51B3_alpha20));
-                g.f(this.omf, true);
-                this.omk.setScrollText(g.d(this.aFN, 4));
+                ecB();
+                this.opa.setBackgroundResource(a.e.shape_yuin_dating_nav_select_bg);
+                this.opa.setTextColor(getResources().getColor(a.c.sdk_color_FF51B3_alpha20));
+                com.baidu.tieba.yuyinala.liveroom.wheat.e.g.f(this.opa, true);
+                this.opf.setContent(com.baidu.tieba.yuyinala.liveroom.wheat.e.g.d(this.aGe, 4));
                 return;
             default:
-                eds();
-                this.omk.setScrollText(g.d(this.aFN, 0));
+                ecB();
+                this.opf.setContent(com.baidu.tieba.yuyinala.liveroom.wheat.e.g.d(this.aGe, 0));
                 return;
         }
     }
 
-    public void j(w wVar) {
-        if (wVar != null && wVar.aKQ != null) {
-            this.aFN = wVar;
-            if (g.efZ()) {
-                this.oml = wVar.aKQ.getActivityStage();
-                setMasterStageView(this.oml);
+    public void k(x xVar) {
+        if (xVar != null && xVar.aLq != null) {
+            this.aGe = xVar;
+            if (com.baidu.tieba.yuyinala.liveroom.wheat.e.g.egj()) {
+                this.opg = xVar.aLq.getActivityStage();
+                setMasterStageView(this.opg);
                 return;
             }
-            int activityStage = wVar.aKQ.getActivityStage();
-            this.omi.setVisibility(8);
-            if (this.oml == 0 || activityStage != this.oml) {
-                this.oml = activityStage;
-                j(this.oml, false, true);
+            int activityStage = xVar.aLq.getActivityStage();
+            this.opd.setVisibility(8);
+            if (this.opg == 0 || activityStage != this.opg) {
+                this.opg = activityStage;
+                j(this.opg, false, true);
             }
         }
     }
 
     private void j(int i, boolean z, boolean z2) {
-        this.omi.setVisibility(8);
+        this.opd.setVisibility(8);
         switch (i) {
             case 1:
                 if (z2) {
                     BdUtilHelper.showToast(getContext(), z ? "嘉宾互动中" : "约会开始，进入嘉宾互动环节");
                 }
-                Nu(1);
-                if (this.aFN != null) {
-                    this.aFN.aLb = "";
+                Ng(1);
+                if (this.aGe != null) {
+                    this.aGe.aLB = "";
                     return;
                 }
                 return;
@@ -329,15 +348,15 @@ public class DatingNavView extends LinearLayout {
                 if (z2) {
                     BdUtilHelper.showToast(getContext(), z ? "心动选择中" : "进入心动选择环节");
                 }
-                Nu(2);
+                Ng(2);
                 return;
             case 3:
                 if (z2) {
                     BdUtilHelper.showToast(getContext(), z ? "结果公布中" : "进入结果公布环节");
                 }
-                Nu(3);
-                if (this.aFN != null) {
-                    this.aFN.aLb = "";
+                Ng(3);
+                if (this.aGe != null) {
+                    this.aGe.aLB = "";
                     return;
                 }
                 return;
@@ -345,16 +364,16 @@ public class DatingNavView extends LinearLayout {
                 if (z2) {
                     BdUtilHelper.showToast(getContext(), z ? "甜蜜告白中" : "进入甜蜜告白环节");
                 }
-                Nu(4);
-                if (this.aFN != null) {
-                    this.aFN.aLb = "";
+                Ng(4);
+                if (this.aGe != null) {
+                    this.aGe.aLB = "";
                     return;
                 }
                 return;
             default:
-                Nu(0);
-                if (this.aFN != null) {
-                    this.aFN.aLb = "";
+                Ng(0);
+                if (this.aGe != null) {
+                    this.aGe.aLB = "";
                     return;
                 }
                 return;
@@ -363,23 +382,29 @@ public class DatingNavView extends LinearLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bZ(final int i, String str) {
-        g.a(this.mActivity, str, new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.datingnavigation.DatingNavView.9
+        this.opk = com.baidu.tieba.yuyinala.liveroom.wheat.e.g.a(this.mActivity, str, new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.datingnavigation.DatingNavView.13
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                DatingNavView.this.omm.h(i + "", "1", g.ar(DatingNavView.this.aFN), 0);
-                DatingNavView.this.omh.setEnabled(false);
+                DatingNavView.this.oph.m(i + "", "1", com.baidu.tieba.yuyinala.liveroom.wheat.e.g.av(DatingNavView.this.aGe), 0);
+                DatingNavView.this.opc.setEnabled(false);
+                DatingNavView.this.opk = null;
+            }
+        }, new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.datingnavigation.DatingNavView.14
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                DatingNavView.this.opk = null;
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void edt() {
+    public void ecC() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.aFN.aKL.croom_id);
+            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.aGe.aLl.croom_id);
             String str = "";
-            switch (this.oml) {
+            switch (this.opg) {
                 case 1:
                     str = "interact";
                     break;
@@ -398,52 +423,64 @@ public class DatingNavView extends LinearLayout {
             BdLog.e(e);
         }
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Page.VOICE_ROOM, "enddating_clk").setContentExt(jSONObject));
-        g.a(this.mActivity, "确认结束本轮约会", new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.datingnavigation.DatingNavView.10
+        this.opk = com.baidu.tieba.yuyinala.liveroom.wheat.e.g.a(this.mActivity, "确认结束本轮约会", new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.datingnavigation.DatingNavView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                DatingNavView.this.omn.h(DatingNavView.this.oml + "", "2", g.ar(DatingNavView.this.aFN), 0);
-                DatingNavView.this.omg.setEnabled(false);
+                DatingNavView.this.opi.m(DatingNavView.this.opg + "", "2", com.baidu.tieba.yuyinala.liveroom.wheat.e.g.av(DatingNavView.this.aGe), 0);
+                DatingNavView.this.opb.setEnabled(false);
+                DatingNavView.this.opk = null;
+            }
+        }, new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.datingnavigation.DatingNavView.3
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                DatingNavView.this.opk = null;
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void edu() {
+    public void ecD() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.aFN.aKL.croom_id);
+            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.aGe.aLl.croom_id);
         } catch (Exception e) {
             BdLog.e(e);
         }
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Page.VOICE_ROOM, "startdating_clk").setContentExt(jSONObject));
-        g.a(this.mActivity, "确定开始约会，进入嘉宾互动环节？", new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.datingnavigation.DatingNavView.2
+        this.opk = com.baidu.tieba.yuyinala.liveroom.wheat.e.g.a(this.mActivity, "确定开始约会，进入嘉宾互动环节？", new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.datingnavigation.DatingNavView.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                DatingNavView.this.omm.h("0", "1", g.ar(DatingNavView.this.aFN), 0);
-                DatingNavView.this.omj.setEnabled(false);
+                DatingNavView.this.oph.m("0", "1", com.baidu.tieba.yuyinala.liveroom.wheat.e.g.av(DatingNavView.this.aGe), 0);
+                DatingNavView.this.ope.setEnabled(false);
+                DatingNavView.this.opk = null;
+            }
+        }, new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.datingnavigation.DatingNavView.5
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                DatingNavView.this.opk = null;
             }
         });
     }
 
-    private void Nv(int i) {
+    private void Nh(int i) {
         switch (i) {
             case 1:
             case 2:
             case 3:
-                this.omj.setVisibility(8);
-                this.omh.setVisibility(0);
-                this.omg.setVisibility(0);
+                this.ope.setVisibility(8);
+                this.opc.setVisibility(0);
+                this.opb.setVisibility(0);
                 return;
             case 4:
-                this.omj.setVisibility(8);
-                this.omh.setVisibility(8);
-                this.omg.setVisibility(0);
+                this.ope.setVisibility(8);
+                this.opc.setVisibility(8);
+                this.opb.setVisibility(0);
                 return;
             default:
-                this.omj.setVisibility(0);
-                this.omg.setVisibility(8);
-                this.omh.setVisibility(8);
+                this.ope.setVisibility(0);
+                this.opb.setVisibility(8);
+                this.opc.setVisibility(8);
                 return;
         }
     }

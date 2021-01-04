@@ -10,18 +10,18 @@ import com.baidu.live.adp.widget.listview.BdTypeListView;
 import com.baidu.live.adp.widget.listview.IAdapterData;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a {
-    private f bWW;
-    private c bWX;
-    private g bWY;
-    private d bWZ;
-    private e bXa;
-    private BdPageContext bng;
-    private BdTypeListView bnh;
-    private boolean bnn;
-    private List<AbsDelegateAdapter> bnf = new ArrayList();
-    private CustomMessageListener bno = new CustomMessageListener(0) { // from class: com.baidu.live.yuyinim.a.a.1
+    private BdPageContext boN;
+    private BdTypeListView boO;
+    private boolean boU;
+    private f cdv;
+    private c cdw;
+    private g cdx;
+    private d cdy;
+    private e cdz;
+    private List<AbsDelegateAdapter> boM = new ArrayList();
+    private CustomMessageListener boV = new CustomMessageListener(0) { // from class: com.baidu.live.yuyinim.a.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -30,41 +30,41 @@ public class a {
     };
 
     public a(BdPageContext bdPageContext, BdTypeListView bdTypeListView) {
-        this.bng = bdPageContext;
-        this.bnh = bdTypeListView;
-        Nt();
+        this.boN = bdPageContext;
+        this.boO = bdTypeListView;
+        MT();
     }
 
-    public void Ml() {
-        MessageManager.getInstance().registerListener(2913069, this.bno);
+    public void LI() {
+        MessageManager.getInstance().registerListener(2913069, this.boV);
     }
 
-    private void Nt() {
-        this.bWW = new f(this.bng.getPageActivity());
-        this.bWX = new c(this.bng.getPageActivity());
-        this.bWY = new g(this.bng.getPageActivity());
-        this.bWZ = new d(this.bng.getPageActivity());
-        this.bXa = new e(this.bng.getPageActivity());
-        this.bnf.add(this.bWW);
-        this.bnf.add(this.bWX);
-        this.bnf.add(this.bWY);
-        this.bnf.add(this.bWZ);
-        this.bnf.add(this.bXa);
-        this.bnh.addAdapters(this.bnf);
+    private void MT() {
+        this.cdv = new f(this.boN.getPageActivity());
+        this.cdw = new c(this.boN.getPageActivity());
+        this.cdx = new g(this.boN.getPageActivity());
+        this.cdy = new d(this.boN.getPageActivity());
+        this.cdz = new e(this.boN.getPageActivity());
+        this.boM.add(this.cdv);
+        this.boM.add(this.cdw);
+        this.boM.add(this.cdx);
+        this.boM.add(this.cdy);
+        this.boM.add(this.cdz);
+        this.boO.addAdapters(this.boM);
     }
 
     public void setMode(boolean z) {
-        this.bWW.setMode(z);
+        this.cdv.setMode(z);
     }
 
     public void setDatas(List<IAdapterData> list) {
-        if (this.bnh != null) {
-            this.bnh.setData(list);
+        if (this.boO != null) {
+            this.boO.setData(list);
         }
     }
 
     public void b(String str, String str2, boolean z, String str3) {
-        for (AbsDelegateAdapter absDelegateAdapter : this.bnf) {
+        for (AbsDelegateAdapter absDelegateAdapter : this.boM) {
             if (absDelegateAdapter instanceof b) {
                 ((b) absDelegateAdapter).b(str, str2, z, str3);
             }
@@ -72,33 +72,33 @@ public class a {
     }
 
     public void notifyDataSetChanged() {
-        if (this.bnh != null && (this.bnh.getAdapter() instanceof BaseAdapter)) {
-            this.bnh.getAdapter().notifyDataSetChanged();
+        if (this.boO != null && (this.boO.getAdapter() instanceof BaseAdapter)) {
+            this.boO.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void setFromMaster(boolean z) {
-        this.bnn = z;
-        if (this.bnn) {
-            if (this.bWW != null) {
-                this.bWW.ci(true);
+        this.boU = z;
+        if (this.boU) {
+            if (this.cdv != null) {
+                this.cdv.ci(true);
             }
-            if (this.bWX != null) {
-                this.bWX.ci(true);
+            if (this.cdw != null) {
+                this.cdw.ci(true);
             }
-            if (this.bWY != null) {
-                this.bWY.ci(true);
+            if (this.cdx != null) {
+                this.cdx.ci(true);
             }
-            if (this.bWZ != null) {
-                this.bWZ.ci(true);
+            if (this.cdy != null) {
+                this.cdy.ci(true);
             }
-            if (this.bXa != null) {
-                this.bXa.ci(true);
+            if (this.cdz != null) {
+                this.cdz.ci(true);
             }
         }
     }
 
     public void release() {
-        MessageManager.getInstance().unRegisterListener(this.bno);
+        MessageManager.getInstance().unRegisterListener(this.boV);
     }
 }

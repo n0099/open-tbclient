@@ -2,7 +2,7 @@ package com.baidu.tieba.yuyinala.liveroom.grabredpacket;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a extends HttpMessage {
     public a(String str, String str2, String str3, String str4, String str5, String str6) {
         super(1031083);

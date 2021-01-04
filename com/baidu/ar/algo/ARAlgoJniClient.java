@@ -1,7 +1,7 @@
 package com.baidu.ar.algo;
 
 import java.nio.ByteBuffer;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class ARAlgoJniClient {
     static volatile ARAlgoJniClient arAlgoJniClient;
     private long trackSystemHandler = 0;

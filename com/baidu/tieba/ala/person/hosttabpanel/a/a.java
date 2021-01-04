@@ -5,43 +5,43 @@ import com.baidu.live.adp.widget.listview.BdTypeListView;
 import com.baidu.live.tbadk.TbPageContext;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a {
-    private List<AbsDelegateAdapter> bnf = new ArrayList();
-    private BdTypeListView bnh;
-    private b hJA;
-    private c hJB;
-    private e hJC;
-    private f hJD;
-    private d hJE;
+    private List<AbsDelegateAdapter> boM = new ArrayList();
+    private BdTypeListView boO;
+    private b hVM;
+    private c hVN;
+    private e hVO;
+    private f hVP;
+    private d hVQ;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext, BdTypeListView bdTypeListView) {
         this.mPageContext = tbPageContext;
-        this.bnh = bdTypeListView;
-        Nt();
+        this.boO = bdTypeListView;
+        MT();
     }
 
-    private void Nt() {
-        this.hJA = new b(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.a.hJH);
-        this.hJB = new c(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.b.hJK);
-        this.hJC = new e(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.d.hJM);
-        this.hJD = new f(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.e.hJN);
-        this.hJE = new d(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.c.hJL);
-        this.bnf.add(this.hJA);
-        this.bnf.add(this.hJB);
-        this.bnf.add(this.hJC);
-        this.bnf.add(this.hJD);
-        this.bnf.add(this.hJE);
-        this.bnh.addAdapters(this.bnf);
+    private void MT() {
+        this.hVM = new b(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.a.hVT);
+        this.hVN = new c(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.b.hVW);
+        this.hVO = new e(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.d.hVY);
+        this.hVP = new f(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.e.hVZ);
+        this.hVQ = new d(this.mPageContext, com.baidu.tieba.ala.person.hosttabpanel.b.c.hVX);
+        this.boM.add(this.hVM);
+        this.boM.add(this.hVN);
+        this.boM.add(this.hVO);
+        this.boM.add(this.hVP);
+        this.boM.add(this.hVQ);
+        this.boO.addAdapters(this.boM);
     }
 
     public void onDestroy() {
-        if (this.hJA != null) {
-            this.hJA.onDestroy();
+        if (this.hVM != null) {
+            this.hVM.onDestroy();
         }
-        if (this.hJB != null) {
-            this.hJB.onDestroy();
+        if (this.hVN != null) {
+            this.hVN.onDestroy();
         }
     }
 }

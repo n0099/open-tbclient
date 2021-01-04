@@ -3,15 +3,15 @@ package com.baidu.android.imsdk.request;
 import android.content.Context;
 import android.os.Handler;
 import android.os.HandlerThread;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.utils.LogUtils;
-import com.baidu.h.a;
+import com.baidu.i.a;
 import com.baidu.lcp.sdk.client.bean.BLCPRequest;
 import com.baidu.lcp.sdk.client.bean.b;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class AckHandlerThread extends HandlerThread {
     public static final long ACK_DELAY = 1000;
     public static final int RETRY_COUNT = 3;
@@ -54,11 +54,11 @@ public class AckHandlerThread extends HandlerThread {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void retryAck(final Context context, final NewAckMessage newAckMessage) {
-        if (a.ayO && newAckMessage != null) {
+        if (a.aze && newAckMessage != null) {
             BLCPRequest bLCPRequest = new BLCPRequest();
             bLCPRequest.serviceId = 2L;
             bLCPRequest.methodId = 95L;
-            bLCPRequest.azd = newAckMessage.getBody().getBytes();
+            bLCPRequest.azt = newAckMessage.getBody().getBytes();
             bLCPRequest.msgId = System.nanoTime();
             LogUtils.d(TAG, "ackRequest msgid:" + bLCPRequest.msgId);
             com.baidu.lcp.sdk.client.a.a(bLCPRequest, new b() { // from class: com.baidu.android.imsdk.request.AckHandlerThread.2

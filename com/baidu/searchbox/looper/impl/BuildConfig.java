@@ -1,5 +1,5 @@
 package com.baidu.searchbox.looper.impl;
-/* loaded from: classes12.dex */
+/* loaded from: classes7.dex */
 public final class BuildConfig {
     public static final String BUILD_TYPE = "release";
     public static final boolean DEBUG = false;

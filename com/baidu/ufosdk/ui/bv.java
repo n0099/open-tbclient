@@ -5,24 +5,26 @@ import android.view.View;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes22.dex */
+/* loaded from: classes8.dex */
 public final class bv implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ View f3792a;
-    final /* synthetic */ PopupWindow b;
+    final /* synthetic */ View f5757a;
+
+    /* renamed from: b  reason: collision with root package name */
+    final /* synthetic */ PopupWindow f5758b;
     final /* synthetic */ FeedbackInputActivity c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bv(FeedbackInputActivity feedbackInputActivity, View view, PopupWindow popupWindow) {
         this.c = feedbackInputActivity;
-        this.f3792a = view;
-        this.b = popupWindow;
+        this.f5757a = view;
+        this.f5758b = popupWindow;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
-        ((ClipboardManager) this.c.getSystemService("clipboard")).setText(((TextView) this.f3792a).getText().toString());
-        this.b.dismiss();
+        ((ClipboardManager) this.c.getSystemService("clipboard")).setText(((TextView) this.f5757a).getText().toString());
+        this.f5758b.dismiss();
     }
 }

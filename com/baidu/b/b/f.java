@@ -3,13 +3,13 @@ package com.baidu.b.b;
 import com.baidu.b.b.e;
 import java.util.Comparator;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class f implements Comparator<e.c.a> {
-    final /* synthetic */ e.c aem;
+    final /* synthetic */ e.c afa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e.c cVar) {
-        this.aem = cVar;
+        this.afa = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -18,8 +18,8 @@ public class f implements Comparator<e.c.a> {
     public int compare(e.c.a aVar, e.c.a aVar2) {
         int i;
         int i2;
-        i = aVar.f1252a;
-        i2 = aVar2.f1252a;
+        i = aVar.f1584a;
+        i2 = aVar2.f1584a;
         return i - i2;
     }
 }

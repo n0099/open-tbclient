@@ -1,15 +1,15 @@
 package com.baidu.ala.widget.multicolumn.absView;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.tabHost.FragmentTabHost;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public abstract class AbsTabActivity extends BaseFragmentActivity {
     protected boolean isSupportNight = true;
     private NavigationBar mNavigationBar;
@@ -22,7 +22,7 @@ public abstract class AbsTabActivity extends BaseFragmentActivity {
     protected abstract void setNavigationBar(NavigationBar navigationBar);
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.abs_act_tabs_layout);
@@ -45,21 +45,21 @@ public abstract class AbsTabActivity extends BaseFragmentActivity {
         this.mTabHost.setup(getSupportFragmentManager());
         this.mTabHost.getFragmentTabWidget().setAbsoluteWeight(true);
         this.mTabHost.setOnPageChangeListener(new ViewPager.OnPageChangeListener() { // from class: com.baidu.ala.widget.multicolumn.absView.AbsTabActivity.1
-            @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+            @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
             public void onPageScrolled(int i, float f, int i2) {
                 if (AbsTabActivity.this.mPageChangeListener != null) {
                     AbsTabActivity.this.mPageChangeListener.onPageScrolled(i, f, i2, AbsTabActivity.this.getAdapter().getPageType(i));
                 }
             }
 
-            @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+            @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
             public void onPageSelected(int i) {
                 if (AbsTabActivity.this.mPageChangeListener != null) {
                     AbsTabActivity.this.mPageChangeListener.onPageSelected(i, AbsTabActivity.this.getAdapter().getPageType(i));
                 }
             }
 
-            @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+            @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
             public void onPageScrollStateChanged(int i) {
                 if (AbsTabActivity.this.mPageChangeListener != null) {
                     AbsTabActivity.this.mPageChangeListener.onPageScrollStateChanged(i);
@@ -120,7 +120,7 @@ public abstract class AbsTabActivity extends BaseFragmentActivity {
             fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.fontsize32));
             fragmentTabIndicator.setIsSupportNight(this.isSupportNight);
             fragmentTabIndicator.setContentWidthWrapContent();
-            bVar.eRD = fragmentTabIndicator;
+            bVar.fbC = fragmentTabIndicator;
             this.mTabHost.a(bVar);
         }
     }
@@ -153,7 +153,7 @@ public abstract class AbsTabActivity extends BaseFragmentActivity {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     public static class CustomOnPageChangeListener {
         public void onPageScrolled(int i, float f, int i2, int i3) {
         }

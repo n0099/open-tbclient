@@ -6,9 +6,10 @@ import android.content.res.Resources;
 import android.util.DisplayMetrics;
 import android.view.KeyCharacterMap;
 import android.view.ViewConfiguration;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.searchbox.player.BDPlayerConfig;
 import com.baidu.searchbox.player.annotation.PublicMethod;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class VideoSystemHelper {
     private static final String TAG = "VideoSystemHelper";
 
@@ -34,7 +35,7 @@ public class VideoSystemHelper {
             return 0;
         }
         Resources resources = appContext.getResources();
-        return resources.getDimensionPixelSize(resources.getIdentifier("navigation_bar_height", "dimen", "android"));
+        return resources.getDimensionPixelSize(resources.getIdentifier("navigation_bar_height", "dimen", HttpConstants.OS_TYPE_VALUE));
     }
 
     public static int getStatusBarHeight() {
@@ -43,7 +44,7 @@ public class VideoSystemHelper {
         if (appContext == null) {
             return 0;
         }
-        int identifier = appContext.getResources().getIdentifier("status_bar_height", "dimen", "android");
+        int identifier = appContext.getResources().getIdentifier("status_bar_height", "dimen", HttpConstants.OS_TYPE_VALUE);
         if (identifier > 0) {
             try {
                 i = appContext.getResources().getDimensionPixelSize(identifier);

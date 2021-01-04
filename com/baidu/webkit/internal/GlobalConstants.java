@@ -1,5 +1,5 @@
 package com.baidu.webkit.internal;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public class GlobalConstants implements INoProGuard {
     public static final boolean CLOUD_SETTINGS_DEBUG = false;
     public static final String DEFAULT_VERSION = "10.0.0.0";

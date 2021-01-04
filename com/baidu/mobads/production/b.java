@@ -32,11 +32,11 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public abstract class b extends com.baidu.mobads.openad.c.c implements IXNonLinearAdSlot {
 
     /* renamed from: a  reason: collision with root package name */
-    public static IXAdContainerFactory f2396a;
+    public static IXAdContainerFactory f3466a;
     private static final String[] w = {"android.permission.READ_PHONE_STATE", "android.permission.ACCESS_COARSE_LOCATION", "android.permission.WRITE_EXTERNAL_STORAGE"};
     protected RelativeLayout e;
     protected Context f;
@@ -50,7 +50,9 @@ public abstract class b extends com.baidu.mobads.openad.c.c implements IXNonLine
     protected long v;
     private IXAdResponseInfo x;
     private String y;
-    protected Boolean b = false;
+
+    /* renamed from: b  reason: collision with root package name */
+    protected Boolean f3467b = false;
     public IXAdInstanceInfo d = null;
     protected int g = 0;
     protected IXAdConstants4PDK.SlotState l = IXAdConstants4PDK.SlotState.IDEL;
@@ -85,12 +87,12 @@ public abstract class b extends com.baidu.mobads.openad.c.c implements IXNonLine
             return;
         }
         IXAdInstanceInfo primaryAdInstanceInfo = this.x.getPrimaryAdInstanceInfo();
-        String b = b(primaryAdInstanceInfo);
-        if (TextUtils.isEmpty(b)) {
+        String b2 = b(primaryAdInstanceInfo);
+        if (TextUtils.isEmpty(b2)) {
             b("XAdMouldeLoader ad-server requesting success");
             return;
         }
-        boolean a2 = a(b, primaryAdInstanceInfo);
+        boolean a2 = a(b2, primaryAdInstanceInfo);
         a(a2, primaryAdInstanceInfo);
         if (a2) {
             if (e() && TextUtils.isEmpty(((XAdInstanceInfo) this.d).getSplash3DLocalUrl())) {
@@ -112,9 +114,9 @@ public abstract class b extends com.baidu.mobads.openad.c.c implements IXNonLine
         boolean z = false;
         if (!TextUtils.isEmpty(str)) {
             try {
-                String b = com.baidu.mobads.utils.i.b(getApplicationContext(), str);
-                if (new File(b).exists()) {
-                    XAdSDKFoundationFacade.getInstance().getAdCreativeCacheManager().c(b);
+                String b2 = com.baidu.mobads.utils.i.b(getApplicationContext(), str);
+                if (new File(b2).exists()) {
+                    XAdSDKFoundationFacade.getInstance().getAdCreativeCacheManager().c(b2);
                     if (e()) {
                         String a2 = com.baidu.mobads.utils.i.a(getApplicationContext(), iXAdInstanceInfo.getMainPictureUrl());
                         File file = new File(a2);
@@ -124,7 +126,7 @@ public abstract class b extends com.baidu.mobads.openad.c.c implements IXNonLine
                             z = true;
                         }
                     } else {
-                        iXAdInstanceInfo.setLocalCreativeURL(b);
+                        iXAdInstanceInfo.setLocalCreativeURL(b2);
                         z = true;
                     }
                 }
@@ -144,24 +146,24 @@ public abstract class b extends com.baidu.mobads.openad.c.c implements IXNonLine
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes3.dex */
     public static class a implements IXActivateListener {
 
         /* renamed from: a  reason: collision with root package name */
-        private Context f2397a;
+        private Context f3468a;
 
         public a(Context context) {
-            this.f2397a = context.getApplicationContext();
+            this.f3468a = context.getApplicationContext();
         }
 
         @Override // com.baidu.mobads.interfaces.download.activate.IXActivateListener
         public void onAppActivation(IXAppInfo iXAppInfo) {
-            com.baidu.mobads.c.a.a().b(this.f2397a, iXAppInfo);
+            com.baidu.mobads.c.a.a().b(this.f3468a, iXAppInfo);
         }
 
         @Override // com.baidu.mobads.interfaces.download.activate.IXActivateListener
         public void onAppInstalled(IXAppInfo iXAppInfo) {
-            com.baidu.mobads.c.a.a().a(this.f2397a, iXAppInfo);
+            com.baidu.mobads.c.a.a().a(this.f3468a, iXAppInfo);
         }
     }
 
@@ -237,7 +239,7 @@ public abstract class b extends com.baidu.mobads.openad.c.c implements IXNonLine
                 }
             }
         }
-        if (f2396a != null) {
+        if (f3466a != null) {
             r();
         } else {
             BaiduXAdSDKContext.mApkLoader.a(new k(this));
@@ -252,16 +254,16 @@ public abstract class b extends com.baidu.mobads.openad.c.c implements IXNonLine
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void b(String str) {
-        this.b = true;
+        this.f3467b = true;
         c(str);
     }
 
     protected void c(String str) {
-        this.s.i("XAbstractAdProdTemplate", "doubleCheck:" + str + ", bfp=" + this.b + ", apk=" + BaiduXAdSDKContext.isRemoteLoadSuccess);
+        this.s.i("XAbstractAdProdTemplate", "doubleCheck:" + str + ", bfp=" + this.f3467b + ", apk=" + BaiduXAdSDKContext.isRemoteLoadSuccess);
         if (BaiduXAdSDKContext.isRemoteLoadSuccess.booleanValue()) {
             XAdSDKFoundationFacade.getInstance().initializeAdContainerFactory(getAdContainerFactory());
         }
-        if (BaiduXAdSDKContext.isRemoteLoadSuccess.booleanValue() && this.b.booleanValue()) {
+        if (BaiduXAdSDKContext.isRemoteLoadSuccess.booleanValue() && this.f3467b.booleanValue()) {
             IXAdResponseInfo adResponseInfo = getAdResponseInfo();
             if (adResponseInfo != null) {
                 try {
@@ -333,18 +335,18 @@ public abstract class b extends com.baidu.mobads.openad.c.c implements IXNonLine
     private void d(IXAdResponseInfo iXAdResponseInfo) {
         this.s.i("XAbstractAdProdTemplate", "cacheCreativeAsset");
         IXAdInstanceInfo primaryAdInstanceInfo = iXAdResponseInfo.getPrimaryAdInstanceInfo();
-        String b = b(primaryAdInstanceInfo);
-        if (!TextUtils.isEmpty(b)) {
-            if (!a(primaryAdInstanceInfo, b)) {
-                b(primaryAdInstanceInfo, b);
+        String b2 = b(primaryAdInstanceInfo);
+        if (!TextUtils.isEmpty(b2)) {
+            if (!a(primaryAdInstanceInfo, b2)) {
+                b(primaryAdInstanceInfo, b2);
                 return;
             }
             primaryAdInstanceInfo.setLocalCreativeURL(null);
             String a2 = com.baidu.mobads.utils.i.a(getApplicationContext());
-            String b2 = com.baidu.mobads.utils.i.b(b);
+            String b3 = com.baidu.mobads.utils.i.b(b2);
             com.baidu.mobads.utils.i adCreativeCacheManager = XAdSDKFoundationFacade.getInstance().getAdCreativeCacheManager();
             adCreativeCacheManager.a(a2);
-            adCreativeCacheManager.a(getApplicationContext(), b, a2, b2, new l(this, Looper.getMainLooper(), primaryAdInstanceInfo));
+            adCreativeCacheManager.a(getApplicationContext(), b2, a2, b3, new l(this, Looper.getMainLooper(), primaryAdInstanceInfo));
         }
     }
 
@@ -431,11 +433,11 @@ public abstract class b extends com.baidu.mobads.openad.c.c implements IXNonLine
     public void b(com.baidu.mobads.vo.d dVar) {
         this.k = dVar;
         k();
-        this.b = false;
-        String b = this.i == null ? dVar.b() : this.i;
+        this.f3467b = false;
+        String b2 = this.i == null ? dVar.b() : this.i;
         this.j = new v();
-        com.baidu.mobads.c.a.b = b;
-        com.baidu.mobads.openad.d.c cVar = new com.baidu.mobads.openad.d.c(b, "");
+        com.baidu.mobads.c.a.f3345b = b2;
+        com.baidu.mobads.openad.d.c cVar = new com.baidu.mobads.openad.d.c(b2, "");
         cVar.e = 1;
         this.j.addEventListener("URLLoader.Load.Complete", this.B);
         this.j.addEventListener("URLLoader.Load.Error", this.B);
@@ -513,11 +515,11 @@ public abstract class b extends com.baidu.mobads.openad.c.c implements IXNonLine
 
     @Override // com.baidu.mobads.interfaces.IXAdProd
     public IXAdContainerFactory getAdContainerFactory() {
-        return f2396a;
+        return f3466a;
     }
 
     public static IXAdContainerFactory f() {
-        return f2396a;
+        return f3466a;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -554,8 +556,8 @@ public abstract class b extends com.baidu.mobads.openad.c.c implements IXNonLine
     private IXAdContainer b(IXAdContainerContext iXAdContainerContext) {
         IXAdContainer iXAdContainer = null;
         this.s.i("XAbstractAdProdTemplate", "createAdContainer");
-        if (f2396a != null && (iXAdContainer = f2396a.createXAdContainer(iXAdContainerContext, null)) != null) {
-            this.s.i("XAbstractAdProdTemplate", "createAdContainer() apk.version=" + f2396a.getRemoteVersion());
+        if (f3466a != null && (iXAdContainer = f3466a.createXAdContainer(iXAdContainerContext, null)) != null) {
+            this.s.i("XAbstractAdProdTemplate", "createAdContainer() apk.version=" + f3466a.getRemoteVersion());
         }
         return iXAdContainer;
     }
@@ -732,6 +734,6 @@ public abstract class b extends com.baidu.mobads.openad.c.c implements IXNonLine
 
     @Override // com.baidu.mobads.interfaces.IXAdProd
     public Boolean isAdServerRequestingSuccess() {
-        return this.b;
+        return this.f3467b;
     }
 }

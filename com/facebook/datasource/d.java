@@ -1,5 +1,5 @@
 package com.facebook.datasource;
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 public interface d<T> {
     void b(b<T> bVar);
 

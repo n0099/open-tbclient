@@ -1,25 +1,24 @@
 package com.baidu.live.gift;
 
-import com.baidu.searchbox.ugc.utils.UgcUBCUtils;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class aa extends g {
-    public List<a> aYb;
+    public List<a> aZG;
 
-    public boolean Io() {
-        return "30".equals(Hd());
+    public boolean HP() {
+        return "30".equals(GE());
     }
 
     @Override // com.baidu.live.gift.g
-    public boolean He() {
-        return super.He() && !Io();
+    public boolean GF() {
+        return super.GF() && !HP();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public static class a {
-        public boolean aYc;
-        public String aYd;
+        public boolean aZH;
+        public String aZI;
         public String name;
         public int num;
         public String pic;
@@ -27,10 +26,10 @@ public class aa extends g {
         public void parseJson(JSONObject jSONObject) {
             if (jSONObject != null) {
                 this.name = jSONObject.optString("fragment_name");
-                this.pic = jSONObject.optString(UgcUBCUtils.UGC_TYPE_PIC_BTN);
+                this.pic = jSONObject.optString("pic");
                 this.num = jSONObject.optInt("num");
-                this.aYc = jSONObject.optInt("is_rare") == 1;
-                this.aYd = jSONObject.optString("get_method");
+                this.aZH = jSONObject.optInt("is_rare") == 1;
+                this.aZI = jSONObject.optString("get_method");
             }
         }
     }

@@ -2,7 +2,7 @@ package com.baidu.live.adp.lib.pool;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class BdCache<K, V> {
     private int evictionCount;
     private int hitCount;

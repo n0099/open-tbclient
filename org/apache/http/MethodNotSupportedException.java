@@ -1,6 +1,6 @@
 package org.apache.http;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes6.dex */
 public class MethodNotSupportedException extends HttpException {
     public MethodNotSupportedException(String str) {
         throw new RuntimeException("Stub!");

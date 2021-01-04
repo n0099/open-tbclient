@@ -8,7 +8,7 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.baidu.android.util.devices.RomUtils;
 @SuppressLint({"DefaultLocale"})
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class NetInfoUtil {
     private static final int NETWORK_CLASS_2_G = 1;
     private static final int NETWORK_CLASS_3_G = 2;
@@ -37,7 +37,6 @@ public class NetInfoUtil {
 
     @SuppressLint({"DefaultLocale"})
     public static String getNetType(Context context) {
-        Exception e;
         try {
             ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
             NetworkInfo activeNetworkInfo = connectivityManager != null ? connectivityManager.getActiveNetworkInfo() : null;
@@ -49,15 +48,15 @@ public class NetInfoUtil {
                         return !TextUtils.isEmpty(extraInfo) ? extraInfo.toUpperCase() : upperCase;
                     }
                     return upperCase;
-                } catch (Exception e2) {
-                    e = e2;
+                } catch (Exception e) {
+                    e = e;
                     LogUtil.e(e);
                     return "0";
                 }
             }
             return "0";
-        } catch (Exception e3) {
-            e = e3;
+        } catch (Exception e2) {
+            e = e2;
         }
     }
 

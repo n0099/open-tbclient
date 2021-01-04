@@ -4,35 +4,35 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ala.frsgamelive.c.g;
-/* loaded from: classes6.dex */
-public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.frsgamelive.b.c, g.a> {
-    private com.baidu.tieba.ala.f gLh;
-    private TbPageContext gLp;
+import com.baidu.tieba.ala.frsgamelive.view.AlaGameFrsLiveNormalCardView;
+/* loaded from: classes10.dex */
+public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.frsgamelive.b.c, AlaGameFrsLiveNormalCardView.AlaGameFrsNormalViewHolder> {
+    private com.baidu.tieba.ala.g gWT;
+    private TbPageContext gXb;
 
     public h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.gLp = tbPageContext;
+        this.gXb = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aj */
-    public g.a c(ViewGroup viewGroup) {
-        return new g.a(new com.baidu.tieba.ala.frsgamelive.c.g(this.gLp));
+    /* renamed from: av */
+    public AlaGameFrsLiveNormalCardView.AlaGameFrsNormalViewHolder e(ViewGroup viewGroup) {
+        return new AlaGameFrsLiveNormalCardView.AlaGameFrsNormalViewHolder(new AlaGameFrsLiveNormalCardView(this.gXb));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.frsgamelive.b.c cVar, g.a aVar) {
-        aVar.gMR.a(cVar);
-        aVar.gMR.c(this.gLh);
-        return aVar.getView();
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.frsgamelive.b.c cVar, AlaGameFrsLiveNormalCardView.AlaGameFrsNormalViewHolder alaGameFrsNormalViewHolder) {
+        alaGameFrsNormalViewHolder.gYB.a(cVar);
+        alaGameFrsNormalViewHolder.gYB.c(this.gWT);
+        return alaGameFrsNormalViewHolder.getView();
     }
 
-    public void a(com.baidu.tieba.ala.f fVar) {
-        this.gLh = fVar;
+    public void a(com.baidu.tieba.ala.g gVar) {
+        this.gWT = gVar;
     }
 }

@@ -5,7 +5,7 @@ import java.util.NoSuchElementException;
 import org.apache.http.Header;
 import org.apache.http.HeaderIterator;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes6.dex */
 public class BasicListHeaderIterator implements HeaderIterator {
     protected final List allHeaders;
     protected int currentIndex;

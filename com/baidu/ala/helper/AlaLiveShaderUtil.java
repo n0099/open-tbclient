@@ -1,15 +1,15 @@
 package com.baidu.ala.helper;
 
-import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import com.baidu.ala.tbadk.core.TbadkCoreApplicationProxy;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class AlaLiveShaderUtil {
     public static String getStringFromAssert(String str) {
         StringBuilder sb = new StringBuilder();
         try {
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(TbadkCoreApplication.getInst().getAssets().open(str), "UTF-8"));
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(TbadkCoreApplicationProxy.getInst().getAppContext().getAssets().open(str), "UTF-8"));
             while (true) {
                 String readLine = bufferedReader.readLine();
                 if (readLine != null) {

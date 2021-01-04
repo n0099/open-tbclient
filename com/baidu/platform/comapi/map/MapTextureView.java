@@ -24,12 +24,14 @@ import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLContext;
 import javax.microedition.khronos.egl.EGLDisplay;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class MapTextureView extends GLTextureView implements MapRenderModeChangeListener, MapViewInterface, af {
 
     /* renamed from: a  reason: collision with root package name */
-    protected com.baidu.mapsdkplatform.comapi.map.d f2888a;
-    protected MapController b;
+    protected com.baidu.mapsdkplatform.comapi.map.d f4282a;
+
+    /* renamed from: b  reason: collision with root package name */
+    protected MapController f4283b;
     protected ac c;
     protected k d;
     protected m e;
@@ -42,12 +44,14 @@ public class MapTextureView extends GLTextureView implements MapRenderModeChange
     private b l;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public class a implements GLSurfaceView.EGLContextFactory {
-        private int b;
+
+        /* renamed from: b  reason: collision with root package name */
+        private int f4285b;
 
         private a() {
-            this.b = 12440;
+            this.f4285b = 12440;
         }
 
         private String a(int i) {
@@ -101,7 +105,7 @@ public class MapTextureView extends GLTextureView implements MapRenderModeChange
 
         @Override // android.opengl.GLSurfaceView.EGLContextFactory
         public EGLContext createContext(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig) {
-            return egl10.eglCreateContext(eGLDisplay, eGLConfig, EGL10.EGL_NO_CONTEXT, new int[]{this.b, 2, 12344});
+            return egl10.eglCreateContext(eGLDisplay, eGLConfig, EGL10.EGL_NO_CONTEXT, new int[]{this.f4285b, 2, 12344});
         }
 
         @Override // android.opengl.GLSurfaceView.EGLContextFactory
@@ -113,14 +117,14 @@ public class MapTextureView extends GLTextureView implements MapRenderModeChange
         }
     }
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public interface b {
         void a(int i);
     }
 
     public MapTextureView(Context context) {
         super(context);
-        this.b = null;
+        this.f4283b = null;
         this.c = null;
         this.d = null;
         this.e = null;
@@ -132,7 +136,7 @@ public class MapTextureView extends GLTextureView implements MapRenderModeChange
 
     public MapTextureView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.b = null;
+        this.f4283b = null;
         this.c = null;
         this.d = null;
         this.e = null;
@@ -144,7 +148,7 @@ public class MapTextureView extends GLTextureView implements MapRenderModeChange
 
     public MapTextureView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.b = null;
+        this.f4283b = null;
         this.c = null;
         this.d = null;
         this.e = null;
@@ -156,10 +160,10 @@ public class MapTextureView extends GLTextureView implements MapRenderModeChange
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
     public boolean addOverlay(Overlay overlay) {
-        if (overlay == null || this.b == null) {
+        if (overlay == null || this.f4283b == null) {
             return false;
         }
-        AppBaseMap baseMap = this.b.getBaseMap();
+        AppBaseMap baseMap = this.f4283b.getBaseMap();
         if (baseMap == null) {
             return false;
         }
@@ -190,37 +194,37 @@ public class MapTextureView extends GLTextureView implements MapRenderModeChange
     }
 
     public void animateTo(MapStatus mapStatus, int i) {
-        if (this.b != null) {
-            this.b.setMapStatusWithAnimation(mapStatus, i);
+        if (this.f4283b != null) {
+            this.f4283b.setMapStatusWithAnimation(mapStatus, i);
         }
     }
 
     public void attachBaseMapController(MapController mapController) {
         this.e = new m(this, this);
-        this.b = mapController;
+        this.f4283b = mapController;
         this.e.a(mapController.getBaseMap());
         setEGLContextFactory(new a());
         setRenderer(this.e);
         setRenderMode(0);
         this.e.a(true);
-        this.c = new ac(this.b.getBaseMap());
-        this.b.setOverlayMapCallBack(this.c);
-        this.b.setMapViewInterface(this);
+        this.c = new ac(this.f4283b.getBaseMap());
+        this.f4283b.setOverlayMapCallBack(this.c);
+        this.f4283b.setMapViewInterface(this);
         b();
-        this.b.setMapRenderModeChangeListener(this);
-        this.d = new k(this.b);
-        this.j.a(this.b);
+        this.f4283b.setMapRenderModeChangeListener(this);
+        this.d = new k(this.f4283b);
+        this.j.a(this.f4283b);
     }
 
     protected void b() {
-        if (this.b == null || this.b.getBaseMap() == null) {
+        if (this.f4283b == null || this.f4283b.getBaseMap() == null) {
             return;
         }
         c();
     }
 
     protected void c() {
-        if (this.b == null || this.b.getBaseMap() == null || this.c == null) {
+        if (this.f4283b == null || this.f4283b.getBaseMap() == null || this.c == null) {
             return;
         }
         this.h.clear();
@@ -228,9 +232,9 @@ public class MapTextureView extends GLTextureView implements MapRenderModeChange
     }
 
     public void destroyForMultiViews() {
-        if (this.b != null) {
-            this.b.unInitForMultiTextureView();
-            this.b = null;
+        if (this.f4283b != null) {
+            this.f4283b.unInitForMultiTextureView();
+            this.f4283b = null;
         }
         if (this.c != null) {
             this.c.a();
@@ -271,36 +275,36 @@ public class MapTextureView extends GLTextureView implements MapRenderModeChange
     }
 
     public com.baidu.mapsdkplatform.comapi.map.d getBaseMap() {
-        return this.f2888a;
+        return this.f4282a;
     }
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
     public MapController getController() {
-        return this.b;
+        return this.f4283b;
     }
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
     public MapStatus getCurrentMapStatus() {
-        if (this.b != null) {
-            return this.b.getCurrentMapStatus();
+        if (this.f4283b != null) {
+            return this.f4283b.getCurrentMapStatus();
         }
         return null;
     }
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
     public float getCurrentZoomLevel() {
-        if (this.b != null) {
-            return this.b.getCurrentZoomLevel();
+        if (this.f4283b != null) {
+            return this.f4283b.getCurrentZoomLevel();
         }
         return 0.0f;
     }
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
     public MapStatus.GeoBound getGeoRound() {
-        if (this.b == null) {
+        if (this.f4283b == null) {
             return null;
         }
-        return this.b.getMapStatus().geoRound;
+        return this.f4283b.getMapStatus().geoRound;
     }
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
@@ -317,25 +321,25 @@ public class MapTextureView extends GLTextureView implements MapRenderModeChange
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
     public GeoPoint getMapCenter() {
-        if (this.b == null) {
+        if (this.f4283b == null) {
             return null;
         }
-        MapStatus mapStatus = this.b.getMapStatus();
+        MapStatus mapStatus = this.f4283b.getMapStatus();
         return new GeoPoint(mapStatus.centerPtY, mapStatus.centerPtX);
     }
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
     public int getMapRotation() {
-        if (this.b == null) {
+        if (this.f4283b == null) {
             return 0;
         }
-        return this.b.getMapStatus().rotation;
+        return this.f4283b.getMapStatus().rotation;
     }
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
     public MapStatus getMapStatus() {
-        if (this.b != null) {
-            return this.b.getMapStatus();
+        if (this.f4283b != null) {
+            return this.f4283b.getMapStatus();
         }
         return null;
     }
@@ -363,10 +367,10 @@ public class MapTextureView extends GLTextureView implements MapRenderModeChange
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
     public int getOverlooking() {
-        if (this.b == null) {
+        if (this.f4283b == null) {
             return 0;
         }
-        return this.b.getMapStatus().overlooking;
+        return this.f4283b.getMapStatus().overlooking;
     }
 
     public Overlay getPopupOverlay() {
@@ -380,16 +384,16 @@ public class MapTextureView extends GLTextureView implements MapRenderModeChange
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
     public MapStatus.WinRound getWinRound() {
-        if (this.b == null) {
+        if (this.f4283b == null) {
             return null;
         }
-        return this.b.getMapStatus().winRound;
+        return this.f4283b.getMapStatus().winRound;
     }
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
     public float getZoomLevel() {
-        if (this.b != null) {
-            return this.b.getZoomLevel();
+        if (this.f4283b != null) {
+            return this.f4283b.getZoomLevel();
         }
         return 0.0f;
     }
@@ -401,15 +405,15 @@ public class MapTextureView extends GLTextureView implements MapRenderModeChange
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
     public float getZoomToBound(MapBound mapBound, int i, int i2) {
-        if (this.b == null) {
+        if (this.f4283b == null) {
             return 0.0f;
         }
         Bundle bundle = new Bundle();
         bundle.putInt("left", mapBound.leftBottomPt.getIntX());
-        bundle.putInt(VerticalTranslateLayout.BOTTOM, mapBound.leftBottomPt.getIntY());
+        bundle.putInt("bottom", mapBound.leftBottomPt.getIntY());
         bundle.putInt(HorizontalTranslateLayout.DIRECTION_RIGHT, mapBound.rightTopPt.getIntX());
         bundle.putInt(VerticalTranslateLayout.TOP, mapBound.rightTopPt.getIntY());
-        return this.b.getZoomToBound(bundle, i, i2);
+        return this.f4283b.getZoomToBound(bundle, i, i2);
     }
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
@@ -419,15 +423,15 @@ public class MapTextureView extends GLTextureView implements MapRenderModeChange
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
     public float getZoomToBoundF(MapBound mapBound, int i, int i2) {
-        if (this.b == null) {
+        if (this.f4283b == null) {
             return 0.0f;
         }
         Bundle bundle = new Bundle();
         bundle.putInt("left", mapBound.leftBottomPt.getIntX());
-        bundle.putInt(VerticalTranslateLayout.BOTTOM, mapBound.leftBottomPt.getIntY());
+        bundle.putInt("bottom", mapBound.leftBottomPt.getIntY());
         bundle.putInt(HorizontalTranslateLayout.DIRECTION_RIGHT, mapBound.rightTopPt.getIntX());
         bundle.putInt(VerticalTranslateLayout.TOP, mapBound.rightTopPt.getIntY());
-        return this.b.getZoomToBoundF(bundle);
+        return this.f4283b.getZoomToBoundF(bundle);
     }
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
@@ -455,19 +459,19 @@ public class MapTextureView extends GLTextureView implements MapRenderModeChange
     }
 
     public void onDestroy() {
-        if (this.f2888a != null) {
-            if (this.f2888a.h != null) {
-                for (ag agVar : this.f2888a.h) {
+        if (this.f4282a != null) {
+            if (this.f4282a.h != null) {
+                for (ag agVar : this.f4282a.h) {
                     if (agVar != null) {
                         agVar.d();
                     }
                 }
             }
-            this.f2888a.I();
-            this.f2888a = null;
+            this.f4282a.I();
+            this.f4282a = null;
         }
-        this.b.unInit();
-        this.b = null;
+        this.f4283b.unInit();
+        this.f4283b = null;
         this.c.a();
         this.c = null;
         this.d = null;
@@ -492,17 +496,17 @@ public class MapTextureView extends GLTextureView implements MapRenderModeChange
 
     @Override // com.baidu.platform.comapi.map.GLTextureView
     public void onPause() {
-        if (this.b != null) {
-            this.b.getBaseMap().OnPause();
+        if (this.f4283b != null) {
+            this.f4283b.getBaseMap().OnPause();
         }
         super.onPause();
     }
 
     public void onRecycle() {
-        if (this.b == null || this.b.getBaseMap() == null) {
+        if (this.f4283b == null || this.f4283b.getBaseMap() == null) {
             return;
         }
-        this.b.getBaseMap().ResetImageRes();
+        this.f4283b.getBaseMap().ResetImageRes();
     }
 
     @Override // com.baidu.platform.comapi.map.MapRenderModeChangeListener
@@ -511,8 +515,8 @@ public class MapTextureView extends GLTextureView implements MapRenderModeChange
 
     @Override // com.baidu.platform.comapi.map.GLTextureView
     public void onResume() {
-        if (this.b != null) {
-            this.b.getBaseMap().OnResume();
+        if (this.f4283b != null) {
+            this.f4283b.getBaseMap().OnResume();
         }
         super.onResume();
     }
@@ -522,8 +526,8 @@ public class MapTextureView extends GLTextureView implements MapRenderModeChange
         super.onSurfaceTextureAvailable(surfaceTexture, i, i2);
         this.f = i;
         this.g = i2;
-        if (this.f2888a != null) {
-            this.f2888a.a(this.f, this.g);
+        if (this.f4282a != null) {
+            this.f4282a.a(this.f, this.g);
         }
     }
 
@@ -538,20 +542,20 @@ public class MapTextureView extends GLTextureView implements MapRenderModeChange
         super.onSurfaceTextureSizeChanged(surfaceTexture, i, i2);
         this.f = i;
         this.g = i2;
-        this.e.f2927a = i;
-        this.e.b = i2;
+        this.e.f4352a = i;
+        this.e.f4353b = i2;
         this.e.c = 0;
-        if (this.b != null) {
+        if (this.f4283b != null) {
             MapStatus mapStatus = getMapStatus();
             mapStatus.winRound.left = 0;
             mapStatus.winRound.top = 0;
             mapStatus.winRound.bottom = i2;
             mapStatus.winRound.right = i;
             setMapStatus(mapStatus);
-            this.b.setScreenSize(this.f, this.g);
+            this.f4283b.setScreenSize(this.f, this.g);
         }
-        if (this.f2888a != null) {
-            this.f2888a.a(this.f, this.g);
+        if (this.f4282a != null) {
+            this.f4282a.a(this.f, this.g);
         }
     }
 
@@ -564,8 +568,8 @@ public class MapTextureView extends GLTextureView implements MapRenderModeChange
     public boolean onTouchEvent(MotionEvent motionEvent) {
         try {
             if (this.k == null || !this.k.onTouchEvent(motionEvent)) {
-                if (this.b != null) {
-                    if (this.b.handleTouchEvent(motionEvent)) {
+                if (this.f4283b != null) {
+                    if (this.f4283b.handleTouchEvent(motionEvent)) {
                         return true;
                     }
                 }
@@ -579,30 +583,30 @@ public class MapTextureView extends GLTextureView implements MapRenderModeChange
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
     public void refresh(Overlay overlay) {
-        if (overlay == null || this.b == null) {
+        if (overlay == null || this.f4283b == null) {
             return;
         }
         if ((overlay instanceof ItemizedOverlay) && ((ItemizedOverlay) overlay).b()) {
             if (((ItemizedOverlay) overlay).getAllItem().size() <= 0) {
-                this.b.getBaseMap().ClearLayer(overlay.mLayerID);
-                this.b.getBaseMap().ShowLayers(overlay.mLayerID, false);
-                this.b.getBaseMap().UpdateLayers(overlay.mLayerID);
+                this.f4283b.getBaseMap().ClearLayer(overlay.mLayerID);
+                this.f4283b.getBaseMap().ShowLayers(overlay.mLayerID, false);
+                this.f4283b.getBaseMap().UpdateLayers(overlay.mLayerID);
             } else {
-                this.b.getBaseMap().ShowLayers(overlay.mLayerID, true);
-                this.b.getBaseMap().UpdateLayers(overlay.mLayerID);
+                this.f4283b.getBaseMap().ShowLayers(overlay.mLayerID, true);
+                this.f4283b.getBaseMap().UpdateLayers(overlay.mLayerID);
             }
             ((ItemizedOverlay) overlay).a(false);
         }
-        if (this.b == null || this.b.getBaseMap() == null) {
+        if (this.f4283b == null || this.f4283b.getBaseMap() == null) {
             return;
         }
-        this.b.getBaseMap().UpdateLayers(overlay.mLayerID);
+        this.f4283b.getBaseMap().UpdateLayers(overlay.mLayerID);
     }
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
     public boolean removeOverlay(Overlay overlay) {
         AppBaseMap baseMap;
-        if (overlay == null || this.b == null || (baseMap = this.b.getBaseMap()) == null) {
+        if (overlay == null || this.f4283b == null || (baseMap = this.f4283b.getBaseMap()) == null) {
             return false;
         }
         baseMap.ClearLayer(overlay.mLayerID);
@@ -628,7 +632,7 @@ public class MapTextureView extends GLTextureView implements MapRenderModeChange
     }
 
     public void setBaseMap(com.baidu.mapsdkplatform.comapi.map.d dVar) {
-        this.f2888a = dVar;
+        this.f4282a = dVar;
     }
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
@@ -637,11 +641,11 @@ public class MapTextureView extends GLTextureView implements MapRenderModeChange
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
     public void setMapCenter(GeoPoint geoPoint) {
-        if (this.b != null) {
-            MapStatus mapStatus = this.b.getMapStatus();
+        if (this.f4283b != null) {
+            MapStatus mapStatus = this.f4283b.getMapStatus();
             mapStatus.centerPtX = geoPoint.getLongitude();
             mapStatus.centerPtY = geoPoint.getLatitude();
-            this.b.setMapStatus(mapStatus);
+            this.f4283b.setMapStatus(mapStatus);
         }
     }
 
@@ -651,8 +655,8 @@ public class MapTextureView extends GLTextureView implements MapRenderModeChange
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
     public void setMapStatus(MapStatus mapStatus) {
-        if (this.b != null) {
-            this.b.setMapStatus(mapStatus);
+        if (this.f4283b != null) {
+            this.f4283b.setMapStatus(mapStatus);
         }
     }
 
@@ -662,19 +666,19 @@ public class MapTextureView extends GLTextureView implements MapRenderModeChange
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
     public void setOverlooking(int i) {
-        if (this.b != null) {
-            MapStatus mapStatus = this.b.getMapStatus();
+        if (this.f4283b != null) {
+            MapStatus mapStatus = this.f4283b.getMapStatus();
             mapStatus.overlooking = i;
-            this.b.setMapStatus(mapStatus);
+            this.f4283b.setMapStatus(mapStatus);
         }
     }
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
     public void setRotation(int i) {
-        if (this.b != null) {
-            MapStatus mapStatus = this.b.getMapStatus();
+        if (this.f4283b != null) {
+            MapStatus mapStatus = this.f4283b.getMapStatus();
             mapStatus.rotation = i;
-            this.b.setMapStatus(mapStatus);
+            this.f4283b.setMapStatus(mapStatus);
         }
     }
 
@@ -689,7 +693,7 @@ public class MapTextureView extends GLTextureView implements MapRenderModeChange
     @Override // com.baidu.platform.comapi.map.MapViewInterface
     public void setTraffic(boolean z) {
         AppBaseMap baseMap;
-        if (this.b == null || (baseMap = this.b.getBaseMap()) == null) {
+        if (this.f4283b == null || (baseMap = this.f4283b.getBaseMap()) == null) {
             return;
         }
         baseMap.ShowTrafficMap(z);
@@ -697,16 +701,16 @@ public class MapTextureView extends GLTextureView implements MapRenderModeChange
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
     public void setWinRound(MapStatus.WinRound winRound) {
-        if (this.b != null) {
-            MapStatus mapStatus = this.b.getMapStatus();
+        if (this.f4283b != null) {
+            MapStatus mapStatus = this.f4283b.getMapStatus();
             mapStatus.winRound = winRound;
-            this.b.setMapStatus(mapStatus);
+            this.f4283b.setMapStatus(mapStatus);
         }
     }
 
     @Override // com.baidu.platform.comapi.map.MapViewInterface
     public void setZoomLevel(float f) {
-        if (this.b == null) {
+        if (this.f4283b == null) {
             return;
         }
         int i = getController().getFocusedBaseIndoorMapInfo() != null ? 22 : 21;
@@ -730,7 +734,7 @@ public class MapTextureView extends GLTextureView implements MapRenderModeChange
     @Override // com.baidu.platform.comapi.map.MapViewInterface
     public boolean switchOverlay(Overlay overlay, Overlay overlay2) {
         AppBaseMap baseMap;
-        if (overlay == null || overlay2 == null || this.b == null || (baseMap = this.b.getBaseMap()) == null) {
+        if (overlay == null || overlay2 == null || this.f4283b == null || (baseMap = this.f4283b.getBaseMap()) == null) {
             return false;
         }
         return baseMap.SwitchLayer(overlay.mLayerID, overlay2.mLayerID);

@@ -3,25 +3,25 @@ package com.baidu.swan.apps.event.a;
 import android.net.Uri;
 import android.util.Log;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class g<T> extends a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public boolean cYG = true;
+    public boolean ddC = true;
     public T mData;
 
     public g() {
-        this.cFU = "message";
+        this.cKK = "message";
     }
 
     @Override // com.baidu.swan.apps.event.a.a
-    public String oM(String str) {
+    public String oF(String str) {
         if (this.mData instanceof String) {
-            String encode = this.cYG ? Uri.encode((String) this.mData) : (String) this.mData;
+            String encode = this.ddC ? Uri.encode((String) this.mData) : (String) this.mData;
             if (DEBUG) {
                 Log.d("SwanAppWebMessage", "mData: " + this.mData);
                 Log.d("SwanAppWebMessage", "encode mData: " + encode);
             }
-            return com.baidu.swan.apps.event.a.L(str, "message", encode);
+            return com.baidu.swan.apps.event.a.O(str, "message", encode);
         } else if (!(this.mData instanceof JSONObject)) {
             return "";
         } else {

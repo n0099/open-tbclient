@@ -22,7 +22,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.StatFs;
-import android.support.v4.content.FileProvider;
 import android.telephony.TelephonyManager;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
@@ -36,13 +35,13 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityManager;
 import android.widget.ImageView;
+import androidx.core.content.FileProvider;
 import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
 import com.baidu.live.adp.base.BdActivityStack;
 import com.baidu.live.adp.base.BdBaseApplication;
 import com.baidu.live.adp.base.IScrollableHelper;
 import com.baidu.live.adp.lib.safe.JavaTypesHelper;
 import com.baidu.live.adp.lib.util.BdLog;
-import com.baidu.live.adp.lib.util.BdNetTypeUtil;
 import com.baidu.live.adp.lib.util.BdStringHelper;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.lib.util.CloseUtil;
@@ -58,7 +57,6 @@ import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefHelper;
 import com.baidu.live.tbadk.core.view.VerticalImageSpan;
 import com.baidu.live.tbadk.pagestayduration.IPageStayDuration;
-import com.baidu.searchbox.ui.animview.praise.guide.ControlShowManager;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.compatible.StatusBarUtil;
 import com.baidu.webkit.internal.ETAG;
@@ -83,7 +81,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.regex.Pattern;
 import org.apache.http.conn.util.InetAddressUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class UtilHelper {
     private static final String NATIVE_PAY_FROM = "from_type";
     public static final int PROCESS_LIMIT_NONE = 0;
@@ -92,13 +90,13 @@ public class UtilHelper {
     private static final String[] sNativeAdPrefixes = {"http://m.baidu.com/baidu.php?url=", "https://m.baidu.com/baidu.php?url="};
     private static final String[] sNativeAdEncoded = {"http%3a%2f%2fm.baidu.com%2fbaidu.php%3furl%3d", "https%3a%2f%2fm.baidu.com%2fbaidu.php%3furl%3d"};
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public static class NativePage {
         public String id;
         public NativePageType type = NativePageType.NONE;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public enum NativePageType {
         NONE,
         FRS,
@@ -133,7 +131,7 @@ public class UtilHelper {
             return 0;
         }
         String substring = simOperator.substring(0, 3);
-        if (substring == null || !substring.equals(BdNetTypeUtil.NATION_CODE)) {
+        if (substring == null || !substring.equals("460")) {
             return 0;
         }
         switch (JavaTypesHelper.toInt(simOperator.substring(3), 0)) {
@@ -328,18 +326,23 @@ public class UtilHelper {
     }
 
     public static int getFixedTextSize(String str) {
+        int i = 0;
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
-        int i = 0;
-        for (int i2 = 0; i2 < str.length(); i2++) {
-            if (str.charAt(i2) > 255) {
-                i += 2;
-            } else {
-                i++;
+        int i2 = 0;
+        while (true) {
+            int i3 = i;
+            if (i2 >= str.length()) {
+                return i3;
             }
+            if (str.charAt(i2) > 255) {
+                i = i3 + 2;
+            } else {
+                i = i3 + 1;
+            }
+            i2++;
         }
-        return i;
     }
 
     public static boolean isSameDay(long j, long j2) {
@@ -347,7 +350,7 @@ public class UtilHelper {
     }
 
     public static String getCurrentDay() {
-        return new SimpleDateFormat(ControlShowManager.DAY_TIME_FORMAT).format(new Date());
+        return new SimpleDateFormat("yyyy-MM-dd").format(new Date());
     }
 
     public static boolean isSupportGesture(Context context) {
@@ -387,29 +390,37 @@ public class UtilHelper {
     public static String formatNumber(String str) {
         StringBuilder sb = new StringBuilder("");
         if (str != null) {
+            int length = str.length() - 1;
             int i = 0;
-            for (int length = str.length() - 1; length >= 0; length--) {
+            while (length >= 0) {
                 sb.insert(0, str.charAt(length));
-                i++;
-                if (i % 3 == 0 && length != 0) {
+                int i2 = i + 1;
+                if (i2 % 3 == 0 && length != 0) {
                     sb.insert(0, ",");
-                    i = 0;
+                    i2 = 0;
                 }
+                length--;
+                i = i2;
             }
         }
         return sb.toString();
     }
 
     public static int ver2int(String str) {
+        int i = 0;
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
         String[] split = str.split("\\.");
-        int i = 0;
-        for (int i2 = 0; i2 < split.length; i2++) {
-            i |= Integer.valueOf(split[i2]).intValue() << ((3 - i2) * 8);
+        int i2 = 0;
+        while (true) {
+            int i3 = i;
+            if (i2 >= split.length) {
+                return i3;
+            }
+            i = (Integer.valueOf(split[i2]).intValue() << ((3 - i2) * 8)) | i3;
+            i2++;
         }
-        return i;
     }
 
     public static String int2ver(int i) {
@@ -545,7 +556,6 @@ public class UtilHelper {
 
     public static boolean is64Bit() {
         boolean z;
-        IOException e;
         BufferedReader bufferedReader;
         if (Build.VERSION.SDK_INT >= 21) {
             return Build.SUPPORTED_64_BIT_ABIS.length > 0;
@@ -553,15 +563,15 @@ public class UtilHelper {
         try {
             bufferedReader = new BufferedReader(new FileReader("/proc/cpuinfo"));
             z = bufferedReader.readLine().contains("aarch64");
-        } catch (IOException e2) {
+        } catch (IOException e) {
+            e = e;
             z = false;
-            e = e2;
         }
         try {
             bufferedReader.close();
             return z;
-        } catch (IOException e3) {
-            e = e3;
+        } catch (IOException e2) {
+            e = e2;
             e.printStackTrace();
             return z;
         }

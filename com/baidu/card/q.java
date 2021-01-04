@@ -1,7 +1,7 @@
 package com.baidu.card;
 
 import com.baidu.tbadk.TbPageContext;
-/* loaded from: classes21.dex */
+/* loaded from: classes.dex */
 public interface q {
     void onChangeSkinType(TbPageContext tbPageContext, int i);
 }

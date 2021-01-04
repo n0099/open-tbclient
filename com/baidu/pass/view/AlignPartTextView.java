@@ -4,20 +4,22 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.support.v7.widget.AppCompatTextView;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
+import androidx.appcompat.widget.AppCompatTextView;
 import com.baidu.pass.R;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class AlignPartTextView extends AppCompatTextView {
 
     /* renamed from: a  reason: collision with root package name */
-    private float f2806a;
-    private float b;
+    private float f4156a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private float f4157b;
     private int c;
     private List<String> d;
     private List<Integer> e;
@@ -34,7 +36,7 @@ public class AlignPartTextView extends AppCompatTextView {
     private int[] p;
     private int[] q;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public enum Align {
         ALIGN_LEFT,
         ALIGN_CENTER,
@@ -43,7 +45,7 @@ public class AlignPartTextView extends AppCompatTextView {
 
     public AlignPartTextView(Context context) {
         super(context);
-        this.b = 0.0f;
+        this.f4157b = 0.0f;
         this.d = new ArrayList();
         this.e = new ArrayList();
         this.f = Align.ALIGN_LEFT;
@@ -70,19 +72,19 @@ public class AlignPartTextView extends AppCompatTextView {
         this.c = getMeasuredWidth();
         Paint.FontMetrics fontMetrics = paint.getFontMetrics();
         float textSize = getTextSize() - (((fontMetrics.bottom - fontMetrics.descent) + fontMetrics.ascent) - fontMetrics.top);
-        float f = (getGravity() & 4096) == 0 ? textSize + ((this.f2806a - textSize) / 2.0f) : textSize;
+        float f = (getGravity() & 4096) == 0 ? textSize + ((this.f4156a - textSize) / 2.0f) : textSize;
         int paddingTop = getPaddingTop();
         int paddingLeft = getPaddingLeft();
         this.c = (this.c - paddingLeft) - getPaddingRight();
         int i = 0;
         int i2 = 0;
         while (true) {
-            int i3 = i;
+            int i3 = i2;
             if (i3 >= this.d.size()) {
                 return;
             }
             float f2 = i3;
-            float f3 = (this.f2806a * f2) + f;
+            float f3 = (this.f4156a * f2) + f;
             String str = this.d.get(i3);
             float f4 = paddingLeft;
             float measureText = this.c - paint.measureText(str);
@@ -111,7 +113,7 @@ public class AlignPartTextView extends AppCompatTextView {
                         }
                         int i6 = iArr2[i5];
                         int i7 = this.q[i5];
-                        if (i2 >= i6 && i2 < i7) {
+                        if (i >= i6 && i < i7) {
                             z = true;
                             break;
                         }
@@ -124,15 +126,15 @@ public class AlignPartTextView extends AppCompatTextView {
                     }
                 }
                 int i8 = i4 + 1;
-                canvas.drawText(str.substring(i4, i8), (i4 * length) + paint.measureText(str.substring(0, i4)) + f4, paddingTop + f3 + (this.b * f2), paint);
-                i2++;
+                canvas.drawText(str.substring(i4, i8), (i4 * length) + paint.measureText(str.substring(0, i4)) + f4, paddingTop + f3 + (this.f4157b * f2), paint);
+                i++;
                 i4 = i8;
             }
-            i = i3 + 1;
+            i2 = i3 + 1;
         }
     }
 
-    @Override // android.support.v7.widget.AppCompatTextView, android.widget.TextView, android.view.View
+    @Override // androidx.appcompat.widget.AppCompatTextView, android.widget.TextView, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         if (this.g) {
@@ -145,11 +147,11 @@ public class AlignPartTextView extends AppCompatTextView {
                 a(paint, str);
             }
             a(charSequence, paint.getTextSize(), (getMeasuredWidth() - getPaddingLeft()) - getPaddingRight());
-            this.f2806a = (this.j * 1.0f) / this.k;
-            float f = this.f2806a;
-            this.b = ((this.h - 1.0f) * f) + this.i;
+            this.f4156a = (this.j * 1.0f) / this.k;
+            float f = this.f4156a;
+            this.f4157b = ((this.h - 1.0f) * f) + this.i;
             this.m = true;
-            setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), ((int) ((f + this.b) * (this.d.size() - this.k))) + this.l);
+            setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), ((int) ((f + this.f4157b) * (this.d.size() - this.k))) + this.l);
             List<String> list = this.n;
             if (list != null && list.size() > 0) {
                 this.p = new int[this.n.size()];
@@ -185,35 +187,36 @@ public class AlignPartTextView extends AppCompatTextView {
     }
 
     private void a(Paint paint, String str) {
-        int i = 0;
+        int i;
+        int i2 = 0;
         if (str.length() == 0) {
             this.d.add("\n");
             return;
         }
         int measureText = (int) (this.c / paint.measureText("中"));
-        int i2 = measureText + 1;
-        StringBuilder sb = new StringBuilder(str.substring(0, Math.min(i2, str.length())));
+        int i3 = measureText + 1;
+        StringBuilder sb = new StringBuilder(str.substring(0, Math.min(i3, str.length())));
         while (true) {
-            if (i2 >= str.length()) {
+            if (i3 >= str.length()) {
                 break;
             }
-            if (paint.measureText(str.substring(i, i2 + 1)) > this.c) {
+            if (paint.measureText(str.substring(i2, i3 + 1)) > this.c) {
                 this.d.add(sb.toString());
                 sb = new StringBuilder();
-                if (str.length() - i2 > measureText) {
-                    int i3 = i2 + measureText;
-                    sb.append(str.substring(i2, i3));
-                    int i4 = i2;
-                    i2 = i3 - 1;
-                    i = i4;
+                if (str.length() - i3 > measureText) {
+                    int i4 = i3 + measureText;
+                    sb.append(str.substring(i3, i4));
+                    i = i4 - 1;
+                    i2 = i3;
                 } else {
-                    this.d.add(str.substring(i2));
+                    this.d.add(str.substring(i3));
                     break;
                 }
             } else {
-                sb.append(str.charAt(i2));
+                sb.append(str.charAt(i3));
+                i = i3;
             }
-            i2++;
+            i3 = i + 1;
         }
         if (sb.length() > 0) {
             this.d.add(sb.toString());
@@ -223,7 +226,7 @@ public class AlignPartTextView extends AppCompatTextView {
 
     public AlignPartTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.b = 0.0f;
+        this.f4157b = 0.0f;
         this.d = new ArrayList();
         this.e = new ArrayList();
         this.f = Align.ALIGN_LEFT;

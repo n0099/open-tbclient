@@ -2,6 +2,7 @@ package com.baidu.adp.lib.util;
 
 import android.text.TextUtils;
 import com.baidu.searchbox.v8engine.util.TimeUtils;
+import com.kwad.sdk.core.response.model.SdkConfigData;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -117,7 +118,7 @@ public class StringUtils {
             return "99:59:59";
         }
         int i4 = i2 % 60;
-        return unitFormat(i3) + ":" + unitFormat(i4) + ":" + unitFormat((i - (i3 * 3600)) - (i4 * 60));
+        return unitFormat(i3) + ":" + unitFormat(i4) + ":" + unitFormat((i - (i3 * SdkConfigData.DEFAULT_REQUEST_INTERVAL)) - (i4 * 60));
     }
 
     public static boolean isChinese(char c) {

@@ -3,12 +3,14 @@ package com.sdk.base.framework.f.j;
 import com.sdk.base.framework.c.f;
 import java.nio.charset.Charset;
 import java.security.MessageDigest;
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class e extends com.sdk.base.framework.f.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f4279a = e.class.getName();
-    private static boolean b = f.b;
+    private static final String f13159a = e.class.getName();
+
+    /* renamed from: b  reason: collision with root package name */
+    private static boolean f13160b = f.f13118b;
 
     static {
         char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
@@ -32,7 +34,7 @@ public class e extends com.sdk.base.framework.f.a {
             }
             return sb.toString();
         } catch (Exception e) {
-            a(f4279a, "encrypt", e.getMessage(), b);
+            a(f13159a, "encrypt", e.getMessage(), f13160b);
             return null;
         }
     }

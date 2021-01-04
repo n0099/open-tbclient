@@ -4,13 +4,15 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.net.UnknownHostException;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f3599a = -1;
+    public static int f5476a = -1;
     private static int c = 0;
-    static ThreadLocal<StringBuilder> b = new ThreadLocal<>();
+
+    /* renamed from: b  reason: collision with root package name */
+    static ThreadLocal<StringBuilder> f5477b = new ThreadLocal<>();
 
     public static void a() {
     }

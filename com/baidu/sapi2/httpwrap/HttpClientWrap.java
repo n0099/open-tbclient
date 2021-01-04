@@ -20,26 +20,28 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import javax.net.ssl.SSLPeerUnverifiedException;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class HttpClientWrap {
 
     /* renamed from: a  reason: collision with root package name */
-    private PassHttpClient f3467a = new PassHttpClient();
-    private Context b;
+    private PassHttpClient f5247a = new PassHttpClient();
+
+    /* renamed from: b  reason: collision with root package name */
+    private Context f5248b;
     private String c;
     private String d;
 
     public HttpClientWrap() {
         SapiConfiguration confignation = ServiceManager.getInstance().getIsAccountManager().getConfignation();
         if (confignation != null) {
-            this.b = confignation.context;
+            this.f5248b = confignation.context;
             this.c = confignation.environment.getURL();
             this.d = confignation.appSignKey;
         }
     }
 
     public void cancelRequest() {
-        PassHttpClient passHttpClient = this.f3467a;
+        PassHttpClient passHttpClient = this.f5247a;
         if (passHttpClient != null) {
             passHttpClient.cancelRequests(true);
         }
@@ -93,7 +95,7 @@ public class HttpClientWrap {
         if (!a(httpHandlerWrap)) {
             return;
         }
-        this.f3467a.post(this.b, a(str, httpHashMap, hashMap, list, str2, i), new HttpResponseHandler(Looper.getMainLooper(), httpHandlerWrap.isExecutCallbackInChildThread()) { // from class: com.baidu.sapi2.httpwrap.HttpClientWrap.5
+        this.f5247a.post(this.f5248b, a(str, httpHashMap, hashMap, list, str2, i), new HttpResponseHandler(Looper.getMainLooper(), httpHandlerWrap.isExecutCallbackInChildThread()) { // from class: com.baidu.sapi2.httpwrap.HttpClientWrap.5
             @Override // com.baidu.pass.http.HttpResponseHandler
             protected void onFailure(Throwable th, String str3) {
                 HttpClientWrap.this.a(httpHandlerWrap, th, str3);
@@ -132,7 +134,7 @@ public class HttpClientWrap {
         if (!a(httpHandlerWrap)) {
             return;
         }
-        this.f3467a.get(this.b, a(str, httpHashMap, hashMap, list, str2, i), new HttpResponseHandler(Looper.getMainLooper(), httpHandlerWrap.isExecutCallbackInChildThread()) { // from class: com.baidu.sapi2.httpwrap.HttpClientWrap.2
+        this.f5247a.get(this.f5248b, a(str, httpHashMap, hashMap, list, str2, i), new HttpResponseHandler(Looper.getMainLooper(), httpHandlerWrap.isExecutCallbackInChildThread()) { // from class: com.baidu.sapi2.httpwrap.HttpClientWrap.2
             @Override // com.baidu.pass.http.HttpResponseHandler
             protected void onFailure(Throwable th, String str3) {
                 HttpClientWrap.this.a(httpHandlerWrap, th, str3);
@@ -162,7 +164,7 @@ public class HttpClientWrap {
     }
 
     private boolean a(HttpHandlerWrap httpHandlerWrap) {
-        Context context = this.b;
+        Context context = this.f5248b;
         if (context == null) {
             httpHandlerWrap.onFailure(null, -801, "服务异常，请稍后再试");
             httpHandlerWrap.onFinish();
@@ -185,7 +187,7 @@ public class HttpClientWrap {
         if (!a(binaryHttpHandlerWrap)) {
             return;
         }
-        this.f3467a.get(this.b, a(str, httpHashMap, hashMap, list, str2, i), new BinaryHttpResponseHandler(Looper.getMainLooper(), binaryHttpHandlerWrap.allowedContentTypes, binaryHttpHandlerWrap.isExecutCallbackInChildThread()) { // from class: com.baidu.sapi2.httpwrap.HttpClientWrap.3
+        this.f5247a.get(this.f5248b, a(str, httpHashMap, hashMap, list, str2, i), new BinaryHttpResponseHandler(Looper.getMainLooper(), binaryHttpHandlerWrap.allowedContentTypes, binaryHttpHandlerWrap.isExecutCallbackInChildThread()) { // from class: com.baidu.sapi2.httpwrap.HttpClientWrap.3
             @Override // com.baidu.pass.http.HttpResponseHandler
             protected void onFailure(Throwable th, String str3) {
                 HttpClientWrap.this.a(binaryHttpHandlerWrap, th, str3);

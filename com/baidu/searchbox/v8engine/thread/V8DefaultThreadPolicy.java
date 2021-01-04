@@ -3,7 +3,7 @@ package com.baidu.searchbox.v8engine.thread;
 import android.os.Handler;
 import android.os.Looper;
 import com.baidu.searchbox.v8engine.V8Engine;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class V8DefaultThreadPolicy implements V8ThreadDelegatePolicy {
     private Thread jsThread = null;
     private Handler mHandler;
@@ -22,7 +22,7 @@ public class V8DefaultThreadPolicy implements V8ThreadDelegatePolicy {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     class V8EngineRunnable implements Runnable {
         V8EngineRunnable() {
         }

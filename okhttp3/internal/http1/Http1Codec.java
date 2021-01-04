@@ -2,6 +2,7 @@ package okhttp3.internal.http1;
 
 import android.support.v4.media.session.PlaybackStateCompat;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
+import com.baidu.live.tbadk.log.LogConfig;
 import java.io.EOFException;
 import java.io.IOException;
 import java.net.ProtocolException;
@@ -30,7 +31,7 @@ import okio.Sink;
 import okio.Source;
 import okio.Timeout;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public final class Http1Codec implements HttpCodec {
     private static final int HEADER_LIMIT = 262144;
     private static final int STATE_CLOSED = 6;
@@ -216,7 +217,7 @@ public final class Http1Codec implements HttpCodec {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public final class FixedLengthSink implements Sink {
         private long bytesRemaining;
         private boolean closed;
@@ -235,7 +236,7 @@ public final class Http1Codec implements HttpCodec {
         @Override // okio.Sink
         public void write(Buffer buffer, long j) throws IOException {
             if (this.closed) {
-                throw new IllegalStateException("closed");
+                throw new IllegalStateException(LogConfig.TYPE_CLOSED);
             }
             Util.checkOffsetAndCount(buffer.size(), 0L, j);
             if (j > this.bytesRemaining) {
@@ -266,7 +267,7 @@ public final class Http1Codec implements HttpCodec {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public final class ChunkedSink implements Sink {
         private boolean closed;
         private final ForwardingTimeout timeout;
@@ -283,7 +284,7 @@ public final class Http1Codec implements HttpCodec {
         @Override // okio.Sink
         public void write(Buffer buffer, long j) throws IOException {
             if (this.closed) {
-                throw new IllegalStateException("closed");
+                throw new IllegalStateException(LogConfig.TYPE_CLOSED);
             }
             if (j != 0) {
                 Http1Codec.this.sink.writeHexadecimalUnsignedLong(j);
@@ -312,7 +313,7 @@ public final class Http1Codec implements HttpCodec {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public abstract class AbstractSource implements Source {
         protected long bytesRead;
         protected boolean closed;
@@ -357,7 +358,7 @@ public final class Http1Codec implements HttpCodec {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public class FixedLengthSource extends AbstractSource {
         private long bytesRemaining;
 
@@ -375,7 +376,7 @@ public final class Http1Codec implements HttpCodec {
                 throw new IllegalArgumentException("byteCount < 0: " + j);
             }
             if (this.closed) {
-                throw new IllegalStateException("closed");
+                throw new IllegalStateException(LogConfig.TYPE_CLOSED);
             }
             if (this.bytesRemaining == 0) {
                 return -1L;
@@ -405,7 +406,7 @@ public final class Http1Codec implements HttpCodec {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public class ChunkedSource extends AbstractSource {
         private static final long NO_CHUNK_YET = -1;
         private long bytesRemainingInChunk;
@@ -425,7 +426,7 @@ public final class Http1Codec implements HttpCodec {
                 throw new IllegalArgumentException("byteCount < 0: " + j);
             }
             if (this.closed) {
-                throw new IllegalStateException("closed");
+                throw new IllegalStateException(LogConfig.TYPE_CLOSED);
             }
             if (this.hasMoreChunks) {
                 if (this.bytesRemainingInChunk == 0 || this.bytesRemainingInChunk == -1) {
@@ -477,7 +478,7 @@ public final class Http1Codec implements HttpCodec {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public class UnknownLengthSource extends AbstractSource {
         private boolean inputExhausted;
 
@@ -491,7 +492,7 @@ public final class Http1Codec implements HttpCodec {
                 throw new IllegalArgumentException("byteCount < 0: " + j);
             }
             if (this.closed) {
-                throw new IllegalStateException("closed");
+                throw new IllegalStateException(LogConfig.TYPE_CLOSED);
             }
             if (this.inputExhausted) {
                 return -1L;

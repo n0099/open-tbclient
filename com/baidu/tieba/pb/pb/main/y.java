@@ -4,38 +4,38 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
-public class y extends o<z, aa> {
-    private BdUniqueId jQT;
-    private com.baidu.tieba.pb.data.f pbData;
+/* loaded from: classes2.dex */
+public class y extends l<com.baidu.tieba.pb.data.j, PbLoadMoreItemViewHolder> {
+    private View.OnClickListener mOnClickListener;
+    private BdUniqueId mPageId;
 
-    public y(com.baidu.tieba.pb.videopb.b bVar, BdUniqueId bdUniqueId) {
-        super(bVar, z.lKm);
-        this.jQT = bdUniqueId;
+    public y(com.baidu.tieba.pb.videopb.b bVar, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(bVar, bdUniqueId);
+        this.mPageId = bdUniqueId2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cj */
-    public aa c(ViewGroup viewGroup) {
-        return new aa(LayoutInflater.from(this.mContext).inflate(R.layout.pb_image_ala_recomment_layout, viewGroup, false), this.lGq.getPageContext(), this.jQT);
+    /* renamed from: cx */
+    public PbLoadMoreItemViewHolder e(ViewGroup viewGroup) {
+        return new PbLoadMoreItemViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.new_pb_list_more, viewGroup, false), this.mPageId);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.pb.pb.main.o, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, z zVar, aa aaVar) {
-        super.a(i, view, viewGroup, (ViewGroup) zVar, (z) aaVar);
-        if (aaVar != null) {
-            aaVar.a(zVar);
-            aaVar.i(this.pbData);
-        }
+    @Override // com.baidu.tieba.pb.pb.main.l, com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.j jVar, PbLoadMoreItemViewHolder pbLoadMoreItemViewHolder) {
+        super.a(i, view, viewGroup, (ViewGroup) jVar, (com.baidu.tieba.pb.data.j) pbLoadMoreItemViewHolder);
+        pbLoadMoreItemViewHolder.at(jVar.showText, com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds104));
+        pbLoadMoreItemViewHolder.setOnClickListener(this.mOnClickListener);
+        pbLoadMoreItemViewHolder.onChangeSkinType();
         return view;
     }
 
-    public void setPbData(com.baidu.tieba.pb.data.f fVar) {
-        this.pbData = fVar;
+    public void setOnClickListener(View.OnClickListener onClickListener) {
+        this.mOnClickListener = onClickListener;
     }
 }

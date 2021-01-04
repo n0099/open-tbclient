@@ -5,83 +5,83 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class UrlResponseInfo {
-    private final int oDW;
-    private final List<String> oFn;
-    private final String oFo;
-    private final boolean oFp;
-    private final String oFq;
-    private final String oFr;
-    private final AtomicLong oFs = new AtomicLong();
-    private final HeaderBlock oFt;
+    private final int mHttpStatusCode;
+    private final String mHttpStatusText;
+    private final String mNegotiatedProtocol;
+    private final String mProxyServer;
+    private final List<String> mResponseInfoUrlChain;
+    private final boolean mWasCached;
+    private final AtomicLong oLL = new AtomicLong();
+    private final HeaderBlock oLM;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static final class HeaderBlock {
-        private final List<Map.Entry<String, String>> oFu;
+        private final List<Map.Entry<String, String>> mAllHeadersList;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public HeaderBlock(List<Map.Entry<String, String>> list) {
-            this.oFu = list;
+            this.mAllHeadersList = list;
         }
 
-        public List<Map.Entry<String, String>> eik() {
-            return this.oFu;
+        public List<Map.Entry<String, String>> eix() {
+            return this.mAllHeadersList;
         }
     }
 
     public UrlResponseInfo(List<String> list, int i, String str, List<Map.Entry<String, String>> list2, boolean z, String str2, String str3) {
-        this.oFn = Collections.unmodifiableList(list);
-        this.oDW = i;
-        this.oFo = str;
-        this.oFt = new HeaderBlock(Collections.unmodifiableList(list2));
-        this.oFp = z;
-        this.oFq = str2;
-        this.oFr = str3;
+        this.mResponseInfoUrlChain = Collections.unmodifiableList(list);
+        this.mHttpStatusCode = i;
+        this.mHttpStatusText = str;
+        this.oLM = new HeaderBlock(Collections.unmodifiableList(list2));
+        this.mWasCached = z;
+        this.mNegotiatedProtocol = str2;
+        this.mProxyServer = str3;
     }
 
     public String getUrl() {
-        return this.oFn.get(this.oFn.size() - 1);
+        return this.mResponseInfoUrlChain.get(this.mResponseInfoUrlChain.size() - 1);
     }
 
-    public List<String> eie() {
-        return this.oFn;
+    public List<String> eir() {
+        return this.mResponseInfoUrlChain;
     }
 
     public int getHttpStatusCode() {
-        return this.oDW;
+        return this.mHttpStatusCode;
     }
 
-    public String eif() {
-        return this.oFo;
+    public String eis() {
+        return this.mHttpStatusText;
     }
 
-    public List<Map.Entry<String, String>> eig() {
-        return this.oFt.eik();
+    public List<Map.Entry<String, String>> eit() {
+        return this.oLM.eix();
     }
 
-    public boolean eih() {
-        return this.oFp;
+    public boolean eiu() {
+        return this.mWasCached;
     }
 
-    public String eii() {
-        return this.oFq;
+    public String eiv() {
+        return this.mNegotiatedProtocol;
     }
 
-    public String eij() {
-        return this.oFr;
+    public String eiw() {
+        return this.mProxyServer;
     }
 
     public long getReceivedBytesCount() {
-        return this.oFs.get();
+        return this.oLL.get();
     }
 
     public String toString() {
-        return String.format(Locale.ROOT, "UrlResponseInfo@[%s][%s]: urlChain = %s, httpStatus = %d %s, headers = %s, wasCached = %b, negotiatedProtocol = %s, proxyServer= %s, receivedBytesCount = %d", Integer.toHexString(System.identityHashCode(this)), getUrl(), eie().toString(), Integer.valueOf(getHttpStatusCode()), eif(), eig().toString(), Boolean.valueOf(eih()), eii(), eij(), Long.valueOf(getReceivedBytesCount()));
+        return String.format(Locale.ROOT, "UrlResponseInfo@[%s][%s]: urlChain = %s, httpStatus = %d %s, headers = %s, wasCached = %b, negotiatedProtocol = %s, proxyServer= %s, receivedBytesCount = %d", Integer.toHexString(System.identityHashCode(this)), getUrl(), eir().toString(), Integer.valueOf(getHttpStatusCode()), eis(), eit().toString(), Boolean.valueOf(eiu()), eiv(), eiw(), Long.valueOf(getReceivedBytesCount()));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void hW(long j) {
-        this.oFs.set(j);
+    public void hQ(long j) {
+        this.oLL.set(j);
     }
 }

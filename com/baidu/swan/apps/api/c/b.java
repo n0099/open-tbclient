@@ -1,51 +1,51 @@
 package com.baidu.swan.apps.api.c;
 
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.unitedscheme.core.R;
 import java.nio.charset.StandardCharsets;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class b implements a {
-    private boolean cGj;
+    private boolean cKZ;
     public JSONObject data;
     public String message;
     public int status;
 
     public b() {
-        this.cGj = false;
+        this.cKZ = false;
     }
 
     public b(int i) {
-        this.cGj = false;
+        this.cKZ = false;
         this.status = i;
     }
 
     public b(int i, @NonNull String str) {
-        this.cGj = false;
+        this.cKZ = false;
         this.status = i;
         this.message = str;
     }
 
     public b(int i, @NonNull JSONObject jSONObject) {
-        this.cGj = false;
+        this.cKZ = false;
         this.status = i;
         this.data = jSONObject;
     }
 
     public b(int i, @NonNull JSONObject jSONObject, boolean z) {
-        this.cGj = false;
+        this.cKZ = false;
         this.status = i;
         this.data = jSONObject;
-        this.cGj = z;
+        this.cKZ = z;
     }
 
     public b(int i, @NonNull String str, @NonNull JSONObject jSONObject) {
-        this.cGj = false;
+        this.cKZ = false;
         this.status = i;
         this.message = str;
         this.data = jSONObject;
@@ -62,7 +62,7 @@ public class b implements a {
             }
             jSONObject.put("message", this.message);
             if (this.data != null) {
-                jSONObject.put("data", this.cGj ? Uri.encode(this.data.toString(), StandardCharsets.UTF_8.name()) : this.data);
+                jSONObject.put("data", this.cKZ ? Uri.encode(this.data.toString(), StandardCharsets.UTF_8.name()) : this.data);
             }
         } catch (JSONException e) {
             if (com.baidu.swan.apps.b.DEBUG) {

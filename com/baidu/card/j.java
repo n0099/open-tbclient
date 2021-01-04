@@ -1,29 +1,28 @@
 package com.baidu.card;
 
-import android.view.View;
 import android.widget.RelativeLayout;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.card.view.FollowUserDecorView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.by;
+import com.baidu.tbadk.core.data.bz;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.FollowUserButton;
-/* loaded from: classes21.dex */
-public class j extends d implements p<by>, q {
-    private FollowUserDecorView agY;
-    private boolean agZ = true;
+/* loaded from: classes.dex */
+public class j extends c implements p<bz>, q {
+    private FollowUserDecorView ahJ;
+    private boolean ahK = true;
     private int mWidth = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds166);
     private int mHeight = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds78);
 
     public j(TbPageContext tbPageContext, boolean z) {
-        this.agY = new FollowUserDecorView(tbPageContext.getPageActivity());
-        this.agY.setUseNewStyle(z);
+        this.ahJ = new FollowUserDecorView(tbPageContext.getPageActivity());
+        this.ahJ.setUseNewStyle(z);
         setInsertIndex(-1);
-        aF(z);
+        aE(z);
     }
 
-    private void aF(boolean z) {
+    private void aE(boolean z) {
         if (z) {
             this.mWidth = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds177);
             this.mHeight = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds76);
@@ -36,32 +35,32 @@ public class j extends d implements p<by>, q {
             layoutParams.topMargin = getDimens(R.dimen.tbds52);
         }
         a(layoutParams);
-        H((View) this.agY);
+        H(this.ahJ);
     }
 
     public void setMarginRight(int i) {
-        if (tG() != null) {
-            tG().rightMargin = i;
+        if (te() != null) {
+            te().rightMargin = i;
         }
-        this.agY.setLayoutParams(tG());
+        this.ahJ.setLayoutParams(te());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.p
     /* renamed from: a */
-    public void H(by byVar) {
-        if (byVar == null || byVar.boP() == null) {
-            this.agY.setVisibility(8);
+    public void D(bz bzVar) {
+        if (bzVar == null || bzVar.brq() == null) {
+            this.ahJ.setVisibility(8);
             return;
         }
-        setMarginRight(getDimens(this.agZ ? R.dimen.tbds120 : R.dimen.tbds44));
-        this.agY.setVisibility(0);
-        this.agY.setData(byVar);
-        this.agY.setTag(byVar);
+        setMarginRight(getDimens(this.ahK ? R.dimen.tbds120 : R.dimen.tbds44));
+        this.ahJ.setVisibility(0);
+        this.ahJ.setData(bzVar);
+        this.ahJ.setTag(bzVar);
     }
 
     public void a(com.baidu.tbadk.core.data.a aVar, boolean z) {
-        this.agZ = z;
+        this.ahK = z;
         setSvgIconResId(0);
         setClickableUnLike(true);
     }
@@ -72,22 +71,22 @@ public class j extends d implements p<by>, q {
 
     @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.agY.onChangeSkinType(i);
+        this.ahJ.onChangeSkinType(i);
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.agY.setPageUniqueId(bdUniqueId);
+        this.ahJ.setPageUniqueId(bdUniqueId);
     }
 
     public void setOnClickEvent(FollowUserButton.a aVar) {
-        this.agY.setOnClickEvent(aVar);
+        this.ahJ.setOnClickEvent(aVar);
     }
 
     public void setSvgIconResId(int i) {
-        this.agY.setSvgIconResId(i);
+        this.ahJ.setSvgIconResId(i);
     }
 
     public void setClickableUnLike(boolean z) {
-        this.agY.setClickableUnLike(z);
+        this.ahJ.setClickableUnLike(z);
     }
 }

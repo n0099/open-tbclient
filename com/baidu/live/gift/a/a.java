@@ -1,21 +1,21 @@
 package com.baidu.live.gift.a;
 
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a {
-    public String bcF;
-    public String bcG;
-    public String bcH;
-    public String bcI;
+    public String beo;
+    public String bep;
+    public String beq;
+    public String ber;
 
     public a(String str, String str2, String str3, String str4) {
-        this.bcF = str;
-        this.bcG = str2;
-        this.bcH = str3;
-        this.bcI = str4;
+        this.beo = str;
+        this.bep = str2;
+        this.beq = str3;
+        this.ber = str4;
     }
 
-    public static a E(JSONObject jSONObject) {
+    public static a L(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }

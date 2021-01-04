@@ -2,10 +2,10 @@ package com.baidu.tieba.yuyinala.charm.audiencelist;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class OnlineListHttpResponseMessage extends JsonHttpResponsedMessage {
     private long mAudienceCount;
-    private b oiz;
+    private b okj;
 
     public OnlineListHttpResponseMessage() {
         super(1031031);
@@ -18,17 +18,17 @@ public class OnlineListHttpResponseMessage extends JsonHttpResponsedMessage {
         if (getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             this.mAudienceCount = optJSONObject.optLong("user_count");
             if (optJSONObject.optJSONArray("user_info") != null) {
-                this.oiz = new b();
-                this.oiz.parserJson(optJSONObject);
+                this.okj = new b();
+                this.okj.parserJson(optJSONObject);
             }
         }
     }
 
-    public long bUt() {
+    public long bWX() {
         return this.mAudienceCount;
     }
 
-    public b ecO() {
-        return this.oiz;
+    public b ebK() {
+        return this.okj;
     }
 }

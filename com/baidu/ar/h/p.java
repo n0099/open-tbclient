@@ -1,7 +1,7 @@
 package com.baidu.ar.h;
 
 import android.content.Context;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class p {
     public static boolean A(Context context) {
         return context != null && context.getResources().getConfiguration().orientation == 2;

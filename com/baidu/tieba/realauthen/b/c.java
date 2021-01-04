@@ -7,9 +7,9 @@ import java.net.URLEncoder;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class c {
-    public static String aJ(String str, String str2, String str3) {
+    public static String aM(String str, String str2, String str3) {
         String next;
         if (TextUtils.isEmpty(str)) {
             str = "1200532349";

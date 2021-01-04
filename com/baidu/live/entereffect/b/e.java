@@ -4,21 +4,21 @@ import com.baidu.live.adp.lib.safe.JavaTypesHelper;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class e {
-    private List<com.baidu.live.im.data.b> aVg;
-    private com.baidu.live.im.data.b aVh;
+    private com.baidu.live.im.data.b aWA;
+    private List<com.baidu.live.im.data.b> aWz;
 
-    public static e Gx() {
-        return a.aVj;
+    public static e FQ() {
+        return a.aWC;
     }
 
     public void j(com.baidu.live.im.data.b bVar) {
-        if (this.aVg == null) {
-            this.aVg = new ArrayList();
+        if (this.aWz == null) {
+            this.aWz = new ArrayList();
         }
-        if (k(bVar) || this.aVg.size() < com.baidu.live.ae.a.RB().brA.aOm) {
-            this.aVg.add(bVar);
+        if (k(bVar) || this.aWz.size() < com.baidu.live.af.a.SE().bwi.aOT) {
+            this.aWz.add(bVar);
         }
     }
 
@@ -27,38 +27,38 @@ public class e {
     }
 
     public boolean hasMsg() {
-        return (this.aVg == null || this.aVg.isEmpty()) ? false : true;
+        return (this.aWz == null || this.aWz.isEmpty()) ? false : true;
     }
 
-    public boolean Gt() {
-        return this.aVh != null;
+    public boolean FM() {
+        return this.aWA != null;
     }
 
-    public com.baidu.live.im.data.b Gu() {
+    public com.baidu.live.im.data.b FN() {
         if (hasMsg()) {
-            this.aVh = this.aVg.remove(0);
+            this.aWA = this.aWz.remove(0);
         } else {
-            this.aVh = null;
+            this.aWA = null;
         }
-        return this.aVh;
+        return this.aWA;
     }
 
-    public com.baidu.live.im.data.b Gv() {
-        return this.aVh;
+    public com.baidu.live.im.data.b FO() {
+        return this.aWA;
     }
 
     public void release() {
-        this.aVh = null;
-        if (this.aVg != null) {
-            this.aVg.clear();
+        this.aWA = null;
+        if (this.aWz != null) {
+            this.aWz.clear();
         }
     }
 
     private e() {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     private static class a {
-        private static final e aVj = new e();
+        private static final e aWC = new e();
     }
 }

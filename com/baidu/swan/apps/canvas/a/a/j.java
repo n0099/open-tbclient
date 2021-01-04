@@ -4,39 +4,39 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Base64;
+import androidx.annotation.NonNull;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class j extends a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String cHu;
+    private String cMk;
     private Bitmap mBitmap;
     private Matrix mMatrix;
 
     public j(String str) {
-        this.cHu = str;
+        this.cMk = str;
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {
     }
 
-    public int anc() {
+    public int aol() {
         try {
-            JSONObject jSONObject = new JSONObject(this.cHu);
-            int M = com.baidu.swan.apps.ap.ah.M((float) jSONObject.optDouble("x"));
-            int M2 = com.baidu.swan.apps.ap.ah.M((float) jSONObject.optDouble("y"));
+            JSONObject jSONObject = new JSONObject(this.cMk);
+            int O = com.baidu.swan.apps.ao.ah.O((float) jSONObject.optDouble("x"));
+            int O2 = com.baidu.swan.apps.ao.ah.O((float) jSONObject.optDouble("y"));
             int optInt = jSONObject.optInt("width");
             int optInt2 = jSONObject.optInt("height");
             if (optInt <= 0 || optInt2 <= 0) {
                 return 2002;
             }
-            float M3 = com.baidu.swan.apps.ap.ah.M(optInt);
-            float M4 = com.baidu.swan.apps.ap.ah.M(optInt2);
+            float O3 = com.baidu.swan.apps.ao.ah.O(optInt);
+            float O4 = com.baidu.swan.apps.ao.ah.O(optInt2);
             String optString = jSONObject.optString("data");
             if (TextUtils.isEmpty(optString)) {
                 return 2001;
@@ -47,9 +47,9 @@ public class j extends a {
                 if (decode == null || decode.length != i) {
                     return 2001;
                 }
-                this.mBitmap = b(q(decode, optInt, optInt2), M3, M4);
+                this.mBitmap = b(q(decode, optInt, optInt2), O3, O4);
                 this.mMatrix = new Matrix();
-                this.mMatrix.postTranslate(M, M2);
+                this.mMatrix.postTranslate(O, O2);
                 return 0;
             } catch (Exception e) {
                 if (DEBUG) {

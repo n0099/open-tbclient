@@ -2,7 +2,7 @@ package com.baidu.ar.algo;
 
 import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import io.flutter.plugin.platform.PlatformPlugin;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class a {
     private static a bV = new a();
     private static a bW;

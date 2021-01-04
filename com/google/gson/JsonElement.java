@@ -110,7 +110,7 @@ public abstract class JsonElement {
         try {
             StringWriter stringWriter = new StringWriter();
             b bVar = new b(stringWriter);
-            bVar.Bd(true);
+            bVar.Bl(true);
             h.a(this, bVar);
             return stringWriter.toString();
         } catch (IOException e) {

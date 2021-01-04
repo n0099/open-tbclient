@@ -17,20 +17,20 @@ import com.baidu.turbonet.base.annotations.NativeClassQualifiedName;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 @JNINamespace
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class ProxyChangeListener {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private static boolean oEI;
+    private static boolean sEnabled;
     private Context mContext;
     private long mNativePtr;
-    private b oEJ;
-    private Delegate oEK;
+    private b oLp;
+    private Delegate oLq;
     private final Looper mLooper = Looper.myLooper();
     private final Handler mHandler = new Handler(this.mLooper);
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface Delegate {
-        void ehL();
+        void eia();
     }
 
     @NativeClassQualifiedName
@@ -41,22 +41,22 @@ public class ProxyChangeListener {
 
     static {
         $assertionsDisabled = !ProxyChangeListener.class.desiredAssertionStatus();
-        oEI = true;
+        sEnabled = true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static class a {
+        public final String[] mExclusionList;
         public final String mHost;
         public final String mPacUrl;
         public final int mPort;
-        public final String[] oEL;
 
         public a(String str, int i, String str2, String[] strArr) {
             this.mHost = str;
             this.mPort = i;
             this.mPacUrl = str2;
-            this.oEL = strArr;
+            this.mExclusionList = strArr;
         }
     }
 
@@ -92,7 +92,7 @@ public class ProxyChangeListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public class b extends BroadcastReceiver {
         private b() {
         }
@@ -170,13 +170,13 @@ public class ProxyChangeListener {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(b bVar, a aVar) {
-        if (oEI && bVar == this.oEJ) {
-            if (this.oEK != null) {
-                this.oEK.ehL();
+        if (sEnabled && bVar == this.oLp) {
+            if (this.oLq != null) {
+                this.oLq.eia();
             }
             if (this.mNativePtr != 0) {
                 if (aVar != null) {
-                    nativeProxySettingsChangedTo(this.mNativePtr, aVar.mHost, aVar.mPort, aVar.mPacUrl, aVar.oEL);
+                    nativeProxySettingsChangedTo(this.mNativePtr, aVar.mHost, aVar.mPort, aVar.mPacUrl, aVar.mExclusionList);
                 } else {
                     nativeProxySettingsChanged(this.mNativePtr);
                 }
@@ -185,18 +185,18 @@ public class ProxyChangeListener {
     }
 
     private void registerReceiver() {
-        if (this.oEJ == null) {
+        if (this.oLp == null) {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.intent.action.PROXY_CHANGE");
-            this.oEJ = new b();
-            this.mContext.getApplicationContext().registerReceiver(this.oEJ, intentFilter);
+            this.oLp = new b();
+            this.mContext.getApplicationContext().registerReceiver(this.oLp, intentFilter);
         }
     }
 
     private void unregisterReceiver() {
-        if (this.oEJ != null) {
-            this.mContext.unregisterReceiver(this.oEJ);
-            this.oEJ = null;
+        if (this.oLp != null) {
+            this.mContext.unregisterReceiver(this.oLp);
+            this.oLp = null;
         }
     }
 

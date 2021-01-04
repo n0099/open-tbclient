@@ -11,12 +11,14 @@ import android.widget.EditText;
 import com.baidu.fsg.base.utils.LogUtil;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class SafeKeyBoardUtil {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1547a;
-    private Context b;
+    private String f2080a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private Context f2081b;
     private SafeKeyBoardEditText c;
     private ViewGroup d;
     private SafeScrollView e;
@@ -28,7 +30,7 @@ public final class SafeKeyBoardUtil {
     public SafeKeyBoardPopupWindow mPopupWindow;
 
     public void init(Context context, ViewGroup viewGroup, SafeScrollView safeScrollView) {
-        this.b = context;
+        this.f2081b = context;
         this.d = viewGroup;
         this.e = safeScrollView;
         if (this.mPopupWindow == null) {
@@ -71,7 +73,7 @@ public final class SafeKeyBoardUtil {
     }
 
     public void hideSoftInputMethod(EditText editText) {
-        ((InputMethodManager) this.b.getSystemService("input_method")).hideSoftInputFromWindow(this.c.getWindowToken(), 0);
+        ((InputMethodManager) this.f2081b.getSystemService("input_method")).hideSoftInputFromWindow(this.c.getWindowToken(), 0);
         if (Build.VERSION.SDK_INT < 11) {
             editText.setInputType(0);
             return;
@@ -107,7 +109,7 @@ public final class SafeKeyBoardUtil {
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
         if (this.mPopupWindow != null && this.e != null && this.f != null) {
-            this.g = ((Activity) this.b).getWindow().getDecorView().getBottom();
+            this.g = ((Activity) this.f2081b).getWindow().getDecorView().getBottom();
             this.j = this.mPopupWindow.getPopupWindowHeight();
             int[] iArr = new int[2];
             this.e.getLocationOnScreen(iArr);

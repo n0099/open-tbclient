@@ -3,20 +3,20 @@ package com.baidu.tieba.ala.liveroom.e;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.widget.TbImageView;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class c {
-    private TbImageView his;
-    private View hit;
+    private TbImageView huo;
+    private View hup;
     private TbPageContext mContext;
     private TextView mTitleView;
     private String mUrl;
@@ -29,8 +29,8 @@ public class c {
 
     private void init() {
         this.mView = LayoutInflater.from(this.mContext.getPageActivity()).inflate(a.g.back_to_come_button, (ViewGroup) null);
-        this.hit = this.mView.findViewById(a.f.back_to_come_root);
-        this.his = (TbImageView) this.mView.findViewById(a.f.back_to_come_logo);
+        this.hup = this.mView.findViewById(a.f.back_to_come_root);
+        this.huo = (TbImageView) this.mView.findViewById(a.f.back_to_come_logo);
         this.mTitleView = (TextView) this.mView.findViewById(a.f.back_to_come_title);
     }
 
@@ -55,19 +55,19 @@ public class c {
     public void a(b bVar) {
         if (bVar != null) {
             if (!TextUtils.isEmpty(bVar.getImageUrl())) {
-                this.his.setVisibility(0);
-                this.his.setAutoChangeStyle(false);
-                this.his.startLoad(bVar.getImageUrl(), 10, false);
+                this.huo.setVisibility(0);
+                this.huo.setAutoChangeStyle(false);
+                this.huo.startLoad(bVar.getImageUrl(), 10, false);
             } else if (bVar.getImageId() != 0) {
-                this.his.setVisibility(0);
-                this.his.setImageResource(bVar.getImageId());
+                this.huo.setVisibility(0);
+                this.huo.setImageResource(bVar.getImageId());
             } else {
-                this.his.setVisibility(8);
+                this.huo.setVisibility(8);
             }
             if (!TextUtils.isEmpty(bVar.getTitle())) {
                 this.mTitleView.setText(bVar.getTitle());
-            } else if (bVar.ccx() != 0) {
-                this.mTitleView.setText(bVar.ccx());
+            } else if (bVar.cfn() != 0) {
+                this.mTitleView.setText(bVar.cfn());
             }
             if (!TextUtils.isEmpty(bVar.getScheme())) {
                 this.mUrl = bVar.getScheme();
@@ -75,7 +75,7 @@ public class c {
         }
     }
 
-    public void ccy() {
+    public void cfo() {
         try {
             if (!TextUtils.isEmpty(this.mUrl) && this.mContext != null) {
                 Intent intent = new Intent();
@@ -92,7 +92,7 @@ public class c {
         return this.mView;
     }
 
-    public View ccz() {
-        return this.hit;
+    public View cfp() {
+        return this.hup;
     }
 }

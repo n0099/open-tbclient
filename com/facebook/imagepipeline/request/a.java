@@ -6,9 +6,9 @@ import android.graphics.Paint;
 import com.facebook.imagepipeline.a.f;
 import com.facebook.imagepipeline.nativecode.Bitmaps;
 import javax.annotation.Nullable;
-/* loaded from: classes15.dex */
+/* loaded from: classes5.dex */
 public abstract class a implements b {
-    public static final Bitmap.Config pqE = Bitmap.Config.ARGB_8888;
+    public static final Bitmap.Config pGe = Bitmap.Config.ARGB_8888;
 
     @Override // com.facebook.imagepipeline.request.b
     public String getName() {
@@ -21,34 +21,34 @@ public abstract class a implements b {
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
         if (config == null) {
-            config = pqE;
+            config = pGe;
         }
-        com.facebook.common.references.a<Bitmap> c = fVar.c(width, height, config);
+        com.facebook.common.references.a<Bitmap> e = fVar.e(width, height, config);
         try {
-            d(c.get(), bitmap);
-            return com.facebook.common.references.a.b(c);
+            e(e.get(), bitmap);
+            return com.facebook.common.references.a.b(e);
         } finally {
-            com.facebook.common.references.a.c(c);
+            com.facebook.common.references.a.c(e);
         }
     }
 
-    public void d(Bitmap bitmap, Bitmap bitmap2) {
-        e(bitmap, bitmap2);
-        al(bitmap);
+    public void e(Bitmap bitmap, Bitmap bitmap2) {
+        f(bitmap, bitmap2);
+        aj(bitmap);
     }
 
-    public void al(Bitmap bitmap) {
+    public void aj(Bitmap bitmap) {
     }
 
     @Override // com.facebook.imagepipeline.request.b
     @Nullable
-    public com.facebook.cache.common.b ewv() {
+    public com.facebook.cache.common.b eAc() {
         return null;
     }
 
-    private static void e(Bitmap bitmap, Bitmap bitmap2) {
+    private static void f(Bitmap bitmap, Bitmap bitmap2) {
         if (bitmap.getConfig() == bitmap2.getConfig()) {
-            Bitmaps.c(bitmap, bitmap2);
+            Bitmaps.d(bitmap, bitmap2);
         } else {
             new Canvas(bitmap).drawBitmap(bitmap2, 0.0f, 0.0f, (Paint) null);
         }

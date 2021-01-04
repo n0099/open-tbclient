@@ -4,12 +4,14 @@ import android.text.TextUtils;
 import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.util.Arrays;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public final class j implements Serializable {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2924a;
-    private String b;
+    private String f4348a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private String f4349b;
     private String[] c;
     private int[] d;
     private int e;
@@ -17,8 +19,8 @@ public final class j implements Serializable {
     private String g;
 
     public j(String str, String str2, String[] strArr, int[] iArr, int i, int i2, String str3) {
-        this.f2924a = str;
-        this.b = str2;
+        this.f4348a = str;
+        this.f4349b = str2;
         this.e = i;
         this.f = i2;
         if (strArr != null) {
@@ -33,7 +35,7 @@ public final class j implements Serializable {
     }
 
     public boolean equals(Object obj) {
-        if (obj != null && (obj instanceof j) && TextUtils.equals(this.f2924a, ((j) obj).f2924a) && TextUtils.equals(this.b, ((j) obj).b) && Arrays.equals(this.c, ((j) obj).c)) {
+        if (obj != null && (obj instanceof j) && TextUtils.equals(this.f4348a, ((j) obj).f4348a) && TextUtils.equals(this.f4349b, ((j) obj).f4349b) && Arrays.equals(this.c, ((j) obj).c)) {
             return Arrays.equals(this.d, ((j) obj).d);
         }
         return false;
@@ -41,8 +43,8 @@ public final class j implements Serializable {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("IndoorMapInfo:building_id:").append(this.f2924a);
-        sb.append(";floor_id:").append(this.b);
+        sb.append("IndoorMapInfo:building_id:").append(this.f4348a);
+        sb.append(";floor_id:").append(this.f4349b);
         sb.append(";indoor_type:").append(this.e);
         sb.append(";floor_list:").append(Arrays.toString(this.c));
         sb.append(";floor_attribute:").append(Arrays.toString(this.d));

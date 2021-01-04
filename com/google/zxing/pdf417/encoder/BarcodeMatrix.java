@@ -1,7 +1,7 @@
 package com.google.zxing.pdf417.encoder;
 
 import java.lang.reflect.Array;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class BarcodeMatrix {
     private int currentRow;
     private final int height;
@@ -20,8 +20,8 @@ public final class BarcodeMatrix {
         this.currentRow = -1;
     }
 
-    void set(int i, int i2, byte b) {
-        this.matrix[i2].set(i, b);
+    void set(int i, int i2, byte b2) {
+        this.matrix[i2].set(i, b2);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

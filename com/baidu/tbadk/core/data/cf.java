@@ -1,30 +1,29 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import org.json.JSONObject;
-import tbclient.VideoChannelInfo;
+import tbclient.BirthdayInfo;
 /* loaded from: classes.dex */
 public class cf {
-    public long eMW;
-    public String eMX;
-    public String eMY;
+    public int age;
+    public String constellation;
+    public long eWS;
+    public int eWT;
 
-    public void a(VideoChannelInfo videoChannelInfo) {
-        if (videoChannelInfo != null && videoChannelInfo.channel_id.longValue() > 0) {
-            this.eMW = videoChannelInfo.channel_id.longValue();
-            this.eMX = videoChannelInfo.channel_name;
-            this.eMY = videoChannelInfo.channel_avatar;
+    public void parseJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            this.eWS = jSONObject.optLong("birthday_time", 0L);
+            this.eWT = jSONObject.optInt("birthday_show_status", 0);
+            this.constellation = jSONObject.optString("constellation", "");
+            this.age = jSONObject.optInt("age", 0);
         }
     }
 
-    public void dh(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.eMW = jSONObject.optLong(SharedPrefConfig.CHANNEL_ID, 0L);
-                this.eMX = jSONObject.optString("channel_name");
-                this.eMY = jSONObject.optString("channel_avatar");
-            } catch (Exception e) {
-            }
+    public void a(BirthdayInfo birthdayInfo) {
+        if (birthdayInfo != null) {
+            this.eWS = birthdayInfo.birthday_time.longValue();
+            this.eWT = birthdayInfo.birthday_show_status.intValue();
+            this.constellation = birthdayInfo.constellation;
+            this.age = birthdayInfo.age.intValue();
         }
     }
 }

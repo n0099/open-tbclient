@@ -3,7 +3,7 @@ package com.baidu.searchbox.websocket;
 import java.nio.ByteBuffer;
 import kotlin.e;
 @e
-/* loaded from: classes19.dex */
+/* loaded from: classes5.dex */
 public interface IWebSocketClient {
     void close(int i, String str);
 

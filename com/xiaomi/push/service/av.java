@@ -10,22 +10,22 @@ import com.xiaomi.push.hw;
 import com.xiaomi.push.il;
 import com.xiaomi.push.iw;
 import java.util.HashMap;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class av implements eu {
     @Override // com.xiaomi.push.eu
     public void a(Context context, HashMap<String, String> hashMap) {
         il ilVar = new il();
-        ilVar.b(eq.a(context).m262a());
+        ilVar.b(eq.a(context).m288a());
         ilVar.d(eq.a(context).b());
-        ilVar.c(hw.AwakeAppResponse.f477a);
+        ilVar.c(hw.AwakeAppResponse.f555a);
         ilVar.a(an.a());
-        ilVar.f618a = hashMap;
+        ilVar.f696a = hashMap;
         byte[] a2 = iw.a(w.a(ilVar.c(), ilVar.b(), ilVar, hm.Notification));
         if (!(context instanceof XMPushService)) {
-            com.xiaomi.channel.commonutils.logger.b.m47a("MoleInfo : context is not correct in pushLayer " + ilVar.a());
+            com.xiaomi.channel.commonutils.logger.b.m73a("MoleInfo : context is not correct in pushLayer " + ilVar.a());
             return;
         }
-        com.xiaomi.channel.commonutils.logger.b.m47a("MoleInfo : send data directly in pushLayer " + ilVar.a());
+        com.xiaomi.channel.commonutils.logger.b.m73a("MoleInfo : send data directly in pushLayer " + ilVar.a());
         ((XMPushService) context).a(context.getPackageName(), a2, true);
     }
 
@@ -39,6 +39,6 @@ public class av implements eu {
 
     @Override // com.xiaomi.push.eu
     public void c(Context context, HashMap<String, String> hashMap) {
-        com.xiaomi.channel.commonutils.logger.b.m47a("MoleInfo：\u3000" + el.b(hashMap));
+        com.xiaomi.channel.commonutils.logger.b.m73a("MoleInfo：\u3000" + el.b(hashMap));
     }
 }

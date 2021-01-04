@@ -8,19 +8,19 @@ import org.json.JSONObject;
 import tbclient.DecryptCode.DataRes;
 /* loaded from: classes.dex */
 public class g {
-    public String exE;
-    public Integer exF;
+    public String eGT;
+    public Integer eGU;
     private int urlType;
     private static final String DEFAULT_TITLE = TbadkCoreApplication.getInst().getString(R.string.tb_token);
     private static final String DEFAULT_TIPS = TbadkCoreApplication.getInst().getString(R.string.tb_ai_apps_tips);
-    private static final String exA = TbadkCoreApplication.getInst().getString(R.string.cancel);
-    private static final String exB = TbadkCoreApplication.getInst().getString(R.string.check_immediately);
+    private static final String eGP = TbadkCoreApplication.getInst().getString(R.string.cancel);
+    private static final String eGQ = TbadkCoreApplication.getInst().getString(R.string.check_immediately);
     private String title = "";
     private String img = "";
     private String tips = "";
     private String url = "";
-    private String exC = "";
-    private String exD = "";
+    private String eGR = "";
+    private String eGS = "";
     public String appId = "";
     public String appName = "";
 
@@ -36,15 +36,15 @@ public class g {
                     this.appId = jSONObject.optString("appid");
                     this.appName = jSONObject.optString("appname");
                     String optString = jSONObject.optString("url");
-                    this.exF = Integer.valueOf(jSONObject.optInt("is_game"));
-                    this.url = com.baidu.tieba.aiapps.a.a(this.appId, optString, "9104", this.exF);
-                    this.exE = jSONObject.optString("swan_app_id");
+                    this.eGU = Integer.valueOf(jSONObject.optInt("is_game"));
+                    this.url = com.baidu.tieba.aiapps.a.a(this.appId, optString, "9104", this.eGU);
+                    this.eGT = jSONObject.optString("swan_app_id");
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
             }
-            this.exC = StringUtils.isNull(dataRes.btn_sure) ? exB : dataRes.btn_sure;
-            this.exD = StringUtils.isNull(dataRes.btn_cancel) ? exA : dataRes.btn_cancel;
+            this.eGR = StringUtils.isNull(dataRes.btn_sure) ? eGQ : dataRes.btn_sure;
+            this.eGS = StringUtils.isNull(dataRes.btn_cancel) ? eGP : dataRes.btn_cancel;
         } else if (this.urlType == 2) {
             this.title = dataRes.title;
             this.url = dataRes.url;
@@ -53,8 +53,8 @@ public class g {
             this.title = dataRes.title;
             this.img = dataRes.img;
             this.tips = dataRes.tips;
-            this.exC = dataRes.btn_sure;
-            this.exD = dataRes.btn_cancel;
+            this.eGR = dataRes.btn_sure;
+            this.eGS = dataRes.btn_cancel;
         }
     }
 
@@ -74,15 +74,15 @@ public class g {
         return this.url;
     }
 
-    public String biZ() {
-        return this.exC;
+    public String blp() {
+        return this.eGR;
     }
 
-    public String bja() {
-        return this.exD;
+    public String blq() {
+        return this.eGS;
     }
 
-    public int bjb() {
+    public int blr() {
         return this.urlType;
     }
 }

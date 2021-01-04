@@ -1,11 +1,15 @@
 package com.baidu.tieba.r;
-
-import com.baidu.searchbox.aperf.param.IAperfOverlayContext;
-import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
-public class a implements IAperfOverlayContext {
-    @Override // com.baidu.searchbox.aperf.param.IAperfOverlayContext
-    public String getAppVersion() {
-        return TbConfig.getVersion();
-    }
+public interface a {
+    void as(String str, String str2, String str3);
+
+    void b(long j, String str, String str2, long j2);
+
+    void ek(String str, String str2);
+
+    void el(String str, String str2);
+
+    void em(String str, String str2);
+
+    void f(long j, String str, String str2);
 }

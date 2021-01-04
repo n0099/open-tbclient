@@ -10,27 +10,27 @@ import io.reactivex.w;
 import io.reactivex.y;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class SingleUsing<T, U> extends w<T> {
     final g<? super U> disposer;
     final boolean eager;
-    final Callable<U> pFg;
-    final h<? super U, ? extends aa<? extends T>> pHt;
+    final Callable<U> qgI;
+    final h<? super U, ? extends aa<? extends T>> qiW;
 
     @Override // io.reactivex.w
     protected void b(y<? super T> yVar) {
         try {
-            U call = this.pFg.call();
+            U call = this.qgI.call();
             try {
-                ((aa) io.reactivex.internal.functions.a.m(this.pHt.apply(call), "The singleFunction returned a null SingleSource")).a(new UsingSingleObserver(yVar, call, this.eager, this.disposer));
+                ((aa) io.reactivex.internal.functions.a.m(this.qiW.apply(call), "The singleFunction returned a null SingleSource")).a(new UsingSingleObserver(yVar, call, this.eager, this.disposer));
             } catch (Throwable th) {
                 th = th;
-                io.reactivex.exceptions.a.J(th);
+                io.reactivex.exceptions.a.O(th);
                 if (this.eager) {
                     try {
                         this.disposer.accept(call);
                     } catch (Throwable th2) {
-                        io.reactivex.exceptions.a.J(th2);
+                        io.reactivex.exceptions.a.O(th2);
                         th = new CompositeException(th, th2);
                     }
                 }
@@ -39,18 +39,18 @@ public final class SingleUsing<T, U> extends w<T> {
                     try {
                         this.disposer.accept(call);
                     } catch (Throwable th3) {
-                        io.reactivex.exceptions.a.J(th3);
+                        io.reactivex.exceptions.a.O(th3);
                         io.reactivex.d.a.onError(th3);
                     }
                 }
             }
         } catch (Throwable th4) {
-            io.reactivex.exceptions.a.J(th4);
+            io.reactivex.exceptions.a.O(th4);
             EmptyDisposable.error(th4, yVar);
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class UsingSingleObserver<T, U> extends AtomicReference<Object> implements io.reactivex.disposables.b, y<T> {
         private static final long serialVersionUID = -5331524057054083935L;
         final y<? super T> actual;
@@ -94,7 +94,7 @@ public final class SingleUsing<T, U> extends w<T> {
                     try {
                         this.disposer.accept(andSet);
                     } catch (Throwable th) {
-                        io.reactivex.exceptions.a.J(th);
+                        io.reactivex.exceptions.a.O(th);
                         this.actual.onError(th);
                         return;
                     }
@@ -117,7 +117,7 @@ public final class SingleUsing<T, U> extends w<T> {
                     try {
                         this.disposer.accept(andSet);
                     } catch (Throwable th2) {
-                        io.reactivex.exceptions.a.J(th2);
+                        io.reactivex.exceptions.a.O(th2);
                         th = new CompositeException(th, th2);
                     }
                 } else {
@@ -136,7 +136,7 @@ public final class SingleUsing<T, U> extends w<T> {
                 try {
                     this.disposer.accept(andSet);
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.J(th);
+                    io.reactivex.exceptions.a.O(th);
                     io.reactivex.d.a.onError(th);
                 }
             }

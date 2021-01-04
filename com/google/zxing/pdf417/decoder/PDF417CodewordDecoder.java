@@ -3,7 +3,7 @@ package com.google.zxing.pdf417.decoder;
 import com.google.zxing.common.detector.MathUtils;
 import com.google.zxing.pdf417.PDF417Common;
 import java.lang.reflect.Array;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 final class PDF417CodewordDecoder {
     private static final float[][] RATIOS_TABLE = (float[][]) Array.newInstance(Float.TYPE, PDF417Common.SYMBOL_TABLE.length, 8);
 
@@ -33,9 +33,9 @@ final class PDF417CodewordDecoder {
     }
 
     private static int[] sampleBitCounts(int[] iArr) {
-        int i = 0;
         float sum = MathUtils.sum(iArr);
         int[] iArr2 = new int[8];
+        int i = 0;
         int i2 = 0;
         for (int i3 = 0; i3 < 17; i3++) {
             if (iArr[i2] + i <= (sum / 34.0f) + ((i3 * sum) / 17.0f)) {
@@ -58,10 +58,8 @@ final class PDF417CodewordDecoder {
     private static int getBitValue(int[] iArr) {
         long j = 0;
         for (int i = 0; i < iArr.length; i++) {
-            int i2 = 0;
-            while (i2 < iArr[i]) {
-                i2++;
-                j = (j << 1) | (i % 2 == 0 ? 1 : 0);
+            for (int i2 = 0; i2 < iArr[i]; i2++) {
+                j = (i % 2 == 0 ? 1 : 0) | (j << 1);
             }
         }
         return (int) j;

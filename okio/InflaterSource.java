@@ -1,10 +1,11 @@
 package okio;
 
+import com.baidu.live.tbadk.log.LogConfig;
 import java.io.EOFException;
 import java.io.IOException;
 import java.util.zip.DataFormatException;
 import java.util.zip.Inflater;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class InflaterSource implements Source {
     private int bufferBytesHeldByInflater;
     private boolean closed;
@@ -34,7 +35,7 @@ public final class InflaterSource implements Source {
             throw new IllegalArgumentException("byteCount < 0: " + j);
         }
         if (this.closed) {
-            throw new IllegalStateException("closed");
+            throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
         if (j == 0) {
             return 0L;

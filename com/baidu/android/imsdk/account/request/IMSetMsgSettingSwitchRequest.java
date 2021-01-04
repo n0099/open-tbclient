@@ -3,7 +3,6 @@ package com.baidu.android.imsdk.account.request;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Pair;
-import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.ISetMsgSettingSwitchListener;
 import com.baidu.android.imsdk.internal.Constants;
@@ -19,7 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class IMSetMsgSettingSwitchRequest extends BaseHttpRequest {
     private static final String TAG = "IMSetMsgSettingSwitchRequest";
     private ISetMsgSettingSwitchListener mListener;
@@ -75,7 +74,7 @@ public class IMSetMsgSettingSwitchRequest extends BaseHttpRequest {
         try {
             JSONObject jSONObject = new JSONObject(str2);
             i2 = jSONObject.getInt("error_code");
-            str = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG, "");
+            str = jSONObject.optString("error_msg", "");
         } catch (JSONException e) {
             LogUtils.e(TAG, "JSONException", e);
             i2 = 1010;

@@ -1,10 +1,12 @@
 package com.baidu.fsg.base.statistics;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1489a = "wallet_stastics";
-    public static final int b = 204800;
+    public static final String f1983a = "wallet_stastics";
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final int f1984b = 204800;
     public static final int c = 51200;
     public static final int d = 200;
     public static final long e = 604800000;

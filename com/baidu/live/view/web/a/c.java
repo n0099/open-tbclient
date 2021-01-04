@@ -1,32 +1,24 @@
 package com.baidu.live.view.web.a;
 
-import android.text.TextUtils;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
+import android.util.Log;
+/* loaded from: classes11.dex */
 public class c extends com.baidu.live.view.web.a {
-    @Override // com.baidu.live.view.web.a
-    public String getName() {
-        return "followBridge";
+    protected com.baidu.live.view.web.f bWQ;
+
+    public c(com.baidu.live.view.web.f fVar) {
+        this.bWQ = fVar;
     }
 
     @Override // com.baidu.live.view.web.a
-    public void jm(String str) {
-        if (str != null) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                if (jSONObject != null) {
-                    String optString = jSONObject.optString("user_id");
-                    if (!TextUtils.isEmpty(optString)) {
-                        String[] split = optString.contains(",") ? optString.split(",") : new String[]{optString};
-                        if (split != null) {
-                            com.baidu.live.view.a.Yo().o(split);
-                        }
-                    }
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+    public String getName() {
+        return "closeBridge";
+    }
+
+    @Override // com.baidu.live.view.web.a
+    public void jf(String str) {
+        Log.d("JsInterface", "@@ JsInterface-impl CloseBridgeJsInterface params = " + str);
+        if (this.bWQ != null) {
+            this.bWQ.fr(-1);
         }
     }
 }

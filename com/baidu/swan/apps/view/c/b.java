@@ -6,36 +6,36 @@ import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.process.SwanAppProcessInfo;
 import com.baidu.swan.menu.BaseMenuView;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class b implements com.baidu.swan.menu.a {
-    private FrameLayout dED = null;
+    private FrameLayout dNh = null;
 
     @Override // com.baidu.swan.menu.a
     public void a(BaseMenuView baseMenuView) {
         if (baseMenuView != null && !ProcessUtils.isMainProcess() && SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName())) {
-            if (com.baidu.swan.apps.t.a.azw().getNightModeSwitcherState()) {
-                C(baseMenuView);
+            if (com.baidu.swan.apps.t.a.aAN().alD()) {
+                J(baseMenuView);
             } else {
-                D(baseMenuView);
+                K(baseMenuView);
             }
         }
     }
 
-    private void C(ViewGroup viewGroup) {
+    private void J(ViewGroup viewGroup) {
         if (viewGroup != null && (viewGroup instanceof FrameLayout)) {
-            if (this.dED == null) {
-                this.dED = new FrameLayout(viewGroup.getContext());
-                this.dED.setBackgroundResource(a.c.aiapps_night_mode_cover_layer);
+            if (this.dNh == null) {
+                this.dNh = new FrameLayout(viewGroup.getContext());
+                this.dNh.setBackgroundResource(a.c.aiapps_night_mode_cover_layer);
             }
-            viewGroup.removeView(this.dED);
-            viewGroup.addView(this.dED, new FrameLayout.LayoutParams(-1, -1));
+            viewGroup.removeView(this.dNh);
+            viewGroup.addView(this.dNh, new FrameLayout.LayoutParams(-1, -1));
         }
     }
 
-    private void D(ViewGroup viewGroup) {
-        if (viewGroup != null && this.dED != null) {
-            viewGroup.removeView(this.dED);
-            this.dED = null;
+    private void K(ViewGroup viewGroup) {
+        if (viewGroup != null && this.dNh != null) {
+            viewGroup.removeView(this.dNh);
+            this.dNh = null;
         }
     }
 }

@@ -1,11 +1,12 @@
 package com.meizu.cloud.pushsdk.notification.c;
 
+import com.baidu.mobstat.Config;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.io.FileFilter;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static void a(String str, String str2) {
         try {
@@ -16,7 +17,7 @@ public class a {
                 if (file.isFile()) {
                     FileInputStream fileInputStream = new FileInputStream(file);
                     FileOutputStream fileOutputStream = new FileOutputStream(str2 + "/" + file.getName().toString());
-                    byte[] bArr = new byte[5120];
+                    byte[] bArr = new byte[Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION];
                     while (true) {
                         int read = fileInputStream.read(bArr);
                         if (read == -1) {
@@ -50,8 +51,8 @@ public class a {
         }
         File file = new File(str);
         if (file.exists() && file.isDirectory()) {
-            File[] listFiles = file.listFiles();
             boolean z = true;
+            File[] listFiles = file.listFiles();
             for (int i = 0; i < listFiles.length; i++) {
                 if (!listFiles[i].isFile()) {
                     z = b(listFiles[i].getAbsolutePath());

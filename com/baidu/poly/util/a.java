@@ -7,9 +7,9 @@ import com.baidu.mobstat.Config;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.util.Enumeration;
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 public class a {
-    private static InetAddress adM() {
+    private static InetAddress afH() {
         InetAddress inetAddress;
         try {
             Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
@@ -49,11 +49,11 @@ public class a {
         }
     }
 
-    private static String adN() {
+    private static String afI() {
         byte[] hardwareAddress;
         try {
-            InetAddress adM = adM();
-            if (adM == null || (hardwareAddress = NetworkInterface.getByInetAddress(adM).getHardwareAddress()) == null) {
+            InetAddress afH = afH();
+            if (afH == null || (hardwareAddress = NetworkInterface.getByInetAddress(afH).getHardwareAddress()) == null) {
                 return "";
             }
             StringBuilder sb = new StringBuilder();
@@ -73,7 +73,7 @@ public class a {
         }
     }
 
-    private static String adO() {
+    private static String afJ() {
         byte[] hardwareAddress;
         try {
             NetworkInterface byName = NetworkInterface.getByName("wlan0");
@@ -95,23 +95,23 @@ public class a {
     }
 
     private static String getMac() {
-        return ((WifiManager) g.adQ().getApplicationContext().getSystemService("wifi")).getConnectionInfo().getMacAddress();
+        return ((WifiManager) g.afL().getApplicationContext().getSystemService("wifi")).getConnectionInfo().getMacAddress();
     }
 
     public static String getMacAddress() {
-        String adO;
+        String afJ;
         if (Build.VERSION.SDK_INT < 23) {
-            adO = getMac();
+            afJ = getMac();
         } else {
-            adO = adO();
+            afJ = afJ();
         }
-        if (!kc(adO)) {
-            adO = adN();
+        if (!jY(afJ)) {
+            afJ = afI();
         }
-        return !TextUtils.isEmpty(adO) ? adO.toUpperCase() : adO;
+        return !TextUtils.isEmpty(afJ) ? afJ.toUpperCase() : afJ;
     }
 
-    private static boolean kc(String str) {
+    private static boolean jY(String str) {
         return (TextUtils.isEmpty(str) || str.equals(Config.DEF_MAC_ID)) ? false : true;
     }
 }

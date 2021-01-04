@@ -14,11 +14,10 @@ import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.adp.plugin.a.c;
 import com.baidu.adp.plugin.pluginBase.PluginBaseService;
-import com.baidu.megapp.ma.MAService;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 /* loaded from: classes.dex */
-public class ServiceProxy extends MAService implements c {
+public class ServiceProxy extends Service implements c {
     private PluginBaseService mEntity = null;
 
     public void loadTargetService(Intent intent) {
@@ -61,7 +60,7 @@ public class ServiceProxy extends MAService implements c {
         return this.mEntity != null ? this.mEntity.getPackageManager() : super.getPackageManager();
     }
 
-    @Override // com.baidu.megapp.ma.MAService, com.baidu.adp.plugin.a.c
+    @Override // com.baidu.adp.plugin.a.c
     public Service getService() {
         return this;
     }

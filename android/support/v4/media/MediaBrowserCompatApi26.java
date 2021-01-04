@@ -2,22 +2,20 @@ package android.support.v4.media;
 
 import android.media.browse.MediaBrowser;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
 import android.support.v4.media.MediaBrowserCompatApi21;
+import android.support.v4.media.session.MediaSessionCompat;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import java.util.List;
 @RequiresApi(26)
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 class MediaBrowserCompatApi26 {
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     interface SubscriptionCallback extends MediaBrowserCompatApi21.SubscriptionCallback {
         void onChildrenLoaded(@NonNull String str, List<?> list, @NonNull Bundle bundle);
 
         void onError(@NonNull String str, @NonNull Bundle bundle);
-    }
-
-    MediaBrowserCompatApi26() {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -33,7 +31,7 @@ class MediaBrowserCompatApi26 {
         ((MediaBrowser) obj).unsubscribe(str, (MediaBrowser.SubscriptionCallback) obj2);
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     static class SubscriptionCallbackProxy<T extends SubscriptionCallback> extends MediaBrowserCompatApi21.SubscriptionCallbackProxy<T> {
         SubscriptionCallbackProxy(T t) {
             super(t);
@@ -41,12 +39,17 @@ class MediaBrowserCompatApi26 {
 
         @Override // android.media.browse.MediaBrowser.SubscriptionCallback
         public void onChildrenLoaded(@NonNull String str, List<MediaBrowser.MediaItem> list, @NonNull Bundle bundle) {
+            MediaSessionCompat.ensureClassLoader(bundle);
             ((SubscriptionCallback) this.mSubscriptionCallback).onChildrenLoaded(str, list, bundle);
         }
 
         @Override // android.media.browse.MediaBrowser.SubscriptionCallback
         public void onError(@NonNull String str, @NonNull Bundle bundle) {
+            MediaSessionCompat.ensureClassLoader(bundle);
             ((SubscriptionCallback) this.mSubscriptionCallback).onError(str, bundle);
         }
+    }
+
+    private MediaBrowserCompatApi26() {
     }
 }

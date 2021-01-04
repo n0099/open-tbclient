@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.widget.largeimage.logic;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public interface ILoadBlockBitmapCallback {
     void onLoadFinished();
 }

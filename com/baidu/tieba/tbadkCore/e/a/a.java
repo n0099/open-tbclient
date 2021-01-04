@@ -20,15 +20,15 @@ public abstract class a {
             cVar = new c();
         }
         if (this.mNotificationNameList.contains(str)) {
-            cVar.yg(false);
-            cVar.yf(true);
+            cVar.yl(false);
+            cVar.yk(true);
             List<b> list = this.mAsyncCallBackMethodList.get(str);
             if (list == null) {
                 list = new ArrayList<>();
             }
             b bVar = new b();
-            bVar.setName(cVar.getMethodName());
-            bVar.yd(z);
+            bVar.setName(cVar.cxa());
+            bVar.yi(z);
             list.add(bVar);
             this.mAsyncCallBackMethodList.put(str, list);
         }

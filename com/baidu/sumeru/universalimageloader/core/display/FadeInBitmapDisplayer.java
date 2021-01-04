@@ -6,7 +6,7 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.DecelerateInterpolator;
 import com.baidu.sumeru.universalimageloader.core.assist.LoadedFrom;
 import com.baidu.sumeru.universalimageloader.core.imageaware.ImageAware;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public class FadeInBitmapDisplayer implements BitmapDisplayer {
     private final boolean animateFromDisc;
     private final boolean animateFromMemory;

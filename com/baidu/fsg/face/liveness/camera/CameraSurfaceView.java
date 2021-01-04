@@ -6,24 +6,26 @@ import android.util.AttributeSet;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import com.baidu.fsg.base.utils.LogUtil;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class CameraSurfaceView extends SurfaceView implements SurfaceHolder.Callback {
 
     /* renamed from: a  reason: collision with root package name */
-    SurfaceHolder f1722a;
-    private b b;
+    SurfaceHolder f2339a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private b f2340b;
 
     public CameraSurfaceView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f1722a = getHolder();
-        this.f1722a.setFormat(-2);
-        this.f1722a.setSizeFromLayout();
-        this.f1722a.setType(3);
-        this.f1722a.addCallback(this);
+        this.f2339a = getHolder();
+        this.f2339a.setFormat(-2);
+        this.f2339a.setSizeFromLayout();
+        this.f2339a.setType(3);
+        this.f2339a.addCallback(this);
     }
 
     public void setCameraInterface(b bVar) {
-        this.b = bVar;
+        this.f2340b = bVar;
     }
 
     @Override // android.view.SurfaceHolder.Callback
@@ -34,19 +36,19 @@ public class CameraSurfaceView extends SurfaceView implements SurfaceHolder.Call
     public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
         LogUtil.d("surfaceChanged被调用了");
         if (getContext() instanceof Activity) {
-            this.b.a((Activity) getContext(), this.f1722a);
+            this.f2340b.a((Activity) getContext(), this.f2339a);
         }
     }
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
         LogUtil.d("surfaceDestroyed被调用了");
-        this.b.d();
+        this.f2340b.d();
     }
 
     public void startPreview() {
         if (getContext() instanceof Activity) {
-            this.b.a((Activity) getContext(), this.f1722a);
+            this.f2340b.a((Activity) getContext(), this.f2339a);
         }
     }
 }

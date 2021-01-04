@@ -6,49 +6,43 @@ import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 import kotlin.jvm.internal.p;
 @kotlin.e
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public final class b extends Drawable {
-    private boolean pyr;
-    private int pys;
-    private final com.opensource.svgaplayer.a.b pyt;
-    private final f pyu;
-    private final c pyv;
+    private boolean pQW;
+    private int pQX;
+    private final com.opensource.svgaplayer.a.b pQY;
+    private final f pQZ;
+    private final c pRa;
     private ImageView.ScaleType scaleType;
 
     public b(f fVar, c cVar) {
         p.o(fVar, "videoItem");
         p.o(cVar, "dynamicItem");
-        this.pyu = fVar;
-        this.pyv = cVar;
-        this.pyr = true;
+        this.pQZ = fVar;
+        this.pRa = cVar;
+        this.pQW = true;
         this.scaleType = ImageView.ScaleType.MATRIX;
-        this.pyt = new com.opensource.svgaplayer.a.b(this.pyu, this.pyv);
+        this.pQY = new com.opensource.svgaplayer.a.b(this.pQZ, this.pRa);
     }
 
-    public final f ezB() {
-        return this.pyu;
+    public final f eDt() {
+        return this.pQZ;
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public b(f fVar) {
-        this(fVar, new c());
-        p.o(fVar, "videoItem");
-    }
-
-    public final void Bh(boolean z) {
-        if (this.pyr != z) {
-            this.pyr = z;
+    public final void Br(boolean z) {
+        if (this.pQW != z) {
+            this.pQW = z;
             invalidateSelf();
         }
     }
 
-    public final int ezA() {
-        return this.pys;
+    public final int eDs() {
+        return this.pQX;
     }
 
-    public final void RB(int i) {
-        if (this.pys != i) {
-            this.pys = i;
+    public final void Ry(int i) {
+        if (this.pQX != i) {
+            this.pQX = i;
             invalidateSelf();
         }
     }
@@ -60,8 +54,8 @@ public final class b extends Drawable {
 
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        if (!this.pyr && canvas != null) {
-            this.pyt.a(canvas, this.pys, this.scaleType);
+        if (!this.pQW && canvas != null) {
+            this.pQY.a(canvas, this.pQX, this.scaleType);
         }
     }
 

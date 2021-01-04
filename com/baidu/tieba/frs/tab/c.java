@@ -1,5 +1,5 @@
 package com.baidu.tieba.frs.tab;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public interface c {
-    void cJM();
+    void cMM();
 }

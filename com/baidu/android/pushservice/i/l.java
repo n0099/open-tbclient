@@ -7,7 +7,7 @@ import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.pushservice.h.a.b;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class l {
     public static Intent a(Context context) {
         Intent intent = new Intent("com.baidu.android.pushservice.action.METHOD");
@@ -53,9 +53,9 @@ public class l {
             return true;
         }
         try {
-            String b = m.b(context, str, intent.getAction());
-            if (!TextUtils.isEmpty(b)) {
-                intent.setClassName(str, b);
+            String b2 = m.b(context, str, intent.getAction());
+            if (!TextUtils.isEmpty(b2)) {
+                intent.setClassName(str, b2);
                 context.sendBroadcast(intent);
                 com.baidu.android.pushservice.f.a.a("ServiceUtils", "startPushService by sendBroadcast", context.getApplicationContext());
                 return true;

@@ -21,7 +21,7 @@ import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class OpenBdussService extends AbstractService implements NoProguard {
     private Context context;
 
@@ -32,7 +32,6 @@ public class OpenBdussService extends AbstractService implements NoProguard {
 
     public void getOpenBduss(final GetOpenBdussDTO getOpenBdussDTO, final GetOpenBdussCallback getOpenBdussCallback) {
         boolean z;
-        int i = 1;
         SapiUtils.notNull(getOpenBdussCallback, "GetOpenBdussCallback can't be null");
         SapiUtils.notNull(getOpenBdussDTO, "GetOpenBdussDTO can't be null");
         SapiUtils.notEmpty(getOpenBdussDTO.clientId, "GetOpenBdussDTO.clientId can't empty");
@@ -74,10 +73,8 @@ public class OpenBdussService extends AbstractService implements NoProguard {
         httpHashMapWrap.put(AppIconSetting.DEFAULT_LARGE_ICON, SapiDeviceInfo.getDeviceInfo(com.baidu.sapi2.utils.e.J));
         if (getOpenBdussDTO.targetTplList != null && getOpenBdussDTO.targetTplList.size() > 0) {
             String str = getOpenBdussDTO.targetTplList.get(0);
-            while (i < getOpenBdussDTO.targetTplList.size()) {
-                String str2 = str + "|" + getOpenBdussDTO.targetTplList.get(i);
-                i++;
-                str = str2;
+            for (int i = 1; i < getOpenBdussDTO.targetTplList.size(); i++) {
+                str = str + "|" + getOpenBdussDTO.targetTplList.get(i);
             }
             httpHashMapWrap.put("tpl_list", str);
         }
@@ -90,9 +87,9 @@ public class OpenBdussService extends AbstractService implements NoProguard {
 
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-            public void onSuccess(int i2, String str3) {
+            public void onSuccess(int i2, String str2) {
                 try {
-                    JSONObject jSONObject = new JSONObject(str3);
+                    JSONObject jSONObject = new JSONObject(str2);
                     if (!TextUtils.isEmpty(jSONObject.optString("uid"))) {
                         jSONObject.put("bduss", currentAccount.bduss);
                     }
@@ -119,7 +116,7 @@ public class OpenBdussService extends AbstractService implements NoProguard {
 
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-            public void onFailure(Throwable th, int i2, String str3) {
+            public void onFailure(Throwable th, int i2, String str2) {
                 OpenBdussResult openBdussResult2 = new OpenBdussResult();
                 openBdussResult2.setResultCode(i2);
                 getOpenBdussCallback.onFailure(openBdussResult2);

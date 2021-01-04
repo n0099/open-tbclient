@@ -24,8 +24,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.SquareForumListActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
@@ -37,7 +37,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetForumsFromForumClass.ForumSpaceForumInfo;
 import tbclient.GetForumsFromForumClass.GetForumsFromForumClassResIdl;
-/* loaded from: classes23.dex */
+/* loaded from: classes8.dex */
 public class SquareForumListActivity extends ProxyAdkBaseActivity<SquareForumListActivity> {
     private static final int DEFAULT_PAGE_LIMIT = 20;
     private static final int MAX_LIST_SIZE = 50;
@@ -89,7 +89,7 @@ public class SquareForumListActivity extends ProxyAdkBaseActivity<SquareForumLis
                     return;
                 }
                 l.showToast(SquareForumListActivity.this.getActivity(), squareForumListResHttpMsg.getErrorString());
-                if (y.getCount(SquareForumListActivity.this.mListData) == 0 && !j.isNetWorkAvailable()) {
+                if (x.getCount(SquareForumListActivity.this.mListData) == 0 && !j.isNetWorkAvailable()) {
                     SquareForumListActivity.this.showNoNetworkView();
                     SquareForumListActivity.this.mForumListView.setVisibility(8);
                     SquareForumListActivity.this.mListFooter.setVisibility(8);
@@ -112,7 +112,7 @@ public class SquareForumListActivity extends ProxyAdkBaseActivity<SquareForumLis
                     return;
                 }
                 l.showToast(SquareForumListActivity.this.getActivity(), squareForumListResSocketMsg.getErrorString());
-                if (y.getCount(SquareForumListActivity.this.mListData) == 0 && !j.isNetWorkAvailable()) {
+                if (x.getCount(SquareForumListActivity.this.mListData) == 0 && !j.isNetWorkAvailable()) {
                     SquareForumListActivity.this.showNoNetworkView();
                     SquareForumListActivity.this.mForumListView.setVisibility(8);
                     SquareForumListActivity.this.mListFooter.setVisibility(8);
@@ -196,12 +196,12 @@ public class SquareForumListActivity extends ProxyAdkBaseActivity<SquareForumLis
         super.onChangeSkinType(i);
         getLayoutMode().onModeChanged(this.mRootView);
         getLayoutMode().onModeChanged(this.mListFooter);
-        ap.setBackgroundColor(this.mRootView, R.color.CAM_X0201);
-        ap.setBackgroundColor(this.mListFooter.findViewById(R.id.footer_divider), R.color.CAM_X0204);
+        ao.setBackgroundColor(this.mRootView, R.color.CAM_X0201);
+        ao.setBackgroundColor(this.mListFooter.findViewById(R.id.footer_divider), R.color.CAM_X0204);
         if (this.mHasMore) {
-            ap.setBackgroundResource(this.mListFooter, R.drawable.square_list_item_bg_selector);
+            ao.setBackgroundResource(this.mListFooter, R.drawable.square_list_item_bg_selector);
         } else {
-            ap.setBackgroundColor(this.mListFooter, R.color.CAM_X0201);
+            ao.setBackgroundColor(this.mListFooter, R.color.CAM_X0201);
         }
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
         this.mListAdapter.notifyDataSetChanged();
@@ -221,7 +221,7 @@ public class SquareForumListActivity extends ProxyAdkBaseActivity<SquareForumLis
             }
             this.mIsLoading = true;
             this.mFooterText.setText(R.string.flist_loading);
-            ap.setViewTextColor(this.mFooterText, R.color.CAM_X0109);
+            ao.setViewTextColor(this.mFooterText, R.color.CAM_X0109);
             sendMessage(new SquareForumListReq(this.mPageType, this.mPageNum, 20));
         }
     }
@@ -236,11 +236,11 @@ public class SquareForumListActivity extends ProxyAdkBaseActivity<SquareForumLis
         }
         this.mListFooter.setVisibility(0);
         this.mFooterText.setText(this.mHasMore ? R.string.recommend_frs_hot_thread_more : R.string.list_no_more);
-        ap.setViewTextColor(this.mFooterText, this.mHasMore ? R.color.CAM_X0302 : R.color.CAM_X0109);
+        ao.setViewTextColor(this.mFooterText, this.mHasMore ? R.color.CAM_X0302 : R.color.CAM_X0109);
         if (this.mHasMore) {
-            ap.setBackgroundResource(this.mListFooter, R.drawable.square_list_item_bg_selector);
+            ao.setBackgroundResource(this.mListFooter, R.drawable.square_list_item_bg_selector);
         } else {
-            ap.setBackgroundColor(this.mListFooter, R.color.CAM_X0201);
+            ao.setBackgroundColor(this.mListFooter, R.color.CAM_X0201);
         }
         updateForumList(getForumsFromForumClassResIdl.data.forum_info, this.mPageNum == 1);
         this.mListAdapter.setData(this.mListData);
@@ -249,9 +249,9 @@ public class SquareForumListActivity extends ProxyAdkBaseActivity<SquareForumLis
     private void showNoDataView() {
         int a2 = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
         if (this.mNoDataView == null) {
-            this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, a2), NoDataViewFactory.d.dZ(null, getPageContext().getString(R.string.no_data_text)), null);
+            this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, a2), NoDataViewFactory.d.dY(null, getPageContext().getString(R.string.no_data_text)), null);
         }
-        this.mNoDataView.setTextOption(NoDataViewFactory.d.dZ(null, getPageContext().getString(R.string.no_data_text)));
+        this.mNoDataView.setTextOption(NoDataViewFactory.d.dY(null, getPageContext().getString(R.string.no_data_text)));
         this.mNoDataView.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         this.mNoDataView.setVisibility(0);
     }
@@ -260,9 +260,9 @@ public class SquareForumListActivity extends ProxyAdkBaseActivity<SquareForumLis
     public void showNoNetworkView() {
         int a2 = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
         if (this.mNoDataView == null) {
-            this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, a2), NoDataViewFactory.d.dZ(null, getPageContext().getString(R.string.network_not_available)), null);
+            this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, a2), NoDataViewFactory.d.dY(null, getPageContext().getString(R.string.network_not_available)), null);
         }
-        this.mNoDataView.setTextOption(NoDataViewFactory.d.dZ(null, getPageContext().getString(R.string.game_index_no_network_text)));
+        this.mNoDataView.setTextOption(NoDataViewFactory.d.dY(null, getPageContext().getString(R.string.game_index_no_network_text)));
         this.mNoDataView.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         this.mNoDataView.setVisibility(0);
     }
@@ -277,10 +277,10 @@ public class SquareForumListActivity extends ProxyAdkBaseActivity<SquareForumLis
         if (z) {
             this.mListData.clear();
         }
-        if (y.getCount(list) > 0) {
+        if (x.getCount(list) > 0) {
             for (ForumSpaceForumInfo forumSpaceForumInfo : list) {
                 if (forumSpaceForumInfo.forum_id != null && forumSpaceForumInfo.forum_id.longValue() >= 0 && forumSpaceForumInfo.like_num != null && forumSpaceForumInfo.post_num != null && forumSpaceForumInfo.like_num.intValue() > 0 && forumSpaceForumInfo.post_num.intValue() > 0 && !TextUtils.isEmpty(forumSpaceForumInfo.avatar) && !TextUtils.isEmpty(forumSpaceForumInfo.forum_name)) {
-                    if (y.getCount(this.mListData) < 50) {
+                    if (x.getCount(this.mListData) < 50) {
                         this.mListData.add(forumSpaceForumInfo);
                     } else {
                         return;

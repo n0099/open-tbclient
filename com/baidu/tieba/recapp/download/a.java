@@ -9,7 +9,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.s;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.core.util.n;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tieba.R;
@@ -20,24 +20,24 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes26.dex */
+/* loaded from: classes8.dex */
 public class a {
-    private static a mIm = new a();
-    private static DownloadData ftI = null;
+    private static a mNy = new a();
+    private static DownloadData fDo = null;
     private static List<DownloadData> mTaskList = new LinkedList();
-    private C0854a mIn = null;
+    private C0838a mNz = null;
     private int max = 20;
     @SuppressLint({"HandlerLeak"})
-    private Handler ftK = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.recapp.download.a.1
+    private Handler fDq = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.recapp.download.a.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             super.handleMessage(message);
-            if (message.what == 900002 && message.arg2 > 0 && a.ftI != null) {
-                a.ftI.setLength(message.arg1);
-                a.ftI.setSize(message.arg2);
-                a.ftI.setStatus(1);
-                if (a.ftI.getCallback() != null) {
-                    a.ftI.getCallback().onFileUpdateProgress(a.ftI);
+            if (message.what == 900002 && message.arg2 > 0 && a.fDo != null) {
+                a.fDo.setLength(message.arg1);
+                a.fDo.setSize(message.arg2);
+                a.fDo.setStatus(1);
+                if (a.fDo.getCallback() != null) {
+                    a.fDo.getCallback().onFileUpdateProgress(a.fDo);
                 }
             }
         }
@@ -46,8 +46,8 @@ public class a {
     private a() {
     }
 
-    public static a dFl() {
-        return mIm;
+    public static a dFa() {
+        return mNy;
     }
 
     public void a(DownloadData downloadData, int i) {
@@ -90,8 +90,8 @@ public class a {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < com.baidu.tieba.lego.card.d.a.eN(mTaskList)) {
-                    DownloadData downloadData2 = (DownloadData) com.baidu.tieba.lego.card.d.a.l(mTaskList, i2);
+                if (i2 < com.baidu.tieba.lego.card.c.a.eN(mTaskList)) {
+                    DownloadData downloadData2 = (DownloadData) com.baidu.tieba.lego.card.c.a.l(mTaskList, i2);
                     if (downloadData2 == null || !downloadData2.getUrl().equals(downloadData.getUrl()) || !downloadData2.getId().equals(downloadData.getId())) {
                         i = i2 + 1;
                     } else {
@@ -99,7 +99,7 @@ public class a {
                     }
                 } else {
                     downloadData.setStatus(5);
-                    com.baidu.tieba.lego.card.d.a.a(mTaskList, downloadData);
+                    com.baidu.tieba.lego.card.c.a.a(mTaskList, downloadData);
                     startQueue();
                     return;
                 }
@@ -109,11 +109,11 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void startQueue() {
-        if (ftI == null && !com.baidu.tieba.lego.card.d.a.isEmpty(mTaskList)) {
-            ftI = (DownloadData) com.baidu.tieba.lego.card.d.a.l(mTaskList, 0);
-            if (ftI != null) {
-                this.mIn = new C0854a();
-                this.mIn.execute(ftI);
+        if (fDo == null && !com.baidu.tieba.lego.card.c.a.isEmpty(mTaskList)) {
+            fDo = (DownloadData) com.baidu.tieba.lego.card.c.a.l(mTaskList, 0);
+            if (fDo != null) {
+                this.mNz = new C0838a();
+                this.mNz.execute(fDo);
             }
         }
     }
@@ -123,12 +123,12 @@ public class a {
     }
 
     public void cancelDownLoadByUrl(String str, boolean z) {
-        if (ftI != null && ftI.getUrl().equals(str)) {
+        if (fDo != null && fDo.getUrl().equals(str)) {
             if (z) {
-                this.mIn.cancelImmediately();
+                this.mNz.cancelImmediately();
                 return;
             } else {
-                this.mIn.cancel(true);
+                this.mNz.cancel(true);
                 return;
             }
         }
@@ -144,11 +144,11 @@ public class a {
                 if (next.getCallback() != null) {
                     next.getCallback().onFileUpdateProgress(next);
                 }
-                com.baidu.tieba.lego.card.d.a.a(linkedList, next);
+                com.baidu.tieba.lego.card.c.a.a(linkedList, next);
             }
         }
         for (DownloadData downloadData : linkedList) {
-            com.baidu.tieba.lego.card.d.a.b(mTaskList, downloadData);
+            com.baidu.tieba.lego.card.c.a.b(mTaskList, downloadData);
         }
     }
 
@@ -169,16 +169,16 @@ public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     @SuppressLint({"DefaultLocale"})
     /* renamed from: com.baidu.tieba.recapp.download.a$a  reason: collision with other inner class name */
-    /* loaded from: classes26.dex */
-    public class C0854a extends BdAsyncTask<DownloadData, DownloadData, Integer> {
-        private c mIq = new c();
+    /* loaded from: classes8.dex */
+    public class C0838a extends BdAsyncTask<DownloadData, DownloadData, Integer> {
+        private c mNB = new c();
 
-        C0854a() {
+        C0838a() {
         }
 
         public void cancelImmediately() {
-            if (this.mIq != null) {
-                this.mIq.setCancel();
+            if (this.mNB != null) {
+                this.mNB.setCancel();
             }
             cancel(true);
         }
@@ -187,16 +187,16 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled() {
             super.onCancelled();
-            this.mIq.setCancel();
-            a.ftI.setStatus(4);
-            a.ftI.setStatusMsg(null);
-            if (a.ftI.getCallback() != null) {
-                a.ftI.getCallback().onFileUpdateProgress(a.ftI);
+            this.mNB.setCancel();
+            a.fDo.setStatus(4);
+            a.fDo.setStatusMsg(null);
+            if (a.fDo.getCallback() != null) {
+                a.fDo.getCallback().onFileUpdateProgress(a.fDo);
             }
-            if (!com.baidu.tieba.lego.card.d.a.isEmpty(a.mTaskList)) {
-                com.baidu.tieba.lego.card.d.a.m(a.mTaskList, 0);
+            if (!com.baidu.tieba.lego.card.c.a.isEmpty(a.mTaskList)) {
+                com.baidu.tieba.lego.card.c.a.m(a.mTaskList, 0);
             }
-            DownloadData unused = a.ftI = null;
+            DownloadData unused = a.fDo = null;
             a.this.startQueue();
         }
 
@@ -222,8 +222,8 @@ public class a {
                     file.delete();
                 }
                 if (!file.exists()) {
-                    this.mIq.setUrl(downloadDataArr[0].getUrl());
-                    if (!Boolean.valueOf(this.mIq.a(downloadDataArr[0].getId() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + downloadDataArr[0].getName() + ".tmp", a.this.ftK, 900002, 1, 3000)).booleanValue()) {
+                    this.mNB.setUrl(downloadDataArr[0].getUrl());
+                    if (!Boolean.valueOf(this.mNB.a(downloadDataArr[0].getId() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + downloadDataArr[0].getName() + ".tmp", a.this.fDq, 900002, 1, 3000)).booleanValue()) {
                         return 3;
                     }
                     File GetFile = n.GetFile(downloadDataArr[0].getId() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + downloadDataArr[0].getName() + ".tmp");
@@ -248,7 +248,7 @@ public class a {
                         return 7;
                     }
                 }
-                if (!au.isEmpty(downloadDataArr[0].getCheck())) {
+                if (!at.isEmpty(downloadDataArr[0].getCheck())) {
                     try {
                         fileInputStream = new FileInputStream(downloadDataArr[0].getPath());
                         try {
@@ -321,15 +321,15 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Integer num) {
             String string;
-            super.onPostExecute((C0854a) num);
+            super.onPostExecute((C0838a) num);
             if (num != null) {
                 if (num.intValue() == 0) {
-                    a.ftI.setStatus(0);
-                    if (a.ftI.getCallback() != null) {
-                        a.ftI.getCallback().onFileUpdateProgress(a.ftI);
+                    a.fDo.setStatus(0);
+                    if (a.fDo.getCallback() != null) {
+                        a.fDo.getCallback().onFileUpdateProgress(a.fDo);
                     }
-                    if (a.ftI.getCallback() != null) {
-                        a.ftI.getCallback().onFileDownloadSucceed(a.ftI);
+                    if (a.fDo.getCallback() != null) {
+                        a.fDo.getCallback().onFileDownloadSucceed(a.fDo);
                     }
                 } else {
                     switch (num.intValue()) {
@@ -356,19 +356,19 @@ public class a {
                             string = TbadkCoreApplication.getInst().getApp().getString(R.string.download_fail);
                             break;
                     }
-                    a.ftI.setStatusMsg(string);
-                    a.ftI.setErrorCode(num.intValue());
-                    a.ftI.setStatus(2);
-                    if (a.ftI.getCallback() != null) {
-                        a.ftI.getCallback().onFileUpdateProgress(a.ftI);
+                    a.fDo.setStatusMsg(string);
+                    a.fDo.setErrorCode(num.intValue());
+                    a.fDo.setStatus(2);
+                    if (a.fDo.getCallback() != null) {
+                        a.fDo.getCallback().onFileUpdateProgress(a.fDo);
                     }
-                    if (a.ftI.getCallback() != null) {
-                        a.ftI.getCallback().onFileDownloadFailed(a.ftI, num.intValue(), string);
+                    if (a.fDo.getCallback() != null) {
+                        a.fDo.getCallback().onFileDownloadFailed(a.fDo, num.intValue(), string);
                     }
                 }
-                DownloadData unused = a.ftI = null;
-                if (!com.baidu.tieba.lego.card.d.a.isEmpty(a.mTaskList)) {
-                    com.baidu.tieba.lego.card.d.a.m(a.mTaskList, 0);
+                DownloadData unused = a.fDo = null;
+                if (!com.baidu.tieba.lego.card.c.a.isEmpty(a.mTaskList)) {
+                    com.baidu.tieba.lego.card.c.a.m(a.mTaskList, 0);
                     a.this.startQueue();
                 }
             }

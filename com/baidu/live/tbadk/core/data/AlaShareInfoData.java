@@ -3,7 +3,7 @@ package com.baidu.live.tbadk.core.data;
 import com.baidu.live.adp.lib.util.BdLog;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaShareInfoData {
     public String content;
     public long record_tid;

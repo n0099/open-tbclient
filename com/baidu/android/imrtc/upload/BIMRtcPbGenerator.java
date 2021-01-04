@@ -14,7 +14,7 @@ import com.baidu.android.imsdk.upload.action.track.Request;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes12.dex */
+/* loaded from: classes6.dex */
 public final class BIMRtcPbGenerator {
     private static final String SDK_NAME = "bim_rtc";
     private static final String TAG = "BIMRtcPbGenerator";
@@ -45,41 +45,37 @@ public final class BIMRtcPbGenerator {
         int i2;
         int i3;
         int i4;
-        int i5 = 0;
         WindowManager windowManager = (WindowManager) context.getSystemService("window");
         DisplayMetrics displayMetrics = new DisplayMetrics();
         if (windowManager != null) {
             windowManager.getDefaultDisplay().getMetrics(displayMetrics);
             if (displayMetrics.widthPixels > displayMetrics.heightPixels) {
                 i4 = displayMetrics.widthPixels;
-                i3 = displayMetrics.heightPixels;
+                i2 = displayMetrics.heightPixels;
             } else {
-                i3 = displayMetrics.widthPixels;
+                i2 = displayMetrics.widthPixels;
                 i4 = displayMetrics.heightPixels;
             }
-            int i6 = displayMetrics.densityDpi;
-            i2 = i4;
-            i5 = i3;
-            i = i6;
+            i = displayMetrics.densityDpi;
+            i3 = i4;
         } else {
             i = 0;
             i2 = 0;
+            i3 = 0;
         }
-        return IMPushPb.TerminalInfo.newBuilder().setOs(IMPushPb.OSType.ANDROID).setOsVersion(Build.VERSION.RELEASE).setManufacturer(Build.MANUFACTURER).setTerminalType(Build.MODEL).setResolutionH(i2).setResolutionV(i5).setPpi(i).build();
+        return IMPushPb.TerminalInfo.newBuilder().setOs(IMPushPb.OSType.ANDROID).setOsVersion(Build.VERSION.RELEASE).setManufacturer(Build.MANUFACTURER).setTerminalType(Build.MODEL).setResolutionH(i3).setResolutionV(i2).setPpi(i).build();
     }
 
     private static IMPushPb.NetInfo getNetInfo(Context context) {
         String str;
-        String str2;
         NetworkInfo activeNetworkInfo;
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
+        String str2 = "";
         if (connectivityManager != null && (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) != null) {
-            String str3 = "" + activeNetworkInfo.getTypeName();
+            str2 = "" + activeNetworkInfo.getTypeName();
             str = "" + activeNetworkInfo.getExtraInfo();
-            str2 = str3;
         } else {
             str = "";
-            str2 = "";
         }
         return IMPushPb.NetInfo.newBuilder().setNetType(str2).setNetApn(str).build();
     }

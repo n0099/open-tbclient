@@ -6,8 +6,6 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -19,20 +17,22 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.widget.b.d;
 import com.facebook.drawee.generic.RoundingParams;
 import com.facebook.drawee.view.SimpleDraweeView;
 import java.lang.ref.WeakReference;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 final class a {
-    private static Toast mSystemToast;
-    private static WeakReference<b> mToastRef;
+    private static WeakReference<b> dFG;
+    private static Toast dFH;
     private static boolean sDebug = com.baidu.swan.apps.b.DEBUG;
     private static Handler mHandler = new Handler(Looper.getMainLooper());
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void show(@NonNull Context context, @NonNull CharSequence charSequence, int i, boolean z, int i2, boolean z2) {
+    public static void a(@NonNull Context context, @NonNull CharSequence charSequence, int i, boolean z, int i2, boolean z2) {
         TextView textView;
         boolean z3 = true;
         final Context applicationContext = context.getApplicationContext();
@@ -53,16 +53,16 @@ final class a {
                 textView.setGravity(17);
             }
         }
-        if (c.shouldShowSystemToast(applicationContext)) {
+        if (c.dl(applicationContext)) {
             mHandler.post(new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    Toast unused = a.mSystemToast = new Toast(applicationContext);
-                    a.mSystemToast.setView(relativeLayout);
-                    a.mSystemToast.setGravity(17, 0, 0);
-                    c.setToastAnimation(a.mSystemToast, a.i.toast_animation);
+                    Toast unused = a.dFH = new Toast(applicationContext);
+                    a.dFH.setView(relativeLayout);
+                    a.dFH.setGravity(17, 0, 0);
+                    c.a(a.dFH, a.i.toast_animation);
                     try {
-                        a.mSystemToast.show();
+                        a.dFH.show();
                     } catch (NullPointerException e) {
                         if (a.sDebug) {
                             e.printStackTrace();
@@ -81,12 +81,12 @@ final class a {
         bVar.setMask(z2);
         bVar.setGravity(17, 0, 0);
         bVar.setDuration(i);
-        bVar.setWindowAnimation(a.i.toast_animation);
+        bVar.kG(a.i.toast_animation);
         bVar.show();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void showToastBottom(@NonNull final Context context, @NonNull CharSequence charSequence, int i) {
+    public static void a(@NonNull final Context context, @NonNull CharSequence charSequence, int i) {
         final Context applicationContext = context.getApplicationContext();
         Resources resources = context.getResources();
         final RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(applicationContext).inflate(a.g.aiapps_normal_toast_view, (ViewGroup) null);
@@ -96,15 +96,15 @@ final class a {
             textView.setTextColor(resources.getColor(a.c.aiapps_white_text));
             textView.setText(charSequence);
         }
-        if (c.shouldShowSystemToast(applicationContext)) {
+        if (c.dl(applicationContext)) {
             mHandler.post(new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.a.4
                 @Override // java.lang.Runnable
                 public void run() {
-                    Toast unused = a.mSystemToast = new Toast(applicationContext);
-                    a.mSystemToast.setView(relativeLayout);
-                    a.mSystemToast.setGravity(81, 0, (int) context.getResources().getDimension(a.d.aiapps_clickable_toast_view_margin_bottom));
-                    c.setToastAnimation(a.mSystemToast, a.i.toast_animation);
-                    a.mSystemToast.show();
+                    Toast unused = a.dFH = new Toast(applicationContext);
+                    a.dFH.setView(relativeLayout);
+                    a.dFH.setGravity(81, 0, (int) context.getResources().getDimension(a.d.aiapps_clickable_toast_view_margin_bottom));
+                    c.a(a.dFH, a.i.toast_animation);
+                    a.dFH.show();
                     if (a.sDebug) {
                         Log.d("SingleToast", "mSystemToast.show() invoked in showToastBottom");
                     }
@@ -117,12 +117,12 @@ final class a {
         bVar.setView(relativeLayout);
         bVar.setGravity(81, 0, (int) context.getResources().getDimension(a.d.aiapps_clickable_toast_view_margin_bottom));
         bVar.setDuration(i);
-        bVar.setWindowAnimation(a.i.toast_animation);
+        bVar.kG(a.i.toast_animation);
         bVar.show();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void showHighlight(@NonNull final Context context, @NonNull CharSequence charSequence, @Nullable Drawable drawable, int i, boolean z) {
+    public static void a(@NonNull final Context context, @NonNull CharSequence charSequence, @Nullable Drawable drawable, int i, boolean z) {
         TextView textView;
         Context applicationContext = context.getApplicationContext();
         Resources resources = context.getResources();
@@ -141,15 +141,15 @@ final class a {
                 imageView.setImageDrawable(resources.getDrawable(a.e.aiapps_highlight_toast_image));
             }
         }
-        if (c.shouldShowSystemToast(applicationContext)) {
+        if (c.dl(applicationContext)) {
             mHandler.post(new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.a.5
                 @Override // java.lang.Runnable
                 public void run() {
-                    Toast unused = a.mSystemToast = new Toast(context);
-                    a.mSystemToast.setView(linearLayout);
-                    a.mSystemToast.setGravity(17, 0, 0);
-                    c.setToastAnimation(a.mSystemToast, a.i.highlight_toast_animation);
-                    a.mSystemToast.show();
+                    Toast unused = a.dFH = new Toast(context);
+                    a.dFH.setView(linearLayout);
+                    a.dFH.setGravity(17, 0, 0);
+                    c.a(a.dFH, a.i.highlight_toast_animation);
+                    a.dFH.show();
                 }
             });
             return;
@@ -160,12 +160,12 @@ final class a {
         bVar.setMask(z);
         bVar.setGravity(17, 0, 0);
         bVar.setDuration(i);
-        bVar.setWindowAnimation(a.i.highlight_toast_animation);
+        bVar.kG(a.i.highlight_toast_animation);
         bVar.show();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void showHighLoadingToast(final Context context, CharSequence charSequence, int i, boolean z) {
+    public static void a(final Context context, CharSequence charSequence, int i, boolean z) {
         Context applicationContext = context.getApplicationContext();
         Resources resources = context.getResources();
         final LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(applicationContext).inflate(a.g.aiapps_highloading_toast_view, (ViewGroup) null);
@@ -175,15 +175,15 @@ final class a {
         if (!TextUtils.isEmpty(charSequence) && textView != null) {
             textView.setTextColor(resources.getColor(a.c.aiapps_white_text));
         }
-        if (c.shouldShowSystemToast(applicationContext)) {
+        if (c.dl(applicationContext)) {
             mHandler.post(new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.a.6
                 @Override // java.lang.Runnable
                 public void run() {
-                    Toast unused = a.mSystemToast = new Toast(context);
-                    a.mSystemToast.setView(linearLayout);
-                    a.mSystemToast.setGravity(17, 0, 0);
-                    c.setToastAnimation(a.mSystemToast, a.i.highlight_toast_animation);
-                    a.mSystemToast.show();
+                    Toast unused = a.dFH = new Toast(context);
+                    a.dFH.setView(linearLayout);
+                    a.dFH.setGravity(17, 0, 0);
+                    c.a(a.dFH, a.i.highlight_toast_animation);
+                    a.dFH.show();
                 }
             });
             return;
@@ -194,7 +194,7 @@ final class a {
         bVar.setMask(z);
         bVar.setGravity(17, 0, 0);
         bVar.setDuration(i);
-        bVar.setWindowAnimation(a.i.highlight_toast_animation);
+        bVar.kG(a.i.highlight_toast_animation);
         bVar.show();
     }
 
@@ -204,7 +204,7 @@ final class a {
         TextView textView2;
         final Context applicationContext = context.getApplicationContext();
         Resources resources = context.getResources();
-        if (c.shouldShowSystemToast(context)) {
+        if (c.dl(context)) {
             final RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(applicationContext).inflate(a.g.aiapps_normal_toast_view, (ViewGroup) null);
             relativeLayout.setBackground(resources.getDrawable(a.e.aiapps_normal_toast_view_bg));
             relativeLayout.setClickable(true);
@@ -216,19 +216,19 @@ final class a {
             mHandler.post(new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.a.7
                 @Override // java.lang.Runnable
                 public void run() {
-                    Toast unused = a.mSystemToast = new Toast(applicationContext);
-                    a.mSystemToast.setView(relativeLayout);
-                    a.mSystemToast.setGravity(81, 0, (int) applicationContext.getResources().getDimension(a.d.aiapps_clickable_toast_view_margin_bottom));
-                    c.setToastAnimation(a.mSystemToast, a.i.toast_animation);
+                    Toast unused = a.dFH = new Toast(applicationContext);
+                    a.dFH.setView(relativeLayout);
+                    a.dFH.setGravity(81, 0, (int) applicationContext.getResources().getDimension(a.d.aiapps_clickable_toast_view_margin_bottom));
+                    c.a(a.dFH, a.i.toast_animation);
                     relativeLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.widget.b.a.7.1
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             if (aVar != null) {
-                                aVar.onToastClick();
+                                aVar.ajM();
                             }
                         }
                     });
-                    a.mSystemToast.show();
+                    a.dFH.show();
                 }
             });
             return;
@@ -259,8 +259,8 @@ final class a {
         }
         b bVar = new b(applicationContext);
         a(bVar);
-        if (c.checkIsOppoRom()) {
-            bVar.setWindowType(2003);
+        if (c.aLP()) {
+            bVar.kH(2003);
             if (sDebug) {
                 Log.d("SingleToast", "Oppo WindowManager has set to TYPE_SYSTEM_ALERT");
             }
@@ -269,7 +269,7 @@ final class a {
         bVar.setGravity(81, 0, (int) applicationContext.getResources().getDimension(a.d.aiapps_clickable_toast_view_margin_bottom));
         bVar.setDuration(i2);
         bVar.a(aVar);
-        bVar.setWindowAnimation(a.i.toast_animation);
+        bVar.kG(a.i.toast_animation);
         bVar.show();
     }
 
@@ -286,7 +286,7 @@ final class a {
         if (uri != null) {
             simpleDraweeView.setImageURI(uri);
             if (i != 1) {
-                simpleDraweeView.getHierarchy().a(new RoundingParams().AU(false));
+                simpleDraweeView.getHierarchy().a(new RoundingParams().Bc(false));
             }
         } else {
             simpleDraweeView.setVisibility(8);
@@ -340,7 +340,7 @@ final class a {
                 public boolean onTouch(View view, MotionEvent motionEvent) {
                     switch (motionEvent.getAction()) {
                         case 0:
-                            textView.setAlpha(com.baidu.swan.apps.t.a.azw().getNightModeSwitcherState() ? 0.5f : 0.2f);
+                            textView.setAlpha(com.baidu.swan.apps.t.a.aAN().alD() ? 0.5f : 0.2f);
                             return false;
                         case 1:
                         default:
@@ -354,24 +354,24 @@ final class a {
         } else {
             findViewById.setVisibility(8);
         }
-        if (c.shouldShowSystemToast(context)) {
+        if (c.dl(context)) {
             mHandler.post(new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.a.3
                 @Override // java.lang.Runnable
                 public void run() {
                     findViewById.setVisibility(8);
-                    Toast unused = a.mSystemToast = new Toast(applicationContext);
-                    a.mSystemToast.setView(linearLayout);
-                    a.mSystemToast.setGravity(81, 0, (int) context.getResources().getDimension(a.d.aiapps_clickable_toast_view_margin_bottom));
-                    c.setToastAnimation(a.mSystemToast, a.i.toast_animation);
-                    a.mSystemToast.show();
+                    Toast unused = a.dFH = new Toast(applicationContext);
+                    a.dFH.setView(linearLayout);
+                    a.dFH.setGravity(81, 0, (int) context.getResources().getDimension(a.d.aiapps_clickable_toast_view_margin_bottom));
+                    c.a(a.dFH, a.i.toast_animation);
+                    a.dFH.show();
                 }
             });
             return;
         }
         b bVar = new b(applicationContext);
         a(bVar);
-        if (c.checkIsOppoRom()) {
-            bVar.setWindowType(2003);
+        if (c.aLP()) {
+            bVar.kH(2003);
             if (sDebug) {
                 Log.d("SingleToast", "Oppo WindowManager has set to TYPE_SYSTEM_ALERT");
             }
@@ -380,25 +380,25 @@ final class a {
         bVar.setGravity(81, 0, (int) context.getResources().getDimension(a.d.aiapps_clickable_toast_view_margin_bottom));
         bVar.setDuration(i3);
         bVar.a(aVar);
-        bVar.setWindowAnimation(a.i.toast_animation);
+        bVar.kG(a.i.toast_animation);
         bVar.show();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void cancel() {
         b bVar;
-        if (mToastRef != null && (bVar = mToastRef.get()) != null) {
+        if (dFG != null && (bVar = dFG.get()) != null) {
             bVar.cancel();
         }
-        if (mSystemToast != null) {
-            mSystemToast.cancel();
+        if (dFH != null) {
+            dFH.cancel();
         }
     }
 
     private static void a(b bVar) {
-        if (mToastRef != null) {
-            mToastRef.clear();
+        if (dFG != null) {
+            dFG.clear();
         }
-        mToastRef = new WeakReference<>(bVar);
+        dFG = new WeakReference<>(bVar);
     }
 }

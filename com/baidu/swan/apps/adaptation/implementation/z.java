@@ -1,18 +1,18 @@
 package com.baidu.swan.apps.adaptation.implementation;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.adaptation.a.au;
 import java.io.File;
 import java.util.Set;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class z implements au {
     private z() {
     }
 
-    public static z akt() {
-        return a.cAL;
+    public static z alB() {
+        return a.cFB;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.au
@@ -26,8 +26,8 @@ public class z implements au {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes25.dex */
+    /* loaded from: classes9.dex */
     public static class a {
-        private static final z cAL = new z();
+        private static final z cFB = new z();
     }
 }

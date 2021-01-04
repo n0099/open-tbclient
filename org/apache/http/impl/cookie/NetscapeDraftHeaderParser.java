@@ -5,7 +5,7 @@ import org.apache.http.ParseException;
 import org.apache.http.message.ParserCursor;
 import org.apache.http.util.CharArrayBuffer;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes6.dex */
 public class NetscapeDraftHeaderParser {
     public static final NetscapeDraftHeaderParser DEFAULT = null;
 

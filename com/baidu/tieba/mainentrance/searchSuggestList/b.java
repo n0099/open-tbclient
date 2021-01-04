@@ -11,40 +11,40 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes24.dex */
+/* loaded from: classes8.dex */
 public class b extends BaseAdapter {
-    private String ejE;
-    private List<String> laN;
+    private String esI;
+    private List<String> lgr;
     private Context mContext;
 
     public b(Context context, ArrayList<String> arrayList) {
         this.mContext = context;
-        this.laN = arrayList;
+        this.lgr = arrayList;
     }
 
     public void setData(List<String> list) {
-        this.laN = list;
-        if (this.laN != null) {
+        this.lgr = list;
+        if (this.lgr != null) {
             notifyDataSetChanged();
         }
     }
 
-    public void OB(String str) {
+    public void Oj(String str) {
         if (!StringUtils.isNull(str)) {
-            this.ejE = str.trim();
+            this.esI = str.trim();
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.laN == null) {
+        if (this.lgr == null) {
             return 0;
         }
-        return this.laN.size();
+        return this.lgr.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -54,7 +54,7 @@ public class b extends BaseAdapter {
         if (count <= 0 || i >= count) {
             return null;
         }
-        return this.laN.get(i);
+        return this.lgr.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -69,8 +69,8 @@ public class b extends BaseAdapter {
             view = LayoutInflater.from(this.mContext).inflate(R.layout.search_suggest_item, (ViewGroup) null);
             a aVar2 = new a();
             aVar2.mRootView = view.findViewById(R.id.rootview);
-            aVar2.laO = (TextView) view.findViewById(R.id.searchSuggestTitle);
-            aVar2.elk = view.findViewById(R.id.searchItemSep);
+            aVar2.lgs = (TextView) view.findViewById(R.id.searchSuggestTitle);
+            aVar2.eup = view.findViewById(R.id.searchItemSep);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
@@ -78,22 +78,22 @@ public class b extends BaseAdapter {
         }
         String item = getItem(i);
         if (!StringUtils.isNull(item)) {
-            d(aVar.laO, item);
+            e(aVar.lgs, item);
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             if (skinType != aVar.mSkinType) {
                 aVar.mSkinType = skinType;
-                ap.setBackgroundResource(aVar.mRootView, R.drawable.addresslist_item_bg);
-                ap.setViewTextColor(aVar.laO, R.color.CAM_X0105);
-                ap.setBackgroundColor(aVar.elk, R.color.CAM_X0204);
+                ao.setBackgroundResource(aVar.mRootView, R.drawable.addresslist_item_bg);
+                ao.setViewTextColor(aVar.lgs, R.color.CAM_X0105);
+                ao.setBackgroundColor(aVar.eup, R.color.CAM_X0204);
             }
         }
         return view;
     }
 
-    /* loaded from: classes24.dex */
+    /* loaded from: classes8.dex */
     private class a {
-        View elk;
-        TextView laO;
+        View eup;
+        TextView lgs;
         View mRootView;
         int mSkinType;
 
@@ -102,18 +102,18 @@ public class b extends BaseAdapter {
         }
     }
 
-    public void d(TextView textView, String str) {
-        if (textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.ejE)) {
+    public void e(TextView textView, String str) {
+        if (textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.esI)) {
             String lowerCase = str.toLowerCase();
-            String lowerCase2 = this.ejE.toLowerCase();
+            String lowerCase2 = this.esI.toLowerCase();
             if (!lowerCase.contains(lowerCase2)) {
                 textView.setText(str);
                 return;
             }
             int indexOf = lowerCase.indexOf(lowerCase2);
-            ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(ap.getColor(R.color.CAM_X0301));
+            ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(ao.getColor(R.color.CAM_X0301));
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.ejE.length() + indexOf, 33);
+            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.esI.length() + indexOf, 33);
             textView.setText(spannableStringBuilder);
         }
     }

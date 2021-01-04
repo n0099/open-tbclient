@@ -7,23 +7,27 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class c extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f1319a;
-    private final CharSequence b;
+    final /* synthetic */ b f1709a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private final CharSequence f1710b;
     private byte[] c;
 
     public c(b bVar, CharSequence charSequence, byte[] bArr) {
-        this.f1319a = bVar;
+        this.f1709a = bVar;
         this.c = null;
-        this.b = charSequence;
+        this.f1710b = charSequence;
         this.c = bArr;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
+        Exception e;
+        Throwable th;
         HttpURLConnection httpURLConnection;
         com.baidu.clientupdate.download.a aVar;
         com.baidu.clientupdate.download.a aVar2;
@@ -31,12 +35,12 @@ public class c extends Thread {
         HttpURLConnection httpURLConnection2 = null;
         try {
             try {
-                httpURLConnection = (HttpURLConnection) new URL(this.b.toString()).openConnection();
-            } catch (Throwable th) {
-                th = th;
+                httpURLConnection = (HttpURLConnection) new URL(this.f1710b.toString()).openConnection();
+            } catch (Throwable th2) {
+                th = th2;
             }
-        } catch (Exception e) {
-            e = e;
+        } catch (Exception e2) {
+            e = e2;
         }
         try {
             httpURLConnection.setConnectTimeout(5000);
@@ -62,30 +66,30 @@ public class c extends Thread {
                 inputStream.close();
                 LogUtil.logE("LogRequest", "**********strResult:" + sb.toString());
                 if (new JSONObject(sb.toString()).getString("retcode").equals("1")) {
-                    aVar3 = this.f1319a.c;
+                    aVar3 = this.f1709a.c;
                     aVar3.c();
                 } else {
-                    aVar2 = this.f1319a.c;
+                    aVar2 = this.f1709a.c;
                     aVar2.e();
                 }
             } else {
                 LogUtil.logE("LogRequest", "request failed  " + httpURLConnection.getResponseCode());
-                aVar = this.f1319a.c;
+                aVar = this.f1709a.c;
                 aVar.e();
             }
             if (httpURLConnection != null) {
                 httpURLConnection.disconnect();
             }
-        } catch (Exception e2) {
+        } catch (Exception e3) {
+            e = e3;
             httpURLConnection2 = httpURLConnection;
-            e = e2;
             e.printStackTrace();
             if (httpURLConnection2 != null) {
                 httpURLConnection2.disconnect();
             }
-        } catch (Throwable th2) {
+        } catch (Throwable th3) {
+            th = th3;
             httpURLConnection2 = httpURLConnection;
-            th = th2;
             if (httpURLConnection2 != null) {
                 httpURLConnection2.disconnect();
             }

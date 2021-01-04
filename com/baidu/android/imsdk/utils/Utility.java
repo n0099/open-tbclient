@@ -26,8 +26,9 @@ import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.upload.action.IMTrackDatabase;
-import com.baidu.h.a;
+import com.baidu.i.a;
 import com.baidu.live.adp.lib.cache.BdKVCache;
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.io.File;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
@@ -44,7 +45,7 @@ import javax.crypto.spec.SecretKeySpec;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public final class Utility {
     private static final String ALGORITHM_NAME = "AES";
     private static final String API_KEY = "BD_IM_API_KEY";
@@ -55,7 +56,7 @@ public final class Utility {
     private static int mDisableRestapi = 0;
     private static char[] hexDigits = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public interface DeleteItem {
         void deleteItem(Context context, Long l);
     }
@@ -354,7 +355,7 @@ public final class Utility {
     public static void startIMService(Context context) {
         LogUtils.i(TAG, "--- Start IM Service ---");
         try {
-            a.aq(context).e(context, new Intent(context, a.class));
+            a.ap(context).e(context, new Intent(context, a.class));
         } catch (Exception e) {
             LogUtils.e(TAG, "Exception ", e);
         }
@@ -387,7 +388,7 @@ public final class Utility {
         creatMethodIntent.putExtra("contacter", j2);
         creatMethodIntent.putExtra("category", j);
         try {
-            a.aq(context).e(context, creatMethodIntent);
+            a.ap(context).e(context, creatMethodIntent);
         } catch (Exception e) {
             LogUtils.e(TAG, "Exception ", e);
             new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
@@ -469,7 +470,7 @@ public final class Utility {
             creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, str);
         }
         try {
-            a.aq(context).e(context, creatMethodIntent);
+            a.ap(context).e(context, creatMethodIntent);
         } catch (Exception e) {
             ListenerManager.getInstance().removeListener(str);
             LogUtils.e(TAG, "Exception ", e);
@@ -591,9 +592,9 @@ public final class Utility {
             return Constants.ERROR_MSG_MD5_NULL;
         }
         StringBuilder sb = new StringBuilder();
-        for (byte b : bArr) {
-            char c = hexDigits[(b & 240) >> 4];
-            char c2 = hexDigits[b & 15];
+        for (byte b2 : bArr) {
+            char c = hexDigits[(b2 & 240) >> 4];
+            char c2 = hexDigits[b2 & 15];
             sb.append(c);
             sb.append(c2);
         }
@@ -601,7 +602,7 @@ public final class Utility {
     }
 
     public static String getMd5(String str) throws NoSuchAlgorithmException {
-        MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+        MessageDigest messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
         messageDigest.update(str.getBytes());
         return byte2Hex(messageDigest.digest());
     }

@@ -7,7 +7,7 @@ import org.apache.commons.base.BinaryEncoder;
 import org.apache.commons.base.Charsets;
 import org.apache.commons.base.DecoderException;
 import org.apache.commons.base.EncoderException;
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public class Hex implements BinaryDecoder, BinaryEncoder {
     public static final String DEFAULT_CHARSET_NAME = "UTF-8";
     private final Charset charset;
@@ -20,12 +20,12 @@ public class Hex implements BinaryDecoder, BinaryEncoder {
     }
 
     public static byte[] decodeHex(char[] cArr) throws DecoderException {
-        int i = 0;
         int length = cArr.length;
         if ((length & 1) != 0) {
             throw new DecoderException("Odd number of characters.");
         }
         byte[] bArr = new byte[length >> 1];
+        int i = 0;
         int i2 = 0;
         while (i < length) {
             int i3 = i + 1;
@@ -53,9 +53,9 @@ public class Hex implements BinaryDecoder, BinaryEncoder {
     }
 
     protected static char[] encodeHex(byte[] bArr, char[] cArr) {
-        int i = 0;
         int length = bArr.length;
         char[] cArr2 = new char[length << 1];
+        int i = 0;
         for (int i2 = 0; i2 < length; i2++) {
             int i3 = i + 1;
             cArr2[i] = cArr[(bArr[i2] & 240) >>> 4];

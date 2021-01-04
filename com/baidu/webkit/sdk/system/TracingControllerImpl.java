@@ -1,14 +1,14 @@
 package com.baidu.webkit.sdk.system;
 
 import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.webkit.TracingConfig;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.webkit.sdk.TracingConfig;
 import com.baidu.webkit.sdk.TracingController;
 import java.io.OutputStream;
 import java.util.concurrent.Executor;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public class TracingControllerImpl extends TracingController {
     @Override // com.baidu.webkit.sdk.TracingController
     public boolean isTracing() {

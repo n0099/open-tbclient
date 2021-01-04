@@ -13,26 +13,28 @@ import com.baidu.sapi2.result.AccountToolsResult;
 import com.baidu.sapi2.utils.ParamsUtil;
 import com.baidu.sapi2.utils.f;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class AccountToolsActivity extends Activity {
     public static final String EXTRA_ACCOUNT_TOOLS_TYPE = "ACCOUNT_TOOLS_TYPE";
 
     /* renamed from: a  reason: collision with root package name */
-    private AccountToolsResult f3317a = new AccountToolsResult();
-    private AccountToolsCallback b;
+    private AccountToolsResult f5044a = new AccountToolsResult();
+
+    /* renamed from: b  reason: collision with root package name */
+    private AccountToolsCallback f5045b;
 
     @Override // android.app.Activity
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         int intExtra = getIntent().getIntExtra(EXTRA_ACCOUNT_TOOLS_TYPE, -1);
-        this.b = CoreViewRouter.getInstance().getAccountToolsCallback();
+        this.f5045b = CoreViewRouter.getInstance().getAccountToolsCallback();
         AccountCenterDTO accountCenterDTO = new AccountCenterDTO();
         accountCenterDTO.accountToolsUrl = a(intExtra);
         CoreViewRouter.getInstance().loadAccountCenter(new AccountCenterCallback() { // from class: com.baidu.sapi2.activity.AccountToolsActivity.1
             @Override // com.baidu.sapi2.callback.AccountCenterCallback
             public void onFinish(AccountCenterResult accountCenterResult) {
-                AccountToolsActivity.this.f3317a.setResultCode(accountCenterResult.getResultCode());
-                AccountToolsActivity.this.f3317a.setResultMsg(accountCenterResult.getResultMsg());
+                AccountToolsActivity.this.f5044a.setResultCode(accountCenterResult.getResultCode());
+                AccountToolsActivity.this.f5044a.setResultMsg(accountCenterResult.getResultMsg());
                 AccountToolsActivity.this.a();
             }
 
@@ -44,7 +46,7 @@ public class AccountToolsActivity extends Activity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        this.b.onFinish(this.f3317a);
+        this.f5045b.onFinish(this.f5044a);
         finish();
     }
 

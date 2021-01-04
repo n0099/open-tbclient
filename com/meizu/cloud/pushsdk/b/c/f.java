@@ -3,7 +3,6 @@ package com.meizu.cloud.pushsdk.b.c;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
-import com.baidu.searchbox.ugc.model.UgcConstant;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
@@ -12,12 +11,14 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import org.apache.http.HttpHost;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final char[] f4096a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
-    private final String b;
+    private static final char[] f11452a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+
+    /* renamed from: b  reason: collision with root package name */
+    private final String f11453b;
     private final String c;
     private final String d;
     private final String e;
@@ -29,53 +30,55 @@ public class f {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.meizu.cloud.pushsdk.b.c.f$1  reason: invalid class name */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
 
         /* renamed from: a  reason: collision with root package name */
-        static final /* synthetic */ int[] f4097a = new int[a.EnumC1009a.values().length];
+        static final /* synthetic */ int[] f11454a = new int[a.EnumC1140a.values().length];
 
         static {
             try {
-                f4097a[a.EnumC1009a.SUCCESS.ordinal()] = 1;
+                f11454a[a.EnumC1140a.SUCCESS.ordinal()] = 1;
             } catch (NoSuchFieldError e) {
             }
             try {
-                f4097a[a.EnumC1009a.INVALID_HOST.ordinal()] = 2;
+                f11454a[a.EnumC1140a.INVALID_HOST.ordinal()] = 2;
             } catch (NoSuchFieldError e2) {
             }
             try {
-                f4097a[a.EnumC1009a.UNSUPPORTED_SCHEME.ordinal()] = 3;
+                f11454a[a.EnumC1140a.UNSUPPORTED_SCHEME.ordinal()] = 3;
             } catch (NoSuchFieldError e3) {
             }
             try {
-                f4097a[a.EnumC1009a.MISSING_SCHEME.ordinal()] = 4;
+                f11454a[a.EnumC1140a.MISSING_SCHEME.ordinal()] = 4;
             } catch (NoSuchFieldError e4) {
             }
             try {
-                f4097a[a.EnumC1009a.INVALID_PORT.ordinal()] = 5;
+                f11454a[a.EnumC1140a.INVALID_PORT.ordinal()] = 5;
             } catch (NoSuchFieldError e5) {
             }
         }
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        String f4098a;
+        String f11455a;
         String d;
         List<String> g;
         String h;
-        String b = "";
+
+        /* renamed from: b  reason: collision with root package name */
+        String f11456b = "";
         String c = "";
         int e = -1;
         final List<String> f = new ArrayList();
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: com.meizu.cloud.pushsdk.b.c.f$a$a  reason: collision with other inner class name */
-        /* loaded from: classes16.dex */
-        public enum EnumC1009a {
+        /* loaded from: classes6.dex */
+        public enum EnumC1140a {
             SUCCESS,
             MISSING_SCHEME,
             UNSUPPORTED_SCHEME,
@@ -89,26 +92,26 @@ public class f {
 
         private static String a(byte[] bArr) {
             int i = 0;
-            int i2 = 0;
-            int i3 = -1;
+            int i2 = -1;
+            int i3 = 0;
             int i4 = 0;
-            while (i4 < bArr.length) {
-                int i5 = i4;
+            while (i3 < bArr.length) {
+                int i5 = i3;
                 while (i5 < 16 && bArr[i5] == 0 && bArr[i5 + 1] == 0) {
                     i5 += 2;
                 }
-                int i6 = i5 - i4;
-                if (i6 > i2) {
-                    i2 = i6;
-                    i3 = i4;
+                int i6 = i5 - i3;
+                if (i6 > i4) {
+                    i4 = i6;
+                    i2 = i3;
                 }
-                i4 = i5 + 2;
+                i3 = i5 + 2;
             }
             com.meizu.cloud.pushsdk.b.g.b bVar = new com.meizu.cloud.pushsdk.b.g.b();
             while (i < bArr.length) {
-                if (i == i3) {
+                if (i == i2) {
                     bVar.b(58);
-                    i += i2;
+                    i += i4;
                     if (i == 16) {
                         bVar.b(58);
                     }
@@ -195,8 +198,8 @@ public class f {
                     return false;
                 }
                 bArr[i5] = (byte) i6;
-                i5++;
                 i4 = i7;
+                i5++;
             }
             return i5 == i3 + 4;
         }
@@ -289,10 +292,10 @@ public class f {
             return m.a(a2);
         }
 
-        /* JADX WARN: Code restructure failed: missing block: B:63:?, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:64:?, code lost:
             return null;
          */
-        /* JADX WARN: Removed duplicated region for block: B:27:0x0044  */
+        /* JADX WARN: Removed duplicated region for block: B:27:0x0045  */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -309,53 +312,55 @@ public class f {
                     if (i8 != bArr.length) {
                         if (i5 + 2 <= i2 && str.regionMatches(i5, "::", 0, 2)) {
                             if (i7 == -1) {
-                                i5 += 2;
-                                i7 = i8 + 2;
-                                if (i5 != i2) {
-                                    i8 = i7;
-                                    int i9 = 0;
-                                    i3 = i5;
+                                i6 = i5 + 2;
+                                int i9 = i8 + 2;
+                                if (i6 != i2) {
+                                    i7 = i9;
+                                    i8 = i9;
+                                    int i10 = 0;
+                                    i3 = i6;
                                     while (i3 < i2) {
                                     }
-                                    i4 = i3 - i5;
+                                    i4 = i3 - i6;
                                     if (i4 == 0) {
                                         break;
                                     }
                                     break;
                                 }
-                                i8 = i7;
+                                i7 = i9;
+                                i8 = i9;
                                 break;
                             }
                             return null;
                         }
-                        if (i8 != 0) {
-                            if (!str.regionMatches(i5, ":", 0, 1)) {
-                                if (str.regionMatches(i5, ".", 0, 1) && a(str, i6, i2, bArr, i8 - 2)) {
-                                    i8 += 2;
-                                }
-                                return null;
+                        if (i8 == 0) {
+                            i6 = i5;
+                        } else if (!str.regionMatches(i5, ":", 0, 1)) {
+                            if (str.regionMatches(i5, ".", 0, 1) && a(str, i6, i2, bArr, i8 - 2)) {
+                                i8 += 2;
                             }
-                            i5++;
+                            return null;
+                        } else {
+                            i6 = i5 + 1;
                         }
-                        int i92 = 0;
-                        i3 = i5;
+                        int i102 = 0;
+                        i3 = i6;
                         while (i3 < i2) {
                             int a2 = f.a(str.charAt(i3));
                             if (a2 == -1) {
                                 break;
                             }
-                            i92 = (i92 << 4) + a2;
+                            i102 = (i102 << 4) + a2;
                             i3++;
                         }
-                        i4 = i3 - i5;
+                        i4 = i3 - i6;
                         if (i4 == 0 || i4 > 4) {
                             break;
                         }
-                        int i10 = i8 + 1;
-                        bArr[i8] = (byte) ((i92 >>> 8) & 255);
-                        i8 = i10 + 1;
-                        bArr[i10] = (byte) (i92 & 255);
-                        i6 = i5;
+                        int i11 = i8 + 1;
+                        bArr[i8] = (byte) ((i102 >>> 8) & 255);
+                        i8 = i11 + 1;
+                        bArr[i11] = (byte) (i102 & 255);
                         i5 = i3;
                     } else {
                         return null;
@@ -391,110 +396,103 @@ public class f {
         }
 
         int a() {
-            return this.e != -1 ? this.e : f.a(this.f4098a);
+            return this.e != -1 ? this.e : f.a(this.f11455a);
         }
 
-        EnumC1009a a(f fVar, String str) {
+        EnumC1140a a(f fVar, String str) {
             int i;
             int a2 = m.a(str, 0, str.length());
-            int b = m.b(str, a2, str.length());
-            if (b(str, a2, b) != -1) {
+            int b2 = m.b(str, a2, str.length());
+            if (b(str, a2, b2) != -1) {
                 if (str.regionMatches(true, a2, UrlSchemaHelper.SCHEMA_TYPE_HTTPS, 0, 6)) {
-                    this.f4098a = "https";
+                    this.f11455a = "https";
                     a2 += UrlSchemaHelper.SCHEMA_TYPE_HTTPS.length();
                 } else if (!str.regionMatches(true, a2, UrlSchemaHelper.SCHEMA_TYPE_HTTP, 0, 5)) {
-                    return EnumC1009a.UNSUPPORTED_SCHEME;
+                    return EnumC1140a.UNSUPPORTED_SCHEME;
                 } else {
-                    this.f4098a = HttpHost.DEFAULT_SCHEME_NAME;
+                    this.f11455a = HttpHost.DEFAULT_SCHEME_NAME;
                     a2 += UrlSchemaHelper.SCHEMA_TYPE_HTTP.length();
                 }
             } else if (fVar == null) {
-                return EnumC1009a.MISSING_SCHEME;
+                return EnumC1140a.MISSING_SCHEME;
             } else {
-                this.f4098a = fVar.b;
+                this.f11455a = fVar.f11453b;
             }
-            boolean z = false;
-            boolean z2 = false;
-            int c = c(str, a2, b);
-            if (c >= 2 || fVar == null || !fVar.b.equals(this.f4098a)) {
-                int i2 = a2 + c;
+            int c = c(str, a2, b2);
+            if (c >= 2 || fVar == null || !fVar.f11453b.equals(this.f11455a)) {
+                int i2 = c + a2;
+                boolean z = false;
+                boolean z2 = false;
                 while (true) {
-                    boolean z3 = z2;
-                    boolean z4 = z;
-                    int i3 = i2;
-                    int a3 = m.a(str, i3, b, "@/\\?#");
-                    switch (a3 != b ? str.charAt(a3) : (char) 65535) {
+                    int a3 = m.a(str, i2, b2, "@/\\?#");
+                    switch (a3 != b2 ? str.charAt(a3) : (char) 65535) {
                         case 65535:
                         case '#':
                         case '/':
                         case '?':
                         case '\\':
-                            int d = d(str, i3, a3);
+                            int d = d(str, i2, a3);
                             if (d + 1 < a3) {
-                                this.d = e(str, i3, d);
+                                this.d = e(str, i2, d);
                                 this.e = g(str, d + 1, a3);
                                 if (this.e == -1) {
-                                    return EnumC1009a.INVALID_PORT;
+                                    return EnumC1140a.INVALID_PORT;
                                 }
                             } else {
-                                this.d = e(str, i3, d);
-                                this.e = f.a(this.f4098a);
+                                this.d = e(str, i2, d);
+                                this.e = f.a(this.f11455a);
                             }
                             if (this.d != null) {
                                 a2 = a3;
                                 break;
                             } else {
-                                return EnumC1009a.INVALID_HOST;
+                                return EnumC1140a.INVALID_HOST;
                             }
                         case '@':
-                            if (z3) {
-                                this.c += "%40" + f.a(str, i3, a3, " \"':;<=>@[]^`{}|/\\?#", true, false, false, true);
+                            if (z) {
+                                this.c += "%40" + f.a(str, i2, a3, " \"':;<=>@[]^`{}|/\\?#", true, false, false, true);
                             } else {
-                                int a4 = m.a(str, i3, a3, ':');
-                                String a5 = f.a(str, i3, a4, " \"':;<=>@[]^`{}|/\\?#", true, false, false, true);
-                                if (z4) {
-                                    a5 = this.b + "%40" + a5;
+                                int a4 = m.a(str, i2, a3, ':');
+                                String a5 = f.a(str, i2, a4, " \"':;<=>@[]^`{}|/\\?#", true, false, false, true);
+                                if (z2) {
+                                    a5 = this.f11456b + "%40" + a5;
                                 }
-                                this.b = a5;
+                                this.f11456b = a5;
                                 if (a4 != a3) {
-                                    z3 = true;
+                                    z = true;
                                     this.c = f.a(str, a4 + 1, a3, " \"':;<=>@[]^`{}|/\\?#", true, false, false, true);
                                 }
-                                z4 = true;
+                                z2 = true;
                             }
                             i2 = a3 + 1;
-                            z2 = z3;
-                            break;
-                        default:
-                            z2 = z3;
-                            i2 = i3;
                             break;
                     }
-                    z = z4;
+                    z = z;
+                    z2 = z2;
                 }
             } else {
-                this.b = fVar.b();
+                this.f11456b = fVar.b();
                 this.c = fVar.c();
                 this.d = fVar.e;
                 this.e = fVar.f;
                 this.f.clear();
                 this.f.addAll(fVar.d());
-                if (a2 == b || str.charAt(a2) == '#') {
+                if (a2 == b2 || str.charAt(a2) == '#') {
                     a(fVar.e());
                 }
             }
-            int a6 = m.a(str, a2, b, "?#");
+            int a6 = m.a(str, a2, b2, "?#");
             a(str, a2, a6);
-            if (a6 >= b || str.charAt(a6) != '?') {
+            if (a6 >= b2 || str.charAt(a6) != '?') {
                 i = a6;
             } else {
-                i = m.a(str, a6, b, (char) UgcConstant.TOPIC_PATTERN_TAG);
+                i = m.a(str, a6, b2, '#');
                 this.g = f.b(f.a(str, a6 + 1, i, " \"'<>#", true, false, true, true));
             }
-            if (i < b && str.charAt(i) == '#') {
-                this.h = f.a(str, i + 1, b, "", true, false, false, false);
+            if (i < b2 && str.charAt(i) == '#') {
+                this.h = f.a(str, i + 1, b2, "", true, false, false, false);
             }
-            return EnumC1009a.SUCCESS;
+            return EnumC1140a.SUCCESS;
         }
 
         public a a(String str) {
@@ -515,7 +513,7 @@ public class f {
         }
 
         public f b() {
-            if (this.f4098a == null) {
+            if (this.f11455a == null) {
                 throw new IllegalStateException("scheme == null");
             }
             if (this.d == null) {
@@ -526,15 +524,15 @@ public class f {
 
         public String toString() {
             StringBuilder sb = new StringBuilder();
-            sb.append(this.f4098a);
+            sb.append(this.f11455a);
             sb.append("://");
-            if (!this.b.isEmpty() || !this.c.isEmpty()) {
-                sb.append(this.b);
+            if (!this.f11456b.isEmpty() || !this.c.isEmpty()) {
+                sb.append(this.f11456b);
                 if (!this.c.isEmpty()) {
                     sb.append(':');
                     sb.append(this.c);
                 }
-                sb.append(UgcConstant.AT_PATTERN_TAG);
+                sb.append('@');
             }
             if (this.d.indexOf(58) != -1) {
                 sb.append('[');
@@ -544,7 +542,7 @@ public class f {
                 sb.append(this.d);
             }
             int a2 = a();
-            if (a2 != f.a(this.f4098a)) {
+            if (a2 != f.a(this.f11455a)) {
                 sb.append(':');
                 sb.append(a2);
             }
@@ -554,7 +552,7 @@ public class f {
                 f.b(sb, this.g);
             }
             if (this.h != null) {
-                sb.append(UgcConstant.TOPIC_PATTERN_TAG);
+                sb.append('#');
                 sb.append(this.h);
             }
             return sb.toString();
@@ -562,8 +560,8 @@ public class f {
     }
 
     private f(a aVar) {
-        this.b = aVar.f4098a;
-        this.c = a(aVar.b, false);
+        this.f11453b = aVar.f11455a;
+        this.c = a(aVar.f11456b, false);
         this.d = a(aVar.c, false);
         this.e = aVar.d;
         this.f = aVar.a();
@@ -662,8 +660,8 @@ public class f {
                     while (!bVar2.c()) {
                         int f = bVar2.f() & 255;
                         bVar.b(37);
-                        bVar.b((int) f4096a[(f >> 4) & 15]);
-                        bVar.b((int) f4096a[f & 15]);
+                        bVar.b((int) f11452a[(f >> 4) & 15]);
+                        bVar.b((int) f11452a[f & 15]);
                     }
                 } else {
                     bVar.a(codePointAt);
@@ -746,21 +744,21 @@ public class f {
 
     public static f c(String str) {
         a aVar = new a();
-        if (aVar.a((f) null, str) == a.EnumC1009a.SUCCESS) {
+        if (aVar.a((f) null, str) == a.EnumC1140a.SUCCESS) {
             return aVar.b();
         }
         return null;
     }
 
     public boolean a() {
-        return this.b.equals("https");
+        return this.f11453b.equals("https");
     }
 
     public String b() {
         if (this.c.isEmpty()) {
             return "";
         }
-        int length = this.b.length() + 3;
+        int length = this.f11453b.length() + 3;
         return this.j.substring(length, m.a(this.j, length, this.j.length(), ":@"));
     }
 
@@ -769,11 +767,11 @@ public class f {
             return "";
         }
         int indexOf = this.j.indexOf(64);
-        return this.j.substring(this.j.indexOf(58, this.b.length() + 3) + 1, indexOf);
+        return this.j.substring(this.j.indexOf(58, this.f11453b.length() + 3) + 1, indexOf);
     }
 
     public List<String> d() {
-        int indexOf = this.j.indexOf(47, this.b.length() + 3);
+        int indexOf = this.j.indexOf(47, this.f11453b.length() + 3);
         int a2 = m.a(this.j, indexOf, this.j.length(), "?#");
         ArrayList arrayList = new ArrayList();
         while (indexOf < a2) {
@@ -789,7 +787,7 @@ public class f {
             return null;
         }
         int indexOf = this.j.indexOf(63) + 1;
-        return this.j.substring(indexOf, m.a(this.j, indexOf + 1, this.j.length(), (char) UgcConstant.TOPIC_PATTERN_TAG));
+        return this.j.substring(indexOf, m.a(this.j, indexOf + 1, this.j.length(), '#'));
     }
 
     public boolean equals(Object obj) {
@@ -805,11 +803,11 @@ public class f {
 
     public a g() {
         a aVar = new a();
-        aVar.f4098a = this.b;
-        aVar.b = b();
+        aVar.f11455a = this.f11453b;
+        aVar.f11456b = b();
         aVar.c = c();
         aVar.d = this.e;
-        aVar.e = this.f != a(this.b) ? this.f : -1;
+        aVar.e = this.f != a(this.f11453b) ? this.f : -1;
         aVar.f.clear();
         aVar.f.addAll(d());
         aVar.a(e());

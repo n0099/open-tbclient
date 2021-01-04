@@ -7,12 +7,14 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.fsg.base.utils.RimGlobalUtils;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class SafeKeyBoardEditText extends PluginEditText implements View.OnTouchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private SafeKeyBoardState f1544a;
-    private Context b;
+    private SafeKeyBoardState f2075a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private Context f2076b;
     private ViewGroup c;
     private SafeScrollView d;
     private View e;
@@ -30,17 +32,17 @@ public class SafeKeyBoardEditText extends PluginEditText implements View.OnTouch
     private View.OnClickListener q;
     private CheckFunc r;
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes6.dex */
     public interface CheckFunc {
         boolean check(String str);
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes6.dex */
     public interface OnMyFocusChangeListener {
         void onMyFocusChange(View view, boolean z);
     }
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes6.dex */
     public enum SafeKeyBoardState {
         NORMAL_STATE,
         CONFRIM_STATE
@@ -78,7 +80,7 @@ public class SafeKeyBoardEditText extends PluginEditText implements View.OnTouch
         this.m = 0;
         this.o = false;
         this.p = false;
-        this.b = context;
+        this.f2076b = context;
         setOnLongClickListener(new c(this));
         setOnTouchListener(this);
         setOnFocusChangeListener(new d(this));
@@ -86,7 +88,7 @@ public class SafeKeyBoardEditText extends PluginEditText implements View.OnTouch
     }
 
     public SafeKeyBoardState getKeyBoardState() {
-        return this.f1544a;
+        return this.f2075a;
     }
 
     @Override // com.baidu.fsg.base.widget.PluginEditText, android.view.View.OnTouchListener
@@ -101,7 +103,7 @@ public class SafeKeyBoardEditText extends PluginEditText implements View.OnTouch
                 this.off = layout.getOffsetForHorizontal(layout.getLineForVertical(getScrollY() + ((int) motionEvent.getY())), (int) motionEvent.getX());
                 if (hasFocus()) {
                     if (this.d == null) {
-                        RimGlobalUtils.showInputMethod(this.b, this);
+                        RimGlobalUtils.showInputMethod(this.f2076b, this);
                         return true;
                     } else if (this.d != null && !this.d.isPopupWindowShowing()) {
                         this.d.showKeyBoard(this.c, this, this.e);

@@ -17,4 +17,5 @@ public class LocationEvent extends SerializableEvent {
     public String locName;
     public String locSn;
     public LocationData locationData;
+    public boolean needRefresh;
 }

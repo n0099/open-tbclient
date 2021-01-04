@@ -7,9 +7,10 @@ import android.provider.Settings;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.k;
 import com.baidu.adp.plugin.proxy.ContentResolverProxy;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.aa;
+import com.baidu.tbadk.core.util.z;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -19,21 +20,16 @@ import java.io.OutputStream;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private static boolean fDU = false;
+    private static boolean fNz = false;
     private static String link = "";
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [77=4, 78=4, 80=4, 81=4, 84=4, 85=4, 87=4, 88=4] */
-    /* JADX WARN: Removed duplicated region for block: B:90:0x00c4 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:98:0x00bf A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public static boolean b(File file, File file2, byte[] bArr) {
         FileOutputStream fileOutputStream;
         FileInputStream fileInputStream;
-        FileInputStream fileInputStream2 = null;
+        InputStream inputStream;
         boolean z = false;
-        InputStream inputStream = null;
+        InputStream inputStream2 = null;
         OutputStream outputStream = null;
         try {
             if (file.exists()) {
@@ -41,115 +37,106 @@ public class a {
                 try {
                     fileOutputStream = new FileOutputStream(file2);
                     try {
-                        byte[] bArr2 = new byte[1024];
-                        if (bArr != null && bArr.length > 0 && bArr.length < file.length()) {
-                            byte[] bArr3 = new byte[bArr.length];
-                            fileInputStream.read(bArr3, 0, bArr.length);
-                            int i = 0;
-                            while (true) {
-                                if (i >= bArr.length) {
-                                    break;
-                                } else if (bArr[i] != bArr3[i]) {
-                                    fileOutputStream.write(bArr3, 0, bArr.length);
-                                    break;
-                                } else {
-                                    i++;
-                                }
-                            }
-                        }
-                        while (true) {
-                            int read = fileInputStream.read(bArr2);
-                            if (read <= 0) {
-                                break;
-                            }
-                            fileOutputStream.write(bArr2, 0, read);
-                        }
-                        fileOutputStream.flush();
-                        fileInputStream.close();
-                        InputStream inputStream2 = null;
                         try {
-                            fileOutputStream.close();
-                            OutputStream outputStream2 = null;
-                            z = true;
-                            if (0 != 0) {
-                                try {
-                                    inputStream2.close();
-                                } catch (Exception e) {
-                                    BdLog.e(e.toString());
-                                }
-                            }
-                            if (0 != 0) {
-                                try {
-                                    outputStream2.close();
-                                } catch (Exception e2) {
-                                    BdLog.e(e2.toString());
-                                }
-                            }
-                        } catch (Exception e3) {
-                            e = e3;
-                            try {
-                                BdLog.e(e.toString());
-                                if (fileInputStream2 != null) {
-                                    try {
-                                        fileInputStream2.close();
-                                    } catch (Exception e4) {
-                                        BdLog.e(e4.toString());
+                            byte[] bArr2 = new byte[1024];
+                            if (bArr != null && bArr.length > 0 && bArr.length < file.length()) {
+                                byte[] bArr3 = new byte[bArr.length];
+                                fileInputStream.read(bArr3, 0, bArr.length);
+                                int i = 0;
+                                while (true) {
+                                    if (i >= bArr.length) {
+                                        break;
+                                    } else if (bArr[i] != bArr3[i]) {
+                                        fileOutputStream.write(bArr3, 0, bArr.length);
+                                        break;
+                                    } else {
+                                        i++;
                                     }
                                 }
-                                if (fileOutputStream != null) {
-                                    try {
-                                        fileOutputStream.close();
-                                    } catch (Exception e5) {
-                                        BdLog.e(e5.toString());
-                                    }
-                                }
-                                return z;
-                            } catch (Throwable th) {
-                                th = th;
-                                fileInputStream = fileInputStream2;
-                                if (fileInputStream != null) {
-                                    try {
-                                        fileInputStream.close();
-                                    } catch (Exception e6) {
-                                        BdLog.e(e6.toString());
-                                    }
-                                }
-                                if (fileOutputStream != null) {
-                                    try {
-                                        fileOutputStream.close();
-                                    } catch (Exception e7) {
-                                        BdLog.e(e7.toString());
-                                    }
-                                }
-                                throw th;
                             }
-                        } catch (Throwable th2) {
-                            th = th2;
-                            fileInputStream = null;
-                            if (fileInputStream != null) {
+                            while (true) {
+                                int read = fileInputStream.read(bArr2);
+                                if (read <= 0) {
+                                    break;
+                                }
+                                fileOutputStream.write(bArr2, 0, read);
                             }
-                            if (fileOutputStream != null) {
-                            }
-                            throw th;
+                            fileOutputStream.flush();
+                            fileInputStream.close();
+                            inputStream = null;
+                        } catch (Exception e) {
+                            e = e;
                         }
-                    } catch (Exception e8) {
-                        e = e8;
-                        fileInputStream2 = fileInputStream;
-                    } catch (Throwable th3) {
-                        th = th3;
+                    } catch (Throwable th) {
+                        th = th;
+                    }
+                    try {
+                        fileOutputStream.close();
+                        OutputStream outputStream2 = null;
+                        z = true;
+                        if (0 != 0) {
+                            try {
+                                inputStream.close();
+                            } catch (Exception e2) {
+                                BdLog.e(e2.toString());
+                            }
+                        }
+                        if (0 != 0) {
+                            try {
+                                outputStream2.close();
+                            } catch (Exception e3) {
+                                BdLog.e(e3.toString());
+                            }
+                        }
+                    } catch (Exception e4) {
+                        e = e4;
+                        fileInputStream = null;
+                        BdLog.e(e.toString());
+                        if (fileInputStream != null) {
+                            try {
+                                fileInputStream.close();
+                            } catch (Exception e5) {
+                                BdLog.e(e5.toString());
+                            }
+                        }
+                        if (fileOutputStream != null) {
+                            try {
+                                fileOutputStream.close();
+                            } catch (Exception e6) {
+                                BdLog.e(e6.toString());
+                            }
+                        }
+                        return z;
+                    } catch (Throwable th2) {
+                        th = th2;
+                        fileInputStream = null;
+                        if (fileInputStream != null) {
+                            try {
+                                fileInputStream.close();
+                            } catch (Exception e7) {
+                                BdLog.e(e7.toString());
+                            }
+                        }
+                        if (fileOutputStream != null) {
+                            try {
+                                fileOutputStream.close();
+                            } catch (Exception e8) {
+                                BdLog.e(e8.toString());
+                            }
+                        }
+                        throw th;
                     }
                 } catch (Exception e9) {
                     e = e9;
                     fileOutputStream = null;
-                    fileInputStream2 = fileInputStream;
-                } catch (Throwable th4) {
-                    th = th4;
+                } catch (Throwable th3) {
+                    th = th3;
                     fileOutputStream = null;
                 }
             } else {
                 if (0 != 0) {
                     try {
-                        inputStream.close();
+                        inputStream2.close();
                     } catch (Exception e10) {
                         BdLog.e(e10.toString());
                     }
@@ -165,15 +152,16 @@ public class a {
         } catch (Exception e12) {
             e = e12;
             fileOutputStream = null;
-        } catch (Throwable th5) {
-            th = th5;
+            fileInputStream = null;
+        } catch (Throwable th4) {
+            th = th4;
             fileOutputStream = null;
             fileInputStream = null;
         }
         return z;
     }
 
-    public static String fb(Context context) {
+    public static String fx(Context context) {
         String host;
         int port;
         String str = null;
@@ -199,7 +187,7 @@ public class a {
         }
     }
 
-    public static boolean bFA() {
+    public static boolean bHV() {
         try {
             return Settings.Secure.getInt(ContentResolverProxy.getContentResolver(), "adb_enabled", 0) > 0;
         } catch (Exception e) {
@@ -208,10 +196,10 @@ public class a {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [169=5, 171=4, 172=4, 173=4] */
-    public static String S(File file) {
+    public static String V(File file) {
         FileInputStream fileInputStream;
         String str;
-        if (fDU) {
+        if (fNz) {
             return "hasSend_" + link;
         }
         String str2 = TbConfig.SERVER_ADDRESS + TbConfig.DEBUG_UPLOAD;
@@ -225,14 +213,14 @@ public class a {
                     byte[] bArr = new byte[(int) file.length()];
                     fileInputStream.read(bArr);
                     fileInputStream.close();
-                    aa aaVar = new aa(str2 + "?fn=" + file.getName());
-                    aaVar.addPostData("debugfile", bArr);
-                    aaVar.addPostData("tbs", TbadkCoreApplication.getInst().getTbs());
-                    aaVar.addPostData("type", "android");
-                    str = aaVar.postMultiNetData();
+                    z zVar = new z(str2 + "?fn=" + file.getName());
+                    zVar.addPostData("debugfile", bArr);
+                    zVar.addPostData("tbs", TbadkCoreApplication.getInst().getTbs());
+                    zVar.addPostData("type", HttpConstants.OS_TYPE_VALUE);
+                    str = zVar.postMultiNetData();
                     if (str != null && !str.isEmpty()) {
                         link = new JSONObject(str).getString("url");
-                        fDU = true;
+                        fNz = true;
                         String str3 = link;
                         if (fileInputStream != null) {
                             try {

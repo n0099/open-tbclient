@@ -3,12 +3,14 @@ package com.baidu.mobads;
 import com.baidu.mobads.interfaces.IXAdResponseInfo;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import java.lang.ref.WeakReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class BaiduNativeAdPlacement {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2303a;
-    private IXAdResponseInfo b;
+    private String f3312a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private IXAdResponseInfo f3313b;
     private boolean c;
     private boolean d;
     private boolean e = false;
@@ -41,11 +43,11 @@ public class BaiduNativeAdPlacement {
     }
 
     public void setApId(String str) {
-        this.f2303a = str;
+        this.f3312a = str;
     }
 
     public String getApId() {
-        return this.f2303a;
+        return this.f3312a;
     }
 
     public static void setAppSid(String str) {
@@ -54,24 +56,24 @@ public class BaiduNativeAdPlacement {
 
     public void setAdResponse(IXAdResponseInfo iXAdResponseInfo) {
         this.d = false;
-        this.b = iXAdResponseInfo;
+        this.f3313b = iXAdResponseInfo;
     }
 
     public boolean hasValidResponse() {
-        return this.b != null && isAdAvailable();
+        return this.f3313b != null && isAdAvailable();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public IXAdResponseInfo getAdResponse() {
-        return this.b;
+        return this.f3313b;
     }
 
     protected boolean isAdAvailable() {
         boolean z;
-        if (this.b == null || this.b.getPrimaryAdInstanceInfo() == null) {
+        if (this.f3313b == null || this.f3313b.getPrimaryAdInstanceInfo() == null) {
             z = false;
         } else {
-            z = System.currentTimeMillis() - this.b.getPrimaryAdInstanceInfo().getCreateTime() <= 1800000;
+            z = System.currentTimeMillis() - this.f3313b.getPrimaryAdInstanceInfo().getCreateTime() <= 1800000;
         }
         return z && !this.c;
     }

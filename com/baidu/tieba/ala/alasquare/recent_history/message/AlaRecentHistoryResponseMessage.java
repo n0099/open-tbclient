@@ -7,7 +7,7 @@ import com.baidu.tieba.ala.alasquare.recent_history.b.b;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class AlaRecentHistoryResponseMessage extends JsonHttpResponsedMessage {
     private a mHistoryData;
 
@@ -32,7 +32,7 @@ public class AlaRecentHistoryResponseMessage extends JsonHttpResponsedMessage {
                     arrayList.add(bVar);
                 }
             }
-            this.mHistoryData.gwB = arrayList;
+            this.mHistoryData.gHF = arrayList;
         }
     }
 

@@ -3,7 +3,7 @@ package org.apache.http.impl.conn.tsccm;
 import java.util.concurrent.TimeUnit;
 import org.apache.http.conn.ConnectionPoolTimeoutException;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes6.dex */
 public interface PoolEntryRequest {
     void abortRequest();
 

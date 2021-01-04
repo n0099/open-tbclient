@@ -3,20 +3,20 @@ package com.baidu.tieba.qrcode.lib.core;
 import android.content.Context;
 import android.graphics.Point;
 import android.hardware.Camera;
-import android.support.v7.widget.ActivityChooserView;
 import android.view.WindowManager;
 import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
+import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Pattern;
-/* loaded from: classes23.dex */
+/* loaded from: classes8.dex */
 final class b {
-    private static final Pattern mEz = Pattern.compile(",");
+    private static final Pattern mJR = Pattern.compile(",");
     private final Context mContext;
-    private Point mEA;
-    private Point mEB;
-    private Point mEC;
+    private Point mJS;
+    private Point mJT;
+    private Point mJU;
 
     public b(Context context) {
         this.mContext = context;
@@ -27,20 +27,20 @@ final class b {
         if (c(camera)) {
             parameters.setFocusMode("auto");
         }
-        this.mEA = a.gt(this.mContext);
+        this.mJS = a.gM(this.mContext);
         Point point = new Point();
-        point.x = this.mEA.x;
-        point.y = this.mEA.y;
-        int gs = a.gs(this.mContext);
-        if (gs == 0) {
-            point.x = this.mEA.y;
-            point.y = this.mEA.x;
+        point.x = this.mJS.x;
+        point.y = this.mJS.y;
+        int gL = a.gL(this.mContext);
+        if (gL == 0) {
+            point.x = this.mJS.y;
+            point.y = this.mJS.x;
         }
-        this.mEC = a(parameters, point);
-        if (gs == 0) {
-            this.mEB = new Point(this.mEC.y, this.mEC.x);
+        this.mJU = a(parameters, point);
+        if (gL == 0) {
+            this.mJT = new Point(this.mJU.y, this.mJU.x);
         } else {
-            this.mEB = this.mEC;
+            this.mJT = this.mJU;
         }
     }
 
@@ -48,15 +48,15 @@ final class b {
         return a(camera.getParameters().getSupportedFocusModes(), "auto") != null;
     }
 
-    public Point dEj() {
-        return this.mEB;
+    public Point dDY() {
+        return this.mJT;
     }
 
     public void d(Camera camera) {
         Camera.Parameters parameters = camera.getParameters();
-        parameters.setPreviewSize(this.mEC.x, this.mEC.y);
-        d(parameters);
-        camera.setDisplayOrientation(dEk());
+        parameters.setPreviewSize(this.mJU.x, this.mJU.y);
+        c(parameters);
+        camera.setDisplayOrientation(dDZ());
         camera.setParameters(parameters);
     }
 
@@ -71,7 +71,7 @@ final class b {
         return null;
     }
 
-    public int dEk() {
+    public int dDZ() {
         int i;
         Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
         Camera.getCameraInfo(0, cameraInfo);
@@ -86,7 +86,7 @@ final class b {
                 i = 180;
                 break;
             case 3:
-                i = 270;
+                i = SubsamplingScaleImageView.ORIENTATION_270;
                 break;
             default:
                 i = 0;
@@ -108,37 +108,31 @@ final class b {
 
     private static Point a(List<Camera.Size> list, Point point) {
         int i;
-        int i2;
-        int i3;
-        int i4;
-        int i5 = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+        int i2 = 0;
         Iterator<Camera.Size> it = list.iterator();
-        int i6 = 0;
-        int i7 = 0;
+        int i3 = Integer.MAX_VALUE;
+        int i4 = 0;
         while (true) {
-            int i8 = i5;
+            int i5 = i2;
             if (!it.hasNext()) {
-                i = i6;
-                i2 = i7;
+                i = i4;
+                i2 = i5;
                 break;
             }
             Camera.Size next = it.next();
             i2 = next.width;
             i = next.height;
-            i5 = Math.abs(i2 - point.x) + Math.abs(i - point.y);
-            if (i5 == 0) {
+            int abs = Math.abs(i2 - point.x) + Math.abs(i - point.y);
+            if (abs == 0) {
                 break;
             }
-            if (i5 < i8) {
-                i3 = i;
-                i4 = i2;
+            if (abs < i3) {
+                i4 = i;
             } else {
-                i5 = i8;
-                i3 = i6;
-                i4 = i7;
+                abs = i3;
+                i2 = i5;
             }
-            i7 = i4;
-            i6 = i3;
+            i3 = abs;
         }
         if (i2 > 0 && i > 0) {
             return new Point(i2, i);
@@ -147,7 +141,7 @@ final class b {
     }
 
     private static int c(CharSequence charSequence, int i) {
-        String[] split = mEz.split(charSequence);
+        String[] split = mJR.split(charSequence);
         int length = split.length;
         int i2 = 0;
         int i3 = 0;
@@ -167,7 +161,7 @@ final class b {
         return i3;
     }
 
-    private void d(Camera.Parameters parameters) {
+    private void c(Camera.Parameters parameters) {
         String str = parameters.get("zoom-supported");
         if (str == null || Boolean.parseBoolean(str)) {
             int i = 27;

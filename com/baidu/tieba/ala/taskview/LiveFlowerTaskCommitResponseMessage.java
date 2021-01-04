@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.taskview;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class LiveFlowerTaskCommitResponseMessage extends JsonHttpResponsedMessage {
     public LiveFlowerTaskCommitResponseMessage() {
         super(1021067);

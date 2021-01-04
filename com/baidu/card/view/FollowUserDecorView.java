@@ -1,21 +1,21 @@
 package com.baidu.card.view;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import androidx.annotation.Nullable;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.by;
+import com.baidu.tbadk.core.data.bz;
 import com.baidu.tbadk.core.view.commonBtn.b;
 import com.baidu.tbadk.core.view.userLike.c;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.FollowUserButton;
-/* loaded from: classes21.dex */
+/* loaded from: classes.dex */
 public class FollowUserDecorView extends FollowUserButton {
-    private c akZ;
-    private boolean ala;
+    private c alC;
+    private boolean alD;
     private BdUniqueId mBdUniqueId;
 
     public FollowUserDecorView(Context context) {
@@ -30,23 +30,23 @@ public class FollowUserDecorView extends FollowUserButton {
         super(context, attributeSet, i);
     }
 
-    public void setData(by byVar) {
-        if (byVar == null || byVar.boP() == null) {
+    public void setData(bz bzVar) {
+        if (bzVar == null || bzVar.brq() == null) {
             setVisibility(8);
             return;
         }
-        if (this.akZ == null) {
-            this.akZ = new c(X(getContext()), this);
-            this.akZ.l(this.mBdUniqueId);
+        if (this.alC == null) {
+            this.alC = new c(X(getContext()), this);
+            this.alC.l(this.mBdUniqueId);
         }
         setVisibility(0);
-        this.akZ.a(byVar.boP());
+        this.alC.a(bzVar.brq());
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
         this.mBdUniqueId = bdUniqueId;
-        if (this.akZ != null) {
-            this.akZ.l(this.mBdUniqueId);
+        if (this.alC != null) {
+            this.alC.l(this.mBdUniqueId);
         }
     }
 
@@ -61,16 +61,16 @@ public class FollowUserDecorView extends FollowUserButton {
     }
 
     @Override // com.baidu.tieba.view.FollowUserButton
-    public void aP(boolean z) {
-        super.aP(z);
-        if (this.ala && !z) {
+    public void aM(boolean z) {
+        super.aM(z);
+        if (this.alD && !z) {
             b bVar = new b();
-            bVar.rh(R.color.CAM_X0304);
+            bVar.rs(R.color.CAM_X0304);
             setConfig(bVar);
         }
     }
 
     public void setUseNewStyle(boolean z) {
-        this.ala = z;
+        this.alD = z;
     }
 }

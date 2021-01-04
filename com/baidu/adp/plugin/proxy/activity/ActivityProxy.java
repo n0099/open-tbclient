@@ -22,6 +22,7 @@ import android.graphics.Canvas;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.os.PersistableBundle;
 import android.util.AttributeSet;
 import android.view.ContextMenu;
 import android.view.KeyEvent;
@@ -35,12 +36,13 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
+import androidx.annotation.Nullable;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.base.e;
 import com.baidu.adp.base.f;
 import com.baidu.adp.base.g;
 import com.baidu.adp.base.h;
+import com.baidu.adp.base.i;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;
@@ -48,14 +50,19 @@ import com.baidu.adp.plugin.a.a;
 import com.baidu.adp.plugin.pluginBase.PluginBaseActivity;
 import com.baidu.adp.plugin.proxy.ContentResolverProxy;
 import com.baidu.adp.plugin.util.d;
-import com.baidu.adp.widget.ListView.t;
-import com.baidu.megapp.ma.MAActivity;
+import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 /* loaded from: classes.dex */
-public class ActivityProxy extends MAActivity implements Handler.Callback, f, h, a {
+public class ActivityProxy extends Activity implements Handler.Callback, g, i, a {
     private PluginBaseActivity mEntity = null;
+
+    @Override // android.app.Activity
+    public void onCreate(@Nullable Bundle bundle, @Nullable PersistableBundle persistableBundle) {
+        com.baidu.adp.base.a.j(this);
+        super.onCreate(bundle, persistableBundle);
+    }
 
     @Override // android.app.Activity, android.view.LayoutInflater.Factory2
     public View onCreateView(View view, String str, Context context, AttributeSet attributeSet) {
@@ -212,9 +219,9 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, f, h,
         }
     }
 
-    @Override // com.baidu.megapp.ma.MAActivity, com.baidu.adp.plugin.a.a
+    @Override // com.baidu.adp.plugin.a.a
     public Activity getActivity() {
-        return super.getActivity();
+        return this;
     }
 
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
@@ -292,7 +299,7 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, f, h,
                 return this.mEntity.getResources();
             }
         } else {
-            Resources resources = g.li().getResources();
+            Resources resources = h.kE().getResources();
             if (resources != null) {
                 return resources;
             }
@@ -1580,7 +1587,7 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, f, h,
         return super.getApplicationContext();
     }
 
-    @Override // com.baidu.adp.base.h
+    @Override // com.baidu.adp.base.i
     public BdUniqueId getUniqueId() {
         if (this.mEntity != null) {
             return this.mEntity.getUniqueId();
@@ -1588,7 +1595,7 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, f, h,
         return null;
     }
 
-    @Override // com.baidu.adp.base.h
+    @Override // com.baidu.adp.base.i
     public boolean isScroll() {
         if (this.mEntity != null) {
             return this.mEntity.isScroll();
@@ -1596,17 +1603,17 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, f, h,
         return false;
     }
 
-    @Override // com.baidu.adp.base.h
+    @Override // com.baidu.adp.base.i
     public void setIsScroll(boolean z) {
         if (this.mEntity != null) {
             this.mEntity.setIsScroll(z);
         }
     }
 
-    @Override // com.baidu.adp.base.h
-    public void onPreLoad(t tVar) {
+    @Override // com.baidu.adp.base.i
+    public void onPreLoad(q qVar) {
         if (this.mEntity != null) {
-            this.mEntity.onPreLoad(tVar);
+            this.mEntity.onPreLoad(qVar);
         }
     }
 
@@ -1618,9 +1625,9 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, f, h,
         return false;
     }
 
-    @Override // com.baidu.adp.base.f
-    public e getPageContext() {
-        if (this.mEntity == null || !(this.mEntity instanceof f)) {
+    @Override // com.baidu.adp.base.g
+    public f getPageContext() {
+        if (this.mEntity == null || !(this.mEntity instanceof g)) {
             return null;
         }
         return this.mEntity.getPageContext();

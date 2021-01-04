@@ -5,24 +5,24 @@ import com.baidu.adp.lib.f.e;
 import com.baidu.adp.lib.util.l;
 import com.baidu.network_service_plugin.b;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.aa;
+import com.baidu.tbadk.core.util.z;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes15.dex */
 public class a implements b.a {
-    private Runnable cfB;
-    private b cfw;
-    private String cfx;
-    private HashMap<String, Object> cfy;
+    private HashMap<String, Object> cmA;
+    private Runnable cmC;
+    private b cmy;
+    private String cmz;
     private String identifier;
-    private boolean cfz = true;
-    private int cfA = -1;
+    private boolean cmB = true;
+    private int timeout = -1;
     private boolean isLoading = false;
-    private C0277a cfC = null;
-    private boolean cfD = false;
-    private long cfE = 0;
+    private C0278a cmD = null;
+    private boolean cmE = false;
+    private long cmF = 0;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes15.dex */
     public interface b {
         void a(HashMap<String, String> hashMap, HashMap<String, String> hashMap2, int i, String str, Object obj, String str2);
     }
@@ -32,25 +32,24 @@ public class a implements b.a {
     }
 
     public boolean loadData() {
-        this.cfE = System.currentTimeMillis();
-        if (this.cfw == null && TbadkCoreApplication.getInst().isDebugMode()) {
+        if (this.cmy == null && TbadkCoreApplication.getInst().isDebugMode()) {
             throw new RuntimeException("NetModel must have callback");
         }
-        this.cfz = l.isNetOk();
-        if (this.cfA >= 10) {
-            e.mY().postDelayed(acV(), this.cfA * 1000);
+        this.cmB = l.isNetOk();
+        if (this.timeout >= 10) {
+            e.mB().postDelayed(aeR(), this.timeout * 1000);
         }
-        if (!this.cfz) {
-            e.mY().post(new Runnable() { // from class: com.baidu.network_service_plugin.a.1
+        if (!this.cmB) {
+            e.mB().post(new Runnable() { // from class: com.baidu.network_service_plugin.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.this.Z(-1, "网络不可用");
+                    a.this.ab(-1, "网络不可用");
                 }
             });
             return false;
-        } else if (this.cfC == null) {
-            this.cfC = new C0277a(this);
-            this.cfC.execute(new Object[0]);
+        } else if (this.cmD == null) {
+            this.cmD = new C0278a(this);
+            this.cmD.execute(new Object[0]);
             return true;
         } else {
             return false;
@@ -59,80 +58,86 @@ public class a implements b.a {
 
     @Override // com.baidu.network_service_plugin.b.a
     public boolean cancelLoadData() {
-        if (this.isLoading && this.cfC != null) {
-            this.cfC.cancel();
+        if (this.isLoading && this.cmD != null) {
+            this.cmD.cancel();
         }
         this.isLoading = false;
         return true;
     }
 
-    public String acQ() {
-        return this.cfx;
+    public String aeM() {
+        return this.cmz;
     }
 
-    public void jS(String str) {
-        this.cfx = str;
+    public void jO(String str) {
+        this.cmz = str;
     }
 
-    public HashMap<String, Object> acR() {
-        return this.cfy;
+    public HashMap<String, Object> aeN() {
+        return this.cmA;
     }
 
     public void setParams(HashMap<String, Object> hashMap) {
-        this.cfy = hashMap;
+        this.cmA = hashMap;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void acS() {
-        this.cfC = null;
+    public void aeO() {
+        this.cmD = null;
     }
 
-    public void dX(boolean z) {
-        this.cfD = z;
+    public void ee(boolean z) {
+        this.cmE = z;
     }
 
-    public boolean acT() {
-        return this.cfD;
+    public boolean aeP() {
+        return this.cmE;
     }
 
-    public long acU() {
-        return this.cfE;
+    public long aeQ() {
+        return this.cmF;
+    }
+
+    public void bJ(long j) {
+        this.cmF = j;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.network_service_plugin.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static class C0277a extends BdAsyncTask<Object, String, String> {
-        private a cfG;
-        private com.baidu.tbadk.core.util.a.a cfH;
-        private aa cfI = null;
+    /* loaded from: classes15.dex */
+    public static class C0278a extends BdAsyncTask<Object, String, String> {
+        private a cmH;
+        private com.baidu.tbadk.core.util.b.a cmI;
+        private z cmJ = null;
         private boolean isCancle = false;
+        private long cmK = 0;
 
-        public C0277a(a aVar) {
-            this.cfG = aVar;
+        public C0278a(a aVar) {
+            this.cmH = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: k */
+        /* renamed from: l */
         public String doInBackground(Object... objArr) {
             String postNetData;
-            this.cfG.isLoading = true;
-            this.cfI = new aa(this.cfG.acQ());
-            HashMap<String, Object> acR = this.cfG.acR();
-            if (acR != null && !acR.isEmpty()) {
-                for (Map.Entry<String, Object> entry : acR.entrySet()) {
-                    this.cfI.addPostData(entry.getKey(), String.valueOf(entry.getValue()));
+            this.cmK = System.currentTimeMillis() - this.cmH.aeQ();
+            this.cmH.isLoading = true;
+            this.cmJ = new z(this.cmH.aeM());
+            HashMap<String, Object> aeN = this.cmH.aeN();
+            if (aeN != null && !aeN.isEmpty()) {
+                for (Map.Entry<String, Object> entry : aeN.entrySet()) {
+                    this.cmJ.addPostData(entry.getKey(), String.valueOf(entry.getValue()));
                 }
             }
-            if (this.cfG.acT() && acR != null) {
-                this.cfI.addPostData("debugfile", (byte[]) acR.get("debugfile"));
-                postNetData = this.cfI.postMultiNetData();
+            if (this.cmH.aeP() && aeN != null) {
+                this.cmJ.addPostData("debugfile", (byte[]) aeN.get("debugfile"));
+                postNetData = this.cmJ.postMultiNetData();
             } else {
-                postNetData = this.cfI.postNetData();
+                postNetData = this.cmJ.postNetData();
             }
-            this.cfH = this.cfI.btv();
+            this.cmI = this.cmJ.bvQ();
             publishProgress(postNetData);
             return postNetData;
         }
@@ -141,11 +146,11 @@ public class a implements b.a {
         public void cancel() {
             this.isCancle = true;
             super.cancel(true);
-            if (this.cfI != null) {
-                this.cfI.cancelNetConnect();
+            if (this.cmJ != null) {
+                this.cmJ.cancelNetConnect();
             }
-            if (this.cfG.cfw != null) {
-                this.cfG.cfw.a(null, null, -1, "cancle", "", this.cfG.identifier);
+            if (this.cmH.cmy != null) {
+                this.cmH.cmy.a(null, null, -1, "cancle", "", this.cmH.identifier);
             }
         }
 
@@ -155,48 +160,51 @@ public class a implements b.a {
         public void onProgressUpdate(String... strArr) {
             super.onProgressUpdate((Object[]) strArr);
             if (strArr != null && strArr.length > 0) {
-                this.cfG.isLoading = false;
-                if (this.cfG.cfB != null) {
-                    e.mY().removeCallbacks(this.cfG.cfB);
+                this.cmH.isLoading = false;
+                if (this.cmH.cmC != null) {
+                    e.mB().removeCallbacks(this.cmH.cmC);
                 }
-                if (this.cfH != null && this.cfH.buf() != null && !this.isCancle && this.cfG.cfw != null) {
+                if (this.cmI != null && this.cmI.bwA() != null && !this.isCancle && this.cmH.cmy != null) {
                     HashMap<String, String> hashMap = new HashMap<>();
-                    hashMap.put("server", this.cfG.acQ());
-                    hashMap.put("api", this.cfG.acQ());
-                    hashMap.put("state", this.cfH.bug().eUJ.exception);
-                    if (this.cfH.buh() != null && this.cfG.acU() > 0 && this.cfH.buh().containsKey("startTime")) {
-                        long j = com.baidu.adp.lib.f.b.toLong(this.cfH.buh().get("startTime"), 0L) - this.cfG.acU();
+                    hashMap.put("server", this.cmH.aeM());
+                    hashMap.put("api", this.cmH.aeM());
+                    hashMap.put("state", this.cmI.bwB().fej.exception);
+                    if (this.cmI.bwC() != null && this.cmH.aeQ() > 0 && this.cmI.bwC().containsKey("startTime")) {
+                        long j = com.baidu.adp.lib.f.b.toLong(this.cmI.bwC().get("startTime"), 0L) - this.cmH.aeQ();
                         if (j > 0) {
-                            this.cfH.buh().put("queneTime", String.valueOf(j));
+                            this.cmI.bwC().put("taskWaitTime", String.valueOf(j));
+                        }
+                        if (this.cmK < 20000) {
+                            this.cmI.bwC().put("queneTime", String.valueOf(this.cmK));
                         }
                     }
-                    this.cfG.cfw.a(hashMap, this.cfH.buh(), this.cfH.buf().mServerErrorCode, this.cfH.buf().mErrorString, strArr[0], this.cfG.identifier);
+                    this.cmH.cmy.a(hashMap, this.cmI.bwC(), this.cmI.bwA().mServerErrorCode, this.cmI.bwA().mErrorString, strArr[0], this.cmH.identifier);
                 }
-                this.cfG.acS();
+                this.cmH.aeO();
             }
         }
     }
 
-    public Runnable acV() {
-        if (this.cfB == null) {
-            this.cfB = new Runnable() { // from class: com.baidu.network_service_plugin.a.2
+    public Runnable aeR() {
+        if (this.cmC == null) {
+            this.cmC = new Runnable() { // from class: com.baidu.network_service_plugin.a.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.this.Z(-1, "请求超时");
+                    a.this.ab(-1, "请求超时");
                 }
             };
         }
-        return this.cfB;
+        return this.cmC;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Z(int i, String str) {
-        if (this.cfw != null) {
-            this.cfw.a(null, null, i, str, null, this.identifier);
+    public void ab(int i, String str) {
+        if (this.cmy != null) {
+            this.cmy.a(null, null, i, str, null, this.identifier);
         }
     }
 
     public void a(b bVar) {
-        this.cfw = bVar;
+        this.cmy = bVar;
     }
 }

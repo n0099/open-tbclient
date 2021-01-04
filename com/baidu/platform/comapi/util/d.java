@@ -5,11 +5,10 @@ import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class d {
     public static Bitmap a(Drawable drawable) {
         int i;
-        int i2;
         Bitmap bitmap;
         if (drawable == null) {
             return null;
@@ -20,17 +19,13 @@ public class d {
                 int height = !drawable.getBounds().isEmpty() ? drawable.getBounds().height() : drawable.getIntrinsicHeight();
                 if (!(drawable instanceof BitmapDrawable) || (bitmap = ((BitmapDrawable) drawable).getBitmap()) == null) {
                     i = height;
-                    i2 = width;
                 } else {
                     if (width <= bitmap.getWidth()) {
                         width = bitmap.getWidth();
                     }
                     i = height > bitmap.getHeight() ? height : bitmap.getHeight();
-                    i2 = width;
                 }
-                if (i2 <= 0) {
-                    i2 = 1;
-                }
+                int i2 = width <= 0 ? 1 : width;
                 if (i <= 0) {
                     i = 1;
                 }

@@ -1,7 +1,8 @@
 package com.baidu.searchbox.track.ui;
 
+import androidx.annotation.NonNull;
 import java.util.LinkedList;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class EvictingDeque<E> {
     private int mCapacity;
     private final LinkedList<E> mDelegate = new LinkedList<>();
@@ -36,7 +37,7 @@ public final class EvictingDeque<E> {
         return this.mDelegate.peekLast();
     }
 
-    public boolean offerLast(E e) {
+    public boolean offerLast(@NonNull E e) {
         if (e == null) {
             throw new NullPointerException("element should not be null");
         }

@@ -6,7 +6,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.MediaData;
 import com.baidu.tbadk.core.k;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.layout.ConstrainImageGroup;
 import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
@@ -15,11 +15,11 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.lego.model.AdPost;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes26.dex */
+/* loaded from: classes8.dex */
 public class AdPostImageView extends AdPostBaseView {
-    private ConstrainImageGroup ijF;
-    private b<TbImageView> mMM;
-    private b<ConstrainImageLayout> mMN;
+    private ConstrainImageGroup iwa;
+    private b<TbImageView> mRV;
+    private b<ConstrainImageLayout> mRW;
 
     public AdPostImageView(TbPageContext tbPageContext) {
         super(tbPageContext);
@@ -31,37 +31,37 @@ public class AdPostImageView extends AdPostBaseView {
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.postad.AdPostBaseView
-    protected void dS(View view) {
+    protected void ec(View view) {
         int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds20);
         f fVar = new f(3);
         fVar.x(1.0d);
-        this.ijF = (ConstrainImageGroup) this.rootView.findViewById(R.id.card_home_page_normal_thread_img_layout);
-        this.ijF.setChildClickListener(this.ijK);
-        this.ijF.setImageMargin(dimensionPixelSize);
-        this.ijF.setImageProcessor(fVar);
-        this.ijF.setImageViewPool(this.mMM);
-        this.ijF.setConstrainLayoutPool(this.mMN);
+        this.iwa = (ConstrainImageGroup) this.rootView.findViewById(R.id.card_home_page_normal_thread_img_layout);
+        this.iwa.setChildClickListener(this.iwf);
+        this.iwa.setImageMargin(dimensionPixelSize);
+        this.iwa.setImageProcessor(fVar);
+        this.iwa.setImageViewPool(this.mRV);
+        this.iwa.setConstrainLayoutPool(this.mRW);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.postad.AdPostBaseView
     protected void a(AdPost adPost) {
         if (adPost != null && adPost.getAdvertAppInfo() != null) {
-            boolean isShowImages = k.blV().isShowImages();
-            if (adPost.feedData.dFx().size() == 0 || !isShowImages) {
-                this.ijF.setVisibility(8);
+            boolean isShowImages = k.bou().isShowImages();
+            if (adPost.feedData.dFm().size() == 0 || !isShowImages) {
+                this.iwa.setVisibility(8);
                 return;
             }
-            this.ijF.setVisibility(0);
-            List<String> dFx = adPost.feedData.dFx();
-            if (!y.isEmpty(dFx)) {
+            this.iwa.setVisibility(0);
+            List<String> dFm = adPost.feedData.dFm();
+            if (!x.isEmpty(dFm)) {
                 LinkedList linkedList = new LinkedList();
-                for (String str : dFx) {
+                for (String str : dFm) {
                     MediaData mediaData = new MediaData();
                     mediaData.setPic(str);
                     mediaData.setThumbnails_url(str);
                     linkedList.add(mediaData);
                 }
-                this.ijF.setImageMediaList(linkedList);
+                this.iwa.setImageMediaList(linkedList);
             }
         }
     }
@@ -72,14 +72,14 @@ public class AdPostImageView extends AdPostBaseView {
     @Override // com.baidu.tieba.recapp.lego.view.postad.AdPostBaseView, com.baidu.tieba.recapp.lego.view.postad.PostAdBaseView
     public void a(AdPost adPost, int i) {
         super.a(adPost, i);
-        this.ijF.onChangeSkinType();
+        this.iwa.onChangeSkinType();
     }
 
     public void setConstrainLayoutPool(b<ConstrainImageLayout> bVar) {
-        this.mMN = bVar;
+        this.mRW = bVar;
     }
 
     public void setConstrainImagePool(b<TbImageView> bVar) {
-        this.mMM = bVar;
+        this.mRV = bVar;
     }
 }

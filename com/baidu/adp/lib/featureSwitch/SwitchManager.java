@@ -36,14 +36,14 @@ public class SwitchManager {
     public b removeSwitchData(String str) {
         c remove = this.mSwitchs.remove(str);
         if (remove != null) {
-            return remove.mf();
+            return remove.lD();
         }
         return null;
     }
 
     public void crash(String str) {
         Iterator<c> it = this.mSwitchs.values().iterator();
-        while (it.hasNext() && !it.next().bK(str)) {
+        while (it.hasNext() && !it.next().bE(str)) {
         }
     }
 
@@ -69,8 +69,8 @@ public class SwitchManager {
             for (c cVar : this.mSwitchs.values()) {
                 if (cVar != null) {
                     cVar.al(0);
-                    edit.putInt(cVar.getName() + c.LX, 0);
-                    edit.putInt(cVar.getName() + c.LY, cVar.getDefaultType());
+                    edit.putInt(cVar.getName() + c.Ls, 0);
+                    edit.putInt(cVar.getName() + c.Lt, cVar.getDefaultType());
                 }
             }
             edit.commit();

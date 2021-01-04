@@ -1,19 +1,19 @@
 package com.baidu.tieba.ala.guardclub.view;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import com.baidu.live.sdk.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class GuardClubRankHeaderMedalItemView extends LinearLayout {
-    private TextView bhZ;
-    private ImageView gSb;
-    private TextView gSc;
+    private TextView bjI;
+    private ImageView hdO;
+    private TextView hdP;
 
     public GuardClubRankHeaderMedalItemView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -21,16 +21,16 @@ public class GuardClubRankHeaderMedalItemView extends LinearLayout {
     }
 
     public void setMedalResource(int i) {
-        this.gSb.setImageResource(i);
+        this.hdO.setImageResource(i);
     }
 
     public void setStyle(int i) {
         switch (i) {
             case 17:
-                this.gSc.setTextColor(-2856249);
+                this.hdP.setTextColor(-2856249);
                 return;
             case 18:
-                this.gSc.setTextColor(-3970070);
+                this.hdP.setTextColor(-3970070);
                 return;
             default:
                 return;
@@ -38,14 +38,14 @@ public class GuardClubRankHeaderMedalItemView extends LinearLayout {
     }
 
     public void setData(int i, String str, String str2) {
-        this.bhZ.setText(str);
-        this.gSc.setText(str2);
+        this.bjI.setText(str);
+        this.hdP.setText(str2);
         switch (i) {
             case 1:
-                this.bhZ.setTextColor(-838860801);
+                this.bjI.setTextColor(-838860801);
                 return;
             case 2:
-                this.bhZ.setTextColor(-1);
+                this.bjI.setTextColor(-1);
                 return;
             default:
                 return;
@@ -57,8 +57,8 @@ public class GuardClubRankHeaderMedalItemView extends LinearLayout {
         setGravity(1);
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(a.g.live_guard_club_widget_rank_header_medal_item, (ViewGroup) this, true);
-        this.gSb = (ImageView) findViewById(a.f.iv_medal);
-        this.bhZ = (TextView) findViewById(a.f.tv_name);
-        this.gSc = (TextView) findViewById(a.f.tv_value);
+        this.hdO = (ImageView) findViewById(a.f.iv_medal);
+        this.bjI = (TextView) findViewById(a.f.tv_name);
+        this.hdP = (TextView) findViewById(a.f.tv_value);
     }
 }

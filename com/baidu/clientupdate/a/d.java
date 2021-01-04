@@ -22,13 +22,15 @@ import java.util.zip.GZIPOutputStream;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class d {
     private static d e;
 
     /* renamed from: a  reason: collision with root package name */
-    private List f1320a = new ArrayList();
-    private List b = new ArrayList();
+    private List f1711a = new ArrayList();
+
+    /* renamed from: b  reason: collision with root package name */
+    private List f1712b = new ArrayList();
     private com.baidu.clientupdate.download.a c;
     private b d;
 
@@ -56,10 +58,10 @@ public final class d {
             if (activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting() && this.c.g()) {
                 LogUtil.logE("LogUtils", "符合wifi下、有a6动作的上报时机");
                 b();
-                if (this.f1320a == null || this.f1320a.size() == 0) {
+                if (this.f1711a == null || this.f1711a.size() == 0) {
                     return;
                 }
-                String a6 = a(this.f1320a);
+                String a6 = a(this.f1711a);
                 if (TextUtils.isEmpty(a6)) {
                     return;
                 }
@@ -81,9 +83,9 @@ public final class d {
     private a a(Cursor cursor) {
         a aVar = new a();
         try {
-            aVar.b = cursor.getString(cursor.getColumnIndex("ug"));
+            aVar.f1706b = cursor.getString(cursor.getColumnIndex("ug"));
             aVar.c = cursor.getString(cursor.getColumnIndex("nm"));
-            aVar.f1317a = cursor.getString(cursor.getColumnIndex("sessioninfo"));
+            aVar.f1705a = cursor.getString(cursor.getColumnIndex("sessioninfo"));
             aVar.d = cursor.getString(cursor.getColumnIndex(FrsActivityConfig.FLAG));
             aVar.e = new JSONArray(cursor.getString(cursor.getColumnIndex("stm")));
             aVar.f = new JSONArray(cursor.getString(cursor.getColumnIndex(Config.STAT_SDK_CHANNEL)));
@@ -142,22 +144,21 @@ public final class d {
         this.c.d();
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:28:0x0066 */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:26:0x0062  */
-    /* JADX WARN: Type inference failed for: r2v0, types: [java.lang.String] */
+    /* JADX WARN: Removed duplicated region for block: B:26:0x0061  */
     /* JADX WARN: Type inference failed for: r2v1 */
     /* JADX WARN: Type inference failed for: r2v3, types: [android.database.Cursor] */
+    /* JADX WARN: Type inference failed for: r2v6 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private List b() {
-        Throwable th;
+        ?? r2;
         Cursor cursor;
         List list = null;
-        ?? r2 = "queryAllLog";
+        String str = "queryAllLog";
         LogUtil.logE("LogUtils", "queryAllLog");
-        if (this.b == null || this.b.size() == 0) {
+        if (this.f1712b == null || this.f1712b.size() == 0) {
             try {
                 try {
                     cursor = this.c.f();
@@ -165,12 +166,12 @@ public final class d {
                         try {
                             cursor.moveToFirst();
                             while (!cursor.isAfterLast()) {
-                                this.b.add(a(cursor));
+                                this.f1712b.add(a(cursor));
                                 cursor.moveToNext();
                             }
-                            this.f1320a.addAll(this.b);
-                            this.b = null;
-                            list = this.f1320a;
+                            this.f1711a.addAll(this.f1712b);
+                            this.f1712b = null;
+                            list = this.f1711a;
                             if (cursor != null) {
                                 cursor.close();
                             }
@@ -185,8 +186,9 @@ public final class d {
                     } else if (cursor != null) {
                         cursor.close();
                     }
-                } catch (Throwable th2) {
-                    th = th2;
+                } catch (Throwable th) {
+                    th = th;
+                    r2 = str;
                     if (r2 != 0) {
                         r2.close();
                     }
@@ -195,9 +197,9 @@ public final class d {
             } catch (Exception e3) {
                 e = e3;
                 cursor = null;
-            } catch (Throwable th3) {
+            } catch (Throwable th2) {
+                th = th2;
                 r2 = 0;
-                th = th3;
                 if (r2 != 0) {
                 }
                 throw th;
@@ -290,27 +292,19 @@ public final class d {
     }
 
     public byte[] a(byte[] bArr) {
-        byte[] bArr2;
-        Exception e2;
-        ByteArrayOutputStream byteArrayOutputStream;
+        byte[] bArr2 = null;
         try {
-            byteArrayOutputStream = new ByteArrayOutputStream();
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(byteArrayOutputStream);
             gZIPOutputStream.write(bArr);
             gZIPOutputStream.finish();
             gZIPOutputStream.close();
             bArr2 = byteArrayOutputStream.toByteArray();
-        } catch (Exception e3) {
-            bArr2 = null;
-            e2 = e3;
-        }
-        try {
             byteArrayOutputStream.close();
-        } catch (Exception e4) {
-            e2 = e4;
+            return bArr2;
+        } catch (Exception e2) {
             e2.printStackTrace();
             return bArr2;
         }
-        return bArr2;
     }
 }

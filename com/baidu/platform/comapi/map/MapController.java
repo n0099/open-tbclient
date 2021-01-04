@@ -30,7 +30,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class MapController {
     public static final String ANDROID_SDK_LAYER_TAG = "android_sdk";
     public static final String CITY_AREA_TAG = "cityarea";
@@ -74,7 +74,7 @@ public class MapController {
     private boolean l = true;
 
     /* renamed from: a  reason: collision with root package name */
-    int f2876a = 0;
+    int f4261a = 0;
     private int m = 1;
     private int n = 1;
     private boolean o = false;
@@ -98,7 +98,9 @@ public class MapController {
     private boolean P = true;
     private boolean Q = true;
     private boolean R = true;
-    MapViewListener b = null;
+
+    /* renamed from: b  reason: collision with root package name */
+    MapViewListener f4262b = null;
     CaptureMapListener c = null;
     i d = null;
     ai e = null;
@@ -115,7 +117,7 @@ public class MapController {
     private int u = SysOSUtil.getInstance().getScreenWidth();
     private int v = SysOSUtil.getInstance().getScreenHeight();
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public enum HeatMapType {
         CITY(0),
         SCENERY(1),
@@ -123,18 +125,18 @@ public class MapController {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private final int f2877a;
+        private final int f4264a;
 
         HeatMapType(int i) {
-            this.f2877a = i;
+            this.f4264a = i;
         }
 
         public int getId() {
-            return this.f2877a;
+            return this.f4264a;
         }
     }
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public enum MapControlMode {
         DEFAULT(1),
         INDOOR(2),
@@ -143,19 +145,19 @@ public class MapController {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private final int f2878a;
+        private final int f4266a;
 
         MapControlMode(int i) {
-            this.f2878a = i;
+            this.f4266a = i;
         }
     }
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public interface MapFirstFrameCallback {
         void onFirstFrameDrawing(MapController mapController);
     }
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public enum MapLayerType {
         DEFAULT(1),
         SATELLITE(2),
@@ -164,14 +166,14 @@ public class MapController {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private final int f2879a;
+        private final int f4268a;
 
         MapLayerType(int i) {
-            this.f2879a = i;
+            this.f4268a = i;
         }
     }
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public enum MapSceneMode {
         DEFAULT(0),
         POI(1),
@@ -181,18 +183,18 @@ public class MapController {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private final int f2880a;
+        private final int f4270a;
 
         MapSceneMode(int i) {
-            this.f2880a = i;
+            this.f4270a = i;
         }
 
         public int getMode() {
-            return this.f2880a;
+            return this.f4270a;
         }
     }
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public enum MapStyleMode {
         DEFAULT(1),
         SEARCH_POI(2),
@@ -206,18 +208,18 @@ public class MapController {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private final int f2881a;
+        private final int f4272a;
 
         MapStyleMode(int i) {
-            this.f2881a = i;
+            this.f4272a = i;
         }
 
         public int getMode() {
-            return this.f2881a;
+            return this.f4272a;
         }
     }
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public enum RecommendPoiScene {
         BASE(0),
         INTERNATIONAL(1);
@@ -229,25 +231,25 @@ public class MapController {
         }
     }
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public enum RecycleMemoryLevel {
         NORMAL(0),
         FULL(1);
         
 
         /* renamed from: a  reason: collision with root package name */
-        private final int f2883a;
+        private final int f4275a;
 
         RecycleMemoryLevel(int i) {
-            this.f2883a = i;
+            this.f4275a = i;
         }
 
         public int getLevel() {
-            return this.f2883a;
+            return this.f4275a;
         }
     }
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     class a extends com.baidu.platform.comapi.util.i {
         a() {
             super(Looper.getMainLooper());
@@ -424,7 +426,7 @@ public class MapController {
         Bundle GetMapStatus;
         if (a() && (GetMapStatus = this.r.GetMapStatus(z2)) != null) {
             MapStatus mapStatus = new MapStatus();
-            mapStatus.level = (float) GetMapStatus.getDouble("level");
+            mapStatus.level = (float) GetMapStatus.getDouble(MapBundleKey.MapObjKey.OBJ_LEVEL);
             mapStatus.rotation = (int) GetMapStatus.getDouble(MapBundleKey.MapObjKey.OBJ_SS_ARROW_ROTATION);
             mapStatus.overlooking = (int) GetMapStatus.getDouble("overlooking");
             mapStatus.centerPtX = GetMapStatus.getDouble("centerptx");
@@ -433,7 +435,7 @@ public class MapController {
             mapStatus.winRound.left = GetMapStatus.getInt("left");
             mapStatus.winRound.right = GetMapStatus.getInt(HorizontalTranslateLayout.DIRECTION_RIGHT);
             mapStatus.winRound.top = GetMapStatus.getInt(VerticalTranslateLayout.TOP);
-            mapStatus.winRound.bottom = GetMapStatus.getInt(VerticalTranslateLayout.BOTTOM);
+            mapStatus.winRound.bottom = GetMapStatus.getInt("bottom");
             mapStatus.geoRound.left = GetMapStatus.getLong("gleft");
             mapStatus.geoRound.right = GetMapStatus.getLong("gright");
             mapStatus.geoRound.top = GetMapStatus.getLong("gtop");
@@ -482,50 +484,35 @@ public class MapController {
 
     /* JADX WARN: Code restructure failed: missing block: B:23:0x0077, code lost:
         r3 = (org.json.JSONObject) new org.json.JSONObject(r3).getJSONArray("dataset").get(0);
-        r6 = r3.getInt("itemindex");
+        r10 = r3.getInt("itemindex");
      */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x0091, code lost:
-        r3 = r3.optInt("clickindex", -1);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:25:0x0099, code lost:
-        r7 = true;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:36:0x00c6, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x0099, code lost:
         r6 = r4;
-        r3 = r10;
-        r8 = false;
-        r4 = -1;
+        r8 = r3.optInt("clickindex", -1);
+        r11 = true;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:39:0x00d4, code lost:
-        r10 = r6;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x00bb  */
-    /* JADX WARN: Removed duplicated region for block: B:37:0x00cb  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private boolean a(int i, int i2, int i3) {
         long j2;
         int i4;
-        boolean z2;
         int i5;
         int i6;
-        int i7;
-        boolean z3;
         String GetNearlyObjID;
         if (!a() || this.h == null || this.h.get() == null) {
             return false;
         }
         MapViewInterface mapViewInterface = this.h.get();
-        int i8 = -1;
+        boolean z2 = false;
+        int i7 = -1;
         long j3 = 0;
         try {
             int size = mapViewInterface.getOverlays().size() - 1;
             while (true) {
                 if (size < 0) {
+                    j2 = j3;
                     i6 = -1;
-                    i7 = -1;
-                    z3 = false;
                     break;
                 }
                 Overlay overlay = mapViewInterface.getOverlays().get(size);
@@ -538,19 +525,19 @@ public class MapController {
                 }
                 size--;
             }
-            z2 = z3;
-            int i9 = i6;
-            i4 = i7;
-            j2 = j3;
-            i5 = i9;
+            i4 = i6;
+            i5 = i7;
         } catch (JSONException e) {
+            j2 = j3;
+            i4 = -1;
+            i5 = i7;
         }
         if (i == 1 && getMapViewListener() != null) {
             GeoPoint fromPixels = mapViewInterface.getProjection().fromPixels(i2, i3);
-            if (i5 == -1) {
-                getMapViewListener().onClickedItem(i4, i5, fromPixels, j2);
+            if (i4 != -1) {
+                getMapViewListener().onClickedItem(i5, i4, fromPixels, j2);
             } else {
-                getMapViewListener().onClickedItem(i4, fromPixels, j2);
+                getMapViewListener().onClickedItem(i5, fromPixels, j2);
             }
         }
         return z2;
@@ -784,8 +771,8 @@ public class MapController {
                         } else {
                             mapObj2.style_id = 0;
                         }
-                        if (jSONObject3.has("level")) {
-                            mapObj2.level = jSONObject3.getInt("level");
+                        if (jSONObject3.has(MapBundleKey.MapObjKey.OBJ_LEVEL)) {
+                            mapObj2.level = jSONObject3.getInt(MapBundleKey.MapObjKey.OBJ_LEVEL);
                         } else {
                             mapObj2.level = -1;
                         }
@@ -978,23 +965,22 @@ public class MapController {
     */
     private boolean c(int i, int i2) {
         JSONObject jSONObject;
-        JSONException e;
         JSONObject jSONObject2;
         if (a()) {
             String GetNearlyObjID = this.r.GetNearlyObjID(-1L, i, i2, this.nearlyRadius);
             if (GetNearlyObjID != null && !GetNearlyObjID.equals("")) {
                 try {
                     jSONObject = new JSONObject(GetNearlyObjID);
-                } catch (JSONException e2) {
+                } catch (JSONException e) {
+                    e = e;
                     jSONObject = null;
-                    e = e2;
                 }
                 try {
                     jSONObject.put("px", i);
                     jSONObject.put("py", i2);
                     jSONObject2 = jSONObject;
-                } catch (JSONException e3) {
-                    e = e3;
+                } catch (JSONException e2) {
+                    e = e2;
                     e.printStackTrace();
                     jSONObject2 = jSONObject;
                     if (this.mListeners != null) {
@@ -1162,8 +1148,8 @@ public class MapController {
                         } else {
                             mapObj.url = "";
                         }
-                        if (jSONObject.has("level")) {
-                            mapObj.level = jSONObject.getInt("level");
+                        if (jSONObject.has(MapBundleKey.MapObjKey.OBJ_LEVEL)) {
+                            mapObj.level = jSONObject.getInt(MapBundleKey.MapObjKey.OBJ_LEVEL);
                         } else {
                             mapObj.level = -1;
                         }
@@ -1282,7 +1268,7 @@ public class MapController {
 
     public boolean cleanCache(MapLayerType mapLayerType) {
         AppBaseMap appBaseMap = this.r;
-        return appBaseMap != null && appBaseMap.CleanCache(mapLayerType.f2879a);
+        return appBaseMap != null && appBaseMap.CleanCache(mapLayerType.f4268a);
     }
 
     public void clearUniversalLayer() {
@@ -1340,7 +1326,7 @@ public class MapController {
         if (appBaseMap == null) {
             return 0;
         }
-        return appBaseMap.GetCacheSize(mapLayerType.f2879a);
+        return appBaseMap.GetCacheSize(mapLayerType.f4268a);
     }
 
     public CaptureMapListener getCaptureMapListener() {
@@ -1363,7 +1349,7 @@ public class MapController {
         if (this.r == null || (GetMapStatus = this.r.GetMapStatus(false)) == null) {
             return 4.0f;
         }
-        return (float) GetMapStatus.getDouble("level");
+        return (float) GetMapStatus.getDouble(MapBundleKey.MapObjKey.OBJ_LEVEL);
     }
 
     public j getFocusedBaseIndoorMapInfo() {
@@ -1498,7 +1484,7 @@ public class MapController {
     }
 
     public MapViewListener getMapViewListener() {
-        return this.b;
+        return this.f4262b;
     }
 
     public NaviMapViewListener getNaviMapViewListener() {
@@ -1564,7 +1550,7 @@ public class MapController {
             Bundle bundle = new Bundle();
             bundle.putString("querytype", "map");
             this.r.GetVMPMapCityInfo(bundle);
-            return bundle.getInt("level");
+            return bundle.getInt(MapBundleKey.MapObjKey.OBJ_LEVEL);
         }
         return 0;
     }
@@ -1584,7 +1570,7 @@ public class MapController {
         if (this.r == null || (GetMapStatus = this.r.GetMapStatus()) == null) {
             return 4.0f;
         }
-        return (float) GetMapStatus.getDouble("level");
+        return (float) GetMapStatus.getDouble(MapBundleKey.MapObjKey.OBJ_LEVEL);
     }
 
     public float getZoomToBound(Bundle bundle, int i, int i2) {
@@ -2233,7 +2219,7 @@ public class MapController {
     public int setMapControlMode(MapControlMode mapControlMode) {
         if (a()) {
             this.W = mapControlMode;
-            return this.r.SetMapControlMode(mapControlMode.f2878a);
+            return this.r.SetMapControlMode(mapControlMode.f4266a);
         }
         return -1;
     }
@@ -2267,7 +2253,7 @@ public class MapController {
             return;
         }
         Bundle bundle = new Bundle();
-        bundle.putDouble("level", mapStatus.level);
+        bundle.putDouble(MapBundleKey.MapObjKey.OBJ_LEVEL, mapStatus.level);
         bundle.putDouble(MapBundleKey.MapObjKey.OBJ_SS_ARROW_ROTATION, mapStatus.rotation);
         bundle.putDouble("overlooking", mapStatus.overlooking);
         bundle.putDouble("centerptx", mapStatus.centerPtX);
@@ -2276,7 +2262,7 @@ public class MapController {
         bundle.putInt("left", mapStatus.winRound.left);
         bundle.putInt(HorizontalTranslateLayout.DIRECTION_RIGHT, mapStatus.winRound.right);
         bundle.putInt(VerticalTranslateLayout.TOP, mapStatus.winRound.top);
-        bundle.putInt(VerticalTranslateLayout.BOTTOM, mapStatus.winRound.bottom);
+        bundle.putInt("bottom", mapStatus.winRound.bottom);
         bundle.putLong("gleft", mapStatus.geoRound.left);
         bundle.putLong("gbottom", mapStatus.geoRound.bottom);
         bundle.putLong("gtop", mapStatus.geoRound.top);
@@ -2303,7 +2289,7 @@ public class MapController {
             return;
         }
         Bundle bundle = new Bundle();
-        bundle.putDouble("level", mapStatus.level);
+        bundle.putDouble(MapBundleKey.MapObjKey.OBJ_LEVEL, mapStatus.level);
         bundle.putDouble(MapBundleKey.MapObjKey.OBJ_SS_ARROW_ROTATION, mapStatus.rotation);
         bundle.putDouble("overlooking", mapStatus.overlooking);
         bundle.putDouble("centerptx", mapStatus.centerPtX);
@@ -2312,7 +2298,7 @@ public class MapController {
         bundle.putInt("left", mapStatus.winRound.left);
         bundle.putInt(HorizontalTranslateLayout.DIRECTION_RIGHT, mapStatus.winRound.right);
         bundle.putInt(VerticalTranslateLayout.TOP, mapStatus.winRound.top);
-        bundle.putInt(VerticalTranslateLayout.BOTTOM, mapStatus.winRound.bottom);
+        bundle.putInt("bottom", mapStatus.winRound.bottom);
         bundle.putLong("gleft", mapStatus.geoRound.left);
         bundle.putLong("gbottom", mapStatus.geoRound.bottom);
         bundle.putLong("gtop", mapStatus.geoRound.top);
@@ -2335,7 +2321,7 @@ public class MapController {
             return;
         }
         Bundle bundle = new Bundle();
-        bundle.putDouble("level", mapStatus.level);
+        bundle.putDouble(MapBundleKey.MapObjKey.OBJ_LEVEL, mapStatus.level);
         bundle.putDouble(MapBundleKey.MapObjKey.OBJ_SS_ARROW_ROTATION, mapStatus.rotation);
         bundle.putDouble("overlooking", mapStatus.overlooking);
         bundle.putDouble("centerptx", mapStatus.centerPtX);
@@ -2344,7 +2330,7 @@ public class MapController {
         bundle.putInt("left", mapStatus.winRound.left);
         bundle.putInt(HorizontalTranslateLayout.DIRECTION_RIGHT, mapStatus.winRound.right);
         bundle.putInt(VerticalTranslateLayout.TOP, mapStatus.winRound.top);
-        bundle.putInt(VerticalTranslateLayout.BOTTOM, mapStatus.winRound.bottom);
+        bundle.putInt("bottom", mapStatus.winRound.bottom);
         bundle.putLong("gleft", mapStatus.geoRound.left);
         bundle.putLong("gright", mapStatus.geoRound.right);
         bundle.putLong("gbottom", mapStatus.geoRound.bottom);
@@ -2370,7 +2356,7 @@ public class MapController {
             return;
         }
         Bundle bundle = new Bundle();
-        bundle.putDouble("level", mapStatus.level);
+        bundle.putDouble(MapBundleKey.MapObjKey.OBJ_LEVEL, mapStatus.level);
         bundle.putDouble(MapBundleKey.MapObjKey.OBJ_SS_ARROW_ROTATION, mapStatus.rotation);
         bundle.putDouble("overlooking", mapStatus.overlooking);
         bundle.putDouble("centerptx", mapStatus.centerPtX);
@@ -2379,7 +2365,7 @@ public class MapController {
         bundle.putInt("left", mapStatus.winRound.left);
         bundle.putInt(HorizontalTranslateLayout.DIRECTION_RIGHT, mapStatus.winRound.right);
         bundle.putInt(VerticalTranslateLayout.TOP, mapStatus.winRound.top);
-        bundle.putInt(VerticalTranslateLayout.BOTTOM, mapStatus.winRound.bottom);
+        bundle.putInt("bottom", mapStatus.winRound.bottom);
         bundle.putLong("gleft", mapStatus.geoRound.left);
         bundle.putLong("gright", mapStatus.geoRound.right);
         bundle.putLong("gbottom", mapStatus.geoRound.bottom);
@@ -2404,7 +2390,7 @@ public class MapController {
             return;
         }
         Bundle bundle = new Bundle();
-        bundle.putDouble("level", mapStatus.level);
+        bundle.putDouble(MapBundleKey.MapObjKey.OBJ_LEVEL, mapStatus.level);
         bundle.putDouble(MapBundleKey.MapObjKey.OBJ_SS_ARROW_ROTATION, mapStatus.rotation);
         bundle.putDouble("overlooking", mapStatus.overlooking);
         bundle.putDouble("centerptx", mapStatus.centerPtX);
@@ -2413,7 +2399,7 @@ public class MapController {
         bundle.putInt("left", mapStatus.winRound.left);
         bundle.putInt(HorizontalTranslateLayout.DIRECTION_RIGHT, mapStatus.winRound.right);
         bundle.putInt(VerticalTranslateLayout.TOP, mapStatus.winRound.top);
-        bundle.putInt(VerticalTranslateLayout.BOTTOM, mapStatus.winRound.bottom);
+        bundle.putInt("bottom", mapStatus.winRound.bottom);
         bundle.putLong("gleft", mapStatus.geoRound.left);
         bundle.putLong("gright", mapStatus.geoRound.right);
         bundle.putLong("gbottom", mapStatus.geoRound.bottom);
@@ -2461,7 +2447,7 @@ public class MapController {
     }
 
     public void setMapViewListener(MapViewListener mapViewListener) {
-        this.b = mapViewListener;
+        this.f4262b = mapViewListener;
     }
 
     public void setMaxAndMinZoomLevel(float f, float f2) {
@@ -2479,10 +2465,10 @@ public class MapController {
         }
         if (i == 1) {
             this.g.onLongLinkConnect();
-        } else if (i == 2 && this.f2876a != i) {
+        } else if (i == 2 && this.f4261a != i) {
             this.g.onLongLinkDisConnect();
         }
-        this.f2876a = i;
+        this.f4261a = i;
     }
 
     public void setOverlayMapCallBack(ac acVar) {

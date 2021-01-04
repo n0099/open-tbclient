@@ -1,18 +1,18 @@
 package com.baidu.searchbox.widget;
 
 import android.content.Context;
-import android.support.v4.view.MotionEventCompat;
-import android.support.v4.view.VelocityTrackerCompat;
-import android.support.v4.view.ViewCompat;
-import android.support.v4.widget.ScrollerCompat;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.animation.Interpolator;
+import androidx.core.view.MotionEventCompat;
+import androidx.core.view.VelocityTrackerCompat;
+import androidx.core.view.ViewCompat;
+import androidx.core.widget.ScrollerCompat;
 import java.util.Arrays;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public class ViewDragHelper {
     private static final int BASE_SETTLE_DURATION = 256;
     public static final int DIRECTION_ALL = 3;
@@ -65,7 +65,7 @@ public class ViewDragHelper {
         }
     };
 
-    /* loaded from: classes16.dex */
+    /* loaded from: classes15.dex */
     public static abstract class Callback {
         public abstract boolean isPageTranslucent();
 

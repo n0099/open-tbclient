@@ -29,7 +29,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public abstract class e extends f implements View.OnTouchListener, OnRenderFinishedListener, OnRenderStartedListener, IRenderer {
     private g D;
     com.baidu.ar.arplay.core.engine.a hd;
@@ -132,7 +132,11 @@ public abstract class e extends f implements View.OnTouchListener, OnRenderFinis
 
     private void b(DuMixInput duMixInput, DuMixOutput duMixOutput) {
         int i;
-        int i2 = 0;
+        int i2;
+        int i3;
+        int i4;
+        int i5;
+        int i6;
         Watermark watermark = duMixOutput.getWatermark();
         if (watermark.getRenderRect() != null || watermark.getStartPoint() == null) {
             return;
@@ -140,28 +144,36 @@ public abstract class e extends f implements View.OnTouchListener, OnRenderFinis
         int outputWidth = duMixOutput.getOutputWidth();
         int outputHeight = duMixOutput.getOutputHeight();
         if (duMixOutput.getRotationType() == RotationType.ROTATE_90 || duMixOutput.getRotationType() == RotationType.ROTATE_270) {
-            outputWidth = outputHeight;
-            outputHeight = outputWidth;
+            i = outputWidth;
+            i2 = outputHeight;
+        } else {
+            i = outputHeight;
+            i2 = outputWidth;
         }
         if (duMixOutput.getScaleType() == ScaleType.CENTER_CROP && duMixInput != null) {
             int inputWidth = duMixInput.getInputWidth();
             int inputHeight = duMixInput.getInputHeight();
             if (duMixInput.getRotationType() == RotationType.ROTATE_90 || duMixInput.getRotationType() == RotationType.ROTATE_270) {
-                inputWidth = inputHeight;
-                inputHeight = inputWidth;
+                i5 = inputWidth;
+                i6 = inputHeight;
+            } else {
+                i5 = inputHeight;
+                i6 = inputWidth;
             }
-            new Size(outputWidth, outputHeight);
-            Size b = b.b(inputWidth, inputHeight, outputWidth, outputHeight);
-            if (b.getWidth() != inputWidth) {
-                i = (outputWidth - b.getWidth()) / 2;
-            } else if (b.getHeight() != inputHeight) {
-                i = 0;
-                i2 = (outputHeight - b.getHeight()) / 2;
+            new Size(i2, i);
+            Size b2 = b.b(i6, i5, i2, i);
+            if (b2.getWidth() != i6) {
+                i3 = 0;
+                i4 = (i2 - b2.getWidth()) / 2;
+            } else if (b2.getHeight() != i5) {
+                i3 = (i - b2.getHeight()) / 2;
+                i4 = 0;
             }
-            watermark.setRenderRect(a(watermark, outputWidth, outputHeight, i, i2));
+            watermark.setRenderRect(a(watermark, i2, i, i4, i3));
         }
-        i = 0;
-        watermark.setRenderRect(a(watermark, outputWidth, outputHeight, i, i2));
+        i3 = 0;
+        i4 = 0;
+        watermark.setRenderRect(a(watermark, i2, i, i4, i3));
     }
 
     private void bG() {

@@ -1,9 +1,9 @@
 package com.baidu.sofire.i;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static long[] f3633a = new long[256];
+    private static long[] f5535a = new long[256];
 
     static {
         for (int i = 0; i < 256; i++) {
@@ -12,7 +12,7 @@ public final class c {
                 j = (j >> 1) ^ ((((int) j) & 1) != 0 ? -7661587058870466123L : 0L);
             }
             try {
-                f3633a[i] = j;
+                f5535a[i] = j;
             } catch (Throwable th) {
                 e.a();
                 return;
@@ -39,8 +39,8 @@ public final class c {
             }
             if (bArr != null) {
                 j = -1;
-                for (byte b : bArr) {
-                    j = (j >> 8) ^ f3633a[(((int) j) ^ b) & 255];
+                for (byte b2 : bArr) {
+                    j = (j >> 8) ^ f5535a[(((int) j) ^ b2) & 255];
                 }
             }
         }

@@ -18,7 +18,7 @@ import com.baidu.fsg.base.widget.SafeScrollView;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class BaseActivity extends Activity implements NoProguard {
     public static final int DIALOG_LOADING = 242;
     public static final int DIALOG_PROMPT = 241;
@@ -26,8 +26,10 @@ public class BaseActivity extends Activity implements NoProguard {
     public static final String WITH_ANIM = "with_anim";
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1450a = "BaseActivity";
-    private static final boolean b = false;
+    private static final String f1916a = "BaseActivity";
+
+    /* renamed from: b  reason: collision with root package name */
+    private static final boolean f1917b = false;
     private long h;
     protected RimStatisticsUtil mStatUtil;
     public static LinkedList<BaseActivity> mActivityStack = new LinkedList<>();
@@ -95,7 +97,7 @@ public class BaseActivity extends Activity implements NoProguard {
 
     protected static synchronized void clearTasksWithFlag(int i) {
         synchronized (BaseActivity.class) {
-            LogUtil.d(f1450a, "clearTasksWithFlag. stack size = " + mActivityStack.size());
+            LogUtil.d(f1916a, "clearTasksWithFlag. stack size = " + mActivityStack.size());
             Iterator<BaseActivity> it = mActivityStack.iterator();
             while (it.hasNext()) {
                 BaseActivity next = it.next();
@@ -109,7 +111,7 @@ public class BaseActivity extends Activity implements NoProguard {
 
     protected static synchronized void clearTasksTopOf(BaseActivity baseActivity) {
         synchronized (BaseActivity.class) {
-            LogUtil.d(f1450a, "clearTasksTopOf. stack size = " + mActivityStack.size());
+            LogUtil.d(f1916a, "clearTasksTopOf. stack size = " + mActivityStack.size());
             for (int size = mActivityStack.size() - 1; size > 0; size--) {
                 BaseActivity baseActivity2 = mActivityStack.get(size);
                 if (baseActivity2 == baseActivity) {

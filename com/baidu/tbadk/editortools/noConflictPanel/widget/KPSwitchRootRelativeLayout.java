@@ -7,7 +7,7 @@ import android.widget.RelativeLayout;
 import com.baidu.tbadk.editortools.noConflictPanel.a.c;
 /* loaded from: classes.dex */
 public class KPSwitchRootRelativeLayout extends RelativeLayout {
-    private c fwl;
+    private c fFR;
 
     public KPSwitchRootRelativeLayout(Context context) {
         super(context);
@@ -25,12 +25,12 @@ public class KPSwitchRootRelativeLayout extends RelativeLayout {
     }
 
     private void init() {
-        this.fwl = new c(this);
+        this.fFR = new c(this);
     }
 
     @Override // android.widget.RelativeLayout, android.view.View
     protected void onMeasure(int i, int i2) {
-        this.fwl.ae(View.MeasureSpec.getSize(i), View.MeasureSpec.getSize(i2));
+        this.fFR.Z(View.MeasureSpec.getSize(i), View.MeasureSpec.getSize(i2));
         super.onMeasure(i, i2);
     }
 }

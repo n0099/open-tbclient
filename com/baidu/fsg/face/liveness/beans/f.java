@@ -1,12 +1,14 @@
 package com.baidu.fsg.face.liveness.beans;
 
 import com.baidu.pass.biometrics.base.utils.PassBioEnv;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f1715a = PassBioEnv.PASSPORT_DOMAIN;
-    public static String b = PassBioEnv.PASSPORT_QA_DOMAIN;
+    public static String f2323a = PassBioEnv.PASSPORT_DOMAIN;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static String f2324b = PassBioEnv.PASSPORT_QA_DOMAIN;
     public static String c = PassBioEnv.PASSPORT_RD_DOMAIN;
     public static String d = "http://wappass.baidu.com";
     public static String e = "http://wappass.qatest.baidu.com";

@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.Locale;
 import okhttp3.internal.Util;
 import org.apache.http.impl.cookie.DateUtils;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public final class HttpDate {
     public static final long MAX_DATE = 253402300799999L;
     private static final ThreadLocal<DateFormat> STANDARD_DATE_FORMAT = new ThreadLocal<DateFormat>() { // from class: okhttp3.internal.http.HttpDate.1

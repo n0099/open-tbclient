@@ -13,7 +13,7 @@ import com.baidu.live.adp.framework.MessageConfig;
 import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.util.ai;
+import com.baidu.tbadk.util.ah;
 import com.baidu.tieba.play.cyberPlayer.TbCyberVideoView;
 import com.baidu.tieba.play.n;
 import io.flutter.plugin.common.BinaryMessenger;
@@ -43,7 +43,7 @@ public class VideoPlayer implements CyberPlayerManager.OnCompletionListener, Cyb
                     VideoPlayer.this.initVideoMute();
                 } else {
                     if (VideoPlayer.this.isPlaying()) {
-                        ai.a(VideoPlayer.this.mWeakContext, true);
+                        ah.a(VideoPlayer.this.mWeakContext, true);
                     }
                     VideoPlayer.this.cyberVideoView.setVolume(1.0f, 1.0f);
                     VideoPlayer.this.isForceSound = true;
@@ -91,15 +91,15 @@ public class VideoPlayer implements CyberPlayerManager.OnCompletionListener, Cyb
         this.viewId = surfaceTextureEntry.id();
         this.methodChannel = new MethodChannel(binaryMessenger, "tb_video_player_" + this.viewId);
         this.methodChannel.setMethodCallHandler(this);
-        e.mY().postDelayed(this.mFakePlayerToSpeedRunnable, 200L);
+        e.mB().postDelayed(this.mFakePlayerToSpeedRunnable, 200L);
     }
 
     @Override // io.flutter.plugin.common.MethodChannel.MethodCallHandler
     public void onMethodCall(MethodCall methodCall, MethodChannel.Result result) {
         if (methodCall.method.equals(AlaStaticKeys.ALA_STATIC_VALUE_PLAY) || methodCall.method.equals("startAutoPlay")) {
-            int Ro = n.dCa().Ro(this.dataSource);
-            if (Ro > 0) {
-                this.cyberVideoView.seekTo(Ro);
+            int QU = n.dBP().QU(this.dataSource);
+            if (QU > 0) {
+                this.cyberVideoView.seekTo(QU);
             }
             startPlay();
         } else if (methodCall.method.equals("pause")) {
@@ -166,10 +166,10 @@ public class VideoPlayer implements CyberPlayerManager.OnCompletionListener, Cyb
         boolean isVideoCardMute = TbSingleton.getInstance().isVideoCardMute();
         if (isVideoCardMute) {
             this.cyberPlayer.setVolume(1.0f, 1.0f);
-            ai.a(this.mWeakContext, true);
+            ah.a(this.mWeakContext, true);
         } else {
             this.cyberPlayer.setVolume(0.0f, 0.0f);
-            ai.a(this.mWeakContext, false);
+            ah.a(this.mWeakContext, false);
         }
         TbSingleton.getInstance().setVideoCardMute(!isVideoCardMute);
         return !isVideoCardMute;
@@ -185,7 +185,7 @@ public class VideoPlayer implements CyberPlayerManager.OnCompletionListener, Cyb
         }
         if (this.cyberVideoView != null) {
             this.cyberVideoView.stop();
-            this.cyberVideoView.dCl();
+            this.cyberVideoView.dCa();
         }
         if (this.textureEntry != null) {
             this.textureEntry.release();

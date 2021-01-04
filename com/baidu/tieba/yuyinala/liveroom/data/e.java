@@ -1,18 +1,18 @@
 package com.baidu.tieba.yuyinala.liveroom.data;
 
 import com.baidu.live.data.AlaWheatInfoData;
-import com.baidu.live.data.w;
-/* loaded from: classes4.dex */
+import com.baidu.live.data.x;
+/* loaded from: classes11.dex */
 public class e {
-    public w gVS;
-    public AlaWheatInfoData olX;
-    public int olY;
-    public int olZ;
+    public AlaWheatInfoData cdg;
+    public x hhF;
+    public int ooT;
+    public int ooU;
 
-    public e(w wVar, AlaWheatInfoData alaWheatInfoData, int i, int i2) {
-        this.gVS = wVar;
-        this.olX = alaWheatInfoData;
-        this.olY = i;
-        this.olZ = i2;
+    public e(x xVar, AlaWheatInfoData alaWheatInfoData, int i, int i2) {
+        this.hhF = xVar;
+        this.cdg = alaWheatInfoData;
+        this.ooT = i;
+        this.ooU = i2;
     }
 }

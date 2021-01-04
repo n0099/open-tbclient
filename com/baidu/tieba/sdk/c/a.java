@@ -1,7 +1,7 @@
 package com.baidu.tieba.sdk.c;
 
 import com.baidu.live.adp.lib.util.StringUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a {
     public String bduss;
     public String nickName;

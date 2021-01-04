@@ -2,12 +2,9 @@ package com.baidu.ala.recorder.video.hardware;
 
 import android.media.MediaCodec;
 import android.os.Bundle;
-import com.baidu.live.adp.lib.stats.BdStatisticsManager;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
-import com.baidu.live.adp.lib.util.BdLog;
-import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import com.baidu.ala.adp.lib.util.BdLog;
 import java.nio.ByteBuffer;
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class EncoderOutputStream {
     private static final int DEQUEUE_OUTPUT_BUFFER_TIMEOUT = 500000;
     private static final int LEN = 307200;
@@ -33,11 +30,8 @@ public class EncoderOutputStream {
     private Runnable mPumpRunnable = new Runnable() { // from class: com.baidu.ala.recorder.video.hardware.EncoderOutputStream.1
         @Override // java.lang.Runnable
         public void run() {
-            Throwable th;
-            IllegalStateException illegalStateException;
             ByteBuffer[] byteBufferArr;
             int dequeueOutputBuffer;
-            ByteBuffer[] byteBufferArr2;
             try {
                 if (EncoderOutputStream.this.mLastTime == 0) {
                     EncoderOutputStream.this.mLastTime = System.currentTimeMillis();
@@ -49,12 +43,10 @@ public class EncoderOutputStream {
                     try {
                         if (System.currentTimeMillis() - EncoderOutputStream.this.mNoStreamTime <= 10000) {
                             if (System.currentTimeMillis() - EncoderOutputStream.this.mLastTime > 5000) {
-                                BdStatisticsManager.getInstance().newDebug("AlaLiveEncoder", 0L, null, BdStatsConstant.StatsType.ERROR, "get data overtime, try count:" + EncoderOutputStream.this.mTryAgainStatusCount);
                                 EncoderOutputStream.this.mLastTime = System.currentTimeMillis();
                                 EncoderOutputStream.this.mTryAgainStatusCount = 0L;
                             }
                         } else {
-                            BdStatisticsManager.getInstance().newDebug("AlaLiveEncoder", 0L, null, BdStatsConstant.StatsType.ERROR, "encoder error, retry init:" + EncoderOutputStream.this.mRetryCount);
                             EncoderOutputStream.access$508(EncoderOutputStream.this);
                             EncoderOutputStream.this.mHasStream = false;
                             EncoderOutputStream.this.mNoStreamTime = System.currentTimeMillis();
@@ -85,25 +77,22 @@ public class EncoderOutputStream {
                             }
                             EncoderOutputStream.this.mTryAgainStatusCount = 0L;
                             EncoderOutputStream.this.mRetryCount = 0;
-                            byteBufferArr2 = outputBuffers;
+                            byteBufferArr = outputBuffers;
                         } else if (dequeueOutputBuffer == -3) {
-                            byteBufferArr2 = EncoderOutputStream.this.mMediaCodec.getOutputBuffers();
+                            byteBufferArr = EncoderOutputStream.this.mMediaCodec.getOutputBuffers();
                         } else if (dequeueOutputBuffer == -2) {
-                            byteBufferArr2 = outputBuffers;
-                        } else if (dequeueOutputBuffer == -1) {
-                            EncoderOutputStream.access$608(EncoderOutputStream.this);
-                            byteBufferArr2 = outputBuffers;
+                            byteBufferArr = outputBuffers;
                         } else {
-                            if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-                                BdStatisticsManager.getInstance().newDebug("AlaLiveEncoder", 0L, null, BdStatsConstant.StatsType.ERROR, "unkown error: " + dequeueOutputBuffer);
+                            if (dequeueOutputBuffer == -1) {
+                                EncoderOutputStream.access$608(EncoderOutputStream.this);
                             }
-                            byteBufferArr2 = outputBuffers;
+                            byteBufferArr = outputBuffers;
                         }
                     } catch (IllegalStateException e) {
-                        illegalStateException = e;
+                        e = e;
                         byteBufferArr = outputBuffers;
-                    } catch (Throwable th2) {
-                        th = th2;
+                    } catch (Throwable th) {
+                        th = th;
                     }
                     try {
                         if (EncoderOutputStream.this.mBuffer != null) {
@@ -117,18 +106,15 @@ public class EncoderOutputStream {
                             EncoderOutputStream.this.mMediaCodec.setParameters(bundle);
                         }
                         Thread.sleep(1L);
-                        outputBuffers = byteBufferArr2;
-                    } catch (IllegalStateException e2) {
-                        illegalStateException = e2;
-                        byteBufferArr = byteBufferArr2;
-                        BdLog.d("EncoderStreamException:" + illegalStateException.getMessage());
-                        BdStatisticsManager.getInstance().newDebug("AlaLiveEncoder", 0L, null, "exception", illegalStateException.getMessage());
                         outputBuffers = byteBufferArr;
-                    } catch (Throwable th3) {
-                        th = th3;
-                        outputBuffers = byteBufferArr2;
+                    } catch (IllegalStateException e2) {
+                        e = e2;
+                        BdLog.d("EncoderStreamException:" + e.getMessage());
+                        outputBuffers = byteBufferArr;
+                    } catch (Throwable th2) {
+                        th = th2;
+                        outputBuffers = byteBufferArr;
                         BdLog.d("EncoderStreamException:" + th.getMessage());
-                        BdStatisticsManager.getInstance().newDebug("AlaLiveEncoder", 0L, null, "exception", th.getMessage());
                     }
                 }
             } catch (Exception e3) {
@@ -138,7 +124,7 @@ public class EncoderOutputStream {
         }
     };
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes15.dex */
     public interface OnEncoderError {
         public static final int ERROR_CODE_NEED_CHANGE_ENCODER = 2;
         public static final int ERROR_CODE_NEED_REINIT_ENCODER = 1;
@@ -146,7 +132,7 @@ public class EncoderOutputStream {
         void onError(int i, String str);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes15.dex */
     public interface OnEncoderOutput {
         void onEncode(byte[] bArr, int i, boolean z, boolean z2, long j);
     }

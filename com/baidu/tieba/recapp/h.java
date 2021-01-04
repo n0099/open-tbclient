@@ -4,7 +4,7 @@ import android.view.View;
 import com.baidu.tbadk.widget.DragImageView;
 /* loaded from: classes.dex */
 public interface h {
-    View deF();
+    View deq();
 
     void onAdShow();
 

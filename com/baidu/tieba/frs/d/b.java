@@ -1,11 +1,17 @@
 package com.baidu.tieba.frs.d;
-/* loaded from: classes22.dex */
+
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tieba.R;
+/* loaded from: classes2.dex */
 public class b {
-    public boolean jtR = false;
-    public int jtS = 0;
-    public String jtT = null;
-    public int jtU = -1;
-    public int jtV = -1;
-    public int jtW = -1;
-    public int jtX = -1;
+    private TbPageContext<BaseFragmentActivity> eXu;
+    private Animation jIe;
+
+    public b(TbPageContext<BaseFragmentActivity> tbPageContext) {
+        this.eXu = tbPageContext;
+        this.jIe = AnimationUtils.loadAnimation(this.eXu.getPageActivity(), R.anim.frs_like);
+    }
 }

@@ -1,8 +1,8 @@
 package com.baidu.webkit.sdk;
 
 import android.content.Context;
-import android.support.v4.view.ViewCompat;
-import android.support.v7.widget.ActivityChooserView;
+import androidx.appcompat.widget.ActivityChooserView;
+import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import java.lang.annotation.ElementType;
@@ -12,7 +12,7 @@ import java.lang.annotation.Target;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public abstract class WebSettings implements Observer {
     public static final int LOAD_CACHE_ELSE_NETWORK = 1;
     public static final int LOAD_CACHE_ONLY = 3;
@@ -39,11 +39,11 @@ public abstract class WebSettings implements Observer {
     public boolean mEnableJsPrompt = true;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public @interface CacheMode {
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public static class CodeCacheSetting {
         public String id;
         public int maxCount;
@@ -51,14 +51,14 @@ public abstract class WebSettings implements Observer {
         public int sizeLimit;
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public enum FlingAlgorithm {
         FAST,
         QUADRATIC,
         CUBIC
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public enum ImgQuality {
         NO_COMPRESS,
         LOW_COMPRESS,
@@ -66,7 +66,7 @@ public abstract class WebSettings implements Observer {
         HIGHT_COMPRESS
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public enum LayoutAlgorithm {
         NORMAL,
         SINGLE_COLUMN,
@@ -76,18 +76,18 @@ public abstract class WebSettings implements Observer {
 
     @Target({ElementType.PARAMETER, ElementType.METHOD})
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     private @interface MenuItemFlags {
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public enum PluginState {
         ON,
         ON_DEMAND,
         OFF
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public enum ProxyType {
         NO_PROXY,
         SPDY_PROXY,
@@ -95,14 +95,14 @@ public abstract class WebSettings implements Observer {
         SPDYANDOVERSEAS_PROXY
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public enum RemoveAdLevel {
         DISABLE,
         LOW_LEVEL,
         HIGH_LEVEL
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public enum RenderPriority {
         NORMAL,
         HIGH,
@@ -110,7 +110,7 @@ public abstract class WebSettings implements Observer {
     }
 
     @Deprecated
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public enum TextSize {
         SMALLEST(50),
         SMALLER(75),
@@ -127,7 +127,7 @@ public abstract class WebSettings implements Observer {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public enum ZoomDensity {
         FAR(150),
         MEDIUM(100),
@@ -405,8 +405,7 @@ public abstract class WebSettings implements Observer {
     @Deprecated
     public TextSize getTextSize() {
         int textZoom;
-        TextSize textSize;
-        TextSize textSize2 = null;
+        TextSize textSize = null;
         int i = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         synchronized (this.lockObject) {
             textZoom = getTextZoom();
@@ -415,22 +414,20 @@ public abstract class WebSettings implements Observer {
         int length = values.length;
         int i2 = 0;
         while (i2 < length) {
-            TextSize textSize3 = values[i2];
-            int abs = Math.abs(textZoom - textSize3.value);
+            TextSize textSize2 = values[i2];
+            int abs = Math.abs(textZoom - textSize2.value);
             if (abs == 0) {
-                return textSize3;
+                return textSize2;
             }
-            if (abs < i) {
-                textSize = textSize3;
-            } else {
+            if (abs >= i) {
                 abs = i;
-                textSize = textSize2;
+                textSize2 = textSize;
             }
             i2++;
-            textSize2 = textSize;
             i = abs;
+            textSize = textSize2;
         }
-        return textSize2 != null ? textSize2 : TextSize.NORMAL;
+        return textSize != null ? textSize : TextSize.NORMAL;
     }
 
     public abstract int getTextZoom();

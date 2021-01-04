@@ -21,17 +21,17 @@ import com.baidu.adp.lib.guide.d;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.l;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.adp.widget.ListView.d;
+import com.baidu.adp.widget.ListView.c;
 import com.baidu.android.imsdk.internal.IMConnection;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bl;
 import com.baidu.tbadk.core.data.bm;
+import com.baidu.tbadk.core.data.bn;
 import com.baidu.tbadk.core.data.v;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.core.view.f;
 import com.baidu.tbadk.core.view.g;
 import com.baidu.tbadk.l.h;
@@ -47,56 +47,56 @@ import com.baidu.tieba.view.CommonTipView;
 import com.baidu.tieba.view.GuidePopupWindow;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class b implements EnterForumAdView.a {
-    private static boolean iCT = false;
-    private View bJa;
-    private ImageView fqN;
-    private View gOi;
-    private int iAC;
-    private final EnterForumFragment iCL;
-    private BdListView iCM;
-    private com.baidu.tieba.enterForum.a.a iCN;
-    private List<com.baidu.tieba.enterForum.data.f> iCO;
-    private bl iCP;
-    private CommonTipView iCQ;
-    private EnterForumAdView iCR;
-    private GuidePopupWindow iCS;
-    private int iCU;
-    private e iCV;
-    private int iCX;
-    private f.c iCY;
-    private View iDf;
-    private float iDg;
-    private boolean iDi;
-    private com.baidu.adp.lib.guide.c ipM;
-    private com.baidu.tieba.enterForum.data.c itB;
-    private ViewEventCenter itw;
-    private int iwm;
+    private static boolean iPf = false;
+    private View bNO;
+    private ImageView fAu;
+    private View gZV;
+    private com.baidu.adp.lib.guide.c iCg;
+    private ViewEventCenter iFJ;
+    private com.baidu.tieba.enterForum.data.c iFO;
+    private int iIz;
+    private int iMO;
+    private final EnterForumFragment iOX;
+    private BdListView iOY;
+    private com.baidu.tieba.enterForum.adapter.a iOZ;
+    private List<com.baidu.tieba.enterForum.data.f> iPa;
+    private bm iPb;
+    private CommonTipView iPc;
+    private EnterForumAdView iPd;
+    private GuidePopupWindow iPe;
+    private int iPg;
+    private e iPh;
+    private int iPj;
+    private f.c iPk;
+    private View iPr;
+    private float iPs;
+    private boolean iPu;
     private Context mContext;
     private int mNavHeight;
     private g mPullView;
     private View mRootView;
     private h refreshView;
-    private boolean iCW = true;
-    private f.c gzN = new f.c() { // from class: com.baidu.tieba.enterForum.view.b.1
+    private boolean iPi = true;
+    private f.c gKQ = new f.c() { // from class: com.baidu.tieba.enterForum.view.b.1
         @Override // com.baidu.tbadk.core.view.f.c
         public void onListPullRefresh(boolean z) {
-            if (!b.this.iDh) {
-                com.baidu.tieba.t.c.dOf().C(b.this.iCL.getUniqueId());
-                if (b.this.iCY != null) {
-                    b.this.iCY.onListPullRefresh(z);
+            if (!b.this.iPt) {
+                com.baidu.tieba.s.c.dNX().C(b.this.iOX.getUniqueId());
+                if (b.this.iPk != null) {
+                    b.this.iPk.onListPullRefresh(z);
                 }
-                if (z && !b.this.iud && b.this.itB != null && b.this.itB.iud) {
-                    if (b.this.itB.iuf > 0) {
-                        b.this.iCM.smoothScrollToPosition(0, 0, 0);
-                        b.this.cxn();
+                if (z && !b.this.iGq && b.this.iFO != null && b.this.iFO.iGq) {
+                    if (b.this.iFO.iGs > 0) {
+                        b.this.iOY.smoothScrollToPosition(0, 0, 0);
+                        b.this.cAg();
                         return;
                     }
-                    com.baidu.adp.lib.f.e.mY().post(new Runnable() { // from class: com.baidu.tieba.enterForum.view.b.1.1
+                    com.baidu.adp.lib.f.e.mB().post(new Runnable() { // from class: com.baidu.tieba.enterForum.view.b.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            b.this.iCM.setSelection(0);
+                            b.this.iOY.setSelection(0);
                         }
                     });
                 }
@@ -104,264 +104,264 @@ public class b implements EnterForumAdView.a {
         }
     };
     AbsListView.OnScrollListener mOnScrollListener = new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.enterForum.view.b.12
-        private int gtH = -1;
+        private int gEG = -1;
 
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScrollStateChanged(AbsListView absListView, int i) {
-            b.this.iCV.onScrollStateChanged(absListView, i);
-            if (this.gtH != i) {
-                this.gtH = i;
-                if (this.gtH == 1) {
-                    if (b.this.itB == null || !b.this.itB.iud) {
+            b.this.iPh.onScrollStateChanged(absListView, i);
+            if (this.gEG != i) {
+                this.gEG = i;
+                if (this.gEG == 1) {
+                    if (b.this.iFO == null || !b.this.iFO.iGq) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001630, true));
                     }
-                    b.this.cxs();
+                    b.this.cAl();
                     return;
                 }
-                b.this.cxf();
+                b.this.czY();
             }
         }
 
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-            if (b.this.iCL.isPrimary() && this.gtH != 1 && i == 0) {
+            if (b.this.iOX.isPrimary() && this.gEG != 1 && i == 0) {
                 for (int i4 = i; i4 < i + i2; i4++) {
-                    Object itemAtPosition = b.this.iCM.getItemAtPosition(i4);
+                    Object itemAtPosition = b.this.iOY.getItemAtPosition(i4);
                     if (itemAtPosition != null && (itemAtPosition instanceof v)) {
                         v vVar = (v) itemAtPosition;
-                        if (vVar.getItemViewType() == 1 && b.this.iCM.getItemAtPosition(i4) == y.getItem(b.this.iCO, 0)) {
-                            b.this.a(vVar, b.this.iCM.getChildAt(i4).findViewById(R.id.forum_intro));
+                        if (vVar.getItemViewType() == 1 && b.this.iOY.getItemAtPosition(i4) == x.getItem(b.this.iPa, 0)) {
+                            b.this.a(vVar, b.this.iOY.getChildAt(i4).findViewById(R.id.forum_intro));
                         }
                     }
                 }
             }
-            b.this.iCV.onScroll(absListView, i, i2, i3);
+            b.this.iPh.onScroll(absListView, i, i2, i3);
         }
     };
-    View.OnClickListener iCZ = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.view.b.14
+    View.OnClickListener iPl = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.view.b.14
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (b.this.itB != null && b.this.itB.iud && b.this.iud) {
-                EnterForumAdView unused = b.this.iCR;
-                EnterForumAdView.a(b.this.iCL.getUniqueId(), b.this.iCL.getContext());
+            if (b.this.iFO != null && b.this.iFO.iGq && b.this.iGq) {
+                EnterForumAdView unused = b.this.iPd;
+                EnterForumAdView.a(b.this.iOX.getUniqueId(), b.this.iOX.getContext());
             }
         }
     };
-    private int iDa = 0;
-    private int iDb = 0;
-    private CustomMessageListener iDc = new CustomMessageListener(2921474) { // from class: com.baidu.tieba.enterForum.view.b.15
+    private int iPm = 0;
+    private int iPn = 0;
+    private CustomMessageListener iPo = new CustomMessageListener(2921474) { // from class: com.baidu.tieba.enterForum.view.b.15
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            b.this.cxh();
+            b.this.cAa();
         }
     };
-    boolean iud = false;
-    boolean iDd = false;
-    private Runnable iDe = new Runnable() { // from class: com.baidu.tieba.enterForum.view.b.18
+    boolean iGq = false;
+    boolean iPp = false;
+    private Runnable iPq = new Runnable() { // from class: com.baidu.tieba.enterForum.view.b.18
         @Override // java.lang.Runnable
         public void run() {
-            b.this.cxp();
+            b.this.cAi();
         }
     };
-    private boolean iDh = false;
+    private boolean iPt = false;
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cxf() {
-        if (cxg()) {
+    public void czY() {
+        if (czZ()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001630, false));
-        } else if (this.itB != null && this.itB.iud) {
+        } else if (this.iFO != null && this.iFO.iGq) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001630, false));
         } else {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001630, true));
         }
     }
 
-    public boolean cxg() {
-        return this.iCM == null || this.iCM.getChildCount() == 0 || this.iCM.getChildAt(0).getTop() == 0;
+    public boolean czZ() {
+        return this.iOY == null || this.iOY.getChildCount() == 0 || this.iOY.getChildAt(0).getTop() == 0;
     }
 
     public b(EnterForumFragment enterForumFragment, View view, ViewEventCenter viewEventCenter, RecentlyVisitedForumModel recentlyVisitedForumModel, EnterForumModel enterForumModel) {
-        this.iCL = enterForumFragment;
-        this.iwm = (UtilHelper.canUseStyleImmersiveSticky() ? UtilHelper.getStatusBarHeight() : 0) + l.getDimens(enterForumFragment.getPageContext().getPageActivity(), R.dimen.tbds238);
-        this.iAC = l.getDimens(enterForumFragment.getPageContext().getPageActivity(), R.dimen.tbds114);
-        this.iCX = l.getDimens(enterForumFragment.getPageContext().getPageActivity(), R.dimen.tbds300);
-        this.itw = viewEventCenter;
-        cH(view);
-        this.iCN = new com.baidu.tieba.enterForum.a.a(this.iCL.getPageContext(), this.itw, recentlyVisitedForumModel, enterForumModel, this);
-        this.iCM.setAdapter((ListAdapter) this.iCN);
+        this.iOX = enterForumFragment;
+        this.iIz = (UtilHelper.canUseStyleImmersiveSticky() ? UtilHelper.getStatusBarHeight() : 0) + l.getDimens(enterForumFragment.getPageContext().getPageActivity(), R.dimen.tbds238);
+        this.iMO = l.getDimens(enterForumFragment.getPageContext().getPageActivity(), R.dimen.tbds114);
+        this.iPj = l.getDimens(enterForumFragment.getPageContext().getPageActivity(), R.dimen.tbds300);
+        this.iFJ = viewEventCenter;
+        cR(view);
+        this.iOZ = new com.baidu.tieba.enterForum.adapter.a(this.iOX.getPageContext(), this.iFJ, recentlyVisitedForumModel, enterForumModel, this);
+        this.iOY.setAdapter((ListAdapter) this.iOZ);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         registerListener();
-        this.iCS = new GuidePopupWindow(this.iCL.getFragmentActivity());
+        this.iPe = new GuidePopupWindow(this.iOX.getFragmentActivity());
     }
 
     private void registerListener() {
-        this.iCL.registerListener(this.iDc);
+        this.iOX.registerListener(this.iPo);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cxh() {
-        if (cxi() && this.iDi) {
-            this.iCS.dXY();
-            this.iCS.dXX();
-            this.iCS.setCancelable(false);
-            com.baidu.tbadk.core.sharedPref.b.bsO().putBoolean("has_guide_popup_window_been_shown", true);
-            com.baidu.adp.lib.f.g.showDialog(this.iCS, this.iCL.getFragmentActivity());
+    public void cAa() {
+        if (cAb() && this.iPu) {
+            this.iPe.dXB();
+            this.iPe.dXA();
+            this.iPe.setCancelable(false);
+            com.baidu.tbadk.core.sharedPref.b.bvq().putBoolean("has_guide_popup_window_been_shown", true);
+            com.baidu.adp.lib.f.g.showDialog(this.iPe, this.iOX.getFragmentActivity());
         }
     }
 
-    private boolean cxi() {
-        return TbadkCoreApplication.isLogin() && !com.baidu.tbadk.core.sharedPref.b.bsO().getBoolean("has_guide_popup_window_been_shown", false);
+    private boolean cAb() {
+        return TbadkCoreApplication.isLogin() && !com.baidu.tbadk.core.sharedPref.b.bvq().getBoolean("has_guide_popup_window_been_shown", false);
     }
 
-    private void cH(View view) {
+    private void cR(View view) {
         this.mContext = view.getContext();
-        this.iCV = new e();
-        this.iCV.a(new e.b() { // from class: com.baidu.tieba.enterForum.view.b.16
+        this.iPh = new e();
+        this.iPh.a(new e.b() { // from class: com.baidu.tieba.enterForum.view.b.16
             @Override // com.baidu.tieba.enterForum.view.e.b
             public void a(AbsListView absListView, int i, int i2) {
-                if (!b.this.iDh) {
-                    b.this.iDa = -i;
-                    if (b.this.iud) {
-                        b.this.cxp();
-                    } else if (b.this.itB != null && b.this.itB.iud) {
-                        b.this.cxj();
+                if (!b.this.iPt) {
+                    b.this.iPm = -i;
+                    if (b.this.iGq) {
+                        b.this.cAi();
+                    } else if (b.this.iFO != null && b.this.iFO.iGq) {
+                        b.this.cAc();
                     }
                 }
             }
         });
-        this.iCM = (BdListView) view.findViewById(R.id.listview);
-        zb(0);
-        this.iCM.setBackgroundColor(0);
-        this.iCM.setVerticalScrollBarEnabled(false);
-        this.iCM.setOnScrollListener(this.mOnScrollListener);
-        this.iCM.setFastScrollEnabled(false);
-        this.iCM.setMaxHeight(this.mContext.getResources().getDisplayMetrics().heightPixels);
-        BdListView bdListView = this.iCM;
+        this.iOY = (BdListView) view.findViewById(R.id.listview);
+        zo(0);
+        this.iOY.setBackgroundColor(0);
+        this.iOY.setVerticalScrollBarEnabled(false);
+        this.iOY.setOnScrollListener(this.mOnScrollListener);
+        this.iOY.setFastScrollEnabled(false);
+        this.iOY.setMaxHeight(this.mContext.getResources().getDisplayMetrics().heightPixels);
+        BdListView bdListView = this.iOY;
         BdListView.setPullRefreshRatio(1.0f);
-        if (this.iCL.cvL() != null) {
-            this.iCL.cvL().a(this);
+        if (this.iOX.cyE() != null) {
+            this.iOX.cyE().a(this);
         }
-        this.mPullView = new g(this.iCL.getPageContext());
-        this.mPullView.a(new d.a() { // from class: com.baidu.tieba.enterForum.view.b.17
-            @Override // com.baidu.adp.widget.ListView.d.a
-            public void a(com.baidu.adp.widget.ListView.d dVar, int i, int i2, int i3, int i4) {
-                b.this.iDb = i3;
-                if (!b.this.iud && b.this.itB != null && b.this.itB.iud && !b.this.iDh) {
-                    b.this.cxj();
-                    if (i3 > b.this.iCX) {
-                        b.this.iDb = 0;
-                        b.this.cK(b.this.iCL.cvL().getRootView());
+        this.mPullView = new g(this.iOX.getPageContext());
+        this.mPullView.a(new c.a() { // from class: com.baidu.tieba.enterForum.view.b.17
+            @Override // com.baidu.adp.widget.ListView.c.a
+            public void a(com.baidu.adp.widget.ListView.c cVar, int i, int i2, int i3, int i4) {
+                b.this.iPn = i3;
+                if (!b.this.iGq && b.this.iFO != null && b.this.iFO.iGq && !b.this.iPt) {
+                    b.this.cAc();
+                    if (i3 > b.this.iPj) {
+                        b.this.iPn = 0;
+                        b.this.cU(b.this.iOX.cyE().getRootView());
                     }
                 }
             }
         });
-        this.mPullView.jE(true);
-        this.mPullView.setListPullRefreshListener(this.gzN);
+        this.mPullView.ka(true);
+        this.mPullView.setListPullRefreshListener(this.gKQ);
         if (this.mPullView != null) {
-            this.mPullView.setTag(this.iCL.getUniqueId());
+            this.mPullView.setTag(this.iOX.getUniqueId());
         }
-        this.iCM.setPullRefresh(this.mPullView);
-        FrameLayout frameLayout = new FrameLayout(this.iCL.getPageContext().getPageActivity());
-        this.gOi = new View(this.iCL.getPageContext().getPageActivity());
-        frameLayout.addView(this.gOi, new FrameLayout.LayoutParams(-1, this.iAC));
-        this.iCM.getAdapter2().addHeaderView(frameLayout, 0);
-        this.bJa = new View(this.iCL.getActivity());
-        this.bJa.setLayoutParams(new AbsListView.LayoutParams(-1, l.getDimens(this.iCL.getActivity(), R.dimen.ds50)));
-        this.bJa.setBackgroundResource(R.color.CAM_X0201);
-        this.mPullView.setOnClickListener(this.iCZ);
-        this.mPullView.getView().setOnClickListener(this.iCZ);
-        this.gOi.setOnClickListener(this.iCZ);
-        cxt();
+        this.iOY.setPullRefresh(this.mPullView);
+        FrameLayout frameLayout = new FrameLayout(this.iOX.getPageContext().getPageActivity());
+        this.gZV = new View(this.iOX.getPageContext().getPageActivity());
+        frameLayout.addView(this.gZV, new FrameLayout.LayoutParams(-1, this.iMO));
+        this.iOY.getAdapter2().addHeaderView(frameLayout, 0);
+        this.bNO = new View(this.iOX.getActivity());
+        this.bNO.setLayoutParams(new AbsListView.LayoutParams(-1, l.getDimens(this.iOX.getActivity(), R.dimen.ds50)));
+        this.bNO.setBackgroundResource(R.color.CAM_X0201);
+        this.mPullView.setOnClickListener(this.iPl);
+        this.mPullView.getView().setOnClickListener(this.iPl);
+        this.gZV.setOnClickListener(this.iPl);
+        cAm();
     }
 
-    public void cI(View view) {
-        this.iCR = (EnterForumAdView) view.getRootView().findViewById(R.id.enter_forum_ad);
-        if (this.iCR != null) {
-            cxj();
-            this.iCR.setTag(this.iCL.getUniqueId());
-            this.iCR.setAdData();
-            this.iCR.setEventCenter(this.itw);
-            this.iCR.setOnBackPressedListener(this);
+    public void cS(View view) {
+        this.iPd = (EnterForumAdView) view.getRootView().findViewById(R.id.enter_forum_ad);
+        if (this.iPd != null) {
+            cAc();
+            this.iPd.setTag(this.iOX.getUniqueId());
+            this.iPd.setAdData();
+            this.iPd.setEventCenter(this.iFJ);
+            this.iPd.setOnBackPressedListener(this);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cxj() {
-        if (!this.iDh && this.iCR != null) {
-            ViewGroup.LayoutParams layoutParams = this.iCR.getLayoutParams();
+    public void cAc() {
+        if (!this.iPt && this.iPd != null) {
+            ViewGroup.LayoutParams layoutParams = this.iPd.getLayoutParams();
             if (layoutParams instanceof RelativeLayout.LayoutParams) {
-                int cxk = cxk();
+                int cAd = cAd();
                 RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) layoutParams;
-                layoutParams2.setMargins(0, this.iud ? -this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds589) : (this.iDa + this.iDb) - cxk, 0, 0);
-                this.iCR.setLayoutParams(layoutParams2);
-                this.iCR.setAdViewHeight(layoutParams2.height - cxk);
+                layoutParams2.setMargins(0, this.iGq ? -this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds589) : (this.iPm + this.iPn) - cAd, 0, 0);
+                this.iPd.setLayoutParams(layoutParams2);
+                this.iPd.setAdViewHeight(layoutParams2.height - cAd);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int cxk() {
+    public int cAd() {
         return this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds934);
     }
 
-    private int cxl() {
-        return this.iud ? -this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds589) : (this.iDa + this.iDb) - cxk();
+    private int cAe() {
+        return this.iGq ? -this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds589) : (this.iPm + this.iPn) - cAd();
     }
 
-    private int cxm() {
-        ViewGroup.LayoutParams layoutParams = this.iCR.getLayoutParams();
+    private int cAf() {
+        ViewGroup.LayoutParams layoutParams = this.iPd.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             return ((ViewGroup.MarginLayoutParams) layoutParams).topMargin;
         }
         return 0;
     }
 
-    public void cxn() {
-        if (!this.iDh) {
-            this.iud = true;
-            cxj();
+    public void cAg() {
+        if (!this.iPt) {
+            this.iGq = true;
+            cAc();
             int dimensionPixelOffset = this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds466) - this.mPullView.getHeadContentHeight();
-            if (this.iCR != null) {
-                if (!this.iCR.cxc()) {
+            if (this.iPd != null) {
+                if (!this.iPd.czV()) {
                     dimensionPixelOffset += this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds370) + this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds134);
-                } else if (!this.iCR.cxb()) {
+                } else if (!this.iPd.czU()) {
                     dimensionPixelOffset += this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds370);
                 }
             }
-            zb(dimensionPixelOffset);
-            com.baidu.adp.lib.f.e.mY().removeCallbacks(this.iDe);
-            com.baidu.adp.lib.f.e.mY().postDelayed(this.iDe, IMConnection.RETRY_DELAY_TIMES);
+            zo(dimensionPixelOffset);
+            com.baidu.adp.lib.f.e.mB().removeCallbacks(this.iPq);
+            com.baidu.adp.lib.f.e.mB().postDelayed(this.iPq, IMConnection.RETRY_DELAY_TIMES);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void zb(int i) {
-        if (!this.iDh) {
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.iCM.getLayoutParams();
-            marginLayoutParams.topMargin = ((this.iwm + i) - this.iAC) - (EnterForumDelegateStatic.ivg.cwl() != null ? this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds25) : 0);
-            this.iCM.setLayoutParams(marginLayoutParams);
+    public void zo(int i) {
+        if (!this.iPt) {
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.iOY.getLayoutParams();
+            marginLayoutParams.topMargin = ((this.iIz + i) - this.iMO) - (EnterForumDelegateStatic.iHt.cze() != null ? this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds25) : 0);
+            this.iOY.setLayoutParams(marginLayoutParams);
         }
     }
 
-    private int cxo() {
-        return (this.iwm - this.iAC) - (EnterForumDelegateStatic.ivg.cwl() != null ? this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds25) : 0);
+    private int cAh() {
+        return (this.iIz - this.iMO) - (EnterForumDelegateStatic.iHt.cze() != null ? this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds25) : 0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cxp() {
-        this.iud = false;
-        cxj();
-        zb(0);
-        if (this.iDd) {
-            this.iCM.completePullRefreshPostDelayed(0L);
+    public void cAi() {
+        this.iGq = false;
+        cAc();
+        zo(0);
+        if (this.iPp) {
+            this.iOY.completePullRefreshPostDelayed(0L);
         }
-        this.iDd = false;
+        this.iPp = false;
     }
 
-    public void cJ(View view) {
+    public void cT(View view) {
         if (this.refreshView == null) {
-            this.refreshView = new h(this.iCL.getPageContext().getContext(), new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.view.b.19
+            this.refreshView = new h(this.iOX.getPageContext().getContext(), new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.view.b.19
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     b.this.hideNoDataView();
@@ -370,13 +370,13 @@ public class b implements EnterForumAdView.a {
             });
         }
         this.mRootView = view;
-        this.refreshView.setLayoutMargin(this.iCL.getResources().getDimensionPixelSize(R.dimen.ds364));
+        this.refreshView.setLayoutMargin(this.iOX.getResources().getDimensionPixelSize(R.dimen.ds364));
         this.refreshView.attachView(view, false);
         this.refreshView.showRefreshButton();
-        this.iCM.setVisibility(8);
-        if (this.iCL.cvL() != null) {
-            this.iCL.cvL().cvZ();
-            this.iCL.cvL().cwa();
+        this.iOY.setVisibility(8);
+        if (this.iOX.cyE() != null) {
+            this.iOX.cyE().cyS();
+            this.iOX.cyE().cyT();
         }
     }
 
@@ -386,89 +386,89 @@ public class b implements EnterForumAdView.a {
             this.refreshView = null;
             this.mRootView = null;
         }
-        this.iCM.setVisibility(0);
-        if (this.iCL.cvL() != null) {
-            this.iCL.cvL().cvZ();
-            this.iCL.cvL().cwa();
+        this.iOY.setVisibility(0);
+        if (this.iOX.cyE() != null) {
+            this.iOX.cyE().cyS();
+            this.iOX.cyE().cyT();
         }
     }
 
     public boolean isEmpty() {
-        return y.isEmpty(this.iCO);
+        return x.isEmpty(this.iPa);
     }
 
     public void a(com.baidu.tieba.enterForum.data.f fVar, boolean z) {
-        this.iCO.remove(fVar);
-        a(this.iCO, this.iCP, z);
-        pA(z);
+        this.iPa.remove(fVar);
+        a(this.iPa, this.iPb, z);
+        pX(z);
     }
 
     public h getRefreshView() {
         return this.refreshView;
     }
 
-    public BdListView cxq() {
-        return this.iCM;
+    public BdListView cAj() {
+        return this.iOY;
     }
 
     public void startPullRefresh() {
-        this.iCM.startPullRefresh();
+        this.iOY.startPullRefresh();
     }
 
     public void completeRefresh() {
-        if (this.iud) {
-            this.iDd = true;
+        if (this.iGq) {
+            this.iPp = true;
             return;
         }
-        this.iDd = false;
-        this.iCM.completePullRefreshPostDelayed(0L);
+        this.iPp = false;
+        this.iOY.completePullRefreshPostDelayed(0L);
     }
 
-    public void pA(boolean z) {
-        this.iCN.notifyDataSetChanged();
-        if (this.bJa != null && this.bJa.getLayoutParams() != null) {
+    public void pX(boolean z) {
+        this.iOZ.notifyDataSetChanged();
+        if (this.bNO != null && this.bNO.getLayoutParams() != null) {
             if (z) {
-                this.bJa.getLayoutParams().height = l.getDimens(this.mContext, R.dimen.ds50);
+                this.bNO.getLayoutParams().height = l.getDimens(this.mContext, R.dimen.ds50);
                 return;
             }
-            this.bJa.getLayoutParams().height = l.getDimens(this.mContext, R.dimen.ds50) + TbadkCoreApplication.getInst().getMainTabBottomBarHeight();
+            this.bNO.getLayoutParams().height = l.getDimens(this.mContext, R.dimen.ds50) + TbadkCoreApplication.getInst().getMainTabBottomBarHeight();
         }
     }
 
-    public void a(List<com.baidu.tieba.enterForum.data.f> list, bl blVar, boolean z) {
-        this.iCR.setAdData();
-        EnterForumDelegateStatic.ivg.fQ(this.mContext);
-        this.iCO = list;
-        this.iCP = blVar;
+    public void a(List<com.baidu.tieba.enterForum.data.f> list, bm bmVar, boolean z) {
+        this.iPd.setAdData();
+        EnterForumDelegateStatic.iHt.gj(this.mContext);
+        this.iPa = list;
+        this.iPb = bmVar;
         ArrayList arrayList = new ArrayList();
-        boolean z2 = !y.isEmpty(list);
-        boolean z3 = !y.isEmpty(list);
+        boolean z2 = !x.isEmpty(list);
+        boolean z3 = !x.isEmpty(list);
         v vVar = new v();
-        vVar.on(4);
+        vVar.ox(4);
         arrayList.add(vVar);
         if (z3) {
             arrayList.add(new com.baidu.tieba.enterForum.data.a(true));
             arrayList.add(new com.baidu.tieba.enterForum.data.e(this.mContext.getResources().getString(R.string.my_attention_bar), z2));
             arrayList.addAll(list);
-            arrayList.add(blVar);
+            arrayList.add(bmVar);
         } else {
             if (TbadkApplication.isLogin()) {
                 arrayList.add(new com.baidu.tieba.enterForum.data.e(this.mContext.getResources().getString(R.string.my_attention_bar), z2));
             }
             if (TbadkApplication.isLogin()) {
                 v vVar2 = new v();
-                vVar2.on(11);
+                vVar2.ox(11);
                 arrayList.add(vVar2);
             } else {
                 v vVar3 = new v();
-                vVar3.on(3);
+                vVar3.ox(3);
                 arrayList.add(vVar3);
             }
             if (TbadkApplication.isLogin()) {
-                arrayList.add(new bm(this.mContext.getResources().getString(R.string.recommend_forum_title_vertical), true));
+                arrayList.add(new bn(this.mContext.getResources().getString(R.string.recommend_forum_title_vertical), true));
             }
             if (TbadkApplication.isLogin()) {
-                arrayList.addAll(blVar.bnV());
+                arrayList.addAll(bmVar.bqw());
             }
             if (TbadkApplication.isLogin()) {
                 arrayList.add(new com.baidu.tieba.enterForum.data.a(false));
@@ -476,20 +476,20 @@ public class b implements EnterForumAdView.a {
         }
         if (z) {
             v vVar4 = new v();
-            vVar4.on(5);
+            vVar4.ox(5);
             arrayList.add(vVar4);
         }
         hideNoDataView();
-        this.iCN.setData(arrayList, z);
+        this.iOZ.setData(arrayList, z);
     }
 
     public void onChangeSkinType(int i) {
         if (TbadkCoreApplication.getInst().getSkinType() != 2 && TbadkCoreApplication.isLogin()) {
-            this.iCM.removeFooterView(this.bJa);
-            this.iCM.addFooterView(this.bJa);
+            this.iOY.removeFooterView(this.bNO);
+            this.iOY.addFooterView(this.bNO);
         }
         if (TbadkCoreApplication.getInst().getSkinType() == 2) {
-            this.iCM.removeFooterView(this.bJa);
+            this.iOY.removeFooterView(this.bNO);
         }
         if (this.mPullView != null) {
             this.mPullView.changeSkin(i);
@@ -497,99 +497,99 @@ public class b implements EnterForumAdView.a {
         if (this.refreshView != null) {
             this.refreshView.onChangeSkinType();
         }
-        if (this.iCS != null) {
-            this.iCS.onChangeSkinType();
+        if (this.iPe != null) {
+            this.iPe.onChangeSkinType();
         }
-        ap.setBackgroundResource(this.bJa, R.color.CAM_X0201);
+        ao.setBackgroundResource(this.bNO, R.color.CAM_X0201);
     }
 
     public void setListPullRefreshListener(f.c cVar) {
-        this.iCY = cVar;
+        this.iPk = cVar;
     }
 
-    public void cxr() {
-        if (TbadkCoreApplication.getCurrentAccount() == null && com.baidu.tbadk.core.sharedPref.b.bsO().getBoolean(SharedPrefConfig.ENTER_FORUM_LOGIN_TIP, true) && this.iCL != null && this.iCL.getActivity() != null && this.iCL.cvK() != null) {
-            if (this.iCQ == null) {
-                this.iCQ = new CommonTipView(this.iCL.getActivity());
+    public void cAk() {
+        if (TbadkCoreApplication.getCurrentAccount() == null && com.baidu.tbadk.core.sharedPref.b.bvq().getBoolean(SharedPrefConfig.ENTER_FORUM_LOGIN_TIP, true) && this.iOX != null && this.iOX.getActivity() != null && this.iOX.cyD() != null) {
+            if (this.iPc == null) {
+                this.iPc = new CommonTipView(this.iOX.getActivity());
             }
-            this.iCQ.setText(R.string.enter_forum_login_tip);
-            this.iCQ.c(this.iCL.cvK(), TbadkCoreApplication.getInst().getSkinType());
-            com.baidu.tbadk.core.sharedPref.b.bsO().putBoolean(SharedPrefConfig.ENTER_FORUM_LOGIN_TIP, false);
+            this.iPc.setText(R.string.enter_forum_login_tip);
+            this.iPc.c(this.iOX.cyD(), TbadkCoreApplication.getInst().getSkinType());
+            com.baidu.tbadk.core.sharedPref.b.bvq().putBoolean(SharedPrefConfig.ENTER_FORUM_LOGIN_TIP, false);
         }
     }
 
     public void onPrimary() {
-        if (this.iCL.isAdded() && this.iCL.isPrimary()) {
-            iCT = false;
-            if (this.iCN != null) {
-                this.iCN.onPrimary();
-                if (this.iCM != null) {
-                    Object itemAtPosition = this.iCM.getItemAtPosition(this.iCM.getLastVisiblePosition());
+        if (this.iOX.isAdded() && this.iOX.isPrimary()) {
+            iPf = false;
+            if (this.iOZ != null) {
+                this.iOZ.onPrimary();
+                if (this.iOY != null) {
+                    Object itemAtPosition = this.iOY.getItemAtPosition(this.iOY.getLastVisiblePosition());
                     if (itemAtPosition != null && (itemAtPosition instanceof v) && ((v) itemAtPosition).getItemViewType() == 5) {
-                        this.iCN.cuF();
+                        this.iOZ.cxy();
                     }
                 }
             }
-            if (this.iDh) {
-                this.iCR.requestFocus();
-                this.iCR.requestFocusFromTouch();
+            if (this.iPt) {
+                this.iPd.requestFocus();
+                this.iPd.requestFocusFromTouch();
                 return;
             }
             return;
         }
-        cxs();
+        cAl();
     }
 
     public void onPause() {
-        cxs();
+        cAl();
     }
 
     public void onDestroy() {
-        if (this.iCQ != null) {
-            this.iCQ.onDestroy();
+        if (this.iPc != null) {
+            this.iPc.onDestroy();
         }
-        if (this.iCN != null) {
-            this.iCN.onDestroy();
+        if (this.iOZ != null) {
+            this.iOZ.onDestroy();
         }
     }
 
-    public void yG(int i) {
-        this.iCN.yG(i);
+    public void yT(int i) {
+        this.iOZ.yT(i);
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        if (this.iCN != null) {
-            this.iCN.setPageUniqueId(bdUniqueId);
+        if (this.iOZ != null) {
+            this.iOZ.setPageUniqueId(bdUniqueId);
         }
     }
 
-    public boolean cuE() {
-        if (this.iCN == null) {
+    public boolean cxx() {
+        if (this.iOZ == null) {
             return false;
         }
-        return this.iCN.cuE();
+        return this.iOZ.cxx();
     }
 
     public void a(v vVar, View view) {
-        if (TbadkCoreApplication.isLogin() && !iCT && this.iCL.getActivity() != null && this.iCL.getPageContext() != null && (vVar instanceof com.baidu.tieba.enterForum.data.f)) {
+        if (TbadkCoreApplication.isLogin() && !iPf && this.iOX.getActivity() != null && this.iOX.getPageContext() != null && (vVar instanceof com.baidu.tieba.enterForum.data.f)) {
             com.baidu.tieba.enterForum.data.f fVar = (com.baidu.tieba.enterForum.data.f) vVar;
-            if (fVar.isPrivateForum() != 0 && fVar.cuW() != 0 && !com.baidu.tbadk.core.sharedPref.b.bsO().getString("enter_forum_new_forum_long_press_guide", "").equals(fVar.getId())) {
-                this.iCU = R.string.create_forum_guide_tip;
-            } else if (com.baidu.tbadk.core.sharedPref.b.bsO().getLong("enter_forum_long_press_guide", 0L) == 0) {
-                this.iCU = R.string.forum_item_guide_tip;
+            if (fVar.isPrivateForum() != 0 && fVar.cxP() != 0 && !com.baidu.tbadk.core.sharedPref.b.bvq().getString("enter_forum_new_forum_long_press_guide", "").equals(fVar.getId())) {
+                this.iPg = R.string.create_forum_guide_tip;
+            } else if (com.baidu.tbadk.core.sharedPref.b.bvq().getLong("enter_forum_long_press_guide", 0L) == 0) {
+                this.iPg = R.string.forum_item_guide_tip;
             } else {
                 return;
             }
             if (view != null) {
-                iCT = true;
+                iPf = true;
                 com.baidu.adp.lib.guide.d dVar = new com.baidu.adp.lib.guide.d();
-                dVar.y(view).an(0).ad(true).ae(false).ac(true);
+                dVar.y(view).an(0).ac(true).ad(false).ab(true);
                 dVar.a(new com.baidu.adp.lib.guide.b() { // from class: com.baidu.tieba.enterForum.view.b.20
                     @Override // com.baidu.adp.lib.guide.b
                     public View getView(LayoutInflater layoutInflater) {
                         View inflate = layoutInflater.inflate(R.layout.tips_blue_left_up, (ViewGroup) null);
-                        ((TextView) inflate.findViewById(R.id.tips)).setText(b.this.iCU);
-                        b.this.iCL.getPageContext().getLayoutMode().onModeChanged(inflate);
+                        ((TextView) inflate.findViewById(R.id.tips)).setText(b.this.iPg);
+                        b.this.iOX.getPageContext().getLayoutMode().onModeChanged(inflate);
                         return inflate;
                     }
 
@@ -622,21 +622,21 @@ public class b implements EnterForumAdView.a {
                     public void onDismiss() {
                     }
                 });
-                this.ipM = dVar.mi();
-                this.ipM.setShouldCheckLocInWindow(false);
-                this.ipM.setUseDirectOffset(true);
-                this.ipM.show(this.iCL.getActivity());
-                if (this.iCU == R.string.create_forum_guide_tip) {
-                    com.baidu.tbadk.core.sharedPref.b.bsO().putString("enter_forum_new_forum_long_press_guide", fVar.getId());
-                } else if (this.iCU == R.string.forum_item_guide_tip) {
-                    com.baidu.tbadk.core.sharedPref.b.bsO().putLong("enter_forum_long_press_guide", 1L);
+                this.iCg = dVar.lG();
+                this.iCg.setShouldCheckLocInWindow(false);
+                this.iCg.setUseDirectOffset(true);
+                this.iCg.show(this.iOX.getActivity());
+                if (this.iPg == R.string.create_forum_guide_tip) {
+                    com.baidu.tbadk.core.sharedPref.b.bvq().putString("enter_forum_new_forum_long_press_guide", fVar.getId());
+                } else if (this.iPg == R.string.forum_item_guide_tip) {
+                    com.baidu.tbadk.core.sharedPref.b.bvq().putLong("enter_forum_long_press_guide", 1L);
                 }
-                com.baidu.adp.lib.f.e.mY().postDelayed(new Runnable() { // from class: com.baidu.tieba.enterForum.view.b.3
+                com.baidu.adp.lib.f.e.mB().postDelayed(new Runnable() { // from class: com.baidu.tieba.enterForum.view.b.3
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (b.this.ipM != null) {
-                            b.this.ipM.dismiss();
-                            b.this.ipM = null;
+                        if (b.this.iCg != null) {
+                            b.this.iCg.dismiss();
+                            b.this.iCg = null;
                         }
                     }
                 }, 5000L);
@@ -644,175 +644,175 @@ public class b implements EnterForumAdView.a {
         }
     }
 
-    public void cxs() {
-        if (this.ipM != null) {
-            this.ipM.dismiss();
-            this.ipM = null;
+    public void cAl() {
+        if (this.iCg != null) {
+            this.iCg.dismiss();
+            this.iCg = null;
         }
     }
 
     public void setAdState(com.baidu.tieba.enterForum.data.c cVar) {
-        this.itB = cVar;
-        if (this.iCN != null) {
-            this.iCN.setAdState(cVar);
+        this.iFO = cVar;
+        if (this.iOZ != null) {
+            this.iOZ.setAdState(cVar);
         }
-        if (cVar != null && cVar.iud) {
+        if (cVar != null && cVar.iGq) {
             if (this.mPullView.getView() != null) {
                 this.mPullView.getView().setScaleX(0.5f);
                 this.mPullView.getView().setScaleY(0.5f);
             }
-            this.mPullView.qV(R.raw.ad_refresh_load);
+            this.mPullView.rh(R.raw.ad_refresh_load);
             return;
         }
         if (this.mPullView.getView() != null) {
             this.mPullView.getView().setScaleX(1.0f);
             this.mPullView.getView().setScaleY(1.0f);
         }
-        this.mPullView.qV(R.raw.lottie_common_pull_refresh);
+        this.mPullView.rh(R.raw.lottie_common_pull_refresh);
     }
 
-    public void pB(boolean z) {
-        if (this.iCW != z) {
-            this.iCW = z;
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.iCM.getLayoutParams();
+    public void pY(boolean z) {
+        if (this.iPi != z) {
+            this.iPi = z;
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.iOY.getLayoutParams();
             if (!z) {
-                marginLayoutParams.topMargin += this.iCM.getResources().getDimensionPixelOffset(R.dimen.tbds105);
+                marginLayoutParams.topMargin += this.iOY.getResources().getDimensionPixelOffset(R.dimen.tbds105);
             } else {
-                marginLayoutParams.topMargin -= this.iCM.getResources().getDimensionPixelOffset(R.dimen.tbds105);
+                marginLayoutParams.topMargin -= this.iOY.getResources().getDimensionPixelOffset(R.dimen.tbds105);
             }
-            this.iCM.setLayoutParams(marginLayoutParams);
+            this.iOY.setLayoutParams(marginLayoutParams);
         }
     }
 
     public void setRecentlyIsExtend(boolean z) {
-        if (this.iCR != null) {
-            this.iCR.setRecentlyIsExtend(z);
+        if (this.iPd != null) {
+            this.iPd.setRecentlyIsExtend(z);
         }
     }
 
     public void setRecentlyIsShow(boolean z) {
-        if (this.iCR != null) {
-            this.iCR.setRecentlyIsShow(z);
+        if (this.iPd != null) {
+            this.iPd.setRecentlyIsShow(z);
         }
     }
 
-    private void cxt() {
+    private void cAm() {
         this.mNavHeight = l.getDimens(this.mContext, R.dimen.tbds240);
-        this.iDf = new View(this.mContext);
-        this.iDf.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.view.b.4
+        this.iPr = new View(this.mContext);
+        this.iPr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.view.b.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                EnterForumAdView.a(b.this.iCL.getPageContext().getUniqueId(), b.this.mContext);
+                EnterForumAdView.a(b.this.iOX.getPageContext().getUniqueId(), b.this.mContext);
             }
         });
-        this.iDf.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.enterForum.view.b.5
-            private float iDl = 0.0f;
+        this.iPr.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.enterForum.view.b.5
+            private float iPx = 0.0f;
 
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 switch (motionEvent.getAction()) {
                     case 0:
-                        b.this.iDg = motionEvent.getRawY();
+                        b.this.iPs = motionEvent.getRawY();
                         return true;
                     case 1:
-                        if (b.this.iDg <= (b.this.mContext.getResources().getDisplayMetrics().heightPixels * 2) / 3 || motionEvent.getRawY() >= b.this.iDg) {
-                            b.this.cxu();
-                            if (this.iDl < 50.0f) {
-                                b.this.iDf.performClick();
+                        if (b.this.iPs <= (b.this.mContext.getResources().getDisplayMetrics().heightPixels * 2) / 3 || motionEvent.getRawY() >= b.this.iPs) {
+                            b.this.cAn();
+                            if (this.iPx < 50.0f) {
+                                b.this.iPr.performClick();
                             }
                         } else {
-                            b.this.cxv();
+                            b.this.cAo();
                         }
-                        b.this.iDg = 0.0f;
-                        this.iDl = 0.0f;
+                        b.this.iPs = 0.0f;
+                        this.iPx = 0.0f;
                         return true;
                     case 2:
-                        if (motionEvent.getRawY() < b.this.iDg) {
-                            b.this.aE(motionEvent.getRawY() - b.this.iDg);
-                            if (b.this.fqN != null) {
-                                b.this.fqN.setVisibility(8);
+                        if (motionEvent.getRawY() < b.this.iPs) {
+                            b.this.aG(motionEvent.getRawY() - b.this.iPs);
+                            if (b.this.fAu != null) {
+                                b.this.fAu.setVisibility(8);
                             }
                         }
-                        if (Math.abs(motionEvent.getRawY() - b.this.iDg) > this.iDl) {
-                            this.iDl = Math.abs(motionEvent.getRawY() - b.this.iDg);
+                        if (Math.abs(motionEvent.getRawY() - b.this.iPs) > this.iPx) {
+                            this.iPx = Math.abs(motionEvent.getRawY() - b.this.iPs);
                             return true;
                         }
                         return true;
                     default:
-                        if (b.this.iDg <= (b.this.mContext.getResources().getDisplayMetrics().heightPixels * 2) / 3 || motionEvent.getRawY() >= b.this.iDg) {
-                            b.this.cxu();
+                        if (b.this.iPs <= (b.this.mContext.getResources().getDisplayMetrics().heightPixels * 2) / 3 || motionEvent.getRawY() >= b.this.iPs) {
+                            b.this.cAn();
                         } else {
-                            b.this.cxv();
+                            b.this.cAo();
                         }
-                        b.this.iDg = 0.0f;
-                        this.iDl = 0.0f;
+                        b.this.iPs = 0.0f;
+                        this.iPx = 0.0f;
                         return true;
                 }
             }
         });
-        this.fqN = new ImageView(this.mContext);
-        this.fqN.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.view.b.6
+        this.fAu = new ImageView(this.mContext);
+        this.fAu.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.view.b.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                b.this.cxv();
+                b.this.cAo();
             }
         });
     }
 
-    public void cK(final View view) {
-        if ((view instanceof FrameLayout) && !this.iDh) {
+    public void cU(final View view) {
+        if ((view instanceof FrameLayout) && !this.iPt) {
             this.mPullView.pause();
-            this.iDh = true;
-            this.iCR.getAdImageView().getLocationInWindow(new int[2]);
-            ap.setImageResource(this.fqN, R.drawable.icon_jinba_retract_n);
-            final int cxm = cxm();
-            ValueAnimator ofInt = ValueAnimator.ofInt(cxm, 0);
+            this.iPt = true;
+            this.iPd.getAdImageView().getLocationInWindow(new int[2]);
+            ao.setImageResource(this.fAu, R.drawable.icon_jinba_retract_n);
+            final int cAf = cAf();
+            ValueAnimator ofInt = ValueAnimator.ofInt(cAf, 0);
             ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.enterForum.view.b.7
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
                     ViewGroup viewGroup;
                     int intValue = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-                    if (b.this.iCR != null) {
-                        ViewGroup.LayoutParams layoutParams = b.this.iCR.getLayoutParams();
+                    if (b.this.iPd != null) {
+                        ViewGroup.LayoutParams layoutParams = b.this.iPd.getLayoutParams();
                         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
-                            b.this.cxk();
+                            b.this.cAd();
                             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
                             marginLayoutParams.setMargins(0, intValue, 0, 0);
-                            b.this.iCR.setLayoutParams(marginLayoutParams);
-                            if (intValue / cxm < 0.2d) {
-                                if (b.this.iCR.getParent() != b.this.iCR.getRootView() && (viewGroup = (ViewGroup) b.this.iCR.getRootView()) != null) {
-                                    ((ViewGroup) b.this.iCR.getParent()).removeView(b.this.iCR);
-                                    if (b.this.iCR.getParent() == null) {
+                            b.this.iPd.setLayoutParams(marginLayoutParams);
+                            if (intValue / cAf < 0.2d) {
+                                if (b.this.iPd.getParent() != b.this.iPd.getRootView() && (viewGroup = (ViewGroup) b.this.iPd.getRootView()) != null) {
+                                    ((ViewGroup) b.this.iPd.getParent()).removeView(b.this.iPd);
+                                    if (b.this.iPd.getParent() == null) {
                                         ViewGroup.MarginLayoutParams marginLayoutParams2 = new ViewGroup.MarginLayoutParams(marginLayoutParams.width, marginLayoutParams.height);
                                         marginLayoutParams2.topMargin = marginLayoutParams.topMargin;
-                                        viewGroup.addView(b.this.iCR, marginLayoutParams2);
+                                        viewGroup.addView(b.this.iPd, marginLayoutParams2);
                                     }
-                                    viewGroup.bringChildToFront(b.this.iDf);
-                                    viewGroup.bringChildToFront(b.this.fqN);
+                                    viewGroup.bringChildToFront(b.this.iPr);
+                                    viewGroup.bringChildToFront(b.this.fAu);
                                 }
-                            } else if (b.this.iCR.getParent() == b.this.iCR.getRootView()) {
-                                if (b.this.iCR.getParent() != null) {
-                                    ViewGroup viewGroup2 = (ViewGroup) b.this.iCR.getRootView();
-                                    ((ViewGroup) b.this.iCR.getParent()).removeView(b.this.iCR);
+                            } else if (b.this.iPd.getParent() == b.this.iPd.getRootView()) {
+                                if (b.this.iPd.getParent() != null) {
+                                    ViewGroup viewGroup2 = (ViewGroup) b.this.iPd.getRootView();
+                                    ((ViewGroup) b.this.iPd.getParent()).removeView(b.this.iPd);
                                 }
-                                if (b.this.iCR.getParent() == null) {
+                                if (b.this.iPd.getParent() == null) {
                                     ViewGroup.MarginLayoutParams marginLayoutParams3 = new ViewGroup.MarginLayoutParams(marginLayoutParams.width, marginLayoutParams.height);
                                     marginLayoutParams3.topMargin = marginLayoutParams.topMargin;
-                                    b.this.iCL.cvO().addView(b.this.iCR, 0, marginLayoutParams3);
+                                    b.this.iOX.cyH().addView(b.this.iPd, 0, marginLayoutParams3);
                                 }
                             }
                         }
                     }
-                    b.this.iDh = false;
-                    b.this.zb(((intValue - cxm) * 2) + 0);
-                    b.this.iDh = true;
-                    float abs = Math.abs(intValue / cxm);
-                    b.this.iCM.setAlpha(abs);
-                    View cwc = b.this.iCL.cvL().cwc();
-                    if (cwc != null) {
-                        cwc.setAlpha(abs);
+                    b.this.iPt = false;
+                    b.this.zo(((intValue - cAf) * 2) + 0);
+                    b.this.iPt = true;
+                    float abs = Math.abs(intValue / cAf);
+                    b.this.iOY.setAlpha(abs);
+                    View cyV = b.this.iOX.cyE().cyV();
+                    if (cyV != null) {
+                        cyV.setAlpha(abs);
                     }
-                    View findViewById = b.this.iCL.cvO().getRootView().findViewById(R.id.tabcontainer_wrapper);
+                    View findViewById = b.this.iOX.cyH().getRootView().findViewById(R.id.tabcontainer_wrapper);
                     if (findViewById != null) {
                         findViewById.setAlpha(abs);
                     }
@@ -825,32 +825,32 @@ public class b implements EnterForumAdView.a {
 
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    if (b.this.iCR != null) {
-                        ViewGroup.LayoutParams layoutParams = b.this.iCR.getLayoutParams();
+                    if (b.this.iPd != null) {
+                        ViewGroup.LayoutParams layoutParams = b.this.iPd.getLayoutParams();
                         if (layoutParams instanceof RelativeLayout.LayoutParams) {
-                            b.this.cxk();
+                            b.this.cAd();
                             RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) layoutParams;
                             layoutParams2.setMargins(0, 0, 0, 0);
-                            b.this.iCR.setLayoutParams(layoutParams2);
+                            b.this.iPd.setLayoutParams(layoutParams2);
                         }
                     }
                     b.this.mPullView.resume();
-                    b.this.iCM.completePullRefresh();
+                    b.this.iOY.completePullRefresh();
                     b.this.mPullView.setPadding(0, -b.this.mPullView.getHeadContentHeight(), 0, 0);
-                    b.this.iDh = false;
-                    b.this.zb(0 - (cxm * 2));
-                    b.this.iDh = true;
-                    b.this.iCM.setVisibility(8);
-                    b.this.iDf.setEnabled(true);
+                    b.this.iPt = false;
+                    b.this.zo(0 - (cAf * 2));
+                    b.this.iPt = true;
+                    b.this.iOY.setVisibility(8);
+                    b.this.iPr.setEnabled(true);
                     FrameLayout frameLayout = (FrameLayout) view;
-                    if (b.this.iDf.getParent() == null) {
-                        frameLayout.addView(b.this.iDf, new FrameLayout.LayoutParams(-1, -1));
+                    if (b.this.iPr.getParent() == null) {
+                        frameLayout.addView(b.this.iPr, new FrameLayout.LayoutParams(-1, -1));
                     }
-                    if (b.this.fqN.getParent() == null) {
+                    if (b.this.fAu.getParent() == null) {
                         FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(-2, -2);
                         layoutParams3.bottomMargin = b.this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds107);
                         layoutParams3.gravity = 81;
-                        frameLayout.addView(b.this.fqN, layoutParams3);
+                        frameLayout.addView(b.this.fAu, layoutParams3);
                     }
                 }
 
@@ -865,74 +865,74 @@ public class b implements EnterForumAdView.a {
             });
             ofInt.setDuration(300L);
             ofInt.start();
-            this.iCR.requestFocus();
-            this.iCR.requestFocusFromTouch();
+            this.iPd.requestFocus();
+            this.iPd.requestFocusFromTouch();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aE(float f) {
+    public void aG(float f) {
         ViewGroup viewGroup;
-        int cxl = cxl();
-        float abs = Math.abs(cxl / (cxo() - cxl));
+        int cAe = cAe();
+        float abs = Math.abs(cAe / (cAh() - cAe));
         int i = (int) f;
-        if (this.iCR != null) {
-            ViewGroup.LayoutParams layoutParams = this.iCR.getLayoutParams();
+        if (this.iPd != null) {
+            ViewGroup.LayoutParams layoutParams = this.iPd.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
-                cxk();
+                cAd();
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
                 marginLayoutParams.setMargins(0, i, 0, 0);
-                this.iCR.setLayoutParams(marginLayoutParams);
+                this.iPd.setLayoutParams(marginLayoutParams);
                 if (Math.abs(marginLayoutParams.topMargin) < 0.2d * marginLayoutParams.height) {
-                    if (this.iCR.getParent() != this.iCR.getRootView() && (viewGroup = (ViewGroup) this.iCR.getRootView()) != null) {
-                        ((ViewGroup) this.iCR.getParent()).removeView(this.iCR);
-                        if (this.iCR.getParent() == null) {
+                    if (this.iPd.getParent() != this.iPd.getRootView() && (viewGroup = (ViewGroup) this.iPd.getRootView()) != null) {
+                        ((ViewGroup) this.iPd.getParent()).removeView(this.iPd);
+                        if (this.iPd.getParent() == null) {
                             ViewGroup.MarginLayoutParams marginLayoutParams2 = new ViewGroup.MarginLayoutParams(marginLayoutParams.width, marginLayoutParams.height);
                             marginLayoutParams2.topMargin = marginLayoutParams.topMargin;
-                            viewGroup.addView(this.iCR, marginLayoutParams2);
+                            viewGroup.addView(this.iPd, marginLayoutParams2);
                         }
-                        viewGroup.bringChildToFront(this.iDf);
-                        viewGroup.bringChildToFront(this.fqN);
+                        viewGroup.bringChildToFront(this.iPr);
+                        viewGroup.bringChildToFront(this.fAu);
                     }
-                } else if (this.iCR.getParent() == this.iCR.getRootView()) {
-                    if (this.iCR.getParent() != null) {
-                        ViewGroup viewGroup2 = (ViewGroup) this.iCR.getRootView();
-                        ((ViewGroup) this.iCR.getParent()).removeView(this.iCR);
+                } else if (this.iPd.getParent() == this.iPd.getRootView()) {
+                    if (this.iPd.getParent() != null) {
+                        ViewGroup viewGroup2 = (ViewGroup) this.iPd.getRootView();
+                        ((ViewGroup) this.iPd.getParent()).removeView(this.iPd);
                     }
-                    if (this.iCR.getParent() == null) {
+                    if (this.iPd.getParent() == null) {
                         ViewGroup.MarginLayoutParams marginLayoutParams3 = new ViewGroup.MarginLayoutParams(marginLayoutParams.width, marginLayoutParams.height);
                         marginLayoutParams3.topMargin = marginLayoutParams.topMargin;
-                        this.iCL.cvO().addView(this.iCR, 0, marginLayoutParams3);
+                        this.iOX.cyH().addView(this.iPd, 0, marginLayoutParams3);
                     }
                 }
             }
         }
-        this.iCM.setVisibility(0);
-        this.iDh = false;
-        zb(((int) ((i * abs) - (cxl * abs))) * 2);
-        this.iDh = true;
-        float abs2 = Math.abs(i / cxl);
-        this.iCM.setAlpha(abs2);
-        View cwc = this.iCL.cvL().cwc();
-        if (cwc != null) {
-            cwc.setAlpha(abs2);
+        this.iOY.setVisibility(0);
+        this.iPt = false;
+        zo(((int) ((i * abs) - (cAe * abs))) * 2);
+        this.iPt = true;
+        float abs2 = Math.abs(i / cAe);
+        this.iOY.setAlpha(abs2);
+        View cyV = this.iOX.cyE().cyV();
+        if (cyV != null) {
+            cyV.setAlpha(abs2);
         }
-        View findViewById = this.iCL.cvO().getRootView().findViewById(R.id.tabcontainer_wrapper);
+        View findViewById = this.iOX.cyH().getRootView().findViewById(R.id.tabcontainer_wrapper);
         if (findViewById != null) {
             findViewById.setAlpha(abs2);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cxu() {
-        if (this.fqN != null) {
-            this.fqN.setVisibility(0);
+    public void cAn() {
+        if (this.fAu != null) {
+            this.fAu.setVisibility(0);
         }
-        ValueAnimator ofInt = ValueAnimator.ofInt(cxm(), 0);
+        ValueAnimator ofInt = ValueAnimator.ofInt(cAf(), 0);
         ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.enterForum.view.b.9
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                b.this.aE(((Integer) valueAnimator.getAnimatedValue()).intValue());
+                b.this.aG(((Integer) valueAnimator.getAnimatedValue()).intValue());
             }
         });
         ofInt.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.enterForum.view.b.10
@@ -942,9 +942,9 @@ public class b implements EnterForumAdView.a {
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                b.this.aE(0.0f);
+                b.this.aG(0.0f);
                 b.this.mPullView.resume();
-                b.this.iCM.completePullRefresh();
+                b.this.iOY.completePullRefresh();
                 b.this.mPullView.setPadding(0, -b.this.mPullView.getHeadContentHeight(), 0, 0);
             }
 
@@ -962,17 +962,17 @@ public class b implements EnterForumAdView.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cxv() {
-        this.iDf.setEnabled(false);
-        int cxl = cxl();
-        Math.abs(cxl / (cxo() - cxl));
-        this.fqN.setVisibility(8);
-        int i = ((ViewGroup.MarginLayoutParams) this.iCR.getLayoutParams()).topMargin;
-        ValueAnimator ofInt = ValueAnimator.ofInt(cxm(), cxl);
+    public void cAo() {
+        this.iPr.setEnabled(false);
+        int cAe = cAe();
+        Math.abs(cAe / (cAh() - cAe));
+        this.fAu.setVisibility(8);
+        int i = ((ViewGroup.MarginLayoutParams) this.iPd.getLayoutParams()).topMargin;
+        ValueAnimator ofInt = ValueAnimator.ofInt(cAf(), cAe);
         ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.enterForum.view.b.11
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                b.this.aE(((Integer) valueAnimator.getAnimatedValue()).intValue());
+                b.this.aG(((Integer) valueAnimator.getAnimatedValue()).intValue());
             }
         });
         ofInt.addListener(new AnonymousClass13());
@@ -982,7 +982,7 @@ public class b implements EnterForumAdView.a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.tieba.enterForum.view.b$13  reason: invalid class name */
-    /* loaded from: classes22.dex */
+    /* loaded from: classes2.dex */
     public class AnonymousClass13 implements Animator.AnimatorListener {
         AnonymousClass13() {
         }
@@ -993,30 +993,30 @@ public class b implements EnterForumAdView.a {
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
-            com.baidu.adp.lib.f.e.mY().post(new Runnable() { // from class: com.baidu.tieba.enterForum.view.b.13.1
+            com.baidu.adp.lib.f.e.mB().post(new Runnable() { // from class: com.baidu.tieba.enterForum.view.b.13.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    ViewGroup viewGroup = (ViewGroup) b.this.iDf.getParent();
+                    ViewGroup viewGroup = (ViewGroup) b.this.iPr.getParent();
                     if (viewGroup != null) {
-                        viewGroup.removeView(b.this.iDf);
-                        viewGroup.removeView(b.this.fqN);
+                        viewGroup.removeView(b.this.iPr);
+                        viewGroup.removeView(b.this.fAu);
                     }
-                    b.this.fqN.setVisibility(0);
-                    b.this.iDh = false;
-                    b.this.cxj();
-                    b.this.iDb = 0;
-                    b.this.zb(0);
-                    b.this.iDh = true;
+                    b.this.fAu.setVisibility(0);
+                    b.this.iPt = false;
+                    b.this.cAc();
+                    b.this.iPn = 0;
+                    b.this.zo(0);
+                    b.this.iPt = true;
                     b.this.mPullView.resume();
-                    b.this.iCM.completePullRefresh();
+                    b.this.iOY.completePullRefresh();
                     b.this.mPullView.setPadding(0, -b.this.mPullView.getHeadContentHeight(), 0, 0);
-                    com.baidu.adp.lib.f.e.mY().postDelayed(new Runnable() { // from class: com.baidu.tieba.enterForum.view.b.13.1.1
+                    com.baidu.adp.lib.f.e.mB().postDelayed(new Runnable() { // from class: com.baidu.tieba.enterForum.view.b.13.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            b.this.iDh = false;
+                            b.this.iPt = false;
                         }
                     }, 0L);
-                    b.this.iCM.setVisibility(0);
+                    b.this.iOY.setVisibility(0);
                 }
             });
         }
@@ -1033,22 +1033,22 @@ public class b implements EnterForumAdView.a {
 
     @Override // com.baidu.tieba.enterForum.view.EnterForumAdView.a
     public void onBackPressed() {
-        if (this.iDh) {
-            cxv();
+        if (this.iPt) {
+            cAo();
         }
     }
 
-    public void b(com.baidu.tieba.enterForum.b.a.a aVar) {
+    public void b(com.baidu.tieba.enterForum.a.a.a aVar) {
         if (aVar != null) {
-            if (StringUtils.isNull(aVar.cvn())) {
-                this.iDi = false;
+            if (StringUtils.isNull(aVar.cyg())) {
+                this.iPu = false;
             } else {
-                this.iDi = true;
+                this.iPu = true;
             }
-            this.iCS.setForumId(aVar.cvl());
-            this.iCS.H(aVar.cvk(), aVar.cvm());
-            this.iCS.gk(aVar.cvj());
-            this.iCS.AX(aVar.cvn());
+            this.iPe.setForumId(aVar.cye());
+            this.iPe.K(aVar.cyd(), aVar.cyf());
+            this.iPe.ge(aVar.cyc());
+            this.iPe.AW(aVar.cyg());
         }
     }
 }

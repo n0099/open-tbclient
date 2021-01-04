@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONArray;
 @NotProguard
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class ArBridge {
     private static final boolean DEBUG = false;
     private static final int INVALID_MESSAGE_ID = -1;
@@ -43,12 +43,12 @@ public class ArBridge {
     private com.baidu.mario.a.b mGameRecorder = new com.baidu.mario.a.b(V8Engine.getAppContext());
 
     @NotProguard
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface FirstFrameListener {
         void onFirstFrameFinished();
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public enum TouchOrientation {
         SCREEN_ORIENTATION_PORTRAIT,
         SCREEN_ORIENTATION_LANDSCAPE,
@@ -57,12 +57,12 @@ public class ArBridge {
         SCREEN_ORIENTATION_NOT_DEFINED
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface a {
-        void h(Bitmap bitmap);
+        void i(Bitmap bitmap);
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void h(String str, int i, String str2);
     }
@@ -207,7 +207,7 @@ public class ArBridge {
 
     public void notifyFrameUpdated() {
         if (this.mGameRecorder != null) {
-            this.mGameRecorder.gX(getScreenTextureId());
+            this.mGameRecorder.gY(getScreenTextureId());
         }
     }
 
@@ -243,7 +243,7 @@ public class ArBridge {
     @Deprecated
     public void surfaceViewCapture(a aVar) {
         if (aVar != null) {
-            aVar.h(null);
+            aVar.i(null);
         }
     }
 

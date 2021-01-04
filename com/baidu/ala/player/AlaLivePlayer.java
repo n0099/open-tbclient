@@ -12,6 +12,11 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import com.baidu.ala.adp.lib.util.BackGroundSwitchListener;
+import com.baidu.ala.adp.lib.util.BdLog;
+import com.baidu.ala.adp.lib.util.BdNetTypeUtil;
+import com.baidu.ala.adp.lib.util.NetWorkChangedListener;
+import com.baidu.ala.adp.lib.util.NetWorkChangedMessage;
 import com.baidu.ala.helper.AlaConstants;
 import com.baidu.ala.helper.AlaLiveBaseInfo;
 import com.baidu.ala.helper.AlaLiveDebugInfo;
@@ -20,18 +25,8 @@ import com.baidu.ala.helper.AlaLiveStreamCmdInfo;
 import com.baidu.ala.helper.AlaLiveUtilHelper;
 import com.baidu.ala.ndk.AlaNDKPlayerAdapter;
 import com.baidu.ala.player.AlaVideoPlayer;
-import com.baidu.live.adp.base.BdPageContext;
-import com.baidu.live.adp.framework.MessageConfig;
-import com.baidu.live.adp.framework.MessageManager;
-import com.baidu.live.adp.framework.listener.CustomMessageListener;
-import com.baidu.live.adp.framework.message.CustomResponsedMessage;
+import com.baidu.ala.tbadk.core.TbadkCoreApplicationProxy;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
-import com.baidu.live.adp.lib.util.BdLog;
-import com.baidu.live.adp.lib.util.BdNetTypeUtil;
-import com.baidu.live.adp.lib.util.NetWorkChangedMessage;
-import com.baidu.live.tbadk.core.dialog.BdAlertDialog;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.live.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -41,7 +36,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class AlaLivePlayer extends LinearLayout {
     private static final int JNI_NOTIFY_MESSAGE_NO_VIDEO_FRAME = 2;
     private static final int JNI_NOTIFY_MESSAGE_RENDER_VIDEO_FRAME = 1;
@@ -73,19 +68,17 @@ public class AlaLivePlayer extends LinearLayout {
     private volatile boolean mIsSwitchForeBackListenerReg;
     private volatile AlaNDKPlayerAdapter mNDKAdapter;
     private volatile boolean mNativeFunctionsRegisted;
-    private BdAlertDialog mNetChangedDialog;
-    private CustomMessageListener mNetworkChangedListener;
-    private BdPageContext<?> mPageContext;
+    NetWorkChangedListener mNetworkChangedListener;
     private byte[] mPcmBytes;
     private AlaLivePlayerCallback mPlayerCallback;
     private volatile PlayerHandler mPlayerHandler;
     private Map<Integer, AlaVideoPlayer2> mPlayersMap;
     private CallStateReceiver mReceiver;
     private AlaLiveStatConfig mStatConfig;
-    private CustomMessageListener mSwitchForeBackListener;
+    private BackGroundSwitchListener mSwitchForeBackListener;
     private boolean manualReconnect;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes15.dex */
     public static class AlaLivePlayerConf {
         public int index;
         public LinearLayout.LayoutParams param;
@@ -115,47 +108,40 @@ public class AlaLivePlayer extends LinearLayout {
         this.mPlayerHandler = null;
         this.mAudioMute = false;
         this.mActivity = null;
-        this.mPageContext = null;
         this.mStatConfig = new AlaLiveStatConfig();
-        this.mNetChangedDialog = null;
         this.manualReconnect = false;
         this.mIsSwitchForeBackListenerReg = false;
-        this.mSwitchForeBackListener = new CustomMessageListener(CmdConfigCustom.CMD_BACKGROUND_SWTICH) { // from class: com.baidu.ala.player.AlaLivePlayer.13
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.live.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage instanceof BackgroundSwitchMessage) {
-                    if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                        if (AlaLivePlayer.this.mNDKAdapter.getNativeObject() != 0) {
-                            AlaLivePlayer.this.mNDKAdapter.enterBackground();
-                        }
-                        for (Map.Entry entry : AlaLivePlayer.this.mPlayersMap.entrySet()) {
-                            AlaVideoPlayer2 alaVideoPlayer2 = (AlaVideoPlayer2) entry.getValue();
-                            if (alaVideoPlayer2 != null) {
-                                alaVideoPlayer2.getPlayerSurface().runInBackground();
-                            }
-                        }
-                        return;
-                    }
+        this.mSwitchForeBackListener = new BackGroundSwitchListener() { // from class: com.baidu.ala.player.AlaLivePlayer.13
+            @Override // com.baidu.ala.adp.lib.util.BackGroundSwitchListener
+            public void onBackGroundSwitch(boolean z) {
+                if (z) {
                     if (AlaLivePlayer.this.mNDKAdapter.getNativeObject() != 0) {
-                        AlaLivePlayer.this.mNDKAdapter.enterForeground();
+                        AlaLivePlayer.this.mNDKAdapter.enterBackground();
                     }
-                    for (Map.Entry entry2 : AlaLivePlayer.this.mPlayersMap.entrySet()) {
-                        AlaVideoPlayer2 alaVideoPlayer22 = (AlaVideoPlayer2) entry2.getValue();
-                        if (alaVideoPlayer22 != null) {
-                            alaVideoPlayer22.getPlayerSurface().runInForeground();
+                    for (Map.Entry entry : AlaLivePlayer.this.mPlayersMap.entrySet()) {
+                        AlaVideoPlayer2 alaVideoPlayer2 = (AlaVideoPlayer2) entry.getValue();
+                        if (alaVideoPlayer2 != null) {
+                            alaVideoPlayer2.getPlayerSurface().runInBackground();
                         }
+                    }
+                    return;
+                }
+                if (AlaLivePlayer.this.mNDKAdapter.getNativeObject() != 0) {
+                    AlaLivePlayer.this.mNDKAdapter.enterForeground();
+                }
+                for (Map.Entry entry2 : AlaLivePlayer.this.mPlayersMap.entrySet()) {
+                    AlaVideoPlayer2 alaVideoPlayer22 = (AlaVideoPlayer2) entry2.getValue();
+                    if (alaVideoPlayer22 != null) {
+                        alaVideoPlayer22.getPlayerSurface().runInForeground();
                     }
                 }
             }
         };
         this.mIsNetworkChangedListenerReg = false;
-        this.mNetworkChangedListener = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.ala.player.AlaLivePlayer.14
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.live.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && AlaLivePlayer.this.mNDKAdapter.getNativeObject() != 0) {
-                    NetWorkChangedMessage netWorkChangedMessage = (NetWorkChangedMessage) customResponsedMessage;
+        this.mNetworkChangedListener = new NetWorkChangedListener() { // from class: com.baidu.ala.player.AlaLivePlayer.14
+            @Override // com.baidu.ala.adp.lib.util.NetWorkChangedListener
+            public void onNetWorkChanged(NetWorkChangedMessage netWorkChangedMessage) {
+                if (AlaLivePlayer.this.mNDKAdapter.getNativeObject() != 0) {
                     boolean isNetWorkAvailable = BdNetTypeUtil.isNetWorkAvailable();
                     if (!isNetWorkAvailable) {
                         AlaLivePlayer.this.mNDKAdapter.networkChangedNotifyNative(0);
@@ -193,10 +179,6 @@ public class AlaLivePlayer extends LinearLayout {
         if (this.mPlayerHandler == null) {
             this.mPlayerHandler = new PlayerHandler();
         }
-    }
-
-    public void setPageContext(BdPageContext<?> bdPageContext) {
-        this.mPageContext = bdPageContext;
     }
 
     private void createPlayerView(int i, LinearLayout.LayoutParams layoutParams) {
@@ -785,7 +767,6 @@ public class AlaLivePlayer extends LinearLayout {
             this.mPlayersMap.remove(entry.getKey());
         }
         this.mActivity = null;
-        this.mPageContext = null;
     }
 
     public String getPlayUrl(int i) {
@@ -805,7 +786,7 @@ public class AlaLivePlayer extends LinearLayout {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes15.dex */
     public class AlaVideoPlayer2 implements AlaVideoPlayer.VideoPlayerCallback {
         private AlaVideoPlayer mPlayer;
 
@@ -848,33 +829,30 @@ public class AlaLivePlayer extends LinearLayout {
                 AlaLivePlayer.this.post(new Runnable() { // from class: com.baidu.ala.player.AlaLivePlayer.AlaVideoPlayer2.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        MessageManager.getInstance().registerListener(AlaLivePlayer.this.mNetworkChangedListener);
+                        BdNetTypeUtil.addNetWorkChangedListener(AlaLivePlayer.this.mNetworkChangedListener);
                     }
                 });
                 AlaLivePlayer.this.mIsNetworkChangedListenerReg = true;
             }
             if (!AlaLivePlayer.this.mIsSwitchForeBackListenerReg) {
-                MessageManager.getInstance().registerListener(AlaLivePlayer.this.mSwitchForeBackListener);
+                TbadkCoreApplicationProxy.getInst().addBackGroundSwitchListener(AlaLivePlayer.this.mSwitchForeBackListener);
                 AlaLivePlayer.this.mIsSwitchForeBackListenerReg = true;
             }
         }
 
         @Override // com.baidu.ala.player.AlaVideoPlayer.VideoPlayerCallback
         public void onDetachedFromWindow() {
-            if (AlaLivePlayer.this.mNetChangedDialog != null) {
-                AlaLivePlayer.this.mNetChangedDialog.dismiss();
-            }
             if (AlaLivePlayer.this.mIsNetworkChangedListenerReg) {
                 AlaLivePlayer.this.post(new Runnable() { // from class: com.baidu.ala.player.AlaLivePlayer.AlaVideoPlayer2.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        MessageManager.getInstance().unRegisterListener(AlaLivePlayer.this.mNetworkChangedListener);
+                        BdNetTypeUtil.removeNetWorkChangedListener(AlaLivePlayer.this.mNetworkChangedListener);
                     }
                 });
                 AlaLivePlayer.this.mIsNetworkChangedListenerReg = false;
             }
             if (AlaLivePlayer.this.mIsSwitchForeBackListenerReg) {
-                MessageManager.getInstance().unRegisterListener(AlaLivePlayer.this.mSwitchForeBackListener);
+                TbadkCoreApplicationProxy.getInst().removeBackGroundSwitchListener(AlaLivePlayer.this.mSwitchForeBackListener);
                 AlaLivePlayer.this.mIsSwitchForeBackListenerReg = false;
             }
             if (AlaLivePlayer.this.mPlayerHandler != null) {
@@ -894,7 +872,7 @@ public class AlaLivePlayer extends LinearLayout {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes15.dex */
     private class MessageStreamStuckData {
         public int index;
         public int ms;
@@ -904,7 +882,7 @@ public class AlaLivePlayer extends LinearLayout {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes15.dex */
     private class MessageBufferEventData {
         public int duration;
         public int index;
@@ -916,7 +894,7 @@ public class AlaLivePlayer extends LinearLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes15.dex */
     public class PlayerHandler extends Handler {
         public PlayerHandler() {
         }
@@ -924,7 +902,7 @@ public class AlaLivePlayer extends LinearLayout {
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             int i;
-            int i2 = 0;
+            int i2;
             switch (message.what) {
                 case 0:
                     if (AlaLivePlayer.this.getVideoPlayer(message.arg1) != null && AlaLivePlayer.this.mPlayerCallback != null) {
@@ -935,18 +913,17 @@ public class AlaLivePlayer extends LinearLayout {
                         try {
                             String[] split = ((String) message.obj).split("\\s+");
                             if (split.length > 0) {
-                                int parseInt = Integer.parseInt(split[0]);
+                                i2 = Integer.parseInt(split[0]);
                                 try {
-                                    i2 = parseInt;
                                     i = Integer.parseInt(split[1]);
                                 } catch (Exception e) {
-                                    i2 = parseInt;
                                     i = 0;
                                     AlaLivePlayer.this.mPlayerCallback.onFirstFrame(message.arg1, i2, i);
                                     return;
                                 }
                             } else {
                                 i = 0;
+                                i2 = 0;
                             }
                             try {
                                 AlaLivePlayer.this.mPlayerCallback.onFirstFrame(message.arg1, i2, i);
@@ -957,6 +934,7 @@ public class AlaLivePlayer extends LinearLayout {
                             }
                         } catch (Exception e3) {
                             i = 0;
+                            i2 = 0;
                         }
                     } else {
                         return;
@@ -1010,7 +988,7 @@ public class AlaLivePlayer extends LinearLayout {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes15.dex */
     class CallStateReceiver extends BroadcastReceiver {
         private boolean isRegisted = false;
 

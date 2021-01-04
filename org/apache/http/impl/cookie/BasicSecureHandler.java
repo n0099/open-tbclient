@@ -5,7 +5,7 @@ import org.apache.http.cookie.CookieOrigin;
 import org.apache.http.cookie.MalformedCookieException;
 import org.apache.http.cookie.SetCookie;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes6.dex */
 public class BasicSecureHandler extends AbstractCookieAttributeHandler {
     public BasicSecureHandler() {
         throw new RuntimeException("Stub!");

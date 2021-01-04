@@ -4,7 +4,6 @@ import android.os.Environment;
 import android.os.StatFs;
 import com.baidu.live.adp.lib.safe.BdCloseHelper;
 import java.io.ByteArrayOutputStream;
-import java.io.Closeable;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -14,7 +13,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.channels.FileChannel;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class BdFileHelper {
     public static final int ERR_FILE_IO_SD = 3;
     public static final int ERR_FILE_NO_SD = 1;
@@ -275,91 +274,78 @@ public class BdFileHelper {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [437=4, 438=4, 440=4, 441=4] */
-    /* JADX WARN: Removed duplicated region for block: B:54:0x0053 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:52:0x004f A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static boolean isGif(String str, String str2) {
         FileInputStream fileInputStream;
-        IOException e;
-        boolean z;
-        FileNotFoundException e2;
         FileInputStream fileInputStream2 = null;
         try {
             try {
                 fileInputStream = new FileInputStream(getFile(str, str2));
                 try {
                     byte[] bArr = new byte[7];
-                    z = fileInputStream.read(bArr, 0, 6) == 6 ? BdUtilHelper.isGif(bArr) : false;
+                    r0 = fileInputStream.read(bArr, 0, 6) == 6 ? BdUtilHelper.isGif(bArr) : false;
                     if (fileInputStream != null) {
-                        try {
-                            fileInputStream.close();
-                        } catch (FileNotFoundException e3) {
-                            e2 = e3;
-                            e2.printStackTrace();
-                            if (fileInputStream != null) {
-                                try {
-                                    fileInputStream.close();
-                                } catch (Exception e4) {
-                                    e4.printStackTrace();
-                                }
-                            }
-                            return z;
-                        } catch (IOException e5) {
-                            e = e5;
-                            e.printStackTrace();
-                            if (fileInputStream != null) {
-                                try {
-                                    fileInputStream.close();
-                                } catch (Exception e6) {
-                                    e6.printStackTrace();
-                                }
-                            }
-                            return z;
-                        }
+                        fileInputStream.close();
                     } else {
                         fileInputStream2 = fileInputStream;
                     }
                     if (fileInputStream2 != null) {
                         try {
                             fileInputStream2.close();
-                        } catch (Exception e7) {
-                            e7.printStackTrace();
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
                     }
-                } catch (FileNotFoundException e8) {
-                    e2 = e8;
-                    z = false;
-                } catch (IOException e9) {
-                    e = e9;
-                    z = false;
+                } catch (FileNotFoundException e2) {
+                    e = e2;
+                    e.printStackTrace();
+                    if (fileInputStream != null) {
+                        try {
+                            fileInputStream.close();
+                        } catch (Exception e3) {
+                            e3.printStackTrace();
+                        }
+                    }
+                    return r0;
+                } catch (IOException e4) {
+                    e = e4;
+                    e.printStackTrace();
+                    if (fileInputStream != null) {
+                        try {
+                            fileInputStream.close();
+                        } catch (Exception e5) {
+                            e5.printStackTrace();
+                        }
+                    }
+                    return r0;
                 }
             } catch (Throwable th) {
                 th = th;
                 if (0 != 0) {
                     try {
                         fileInputStream2.close();
-                    } catch (Exception e10) {
-                        e10.printStackTrace();
+                    } catch (Exception e6) {
+                        e6.printStackTrace();
                     }
                 }
                 throw th;
             }
-        } catch (FileNotFoundException e11) {
+        } catch (FileNotFoundException e7) {
+            e = e7;
             fileInputStream = null;
-            e2 = e11;
-            z = false;
-        } catch (IOException e12) {
+        } catch (IOException e8) {
+            e = e8;
             fileInputStream = null;
-            e = e12;
-            z = false;
         } catch (Throwable th2) {
             th = th2;
             if (0 != 0) {
             }
             throw th;
         }
-        return z;
+        return r0;
     }
 
     public static boolean isGif(String str) {
@@ -453,19 +439,26 @@ public class BdFileHelper {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [521=4] */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r2v1, types: [java.io.OutputStream] */
+    /* JADX WARN: Type inference failed for: r2v2 */
+    /* JADX WARN: Type inference failed for: r2v5 */
+    /* JADX WARN: Type inference failed for: r2v8 */
     public static byte[] getFileData(String str, String str2) {
-        ByteArrayOutputStream byteArrayOutputStream;
-        FileInputStream fileInputStream;
         Throwable th;
+        FileInputStream fileInputStream;
+        ?? r2;
+        ByteArrayOutputStream byteArrayOutputStream;
         byte[] bArr = null;
         if (checkDir(str)) {
             File file = getFile(str, str2);
-            if (file.exists()) {
-                try {
-                    fileInputStream = new FileInputStream(file);
+            boolean exists = file.exists();
+            try {
+                if (exists) {
                     try {
-                        byteArrayOutputStream = new ByteArrayOutputStream(1024);
+                        fileInputStream = new FileInputStream(file);
                         try {
+                            byteArrayOutputStream = new ByteArrayOutputStream(1024);
                             try {
                                 byte[] bArr2 = new byte[1024];
                                 while (true) {
@@ -485,31 +478,29 @@ public class BdFileHelper {
                                 CloseUtil.close((OutputStream) byteArrayOutputStream);
                                 return bArr;
                             }
+                        } catch (IOException e2) {
+                            e = e2;
+                            byteArrayOutputStream = null;
                         } catch (Throwable th2) {
                             th = th2;
+                            r2 = 0;
                             CloseUtil.close((InputStream) fileInputStream);
-                            CloseUtil.close((OutputStream) byteArrayOutputStream);
+                            CloseUtil.close((OutputStream) r2);
                             throw th;
                         }
-                    } catch (IOException e2) {
-                        e = e2;
+                    } catch (IOException e3) {
+                        e = e3;
                         byteArrayOutputStream = null;
+                        fileInputStream = null;
                     } catch (Throwable th3) {
-                        byteArrayOutputStream = null;
                         th = th3;
-                        CloseUtil.close((InputStream) fileInputStream);
-                        CloseUtil.close((OutputStream) byteArrayOutputStream);
-                        throw th;
+                        r2 = 0;
+                        fileInputStream = null;
                     }
-                } catch (IOException e3) {
-                    e = e3;
-                    byteArrayOutputStream = null;
-                    fileInputStream = null;
-                } catch (Throwable th4) {
-                    byteArrayOutputStream = null;
-                    fileInputStream = null;
-                    th = th4;
                 }
+            } catch (Throwable th4) {
+                th = th4;
+                r2 = exists;
             }
         }
         return bArr;
@@ -521,122 +512,121 @@ public class BdFileHelper {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [555=4, 556=4, 558=4, 559=4, 562=4, 563=4, 565=4, 566=4] */
     public static boolean copyFile(String str, String str2, String str3, String str4) {
-        File file;
-        File file2;
-        FileInputStream fileInputStream = null;
-        InputStream inputStream = null;
+        FileInputStream fileInputStream;
+        InputStream inputStream;
+        InputStream inputStream2 = null;
         FileOutputStream fileOutputStream = null;
         try {
             try {
-                file = getFile(str, str2);
-                file2 = getFile(str3, str4);
-            } catch (Throwable th) {
-                th = th;
-            }
-        } catch (Exception e) {
-            e = e;
-            fileOutputStream = null;
-        } catch (Throwable th2) {
-            th = th2;
-            fileOutputStream = null;
-        }
-        if (!file.exists()) {
-            if (0 != 0) {
-                try {
-                    inputStream.close();
-                } catch (Exception e2) {
-                    BdLog.e(e2.toString());
-                }
-            }
-            if (0 != 0) {
-                try {
-                    fileOutputStream.close();
-                } catch (Exception e3) {
-                    BdLog.e(e3.toString());
-                }
-            }
-            return false;
-        }
-        FileInputStream fileInputStream2 = new FileInputStream(file);
-        try {
-            fileOutputStream = new FileOutputStream(file2);
-        } catch (Exception e4) {
-            e = e4;
-            fileOutputStream = null;
-            fileInputStream = fileInputStream2;
-        } catch (Throwable th3) {
-            th = th3;
-            fileOutputStream = null;
-            fileInputStream = fileInputStream2;
-        }
-        try {
-            byte[] bArr = new byte[1024];
-            while (true) {
-                int read = fileInputStream2.read(bArr);
-                if (read <= 0) {
-                    break;
-                }
-                fileOutputStream.write(bArr, 0, read);
-            }
-            fileInputStream2.close();
-            InputStream inputStream2 = null;
-            try {
-                fileOutputStream.close();
-                fileOutputStream = null;
-                if (0 != 0) {
+                File file = getFile(str, str2);
+                File file2 = getFile(str3, str4);
+                if (file.exists()) {
+                    fileInputStream = new FileInputStream(file);
                     try {
-                        inputStream2.close();
+                        fileOutputStream = new FileOutputStream(file2);
+                        try {
+                            byte[] bArr = new byte[1024];
+                            while (true) {
+                                int read = fileInputStream.read(bArr);
+                                if (read <= 0) {
+                                    break;
+                                }
+                                fileOutputStream.write(bArr, 0, read);
+                            }
+                            fileInputStream.close();
+                            inputStream = null;
+                        } catch (Exception e) {
+                            e = e;
+                        }
+                    } catch (Exception e2) {
+                        e = e2;
+                        fileOutputStream = null;
+                    } catch (Throwable th) {
+                        th = th;
+                        fileOutputStream = null;
+                    }
+                    try {
+                        fileOutputStream.close();
+                        OutputStream outputStream = null;
+                        if (0 != 0) {
+                            try {
+                                inputStream.close();
+                            } catch (Exception e3) {
+                                BdLog.e(e3.toString());
+                            }
+                        }
+                        if (0 != 0) {
+                            try {
+                                outputStream.close();
+                            } catch (Exception e4) {
+                                BdLog.e(e4.toString());
+                            }
+                        }
                     } catch (Exception e5) {
-                        BdLog.e(e5.toString());
+                        e = e5;
+                        fileInputStream = null;
+                        BdLog.e(e.toString());
+                        if (fileInputStream != null) {
+                            try {
+                                fileInputStream.close();
+                            } catch (Exception e6) {
+                                BdLog.e(e6.toString());
+                            }
+                        }
+                        if (fileOutputStream != null) {
+                            try {
+                                fileOutputStream.close();
+                            } catch (Exception e7) {
+                                BdLog.e(e7.toString());
+                            }
+                        }
+                        return false;
+                    } catch (Throwable th2) {
+                        th = th2;
+                        fileInputStream = null;
+                        if (fileInputStream != null) {
+                            try {
+                                fileInputStream.close();
+                            } catch (Exception e8) {
+                                BdLog.e(e8.toString());
+                            }
+                        }
+                        if (fileOutputStream != null) {
+                            try {
+                                fileOutputStream.close();
+                            } catch (Exception e9) {
+                                BdLog.e(e9.toString());
+                            }
+                        }
+                        throw th;
+                    }
+                } else {
+                    if (0 != 0) {
+                        try {
+                            inputStream2.close();
+                        } catch (Exception e10) {
+                            BdLog.e(e10.toString());
+                        }
+                    }
+                    if (0 != 0) {
+                        try {
+                            fileOutputStream.close();
+                        } catch (Exception e11) {
+                            BdLog.e(e11.toString());
+                        }
                     }
                 }
-                if (0 != 0) {
-                    try {
-                        fileOutputStream.close();
-                    } catch (Exception e6) {
-                        BdLog.e(e6.toString());
-                    }
-                }
-            } catch (Exception e7) {
-                e = e7;
-                BdLog.e(e.toString());
-                if (fileInputStream != null) {
-                    try {
-                        fileInputStream.close();
-                    } catch (Exception e8) {
-                        BdLog.e(e8.toString());
-                    }
-                }
-                if (fileOutputStream != null) {
-                    try {
-                        fileOutputStream.close();
-                    } catch (Exception e9) {
-                        BdLog.e(e9.toString());
-                    }
-                }
-                return false;
+            } catch (Throwable th3) {
+                th = th3;
             }
-        } catch (Exception e10) {
-            e = e10;
-            fileInputStream = fileInputStream2;
+        } catch (Exception e12) {
+            e = e12;
+            fileOutputStream = null;
+            fileInputStream = null;
         } catch (Throwable th4) {
             th = th4;
-            fileInputStream = fileInputStream2;
-            if (fileInputStream != null) {
-                try {
-                    fileInputStream.close();
-                } catch (Exception e11) {
-                    BdLog.e(e11.toString());
-                }
-            }
-            if (fileOutputStream != null) {
-                try {
-                    fileOutputStream.close();
-                } catch (Exception e12) {
-                    BdLog.e(e12.toString());
-                }
-            }
-            throw th;
+            fileOutputStream = null;
+            fileInputStream = null;
         }
         return false;
     }
@@ -672,55 +662,39 @@ public class BdFileHelper {
     }
 
     private static void doCopyFile(File file, File file2, boolean z) throws IOException {
+        Throwable th;
         FileChannel fileChannel;
+        FileChannel fileChannel2;
         FileOutputStream fileOutputStream;
         FileInputStream fileInputStream;
-        Throwable th;
-        Closeable closeable;
-        FileChannel fileChannel2;
-        FileOutputStream fileOutputStream2;
-        FileChannel channel;
+        FileChannel fileChannel3;
         if (file2.exists() && file2.isDirectory()) {
             throw new IOException("Destination '" + file2 + "' exists but is a directory");
         }
         try {
             FileInputStream fileInputStream2 = new FileInputStream(file);
             try {
-                fileOutputStream = new FileOutputStream(file2);
+                FileOutputStream fileOutputStream2 = new FileOutputStream(file2);
                 try {
                     fileChannel2 = fileInputStream2.getChannel();
                     try {
-                        try {
-                            channel = fileOutputStream.getChannel();
-                        } catch (Error e) {
-                            fileOutputStream2 = fileOutputStream;
-                            fileInputStream = fileInputStream2;
-                            try {
-                                throw new IOException("Failed to copy full contents from '" + file + "' to '" + file2 + "'");
-                            } catch (Throwable th2) {
-                                fileOutputStream = fileOutputStream2;
-                                fileChannel = fileChannel2;
-                                closeable = null;
-                                th = th2;
-                                CloseUtil.close(closeable);
-                                CloseUtil.close((OutputStream) fileOutputStream);
-                                CloseUtil.close(fileChannel);
-                                CloseUtil.close((InputStream) fileInputStream);
-                                throw th;
-                            }
-                        }
-                    } catch (Throwable th3) {
+                        fileChannel3 = fileOutputStream2.getChannel();
+                    } catch (Error e) {
+                        fileChannel3 = null;
+                        fileOutputStream = fileOutputStream2;
                         fileInputStream = fileInputStream2;
-                        th = th3;
-                        fileChannel = fileChannel2;
-                        closeable = null;
+                    } catch (Throwable th2) {
+                        th = th2;
+                        fileChannel = null;
+                        fileOutputStream = fileOutputStream2;
+                        fileInputStream = fileInputStream2;
                     }
                     try {
                         long size = fileChannel2.size();
-                        for (long j = 0; j < size; j += channel.transferFrom(fileChannel2, j, size - j > FILE_COPY_BUFFER_SIZE ? 31457280L : size - j)) {
+                        for (long j = 0; j < size; j += fileChannel3.transferFrom(fileChannel2, j, size - j > FILE_COPY_BUFFER_SIZE ? 31457280L : size - j)) {
                         }
-                        CloseUtil.close(channel);
-                        CloseUtil.close((OutputStream) fileOutputStream);
+                        CloseUtil.close(fileChannel3);
+                        CloseUtil.close((OutputStream) fileOutputStream2);
                         CloseUtil.close(fileChannel2);
                         CloseUtil.close((InputStream) fileInputStream2);
                         if (file.length() != file2.length()) {
@@ -729,48 +703,66 @@ public class BdFileHelper {
                         if (z) {
                             file2.setLastModified(file.lastModified());
                         }
-                    } catch (Throwable th4) {
+                    } catch (Error e2) {
+                        fileOutputStream = fileOutputStream2;
                         fileInputStream = fileInputStream2;
+                        try {
+                            throw new IOException("Failed to copy full contents from '" + file + "' to '" + file2 + "'");
+                        } catch (Throwable th3) {
+                            th = th3;
+                            fileChannel = fileChannel3;
+                            CloseUtil.close(fileChannel);
+                            CloseUtil.close((OutputStream) fileOutputStream);
+                            CloseUtil.close(fileChannel2);
+                            CloseUtil.close((InputStream) fileInputStream);
+                            throw th;
+                        }
+                    } catch (Throwable th4) {
                         th = th4;
-                        fileChannel = fileChannel2;
-                        closeable = channel;
-                        CloseUtil.close(closeable);
-                        CloseUtil.close((OutputStream) fileOutputStream);
+                        fileChannel = fileChannel3;
+                        fileOutputStream = fileOutputStream2;
+                        fileInputStream = fileInputStream2;
                         CloseUtil.close(fileChannel);
+                        CloseUtil.close((OutputStream) fileOutputStream);
+                        CloseUtil.close(fileChannel2);
                         CloseUtil.close((InputStream) fileInputStream);
                         throw th;
                     }
-                } catch (Error e2) {
+                } catch (Error e3) {
+                    fileChannel3 = null;
                     fileChannel2 = null;
-                    fileOutputStream2 = fileOutputStream;
+                    fileOutputStream = fileOutputStream2;
                     fileInputStream = fileInputStream2;
                 } catch (Throwable th5) {
-                    fileChannel = null;
-                    fileInputStream = fileInputStream2;
-                    closeable = null;
                     th = th5;
+                    fileChannel = null;
+                    fileChannel2 = null;
+                    fileOutputStream = fileOutputStream2;
+                    fileInputStream = fileInputStream2;
                 }
-            } catch (Error e3) {
+            } catch (Error e4) {
+                fileChannel3 = null;
                 fileChannel2 = null;
-                fileOutputStream2 = null;
-                fileInputStream = fileInputStream2;
-            } catch (Throwable th6) {
-                fileChannel = null;
                 fileOutputStream = null;
                 fileInputStream = fileInputStream2;
+            } catch (Throwable th6) {
                 th = th6;
-                closeable = null;
+                fileChannel = null;
+                fileChannel2 = null;
+                fileOutputStream = null;
+                fileInputStream = fileInputStream2;
             }
-        } catch (Error e4) {
+        } catch (Error e5) {
+            fileChannel3 = null;
             fileChannel2 = null;
-            fileOutputStream2 = null;
-            fileInputStream = null;
-        } catch (Throwable th7) {
-            fileChannel = null;
             fileOutputStream = null;
             fileInputStream = null;
+        } catch (Throwable th7) {
             th = th7;
-            closeable = null;
+            fileChannel = null;
+            fileChannel2 = null;
+            fileOutputStream = null;
+            fileInputStream = null;
         }
     }
 
@@ -911,31 +903,34 @@ public class BdFileHelper {
     }
 
     public static long getFileSize(File file) {
+        Throwable th;
         FileInputStream fileInputStream;
+        FileInputStream fileInputStream2;
         long j = 0;
-        FileInputStream fileInputStream2 = null;
+        FileInputStream fileInputStream3 = null;
         try {
             if (!file.exists()) {
-                fileInputStream = null;
+                fileInputStream2 = null;
             } else {
-                fileInputStream = new FileInputStream(file);
+                fileInputStream2 = new FileInputStream(file);
                 try {
-                    j = fileInputStream.available();
+                    j = fileInputStream2.available();
                 } catch (Exception e) {
-                    fileInputStream2 = fileInputStream;
-                    BdCloseHelper.close((InputStream) fileInputStream2);
+                    fileInputStream3 = fileInputStream2;
+                    BdCloseHelper.close((InputStream) fileInputStream3);
                     return j;
-                } catch (Throwable th) {
-                    fileInputStream2 = fileInputStream;
-                    th = th;
-                    BdCloseHelper.close((InputStream) fileInputStream2);
+                } catch (Throwable th2) {
+                    th = th2;
+                    fileInputStream = fileInputStream2;
+                    BdCloseHelper.close((InputStream) fileInputStream);
                     throw th;
                 }
             }
-            BdCloseHelper.close((InputStream) fileInputStream);
+            BdCloseHelper.close((InputStream) fileInputStream2);
         } catch (Exception e2) {
-        } catch (Throwable th2) {
-            th = th2;
+        } catch (Throwable th3) {
+            th = th3;
+            fileInputStream = null;
         }
         return j;
     }

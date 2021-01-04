@@ -1,17 +1,17 @@
 package com.baidu.swan.apps.core.b;
 
-import android.support.annotation.NonNull;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.swan.apps.core.b.a;
 import com.baidu.webkit.sdk.WebSettings;
 import java.util.ArrayList;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     @NonNull
-    public static WebSettings.CodeCacheSetting bz(String str, @NonNull String str2) {
+    public static WebSettings.CodeCacheSetting by(String str, @NonNull String str2) {
         WebSettings.CodeCacheSetting codeCacheSetting = new WebSettings.CodeCacheSetting();
         codeCacheSetting.id = str;
         codeCacheSetting.pathList = new ArrayList<>();
@@ -27,9 +27,9 @@ public final class b {
         }
         switch (c) {
             case 0:
-                a.C0429a aqb = a.b.aqb();
-                codeCacheSetting.maxCount = aqb.maxCount;
-                codeCacheSetting.sizeLimit = aqb.sizeLimit;
+                a.C0421a arn = a.b.arn();
+                codeCacheSetting.maxCount = arn.maxCount;
+                codeCacheSetting.sizeLimit = arn.sizeLimit;
                 break;
             default:
                 codeCacheSetting.maxCount = 5;

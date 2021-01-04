@@ -12,8 +12,9 @@ import com.baidu.location.Poi;
 import com.baidu.location.PoiRegion;
 import com.baidu.location.b.l;
 import com.baidu.mobstat.Config;
+import com.kwad.sdk.collector.AppStatusRules;
 import java.util.List;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class o extends l {
     private double A;
     private double B;
@@ -57,24 +58,24 @@ public class o extends l {
     private boolean R = false;
     private boolean S = true;
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     private class a implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ o f1905a;
+        final /* synthetic */ o f2647a;
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.f1905a.G) {
-                this.f1905a.G = false;
-                if (!this.f1905a.H) {
+            if (this.f2647a.G) {
+                this.f2647a.G = false;
+                if (!this.f2647a.H) {
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public class b implements Runnable {
         private b() {
         }
@@ -101,19 +102,19 @@ public class o extends l {
     }
 
     private boolean a(com.baidu.location.c.a aVar) {
-        this.b = com.baidu.location.c.b.a().f();
-        if (this.b == aVar) {
+        this.f2631b = com.baidu.location.c.b.a().f();
+        if (this.f2631b == aVar) {
             return false;
         }
-        return this.b == null || aVar == null || !aVar.a(this.b);
+        return this.f2631b == null || aVar == null || !aVar.a(this.f2631b);
     }
 
     private boolean a(com.baidu.location.c.h hVar) {
-        this.f1893a = com.baidu.location.c.i.a().o();
-        if (hVar == this.f1893a) {
+        this.f2630a = com.baidu.location.c.i.a().o();
+        if (hVar == this.f2630a) {
             return false;
         }
-        return this.f1893a == null || hVar == null || !hVar.c(this.f1893a);
+        return this.f2630a == null || hVar == null || !hVar.c(this.f2630a);
     }
 
     public static synchronized o c() {
@@ -135,7 +136,7 @@ public class o extends l {
             return;
         }
         if (com.baidu.location.e.l.b()) {
-            Log.d(com.baidu.location.e.a.f1946a, "isInforbiddenTime on request location ...");
+            Log.d(com.baidu.location.e.a.f2709a, "isInforbiddenTime on request location ...");
         }
         boolean z = message.getData().getBoolean("isWaitingLocTag", false);
         if (z) {
@@ -290,13 +291,13 @@ public class o extends l {
                     e.printStackTrace();
                 }
                 long currentTimeMillis2 = System.currentTimeMillis();
-                if (currentTimeMillis2 - this.D > 60000) {
+                if (currentTimeMillis2 - this.D > AppStatusRules.DEFAULT_GRANULARITY) {
                     this.D = currentTimeMillis2;
                 }
                 String l = com.baidu.location.c.i.a().l();
                 a2 = l != null ? l + b() + strArr[0] : "" + b() + strArr[0];
-                if (this.b != null && this.b.h() != null) {
-                    a2 = this.b.h() + a2;
+                if (this.f2631b != null && this.f2631b.h() != null) {
+                    a2 = this.f2631b.h() + a2;
                 }
                 String a3 = com.baidu.location.e.b.a().a(true);
                 if (a3 != null) {
@@ -307,9 +308,9 @@ public class o extends l {
                 a2 = a2 + this.k;
                 this.k = null;
             }
-            this.e.a(a2, this.f1893a != null ? this.f1893a.f() : 0L);
-            this.o = this.b;
-            this.n = this.f1893a;
+            this.e.a(a2, this.f2630a != null ? this.f2630a.f() : 0L);
+            this.o = this.f2631b;
+            this.n = this.f2630a;
             if (this.r) {
                 this.r = false;
                 if (!com.baidu.location.c.i.a().i() || message == null || com.baidu.location.b.b.a().e(message) < 1000) {

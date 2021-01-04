@@ -3,15 +3,15 @@ package com.baidu.swan.impl.map.d;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.tieba.R;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class a extends c {
     public a(@NonNull Context context) {
         super("BaiduMap", context.getString(R.string.openlocation_bottommenu_baidumap), "com.baidu.BaiduMap");
-        this.ekI = true;
+        this.etN = true;
     }
 
     @Override // com.baidu.swan.impl.map.d.c

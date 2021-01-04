@@ -4,10 +4,10 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import java.util.Locale;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class e {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes6.dex */
     public enum a {
         WIFI,
         CMNET,

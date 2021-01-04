@@ -3,16 +3,16 @@ package com.baidu.ufosdk.f;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
-import android.support.v4.view.InputDeviceCompat;
-import android.support.v4.view.ViewCompat;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.view.ContextThemeWrapper;
 import android.view.Window;
 import android.view.WindowManager;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.InputDeviceCompat;
+import androidx.core.view.ViewCompat;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes22.dex */
+/* loaded from: classes8.dex */
 public final class r {
     public static void a(Context context, Window window) {
         if (Build.VERSION.SDK_INT < 23 || context == null || window == null) {

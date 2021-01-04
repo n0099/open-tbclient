@@ -1,7 +1,7 @@
 package com.baidu.lcp.sdk.d;
 
 import android.util.Log;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class d {
     private static String TAG = "lcpsdk";
 

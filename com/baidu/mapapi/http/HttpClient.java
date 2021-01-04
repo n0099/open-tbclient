@@ -15,20 +15,22 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class HttpClient {
     public static boolean isHttpsEnable = true;
 
     /* renamed from: a  reason: collision with root package name */
-    HttpURLConnection f1994a;
-    private String b = null;
+    HttpURLConnection f2784a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private String f2785b = null;
     private String c = null;
     private int d;
     private int e;
     private String f;
     private ProtoResultCallback g;
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public enum HttpStateError {
         NO_ERROR,
         NETWORK_ERROR,
@@ -37,7 +39,7 @@ public class HttpClient {
         SERVER_ERROR
     }
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public static abstract class ProtoResultCallback {
         public abstract void onFailed(HttpStateError httpStateError);
 
@@ -52,7 +54,7 @@ public class HttpClient {
     private HttpURLConnection a() {
         HttpURLConnection httpURLConnection;
         try {
-            URL url = new URL(this.b);
+            URL url = new URL(this.f2785b);
             if (isHttpsEnable) {
                 httpURLConnection = (HttpsURLConnection) url.openConnection();
                 ((HttpsURLConnection) httpURLConnection).setHostnameVerifier(new b(this));
@@ -109,47 +111,47 @@ public class HttpClient {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:90:0x019c */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:23:0x0070 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:71:0x016a */
     /* JADX INFO: Access modifiers changed from: protected */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:79:0x017c A[Catch: Exception -> 0x00a0, TryCatch #1 {Exception -> 0x00a0, blocks: (B:13:0x003d, B:44:0x00c6, B:45:0x00cc, B:47:0x00d0, B:31:0x008f, B:32:0x0095, B:34:0x0099, B:76:0x0172, B:77:0x0178, B:79:0x017c, B:80:0x0181, B:59:0x011d, B:60:0x0123, B:62:0x0127), top: B:92:0x003d }] */
-    /* JADX WARN: Type inference failed for: r1v17, types: [java.io.InputStream] */
+    /* JADX WARN: Removed duplicated region for block: B:77:0x0179 A[Catch: Exception -> 0x009f, TryCatch #1 {Exception -> 0x009f, blocks: (B:13:0x003d, B:43:0x00c5, B:44:0x00cb, B:46:0x00cf, B:30:0x008e, B:31:0x0094, B:33:0x0098, B:74:0x016f, B:75:0x0175, B:77:0x0179, B:78:0x017e, B:58:0x011c, B:59:0x0122, B:61:0x0126), top: B:90:0x003d }] */
+    /* JADX WARN: Type inference failed for: r1v10, types: [java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r1v11, types: [int] */
+    /* JADX WARN: Type inference failed for: r1v20, types: [java.io.InputStream] */
     /* JADX WARN: Type inference failed for: r1v4 */
-    /* JADX WARN: Type inference failed for: r1v7, types: [java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r1v8, types: [int] */
+    /* JADX WARN: Type inference failed for: r1v5 */
+    /* JADX WARN: Type inference failed for: r1v6, types: [java.io.InputStream] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void request(String str) {
-        BufferedReader bufferedReader;
         ?? r1;
+        BufferedReader bufferedReader;
         InputStream inputStream;
-        InputStream inputStream2 = null;
-        r2 = null;
-        BufferedReader bufferedReader2 = null;
-        this.b = str;
+        this.f2785b = str;
         if (!checkNetwork()) {
             this.g.onFailed(HttpStateError.NETWORK_ERROR);
             return;
         }
-        this.f1994a = a();
-        if (this.f1994a == null) {
+        this.f2784a = a();
+        if (this.f2784a == null) {
             Log.e("HttpClient", "url connection failed");
             this.g.onFailed(HttpStateError.INNER_ERROR);
-        } else if (TextUtils.isEmpty(this.b)) {
+        } else if (TextUtils.isEmpty(this.f2785b)) {
             this.g.onFailed(HttpStateError.REQUEST_ERROR);
         } else {
-            BufferedReader bufferedReader3 = null;
+            BufferedReader bufferedReader2 = null;
             try {
-                this.f1994a.connect();
+                this.f2784a.connect();
                 try {
-                    r1 = this.f1994a.getResponseCode();
+                    r1 = this.f2784a.getResponseCode();
                     try {
                         if (200 != r1) {
                             Log.e("HttpClient", "responseCode is: " + ((int) r1));
                             HttpStateError httpStateError = r1 >= 500 ? HttpStateError.SERVER_ERROR : r1 >= 400 ? HttpStateError.REQUEST_ERROR : HttpStateError.INNER_ERROR;
                             if (Logger.debugEnable()) {
-                                inputStream = this.f1994a.getErrorStream();
+                                inputStream = this.f2784a.getErrorStream();
                                 Logger.logW("HttpClient", inputStream.toString());
                             } else {
                                 Logger.logW("HttpClient", "Get response from server failed, http response code=" + ((int) r1) + ", error=" + httpStateError);
@@ -157,39 +159,38 @@ public class HttpClient {
                             }
                             this.g.onFailed(httpStateError);
                             if (inputStream != null && 0 != 0) {
-                                bufferedReader3.close();
+                                bufferedReader2.close();
                                 inputStream.close();
                             }
-                            if (this.f1994a != null) {
-                                this.f1994a.disconnect();
+                            if (this.f2784a != null) {
+                                this.f2784a.disconnect();
                                 return;
                             }
                             return;
                         }
-                        r1 = this.f1994a.getInputStream();
+                        r1 = this.f2784a.getInputStream();
                         bufferedReader = new BufferedReader(new InputStreamReader((InputStream) r1, "UTF-8"));
                         try {
-                            StringBuffer stringBuffer = new StringBuffer();
-                            while (true) {
-                                int read = bufferedReader.read();
-                                if (read == -1) {
-                                    break;
-                                }
-                                stringBuffer.append((char) read);
-                            }
-                            this.c = stringBuffer.toString();
-                            if (r1 != 0 && bufferedReader != null) {
-                                bufferedReader.close();
-                                r1.close();
-                            }
-                            if (this.f1994a != null) {
-                                this.f1994a.disconnect();
-                            }
-                            this.g.onSuccess(this.c);
-                        } catch (Exception e) {
-                            e = e;
-                            bufferedReader2 = bufferedReader;
                             try {
+                                StringBuffer stringBuffer = new StringBuffer();
+                                while (true) {
+                                    int read = bufferedReader.read();
+                                    if (read == -1) {
+                                        break;
+                                    }
+                                    stringBuffer.append((char) read);
+                                }
+                                this.c = stringBuffer.toString();
+                                if (r1 != 0 && bufferedReader != null) {
+                                    bufferedReader.close();
+                                    r1.close();
+                                }
+                                if (this.f2784a != null) {
+                                    this.f2784a.disconnect();
+                                }
+                                this.g.onSuccess(this.c);
+                            } catch (Exception e) {
+                                e = e;
                                 if (Logger.debugEnable()) {
                                     e.printStackTrace();
                                 } else {
@@ -197,49 +198,46 @@ public class HttpClient {
                                 }
                                 Log.e("HttpClient", "Catch exception. INNER_ERROR", e);
                                 this.g.onFailed(HttpStateError.INNER_ERROR);
-                                if (r1 != 0 && bufferedReader2 != null) {
-                                    bufferedReader2.close();
+                                if (r1 != 0 && bufferedReader != null) {
+                                    bufferedReader.close();
                                     r1.close();
                                 }
-                                if (this.f1994a != null) {
-                                    this.f1994a.disconnect();
+                                if (this.f2784a != null) {
+                                    this.f2784a.disconnect();
                                 }
-                            } catch (Throwable th) {
-                                th = th;
-                                bufferedReader = bufferedReader2;
-                                inputStream2 = r1;
-                                if (inputStream2 != null && bufferedReader != null) {
-                                    bufferedReader.close();
-                                    inputStream2.close();
-                                }
-                                if (this.f1994a != null) {
-                                    this.f1994a.disconnect();
-                                }
-                                throw th;
                             }
-                        } catch (Throwable th2) {
-                            th = th2;
-                            inputStream2 = r1;
-                            if (inputStream2 != null) {
+                        } catch (Throwable th) {
+                            th = th;
+                            if (r1 != 0 && bufferedReader != null) {
                                 bufferedReader.close();
-                                inputStream2.close();
+                                r1.close();
                             }
-                            if (this.f1994a != null) {
+                            if (this.f2784a != null) {
+                                this.f2784a.disconnect();
                             }
                             throw th;
                         }
                     } catch (Exception e2) {
                         e = e2;
-                    } catch (Throwable th3) {
-                        th = th3;
                         bufferedReader = null;
-                        inputStream2 = r1;
+                    } catch (Throwable th2) {
+                        th = th2;
+                        bufferedReader = null;
+                        if (r1 != 0) {
+                            bufferedReader.close();
+                            r1.close();
+                        }
+                        if (this.f2784a != null) {
+                        }
+                        throw th;
                     }
                 } catch (Exception e3) {
                     e = e3;
                     r1 = 0;
-                } catch (Throwable th4) {
-                    th = th4;
+                    bufferedReader = null;
+                } catch (Throwable th3) {
+                    th = th3;
+                    r1 = 0;
                     bufferedReader = null;
                 }
             } catch (Exception e4) {

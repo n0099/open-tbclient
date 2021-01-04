@@ -4,10 +4,10 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Build;
 import android.os.SystemClock;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.common.others.java.Supplier;
 import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.searchbox.aperf.runtime.AperfRuntime;
@@ -35,9 +35,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class b {
-    private Supplier<List<ProcessEventSceneHandler>> arx;
+    private Supplier<List<ProcessEventSceneHandler>> arT;
     private Context mContext;
     private long mProcessLaunchTime;
     private String mProcessName;
@@ -51,11 +51,11 @@ public class b {
         this.mProcessName = com.baidu.pyramid.runtime.multiprocess.a.getProcessName();
         this.mProcessLaunchTime = System.currentTimeMillis();
         if (Build.VERSION.SDK_INT <= 19) {
-            vs();
+            uJ();
         }
     }
 
-    private void vs() {
+    private void uJ() {
         DefaultProcessEventSceneHandler.init();
         LogType.init();
         SnapshotUtil.init();
@@ -109,19 +109,19 @@ public class b {
         JSONObject jSONObject = new JSONObject();
         onAttachExtra(this.mContext, jSONObject);
         logExtra.mJSONAttach = jSONObject.toString();
-        ForwardingProcessEventSceneHandler vt = vt();
-        if (vt != null) {
+        ForwardingProcessEventSceneHandler uK = uK();
+        if (uK != null) {
             HashSet hashSet2 = new HashSet(5);
             EventObject eventObject = new EventObject(LogType.NATIVE_CRASH, str);
-            Set<ProcessSnapshotType> requireGeneralSnapshots = vt.requireGeneralSnapshots(this.mContext, eventObject);
+            Set<ProcessSnapshotType> requireGeneralSnapshots = uK.requireGeneralSnapshots(this.mContext, eventObject);
             if (requireGeneralSnapshots != null && requireGeneralSnapshots.size() > 0 && (obtainProcessSnapShots = SnapshotUtil.obtainProcessSnapShots(this.mContext, requireGeneralSnapshots, obtainFileDirWithProcessName, this.mProcessName, logExtra)) != null && obtainProcessSnapShots.size() > 0) {
                 hashSet2.addAll(obtainProcessSnapShots);
             }
-            Set<LogFile> customizedSnapshots = vt.getCustomizedSnapshots(this.mContext, obtainFileDirWithProcessName, eventObject);
+            Set<LogFile> customizedSnapshots = uK.getCustomizedSnapshots(this.mContext, obtainFileDirWithProcessName, eventObject);
             if (customizedSnapshots != null && customizedSnapshots.size() > 0) {
                 hashSet2.addAll(customizedSnapshots);
             }
-            LogFile obtainFragmentSnapShot = SnapshotUtil.obtainFragmentSnapShot(this.mContext, vt, eventObject, obtainFileDirWithProcessName, SnapshotConstant.ProcessConstants.PROCESS_SHARED_FRAGMENT_FILE);
+            LogFile obtainFragmentSnapShot = SnapshotUtil.obtainFragmentSnapShot(this.mContext, uK, eventObject, obtainFileDirWithProcessName, SnapshotConstant.ProcessConstants.PROCESS_SHARED_FRAGMENT_FILE);
             if (obtainFragmentSnapShot != null && obtainFragmentSnapShot.mFile.exists()) {
                 hashSet2.add(obtainFragmentSnapShot);
             }
@@ -150,18 +150,18 @@ public class b {
     }
 
     @NonNull
-    private ForwardingProcessEventSceneHandler vt() {
+    private ForwardingProcessEventSceneHandler uK() {
         ForwardingProcessEventSceneHandler forwardingProcessEventSceneHandler = new ForwardingProcessEventSceneHandler();
         if (Build.VERSION.SDK_INT > 19) {
             forwardingProcessEventSceneHandler.addEventHandleCallback(new DefaultProcessEventSceneHandler());
         }
-        if (this.arx != null && Build.VERSION.SDK_INT > 19) {
-            forwardingProcessEventSceneHandler.addEventHandleCallback(this.arx.get());
+        if (this.arT != null && Build.VERSION.SDK_INT > 19) {
+            forwardingProcessEventSceneHandler.addEventHandleCallback(this.arT.get());
         }
         return forwardingProcessEventSceneHandler;
     }
 
-    public void vu() {
+    public void uL() {
     }
 
     public void onAttachExtra(@NonNull Context context, @NonNull JSONObject jSONObject) {

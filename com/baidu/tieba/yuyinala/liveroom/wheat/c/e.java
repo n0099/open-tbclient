@@ -1,59 +1,66 @@
 package com.baidu.tieba.yuyinala.liveroom.wheat.c;
 
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class e {
-    private static e ouz;
-    private TbPageContext otA;
-    private com.baidu.tieba.yuyinala.liveroom.wheat.dialog.c ouA;
+    private static e oBk;
+    private TbPageContext oAf;
+    private com.baidu.tieba.yuyinala.liveroom.wheat.dialog.c oBl;
 
     public static e eeO() {
-        if (ouz == null) {
-            ouz = new e();
+        if (oBk == null) {
+            oBk = new e();
         }
-        return ouz;
+        return oBk;
     }
 
     private e() {
     }
 
     public void h(TbPageContext tbPageContext) {
-        if (tbPageContext != null && tbPageContext != this.otA) {
-            this.otA = tbPageContext;
+        if (tbPageContext != null && tbPageContext != this.oAf) {
+            this.oAf = tbPageContext;
             hide();
         }
-        if (this.otA == null) {
-            this.otA = o.efe().efj();
+        if (this.oAf == null) {
+            this.oAf = o.eff().efl();
         }
-        if (this.otA != null) {
-            if (this.ouA == null) {
-                this.ouA = new com.baidu.tieba.yuyinala.liveroom.wheat.dialog.c(this.otA);
+        if (this.oAf != null) {
+            if (this.oBl == null) {
+                this.oBl = new com.baidu.tieba.yuyinala.liveroom.wheat.dialog.c(this.oAf);
             }
-            if (this.ouA.efu()) {
-                this.ouA.show();
+            if (this.oBl.efx()) {
+                this.oBl.show();
                 return;
             }
-            this.ouA.show();
-            this.ouA.startTimer();
+            this.oBl.show();
+            this.oBl.startTimer();
         }
     }
 
     public e eeP() {
-        if (this.ouA != null) {
-            this.ouA.cancelTimer();
+        if (this.oBl != null) {
+            this.oBl.startTimer();
+        }
+        return this;
+    }
+
+    public e eeQ() {
+        if (this.oBl != null) {
+            this.oBl.cancelTimer();
         }
         return this;
     }
 
     private void hide() {
-        if (this.ouA != null) {
-            this.ouA.dismiss();
-            this.ouA = null;
+        if (this.oBl != null) {
+            this.oBl.dismiss();
+            this.oBl = null;
         }
     }
 
     public void onDestroy() {
-        eeP();
+        eeQ();
         hide();
     }
 }

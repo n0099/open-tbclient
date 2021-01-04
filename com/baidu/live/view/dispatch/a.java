@@ -1,9 +1,9 @@
 package com.baidu.live.view.dispatch;
 
 import android.view.View;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public interface a {
-    void YI();
+    void ZV();
 
     boolean ai(View view);
 

@@ -2,11 +2,11 @@ package io.reactivex.internal.util;
 
 import io.reactivex.u;
 import java.io.Serializable;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public enum NotificationLite {
     COMPLETE;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class ErrorNotification implements Serializable {
         private static final long serialVersionUID = -8759979445933046293L;
         final Throwable e;
@@ -31,7 +31,7 @@ public enum NotificationLite {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class SubscriptionNotification implements Serializable {
         private static final long serialVersionUID = -1322257508628817540L;
         final org.a.d s;
@@ -45,7 +45,7 @@ public enum NotificationLite {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class DisposableNotification implements Serializable {
         private static final long serialVersionUID = -7482590109178395495L;
         final io.reactivex.disposables.b d;

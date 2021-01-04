@@ -7,6 +7,7 @@ import android.graphics.SurfaceTexture;
 import android.hardware.Camera;
 import android.os.Build;
 import android.os.Looper;
+import android.util.Log;
 import android.view.View;
 import com.baidu.ala.dumixar.EGLTextureReader;
 import com.baidu.ala.helper.AlaLiveDebugInfo;
@@ -29,7 +30,7 @@ import com.baidu.ala.recorder.video.listener.ImageFilter;
 import com.baidu.ala.recorder.video.listener.TextureViewListener;
 import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class AlaLiveSession implements IFaceUnityOperator, IVideoRecorder, ICameraStatusHandler, ICameraStatusHandler.Beauty {
     private static final int MIN_SURFACE_CHANGE = 10;
     private static final String TAG = AlaLiveSession.class.getSimpleName();
@@ -53,7 +54,7 @@ public class AlaLiveSession implements IFaceUnityOperator, IVideoRecorder, ICame
     private volatile boolean mIsVideoThreadRun = false;
     private boolean mIsPreviewStoped = false;
     private boolean mSurfaceCreated = false;
-    private boolean mSendFlags = false;
+    private boolean mUseDummyCapture = false;
     private boolean mIsMirror = false;
     private ImageFilter.Output mImageOutput = new ImageFilter.Output() { // from class: com.baidu.ala.recorder.video.AlaLiveSession.3
         @Override // com.baidu.ala.recorder.video.listener.ImageFilter.Output
@@ -87,16 +88,16 @@ public class AlaLiveSession implements IFaceUnityOperator, IVideoRecorder, ICame
     };
     private IVideoRecorder.IVideoDataCallBack mVideoDataCallback = new IVideoRecorder.IVideoDataCallBack() { // from class: com.baidu.ala.recorder.video.AlaLiveSession.4
         @Override // com.baidu.ala.recorder.video.IVideoRecorder.IVideoDataCallBack
-        public void onRawVideoFrameReceived(byte[] bArr, int i, int i2, int i3) {
+        public void onRawVideoFrameReceived(byte[] bArr, int i, int i2, int i3, long j) {
             if (AlaLiveSession.this.mExternVideoDataCallback != null) {
-                AlaLiveSession.this.mExternVideoDataCallback.onRawVideoFrameReceived(bArr, i, i2, i3);
+                AlaLiveSession.this.mExternVideoDataCallback.onRawVideoFrameReceived(bArr, i, i2, i3, j);
             }
         }
 
         @Override // com.baidu.ala.recorder.video.IVideoRecorder.IVideoDataCallBack
-        public void onEncodeVideoFrameRecived(byte[] bArr, int i, int i2, int i3, long j, long j2) {
+        public void onEncodeVideoFrameRecived(byte[] bArr, int i, int i2, int i3, long j, long j2, int i4) {
             if (AlaLiveSession.this.mExternVideoDataCallback != null) {
-                AlaLiveSession.this.mExternVideoDataCallback.onEncodeVideoFrameRecived(bArr, i, i2, i3, j, j2);
+                AlaLiveSession.this.mExternVideoDataCallback.onEncodeVideoFrameRecived(bArr, i, i2, i3, j, j2, i4);
             }
         }
 
@@ -284,7 +285,7 @@ public class AlaLiveSession implements IFaceUnityOperator, IVideoRecorder, ICame
     }
 
     @Override // com.baidu.ala.recorder.video.IVideoRecorder
-    public boolean isForeBackgroundSwitchEnable() {
+    public boolean dealBackground() {
         return true;
     }
 
@@ -433,11 +434,6 @@ public class AlaLiveSession implements IFaceUnityOperator, IVideoRecorder, ICame
         return 0;
     }
 
-    @Override // com.baidu.ala.recorder.video.IVideoRecorder
-    public void startGetDataToSend() {
-        this.mSendFlags = true;
-    }
-
     @Override // com.baidu.ala.recorder.IFaceUnityOperator
     public void onEffectItemSelected(String str) {
         if (this.mCameraOperator != null && (this.mCameraOperator instanceof IFaceUnityOperator)) {
@@ -580,6 +576,25 @@ public class AlaLiveSession implements IFaceUnityOperator, IVideoRecorder, ICame
         }
     }
 
+    public void setUseDummyCapture(boolean z) {
+        this.mUseDummyCapture = z;
+        Log.i(TAG, "setUseDummyCapture enable:" + z);
+    }
+
+    public void onPause() {
+        Log.i(TAG, "onPause, mUseDummyCapture:" + this.mUseDummyCapture);
+        if (this.mUseDummyCapture && this.mEncoderDrawer != null) {
+            this.mEncoderDrawer.setRepeatDraw(true);
+        }
+    }
+
+    public void onResume() {
+        Log.i(TAG, "onResume, mUseDummyCapture:" + this.mUseDummyCapture);
+        if (this.mUseDummyCapture && this.mEncoderDrawer != null) {
+            this.mEncoderDrawer.setRepeatDraw(false);
+        }
+    }
+
     public void onBeautyTypeChanged(final VideoBeautyType videoBeautyType) {
         this.mCameraMgr.postDestroy(new Runnable() { // from class: com.baidu.ala.recorder.video.AlaLiveSession.2
             @Override // java.lang.Runnable
@@ -658,6 +673,7 @@ public class AlaLiveSession implements IFaceUnityOperator, IVideoRecorder, ICame
     /* JADX INFO: Access modifiers changed from: private */
     public void checkNeedCreateReader() {
         if (this.mTextureReader == null) {
+            Log.e("qlc", "new EGLTextureReader mVideoConfig.isLandscape() " + this.mVideoConfig.isLandscape());
             this.mTextureReader = new EGLTextureReader(this.mContext, this.mVideoConfig.getVideoWidth(), this.mVideoConfig.getVideoHeight());
         }
         if (this.mVideoConfig.isLandscape()) {

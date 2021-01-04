@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.l;
 
 import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.swan.apps.ap.ak;
+import com.baidu.swan.apps.ao.ak;
 import com.baidu.swan.apps.r.d;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class a {
     public void a(d.c cVar, String str, final d.b bVar) {
         final File file = new File(str);
@@ -29,26 +29,25 @@ public class a {
                 a.this.a(bVar, 1, 0);
             }
         });
-        aVar.emE = false;
-        aVar.emF = false;
-        aVar.emG = false;
-        com.baidu.swan.a.c.a.bdi().a(aVar);
+        aVar.ewn = false;
+        aVar.ewo = false;
+        aVar.ewp = false;
+        com.baidu.swan.a.c.a.bfE().a(aVar);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [117=4] */
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Response response, d.b bVar, File file) throws IOException {
-        InputStream inputStream;
         Throwable th;
-        InputStream inputStream2;
+        ResponseBody responseBody;
         FileOutputStream fileOutputStream;
         ResponseBody body = response.body();
         if (body == null) {
             a(bVar, 1, 0);
             return;
         }
+        InputStream inputStream = null;
         byte[] bArr = new byte[2048];
-        FileOutputStream fileOutputStream2 = null;
         if (!file.getParentFile().exists()) {
             file.getParentFile().mkdirs();
         }
@@ -57,8 +56,8 @@ public class a {
             file.createNewFile();
         }
         try {
-            inputStream = body.byteStream();
             try {
+                inputStream = body.byteStream();
                 long contentLength = body.contentLength();
                 fileOutputStream = new FileOutputStream(file);
                 long j = 0;
@@ -76,40 +75,27 @@ public class a {
                         j += read;
                         a(bVar, 2, contentLength <= 0 ? 0 : (int) (((((float) j) * 1.0f) / ((float) contentLength)) * 100.0f));
                     } catch (Exception e) {
-                        inputStream2 = inputStream;
-                        try {
-                            a(bVar, 1, 0);
-                            com.baidu.swan.c.d.closeSafely(inputStream2);
-                            com.baidu.swan.c.d.closeSafely(fileOutputStream);
-                            return;
-                        } catch (Throwable th2) {
-                            inputStream = inputStream2;
-                            fileOutputStream2 = fileOutputStream;
-                            th = th2;
-                            com.baidu.swan.c.d.closeSafely(inputStream);
-                            com.baidu.swan.c.d.closeSafely(fileOutputStream2);
-                            throw th;
-                        }
-                    } catch (Throwable th3) {
-                        fileOutputStream2 = fileOutputStream;
-                        th = th3;
+                        a(bVar, 1, 0);
                         com.baidu.swan.c.d.closeSafely(inputStream);
-                        com.baidu.swan.c.d.closeSafely(fileOutputStream2);
-                        throw th;
+                        com.baidu.swan.c.d.closeSafely(fileOutputStream);
+                        return;
                     }
                 }
-            } catch (Exception e2) {
-                fileOutputStream = null;
-                inputStream2 = inputStream;
-            } catch (Throwable th4) {
-                th = th4;
+            } catch (Throwable th2) {
+                th = th2;
+                responseBody = body;
+                com.baidu.swan.c.d.closeSafely(inputStream);
+                com.baidu.swan.c.d.closeSafely(responseBody);
+                throw th;
             }
-        } catch (Exception e3) {
-            inputStream2 = null;
+        } catch (Exception e2) {
             fileOutputStream = null;
-        } catch (Throwable th5) {
-            inputStream = null;
-            th = th5;
+        } catch (Throwable th3) {
+            th = th3;
+            responseBody = null;
+            com.baidu.swan.c.d.closeSafely(inputStream);
+            com.baidu.swan.c.d.closeSafely(responseBody);
+            throw th;
         }
     }
 

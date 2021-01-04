@@ -7,9 +7,9 @@ import java.util.Map;
 import java.util.Set;
 import kotlin.TypeCastException;
 @kotlin.e
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public abstract class e<K, V> implements Map<K, V> {
-    public static final a pKi = new a(null);
+    public static final a qlL = new a(null);
 
     public abstract Set getEntries();
 
@@ -26,7 +26,7 @@ public abstract class e<K, V> implements Map<K, V> {
         return getSize();
     }
 
-    public final boolean b(Map.Entry<?, ?> entry) {
+    public final boolean c(Map.Entry<?, ?> entry) {
         if (entry instanceof Map.Entry) {
             Object key = entry.getKey();
             Object value = entry.getValue();
@@ -64,7 +64,7 @@ public abstract class e<K, V> implements Map<K, V> {
                     if (!it.hasNext()) {
                         z = true;
                         break;
-                    } else if (!b((Map.Entry) it.next())) {
+                    } else if (!c((Map.Entry) it.next())) {
                         z = false;
                         break;
                     }
@@ -93,7 +93,7 @@ public abstract class e<K, V> implements Map<K, V> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final String c(Map.Entry<? extends K, ? extends V> entry) {
+    public final String d(Map.Entry<? extends K, ? extends V> entry) {
         return toString(entry.getKey()) + "=" + toString(entry.getValue());
     }
 
@@ -102,7 +102,7 @@ public abstract class e<K, V> implements Map<K, V> {
     }
 
     @kotlin.e
-    /* loaded from: classes17.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
         private a() {
         }

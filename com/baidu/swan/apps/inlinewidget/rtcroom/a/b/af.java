@@ -1,12 +1,12 @@
 package com.baidu.swan.apps.inlinewidget.rtcroom.a.b;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class af extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.inlinewidget.rtcroom.c.b> {
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
-    public String aya() {
+    public String azr() {
         return "setBitrate";
     }
 
@@ -15,7 +15,7 @@ public class af extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.i
     public void a(@NonNull ZeusPlugin.Command command, @NonNull com.baidu.swan.apps.inlinewidget.rtcroom.c.b bVar) {
         a(bVar, command.what, "" + command.obj, true);
         if (command.obj instanceof Integer) {
-            bVar.jl(((Integer) command.obj).intValue());
+            bVar.jg(((Integer) command.obj).intValue());
         }
     }
 }

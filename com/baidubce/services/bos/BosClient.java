@@ -99,7 +99,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 @SuppressLint({"NewApi"})
-/* loaded from: classes25.dex */
+/* loaded from: classes6.dex */
 public class BosClient extends AbstractBceClient {
     public static final String STORAGE_CLASS_COLD = "COLD";
     public static final String STORAGE_CLASS_STANDARD = "STANDARD";
@@ -883,118 +883,121 @@ public class BosClient extends AbstractBceClient {
         return internalRequest;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:76:0x0091 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:77:0x007a */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:58:0x0129 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:74:0x0092 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:75:0x007b */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:80:0x0059 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Type inference failed for: r1v20, types: [byte[]] */
-    /* JADX WARN: Type inference failed for: r1v26 */
-    /* JADX WARN: Type inference failed for: r1v28 */
-    /* JADX WARN: Type inference failed for: r1v32 */
-    /* JADX WARN: Type inference failed for: r1v39 */
-    /* JADX WARN: Type inference failed for: r1v40 */
+    /* JADX WARN: Removed duplicated region for block: B:80:0x005a A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Type inference failed for: r2v10, types: [byte[]] */
+    /* JADX WARN: Type inference failed for: r2v15 */
+    /* JADX WARN: Type inference failed for: r2v17 */
+    /* JADX WARN: Type inference failed for: r2v21 */
+    /* JADX WARN: Type inference failed for: r2v24 */
+    /* JADX WARN: Type inference failed for: r2v25 */
+    /* JADX WARN: Type inference failed for: r2v8 */
+    /* JADX WARN: Type inference failed for: r2v9 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private void downloadObjectToFile(BosObject bosObject, File file, boolean z) {
         BufferedOutputStream bufferedOutputStream;
-        Throwable th;
-        IOException e;
+        String str;
         byte[] bArr;
-        byte[] bArr2 = null;
+        BufferedOutputStream bufferedOutputStream2 = null;
         File parentFile = file.getParentFile();
         if (parentFile != null && !parentFile.exists()) {
             parentFile.mkdirs();
         }
         try {
-            bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file));
             try {
-                try {
-                    byte[] bArr3 = new byte[getStreamBufferSize()];
-                    while (true) {
-                        int read = bosObject.getObjectContent().read(bArr3);
-                        if (read <= -1) {
-                            break;
-                        }
-                        bufferedOutputStream.write(bArr3, 0, read);
-                    }
-                    if (bufferedOutputStream != null) {
-                        try {
-                            bufferedOutputStream.close();
-                        } catch (Exception e2) {
-                            BLog.error("Couldn't close the output stream", e2.getCause());
-                        }
-                    }
+                bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file));
+            } catch (Throwable th) {
+                th = th;
+                if (bufferedOutputStream2 != null) {
                     try {
-                        bosObject.getObjectContent().close();
-                    } catch (Exception e3) {
-                        BLog.error("Couldn't get object content", e3.getCause());
+                        bufferedOutputStream2.close();
+                    } catch (Exception e) {
+                        BLog.error("Couldn't close the output stream", e.getCause());
                     }
-                    if (z) {
-                        byte[] objectMetadata = bosObject.getObjectMetadata();
-                        try {
-                        } catch (Exception e4) {
-                            e = e4;
-                            bArr = bArr2;
-                        }
-                        try {
-                            if (objectMetadata.getBceContentSha256() != null) {
-                                byte[] decodeHex = ConvertUtils.decodeHex(objectMetadata.getBceContentSha256().toCharArray());
-                                bArr2 = HashUtils.computeSha256Hash(new FileInputStream(file));
-                                objectMetadata = decodeHex;
-                            } else if (objectMetadata.getContentMd5() != null) {
-                                byte[] decode = Base64.decode(objectMetadata.getContentMd5().getBytes("UTF-8"), 0);
-                                bArr2 = HashUtils.computeMd5Hash(new FileInputStream(file));
-                                objectMetadata = decode;
-                            } else {
-                                objectMetadata = 0;
-                            }
-                        } catch (Exception e5) {
-                            bArr = objectMetadata;
-                            e = e5;
-                            BLog.error("Unable to verify the integrity of the downloaded file", (Throwable) e);
-                            objectMetadata = bArr;
-                            if (objectMetadata == 0) {
-                                return;
-                            }
-                            return;
-                        }
-                        if (objectMetadata == 0 && bArr2 != null && !Arrays.equals(bArr2, (byte[]) objectMetadata)) {
-                            throw new BceClientException("Integrity verification failed! Client calculated content hash didn't match hash from server. The data stored in '" + file.getAbsolutePath() + "' may be corrupt.");
-                        }
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    if (bufferedOutputStream != null) {
-                        try {
-                            bufferedOutputStream.close();
-                        } catch (Exception e6) {
-                            BLog.error("Couldn't close the output stream", e6.getCause());
-                        }
-                    }
-                    try {
-                        bosObject.getObjectContent().close();
-                    } catch (Exception e7) {
-                        BLog.error("Couldn't get object content", e7.getCause());
-                    }
-                    throw th;
                 }
-            } catch (IOException e8) {
-                e = e8;
                 try {
                     bosObject.getObjectContent().close();
-                } catch (IOException e9) {
-                    BLog.error("Couldn't abort stream", (Throwable) e9);
+                } catch (Exception e2) {
+                    BLog.error("Couldn't get object content", e2.getCause());
                 }
-                throw new BceClientException("Unable to write to disk:" + e.getMessage(), e);
+                throw th;
             }
-        } catch (IOException e10) {
-            bufferedOutputStream = null;
-            e = e10;
-        } catch (Throwable th3) {
-            bufferedOutputStream = null;
-            th = th3;
+        } catch (IOException e3) {
+            e = e3;
+        }
+        try {
+            byte[] bArr2 = new byte[getStreamBufferSize()];
+            while (true) {
+                int read = bosObject.getObjectContent().read(bArr2);
+                if (read <= -1) {
+                    break;
+                }
+                bufferedOutputStream.write(bArr2, 0, read);
+            }
             if (bufferedOutputStream != null) {
+                try {
+                    bufferedOutputStream.close();
+                } catch (Exception e4) {
+                    BLog.error("Couldn't close the output stream", e4.getCause());
+                }
+            }
+            try {
+                bosObject.getObjectContent().close();
+            } catch (Exception e5) {
+                BLog.error("Couldn't get object content", e5.getCause());
+            }
+            if (z) {
+                ObjectMetadata objectMetadata = bosObject.getObjectMetadata();
+                try {
+                    str = objectMetadata.getBceContentSha256();
+                } catch (Exception e6) {
+                    e = e6;
+                    str = 0;
+                }
+                try {
+                    if (str != 0) {
+                        byte[] decodeHex = ConvertUtils.decodeHex(objectMetadata.getBceContentSha256().toCharArray());
+                        bArr = HashUtils.computeSha256Hash(new FileInputStream(file));
+                        str = decodeHex;
+                    } else if (objectMetadata.getContentMd5() != null) {
+                        byte[] decode = Base64.decode(objectMetadata.getContentMd5().getBytes("UTF-8"), 0);
+                        bArr = HashUtils.computeMd5Hash(new FileInputStream(file));
+                        str = decode;
+                    } else {
+                        bArr = null;
+                        str = 0;
+                    }
+                } catch (Exception e7) {
+                    e = e7;
+                    BLog.error("Unable to verify the integrity of the downloaded file", (Throwable) e);
+                    bArr = null;
+                    if (str == 0) {
+                        return;
+                    }
+                    return;
+                }
+                if (str == 0 && bArr != null && !Arrays.equals(bArr, (byte[]) str)) {
+                    throw new BceClientException("Integrity verification failed! Client calculated content hash didn't match hash from server. The data stored in '" + file.getAbsolutePath() + "' may be corrupt.");
+                }
+            }
+        } catch (IOException e8) {
+            e = e8;
+            bufferedOutputStream2 = bufferedOutputStream;
+            try {
+                bosObject.getObjectContent().close();
+            } catch (IOException e9) {
+                BLog.error("Couldn't abort stream", (Throwable) e9);
+            }
+            throw new BceClientException("Unable to write to disk:" + e.getMessage(), e);
+        } catch (Throwable th2) {
+            th = th2;
+            bufferedOutputStream2 = bufferedOutputStream;
+            if (bufferedOutputStream2 != null) {
             }
             bosObject.getObjectContent().close();
             throw th;
@@ -1016,8 +1019,8 @@ public class BosClient extends AbstractBceClient {
                         objectMetadata.setContentLength(j);
                         return arrayList;
                     }
+                    j += read;
                     i += read;
-                    j = read + j;
                 } catch (IOException e) {
                     throw new BceClientException("Fail to read data:" + e.getMessage(), e);
                 }

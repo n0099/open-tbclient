@@ -8,15 +8,15 @@ import com.baidu.mobads.openad.interfaces.download.IOAdDownloader;
 import java.util.Observable;
 import java.util.Observer;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class c implements Observer {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f2413a;
+    final /* synthetic */ a f3486a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.f2413a = aVar;
+        this.f3486a = aVar;
     }
 
     @Override // java.util.Observer
@@ -28,19 +28,19 @@ public class c implements Observer {
         if (iOAdDownloader.getState() == IOAdDownloader.DownloadStatus.COMPLETED) {
             Log.e("XAbstractAdProdTemplate", "download complete");
             if (Looper.myLooper() != Looper.getMainLooper()) {
-                context = this.f2413a.y;
+                context = this.f3486a.y;
                 new Handler(context.getMainLooper()).post(new d(this));
                 return;
             }
-            a aVar = this.f2413a;
+            a aVar = this.f3486a;
             StringBuilder sb = new StringBuilder();
-            str = this.f2413a.A;
+            str = this.f3486a.A;
             StringBuilder append = sb.append(str);
-            str2 = this.f2413a.B;
+            str2 = this.f3486a.B;
             aVar.f(append.append(str2).toString());
         } else if (iOAdDownloader.getState() == IOAdDownloader.DownloadStatus.ERROR) {
             Log.e("XAbstractAdProdTemplate", "download error");
-            this.f2413a.a("开屏因为3d背景图片下载失败跳过");
+            this.f3486a.a("开屏因为3d背景图片下载失败跳过");
         }
     }
 }

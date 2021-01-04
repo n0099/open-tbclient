@@ -3,15 +3,17 @@ package com.xiaomi.push;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class gi extends gj {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f4694a;
-    private String b;
+    private boolean f14347a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private String f14348b;
 
     /* renamed from: b  reason: collision with other field name */
-    private boolean f393b;
+    private boolean f471b;
     private String c;
     private String d;
     private String e;
@@ -24,35 +26,35 @@ public class gi extends gj {
     private String l;
 
     public gi() {
-        this.b = null;
+        this.f14348b = null;
         this.c = null;
-        this.f4694a = false;
+        this.f14347a = false;
         this.i = "";
         this.j = "";
         this.k = "";
         this.l = "";
-        this.f393b = false;
+        this.f471b = false;
     }
 
     public gi(Bundle bundle) {
         super(bundle);
-        this.b = null;
+        this.f14348b = null;
         this.c = null;
-        this.f4694a = false;
+        this.f14347a = false;
         this.i = "";
         this.j = "";
         this.k = "";
         this.l = "";
-        this.f393b = false;
-        this.b = bundle.getString("ext_msg_type");
+        this.f471b = false;
+        this.f14348b = bundle.getString("ext_msg_type");
         this.d = bundle.getString("ext_msg_lang");
         this.c = bundle.getString("ext_msg_thread");
         this.e = bundle.getString("ext_msg_sub");
         this.f = bundle.getString("ext_msg_body");
         this.g = bundle.getString("ext_body_encode");
         this.h = bundle.getString("ext_msg_appid");
-        this.f4694a = bundle.getBoolean("ext_msg_trans", false);
-        this.f393b = bundle.getBoolean("ext_msg_encrypt", false);
+        this.f14347a = bundle.getBoolean("ext_msg_trans", false);
+        this.f471b = bundle.getBoolean("ext_msg_encrypt", false);
         this.i = bundle.getString("ext_msg_seq");
         this.j = bundle.getString("ext_msg_mseq");
         this.k = bundle.getString("ext_msg_fseq");
@@ -62,8 +64,8 @@ public class gi extends gj {
     @Override // com.xiaomi.push.gj
     public Bundle a() {
         Bundle a2 = super.a();
-        if (!TextUtils.isEmpty(this.b)) {
-            a2.putString("ext_msg_type", this.b);
+        if (!TextUtils.isEmpty(this.f14348b)) {
+            a2.putString("ext_msg_type", this.f14348b);
         }
         if (this.d != null) {
             a2.putString("ext_msg_lang", this.d);
@@ -83,7 +85,7 @@ public class gi extends gj {
         if (this.h != null) {
             a2.putString("ext_msg_appid", this.h);
         }
-        if (this.f4694a) {
+        if (this.f14347a) {
             a2.putBoolean("ext_msg_trans", true);
         }
         if (!TextUtils.isEmpty(this.i)) {
@@ -95,7 +97,7 @@ public class gi extends gj {
         if (!TextUtils.isEmpty(this.k)) {
             a2.putString("ext_msg_fseq", this.k);
         }
-        if (this.f393b) {
+        if (this.f471b) {
             a2.putBoolean("ext_msg_encrypt", true);
         }
         if (!TextUtils.isEmpty(this.l)) {
@@ -139,16 +141,16 @@ public class gi extends gj {
         if (k() != null) {
             sb.append(" chid=\"").append(gu.a(k())).append("\"");
         }
-        if (this.f4694a) {
+        if (this.f14347a) {
             sb.append(" transient=\"true\"");
         }
         if (!TextUtils.isEmpty(this.h)) {
             sb.append(" appid=\"").append(c()).append("\"");
         }
-        if (!TextUtils.isEmpty(this.b)) {
-            sb.append(" type=\"").append(this.b).append("\"");
+        if (!TextUtils.isEmpty(this.f14348b)) {
+            sb.append(" type=\"").append(this.f14348b).append("\"");
         }
-        if (this.f393b) {
+        if (this.f471b) {
             sb.append(" s=\"1\"");
         }
         sb.append(">");
@@ -166,8 +168,8 @@ public class gi extends gj {
         if (this.c != null) {
             sb.append("<thread>").append(this.c).append("</thread>");
         }
-        if (BdStatsConstant.StatsType.ERROR.equalsIgnoreCase(this.b) && (a2 = a()) != null) {
-            sb.append(a2.m311a());
+        if (BdStatsConstant.StatsType.ERROR.equalsIgnoreCase(this.f14348b) && (a2 = a()) != null) {
+            sb.append(a2.m337a());
         }
         sb.append(o());
         sb.append("</message>");
@@ -186,12 +188,12 @@ public class gi extends gj {
     }
 
     public void a(boolean z) {
-        this.f4694a = z;
+        this.f14347a = z;
     }
 
     @Override // com.xiaomi.push.gj
     public String b() {
-        return this.b;
+        return this.f14348b;
     }
 
     public void b(String str) {
@@ -199,7 +201,7 @@ public class gi extends gj {
     }
 
     public void b(boolean z) {
-        this.f393b = z;
+        this.f471b = z;
     }
 
     public String c() {
@@ -264,7 +266,7 @@ public class gi extends gj {
             } else if (giVar.c != null) {
                 return false;
             }
-            return this.b == giVar.b;
+            return this.f14348b == giVar.f14348b;
         }
         return false;
     }
@@ -274,7 +276,7 @@ public class gi extends gj {
     }
 
     public void f(String str) {
-        this.b = str;
+        this.f14348b = str;
     }
 
     public String g() {
@@ -295,7 +297,7 @@ public class gi extends gj {
 
     @Override // com.xiaomi.push.gj
     public int hashCode() {
-        return (((this.d != null ? this.d.hashCode() : 0) + (((this.c != null ? this.c.hashCode() : 0) + (((this.f != null ? this.f.hashCode() : 0) + ((this.b != null ? this.b.hashCode() : 0) * 31)) * 31)) * 31)) * 31) + (this.e != null ? this.e.hashCode() : 0);
+        return (((this.d != null ? this.d.hashCode() : 0) + (((this.c != null ? this.c.hashCode() : 0) + (((this.f != null ? this.f.hashCode() : 0) + ((this.f14348b != null ? this.f14348b.hashCode() : 0) * 31)) * 31)) * 31)) * 31) + (this.e != null ? this.e.hashCode() : 0);
     }
 
     public void i(String str) {

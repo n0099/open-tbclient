@@ -1,7 +1,7 @@
 package org.webrtc;
 
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class RTCStats {
     private final String id;
     private final Map<String, Object> members;

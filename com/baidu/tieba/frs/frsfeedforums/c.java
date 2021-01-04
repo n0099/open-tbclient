@@ -8,33 +8,33 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.k;
 import com.baidu.tieba.tbadkCore.l;
-/* loaded from: classes22.dex */
-public class c extends k<l, d> {
-    private boolean jcZ;
-    protected a jjM;
+/* loaded from: classes2.dex */
+public class c extends k<l, FrsFeedItemViewHolder> {
+    private boolean jpv;
+    protected a jwl;
 
     public c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
         super(tbPageContext, bdUniqueId);
-        this.jcZ = z;
+        this.jpv = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bs */
-    public d c(ViewGroup viewGroup) {
+    /* renamed from: bE */
+    public FrsFeedItemViewHolder e(ViewGroup viewGroup) {
         View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.frs_feed_item_layout, (ViewGroup) null);
-        this.jjM = new a(this.mPageContext, inflate, 2, this.jcZ, this.mPageId);
-        return new d(inflate);
+        this.jwl = new a(this.mPageContext, inflate, 2, this.jpv, this.mPageId);
+        return new FrsFeedItemViewHolder(inflate);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.k, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, l lVar, d dVar) {
-        super.a(i, view, viewGroup, (ViewGroup) lVar, (l) dVar);
+    public View a(int i, View view, ViewGroup viewGroup, l lVar, FrsFeedItemViewHolder frsFeedItemViewHolder) {
+        super.a(i, view, viewGroup, (ViewGroup) lVar, (l) frsFeedItemViewHolder);
         if (lVar != null) {
-            this.jjM.f(lVar.getForumId(), lVar.dOs());
+            this.jwl.f(lVar.getForumId(), lVar.dOk());
         }
         return view;
     }

@@ -6,13 +6,13 @@ import com.baidu.pyramid.a.a.d;
 import com.baidu.searchbox.anr.ioc.IANRRegister;
 import com.baidu.searchbox.anr.ioc.IANRRegister_ANRRuntime_ListProvider;
 import com.baidu.searchbox.config.AppConfig;
-/* loaded from: classes20.dex */
+/* loaded from: classes7.dex */
 public class ANRRuntime {
     private static ANRRuntime sInstance;
     private d<IANRRegister> mIANRMonitorList;
 
     public void initmIANRMonitorList() {
-        this.mIANRMonitorList = b.afE();
+        this.mIANRMonitorList = b.ahA();
         this.mIANRMonitorList.b(new IANRRegister_ANRRuntime_ListProvider());
     }
 

@@ -27,7 +27,7 @@ import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
 import com.baidu.tbadk.core.atomData.SignAllForumActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.pageExtra.d;
 import com.baidu.tbadk.switchs.FlutterConcernForumEnableSwitch;
 import com.baidu.tbadk.switchs.FlutterForumDetailEnableSwitch;
@@ -40,7 +40,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes25.dex */
+/* loaded from: classes12.dex */
 public class OpenFlutter {
     public static final String ACTIVITY_CONCERN_FORUM = "ConcernForum";
     public static final String ACTIVITY_FANS = "PersonFansList";
@@ -149,12 +149,12 @@ public class OpenFlutter {
         String substring;
         if (ACTIVITY_PERSON_CENTER.equals(str)) {
             String uri2 = uri.toString();
-            if (f.p(uri)) {
-                f.biX().d(uri, new f.a() { // from class: com.baidu.tieba.flutter.util.OpenFlutter.1
+            if (f.r(uri)) {
+                f.bln().d(uri, new f.a() { // from class: com.baidu.tieba.flutter.util.OpenFlutter.1
                     @Override // com.baidu.tbadk.BdToken.f.a
                     public void onCallBack(HashMap<String, Object> hashMap2) {
-                        if (hashMap2 != null && (hashMap2.get(f.exh) instanceof String)) {
-                            String str2 = (String) hashMap2.get(f.exh);
+                        if (hashMap2 != null && (hashMap2.get(f.eGx) instanceof String)) {
+                            String str2 = (String) hashMap2.get(f.eGx);
                             if (!StringUtils.isNull(str2)) {
                                 hashMap.put("portrait", str2);
                             }
@@ -184,7 +184,7 @@ public class OpenFlutter {
                             if (decode.startsWith("//")) {
                                 decode = decode.substring(2);
                             }
-                            if (!StringUtils.isNull(decode) && (paramPair = bf.getParamPair(decode)) != null) {
+                            if (!StringUtils.isNull(decode) && (paramPair = be.getParamPair(decode)) != null) {
                                 String str2 = paramPair.get("uid");
                                 if (!StringUtils.isNull(str2)) {
                                     hashMap.put("uid", str2);
@@ -199,7 +199,7 @@ public class OpenFlutter {
 
     public static boolean checkSwitch(String str) {
         if (str.contains(ACTIVITY_SIGN_TOGETHER)) {
-            return !b.An("flutter_page_test") && FlutterSignAllEnableSwitch.isOn();
+            return !b.Ai("flutter_page_test") && FlutterSignAllEnableSwitch.isOn();
         } else if (str.contains(ACTIVITY_FANS)) {
             return FlutterPersonAttentionEnableSwitch.isOn();
         } else {
@@ -234,10 +234,10 @@ public class OpenFlutter {
             str = ACTIVITY_CONCERN_FORUM;
         } else if ((intentConfig instanceof PersonPolymericActivityConfig) || (intentConfig instanceof PersonInfoActivityConfig)) {
             str = ACTIVITY_PERSON_CENTER;
-            e.mY().postDelayed(new Runnable() { // from class: com.baidu.tieba.flutter.util.OpenFlutter.2
+            e.mB().postDelayed(new Runnable() { // from class: com.baidu.tieba.flutter.util.OpenFlutter.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921521, d.bET()));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921521, d.bHm()));
                 }
             }, 100L);
         } else {
@@ -266,15 +266,15 @@ public class OpenFlutter {
     }
 
     public static boolean checkPluginEnable(String str) {
-        PluginSetting findPluginSetting = c.qx().findPluginSetting("com.baidu.tieba.pluginFlutter");
+        PluginSetting findPluginSetting = c.pZ().findPluginSetting("com.baidu.tieba.pluginFlutter");
         if ((findPluginSetting == null || findPluginSetting.apkPath == null) && !TbadkCoreApplication.getInst().isDebugMode()) {
             a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
             statsItem.append("page", str);
             statsItem.append("staticversion", BdStatisticsManager.getInstance().getAppVersion());
             statsItem.append("version", TbConfig.getVersion());
             statsItem.append("sub_version", TbConfig.getSubVersion());
-            statsItem.append("setting", PluginPackageManager.pV().qg());
-            statsItem.append("pluginInit", PluginPackageManager.pV().qg());
+            statsItem.append("setting", PluginPackageManager.px().pI());
+            statsItem.append("pluginInit", PluginPackageManager.px().pI());
             BdStatisticsManager.getInstance().debug("pluginproxy", statsItem);
             return false;
         }

@@ -1,20 +1,20 @@
 package com.baidu.tieba.homepage.framework;
 
 import android.util.SparseArray;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class a {
-    private static a jMr = new a();
+    private static a jZF = new a();
     private long creatTime = 0;
-    private SparseArray<Long> jMs = new SparseArray<>();
-    private SparseArray<Long> jMt = new SparseArray<>();
-    private SparseArray<Long> jMu = new SparseArray<>();
-    private SparseArray<Long> jMv = new SparseArray<>();
+    private SparseArray<Long> jZG = new SparseArray<>();
+    private SparseArray<Long> jZH = new SparseArray<>();
+    private SparseArray<Long> jZI = new SparseArray<>();
+    private SparseArray<Long> jZJ = new SparseArray<>();
 
     private a() {
     }
 
-    public static a cOc() {
-        return jMr;
+    public static a cRi() {
+        return jZF;
     }
 
     public long getCreateTime() {
@@ -25,32 +25,8 @@ public class a {
         this.creatTime = j;
     }
 
-    public long CB(int i) {
-        Long l = this.jMt.get(i);
-        if (l == null) {
-            return -1L;
-        }
-        return l.longValue();
-    }
-
-    public void B(long j, int i) {
-        this.jMt.put(i, Long.valueOf(j));
-    }
-
-    public long CC(int i) {
-        Long l = this.jMs.get(i);
-        if (l == null) {
-            return -1L;
-        }
-        return l.longValue();
-    }
-
-    public void C(long j, int i) {
-        this.jMs.put(i, Long.valueOf(j));
-    }
-
-    public long CD(int i) {
-        Long l = this.jMu.get(i);
+    public long CP(int i) {
+        Long l = this.jZH.get(i);
         if (l == null) {
             return -1L;
         }
@@ -58,11 +34,11 @@ public class a {
     }
 
     public void D(long j, int i) {
-        this.jMu.put(i, Long.valueOf(j));
+        this.jZH.put(i, Long.valueOf(j));
     }
 
-    public long CE(int i) {
-        Long l = this.jMv.get(i);
+    public long CQ(int i) {
+        Long l = this.jZG.get(i);
         if (l == null) {
             return -1L;
         }
@@ -70,6 +46,30 @@ public class a {
     }
 
     public void E(long j, int i) {
-        this.jMv.put(i, Long.valueOf(j));
+        this.jZG.put(i, Long.valueOf(j));
+    }
+
+    public long CR(int i) {
+        Long l = this.jZI.get(i);
+        if (l == null) {
+            return -1L;
+        }
+        return l.longValue();
+    }
+
+    public void F(long j, int i) {
+        this.jZI.put(i, Long.valueOf(j));
+    }
+
+    public long CS(int i) {
+        Long l = this.jZJ.get(i);
+        if (l == null) {
+            return -1L;
+        }
+        return l.longValue();
+    }
+
+    public void G(long j, int i) {
+        this.jZJ.put(i, Long.valueOf(j));
     }
 }

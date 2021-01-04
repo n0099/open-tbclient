@@ -10,269 +10,233 @@ import java.net.HttpURLConnection;
 import java.net.SocketTimeoutException;
 import java.net.URL;
 import org.json.JSONException;
-/* loaded from: classes10.dex */
+/* loaded from: classes3.dex */
 public class NetUtil {
     private static final String TAG = "NetUtil";
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [83=7, 85=6, 86=6, 91=6, 93=6, 94=6, 99=6, 100=6] */
-    /* JADX WARN: Removed duplicated region for block: B:108:0x0117 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:110:0x0112 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:138:0x0091 A[EDGE_INSN: B:138:0x0091->B:17:0x0091 ?: BREAK  , SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:15:0x008d  */
-    /* JADX WARN: Removed duplicated region for block: B:64:0x011c  */
+    /* JADX WARN: Removed duplicated region for block: B:137:0x008f A[EDGE_INSN: B:137:0x008f->B:17:0x008f ?: BREAK  , SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:15:0x008b  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static <T> void uploadData(RequestAdapter<T> requestAdapter) {
         int i;
-        OutputStream outputStream;
-        HttpURLConnection httpURLConnection;
-        InputStream inputStream;
-        IllegalStateException illegalStateException;
-        int i2;
+        Exception e;
+        JSONException e2;
+        IOException e3;
+        SocketTimeoutException e4;
+        Throwable th;
         T t;
+        SocketTimeoutException socketTimeoutException;
+        int i2;
         boolean z;
-        HttpURLConnection httpURLConnection2;
+        HttpURLConnection httpURLConnection;
         T parseResponse;
-        IllegalStateException illegalStateException2;
-        int i3;
         int retryCount = requestAdapter.getRetryCount();
-        InputStream inputStream2 = null;
-        OutputStream outputStream2 = null;
-        HttpURLConnection httpURLConnection3 = null;
+        InputStream inputStream = null;
+        OutputStream outputStream = null;
+        HttpURLConnection httpURLConnection2 = null;
         while (true) {
             try {
                 try {
                     i = retryCount;
-                    httpURLConnection2 = (HttpURLConnection) new URL(requestAdapter.getURL()).openConnection();
-                } catch (Throwable th) {
-                    th = th;
+                    httpURLConnection = (HttpURLConnection) new URL(requestAdapter.getURL()).openConnection();
+                } catch (Throwable th2) {
+                    th = th2;
                 }
-            } catch (SocketTimeoutException e) {
-                e = e;
-                InputStream inputStream3 = inputStream2;
-                outputStream = outputStream2;
-                httpURLConnection = httpURLConnection3;
-                inputStream = inputStream3;
-            } catch (IOException e2) {
-                e = e2;
-            } catch (JSONException e3) {
-                e = e3;
-            } catch (Exception e4) {
-                e = e4;
+            } catch (SocketTimeoutException e5) {
+                e4 = e5;
+            } catch (IOException e6) {
+                e3 = e6;
+            } catch (JSONException e7) {
+                e2 = e7;
+            } catch (Exception e8) {
+                e = e8;
             }
             try {
-                httpURLConnection2.setConnectTimeout(requestAdapter.getConnectTimeout());
-                httpURLConnection2.setDoInput(true);
-                httpURLConnection2.setDoOutput(true);
-                httpURLConnection2.setReadTimeout(requestAdapter.getReadTimeout());
-                httpURLConnection2.setRequestMethod(requestAdapter.getRequestMethod());
-                httpURLConnection2.setUseCaches(false);
-                outputStream2 = httpURLConnection2.getOutputStream();
-                outputStream2.write(requestAdapter.getRequestString().getBytes("UTF-8"));
-                outputStream2.flush();
-                if (httpURLConnection2.getResponseCode() != 200) {
-                    i3 = 4;
-                    illegalStateException2 = new IllegalStateException("ResponseCode: " + httpURLConnection2.getResponseCode());
+                httpURLConnection.setConnectTimeout(requestAdapter.getConnectTimeout());
+                httpURLConnection.setDoInput(true);
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setReadTimeout(requestAdapter.getReadTimeout());
+                httpURLConnection.setRequestMethod(requestAdapter.getRequestMethod());
+                httpURLConnection.setUseCaches(false);
+                outputStream = httpURLConnection.getOutputStream();
+                outputStream.write(requestAdapter.getRequestString().getBytes("UTF-8"));
+                outputStream.flush();
+                if (httpURLConnection.getResponseCode() != 200) {
+                    i2 = 4;
+                    socketTimeoutException = new IllegalStateException("ResponseCode: " + httpURLConnection.getResponseCode());
                     parseResponse = null;
                 } else {
-                    inputStream2 = httpURLConnection2.getInputStream();
-                    parseResponse = requestAdapter.parseResponse(inputStream2);
-                    illegalStateException2 = null;
-                    i3 = 0;
+                    inputStream = httpURLConnection.getInputStream();
+                    parseResponse = requestAdapter.parseResponse(inputStream);
+                    socketTimeoutException = null;
+                    i2 = 0;
                 }
-                if (outputStream2 != null) {
+                if (outputStream != null) {
                     try {
-                        outputStream2.close();
-                    } catch (IOException e5) {
+                        outputStream.close();
+                    } catch (IOException e9) {
                     }
                 }
-                if (inputStream2 != null) {
+                if (inputStream != null) {
                     try {
-                        inputStream2.close();
-                    } catch (IOException e6) {
+                        inputStream.close();
+                    } catch (IOException e10) {
+                    }
+                }
+                if (httpURLConnection != null) {
+                    httpURLConnection.disconnect();
+                    httpURLConnection2 = httpURLConnection;
+                    t = parseResponse;
+                    z = false;
+                } else {
+                    httpURLConnection2 = httpURLConnection;
+                    t = parseResponse;
+                    z = false;
+                }
+            } catch (SocketTimeoutException e11) {
+                e4 = e11;
+                httpURLConnection2 = httpURLConnection;
+                e4.printStackTrace();
+                if (outputStream != null) {
+                    try {
+                        outputStream.close();
+                    } catch (IOException e12) {
+                    }
+                }
+                if (inputStream != null) {
+                    try {
+                        inputStream.close();
+                    } catch (IOException e13) {
                     }
                 }
                 if (httpURLConnection2 != null) {
                     httpURLConnection2.disconnect();
-                    i2 = i3;
-                    illegalStateException = illegalStateException2;
-                    t = parseResponse;
-                    httpURLConnection3 = httpURLConnection2;
-                    z = false;
-                } else {
-                    i2 = i3;
-                    illegalStateException = illegalStateException2;
-                    t = parseResponse;
-                    httpURLConnection3 = httpURLConnection2;
-                    z = false;
-                }
-            } catch (SocketTimeoutException e7) {
-                inputStream = inputStream2;
-                outputStream = outputStream2;
-                httpURLConnection = httpURLConnection2;
-                e = e7;
-                try {
-                    e.printStackTrace();
-                    if (outputStream != null) {
-                        try {
-                            outputStream.close();
-                        } catch (IOException e8) {
-                        }
-                    }
-                    if (inputStream != null) {
-                        try {
-                            inputStream.close();
-                        } catch (IOException e9) {
-                        }
-                    }
-                    if (httpURLConnection != null) {
-                        httpURLConnection.disconnect();
-                        t = null;
-                        illegalStateException = e;
-                        i2 = 1;
-                        z = true;
-                        OutputStream outputStream3 = outputStream;
-                        inputStream2 = inputStream;
-                        httpURLConnection3 = httpURLConnection;
-                        outputStream2 = outputStream3;
-                    } else {
-                        t = null;
-                        illegalStateException = e;
-                        i2 = 1;
-                        z = true;
-                        OutputStream outputStream4 = outputStream;
-                        inputStream2 = inputStream;
-                        httpURLConnection3 = httpURLConnection;
-                        outputStream2 = outputStream4;
-                    }
-                    if (!z) {
-                    }
-                    requestAdapter.onResponse(i2, t, illegalStateException);
-                } catch (Throwable th2) {
-                    th = th2;
-                    InputStream inputStream4 = inputStream;
-                    httpURLConnection3 = httpURLConnection;
-                    outputStream2 = outputStream;
-                    inputStream2 = inputStream4;
-                    if (outputStream2 != null) {
-                        try {
-                            outputStream2.close();
-                        } catch (IOException e10) {
-                        }
-                    }
-                    if (inputStream2 != null) {
-                        try {
-                            inputStream2.close();
-                        } catch (IOException e11) {
-                        }
-                    }
-                    if (httpURLConnection3 != null) {
-                        httpURLConnection3.disconnect();
-                    }
-                    throw th;
-                }
-            } catch (IOException e12) {
-                httpURLConnection3 = httpURLConnection2;
-                e = e12;
-                e.printStackTrace();
-                if (outputStream2 != null) {
-                    try {
-                        outputStream2.close();
-                    } catch (IOException e13) {
-                    }
-                }
-                if (inputStream2 != null) {
-                    try {
-                        inputStream2.close();
-                    } catch (IOException e14) {
-                    }
-                }
-                if (httpURLConnection3 != null) {
-                    httpURLConnection3.disconnect();
-                    illegalStateException = e;
-                    i2 = 2;
                     t = null;
-                    z = false;
+                    socketTimeoutException = e4;
+                    i2 = 1;
+                    z = true;
                 } else {
-                    illegalStateException = e;
-                    i2 = 2;
                     t = null;
-                    z = false;
+                    socketTimeoutException = e4;
+                    i2 = 1;
+                    z = true;
                 }
                 if (!z) {
                 }
-                requestAdapter.onResponse(i2, t, illegalStateException);
-            } catch (JSONException e15) {
-                httpURLConnection3 = httpURLConnection2;
-                e = e15;
-                e.printStackTrace();
-                if (outputStream2 != null) {
+                requestAdapter.onResponse(i2, t, socketTimeoutException);
+            } catch (IOException e14) {
+                e3 = e14;
+                httpURLConnection2 = httpURLConnection;
+                e3.printStackTrace();
+                if (outputStream != null) {
                     try {
-                        outputStream2.close();
+                        outputStream.close();
+                    } catch (IOException e15) {
+                    }
+                }
+                if (inputStream != null) {
+                    try {
+                        inputStream.close();
                     } catch (IOException e16) {
                     }
                 }
-                if (inputStream2 != null) {
-                    try {
-                        inputStream2.close();
-                    } catch (IOException e17) {
-                    }
-                }
-                if (httpURLConnection3 != null) {
-                    httpURLConnection3.disconnect();
-                    illegalStateException = e;
-                    i2 = 3;
+                if (httpURLConnection2 != null) {
+                    httpURLConnection2.disconnect();
                     t = null;
+                    socketTimeoutException = e3;
+                    i2 = 2;
                     z = false;
                 } else {
-                    illegalStateException = e;
-                    i2 = 3;
                     t = null;
+                    socketTimeoutException = e3;
+                    i2 = 2;
                     z = false;
                 }
                 if (!z) {
                 }
-                requestAdapter.onResponse(i2, t, illegalStateException);
-            } catch (Exception e18) {
-                httpURLConnection3 = httpURLConnection2;
-                e = e18;
-                e.printStackTrace();
-                if (outputStream2 != null) {
+                requestAdapter.onResponse(i2, t, socketTimeoutException);
+            } catch (JSONException e17) {
+                e2 = e17;
+                httpURLConnection2 = httpURLConnection;
+                e2.printStackTrace();
+                if (outputStream != null) {
                     try {
-                        outputStream2.close();
+                        outputStream.close();
+                    } catch (IOException e18) {
+                    }
+                }
+                if (inputStream != null) {
+                    try {
+                        inputStream.close();
                     } catch (IOException e19) {
                     }
                 }
-                if (inputStream2 != null) {
-                    try {
-                        inputStream2.close();
-                    } catch (IOException e20) {
-                    }
-                }
-                if (httpURLConnection3 != null) {
-                    httpURLConnection3.disconnect();
-                    illegalStateException = e;
-                    i2 = 5;
+                if (httpURLConnection2 != null) {
+                    httpURLConnection2.disconnect();
                     t = null;
+                    socketTimeoutException = e2;
+                    i2 = 3;
                     z = false;
                 } else {
-                    illegalStateException = e;
-                    i2 = 5;
                     t = null;
+                    socketTimeoutException = e2;
+                    i2 = 3;
                     z = false;
                 }
                 if (!z) {
                 }
-                requestAdapter.onResponse(i2, t, illegalStateException);
+                requestAdapter.onResponse(i2, t, socketTimeoutException);
+            } catch (Exception e20) {
+                e = e20;
+                httpURLConnection2 = httpURLConnection;
+                e.printStackTrace();
+                if (outputStream != null) {
+                    try {
+                        outputStream.close();
+                    } catch (IOException e21) {
+                    }
+                }
+                if (inputStream != null) {
+                    try {
+                        inputStream.close();
+                    } catch (IOException e22) {
+                    }
+                }
+                if (httpURLConnection2 != null) {
+                    httpURLConnection2.disconnect();
+                    t = null;
+                    socketTimeoutException = e;
+                    i2 = 5;
+                    z = false;
+                } else {
+                    t = null;
+                    socketTimeoutException = e;
+                    i2 = 5;
+                    z = false;
+                }
+                if (!z) {
+                }
+                requestAdapter.onResponse(i2, t, socketTimeoutException);
             } catch (Throwable th3) {
-                httpURLConnection3 = httpURLConnection2;
                 th = th3;
-                if (outputStream2 != null) {
+                httpURLConnection2 = httpURLConnection;
+                if (outputStream != null) {
+                    try {
+                        outputStream.close();
+                    } catch (IOException e23) {
+                    }
                 }
-                if (inputStream2 != null) {
+                if (inputStream != null) {
+                    try {
+                        inputStream.close();
+                    } catch (IOException e24) {
+                    }
                 }
-                if (httpURLConnection3 != null) {
+                if (httpURLConnection2 != null) {
+                    httpURLConnection2.disconnect();
                 }
                 throw th;
             }
@@ -284,7 +248,7 @@ public class NetUtil {
                 break;
             }
         }
-        requestAdapter.onResponse(i2, t, illegalStateException);
+        requestAdapter.onResponse(i2, t, socketTimeoutException);
     }
 
     public static boolean isConnected(Context context) {
@@ -299,7 +263,7 @@ public class NetUtil {
         throw new RuntimeException("This class instance can not be created.");
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes3.dex */
     public static abstract class RequestAdapter<T> {
         private static final int CONNECT_TIMEOUT = 5000;
         private static final int READ_TIMEOUT = 5000;

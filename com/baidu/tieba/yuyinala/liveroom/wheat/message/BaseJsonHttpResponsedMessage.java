@@ -11,7 +11,7 @@ import com.baidu.live.tbadk.core.util.ViewHelper;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.yuyinala.liveroom.wheat.c.o;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class BaseJsonHttpResponsedMessage extends JsonHttpResponsedMessage {
     private String errmsg;
     private int errno;
@@ -24,7 +24,7 @@ public class BaseJsonHttpResponsedMessage extends JsonHttpResponsedMessage {
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
-        if (com.baidu.tieba.yuyinala.liveroom.wheat.a.a.orU) {
+        if (com.baidu.tieba.yuyinala.liveroom.wheat.a.a.oyv) {
             Log.i("ymcrequest", "cmd:" + i + "BaseJsonHttpResponsedMessage:" + jSONObject.toString());
         }
         if (jSONObject != null) {
@@ -52,11 +52,11 @@ public class BaseJsonHttpResponsedMessage extends JsonHttpResponsedMessage {
                         }
                     });
                 }
-            } else if (this.errno == 110000 && o.efe().efj() != null && o.efe().efj().getPageActivity() != null) {
+            } else if (this.errno == 110000 && o.eff().efl() != null && o.eff().efl().getPageActivity() != null) {
                 SafeHandler.getInst().post(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.message.BaseJsonHttpResponsedMessage.3
                     @Override // java.lang.Runnable
                     public void run() {
-                        ViewHelper.skipToLoginActivity(o.efe().efj().getPageActivity());
+                        ViewHelper.skipToLoginActivity(o.eff().efl().getPageActivity());
                     }
                 });
             }
@@ -65,6 +65,14 @@ public class BaseJsonHttpResponsedMessage extends JsonHttpResponsedMessage {
 
     public int getErrno() {
         return this.errno;
+    }
+
+    public String getErrmsg() {
+        return this.errmsg;
+    }
+
+    public String getUserMsg() {
+        return this.usermsg;
     }
 
     public boolean isError() {

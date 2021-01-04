@@ -1,35 +1,35 @@
 package com.baidu.tieba.ala.live.pkpanel.widget;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 import android.widget.FrameLayout;
+import androidx.annotation.Nullable;
 import com.baidu.live.tbadk.util.ScreenHelper;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaDragContainerView extends FrameLayout {
-    private float bpE;
-    private float bpF;
-    private int dOW;
-    private int hbi;
-    private int hbj;
-    private boolean hbk;
-    private final int hbl;
-    private int hbm;
-    private int hbn;
-    private int hbo;
-    private int hbp;
+    private float brm;
+    private float brn;
+    private int dXO;
     private int height;
+    private int hmU;
+    private int hmV;
+    private boolean hmW;
+    private final int hmX;
+    private int hmY;
+    private int hmZ;
+    private int hna;
+    private int hnb;
     private Context mContext;
     private int screenWidth;
     private int width;
 
     public AlaDragContainerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.hbk = false;
+        this.hmW = false;
         this.mContext = context;
-        this.hbl = ViewConfiguration.get(getContext()).getScaledTouchSlop();
+        this.hmX = ViewConfiguration.get(getContext()).getScaledTouchSlop();
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -46,10 +46,10 @@ public class AlaDragContainerView extends FrameLayout {
         super.onMeasure(i, i2);
         this.width = getMeasuredWidth();
         this.height = getMeasuredHeight();
-        this.hbi = this.width / 2;
-        this.hbj = this.height / 2;
+        this.hmU = this.width / 2;
+        this.hmV = this.height / 2;
         this.screenWidth = ScreenHelper.getScreenWidth(this.mContext);
-        this.dOW = ScreenHelper.getScreenHeight(this.mContext);
+        this.dXO = ScreenHelper.getScreenHeight(this.mContext);
     }
 
     @Nullable
@@ -57,47 +57,47 @@ public class AlaDragContainerView extends FrameLayout {
         if (isEnabled()) {
             switch (motionEvent.getAction()) {
                 case 0:
-                    this.hbk = false;
-                    this.bpE = motionEvent.getX();
-                    this.bpF = motionEvent.getY();
+                    this.hmW = false;
+                    this.brm = motionEvent.getX();
+                    this.brn = motionEvent.getY();
                     break;
                 case 2:
-                    float x = motionEvent.getX() - this.bpE;
-                    float y = motionEvent.getY() - this.bpF;
-                    if (Math.abs(x) > this.hbl || Math.abs(y) > this.hbl) {
-                        this.hbk = true;
+                    float x = motionEvent.getX() - this.brm;
+                    float y = motionEvent.getY() - this.brn;
+                    if (Math.abs(x) > this.hmX || Math.abs(y) > this.hmX) {
+                        this.hmW = true;
                         int left = (int) (x + getLeft());
                         int i = this.width + left;
                         int top = (int) (y + getTop());
                         int i2 = this.height + top;
-                        if (left < (-this.hbi)) {
-                            left = -this.hbi;
+                        if (left < (-this.hmU)) {
+                            left = -this.hmU;
                             i = this.width + left;
-                        } else if (i > this.screenWidth + this.hbi) {
-                            i = this.screenWidth + this.hbi;
+                        } else if (i > this.screenWidth + this.hmU) {
+                            i = this.screenWidth + this.hmU;
                             left = i - this.width;
                         }
-                        if (top < (-this.hbj)) {
-                            top = -this.hbj;
+                        if (top < (-this.hmV)) {
+                            top = -this.hmV;
                             i2 = this.height + top;
-                        } else if (i2 > this.dOW + this.hbj) {
-                            i2 = this.dOW + this.hbj;
+                        } else if (i2 > this.dXO + this.hmV) {
+                            i2 = this.dXO + this.hmV;
                             top = i2 - this.height;
                         }
-                        this.hbm = left;
-                        this.hbn = top;
-                        this.hbo = i;
-                        this.hbp = i2;
+                        this.hmY = left;
+                        this.hmZ = top;
+                        this.hna = i;
+                        this.hnb = i2;
                         layout(left, top, i, i2);
                         break;
                     }
                     break;
             }
         }
-        return Boolean.valueOf(this.hbk);
+        return Boolean.valueOf(this.hmW);
     }
 
-    public void bYX() {
-        layout(this.hbm, this.hbn, this.hbo, this.hbp);
+    public void cbE() {
+        layout(this.hmY, this.hmZ, this.hna, this.hnb);
     }
 }

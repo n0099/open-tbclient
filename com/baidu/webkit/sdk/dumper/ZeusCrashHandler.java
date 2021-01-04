@@ -29,7 +29,7 @@ import java.text.DateFormat;
 import java.util.EnumSet;
 import java.util.Iterator;
 import java.util.Locale;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
     private static final long APPROXIMATE_START_TIME = System.currentTimeMillis();
     private static final boolean DEBUG = false;
@@ -46,12 +46,12 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
     private CrashFilter mFilter;
     private final Thread.UncaughtExceptionHandler mPreviousHandler;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public interface CrashFilter {
         boolean filt(Thread thread, Throwable th);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public enum ExtraInfo {
         CUID("CUID"),
         EMULATOR("Emulator"),
@@ -80,7 +80,7 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public static final class ZeusCrashHandlerClient {
         private static final String TAG = "CrashHandlerClientImpl";
         private PackageInfo mAppPackageInfo;
@@ -139,35 +139,35 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
                 try {
                     Context context = WebViewFactory.getContext();
                     bufferedReader = new BufferedReader(new InputStreamReader(context.getResources().openRawResource(context.getResources().getIdentifier("tnconfig", "raw", context.getPackageName()))));
-                } catch (Throwable th) {
-                    bufferedReader = null;
-                }
-                try {
-                    this.mChannelName = bufferedReader.readLine();
                     try {
-                        bufferedReader.close();
+                        this.mChannelName = bufferedReader.readLine();
+                        try {
+                            bufferedReader.close();
+                        } catch (Throwable th) {
+                        }
                     } catch (Throwable th2) {
-                    }
-                } catch (Throwable th3) {
-                    try {
-                        this.mChannelName = "0";
-                        if (bufferedReader != null) {
-                            try {
-                                bufferedReader.close();
-                            } catch (Throwable th4) {
+                        try {
+                            this.mChannelName = "0";
+                            if (bufferedReader != null) {
+                                try {
+                                    bufferedReader.close();
+                                } catch (Throwable th3) {
+                                }
                             }
-                        }
-                        return this.mChannelName;
-                    } catch (Throwable th5) {
-                        BufferedReader bufferedReader2 = bufferedReader;
-                        if (bufferedReader2 != null) {
-                            try {
-                                bufferedReader2.close();
-                            } catch (Throwable th6) {
+                            return this.mChannelName;
+                        } catch (Throwable th4) {
+                            BufferedReader bufferedReader2 = bufferedReader;
+                            if (bufferedReader2 != null) {
+                                try {
+                                    bufferedReader2.close();
+                                } catch (Throwable th5) {
+                                }
                             }
+                            throw th4;
                         }
-                        throw th5;
                     }
+                } catch (Throwable th6) {
+                    bufferedReader = null;
                 }
             }
             return this.mChannelName;

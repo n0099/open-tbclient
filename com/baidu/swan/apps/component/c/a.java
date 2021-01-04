@@ -1,16 +1,16 @@
 package com.baidu.swan.apps.component.c;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.swan.apps.component.container.c;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class a {
-    private c cKg;
+    private c cPb;
     private Context mContext;
 
     public a(@NonNull Context context, @NonNull com.baidu.swan.apps.view.b.a aVar) {
         this.mContext = context;
-        this.cKg = new c(aVar);
+        this.cPb = new c(aVar);
     }
 
     @NonNull
@@ -19,15 +19,15 @@ public class a {
     }
 
     @NonNull
-    public c anF() {
-        return this.cKg;
+    public c aoQ() {
+        return this.cPb;
     }
 
     public void onDestroy() {
-        this.cKg.onDestroy();
+        this.cPb.onDestroy();
     }
 
-    public void cx(@NonNull Context context) {
+    public void cF(@NonNull Context context) {
         this.mContext = context;
     }
 }

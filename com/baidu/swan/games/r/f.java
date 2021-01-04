@@ -2,44 +2,44 @@ package com.baidu.swan.games.r;
 
 import android.text.TextUtils;
 import java.io.File;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class f {
-    private static volatile f edp;
-    private boolean edq;
-    private String edr;
-    private String eds;
+    private static volatile f emm;
+    private boolean emn;
+    private String emo;
+    private String emp;
 
-    public static f aYX() {
-        if (edp == null) {
+    public static f bbr() {
+        if (emm == null) {
             synchronized (f.class) {
-                if (edp == null) {
-                    edp = new f();
+                if (emm == null) {
+                    emm = new f();
                 }
             }
         }
-        return edp;
+        return emm;
     }
 
     private f() {
     }
 
-    public boolean aYY() {
-        return this.edq;
+    public boolean bbs() {
+        return this.emn;
     }
 
-    public void hP(boolean z) {
-        this.edq = z;
+    public void ih(boolean z) {
+        this.emn = z;
     }
 
-    public String aYZ() {
-        return TextUtils.isEmpty(this.eds) ? "" : this.eds + File.separator + "index.js";
+    public String bbt() {
+        return TextUtils.isEmpty(this.emp) ? "" : this.emp + File.separator + "index.js";
+    }
+
+    public void xT(String str) {
+        this.emo = str;
     }
 
     public void xU(String str) {
-        this.edr = str;
-    }
-
-    public void xV(String str) {
-        this.eds = str;
+        this.emp = str;
     }
 }

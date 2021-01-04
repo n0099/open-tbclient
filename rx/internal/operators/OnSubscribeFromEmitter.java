@@ -10,10 +10,10 @@ import rx.exceptions.MissingBackpressureException;
 import rx.internal.subscriptions.CancellableSubscription;
 import rx.internal.util.a.ae;
 import rx.internal.util.a.y;
-/* loaded from: classes12.dex */
+/* loaded from: classes15.dex */
 public final class OnSubscribeFromEmitter<T> implements d.a<T> {
-    final rx.functions.b<Emitter<T>> pQf;
-    final Emitter.BackpressureMode pQg;
+    final rx.functions.b<Emitter<T>> qrH;
+    final Emitter.BackpressureMode qrI;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -22,7 +22,7 @@ public final class OnSubscribeFromEmitter<T> implements d.a<T> {
 
     public void call(rx.j<? super T> jVar) {
         BaseEmitter latestEmitter;
-        switch (this.pQg) {
+        switch (this.qrI) {
             case NONE:
                 latestEmitter = new NoneEmitter(jVar);
                 break;
@@ -41,11 +41,11 @@ public final class OnSubscribeFromEmitter<T> implements d.a<T> {
         }
         jVar.add(latestEmitter);
         jVar.setProducer(latestEmitter);
-        this.pQf.call(latestEmitter);
+        this.qrH.call(latestEmitter);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes15.dex */
     public static abstract class BaseEmitter<T> extends AtomicLong implements Emitter<T>, rx.f, rx.k {
         private static final long serialVersionUID = 7326289992464377023L;
         final rx.j<? super T> actual;
@@ -116,7 +116,7 @@ public final class OnSubscribeFromEmitter<T> implements d.a<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes15.dex */
     public static final class NoneEmitter<T> extends BaseEmitter<T> {
         private static final long serialVersionUID = 3776720187248809713L;
 
@@ -139,7 +139,7 @@ public final class OnSubscribeFromEmitter<T> implements d.a<T> {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes15.dex */
     static abstract class NoOverflowBaseEmitter<T> extends BaseEmitter<T> {
         private static final long serialVersionUID = 4127754106204442833L;
 
@@ -162,7 +162,7 @@ public final class OnSubscribeFromEmitter<T> implements d.a<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes15.dex */
     public static final class DropEmitter<T> extends NoOverflowBaseEmitter<T> {
         private static final long serialVersionUID = 8360058422307496563L;
 
@@ -176,7 +176,7 @@ public final class OnSubscribeFromEmitter<T> implements d.a<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes15.dex */
     public static final class ErrorEmitter<T> extends NoOverflowBaseEmitter<T> {
         private static final long serialVersionUID = 338953216916120960L;
         private boolean done;
@@ -217,7 +217,7 @@ public final class OnSubscribeFromEmitter<T> implements d.a<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes15.dex */
     public static final class BufferEmitter<T> extends BaseEmitter<T> {
         private static final long serialVersionUID = 2427151001689639875L;
         volatile boolean done;
@@ -227,7 +227,7 @@ public final class OnSubscribeFromEmitter<T> implements d.a<T> {
 
         public BufferEmitter(rx.j<? super T> jVar, int i) {
             super(jVar);
-            this.queue = ae.eGo() ? new y<>(i) : new rx.internal.util.atomic.f<>(i);
+            this.queue = ae.eOw() ? new y<>(i) : new rx.internal.util.atomic.f<>(i);
             this.wip = new AtomicInteger();
         }
 
@@ -322,7 +322,7 @@ public final class OnSubscribeFromEmitter<T> implements d.a<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes15.dex */
     public static final class LatestEmitter<T> extends BaseEmitter<T> {
         private static final long serialVersionUID = 4023437720691792495L;
         volatile boolean done;

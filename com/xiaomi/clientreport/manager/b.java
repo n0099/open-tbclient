@@ -2,23 +2,23 @@ package com.xiaomi.clientreport.manager;
 
 import com.xiaomi.clientreport.data.EventClientReport;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class b implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EventClientReport f4491a;
+    final /* synthetic */ EventClientReport f14073a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ a f19a;
+    final /* synthetic */ a f97a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar, EventClientReport eventClientReport) {
-        this.f19a = aVar;
-        this.f4491a = eventClientReport;
+        this.f97a = aVar;
+        this.f14073a = eventClientReport;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f19a.b(this.f4491a);
+        this.f97a.b(this.f14073a);
     }
 }

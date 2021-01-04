@@ -18,10 +18,10 @@ public class SingleForumBroadcastFeedActivityConfig extends IntentConfig {
         intent.putExtra("forum_name", str2);
     }
 
-    public void setSource(byte b) {
+    public void setSource(byte b2) {
         Intent intent = getIntent();
         if (intent != null) {
-            intent.putExtra(KEY_SOURCE, b);
+            intent.putExtra(KEY_SOURCE, b2);
         }
     }
 }

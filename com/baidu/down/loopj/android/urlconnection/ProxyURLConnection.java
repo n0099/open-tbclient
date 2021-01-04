@@ -23,7 +23,7 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.X509TrustManager;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public class ProxyURLConnection {
     public static final String CONTENT_TYPE_VALUE = "application/x-www-form-urlencoded; charset=UTF-8";
     private static final boolean DEBUG = false;
@@ -199,6 +199,7 @@ public class ProxyURLConnection {
     }
 
     private String getRealUrl(String str) {
+        Exception e;
         if (!TextUtils.isEmpty(str)) {
             try {
                 String host = new URL(str).getHost();
@@ -216,20 +217,20 @@ public class ProxyURLConnection {
                                 }
                             };
                             return replace;
-                        } catch (Exception e) {
+                        } catch (Exception e2) {
+                            e = e2;
                             str = replace;
-                            e = e;
                             e.printStackTrace();
                             return str;
                         }
-                    } catch (MalformedURLException e2) {
+                    } catch (MalformedURLException e3) {
                         setUsingDNSProxy(false);
                         return str;
                     }
                 }
                 return str;
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e4) {
+                e = e4;
             }
         } else {
             return str;

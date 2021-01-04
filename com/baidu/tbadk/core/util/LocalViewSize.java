@@ -4,7 +4,7 @@ import android.content.Context;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class LocalViewSize {
-    private static LocalViewSize eSM = null;
+    private static LocalViewSize fcn = null;
     private Context mContext = null;
 
     /* loaded from: classes.dex */
@@ -13,11 +13,11 @@ public class LocalViewSize {
         public int width;
     }
 
-    public static LocalViewSize bts() {
-        if (eSM == null) {
-            eSM = new LocalViewSize();
+    public static LocalViewSize bvN() {
+        if (fcn == null) {
+            fcn = new LocalViewSize();
         }
-        return eSM;
+        return fcn;
     }
 
     private LocalViewSize() {
@@ -58,15 +58,7 @@ public class LocalViewSize {
         return imageSize2;
     }
 
-    public int getEquipmentWidth() {
-        int equipmentWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(this.mContext);
-        if (equipmentWidth >= 1080) {
-            return 1080;
-        }
-        return (equipmentWidth < 720 || equipmentWidth >= 1080) ? 480 : 720;
-    }
-
-    public ImageSize btt() {
+    public ImageSize bvO() {
         int i = 240;
         int equipmentWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(this.mContext);
         if (equipmentWidth < 240) {
@@ -84,7 +76,7 @@ public class LocalViewSize {
         return imageSize;
     }
 
-    public ImageSize btu() {
+    public ImageSize bvP() {
         ImageSize imageSize = new ImageSize();
         imageSize.height = com.baidu.adp.lib.util.l.getEquipmentHeight(this.mContext);
         imageSize.width = com.baidu.adp.lib.util.l.getEquipmentWidth(this.mContext);
@@ -92,7 +84,7 @@ public class LocalViewSize {
     }
 
     public int getMsgSPicMaxSizeInt() {
-        ImageSize btt = btt();
-        return btt.height >= btt.width ? btt.height : btt.width;
+        ImageSize bvO = bvO();
+        return bvO.height >= bvO.width ? bvO.height : bvO.width;
     }
 }

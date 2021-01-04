@@ -1,21 +1,23 @@
 package com.baidu.helios.common.a.a.b;
 
-import android.support.v7.widget.ActivityChooserView;
+import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.android.imsdk.internal.Constants;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.IntBuffer;
 import java.security.GeneralSecurityException;
 import java.util.Random;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public class b {
-    private static final int[] b = s(new byte[]{Constants.SHORT_PING_CMD_TYPE, 120, 112, 97, 110, 100, 32, 51, 50, 45, 98, 121, 116, Constants.SHORT_PING_CMD_TYPE, 32, 107});
+
+    /* renamed from: b  reason: collision with root package name */
+    private static final int[] f2482b = s(new byte[]{Constants.SHORT_PING_CMD_TYPE, 120, 112, 97, 110, 100, 32, 51, 50, 45, 98, 121, 116, Constants.SHORT_PING_CMD_TYPE, 32, 107});
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f1806a;
+    private final int f2483a;
 
     public b(int i) {
-        this.f1806a = i;
+        this.f2483a = i;
     }
 
     private static int a(int i, int i2) {
@@ -26,11 +28,11 @@ public class b {
         int remaining = byteBuffer2.remaining();
         int i = (remaining / 64) + 1;
         for (int i2 = 0; i2 < i; i2++) {
-            ByteBuffer b2 = b(bArr, bArr2, this.f1806a + i2);
+            ByteBuffer c = c(bArr, bArr2, this.f2483a + i2);
             if (i2 == i - 1) {
-                a.a(byteBuffer, byteBuffer2, b2, remaining % 64);
+                a.a(byteBuffer, byteBuffer2, c, remaining % 64);
             } else {
-                a.a(byteBuffer, byteBuffer2, b2, 64);
+                a.a(byteBuffer, byteBuffer2, c, 64);
             }
         }
     }
@@ -60,8 +62,8 @@ public class b {
     }
 
     static void d(int[] iArr, int[] iArr2) {
-        System.arraycopy(b, 0, iArr, 0, b.length);
-        System.arraycopy(iArr2, 0, iArr, b.length, 8);
+        System.arraycopy(f2482b, 0, iArr, 0, f2482b.length);
+        System.arraycopy(iArr2, 0, iArr, f2482b.length, 8);
     }
 
     static int[] s(byte[] bArr) {
@@ -122,7 +124,11 @@ public class b {
         return iArr3;
     }
 
-    ByteBuffer b(byte[] bArr, byte[] bArr2, int i) {
+    public byte[] b(byte[] bArr) {
+        return a(bArr, (byte[]) null);
+    }
+
+    ByteBuffer c(byte[] bArr, byte[] bArr2, int i) {
         int[] a2 = a(s(bArr), s(bArr2), i);
         int[] iArr = (int[]) a2.clone();
         a(iArr);
@@ -132,9 +138,5 @@ public class b {
         ByteBuffer order = ByteBuffer.allocate(64).order(ByteOrder.LITTLE_ENDIAN);
         order.asIntBuffer().put(a2, 0, 16);
         return order;
-    }
-
-    public byte[] b(byte[] bArr) {
-        return a(bArr, (byte[]) null);
     }
 }

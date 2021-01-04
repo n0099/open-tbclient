@@ -10,7 +10,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 public class HttpConnectTaskImpl implements HttpConnectTask {
     private final HttpConnectTask.OnConnectListener mOnConnectListener;
     private volatile long mStartTime;
@@ -70,6 +70,9 @@ public class HttpConnectTaskImpl implements HttpConnectTask {
     }
 
     private void executeConnection() throws DownloadException {
+        IOException e;
+        ProtocolException e2;
+        Throwable th;
         HttpURLConnection httpURLConnection;
         this.mStartTime = System.currentTimeMillis();
         HttpURLConnection httpURLConnection2 = null;
@@ -77,13 +80,13 @@ public class HttpConnectTaskImpl implements HttpConnectTask {
             try {
                 try {
                     httpURLConnection = (HttpURLConnection) new URL(this.mUri).openConnection();
-                } catch (Throwable th) {
-                    th = th;
+                } catch (Throwable th2) {
+                    th = th2;
                 }
-            } catch (ProtocolException e) {
-                e = e;
-            } catch (IOException e2) {
-                e = e2;
+            } catch (ProtocolException e3) {
+                e2 = e3;
+            } catch (IOException e4) {
+                e = e4;
             }
             try {
                 httpURLConnection.setConnectTimeout(4000);
@@ -101,22 +104,22 @@ public class HttpConnectTaskImpl implements HttpConnectTask {
                 if (httpURLConnection != null) {
                     httpURLConnection.disconnect();
                 }
-            } catch (ProtocolException e3) {
-                e = e3;
-                throw new DownloadException(108, "Protocol error", e);
-            } catch (IOException e4) {
-                e = e4;
+            } catch (ProtocolException e5) {
+                e2 = e5;
+                throw new DownloadException(108, "Protocol error", e2);
+            } catch (IOException e6) {
+                e = e6;
                 throw new DownloadException(108, "IO error", e);
-            } catch (Throwable th2) {
+            } catch (Throwable th3) {
+                th = th3;
                 httpURLConnection2 = httpURLConnection;
-                th = th2;
                 if (httpURLConnection2 != null) {
                     httpURLConnection2.disconnect();
                 }
                 throw th;
             }
-        } catch (MalformedURLException e5) {
-            throw new DownloadException(108, "Bad url.", e5);
+        } catch (MalformedURLException e7) {
+            throw new DownloadException(108, "Bad url.", e7);
         }
     }
 

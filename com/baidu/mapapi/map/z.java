@@ -8,15 +8,15 @@ import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.baidu.platform.comapi.map.MapTextureView;
 import javax.microedition.khronos.opengles.GL10;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class z implements com.baidu.platform.comapi.map.ag {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ TextureMapView f2092a;
+    final /* synthetic */ TextureMapView f2942a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(TextureMapView textureMapView) {
-        this.f2092a = textureMapView;
+        this.f2942a = textureMapView;
     }
 
     @Override // com.baidu.platform.comapi.map.ag
@@ -35,44 +35,44 @@ public class z implements com.baidu.platform.comapi.map.ag {
         TextView textView;
         TextView textView2;
         MapTextureView mapTextureView8;
-        mapTextureView = this.f2092a.b;
+        mapTextureView = this.f2942a.f2885b;
         if (mapTextureView != null) {
-            mapTextureView2 = this.f2092a.b;
+            mapTextureView2 = this.f2942a.f2885b;
             if (mapTextureView2.getController() == null) {
                 return;
             }
-            mapTextureView3 = this.f2092a.b;
+            mapTextureView3 = this.f2942a.f2885b;
             float zoomLevel = mapTextureView3.getZoomLevel();
-            mapTextureView4 = this.f2092a.b;
+            mapTextureView4 = this.f2942a.f2885b;
             if (zoomLevel < mapTextureView4.getController().mMinZoomLevel) {
-                mapTextureView8 = this.f2092a.b;
+                mapTextureView8 = this.f2942a.f2885b;
                 f = mapTextureView8.getController().mMinZoomLevel;
             } else {
-                mapTextureView5 = this.f2092a.b;
+                mapTextureView5 = this.f2942a.f2885b;
                 if (zoomLevel > mapTextureView5.getController().mMaxZoomLevel) {
-                    mapTextureView6 = this.f2092a.b;
+                    mapTextureView6 = this.f2942a.f2885b;
                     f = mapTextureView6.getController().mMaxZoomLevel;
                 } else {
                     f = zoomLevel;
                 }
             }
-            f2 = this.f2092a.r;
+            f2 = this.f2942a.r;
             if (Math.abs(f2 - f) > 0.0f) {
                 sparseArray = TextureMapView.q;
                 int intValue = ((Integer) sparseArray.get(Math.round(f))).intValue();
-                mapTextureView7 = this.f2092a.b;
+                mapTextureView7 = this.f2942a.f2885b;
                 int zoomUnitsInMeter = (int) (intValue / mapTextureView7.getController().getZoomUnitsInMeter());
-                imageView = this.f2092a.o;
+                imageView = this.f2942a.o;
                 imageView.setPadding(zoomUnitsInMeter / 2, 0, zoomUnitsInMeter / 2, 0);
                 String format = intValue >= 1000 ? String.format(" %d公里 ", Integer.valueOf(intValue / 1000)) : String.format(" %d米 ", Integer.valueOf(intValue));
-                textView = this.f2092a.m;
+                textView = this.f2942a.m;
                 textView.setText(format);
-                textView2 = this.f2092a.n;
+                textView2 = this.f2942a.n;
                 textView2.setText(format);
-                this.f2092a.r = f;
+                this.f2942a.r = f;
             }
-            this.f2092a.b();
-            this.f2092a.requestLayout();
+            this.f2942a.b();
+            this.f2942a.requestLayout();
         }
     }
 

@@ -29,9 +29,11 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import org.json.JSONObject;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class a {
-    private static a b;
+
+    /* renamed from: b  reason: collision with root package name */
+    private static a f11410b;
     private static final Object c = new Object();
     private byte[] d;
     private byte[] e;
@@ -45,7 +47,7 @@ public class a {
     private long l = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    String f4072a = "88&*5a9*4&a122ek";
+    String f11411a = "88&*5a9*4&a122ek";
 
     private a(Context context) {
         this.m = context;
@@ -83,10 +85,10 @@ public class a {
     }
 
     public static a a() {
-        if (b == null) {
+        if (f11410b == null) {
             throw new IllegalStateException("KeyMgr is not initialised - invoke at least once with parameterised init/get");
         }
-        return b;
+        return f11410b;
     }
 
     private String a(InputStream inputStream) {
@@ -121,10 +123,10 @@ public class a {
     }
 
     public static void a(Context context) {
-        if (b == null) {
+        if (f11410b == null) {
             synchronized (c) {
-                if (b == null) {
-                    b = new a(context);
+                if (f11410b == null) {
+                    f11410b = new a(context);
                 }
             }
         }

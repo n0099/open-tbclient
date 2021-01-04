@@ -6,7 +6,7 @@ import android.content.pm.PackageInfo;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public interface IXAdPackageUtils {
     int getAppVersion(Context context);
 
@@ -28,18 +28,18 @@ public interface IXAdPackageUtils {
 
     void sendDialerIsSuccess(Context context, boolean z, int i, String str);
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes3.dex */
     public static class ApkInfo {
 
         /* renamed from: a  reason: collision with root package name */
-        private PackageInfo f2364a;
+        private PackageInfo f3414a;
         public final String appName;
         public final String packageName;
         public final int versionCode;
         public final String versionName;
 
         public ApkInfo(Context context, PackageInfo packageInfo) {
-            this.f2364a = packageInfo;
+            this.f3414a = packageInfo;
             this.packageName = packageInfo.packageName;
             this.versionName = packageInfo.versionName;
             this.versionCode = packageInfo.versionCode;
@@ -52,7 +52,7 @@ public interface IXAdPackageUtils {
                 jSONObject.put("p", this.packageName);
                 jSONObject.put("v", this.versionName);
                 jSONObject.put("c", this.versionCode);
-                jSONObject.put("s", new File(this.f2364a.applicationInfo.sourceDir).lastModified());
+                jSONObject.put("s", new File(this.f3414a.applicationInfo.sourceDir).lastModified());
             } catch (JSONException e) {
             }
             return jSONObject;

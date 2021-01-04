@@ -45,7 +45,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class DownloadManager {
     public static final String ACTION_DOWNLOAD_MERGE_STATUS = "com.baidu.clientupdate.download.STATUS_MERGE";
     public static final String ACTION_DOWNLOAD_PROGRESS_CHANGE = "com.baidu.clientupdate.download.PROGRESS_CHANGE";
@@ -169,18 +169,18 @@ public final class DownloadManager {
             download.mCurrentLength = j2;
             download.mFileLength = j3;
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - download.f1335a >= DownloadManager.MIN_PROGRESS_INTERVAL) {
-                download.f1335a = currentTimeMillis;
+            if (currentTimeMillis - download.f1733a >= DownloadManager.MIN_PROGRESS_INTERVAL) {
+                download.f1733a = currentTimeMillis;
                 int progress = download.getProgress();
                 if (progress != download.c) {
                     DownloadManager.this.notifyProgressChange(j, progress);
                     download.c = progress;
                 }
-                if (currentTimeMillis - download.b > 2000) {
+                if (currentTimeMillis - download.f1734b > 2000) {
                     long currentTimeMillis2 = System.currentTimeMillis();
                     DownloadManager.this.mDbHelper.b(download);
                     LogUtil.logE("DownloadManager", "1新的更新数据库用时time:" + (System.currentTimeMillis() - currentTimeMillis2) + "ms");
-                    download.b = currentTimeMillis;
+                    download.f1734b = currentTimeMillis;
                 }
             }
         }
@@ -229,8 +229,8 @@ public final class DownloadManager {
         if (bArr == null || bArr.length <= 0) {
             return null;
         }
-        for (byte b : bArr) {
-            String hexString = Integer.toHexString(b & 255);
+        for (byte b2 : bArr) {
+            String hexString = Integer.toHexString(b2 & 255);
             if (hexString.length() < 2) {
                 sb.append(0);
             }
@@ -342,17 +342,19 @@ public final class DownloadManager {
         this.loadThread = new Thread() { // from class: com.baidu.clientupdate.download.DownloadManager.2
             @Override // java.lang.Thread, java.lang.Runnable
             public void run() {
+                Throwable th;
+                Exception e;
                 HttpURLConnection httpURLConnection;
                 super.run();
                 HttpURLConnection httpURLConnection2 = null;
                 try {
                     try {
                         httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
-                    } catch (Exception e) {
-                        e = e;
+                    } catch (Exception e2) {
+                        e = e2;
                     }
-                } catch (Throwable th) {
-                    th = th;
+                } catch (Throwable th2) {
+                    th = th2;
                 }
                 try {
                     httpURLConnection.setConnectTimeout(5000);
@@ -388,17 +390,17 @@ public final class DownloadManager {
                     if (httpURLConnection != null) {
                         httpURLConnection.disconnect();
                     }
-                } catch (Exception e2) {
+                } catch (Exception e3) {
+                    e = e3;
                     httpURLConnection2 = httpURLConnection;
-                    e = e2;
                     e.printStackTrace();
                     DownloadManager.this.sendBroadcastRSAFail(e.toString());
                     if (httpURLConnection2 != null) {
                         httpURLConnection2.disconnect();
                     }
-                } catch (Throwable th2) {
+                } catch (Throwable th3) {
+                    th = th3;
                     httpURLConnection2 = httpURLConnection;
-                    th = th2;
                     if (httpURLConnection2 != null) {
                         httpURLConnection2.disconnect();
                     }
@@ -560,7 +562,7 @@ public final class DownloadManager {
         download.mUrl = cursor.getString(cursor.getColumnIndex(DownloadDataConstants.Columns.COLUMN_URI));
         download.mFileName = cursor.getString(cursor.getColumnIndex("_data"));
         download.mSavedPath = cursor.getString(cursor.getColumnIndex("saved_path_for_user"));
-        download.mFileLength = cursor.getLong(cursor.getColumnIndex(DownloadDataConstants.Columns.COLUMN_TOTAL_BYTES));
+        download.mFileLength = cursor.getLong(cursor.getColumnIndex("total_bytes"));
         download.mCurrentLength = cursor.getLong(cursor.getColumnIndex(DownloadDataConstants.Columns.COLUMN_CURRENT_BYTES));
         File file = new File(download.mSavedPath + File.separator + Uri.encode(download.mFileName));
         if (file.exists()) {
@@ -594,12 +596,11 @@ public final class DownloadManager {
 
     /* JADX INFO: Access modifiers changed from: private */
     public long startDownload(Download download) {
-        boolean z;
-        File file;
         download.mFailReason = "";
         String str = download.mSavedPath;
         long j = download.mFileLength;
         long j2 = download.mCurrentLength;
+        File file = null;
         String str2 = null;
         if (download.mFileName != null) {
             try {
@@ -609,19 +610,7 @@ public final class DownloadManager {
             }
         }
         File file2 = (download.mSavedPath == null || download.mFileName == null) ? null : new File(download.mSavedPath, str2);
-        if (file2 == null || !file2.exists()) {
-            File a2 = com.baidu.clientupdate.d.b.a(this.mContext, (download.mFileLength - download.mCurrentLength) + MIN_LEFT_SIZE, download.mSavedPath);
-            if (a2 == null) {
-                z = true;
-                file = a2;
-            } else {
-                z = false;
-                file = a2;
-            }
-        } else {
-            z = false;
-            file = null;
-        }
+        boolean z = (file2 == null || !file2.exists()) && (file = com.baidu.clientupdate.d.b.a(this.mContext, (download.mFileLength - download.mCurrentLength) + MIN_LEFT_SIZE, download.mSavedPath)) == null;
         if (file != null && j2 == 0) {
             str = file.getPath();
             String str3 = str + File.separator + chooseFilename(download.mUrl, str2, download.mMimeType) + chooseExtension(download.mUrl, str2, download.mMimeType);
@@ -640,9 +629,9 @@ public final class DownloadManager {
                         }
                         file3.delete();
                     } else {
-                        String a3 = g.a(file3);
-                        LogUtil.logE("DownloadManager", "apkMd5 is >>> " + a3 + ", server_mApkMd5 is >>>" + com.baidu.clientupdate.d.a.a(this.mContext).a().mApkMd5);
-                        if (a3.equals(com.baidu.clientupdate.d.a.a(this.mContext).a().mApkMd5)) {
+                        String a2 = g.a(file3);
+                        LogUtil.logE("DownloadManager", "apkMd5 is >>> " + a2 + ", server_mApkMd5 is >>>" + com.baidu.clientupdate.d.a.a(this.mContext).a().mApkMd5);
+                        if (a2.equals(com.baidu.clientupdate.d.a.a(this.mContext).a().mApkMd5)) {
                             download.mSavedPath = file3.getParent();
                             if (str4 != null) {
                                 download.mFileName = Uri.decode(str4);

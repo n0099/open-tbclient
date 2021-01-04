@@ -5,10 +5,10 @@ import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Rect;
-import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
-/* loaded from: classes4.dex */
+import androidx.core.view.ViewCompat;
+/* loaded from: classes11.dex */
 public class FragmentTabRootView extends LinearLayout {
     private static final int DEFAULT_PAINT_FLAGS = 6;
     private Matrix mMatrix;

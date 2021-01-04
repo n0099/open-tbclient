@@ -1,15 +1,15 @@
 package com.baidu.m.b;
-/* loaded from: classes20.dex */
+/* loaded from: classes7.dex */
 public class b {
-    private static volatile a cgj;
+    private static volatile a cnl;
 
-    public static synchronized a ado() {
+    public static synchronized a afk() {
         a aVar;
         synchronized (b.class) {
-            if (cgj == null) {
-                cgj = new a();
+            if (cnl == null) {
+                cnl = new a();
             }
-            aVar = cgj;
+            aVar = cnl;
         }
         return aVar;
     }

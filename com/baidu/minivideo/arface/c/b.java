@@ -10,44 +10,44 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.RandomAccessFile;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class b {
-    private static volatile b ceO = null;
-    private Long ceP;
-    private Long ceQ;
-    private RandomAccessFile ceR;
-    private RandomAccessFile ceS;
+    private static volatile b clL = null;
+    private Long clM;
+    private Long clN;
+    private RandomAccessFile clO;
+    private RandomAccessFile clP;
     private String mPackageName;
 
     private b() {
     }
 
-    public static b acD() {
-        if (ceO == null) {
+    public static b aew() {
+        if (clL == null) {
             synchronized (b.class) {
-                if (ceO == null) {
-                    ceO = new b();
+                if (clL == null) {
+                    clL = new b();
                 }
             }
         }
-        return ceO;
+        return clL;
     }
 
-    public ActivityManager.MemoryInfo acE() {
+    public ActivityManager.MemoryInfo aex() {
         ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
         ((ActivityManager) com.baidu.minivideo.arface.b.getContext().getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getMemoryInfo(memoryInfo);
         return memoryInfo;
     }
 
-    public double acF() {
-        double acH = acH();
-        if (acH <= 0.0d) {
-            acH = acG();
+    public double aey() {
+        double aeA = aeA();
+        if (aeA <= 0.0d) {
+            aeA = aez();
         }
-        if (acH <= 0.0d) {
+        if (aeA <= 0.0d) {
             return getCpuUsageStatistic();
         }
-        return acH;
+        return aeA;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:17:? A[RETURN, SYNTHETIC] */
@@ -55,13 +55,13 @@ public class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public double acG() {
+    public double aez() {
         double doubleValue;
         if (Build.VERSION.SDK_INT >= 26) {
-            String jR = jR(this.mPackageName);
-            if (!TextUtils.isEmpty(jR)) {
+            String jN = jN(this.mPackageName);
+            if (!TextUtils.isEmpty(jN)) {
                 try {
-                    doubleValue = Double.valueOf(jR).doubleValue();
+                    doubleValue = Double.valueOf(jN).doubleValue();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -74,7 +74,7 @@ public class b {
             if (doubleValue <= 0.0d) {
             }
         } else {
-            return acH();
+            return aeA();
         }
     }
 
@@ -84,7 +84,7 @@ public class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private String jR(String str) {
+    private String jN(String str) {
         try {
             Process exec = Runtime.getRuntime().exec(new String[]{IXAdRequestInfo.SCREEN_HEIGHT, "-c", "top -n 1"});
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(exec.getInputStream()));
@@ -109,31 +109,31 @@ public class b {
         return "";
     }
 
-    public double acH() {
+    public double aeA() {
         double d = 0.0d;
         try {
-            if (this.ceR == null || this.ceS == null) {
-                this.ceR = new RandomAccessFile("/proc/stat", "r");
-                this.ceS = new RandomAccessFile("/proc/" + Process.myPid() + "/stat", "r");
+            if (this.clO == null || this.clP == null) {
+                this.clO = new RandomAccessFile("/proc/stat", "r");
+                this.clP = new RandomAccessFile("/proc/" + Process.myPid() + "/stat", "r");
             } else {
-                this.ceR.seek(0L);
-                this.ceS.seek(0L);
+                this.clO.seek(0L);
+                this.clP.seek(0L);
             }
-            String readLine = this.ceR.readLine();
-            String readLine2 = this.ceS.readLine();
+            String readLine = this.clO.readLine();
+            String readLine2 = this.clP.readLine();
             String[] split = readLine.split(" ");
             String[] split2 = readLine2.split(" ");
             long parseLong = Long.parseLong(split[2]) + Long.parseLong(split[3]) + Long.parseLong(split[4]) + Long.parseLong(split[5]) + Long.parseLong(split[6]) + Long.parseLong(split[7]) + Long.parseLong(split[8]);
             long parseLong2 = Long.parseLong(split2[14]) + Long.parseLong(split2[13]);
-            if (this.ceP == null && this.ceQ == null) {
-                this.ceP = Long.valueOf(parseLong);
-                this.ceQ = Long.valueOf(parseLong2);
+            if (this.clM == null && this.clN == null) {
+                this.clM = Long.valueOf(parseLong);
+                this.clN = Long.valueOf(parseLong2);
             } else {
-                if (this.ceP != null && this.ceQ != null) {
-                    d = ((parseLong2 - this.ceQ.longValue()) / (parseLong - this.ceP.longValue())) * 100.0d;
+                if (this.clM != null && this.clN != null) {
+                    d = ((parseLong2 - this.clN.longValue()) / (parseLong - this.clM.longValue())) * 100.0d;
                 }
-                this.ceP = Long.valueOf(parseLong);
-                this.ceQ = Long.valueOf(parseLong2);
+                this.clM = Long.valueOf(parseLong);
+                this.clN = Long.valueOf(parseLong2);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -142,93 +142,83 @@ public class b {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:18:0x0052, code lost:
-        r0 = r6[2].trim();
+        r5 = r3[2].trim();
      */
-    /* JADX WARN: Removed duplicated region for block: B:24:0x0065  */
-    /* JADX WARN: Removed duplicated region for block: B:55:0x00b3 A[Catch: Exception -> 0x00ba, TRY_LEAVE, TryCatch #2 {Exception -> 0x00ba, blocks: (B:53:0x00ae, B:55:0x00b3), top: B:77:0x00ae }] */
-    /* JADX WARN: Removed duplicated region for block: B:77:0x00ae A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:25:0x0066  */
+    /* JADX WARN: Removed duplicated region for block: B:58:0x00b9 A[Catch: Exception -> 0x00c0, TRY_LEAVE, TryCatch #0 {Exception -> 0x00c0, blocks: (B:56:0x00b4, B:58:0x00b9), top: B:73:0x00b4 }] */
+    /* JADX WARN: Removed duplicated region for block: B:73:0x00b4 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public int getCpuUsageStatistic() {
         BufferedReader bufferedReader;
         Process process;
-        Process process2;
+        Exception e;
         String str;
         String str2;
+        String str3;
         String[] split;
-        BufferedReader bufferedReader2 = null;
         int myPid = Process.myPid();
         try {
             process = Runtime.getRuntime().exec("top -n 1");
             try {
                 bufferedReader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-                str2 = null;
+                String str4 = null;
                 while (true) {
                     try {
-                        String readLine = bufferedReader.readLine();
-                        if (readLine == null) {
-                            break;
-                        } else if (readLine.trim().startsWith(String.valueOf(myPid)) && (split = readLine.split("\\s+")) != null) {
-                            if (split.length > 2 && split[2] != null && split[2].contains("%")) {
+                        try {
+                            String readLine = bufferedReader.readLine();
+                            if (readLine == null) {
+                                str3 = str4;
                                 break;
-                            }
-                            int i = 0;
-                            while (true) {
-                                if (i < split.length) {
-                                    if (split[i] == null || !split[i].contains("%")) {
-                                        i++;
-                                    } else {
-                                        str2 = split[i].trim();
-                                        break;
-                                    }
-                                } else {
+                            } else if (readLine.trim().startsWith(String.valueOf(myPid)) && (split = readLine.split("\\s+")) != null) {
+                                if (split.length > 2 && split[2] != null && split[2].contains("%")) {
                                     break;
                                 }
-                            }
-                        }
-                    } catch (Exception e) {
-                        bufferedReader2 = bufferedReader;
-                        process2 = process;
-                        str = str2;
-                        e = e;
-                        try {
-                            e.printStackTrace();
-                            if (process2 != null) {
-                                try {
-                                    process2.destroy();
-                                } catch (Exception e2) {
-                                    str2 = str;
+                                int i = 0;
+                                while (true) {
+                                    if (i < split.length) {
+                                        if (split[i] == null || !split[i].contains("%")) {
+                                            i++;
+                                        } else {
+                                            str4 = split[i].trim();
+                                            break;
+                                        }
+                                    } else {
+                                        break;
+                                    }
                                 }
                             }
-                            if (bufferedReader2 != null) {
-                                bufferedReader2.close();
-                            }
-                            str2 = str;
-                            if (str2 != null) {
-                            }
-                            return Integer.parseInt(str2);
-                        } catch (Throwable th) {
-                            th = th;
-                            process = process2;
-                            bufferedReader = bufferedReader2;
+                        } catch (Exception e2) {
+                            e = e2;
+                            str = str4;
+                            e.printStackTrace();
                             if (process != null) {
                                 try {
                                     process.destroy();
                                 } catch (Exception e3) {
-                                    throw th;
+                                    str2 = str;
                                 }
                             }
                             if (bufferedReader != null) {
                                 bufferedReader.close();
                             }
-                            throw th;
+                            str2 = str;
+                            if (str2 != null) {
+                            }
+                            return Integer.parseInt(str2);
                         }
-                    } catch (Throwable th2) {
-                        th = th2;
+                    } catch (Throwable th) {
+                        th = th;
                         if (process != null) {
+                            try {
+                                process.destroy();
+                            } catch (Exception e4) {
+                                throw th;
+                            }
                         }
                         if (bufferedReader != null) {
+                            bufferedReader.close();
                         }
                         throw th;
                     }
@@ -236,26 +226,34 @@ public class b {
                 if (process != null) {
                     try {
                         process.destroy();
-                    } catch (Exception e4) {
+                    } catch (Exception e5) {
+                        str2 = str3;
                     }
                 }
                 if (bufferedReader != null) {
                     bufferedReader.close();
                 }
-            } catch (Exception e5) {
-                e = e5;
-                process2 = process;
-                str = null;
-            } catch (Throwable th3) {
-                th = th3;
+                str2 = str3;
+            } catch (Exception e6) {
+                e = e6;
                 bufferedReader = null;
+                str = null;
+            } catch (Throwable th2) {
+                th = th2;
+                bufferedReader = null;
+                if (process != null) {
+                }
+                if (bufferedReader != null) {
+                }
+                throw th;
             }
-        } catch (Exception e6) {
-            e = e6;
-            process2 = null;
+        } catch (Exception e7) {
+            e = e7;
+            bufferedReader = null;
+            process = null;
             str = null;
-        } catch (Throwable th4) {
-            th = th4;
+        } catch (Throwable th3) {
+            th = th3;
             bufferedReader = null;
             process = null;
         }
@@ -267,7 +265,7 @@ public class b {
         }
         try {
             return Integer.parseInt(str2);
-        } catch (Exception e7) {
+        } catch (Exception e8) {
             return -1;
         }
     }

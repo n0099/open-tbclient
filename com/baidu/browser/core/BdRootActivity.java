@@ -4,12 +4,12 @@ import android.app.Activity;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-/* loaded from: classes11.dex */
+import androidx.annotation.Nullable;
+/* loaded from: classes4.dex */
 public class BdRootActivity extends Activity {
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        return b.ti().getResources();
+        return b.sI().getResources();
     }
 
     @Override // android.app.Activity
@@ -19,6 +19,6 @@ public class BdRootActivity extends Activity {
 
     @Override // android.content.ContextWrapper, android.content.Context
     public SharedPreferences getSharedPreferences(String str, int i) {
-        return b.ti().getSharedPreferences(str, i);
+        return b.sI().getSharedPreferences(str, i);
     }
 }

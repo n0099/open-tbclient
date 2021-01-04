@@ -10,12 +10,12 @@ import java.lang.reflect.TypeVariable;
 /* loaded from: classes5.dex */
 public final class TypeAdapterRuntimeTypeWrapper<T> extends TypeAdapter<T> {
     private final TypeAdapter<T> delegate;
-    private final Gson pvr;
+    private final Gson pMq;
     private final Type type;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public TypeAdapterRuntimeTypeWrapper(Gson gson, TypeAdapter<T> typeAdapter, Type type) {
-        this.pvr = gson;
+        this.pMq = gson;
         this.delegate = typeAdapter;
         this.type = type;
     }
@@ -28,9 +28,9 @@ public final class TypeAdapterRuntimeTypeWrapper<T> extends TypeAdapter<T> {
     @Override // com.google.gson.TypeAdapter
     public void write(com.google.gson.stream.b bVar, T t) throws IOException {
         TypeAdapter<T> typeAdapter = this.delegate;
-        Type a2 = a(this.type, t);
-        if (a2 != this.type) {
-            typeAdapter = this.pvr.getAdapter(com.google.gson.b.a.k(a2));
+        Type b2 = b(this.type, t);
+        if (b2 != this.type) {
+            typeAdapter = this.pMq.getAdapter(com.google.gson.b.a.r(b2));
             if ((typeAdapter instanceof ReflectiveTypeAdapterFactory.Adapter) && !(this.delegate instanceof ReflectiveTypeAdapterFactory.Adapter)) {
                 typeAdapter = this.delegate;
             }
@@ -38,7 +38,7 @@ public final class TypeAdapterRuntimeTypeWrapper<T> extends TypeAdapter<T> {
         typeAdapter.write(bVar, t);
     }
 
-    private Type a(Type type, Object obj) {
+    private Type b(Type type, Object obj) {
         if (obj != null) {
             if (type == Object.class || (type instanceof TypeVariable) || (type instanceof Class)) {
                 return obj.getClass();

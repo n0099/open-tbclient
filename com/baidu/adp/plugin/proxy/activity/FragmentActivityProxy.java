@@ -19,8 +19,7 @@ import android.graphics.Canvas;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
+import android.os.PersistableBundle;
 import android.util.AttributeSet;
 import android.view.ContextMenu;
 import android.view.KeyEvent;
@@ -34,12 +33,17 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.base.e;
+import com.baidu.adp.base.a;
 import com.baidu.adp.base.f;
 import com.baidu.adp.base.g;
 import com.baidu.adp.base.h;
+import com.baidu.adp.base.i;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;
@@ -47,14 +51,19 @@ import com.baidu.adp.plugin.a.b;
 import com.baidu.adp.plugin.d;
 import com.baidu.adp.plugin.pluginBase.PluginBaseFragmentActivity;
 import com.baidu.adp.plugin.util.d;
-import com.baidu.adp.widget.ListView.t;
-import com.baidu.megapp.ma.MAFragmentActivity;
+import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 /* loaded from: classes.dex */
-public class FragmentActivityProxy extends MAFragmentActivity implements Handler.Callback, f, h, b {
+public class FragmentActivityProxy extends FragmentActivity implements Handler.Callback, g, i, b {
     protected PluginBaseFragmentActivity mEntity = null;
+
+    @Override // android.app.Activity
+    public void onCreate(@Nullable Bundle bundle, @Nullable PersistableBundle persistableBundle) {
+        a.j(this);
+        super.onCreate(bundle, persistableBundle);
+    }
 
     public void loadEntityActivity() {
         if (this.mEntity == null && !super.isFinishing()) {
@@ -145,12 +154,12 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
         return this.mEntity != null ? this.mEntity.dispatchGenericMotionEvent(motionEvent) : super.dispatchGenericMotionEvent(motionEvent);
     }
 
-    @Override // android.app.Activity, android.view.Window.Callback
+    @Override // androidx.core.app.ComponentActivity, android.app.Activity, android.view.Window.Callback
     public boolean dispatchKeyEvent(KeyEvent keyEvent) {
         return this.mEntity != null ? this.mEntity.dispatchKeyEvent(keyEvent) : super.dispatchKeyEvent(keyEvent);
     }
 
-    @Override // android.app.Activity, android.view.Window.Callback
+    @Override // androidx.core.app.ComponentActivity, android.app.Activity, android.view.Window.Callback
     public boolean dispatchKeyShortcutEvent(KeyEvent keyEvent) {
         return this.mEntity != null ? this.mEntity.dispatchKeyShortcutEvent(keyEvent) : super.dispatchKeyShortcutEvent(keyEvent);
     }
@@ -170,7 +179,7 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
         return this.mEntity != null ? this.mEntity.dispatchTrackballEvent(motionEvent) : super.dispatchTrackballEvent(motionEvent);
     }
 
-    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void dump(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
     }
 
@@ -215,9 +224,9 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
         }
     }
 
-    @Override // com.baidu.megapp.ma.MAFragmentActivity, com.baidu.adp.plugin.a.a
+    @Override // com.baidu.adp.plugin.a.a
     public Activity getActivity() {
-        return super.getActivity();
+        return this;
     }
 
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
@@ -301,7 +310,7 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
                 return this.mEntity.getResources();
             }
         } else {
-            Resources resources = g.li().getResources();
+            Resources resources = h.kE().getResources();
             if (resources != null) {
                 return resources;
             }
@@ -379,7 +388,7 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         if (this.mEntity != null) {
             d.invokeMethod(this.mEntity, "onActivityResult", new Class[]{Integer.TYPE, Integer.TYPE, Intent.class}, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), intent});
@@ -406,7 +415,7 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
         }
     }
 
-    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onBackPressed() {
         if (this.mEntity != null) {
             this.mEntity.onBackPressed();
@@ -424,7 +433,7 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
         }
     }
 
-    @Override // android.support.v4.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         if (this.mEntity != null) {
             this.mEntity.onConfigurationChanged(configuration);
@@ -457,7 +466,7 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
+    @Override // androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         requestWindowFeature(1);
         this.mEntity = null;
@@ -489,7 +498,7 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
         return this.mEntity != null ? (Dialog) d.invokeMethod(this.mEntity, "onCreateDialog", new Class[]{Integer.TYPE}, new Object[]{Integer.valueOf(i)}) : super.onCreateDialog(i);
     }
 
-    @Override // android.support.v4.app.FragmentActivity, android.app.Activity, android.view.Window.Callback
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, android.view.Window.Callback
     public boolean onCreatePanelMenu(int i, Menu menu) {
         return this.mEntity != null ? this.mEntity.onCreatePanelMenu(i, menu) : super.onCreatePanelMenu(i, menu);
     }
@@ -504,13 +513,13 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
         return this.mEntity != null ? this.mEntity.onCreateThumbnail(bitmap, canvas) : super.onCreateThumbnail(bitmap, canvas);
     }
 
-    @Override // android.support.v4.app.FragmentActivity, android.support.v4.app.BaseFragmentActivityApi14, android.app.Activity, android.view.LayoutInflater.Factory
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, android.view.LayoutInflater.Factory
     public View onCreateView(String str, Context context, AttributeSet attributeSet) {
         return this.mEntity != null ? this.mEntity.onCreateView(str, context, attributeSet) : super.onCreateView(str, context, attributeSet);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         if (this.mEntity != null) {
             d.invokeMethod(this.mEntity, MissionEvent.MESSAGE_DESTROY, new Class[0], new Object[0]);
@@ -548,7 +557,7 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
         return this.mEntity != null ? this.mEntity.onKeyUp(i, keyEvent) : super.onKeyUp(i, keyEvent);
     }
 
-    @Override // android.support.v4.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
     public void onLowMemory() {
         if (this.mEntity != null) {
             this.mEntity.onLowMemory();
@@ -557,7 +566,7 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
         }
     }
 
-    @Override // android.support.v4.app.FragmentActivity, android.app.Activity, android.view.Window.Callback
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, android.view.Window.Callback
     public boolean onMenuItemSelected(int i, MenuItem menuItem) {
         return this.mEntity != null ? this.mEntity.onMenuItemSelected(i, menuItem) : super.onMenuItemSelected(i, menuItem);
     }
@@ -568,7 +577,7 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
         if (this.mEntity != null) {
             d.invokeMethod(this.mEntity, "onNewIntent", new Class[]{Intent.class}, new Object[]{intent});
@@ -591,7 +600,7 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
         }
     }
 
-    @Override // android.support.v4.app.FragmentActivity, android.app.Activity, android.view.Window.Callback
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, android.view.Window.Callback
     public void onPanelClosed(int i, Menu menu) {
         if (this.mEntity != null) {
             this.mEntity.onPanelClosed(i, menu);
@@ -601,7 +610,7 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
         if (this.mEntity != null) {
             d.invokeMethod(this.mEntity, MissionEvent.MESSAGE_PAUSE, new Class[0], new Object[0]);
@@ -620,7 +629,7 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPostResume() {
         if (this.mEntity != null) {
             d.invokeMethod(this.mEntity, "onPostResume", new Class[0], new Object[0]);
@@ -643,7 +652,7 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
         return this.mEntity != null ? this.mEntity.onPrepareOptionsMenu(menu) : super.onPrepareOptionsMenu(menu);
     }
 
-    @Override // android.support.v4.app.FragmentActivity, android.app.Activity, android.view.Window.Callback
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, android.view.Window.Callback
     public boolean onPreparePanel(int i, View view, Menu menu) {
         return this.mEntity != null ? this.mEntity.onPreparePanel(i, view, menu) : super.onPreparePanel(i, view, menu);
     }
@@ -667,7 +676,7 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         if (this.mEntity != null) {
             d.invokeMethod(this.mEntity, MissionEvent.MESSAGE_RESUME, new Class[0], new Object[0]);
@@ -677,7 +686,7 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
+    @Override // androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         if (this.mEntity != null) {
             d.invokeMethod(this.mEntity, "onSaveInstanceState", new Class[]{Bundle.class}, new Object[]{bundle});
@@ -692,7 +701,7 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onStart() {
         if (this.mEntity != null) {
             d.invokeMethod(this.mEntity, MissionEvent.MESSAGE_START, new Class[0], new Object[0]);
@@ -702,7 +711,7 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onStop() {
         if (this.mEntity != null) {
             d.invokeMethod(this.mEntity, MissionEvent.MESSAGE_STOP, new Class[0], new Object[0]);
@@ -836,7 +845,7 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
     public void setRequestedOrientation(int i) {
         if (this.mEntity != null) {
             this.mEntity.setRequestedOrientation(i);
-        } else {
+        } else if (!a.k(this) || !a.Z(i)) {
             super.setRequestedOrientation(i);
         }
     }
@@ -901,7 +910,7 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
         }
     }
 
-    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void startActivityForResult(Intent intent, int i) {
         if (this.mEntity != null) {
             this.mEntity.startActivityForResult(intent, i);
@@ -933,7 +942,7 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
         }
     }
 
-    @Override // android.support.v4.app.FragmentActivity, android.support.v4.app.BaseFragmentActivityApi14, android.app.Activity
+    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void startIntentSenderForResult(IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4) throws IntentSender.SendIntentException {
         if (this.mEntity != null) {
             this.mEntity.startIntentSenderForResult(intentSender, i, intent, i2, i3, i4);
@@ -1571,18 +1580,18 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
         String stringExtra = intent.getStringExtra(Plugin.INTENT_EXTRA_SERVICE);
         d.a aVar = null;
         if (stringExtra != null) {
-            aVar = com.baidu.adp.plugin.d.pj().cr(stringExtra);
+            aVar = com.baidu.adp.plugin.d.oK().ck(stringExtra);
         }
-        if (aVar == null || aVar.Tb == null) {
+        if (aVar == null || aVar.Td == null) {
             BdLog.d("service stop error!" + intent.toString());
             return false;
-        } else if (com.baidu.adp.plugin.d.pj().pk() == 1) {
-            com.baidu.adp.plugin.d.pj().cs(stringExtra);
-            aVar.Tb.stopSelf();
+        } else if (com.baidu.adp.plugin.d.oK().oL() == 1) {
+            com.baidu.adp.plugin.d.oK().cl(stringExtra);
+            aVar.Td.stopSelf();
             return true;
         } else {
-            aVar.Tb.onDestroy();
-            com.baidu.adp.plugin.d.pj().cs(stringExtra);
+            aVar.Td.onDestroy();
+            com.baidu.adp.plugin.d.oK().cl(stringExtra);
             return true;
         }
     }
@@ -1614,7 +1623,7 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
     public void proxyStartActivityFromFragment(Fragment fragment, Intent intent, int i) {
     }
 
-    @Override // com.baidu.adp.base.h
+    @Override // com.baidu.adp.base.i
     public BdUniqueId getUniqueId() {
         if (this.mEntity != null) {
             return this.mEntity.getUniqueId();
@@ -1622,7 +1631,7 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
         return null;
     }
 
-    @Override // com.baidu.adp.base.h
+    @Override // com.baidu.adp.base.i
     public boolean isScroll() {
         if (this.mEntity != null) {
             return this.mEntity.isScroll();
@@ -1630,17 +1639,17 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
         return false;
     }
 
-    @Override // com.baidu.adp.base.h
+    @Override // com.baidu.adp.base.i
     public void setIsScroll(boolean z) {
         if (this.mEntity != null) {
             this.mEntity.setIsScroll(z);
         }
     }
 
-    @Override // com.baidu.adp.base.h
-    public void onPreLoad(t tVar) {
+    @Override // com.baidu.adp.base.i
+    public void onPreLoad(q qVar) {
         if (this.mEntity != null) {
-            this.mEntity.onPreLoad(tVar);
+            this.mEntity.onPreLoad(qVar);
         }
     }
 
@@ -1652,9 +1661,9 @@ public class FragmentActivityProxy extends MAFragmentActivity implements Handler
         return false;
     }
 
-    @Override // com.baidu.adp.base.f
-    public e getPageContext() {
-        if (this.mEntity == null || !(this.mEntity instanceof f)) {
+    @Override // com.baidu.adp.base.g
+    public f getPageContext() {
+        if (this.mEntity == null || !(this.mEntity instanceof g)) {
             return null;
         }
         return this.mEntity.getPageContext();

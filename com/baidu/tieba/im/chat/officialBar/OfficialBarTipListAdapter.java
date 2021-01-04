@@ -3,11 +3,11 @@ package com.baidu.tieba.im.chat.officialBar;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.chat.a.c;
 import org.apache.http.message.BasicNameValuePair;
-/* loaded from: classes26.dex */
+/* loaded from: classes8.dex */
 public class OfficialBarTipListAdapter extends com.baidu.tieba.im.chat.a.c {
     public OfficialBarTipListAdapter(OfficialBarTipActivity officialBarTipActivity) {
         super(officialBarTipActivity.getPageContext().getContext());
@@ -16,7 +16,7 @@ public class OfficialBarTipListAdapter extends com.baidu.tieba.im.chat.a.c {
     @Override // com.baidu.tieba.im.chat.a.c
     protected BasicNameValuePair a(ImMessageCenterShowItemData imMessageCenterShowItemData, int i, String str) {
         int i2 = 0;
-        if (!com.baidu.tbadk.coreExtra.messageCenter.d.bzl().bzF()) {
+        if (!com.baidu.tbadk.coreExtra.messageCenter.d.bBF().bBZ()) {
             str = "";
             i = 0;
         }
@@ -30,17 +30,17 @@ public class OfficialBarTipListAdapter extends com.baidu.tieba.im.chat.a.c {
 
     @Override // com.baidu.tieba.im.chat.a.c
     protected void g(c.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        aVar.klm.setVisibility(8);
-        aVar.klo.setVisibility(0);
-        aVar.klo.setShowOval(true);
-        aVar.klo.setAutoChangeStyle(true);
-        aVar.klo.setStrokeWith(l.getDimens(this.mContext, R.dimen.tbds1));
-        aVar.klo.setStrokeColorResId(R.color.CAM_X0401);
-        aVar.klo.setTag(null);
-        aVar.klo.setPlaceHolder(1);
+        aVar.kxS.setVisibility(8);
+        aVar.kxU.setVisibility(0);
+        aVar.kxU.setShowOval(true);
+        aVar.kxU.setAutoChangeStyle(true);
+        aVar.kxU.setStrokeWith(l.getDimens(this.mContext, R.dimen.tbds1));
+        aVar.kxU.setStrokeColorResId(R.color.CAM_X0401);
+        aVar.kxU.setTag(null);
+        aVar.kxU.setPlaceHolder(1);
         if (!TextUtils.isEmpty(imMessageCenterShowItemData.getFriendPortrait())) {
-            aVar.klo.setTag(imMessageCenterShowItemData.getFriendPortrait());
-            aVar.klo.startLoad(imMessageCenterShowItemData.getFriendPortrait(), 10, false);
+            aVar.kxU.setTag(imMessageCenterShowItemData.getFriendPortrait());
+            aVar.kxU.startLoad(imMessageCenterShowItemData.getFriendPortrait(), 10, false);
         }
     }
 
@@ -56,14 +56,14 @@ public class OfficialBarTipListAdapter extends com.baidu.tieba.im.chat.a.c {
 
     @Override // com.baidu.tieba.im.chat.a.c
     protected void a(c.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        aVar.klp.setText(this.mContext.getString(R.string.chosen_pb_original_bar, imMessageCenterShowItemData.getFriendName()));
+        aVar.kxV.setText(this.mContext.getString(R.string.chosen_pb_original_bar, imMessageCenterShowItemData.getFriendName()));
     }
 
     @Override // com.baidu.tieba.im.chat.a.c
     protected void f(c.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        aVar.kls.setVisibility(8);
-        ap.setViewTextColor(aVar.klp, R.color.CAM_X0105, 1);
-        ap.setViewTextColor(aVar.klq, R.color.CAM_X0109, 1);
-        ap.setViewTextColor(aVar.klr, R.color.CAM_X0109, 1);
+        aVar.kxY.setVisibility(8);
+        ao.setViewTextColor(aVar.kxV, R.color.CAM_X0105, 1);
+        ao.setViewTextColor(aVar.kxW, R.color.CAM_X0109, 1);
+        ao.setViewTextColor(aVar.kxX, R.color.CAM_X0109, 1);
     }
 }

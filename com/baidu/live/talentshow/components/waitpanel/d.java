@@ -2,97 +2,97 @@ package com.baidu.live.talentshow.components.waitpanel;
 
 import android.os.CountDownTimer;
 import android.view.KeyEvent;
-import com.baidu.live.data.w;
+import com.baidu.live.data.x;
 import com.baidu.live.talentshow.components.waitpanel.a;
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class d {
-    private b bAI;
-    private LiveVideoBCPanelData bAJ;
-    private a bAK;
-    private CountDownTimer bAL;
+    private b bFv;
+    private LiveVideoBCPanelData bFw;
+    private a bFx;
+    private CountDownTimer bFy;
     private TbPageContext mContext;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface a {
-        void Mk();
+        void TY();
 
-        void SR();
+        void onTimeout();
     }
 
     public d(TbPageContext tbPageContext) {
         this.mContext = tbPageContext;
     }
 
-    public void u(w wVar) {
-        if (this.bAJ == null) {
-            this.bAJ = new LiveVideoBCPanelData();
+    public void v(x xVar) {
+        if (this.bFw == null) {
+            this.bFw = new LiveVideoBCPanelData();
         }
-        this.bAJ.setUserNickName(wVar.aKr.nickName);
-        this.bAJ.setUserPortrait(wVar.aKr.portrait);
-        this.bAJ.setAnchorNickName(wVar.aJV.userName);
-        this.bAJ.setAnchorPortrait(wVar.aJV.portrait);
-        this.bAJ.setDownTime(wVar.mLiveInfo.videoBCEnterData.audienceWaitTime);
-        TB();
-        this.bAL.cancel();
-        this.bAL.start();
+        this.bFw.setUserNickName(xVar.aKQ.nickName);
+        this.bFw.setUserPortrait(xVar.aKQ.portrait);
+        this.bFw.setAnchorNickName(xVar.aKu.userName);
+        this.bFw.setAnchorPortrait(xVar.aKu.portrait);
+        this.bFw.setDownTime(xVar.mLiveInfo.videoBCEnterData.audienceWaitTime);
+        UG();
+        this.bFy.cancel();
+        this.bFy.start();
     }
 
-    public void SF() {
-        if (this.bAI == null) {
-            this.bAI = new b(this.mContext, this.bAJ);
-            this.bAI.a(new a.InterfaceC0212a() { // from class: com.baidu.live.talentshow.components.waitpanel.d.1
-                @Override // com.baidu.live.talentshow.components.waitpanel.a.InterfaceC0212a
+    public void TJ() {
+        if (this.bFv == null) {
+            this.bFv = new b(this.mContext, this.bFw);
+            this.bFv.a(new a.InterfaceC0210a() { // from class: com.baidu.live.talentshow.components.waitpanel.d.1
+                @Override // com.baidu.live.talentshow.components.waitpanel.a.InterfaceC0210a
                 public void a(LiveVideoBCPanelData liveVideoBCPanelData) {
-                    if (d.this.bAK != null) {
-                        d.this.bAK.SR();
+                    if (d.this.bFx != null) {
+                        d.this.bFx.TY();
                     }
                 }
             });
         }
-        this.bAI.b(this.bAJ);
-        com.baidu.live.talentshow.e.a.UA();
+        this.bFv.b(this.bFw);
+        com.baidu.live.talentshow.e.a.VF();
     }
 
     public void stopTiming() {
-        if (this.bAL != null) {
-            this.bAL.cancel();
+        if (this.bFy != null) {
+            this.bFy.cancel();
         }
     }
 
-    public void TA() {
-        if (this.bAI != null && this.bAI.isShowing()) {
-            this.bAI.dismiss();
+    public void UF() {
+        if (this.bFv != null && this.bFv.isShowing()) {
+            this.bFv.dismiss();
         }
     }
 
     public void a(a aVar) {
-        this.bAK = aVar;
+        this.bFx = aVar;
     }
 
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (this.bAI == null || !this.bAI.isShowing()) {
+        if (this.bFv == null || !this.bFv.isShowing()) {
             return false;
         }
-        this.bAI.dismiss();
+        this.bFv.dismiss();
         return true;
     }
 
-    private void TB() {
-        if (this.bAL == null) {
-            this.bAL = new CountDownTimer(this.bAJ.getDownTime() * 1000, 1000L) { // from class: com.baidu.live.talentshow.components.waitpanel.d.2
+    private void UG() {
+        if (this.bFy == null) {
+            this.bFy = new CountDownTimer(this.bFw.getDownTime() * 1000, 1000L) { // from class: com.baidu.live.talentshow.components.waitpanel.d.2
                 @Override // android.os.CountDownTimer
                 public void onTick(long j) {
-                    if (d.this.bAI != null && d.this.bAJ != null) {
-                        d.this.bAJ.setDownTime(((int) (j / 1000)) + 1);
-                        d.this.bAI.a((b) d.this.bAJ);
+                    if (d.this.bFv != null && d.this.bFw != null) {
+                        d.this.bFw.setDownTime(((int) (j / 1000)) + 1);
+                        d.this.bFv.a((b) d.this.bFw);
                     }
                 }
 
                 @Override // android.os.CountDownTimer
                 public void onFinish() {
-                    if (d.this.bAK != null) {
-                        d.this.bAK.Mk();
+                    if (d.this.bFx != null) {
+                        d.this.bFx.onTimeout();
                     }
                 }
             };

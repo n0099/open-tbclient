@@ -3,14 +3,14 @@ package com.baidu.tieba.aiapps.apps.barcode;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.process.ipc.delegate.DelegateListener;
 import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
 import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
 import com.baidu.swan.apps.t.b.h;
 import com.baidu.tbadk.core.atomData.QRCodeScanActivityConfig;
 import java.nio.charset.Charset;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class b implements h {
     @Override // com.baidu.swan.apps.t.b.h
     public void a(Context context, final com.baidu.swan.apps.g.a aVar) {

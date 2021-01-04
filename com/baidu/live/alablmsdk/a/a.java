@@ -1,7 +1,7 @@
 package com.baidu.live.alablmsdk.a;
 
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a {
     public static <T> boolean isEmpty(List<T> list) {
         return getCount(list) <= 0;

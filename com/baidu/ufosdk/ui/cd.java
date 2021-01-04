@@ -2,15 +2,15 @@ package com.baidu.ufosdk.ui;
 
 import android.os.Handler;
 import com.baidu.ufosdk.UfoSDK;
-/* loaded from: classes22.dex */
+/* loaded from: classes8.dex */
 final class cd implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackInputActivity f3801a;
+    final /* synthetic */ FeedbackInputActivity f5768a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cd(FeedbackInputActivity feedbackInputActivity) {
-        this.f3801a = feedbackInputActivity;
+        this.f5768a = feedbackInputActivity;
     }
 
     @Override // java.lang.Runnable
@@ -20,21 +20,21 @@ final class cd implements Runnable {
         String d;
         Handler handler;
         String str3;
-        str = this.f3801a.ar;
+        str = this.f5768a.ar;
         if (str != null) {
-            str3 = this.f3801a.ar;
+            str3 = this.f5768a.ar;
             if (str3.length() > 0) {
-                str2 = this.f3801a.ar;
-                d = com.baidu.ufosdk.e.a.d(this.f3801a.getApplicationContext(), this.f3801a.e, str2);
+                str2 = this.f5768a.ar;
+                d = com.baidu.ufosdk.e.a.d(this.f5768a.getApplicationContext(), this.f5768a.e, str2);
                 if (d != null || d.length() == 0) {
                 }
-                handler = this.f3801a.aK;
+                handler = this.f5768a.aK;
                 handler.obtainMessage(5, d).sendToTarget();
                 return;
             }
         }
         str2 = UfoSDK.appid;
-        d = com.baidu.ufosdk.e.a.d(this.f3801a.getApplicationContext(), this.f3801a.e, str2);
+        d = com.baidu.ufosdk.e.a.d(this.f5768a.getApplicationContext(), this.f5768a.e, str2);
         if (d != null) {
         }
     }

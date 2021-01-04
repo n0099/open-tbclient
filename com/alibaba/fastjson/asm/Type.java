@@ -1,5 +1,5 @@
 package com.alibaba.fastjson.asm;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class Type {
     private final char[] buf;
     private final int len;

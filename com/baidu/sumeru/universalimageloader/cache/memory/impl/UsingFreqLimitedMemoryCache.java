@@ -8,7 +8,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public class UsingFreqLimitedMemoryCache extends LimitedMemoryCache<String, Bitmap> {
     private final Map<Bitmap, Integer> usingCounts;
 
@@ -67,32 +67,25 @@ public class UsingFreqLimitedMemoryCache extends LimitedMemoryCache<String, Bitm
     @Override // com.baidu.sumeru.universalimageloader.cache.memory.LimitedMemoryCache
     public Bitmap removeNext() {
         Bitmap bitmap;
-        Integer num;
-        Bitmap bitmap2 = null;
         Set<Map.Entry<Bitmap, Integer>> entrySet = this.usingCounts.entrySet();
         synchronized (this.usingCounts) {
-            Integer num2 = null;
+            bitmap = null;
+            Integer num = null;
             for (Map.Entry<Bitmap, Integer> entry : entrySet) {
-                if (bitmap2 == null) {
+                if (bitmap == null) {
                     bitmap = entry.getKey();
                     num = entry.getValue();
                 } else {
                     Integer value = entry.getValue();
-                    if (value.intValue() < num2.intValue()) {
-                        Bitmap key = entry.getKey();
+                    if (value.intValue() < num.intValue()) {
+                        bitmap = entry.getKey();
                         num = value;
-                        bitmap = key;
-                    } else {
-                        bitmap = bitmap2;
-                        num = num2;
                     }
                 }
-                bitmap2 = bitmap;
-                num2 = num;
             }
         }
-        this.usingCounts.remove(bitmap2);
-        return bitmap2;
+        this.usingCounts.remove(bitmap);
+        return bitmap;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

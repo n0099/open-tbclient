@@ -9,7 +9,7 @@ import org.apache.http.message.LineFormatter;
 import org.apache.http.params.HttpParams;
 import org.apache.http.util.CharArrayBuffer;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes6.dex */
 public abstract class AbstractMessageWriter implements HttpMessageWriter {
     protected final CharArrayBuffer lineBuf;
     protected final LineFormatter lineFormatter;

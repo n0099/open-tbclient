@@ -1,48 +1,48 @@
 package com.baidu.tieba.yuyinala.liveroom.wheat.adapter;
 
-import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
+import androidx.viewpager.widget.PagerAdapter;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class ConnectionWheatPagerAdapter extends PagerAdapter {
-    private List<View> bas;
+    private List<View> bbZ;
 
     public ConnectionWheatPagerAdapter(List<View> list) {
-        this.bas = new ArrayList();
-        this.bas = list;
+        this.bbZ = new ArrayList();
+        this.bbZ = list;
     }
 
-    @Override // android.support.v4.view.PagerAdapter
+    @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        if (this.bas == null) {
+        if (this.bbZ == null) {
             return 0;
         }
-        return this.bas.size();
+        return this.bbZ.size();
     }
 
-    @Override // android.support.v4.view.PagerAdapter
+    @Override // androidx.viewpager.widget.PagerAdapter
     public boolean isViewFromObject(View view, Object obj) {
         return view == obj;
     }
 
-    @Override // android.support.v4.view.PagerAdapter
+    @Override // androidx.viewpager.widget.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         if (i >= 0 && i < getCount()) {
-            View view = this.bas.get(i);
+            View view = this.bbZ.get(i);
             P(view);
             viewGroup.removeView(view);
         }
     }
 
-    @Override // android.support.v4.view.PagerAdapter
+    @Override // androidx.viewpager.widget.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         if (i < 0 || i >= getCount()) {
             return null;
         }
-        View view = this.bas.get(i);
+        View view = this.bbZ.get(i);
         viewGroup.addView(view);
         return view;
     }

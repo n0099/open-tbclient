@@ -6,7 +6,6 @@ import android.media.MediaCodecList;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.cyberplayer.sdk.CyberLog;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
 import com.baidu.fsg.face.liveness.video.f;
 import java.util.ArrayList;
@@ -15,19 +14,21 @@ import java.util.Iterator;
 import java.util.Locale;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes18.dex */
+/* loaded from: classes15.dex */
 public class c {
-    private static MediaCodecInfo[] ccu;
+    private static MediaCodecInfo[] ciZ;
     private static Map<String, Integer> d = new TreeMap(String.CASE_INSENSITIVE_ORDER);
     private static Map<String, MediaCodecInfo> f = new HashMap();
-    public int b = 0;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f3239b = 0;
     public String c;
-    public MediaCodecInfo cct;
+    public MediaCodecInfo ciY;
 
     static {
         d.put("OMX.Nvidia.h264.decode", 800);
         d.put("OMX.Nvidia.h264.decode.secure", 300);
-        d.put("OMX.Intel.hw_vd.h264", Integer.valueOf((int) CyberPlayerManager.MEDIA_INFO_NOT_SEEKABLE));
+        d.put("OMX.Intel.hw_vd.h264", 801);
         d.put("OMX.Intel.VideoDecoder.AVC", 800);
         d.put("OMX.qcom.video.decoder.avc", 800);
         d.put("OMX.ittiam.video.decoder.avc", 0);
@@ -94,7 +95,7 @@ public class c {
                     i = num.intValue();
                 } else {
                     try {
-                        i = mediaCodecInfo.getCapabilitiesForType(str) != null ? CyberPlayerManager.MEDIA_INFO_VIDEO_TRACK_LAGGING : 600;
+                        i = mediaCodecInfo.getCapabilitiesForType(str) != null ? 700 : 600;
                     } catch (Throwable th) {
                         i = 600;
                     }
@@ -102,8 +103,8 @@ public class c {
             }
         }
         c cVar = new c();
-        cVar.cct = mediaCodecInfo;
-        cVar.b = i;
+        cVar.ciY = mediaCodecInfo;
+        cVar.f3239b = i;
         cVar.c = str;
         return cVar;
     }
@@ -118,18 +119,18 @@ public class c {
 
     private static String a(String str, int i, int i2, double d2) {
         a();
-        MediaCodecInfo jM = jM(str);
-        if (jM != null) {
+        MediaCodecInfo jE = jE(str);
+        if (jE != null) {
             boolean z = true;
             if (Build.VERSION.SDK_INT >= 21 && i > 0 && i2 > 0) {
-                MediaCodecInfo.CodecCapabilities capabilitiesForType = jM.getCapabilitiesForType(str);
+                MediaCodecInfo.CodecCapabilities capabilitiesForType = jE.getCapabilitiesForType(str);
                 z = d2 > 0.0d ? capabilitiesForType.getVideoCapabilities().areSizeAndRateSupported(i, i2, d2) : capabilitiesForType.getVideoCapabilities().isSizeSupported(i, i2);
             }
             if (z) {
-                CyberLog.d("CyberMediaCodecInfo", "mineType:" + str + " decoder:" + jM.getName());
-                return jM.getName();
+                CyberLog.d("CyberMediaCodecInfo", "mineType:" + str + " decoder:" + jE.getName());
+                return jE.getName();
             }
-            CyberLog.d("CyberMediaCodecInfo", "decoder not support [" + jM.getName() + "," + i + "," + i2 + "," + d2 + "]");
+            CyberLog.d("CyberMediaCodecInfo", "decoder not support [" + jE.getName() + "," + i + "," + i2 + "," + d2 + "]");
         }
         return null;
     }
@@ -137,16 +138,16 @@ public class c {
     public static synchronized void a() {
         synchronized (c.class) {
             try {
-                if (ccu == null && Build.VERSION.SDK_INT >= 16) {
+                if (ciZ == null && Build.VERSION.SDK_INT >= 16) {
                     if (Build.VERSION.SDK_INT < 21) {
                         ArrayList arrayList = new ArrayList();
                         int codecCount = MediaCodecList.getCodecCount();
                         for (int i = 0; i < codecCount; i++) {
                             arrayList.add(MediaCodecList.getCodecInfoAt(i));
                         }
-                        ccu = (MediaCodecInfo[]) arrayList.toArray(new MediaCodecInfo[arrayList.size()]);
+                        ciZ = (MediaCodecInfo[]) arrayList.toArray(new MediaCodecInfo[arrayList.size()]);
                     } else {
-                        ccu = new MediaCodecList(0).getCodecInfos();
+                        ciZ = new MediaCodecList(0).getCodecInfos();
                     }
                     if (CyberCfgManager.getInstance().getCfgBoolValue("enable_mc_google_hevc_decoder", true)) {
                         d.put("OMX.google.hevc.decoder", 601);
@@ -154,15 +155,15 @@ public class c {
                     } else {
                         d.put("OMX.google.hevc.decoder", 200);
                     }
-                    jM(f.b);
-                    jM("video/hevc");
+                    jE(f.f2362b);
+                    jE("video/hevc");
                 }
             } catch (Exception e) {
             }
         }
     }
 
-    private static MediaCodecInfo jM(String str) {
+    private static MediaCodecInfo jE(String str) {
         c cVar;
         String[] supportedTypes;
         c a2;
@@ -171,8 +172,8 @@ public class c {
             return mediaCodecInfo;
         }
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < ccu.length; i++) {
-            MediaCodecInfo mediaCodecInfo2 = ccu[i];
+        for (int i = 0; i < ciZ.length; i++) {
+            MediaCodecInfo mediaCodecInfo2 = ciZ[i];
             if (!mediaCodecInfo2.isEncoder() && (supportedTypes = mediaCodecInfo2.getSupportedTypes()) != null) {
                 for (String str2 : supportedTypes) {
                     if (!TextUtils.isEmpty(str2) && str2.equalsIgnoreCase(str) && (a2 = a(mediaCodecInfo2, str)) != null) {
@@ -192,14 +193,14 @@ public class c {
                 break;
             }
             cVar2 = (c) it.next();
-            if (cVar2.b <= cVar.b) {
+            if (cVar2.f3239b <= cVar.f3239b) {
                 cVar2 = cVar;
             }
         }
-        if (cVar.b < 600) {
+        if (cVar.f3239b < 600) {
             return null;
         }
-        f.put(str, cVar.cct);
-        return cVar.cct;
+        f.put(str, cVar.ciY);
+        return cVar.ciY;
     }
 }

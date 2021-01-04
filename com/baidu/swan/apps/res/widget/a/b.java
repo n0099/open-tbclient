@@ -2,9 +2,9 @@ package com.baidu.swan.apps.res.widget.a;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class b {
-    protected a dxF;
+    protected a dFF;
     protected boolean mChecked;
     protected Context mContext;
     protected boolean mEnabled;
@@ -13,7 +13,7 @@ public class b {
     protected final int mId;
     protected CharSequence mTitle;
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void b(b bVar);
     }
@@ -47,7 +47,7 @@ public class b {
         return null;
     }
 
-    public a aJI() {
-        return this.dxF;
+    public a aLJ() {
+        return this.dFF;
     }
 }

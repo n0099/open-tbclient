@@ -3,33 +3,33 @@ package com.baidu.live.talentshow.components.selector;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class c {
-    private ArrayList<com.baidu.live.talentshow.b.d> bAu = new ArrayList<>();
+    private ArrayList<com.baidu.live.talentshow.b.d> bFh = new ArrayList<>();
 
-    public ArrayList<com.baidu.live.talentshow.b.d> Ts() {
-        return this.bAu;
+    public ArrayList<com.baidu.live.talentshow.b.d> Ux() {
+        return this.bFh;
     }
 
-    public int Tt() {
-        return this.bAu.size();
+    public int Uy() {
+        return this.bFh.size();
     }
 
-    public void ac(List<com.baidu.live.talentshow.b.d> list) {
-        this.bAu.addAll(ad(list));
+    public void ad(List<com.baidu.live.talentshow.b.d> list) {
+        this.bFh.addAll(ae(list));
     }
 
-    public void Tu() {
+    public void Uz() {
         ArrayList<com.baidu.live.talentshow.b.d> arrayList = new ArrayList<>();
-        Iterator<com.baidu.live.talentshow.b.d> it = this.bAu.iterator();
+        Iterator<com.baidu.live.talentshow.b.d> it = this.bFh.iterator();
         while (it.hasNext()) {
             com.baidu.live.talentshow.b.d next = it.next();
             if (!a(next, arrayList)) {
                 arrayList.add(next);
             }
         }
-        this.bAu.clear();
-        this.bAu.addAll(arrayList);
+        this.bFh.clear();
+        this.bFh.addAll(arrayList);
     }
 
     private boolean a(com.baidu.live.talentshow.b.d dVar, ArrayList<com.baidu.live.talentshow.b.d> arrayList) {
@@ -44,13 +44,13 @@ public class c {
     }
 
     public void clearData() {
-        this.bAu.clear();
+        this.bFh.clear();
     }
 
-    private ArrayList<com.baidu.live.talentshow.b.d> ad(List<com.baidu.live.talentshow.b.d> list) {
+    private ArrayList<com.baidu.live.talentshow.b.d> ae(List<com.baidu.live.talentshow.b.d> list) {
         ArrayList<com.baidu.live.talentshow.b.d> arrayList = new ArrayList<>();
         for (com.baidu.live.talentshow.b.d dVar : list) {
-            if (!a(dVar, this.bAu)) {
+            if (!a(dVar, this.bFh)) {
                 arrayList.add(dVar);
             }
         }

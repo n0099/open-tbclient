@@ -6,15 +6,17 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Handler;
 import com.baidu.android.imsdk.internal.IMConnection;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class VGps {
     private static int e = 3;
     @SuppressLint({"HandlerLeak"})
     private static Handler h = new h();
 
     /* renamed from: a  reason: collision with root package name */
-    private GpsStatus.Listener f3906a = new f(this);
-    private LocationListener b = new g(this);
+    private GpsStatus.Listener f5916a = new f(this);
+
+    /* renamed from: b  reason: collision with root package name */
+    private LocationListener f5917b = new g(this);
     private LocationManager c = null;
     private GpsStatus d = null;
     private int f = 0;

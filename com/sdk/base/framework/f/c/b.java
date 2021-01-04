@@ -7,19 +7,21 @@ import com.sdk.base.framework.c.f;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class b extends com.sdk.base.framework.f.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f4265a = b.class.getName();
-    private static Boolean b = Boolean.valueOf(f.b);
+    private static final String f13134a = b.class.getName();
+
+    /* renamed from: b  reason: collision with root package name */
+    private static Boolean f13135b = Boolean.valueOf(f.f13118b);
 
     public static ArrayList<String> a(Context context) {
         ArrayList<String> arrayList = new ArrayList<>();
         try {
             arrayList = com.sdk.base.framework.f.a.a.b() >= 21 ? b(context) : c(context);
         } catch (Exception e) {
-            c.b(f4265a, e.getMessage(), b);
+            c.b(f13134a, e.getMessage(), f13135b);
         }
         return arrayList;
     }
@@ -49,43 +51,38 @@ public class b extends com.sdk.base.framework.f.a {
                 }
             }
         } catch (Throwable th) {
-            c.b(f4265a, th.getMessage(), b);
+            c.b(f13134a, th.getMessage(), f13135b);
         }
-        b.booleanValue();
+        f13135b.booleanValue();
         return arrayList;
     }
 
     private static ArrayList<String> c(Context context) {
         Method declaredMethod;
-        Object obj;
-        boolean z;
+        boolean z = true;
         long currentTimeMillis = System.currentTimeMillis();
         ArrayList<String> arrayList = new ArrayList<>();
         try {
             TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
             Class<?> cls = Class.forName(telephonyManager.getClass().getName());
-            Object obj2 = null;
+            Object obj = null;
             try {
                 Method declaredMethod2 = cls.getDeclaredMethod("getSubscriberInfo", new Class[0]);
                 declaredMethod2.setAccessible(true);
-                obj2 = declaredMethod2.invoke(telephonyManager, new Object[0]);
-                Method declaredMethod3 = Class.forName("com.android.internal.telephony.IPhoneSubInfo").getDeclaredMethod("getDeviceId", new Class[0]);
-                declaredMethod3.setAccessible(true);
-                obj = obj2;
-                z = true;
-                declaredMethod = declaredMethod3;
+                obj = declaredMethod2.invoke(telephonyManager, new Object[0]);
+                declaredMethod = Class.forName("com.android.internal.telephony.IPhoneSubInfo").getDeclaredMethod("getDeviceId", new Class[0]);
+                declaredMethod.setAccessible(true);
             } catch (Exception e) {
                 declaredMethod = cls.getDeclaredMethod("getDeviceId", new Class[0]);
                 declaredMethod.setAccessible(true);
-                obj = obj2;
                 z = false;
             }
             arrayList.add(z ? (String) declaredMethod.invoke(obj, new Object[0]) : (String) declaredMethod.invoke(telephonyManager, new Object[0]));
         } catch (Exception e2) {
-            c.b(f4265a, e2.getMessage(), b);
+            c.b(f13134a, e2.getMessage(), f13135b);
         }
-        if (b.booleanValue()) {
-            c.a(f4265a, "应用层获取IMEI信息耗时：" + (System.currentTimeMillis() - currentTimeMillis), b);
+        if (f13135b.booleanValue()) {
+            c.a(f13134a, "应用层获取IMEI信息耗时：" + (System.currentTimeMillis() - currentTimeMillis), f13135b);
         }
         return arrayList;
     }

@@ -4,40 +4,40 @@ import android.os.Bundle;
 import android.view.View;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bf;
-/* loaded from: classes26.dex */
+import com.baidu.tbadk.core.util.be;
+/* loaded from: classes8.dex */
 public class BrowseSettingActivity extends BaseActivity {
-    private c mVt = null;
+    private c naP = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.mVt = new c(this);
+        this.naP = new c(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.mVt.onChangeSkinType(i);
+        this.naP.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.mVt.dIx()) {
-            this.mVt.dIB();
+        if (view == this.naP.dIm()) {
+            this.naP.dIq();
             TiebaStatic.log("c10649");
         }
-        if (view == this.mVt.dIy()) {
-            this.mVt.dIC();
+        if (view == this.naP.dIn()) {
+            this.naP.dIr();
             TiebaStatic.log("c10653");
-        } else if (view == this.mVt.dIz()) {
-            this.mVt.dID();
-        } else if (view == this.mVt.dIA()) {
-            this.mVt.dIE();
-        } else if (view == this.mVt.dIF()) {
-            bf.bua().b(getPageContext(), new String[]{"http://bjhw-bac-orp-tieba-core-137287.bjhw.baidu.com:8899/#/app-tool"});
+        } else if (view == this.naP.dIo()) {
+            this.naP.dIs();
+        } else if (view == this.naP.dIp()) {
+            this.naP.dIt();
+        } else if (view == this.naP.dIu()) {
+            be.bwu().b(getPageContext(), new String[]{"http://bjhw-bac-orp-tieba-core-137287.bjhw.baidu.com:8899/#/app-tool"});
         }
     }
 }

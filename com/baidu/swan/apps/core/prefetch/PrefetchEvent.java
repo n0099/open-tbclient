@@ -3,27 +3,27 @@ package com.baidu.swan.apps.core.prefetch;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.swan.apps.process.SwanAppIPCData;
 import com.baidu.swan.apps.scheme.actions.k.j;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class PrefetchEvent extends SwanAppIPCData {
     public static final Parcelable.Creator<PrefetchEvent> CREATOR = new Parcelable.Creator<PrefetchEvent>() { // from class: com.baidu.swan.apps.core.prefetch.PrefetchEvent.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: p */
+        /* renamed from: q */
         public PrefetchEvent createFromParcel(Parcel parcel) {
             return new PrefetchEvent(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: iI */
+        /* renamed from: iD */
         public PrefetchEvent[] newArray(int i) {
             return new PrefetchEvent[i];
         }
@@ -113,36 +113,36 @@ public class PrefetchEvent extends SwanAppIPCData {
         return new b(hashMap, str);
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes9.dex */
     public static class a {
-        private PrefetchEvent cTA = new PrefetchEvent();
+        private PrefetchEvent cYx = new PrefetchEvent();
 
-        public a nW(@NonNull String str) {
-            this.cTA.appId = str;
+        public a nP(@NonNull String str) {
+            this.cYx.appId = str;
             return this;
         }
 
-        public a nX(@NonNull String str) {
-            this.cTA.schema = str;
+        public a nQ(@NonNull String str) {
+            this.cYx.schema = str;
             return this;
         }
 
-        public a nY(String str) {
-            this.cTA.state = str;
+        public a nR(String str) {
+            this.cYx.state = str;
             return this;
         }
 
-        public a nZ(@NonNull String str) {
-            this.cTA.scene = str;
+        public a nS(@NonNull String str) {
+            this.cYx.scene = str;
             return this;
         }
 
-        public PrefetchEvent ato() {
-            return this.cTA;
+        public PrefetchEvent auF() {
+            return this.cYx;
         }
     }
 
-    /* loaded from: classes25.dex */
+    /* loaded from: classes9.dex */
     public static class b extends com.baidu.swan.apps.event.a.b {
         b(@Nullable Map<String, String> map, String str) {
             super(str, map);

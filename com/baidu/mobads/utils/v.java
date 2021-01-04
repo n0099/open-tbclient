@@ -10,7 +10,7 @@ import java.util.Enumeration;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public final class v {
     public static List<File> a(String str, String str2) {
         return a(str, str2, (String) null);
@@ -48,7 +48,7 @@ public final class v {
 
     private static boolean a(File file, List<File> list, ZipFile zipFile, ZipEntry zipEntry, String str) {
         BufferedOutputStream bufferedOutputStream;
-        BufferedInputStream bufferedInputStream = null;
+        BufferedInputStream bufferedInputStream;
         File file2 = new File(file + File.separator + str);
         list.add(file2);
         if (zipEntry.isDirectory()) {
@@ -59,23 +59,22 @@ public final class v {
             return false;
         } else {
             try {
-                BufferedInputStream bufferedInputStream2 = new BufferedInputStream(zipFile.getInputStream(zipEntry));
+                bufferedInputStream = new BufferedInputStream(zipFile.getInputStream(zipEntry));
                 try {
                     bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file2));
                     try {
                         byte[] bArr = new byte[8192];
                         while (true) {
-                            int read = bufferedInputStream2.read(bArr);
+                            int read = bufferedInputStream.read(bArr);
                             if (read == -1) {
                                 break;
                             }
                             bufferedOutputStream.write(bArr, 0, read);
                         }
-                        bufferedInputStream2.close();
+                        bufferedInputStream.close();
                         bufferedOutputStream.close();
                     } catch (Throwable th) {
                         th = th;
-                        bufferedInputStream = bufferedInputStream2;
                         bufferedInputStream.close();
                         bufferedOutputStream.close();
                         throw th;
@@ -83,11 +82,11 @@ public final class v {
                 } catch (Throwable th2) {
                     th = th2;
                     bufferedOutputStream = null;
-                    bufferedInputStream = bufferedInputStream2;
                 }
             } catch (Throwable th3) {
                 th = th3;
                 bufferedOutputStream = null;
+                bufferedInputStream = null;
             }
         }
         return true;

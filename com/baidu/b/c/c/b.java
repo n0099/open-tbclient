@@ -1,26 +1,28 @@
 package com.baidu.b.c.c;
 
 import java.math.BigInteger;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static byte[] f1263a;
-    private static byte[] b;
+    private static byte[] f1603a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private static byte[] f1604b;
 
     public static byte[] a() {
-        if (f1263a != null) {
-            return f1263a;
+        if (f1603a != null) {
+            return f1603a;
         }
-        f1263a = new BigInteger(a.f1262a).modPow(new BigInteger(a.b), new BigInteger(a.e)).toByteArray();
-        return f1263a;
+        f1603a = new BigInteger(a.f1601a).modPow(new BigInteger(a.f1602b), new BigInteger(a.e)).toByteArray();
+        return f1603a;
     }
 
     public static byte[] b() {
-        if (b != null) {
-            return b;
+        if (f1604b != null) {
+            return f1604b;
         }
-        b = new BigInteger(a.c).modPow(new BigInteger(a.d), new BigInteger(a.e)).toByteArray();
-        return b;
+        f1604b = new BigInteger(a.c).modPow(new BigInteger(a.d), new BigInteger(a.e)).toByteArray();
+        return f1604b;
     }
 }

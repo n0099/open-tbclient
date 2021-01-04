@@ -13,11 +13,11 @@ import okhttp3.Headers;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 import okio.Buffer;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class a<T> extends b {
-    private String dXD = null;
-    private String dXE = null;
-    private ResponseCallback<T> dXF = null;
+    private String egB = null;
+    private String egC = null;
+    private ResponseCallback<T> egD = null;
     private int mRetryCount;
 
     static /* synthetic */ int c(a aVar) {
@@ -28,101 +28,102 @@ public class a<T> extends b {
 
     public void b(String str, String str2, ResponseCallback<T> responseCallback) {
         if (!TextUtils.isEmpty(str)) {
-            this.dXD = str;
-            this.dXE = str2;
-            this.dXF = responseCallback;
+            this.egB = str;
+            this.egC = str2;
+            this.egD = responseCallback;
             if (com.baidu.swan.games.bdtls.a.DEBUG) {
                 Log.d("BDTLS", "requestPost url=" + str);
                 Log.d("BDTLS", "requestPost body=" + str2);
             }
-            wX(this.dXE);
+            wW(this.egC);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aWI() {
-        b(this.dXD, this.dXE, this.dXF);
+    public void aZc() {
+        b(this.egB, this.egC, this.egD);
     }
 
     @Override // com.baidu.swan.games.bdtls.b.b
-    public void aa(byte[] bArr) {
-        String str = this.dXD;
+    public void X(byte[] bArr) {
+        String str = this.egB;
         HashMap hashMap = new HashMap();
         hashMap.put("Content-Type", HttpHelper.CONTENT_JSON);
-        if (this.dXI) {
+        if (this.egG) {
             hashMap.put("Bdtls", "Bdtls");
         }
         if (com.baidu.swan.games.bdtls.a.DEBUG) {
             Log.d("BDTLS", "BdtlsPostRequest url=" + str);
         }
-        com.baidu.swan.a.c.a.bdi().postByteRequest().mediaType(HttpHelper.CONTENT_JSON).url(str).cookieManager(com.baidu.swan.apps.t.a.azz().akJ()).headers(hashMap).content(bArr).build().executeAsync(new ResponseCallback<String>() { // from class: com.baidu.swan.games.bdtls.b.a.1
-            T dXG;
+        com.baidu.swan.a.c.a.bfE().postByteRequest().mediaType(HttpHelper.CONTENT_JSON).url(str).cookieManager(com.baidu.swan.apps.t.a.aAQ().alT()).headers(hashMap).content(bArr).build().executeAsync(new ResponseCallback<String>() { // from class: com.baidu.swan.games.bdtls.b.a.1
+            T egE;
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             public String parseResponse(Response response, int i) throws Exception {
                 Headers headers = response.headers();
                 if (headers != null && TextUtils.equals(headers.get("Bdtls"), "recovery")) {
-                    e.aVy().aVz().mv(0);
+                    e.aXS().aXT().mD(0);
                     return "recovery";
-                } else if (!a.this.dXI) {
-                    if (a.this.dXF != null) {
-                        this.dXG = (T) a.this.dXF.parseResponse(response, i);
+                } else if (!a.this.egG) {
+                    if (a.this.egD != null) {
+                        this.egE = (T) a.this.egD.parseResponse(response, i);
                         return "";
                     }
                     return "";
                 } else {
                     ResponseBody body = response.body();
-                    String ab = a.this.ab(body.bytes());
+                    String Y = a.this.Y(body.bytes());
                     if (com.baidu.swan.games.bdtls.a.DEBUG) {
-                        Log.d("BDTLS", "BdtlsPostRequest parseResponse=" + ab);
+                        Log.d("BDTLS", "BdtlsPostRequest parseResponse=" + Y);
                     }
-                    if (a.this.dXJ == 1) {
+                    if (a.this.egH == 1) {
                         Buffer buffer = new Buffer();
-                        buffer.writeString(ab, Charset.forName("utf-8"));
+                        buffer.writeString(Y, Charset.forName("utf-8"));
                         Response build = response.newBuilder().body(ResponseBody.create(body.contentType(), buffer.size(), buffer)).build();
-                        if (a.this.dXF != null) {
-                            this.dXG = (T) a.this.dXF.parseResponse(build, i);
-                            return ab;
+                        if (a.this.egD != null) {
+                            this.egE = (T) a.this.egD.parseResponse(build, i);
+                            return Y;
                         }
-                        return ab;
+                        return Y;
                     }
-                    return ab;
+                    return Y;
                 }
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
+            /* renamed from: S */
             public void onSuccess(String str2, int i) {
                 if (com.baidu.swan.games.bdtls.a.DEBUG) {
                     Log.d("BDTLS", "BdtlsPostRequest onSuccess=" + str2);
                 }
                 if (TextUtils.equals(str2, "recovery")) {
-                    if (!e.aVy().aVz().aWA()) {
-                        a.this.dXF.onFail(new Exception("Exceeded the limit of continuous downgrade"));
+                    if (!e.aXS().aXT().aYU()) {
+                        a.this.egD.onFail(new Exception("Exceeded the limit of continuous downgrade"));
                         return;
                     }
-                    e.aVy().aVz().aWy();
-                    a.this.hK(true);
-                    a.this.aWI();
+                    e.aXS().aXT().aYS();
+                    a.this.ic(true);
+                    a.this.aZc();
                     return;
                 }
-                e.aVy().aVz().aWB();
-                if (!a.this.dXI) {
-                    if (a.this.dXF != null) {
-                        a.this.dXF.onSuccess(this.dXG, i);
+                e.aXS().aXT().aYV();
+                if (!a.this.egG) {
+                    if (a.this.egD != null) {
+                        a.this.egD.onSuccess(this.egE, i);
                         a.this.mRetryCount = 0;
                     }
-                } else if (a.this.dXJ == 1) {
-                    f.wV("application");
-                    if (a.this.dXF != null) {
-                        a.this.dXF.onSuccess(this.dXG, i);
+                } else if (a.this.egH == 1) {
+                    f.wU("application");
+                    if (a.this.egD != null) {
+                        a.this.egD.onSuccess(this.egE, i);
                     }
                     a.this.mRetryCount = 0;
                 } else if (a.c(a.this) < 3) {
-                    a.this.b(a.this.dXD, a.this.dXE, a.this.dXF);
+                    a.this.b(a.this.egB, a.this.egC, a.this.egD);
                 } else {
-                    a.this.dXF.onFail(new IOException("request fail : " + this.dXG));
+                    a.this.egD.onFail(new IOException("request fail : " + this.egE));
                     a.this.mRetryCount = 0;
                 }
             }
@@ -132,27 +133,27 @@ public class a<T> extends b {
                 if (com.baidu.swan.games.bdtls.a.DEBUG) {
                     Log.d("BDTLS", "BdtlsPostRequest onFail=" + exc.getMessage());
                 }
-                if (a.this.dXF != null) {
-                    a.this.dXF.onFail(exc);
+                if (a.this.egD != null) {
+                    a.this.egD.onFail(exc);
                 }
             }
         });
     }
 
     @Override // com.baidu.swan.games.bdtls.b.b
-    public void mw(int i) {
+    public void mE(int i) {
         if (com.baidu.swan.games.bdtls.a.DEBUG) {
             Log.d("BDTLS", "onRequestError=" + i);
         }
-        if (this.dXF != null) {
-            this.dXF.onFail(new Exception("request error  code : " + i));
+        if (this.egD != null) {
+            this.egD.onFail(new Exception("request error  code : " + i));
         }
     }
 
     @Override // com.baidu.swan.games.bdtls.b.b
     public void b(IOException iOException) {
-        if (this.dXF != null) {
-            this.dXF.onFail(iOException);
+        if (this.egD != null) {
+            this.egD.onFail(iOException);
         }
     }
 

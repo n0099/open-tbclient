@@ -3,11 +3,11 @@ package com.baidu.tieba.aiapps.apps.l;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
-import com.baidu.swan.apps.ap.p;
+import com.baidu.swan.apps.ao.p;
 import com.baidu.swan.apps.env.launch.SwanLauncher;
 import com.baidu.swan.apps.process.messaging.service.e;
 import com.baidu.swan.veloce.c;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class a implements com.baidu.swan.veloce.a {
     @Override // com.baidu.swan.veloce.a
     public Bundle g(String str, Bundle bundle) {
@@ -38,22 +38,22 @@ public class a implements com.baidu.swan.veloce.a {
     }
 
     @Override // com.baidu.swan.veloce.a
-    public void bgS() {
-        p.aOZ();
-        p.aOY();
-        p.aPa();
+    public void bjp() {
+        p.aRq();
+        p.aRp();
+        p.aRr();
         try {
             new UnitedSchemeMainDispatcher();
-            SwanLauncher.avL();
-            e.aIs();
+            SwanLauncher.axd();
+            e.aJL();
         } catch (Exception e) {
         }
     }
 
     @Override // com.baidu.swan.veloce.a
-    public void zQ(String str) {
+    public void zP(String str) {
         if (!TextUtils.isEmpty(str)) {
-            com.baidu.swan.facade.b.b.vH(str);
+            com.baidu.swan.facade.b.b.vG(str);
         }
     }
 }

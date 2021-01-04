@@ -1,86 +1,86 @@
 package com.airbnb.lottie.model;
 
-import android.support.annotation.CheckResult;
-import android.support.annotation.Nullable;
-import android.support.annotation.RestrictTo;
+import androidx.annotation.CheckResult;
+import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class e {
-    private final List<String> FA;
+    private final List<String> Fn;
     @Nullable
-    private f FB;
+    private f Fo;
 
     public e(String... strArr) {
-        this.FA = Arrays.asList(strArr);
+        this.Fn = Arrays.asList(strArr);
     }
 
     private e(e eVar) {
-        this.FA = new ArrayList(eVar.FA);
-        this.FB = eVar.FB;
+        this.Fn = new ArrayList(eVar.Fn);
+        this.Fo = eVar.Fo;
     }
 
     @CheckResult
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public e bn(String str) {
+    public e bk(String str) {
         e eVar = new e(this);
-        eVar.FA.add(str);
+        eVar.Fn.add(str);
         return eVar;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public e a(f fVar) {
         e eVar = new e(this);
-        eVar.FB = fVar;
+        eVar.Fo = fVar;
         return eVar;
     }
 
     @Nullable
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public f jA() {
-        return this.FB;
+    public f iZ() {
+        return this.Fo;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public boolean h(String str, int i) {
-        if (bo(str)) {
+        if (bl(str)) {
             return true;
         }
-        if (i >= this.FA.size()) {
+        if (i >= this.Fn.size()) {
             return false;
         }
-        return this.FA.get(i).equals(str) || this.FA.get(i).equals("**") || this.FA.get(i).equals("*");
+        return this.Fn.get(i).equals(str) || this.Fn.get(i).equals("**") || this.Fn.get(i).equals("*");
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public int i(String str, int i) {
-        if (bo(str)) {
+        if (bl(str)) {
             return 0;
         }
-        if (this.FA.get(i).equals("**")) {
-            return (i != this.FA.size() + (-1) && this.FA.get(i + 1).equals(str)) ? 2 : 0;
+        if (this.Fn.get(i).equals("**")) {
+            return (i != this.Fn.size() + (-1) && this.Fn.get(i + 1).equals(str)) ? 2 : 0;
         }
         return 1;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public boolean j(String str, int i) {
-        if (i >= this.FA.size()) {
+        if (i >= this.Fn.size()) {
             return false;
         }
-        boolean z = i == this.FA.size() + (-1);
-        String str2 = this.FA.get(i);
+        boolean z = i == this.Fn.size() + (-1);
+        String str2 = this.Fn.get(i);
         if (!str2.equals("**")) {
-            return (z || (i == this.FA.size() + (-2) && jB())) && (str2.equals(str) || str2.equals("*"));
+            return (z || (i == this.Fn.size() + (-2) && ja())) && (str2.equals(str) || str2.equals("*"));
         }
-        if (!z && this.FA.get(i + 1).equals(str)) {
-            return i == this.FA.size() + (-2) || (i == this.FA.size() + (-3) && jB());
+        if (!z && this.Fn.get(i + 1).equals(str)) {
+            return i == this.Fn.size() + (-2) || (i == this.Fn.size() + (-3) && ja());
         } else if (z) {
             return true;
         } else {
-            if (i + 1 >= this.FA.size() - 1) {
-                return this.FA.get(i + 1).equals(str);
+            if (i + 1 >= this.Fn.size() - 1) {
+                return this.Fn.get(i + 1).equals(str);
             }
             return false;
         }
@@ -91,18 +91,18 @@ public class e {
         if (str.equals("__container")) {
             return true;
         }
-        return i < this.FA.size() + (-1) || this.FA.get(i).equals("**");
+        return i < this.Fn.size() + (-1) || this.Fn.get(i).equals("**");
     }
 
-    private boolean bo(String str) {
+    private boolean bl(String str) {
         return str.equals("__container");
     }
 
-    private boolean jB() {
-        return this.FA.get(this.FA.size() - 1).equals("**");
+    private boolean ja() {
+        return this.Fn.get(this.Fn.size() - 1).equals("**");
     }
 
     public String toString() {
-        return "KeyPath{keys=" + this.FA + ",resolved=" + (this.FB != null) + '}';
+        return "KeyPath{keys=" + this.Fn + ",resolved=" + (this.Fo != null) + '}';
     }
 }

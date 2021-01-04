@@ -15,30 +15,34 @@ import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.Random;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes15.dex */
 public class QuantumChannel extends com.baidu.helios.channels.a {
-    private static final int b = com.baidu.helios.channels.csc.a.a(160);
+
+    /* renamed from: b  reason: collision with root package name */
+    private static final int f2470b = com.baidu.helios.channels.csc.a.a(160);
     private static final int d = com.baidu.helios.channels.csc.a.a(8);
-    a.C0149a avX;
-    private c awt;
-    private e awu;
-    private a awv;
+    private c awO;
+    private e awP;
+    private a awQ;
+    a.C0141a awu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes15.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        String f1800a;
-        String b;
+        String f2471a;
+
+        /* renamed from: b  reason: collision with root package name */
+        String f2472b;
         String c;
 
         private a() {
             com.baidu.helios.common.a.b bVar = new com.baidu.helios.common.a.b();
             try {
-                this.f1800a = new String(bVar.B(com.baidu.helios.channels.csc.b.sJ()));
-                this.b = new String(bVar.B(com.baidu.helios.channels.csc.b.sK()));
-                this.c = new String(bVar.B(com.baidu.helios.channels.csc.b.g()));
+                this.f2471a = new String(bVar.y(com.baidu.helios.channels.csc.b.sl()));
+                this.f2472b = new String(bVar.y(com.baidu.helios.channels.csc.b.f()));
+                this.c = new String(bVar.y(com.baidu.helios.channels.csc.b.g()));
             } catch (Exception e) {
                 throw new IllegalStateException("");
             }
@@ -46,7 +50,7 @@ public class QuantumChannel extends com.baidu.helios.channels.a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes15.dex */
     public static class b extends Exception {
         public b(String str) {
             super(str);
@@ -62,28 +66,19 @@ public class QuantumChannel extends com.baidu.helios.channels.a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes15.dex */
     public class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f1801a;
+        public long f2473a;
         private int r;
         private long t;
         private String u;
         private int v;
-        private com.baidu.helios.common.b.a.e aww = new com.baidu.helios.common.b.a.e();
+        private com.baidu.helios.common.b.a.e awR = new com.baidu.helios.common.b.a.e();
         private boolean w = true;
 
         c() {
-        }
-
-        public boolean O(long j) {
-            if (this.t != j) {
-                this.t = j;
-                this.w = true;
-                return true;
-            }
-            return false;
         }
 
         public int a() {
@@ -98,14 +93,14 @@ public class QuantumChannel extends com.baidu.helios.channels.a {
         }
 
         public void a(long j) {
-            if (this.f1801a != j) {
-                this.f1801a = j;
+            if (this.f2473a != j) {
+                this.f2473a = j;
                 this.w = true;
             }
         }
 
         public boolean a(long j, long j2) {
-            if (this.aww.d(j, j2)) {
+            if (this.awR.g(j, j2)) {
                 this.w = true;
                 return true;
             }
@@ -125,11 +120,20 @@ public class QuantumChannel extends com.baidu.helios.channels.a {
         }
 
         public long b(long j) {
-            return this.aww.Q(j);
+            return this.awR.P(j);
         }
 
         public long c() {
             return this.t;
+        }
+
+        public boolean c(long j) {
+            if (this.t != j) {
+                this.t = j;
+                this.w = true;
+                return true;
+            }
+            return false;
         }
 
         public String d() {
@@ -137,16 +141,16 @@ public class QuantumChannel extends com.baidu.helios.channels.a {
         }
 
         public void e() {
-            String p = QuantumChannel.this.avX.p("pub.dat", true);
+            String p = QuantumChannel.this.awu.p("pub.dat", true);
             if (TextUtils.isEmpty(p)) {
                 return;
             }
             try {
                 JSONObject jSONObject = new JSONObject(p);
                 this.r = jSONObject.getInt("pub_ver");
-                this.f1801a = jSONObject.getLong("pub_lst_ts");
+                this.f2473a = jSONObject.getLong("pub_lst_ts");
                 this.t = jSONObject.getLong("pkg_lst_up_ts");
-                this.aww.P(jSONObject.getLong("flags"));
+                this.awR.O(jSONObject.getLong("flags"));
                 this.v = jSONObject.getInt("d_form_ver");
                 this.u = jSONObject.optString("aid");
                 this.w = false;
@@ -160,12 +164,12 @@ public class QuantumChannel extends com.baidu.helios.channels.a {
                 try {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("pub_ver", this.r);
-                    jSONObject.put("pub_lst_ts", this.f1801a);
+                    jSONObject.put("pub_lst_ts", this.f2473a);
                     jSONObject.put("pkg_lst_up_ts", this.t);
-                    jSONObject.put("flags", this.aww.zL());
+                    jSONObject.put("flags", this.awR.zc());
                     jSONObject.put("d_form_ver", 1);
                     jSONObject.put("aid", this.u);
-                    QuantumChannel.this.avX.d("pub.dat", jSONObject.toString(), true);
+                    QuantumChannel.this.awu.c("pub.dat", jSONObject.toString(), true);
                     this.w = false;
                     return true;
                 } catch (Exception e) {
@@ -176,51 +180,55 @@ public class QuantumChannel extends com.baidu.helios.channels.a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes15.dex */
     public static class d {
-        a.C0148a awy;
-        private byte[] b;
+        a.C0140a awT;
 
-        /* loaded from: classes11.dex */
+        /* renamed from: b  reason: collision with root package name */
+        private byte[] f2474b;
+
+        /* loaded from: classes15.dex */
         public static class a {
 
             /* renamed from: a  reason: collision with root package name */
-            private int f1802a = 160;
-            private byte[] b = new byte[this.f1802a];
+            private int f2475a = 160;
+
+            /* renamed from: b  reason: collision with root package name */
+            private byte[] f2476b = new byte[this.f2475a];
             private int c;
 
             private void a(int i) {
-                if (i - this.b.length > 0) {
-                    int length = this.b.length;
+                if (i - this.f2476b.length > 0) {
+                    int length = this.f2476b.length;
                     int i2 = length + (length >> 1);
                     if (i2 - i >= 0) {
                         i = i2;
                     }
-                    this.b = Arrays.copyOf(this.b, i);
+                    this.f2476b = Arrays.copyOf(this.f2476b, i);
                 }
             }
 
-            public a b(byte b) {
+            public a b(byte b2) {
                 a(this.c + 1);
-                byte[] bArr = this.b;
+                byte[] bArr = this.f2476b;
                 int i = this.c;
                 this.c = i + 1;
-                bArr[i] = b;
+                bArr[i] = b2;
                 return this;
             }
 
-            public d zw() {
-                return new d(Arrays.copyOf(this.b, this.c));
+            public d yN() {
+                return new d(Arrays.copyOf(this.f2476b, this.c));
             }
         }
 
         public d(byte[] bArr) {
-            this.b = bArr;
-            this.awy = com.baidu.helios.channels.csc.a.x(bArr);
+            this.f2474b = bArr;
+            this.awT = com.baidu.helios.channels.csc.a.u(bArr);
         }
 
-        static int a(byte b) {
-            switch (b) {
+        static int a(byte b2) {
+            switch (b2) {
                 case 0:
                     return 0;
                 case 1:
@@ -232,7 +240,7 @@ public class QuantumChannel extends com.baidu.helios.channels.a {
             }
         }
 
-        static byte ds(int i) {
+        static byte b(int i) {
             switch (i) {
                 case 0:
                     return (byte) 0;
@@ -245,33 +253,35 @@ public class QuantumChannel extends com.baidu.helios.channels.a {
             }
         }
 
-        public static d h(byte[] bArr, int i) {
+        public static d g(byte[] bArr, int i) {
             return new d(com.baidu.helios.channels.csc.a.a(bArr, i));
         }
 
         public int a() {
-            return this.b.length;
+            return this.f2474b.length;
         }
 
         public int a(int i) {
-            if (i < 0 || i >= this.b.length) {
-                throw new IllegalArgumentException("illegal index " + i + " with current length is " + this.b.length);
+            if (i < 0 || i >= this.f2474b.length) {
+                throw new IllegalArgumentException("illegal index " + i + " with current length is " + this.f2474b.length);
             }
-            return a(this.b[i]);
+            return a(this.f2474b[i]);
         }
 
         public byte[] b() {
-            return this.awy.a();
+            return this.awT.a();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes15.dex */
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        Method f1803a;
-        Method b;
+        Method f2477a;
+
+        /* renamed from: b  reason: collision with root package name */
+        Method f2478b;
         Method c;
         Class<?> d;
 
@@ -288,14 +298,14 @@ public class QuantumChannel extends com.baidu.helios.channels.a {
             Object invoke = this.c.invoke(context, new Object[0]);
             Intent intent = new Intent();
             intent.setClassName(context.getPackageName(), "");
-            this.d = com.baidu.helios.channels.csc.d.a(intent.getClass(), com.baidu.helios.channels.csc.d.a(com.baidu.helios.channels.csc.b.sI()), null).invoke(intent, new Object[0]).getClass();
-            this.f1803a = com.baidu.helios.channels.csc.d.a(invoke.getClass(), com.baidu.helios.channels.csc.d.a(com.baidu.helios.channels.csc.b.a()), new Class[]{this.d, Integer.TYPE, Integer.TYPE});
-            this.b = com.baidu.helios.channels.csc.d.a(invoke.getClass(), com.baidu.helios.channels.csc.d.a(com.baidu.helios.channels.csc.b.b()), new Class[]{this.d});
+            this.d = com.baidu.helios.channels.csc.d.a(intent.getClass(), com.baidu.helios.channels.csc.d.a(com.baidu.helios.channels.csc.b.sk()), null).invoke(intent, new Object[0]).getClass();
+            this.f2477a = com.baidu.helios.channels.csc.d.a(invoke.getClass(), com.baidu.helios.channels.csc.d.a(com.baidu.helios.channels.csc.b.a()), new Class[]{this.d, Integer.TYPE, Integer.TYPE});
+            this.f2478b = com.baidu.helios.channels.csc.d.a(invoke.getClass(), com.baidu.helios.channels.csc.d.a(com.baidu.helios.channels.csc.b.b()), new Class[]{this.d});
         }
 
         int a(Object obj, Object obj2) {
             try {
-                return ((Integer) this.b.invoke(obj, obj2)).intValue();
+                return ((Integer) this.f2478b.invoke(obj, obj2)).intValue();
             } catch (Exception e) {
                 throw new d.a("");
             }
@@ -303,13 +313,13 @@ public class QuantumChannel extends com.baidu.helios.channels.a {
 
         void a(Object obj, Object obj2, int i) {
             try {
-                this.f1803a.invoke(obj, obj2, Integer.valueOf(i), 1);
+                this.f2477a.invoke(obj, obj2, Integer.valueOf(i), 1);
             } catch (Exception e) {
                 throw new d.a("");
             }
         }
 
-        Object an(Context context) {
+        Object am(Context context) {
             try {
                 return this.c.invoke(context, new Object[0]);
             } catch (Exception e) {
@@ -318,7 +328,7 @@ public class QuantumChannel extends com.baidu.helios.channels.a {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes15.dex */
     class f extends a.b {
         private String h;
         private int i;
@@ -327,7 +337,7 @@ public class QuantumChannel extends com.baidu.helios.channels.a {
         private int l;
 
         public f(String str) {
-            super(QuantumChannel.this.avX, str);
+            super(QuantumChannel.this.awu, str);
         }
 
         public String a() {
@@ -337,14 +347,14 @@ public class QuantumChannel extends com.baidu.helios.channels.a {
         public void a(int i) {
             if (this.i != i) {
                 this.i = i;
-                aY(true);
+                aV(true);
             }
         }
 
         public void a(long j) {
             if (this.j != j) {
                 this.j = j;
-                aY(true);
+                aV(true);
             }
         }
 
@@ -353,7 +363,7 @@ public class QuantumChannel extends com.baidu.helios.channels.a {
                 return;
             }
             this.h = str;
-            aY(true);
+            aV(true);
         }
 
         public int b() {
@@ -365,7 +375,7 @@ public class QuantumChannel extends com.baidu.helios.channels.a {
                 return;
             }
             this.k = str;
-            aY(true);
+            aV(true);
         }
 
         public String c() {
@@ -373,7 +383,7 @@ public class QuantumChannel extends com.baidu.helios.channels.a {
         }
 
         @Override // com.baidu.helios.channels.a.b
-        public void j(JSONObject jSONObject) {
+        public void q(JSONObject jSONObject) {
             this.h = jSONObject.getString(Config.INPUT_DEF_PKG);
             this.i = jSONObject.getInt("aid_ver");
             this.j = jSONObject.getLong("last_fe_ts");
@@ -382,7 +392,7 @@ public class QuantumChannel extends com.baidu.helios.channels.a {
         }
 
         @Override // com.baidu.helios.channels.a.b
-        public void k(JSONObject jSONObject) {
+        public void r(JSONObject jSONObject) {
             jSONObject.put(Config.INPUT_DEF_PKG, this.h);
             jSONObject.put("aid_ver", this.i);
             jSONObject.put("last_fe_ts", this.j);
@@ -392,7 +402,7 @@ public class QuantumChannel extends com.baidu.helios.channels.a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes15.dex */
     public static class g extends Exception {
         public g(String str) {
             super(str);
@@ -405,12 +415,12 @@ public class QuantumChannel extends com.baidu.helios.channels.a {
 
     public QuantumChannel() {
         super("csc", 9000000L);
-        this.awt = new c();
+        this.awO = new c();
     }
 
     private int a(Object obj, Object obj2) {
         try {
-            return this.awu.a(obj, obj2);
+            return this.awP.a(obj, obj2);
         } catch (d.a e2) {
             throw e2;
         } catch (Throwable th) {
@@ -418,9 +428,22 @@ public class QuantumChannel extends com.baidu.helios.channels.a {
         }
     }
 
+    private int a(Object obj, String str) {
+        d.a aVar = new d.a();
+        for (int i = 0; i < d; i++) {
+            aVar.b(d.b(a(obj, x(str, i))));
+        }
+        byte[] b2 = aVar.yN().b();
+        int i2 = 0;
+        for (int i3 = 0; i3 < b2.length; i3++) {
+            i2 |= (b2[i3] & 255) << (i3 * 8);
+        }
+        return i2;
+    }
+
     private Object a(String str) {
         try {
-            return com.baidu.helios.channels.csc.d.a(this.awu.d, new Object[]{str, this.awv.b});
+            return com.baidu.helios.channels.csc.d.a(this.awP.d, new Object[]{str, this.awQ.f2472b});
         } catch (Exception e2) {
             e2.printStackTrace();
             throw new b("");
@@ -429,7 +452,7 @@ public class QuantumChannel extends com.baidu.helios.channels.a {
 
     private void a(Object obj, Object obj2, int i) {
         try {
-            this.awu.a(obj, obj2, i);
+            this.awP.a(obj, obj2, i);
         } catch (d.a e2) {
             throw e2;
         } catch (Throwable th) {
@@ -439,63 +462,63 @@ public class QuantumChannel extends com.baidu.helios.channels.a {
 
     private a.e b(a.d dVar) {
         String d2;
-        Context context = this.awn.applicationContext;
+        Context context = this.awI.applicationContext;
         PackageManager packageManager = context.getPackageManager();
         String packageName = context.getPackageName();
         try {
             PackageInfo packageInfo = packageManager.getPackageInfo(context.getPackageName(), 0);
-            boolean z = packageInfo.lastUpdateTime != this.awt.c();
-            this.awt.O(packageInfo.lastUpdateTime);
-            if (z || this.awt.b(6L) != 4) {
-                com.baidu.helios.ids.a fC = this.awn.awr.fC("aid");
+            boolean z = packageInfo.lastUpdateTime != this.awO.c();
+            this.awO.c(packageInfo.lastUpdateTime);
+            if (z || this.awO.b(6L) != 4) {
+                com.baidu.helios.ids.a fn = this.awI.awM.fn("aid");
                 try {
-                    Object an = this.awu.an(context);
-                    if (an == null) {
+                    Object am = this.awP.am(context);
+                    if (am == null) {
                         return a.e.dq(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_TOKEN_FAIL);
                     }
                     try {
-                        if (this.awt.b(1L) == 1 && (d2 = this.awt.d()) != null && d2.equals(fC.zT()) && f(an, packageName)) {
-                            if (this.awt.a() == d(an, packageName)) {
-                                return a.e.zs();
+                        if (this.awO.b(1L) == 1 && (d2 = this.awO.d()) != null && d2.equals(fn.zk()) && d(am, packageName)) {
+                            if (this.awO.a() == a(am, packageName)) {
+                                return a.e.yJ();
                             }
                         }
-                        byte[] zU = fC.zU();
-                        this.awt.a(fC.zT());
-                        d h = d.h(zU, zU.length * 8);
+                        byte[] zl = fn.zl();
+                        this.awO.a(fn.zk());
+                        d g2 = d.g(zl, zl.length * 8);
                         try {
-                            int a2 = h.a();
+                            int a2 = g2.a();
                             for (int i = 0; i < a2; i++) {
-                                a(an, w(packageName, i), h.a(i));
+                                a(am, w(packageName, i), g2.a(i));
                             }
                             int nextInt = new Random().nextInt(255);
-                            this.awt.a(nextInt);
+                            this.awO.a(nextInt);
                             byte[] bArr = new byte[1];
                             for (int i2 = 0; i2 < 1; i2++) {
                                 bArr[i2] = (byte) ((nextInt >> (i2 * 8)) & 255);
                             }
-                            d h2 = d.h(bArr, 8);
+                            d g3 = d.g(bArr, 8);
                             try {
-                                int a3 = h2.a();
+                                int a3 = g3.a();
                                 for (int i3 = 0; i3 < a3; i3++) {
-                                    a(an, x(packageName, i3), h2.a(i3));
+                                    a(am, x(packageName, i3), g3.a(i3));
                                 }
                                 try {
-                                    if (d(an, packageName) != nextInt) {
+                                    if (a(am, packageName) != nextInt) {
                                         return a.e.dq(-103);
                                     }
                                     try {
-                                        a(an, a(packageName), 1);
-                                        this.awt.a(System.currentTimeMillis());
-                                        this.awt.a(1L, 1L);
-                                        return a.e.zs();
+                                        a(am, a(packageName), 1);
+                                        this.awO.a(System.currentTimeMillis());
+                                        this.awO.a(1L, 1L);
+                                        return a.e.yJ();
                                     } catch (b e2) {
-                                        this.awt.a(4L, 6L);
+                                        this.awO.a(4L, 6L);
                                         return a.e.dq(-101);
                                     } catch (d.a e3) {
                                         return a.e.dq(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_TOKEN_FAIL);
                                     }
                                 } catch (b e4) {
-                                    this.awt.a(4L, 6L);
+                                    this.awO.a(4L, 6L);
                                     return a.e.dq(-101);
                                 } catch (g e5) {
                                     return a.e.dq(-103);
@@ -503,23 +526,23 @@ public class QuantumChannel extends com.baidu.helios.channels.a {
                                     return a.e.dq(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_TOKEN_FAIL);
                                 }
                             } catch (b e7) {
-                                this.awt.a(4L, 6L);
+                                this.awO.a(4L, 6L);
                                 return a.e.dq(-101);
                             } catch (d.a e8) {
                                 return a.e.dq(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_TOKEN_FAIL);
                             }
                         } catch (b e9) {
-                            this.awt.a(4L, 6L);
+                            this.awO.a(4L, 6L);
                             return a.e.dq(-101);
                         } catch (d.a e10) {
                             return a.e.dq(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_TOKEN_FAIL);
                         }
                     } catch (b e11) {
-                        this.awt.a(4L, 6L);
+                        this.awO.a(4L, 6L);
                         return a.e.dq(-101);
                     } catch (g e12) {
                         try {
-                            a(an, a(packageName), 0);
+                            a(am, a(packageName), 0);
                         } catch (Exception e13) {
                         }
                         return a.e.dq(-103);
@@ -536,34 +559,21 @@ public class QuantumChannel extends com.baidu.helios.channels.a {
         }
     }
 
-    private int d(Object obj, String str) {
+    private byte[] c(Object obj, String str) {
         d.a aVar = new d.a();
-        for (int i = 0; i < d; i++) {
-            aVar.b(d.ds(a(obj, x(str, i))));
+        for (int i = 0; i < f2470b; i++) {
+            aVar.b(d.b(a(obj, w(str, i))));
         }
-        byte[] b2 = aVar.zw().b();
-        int i2 = 0;
-        for (int i3 = 0; i3 < b2.length; i3++) {
-            i2 |= (b2[i3] & 255) << (i3 * 8);
-        }
-        return i2;
+        return aVar.yN().b();
     }
 
-    private byte[] e(Object obj, String str) {
-        d.a aVar = new d.a();
-        for (int i = 0; i < b; i++) {
-            aVar.b(d.ds(a(obj, w(str, i))));
-        }
-        return aVar.zw().b();
-    }
-
-    private boolean f(Object obj, String str) {
+    private boolean d(Object obj, String str) {
         return a(obj, a(str)) == 1;
     }
 
     private Object w(String str, int i) {
         try {
-            return com.baidu.helios.channels.csc.d.a(this.awu.d, new Object[]{str, this.awv.f1800a + i});
+            return com.baidu.helios.channels.csc.d.a(this.awP.d, new Object[]{str, this.awQ.f2471a + i});
         } catch (Exception e2) {
             e2.printStackTrace();
             throw new b("");
@@ -572,7 +582,7 @@ public class QuantumChannel extends com.baidu.helios.channels.a {
 
     private Object x(String str, int i) {
         try {
-            return com.baidu.helios.channels.csc.d.a(this.awu.d, new Object[]{str, this.awv.c + i});
+            return com.baidu.helios.channels.csc.d.a(this.awP.d, new Object[]{str, this.awQ.c + i});
         } catch (Exception e2) {
             e2.printStackTrace();
             throw new b("");
@@ -581,11 +591,11 @@ public class QuantumChannel extends com.baidu.helios.channels.a {
 
     @Override // com.baidu.helios.channels.a
     public a.e a(a.d dVar) {
-        this.awt.e();
+        this.awO.e();
         try {
             return b(dVar);
         } finally {
-            this.awt.f();
+            this.awO.f();
         }
     }
 
@@ -594,19 +604,19 @@ public class QuantumChannel extends com.baidu.helios.channels.a {
     public a.g a(String str, a.f fVar) {
         f fVar2 = null;
         try {
-            Object an = this.awu.an(this.awn.applicationContext);
-            if (an == null) {
+            Object am = this.awP.am(this.awI.applicationContext);
+            if (am == null) {
                 return a.g.e(-101, null);
             }
             if (fVar.useCache) {
                 f fVar3 = new f(str);
-                fVar3.zq();
+                fVar3.yH();
                 if (str.equals(fVar3.a())) {
                     try {
-                        if (fVar3.b() == d(an, str)) {
+                        if (fVar3.b() == a(am, str)) {
                             String c2 = fVar3.c();
                             if (!TextUtils.isEmpty(c2)) {
-                                return a.g.fz(c2);
+                                return a.g.fk(c2);
                             }
                         }
                         fVar2 = fVar3;
@@ -624,34 +634,34 @@ public class QuantumChannel extends com.baidu.helios.channels.a {
             try {
                 try {
                     try {
-                        if (!f(an, str)) {
+                        if (!d(am, str)) {
                             a.g e5 = a.g.e(-2, null);
                             if (!fVar.useCache || fVar2 == null) {
                                 return e5;
                             }
-                            fVar2.zr();
+                            fVar2.yI();
                             return e5;
                         }
-                        String D = com.baidu.helios.ids.a.a.D(e(an, str));
-                        int d2 = d(an, str);
+                        String B = com.baidu.helios.ids.a.a.B(c(am, str));
+                        int a2 = a(am, str);
                         if (fVar.useCache && fVar2 != null) {
-                            fVar2.b(D);
+                            fVar2.b(B);
                             fVar2.a(str);
                             fVar2.a(System.currentTimeMillis());
-                            fVar2.a(d2);
+                            fVar2.a(a2);
                         }
-                        a.g fz = a.g.fz(D);
+                        a.g fk = a.g.fk(B);
                         if (!fVar.useCache || fVar2 == null) {
-                            return fz;
+                            return fk;
                         }
-                        fVar2.zr();
-                        return fz;
+                        fVar2.yI();
+                        return fk;
                     } catch (g e6) {
                         a.g dr = a.g.dr(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_TOKEN_FAIL);
                         if (!fVar.useCache || fVar2 == null) {
                             return dr;
                         }
-                        fVar2.zr();
+                        fVar2.yI();
                         return dr;
                     }
                 } catch (b e7) {
@@ -659,19 +669,19 @@ public class QuantumChannel extends com.baidu.helios.channels.a {
                     if (!fVar.useCache || fVar2 == null) {
                         return j;
                     }
-                    fVar2.zr();
+                    fVar2.yI();
                     return j;
                 } catch (d.a e8) {
                     a.g e9 = a.g.e(-2, null);
                     if (!fVar.useCache || fVar2 == null) {
                         return e9;
                     }
-                    fVar2.zr();
+                    fVar2.yI();
                     return e9;
                 }
             } catch (Throwable th) {
                 if (fVar.useCache && fVar2 != null) {
-                    fVar2.zr();
+                    fVar2.yI();
                 }
                 throw th;
             }
@@ -682,8 +692,8 @@ public class QuantumChannel extends com.baidu.helios.channels.a {
 
     @Override // com.baidu.helios.channels.a
     public void a(a.c cVar) {
-        this.avX = this.awo.fB("csc");
-        this.awu = new e(this.awn.applicationContext);
-        this.awv = new a();
+        this.awu = this.awJ.fm("csc");
+        this.awP = new e(this.awI.applicationContext);
+        this.awQ = new a();
     }
 }

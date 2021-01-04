@@ -7,30 +7,30 @@ import tbclient.LinkThreadContent;
 import tbclient.LinkThreadInfo;
 /* loaded from: classes.dex */
 public class ao {
-    public static int eGK = 1;
-    private String eGL;
-    private String eGM;
-    private int eGN = 0;
-    private boolean eGO = false;
-    private String linkTitle;
+    public static int eQA = 1;
+    private String eQB;
+    private String eQC;
+    private String eQD;
+    private int eQE = 0;
+    private boolean eQF = false;
     private String linkUrl;
 
     public void a(LinkThreadInfo linkThreadInfo) {
         if (linkThreadInfo != null) {
             this.linkUrl = linkThreadInfo.link_url;
-            LinkThreadContent linkThreadContent = (LinkThreadContent) com.baidu.tbadk.core.util.y.getItem(linkThreadInfo.link_content, 0);
+            LinkThreadContent linkThreadContent = (LinkThreadContent) com.baidu.tbadk.core.util.x.getItem(linkThreadInfo.link_content, 0);
             if (linkThreadContent != null) {
-                this.linkTitle = linkThreadContent.link_title;
-                this.eGL = linkThreadContent.link_abstract;
-                this.eGM = linkThreadContent.link_head_small_pic;
-                this.eGN = linkThreadContent.link_type.intValue();
-                if (com.baidu.tbadk.core.util.au.isEmpty(this.linkTitle) && com.baidu.tbadk.core.util.au.isEmpty(this.eGL)) {
-                    this.eGO = true;
+                this.eQB = linkThreadContent.link_title;
+                this.eQC = linkThreadContent.link_abstract;
+                this.eQD = linkThreadContent.link_head_small_pic;
+                this.eQE = linkThreadContent.link_type.intValue();
+                if (com.baidu.tbadk.core.util.at.isEmpty(this.eQB) && com.baidu.tbadk.core.util.at.isEmpty(this.eQC)) {
+                    this.eQF = true;
                     return;
                 }
                 return;
             }
-            this.eGO = true;
+            this.eQF = true;
         }
     }
 
@@ -42,23 +42,23 @@ public class ao {
                 try {
                     JSONObject jSONObject2 = optJSONArray.getJSONObject(0);
                     if (jSONObject2 != null) {
-                        this.linkTitle = jSONObject2.optString("link_title");
-                        this.eGL = jSONObject2.optString("link_abstract");
-                        this.eGM = jSONObject2.optString("link_head_small_pic");
-                        this.eGN = jSONObject2.optInt("link_type");
-                        if (com.baidu.tbadk.core.util.au.isEmpty(this.linkTitle) && com.baidu.tbadk.core.util.au.isEmpty(this.eGL)) {
-                            this.eGO = true;
+                        this.eQB = jSONObject2.optString("link_title");
+                        this.eQC = jSONObject2.optString("link_abstract");
+                        this.eQD = jSONObject2.optString("link_head_small_pic");
+                        this.eQE = jSONObject2.optInt("link_type");
+                        if (com.baidu.tbadk.core.util.at.isEmpty(this.eQB) && com.baidu.tbadk.core.util.at.isEmpty(this.eQC)) {
+                            this.eQF = true;
                         }
                     } else {
-                        this.eGO = true;
+                        this.eQF = true;
                     }
                     return;
                 } catch (JSONException e) {
-                    this.eGO = true;
+                    this.eQF = true;
                     return;
                 }
             }
-            this.eGO = true;
+            this.eQF = true;
         }
     }
 
@@ -66,23 +66,23 @@ public class ao {
         return this.linkUrl;
     }
 
-    public String bnh() {
-        return this.linkTitle;
+    public String bpG() {
+        return this.eQB;
     }
 
-    public String bni() {
-        return this.eGL;
+    public String bpH() {
+        return this.eQC;
     }
 
-    public String bnj() {
-        return this.eGM;
+    public String bpI() {
+        return this.eQD;
     }
 
-    public int bnk() {
-        return this.eGN;
+    public int bpJ() {
+        return this.eQE;
     }
 
-    public boolean bnl() {
-        return this.eGO;
+    public boolean bpK() {
+        return this.eQF;
     }
 }

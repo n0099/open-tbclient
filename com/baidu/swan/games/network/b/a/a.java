@@ -1,9 +1,9 @@
 package com.baidu.swan.games.network.b.a;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.swan.apps.v.f;
 import com.baidu.swan.games.binding.model.c;
@@ -11,64 +11,64 @@ import com.baidu.swan.games.network.a.d;
 import com.baidu.swan.games.network.b.e;
 import java.io.File;
 import okhttp3.Request;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class a extends com.baidu.swan.games.network.a.b implements com.baidu.swan.games.network.b.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private e ecR;
+    private e elO;
 
     public a(com.baidu.swan.games.f.b bVar, c cVar) {
         super(bVar, cVar);
-        this.ecR = new e(this);
+        this.elO = new e(this);
     }
 
     @Override // com.baidu.swan.games.network.a
     public void j(c cVar) {
         super.j(cVar);
-        this.ecR.aYQ();
+        this.elO.bbk();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.games.network.a.b
     public void a(Request request, String str, String str2, com.baidu.swan.games.network.b bVar, d dVar) {
-        if (this.ecA != null && !xT(str)) {
-            String optString = this.ecA.optString("url");
+        if (this.elx != null && !xS(str)) {
+            String optString = this.elx.optString("url");
             if (DEBUG) {
                 Log.d("PreDownloadTask", "doDownload start: " + optString);
             }
-            com.baidu.swan.games.network.b.d.aYP().a(optString, this);
+            com.baidu.swan.games.network.b.d.bbj().a(optString, this);
             super.a(request, str, str2, bVar, dVar);
         }
     }
 
     @Override // com.baidu.swan.games.network.a.b
     @Nullable
-    protected String xS(@NonNull String str) {
+    protected String xR(@NonNull String str) {
         File parentFile;
-        String uj = f.aCp().aBV().uj(str);
-        if (uj == null || uj.endsWith(File.separator) || (parentFile = new File(uj).getParentFile()) == null) {
+        String ug = f.aDG().aDm().ug(str);
+        if (ug == null || ug.endsWith(File.separator) || (parentFile = new File(ug).getParentFile()) == null) {
             return null;
         }
         if (!parentFile.exists()) {
             parentFile.mkdirs();
         }
-        return uj;
+        return ug;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.games.network.a
     public void onSuccess(Object obj) {
-        this.ecR.onSuccess(obj);
+        this.elO.onSuccess(obj);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.games.network.a.b, com.baidu.swan.games.network.a
-    public void l(String str, int i, String str2) {
-        this.ecR.l(str, i, str2);
+    public void onError(String str, int i, String str2) {
+        this.elO.onError(str, i, str2);
     }
 
     @Override // com.baidu.swan.games.network.a, com.baidu.searchbox.v8engine.event.EventTargetImpl, com.baidu.searchbox.v8engine.event.EventTarget
     public boolean dispatchEvent(JSEvent jSEvent) {
-        return this.ecR.b(jSEvent);
+        return this.elO.b(jSEvent);
     }
 
     @Override // com.baidu.swan.games.network.b.a
@@ -83,7 +83,7 @@ public class a extends com.baidu.swan.games.network.a.b implements com.baidu.swa
                     return;
                 case 2:
                     com.baidu.swan.games.network.c.b bVar2 = (com.baidu.swan.games.network.c.b) bVar.data;
-                    super.l(bVar2.url, bVar2.statusCode, bVar2.errMsg);
+                    super.onError(bVar2.url, bVar2.statusCode, bVar2.errMsg);
                     return;
                 case 3:
                     super.dispatchEvent((JSEvent) bVar.data);
@@ -94,11 +94,11 @@ public class a extends com.baidu.swan.games.network.a.b implements com.baidu.swa
         }
     }
 
-    private boolean xT(String str) {
-        String uj = f.aCp().aBV().uj(str);
-        if (TextUtils.isEmpty(uj)) {
+    private boolean xS(String str) {
+        String ug = f.aDG().aDm().ug(str);
+        if (TextUtils.isEmpty(ug)) {
             return false;
         }
-        return new File(uj).exists();
+        return new File(ug).exists();
     }
 }

@@ -4,28 +4,28 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.RectF;
-import android.support.annotation.Nullable;
-import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.View;
+import androidx.annotation.Nullable;
+import androidx.viewpager.widget.ViewPager;
 import com.baidu.spswitch.b.a;
 import com.baidu.spswitch.b.d;
 import com.baidu.spswitch.emotion.c;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class CircleIndicator extends View {
-    private int IT;
-    private int cyO;
-    private int cyP;
-    private int cyQ;
-    private int cyR;
-    private int cyS;
-    private int cyT;
-    private int cyU;
-    private final ViewPager.OnPageChangeListener cyV;
+    private int Iq;
+    private ViewPager Zk;
+    private int cDH;
+    private int cDI;
+    private int cDJ;
+    private int cDK;
+    private int cDL;
+    private int cDM;
+    private int cDN;
+    private final ViewPager.OnPageChangeListener cDO;
     private int mHeight;
     private int mRadius;
     private Paint mTabPaint;
-    private ViewPager mViewPager;
     private int mWidth;
 
     public CircleIndicator(Context context) {
@@ -38,24 +38,24 @@ public class CircleIndicator extends View {
 
     public CircleIndicator(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.IT = 1;
-        this.cyS = 0;
-        this.cyV = new ViewPager.OnPageChangeListener() { // from class: com.baidu.spswitch.emotion.view.CircleIndicator.1
-            @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+        this.Iq = 1;
+        this.cDL = 0;
+        this.cDO = new ViewPager.OnPageChangeListener() { // from class: com.baidu.spswitch.emotion.view.CircleIndicator.1
+            @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
             public void onPageScrolled(int i2, float f, int i3) {
                 if (f > 0.0f) {
                     CircleIndicator.this.d(i2, f);
                 }
             }
 
-            @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+            @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
             public void onPageSelected(int i2) {
-                CircleIndicator.this.cyO = i2;
+                CircleIndicator.this.cDH = i2;
             }
 
-            @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+            @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
             public void onPageScrollStateChanged(int i2) {
-                c.bM(CircleIndicator.this.getContext().getApplicationContext()).ahV();
+                c.bV(CircleIndicator.this.getContext().getApplicationContext()).aje();
             }
         };
         init();
@@ -64,13 +64,13 @@ public class CircleIndicator extends View {
     private void init() {
         this.mTabPaint = new Paint();
         this.mTabPaint.setAntiAlias(true);
-        if (a.ahZ().isNightMode()) {
-            this.cyT = -13421773;
-            this.cyU = -11184811;
+        if (a.aji().isNightMode()) {
+            this.cDM = -13421773;
+            this.cDN = -11184811;
             return;
         }
-        this.cyT = -2565928;
-        this.cyU = -6579301;
+        this.cDM = -2565928;
+        this.cDN = -6579301;
     }
 
     @Override // android.view.View
@@ -78,54 +78,54 @@ public class CircleIndicator extends View {
         super.onSizeChanged(i, i2, i3, i4);
         this.mHeight = i2;
         this.mWidth = i;
-        this.cyP = (int) d.g(getContext(), 10.0f);
-        this.cyR = (this.mWidth - (this.cyP * (this.IT - 1))) / 2;
-        this.mRadius = this.cyP / 5;
-        this.cyQ = this.cyP;
+        this.cDI = (int) d.g(getContext(), 10.0f);
+        this.cDK = (this.mWidth - (this.cDI * (this.Iq - 1))) / 2;
+        this.mRadius = this.cDI / 5;
+        this.cDJ = this.cDI;
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        n(canvas);
         m(canvas);
-        l(canvas);
-    }
-
-    private void l(Canvas canvas) {
-        this.mTabPaint.setColor(this.cyU);
-        int i = (this.cyR + this.cyS) - (this.cyP / 2);
-        canvas.drawRoundRect(new RectF(i, 0, this.cyQ + i, (this.mRadius * 2) + 0), 10.0f, 10.0f, this.mTabPaint);
     }
 
     private void m(Canvas canvas) {
-        this.mTabPaint.setColor(this.cyT);
-        for (int i = 0; i < this.IT; i++) {
-            canvas.drawCircle(this.cyR + (this.cyP * i), this.mRadius, this.mRadius, this.mTabPaint);
+        this.mTabPaint.setColor(this.cDN);
+        int i = (this.cDK + this.cDL) - (this.cDI / 2);
+        canvas.drawRoundRect(new RectF(i, 0, this.cDJ + i, (this.mRadius * 2) + 0), 10.0f, 10.0f, this.mTabPaint);
+    }
+
+    private void n(Canvas canvas) {
+        this.mTabPaint.setColor(this.cDM);
+        for (int i = 0; i < this.Iq; i++) {
+            canvas.drawCircle(this.cDK + (this.cDI * i), this.mRadius, this.mRadius, this.mTabPaint);
         }
     }
 
     public void d(int i, float f) {
-        this.cyS = (int) (this.cyP * (i + f));
+        this.cDL = (int) (this.cDI * (i + f));
         invalidate();
     }
 
     public void setViewPager(ViewPager viewPager) {
-        this.mViewPager = viewPager;
-        if (this.mViewPager != null && this.mViewPager.getAdapter() != null) {
-            ahX();
-            this.mViewPager.removeOnPageChangeListener(this.cyV);
-            this.mViewPager.addOnPageChangeListener(this.cyV);
-            this.cyO = this.mViewPager.getCurrentItem();
+        this.Zk = viewPager;
+        if (this.Zk != null && this.Zk.getAdapter() != null) {
+            ajg();
+            this.Zk.removeOnPageChangeListener(this.cDO);
+            this.Zk.addOnPageChangeListener(this.cDO);
+            this.cDH = this.Zk.getCurrentItem();
             invalidate();
         }
     }
 
-    private void ahX() {
-        this.IT = this.mViewPager.getAdapter().getCount();
-        if (this.IT > 0) {
-            this.cyP = (int) d.g(getContext(), 10.0f);
-            this.cyR = (this.mWidth - (this.cyP * (this.IT - 1))) / 2;
-            this.mRadius = this.cyP / 5;
+    private void ajg() {
+        this.Iq = this.Zk.getAdapter().getCount();
+        if (this.Iq > 0) {
+            this.cDI = (int) d.g(getContext(), 10.0f);
+            this.cDK = (this.mWidth - (this.cDI * (this.Iq - 1))) / 2;
+            this.mRadius = this.cDI / 5;
             invalidate();
         }
     }

@@ -16,7 +16,7 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.TransitionDrawable;
 import android.util.Log;
 import android.widget.ImageView;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class c extends Drawable {
     private final int mBitmapHeight;
     private final Paint mBitmapPaint;
@@ -114,15 +114,15 @@ public class c extends Drawable {
         }
         if (this.mScaleType != scaleType) {
             this.mScaleType = scaleType;
-            aIM();
+            aKl();
         }
     }
 
-    private void aIM() {
+    private void aKl() {
         float min;
         float width;
+        float height;
         float f;
-        float f2 = 0.0f;
         this.mBorderRect.set(this.mBounds);
         this.mDrawableRect.set(this.mBorderWidth + 0, this.mBorderWidth + 0, this.mBorderRect.width() - this.mBorderWidth, this.mBorderRect.height() - this.mBorderWidth);
         switch (AnonymousClass1.$SwitchMap$android$widget$ImageView$ScaleType[this.mScaleType.ordinal()]) {
@@ -139,13 +139,14 @@ public class c extends Drawable {
                 if (this.mBitmapWidth * this.mDrawableRect.height() > this.mDrawableRect.width() * this.mBitmapHeight) {
                     width = this.mDrawableRect.height() / this.mBitmapHeight;
                     f = (this.mDrawableRect.width() - (this.mBitmapWidth * width)) * 0.5f;
+                    height = 0.0f;
                 } else {
                     width = this.mDrawableRect.width() / this.mBitmapWidth;
+                    height = (this.mDrawableRect.height() - (this.mBitmapHeight * width)) * 0.5f;
                     f = 0.0f;
-                    f2 = (this.mDrawableRect.height() - (this.mBitmapHeight * width)) * 0.5f;
                 }
                 this.mShaderMatrix.setScale(width, width);
-                this.mShaderMatrix.postTranslate(((int) (f + 0.5f)) + this.mBorderWidth, ((int) (f2 + 0.5f)) + this.mBorderWidth);
+                this.mShaderMatrix.postTranslate(((int) (f + 0.5f)) + this.mBorderWidth, ((int) (height + 0.5f)) + this.mBorderWidth);
                 break;
             case 3:
                 this.mShaderMatrix.set(null);
@@ -194,7 +195,7 @@ public class c extends Drawable {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.swan.apps.res.ui.c$1  reason: invalid class name */
-    /* loaded from: classes25.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         static final /* synthetic */ int[] $SwitchMap$android$widget$ImageView$ScaleType = new int[ImageView.ScaleType.values().length];
 
@@ -234,7 +235,7 @@ public class c extends Drawable {
     protected void onBoundsChange(Rect rect) {
         super.onBoundsChange(rect);
         this.mBounds.set(rect);
-        aIM();
+        aKl();
     }
 
     @Override // android.graphics.drawable.Drawable

@@ -2,13 +2,14 @@ package com.baidu.tieba.homepage.tabfeed.a;
 
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.widget.ListView.v;
+import com.baidu.adp.widget.ListView.AdapterViewHolder;
+import com.baidu.adp.widget.ListView.s;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.homepage.tabfeed.data.SpecialColumnListData;
 import com.baidu.tieba.homepage.tabfeed.view.SpecialTopicLayout;
-/* loaded from: classes22.dex */
-public class n extends com.baidu.adp.widget.ListView.a<SpecialColumnListData, com.baidu.adp.widget.ListView.b<SpecialTopicLayout>> {
-    private v amH;
+/* loaded from: classes2.dex */
+public class n extends com.baidu.adp.widget.ListView.a<SpecialColumnListData, AdapterViewHolder<SpecialTopicLayout>> {
+    private s anl;
     private TbPageContext mPageContext;
 
     public n(TbPageContext tbPageContext) {
@@ -16,25 +17,25 @@ public class n extends com.baidu.adp.widget.ListView.a<SpecialColumnListData, co
         this.mPageContext = tbPageContext;
     }
 
-    public void a(v vVar) {
-        this.amH = vVar;
+    public void a(s sVar) {
+        this.anl = sVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bG */
-    public com.baidu.adp.widget.ListView.b<SpecialTopicLayout> c(ViewGroup viewGroup) {
+    /* renamed from: bY */
+    public AdapterViewHolder<SpecialTopicLayout> e(ViewGroup viewGroup) {
         SpecialTopicLayout specialTopicLayout = new SpecialTopicLayout(this.mPageContext);
         specialTopicLayout.setShowMore(true);
-        return new com.baidu.adp.widget.ListView.b<>(specialTopicLayout);
+        return new AdapterViewHolder<>(specialTopicLayout);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, SpecialColumnListData specialColumnListData, com.baidu.adp.widget.ListView.b<SpecialTopicLayout> bVar) {
-        bVar.qR().H(specialColumnListData);
-        return bVar.getView();
+    public View a(int i, View view, ViewGroup viewGroup, SpecialColumnListData specialColumnListData, AdapterViewHolder<SpecialTopicLayout> adapterViewHolder) {
+        adapterViewHolder.qt().D(specialColumnListData);
+        return adapterViewHolder.getView();
     }
 }

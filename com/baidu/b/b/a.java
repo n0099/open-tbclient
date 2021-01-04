@@ -8,33 +8,35 @@ import com.baidu.b.h;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import java.util.Comparator;
 import org.json.JSONObject;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public abstract class a {
-    public static Comparator<a> adW = new com.baidu.b.b.b();
-    protected C0091a adU;
-    protected a.C0093a adV;
+    public static Comparator<a> c = new com.baidu.b.b.b();
+    protected C0083a aeK;
+    protected a.C0085a aeL;
     private final String d;
     private long e;
 
     /* renamed from: com.baidu.b.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes26.dex */
-    public static class C0091a {
+    /* loaded from: classes15.dex */
+    public static class C0083a {
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f1248a;
-        public com.baidu.b.e.a adX;
+        public Context f1574a;
+        public com.baidu.b.e.a aeM;
     }
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public static abstract class b {
-        private a.C0093a adY;
-        private String b;
+        private a.C0085a aeN;
+
+        /* renamed from: b  reason: collision with root package name */
+        private String f1575b;
         private String c;
         private boolean d = true;
 
-        public b(a.C0093a c0093a, String str) {
-            this.adY = c0093a;
-            this.b = str;
+        public b(a.C0085a c0085a, String str) {
+            this.aeN = c0085a;
+            this.f1575b = str;
             this.c = "target-pkg-" + Base64.encodeToString(str.getBytes(), 3);
         }
 
@@ -45,7 +47,7 @@ public abstract class a {
         }
 
         public boolean a() {
-            String a2 = this.adY.a(this.c, true);
+            String a2 = this.aeN.a(this.c, true);
             if (!TextUtils.isEmpty(a2)) {
                 try {
                     a(new JSONObject(a2));
@@ -64,7 +66,7 @@ public abstract class a {
                 try {
                     JSONObject jSONObject = new JSONObject();
                     b(jSONObject);
-                    this.adY.c(this.c, jSONObject.toString(), true);
+                    this.aeN.a(this.c, jSONObject.toString(), true);
                     a(false);
                     return true;
                 } catch (Exception e) {
@@ -74,27 +76,29 @@ public abstract class a {
         }
     }
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public static class c {
     }
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public static class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f1249a;
+        public boolean f1576a;
     }
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public static class e {
-        public h.a adZ;
-        public Exception aea;
-        public int b;
+        public h.a aeO;
+        public Exception aeP;
+
+        /* renamed from: b  reason: collision with root package name */
+        public int f1577b;
 
         public e(int i, h.a aVar, Exception exc) {
-            this.b = i;
-            this.adZ = aVar;
-            this.aea = exc;
+            this.f1577b = i;
+            this.aeO = aVar;
+            this.aeP = exc;
         }
 
         public static e a(h.a aVar) {
@@ -105,12 +109,12 @@ public abstract class a {
             return new e(i, null, null);
         }
 
-        public static e sL() {
+        public static e sm() {
             return new e(-1, null, null);
         }
 
         public boolean a() {
-            return this.b == 0;
+            return this.f1577b == 0;
         }
     }
 
@@ -125,9 +129,9 @@ public abstract class a {
         return this.d;
     }
 
-    public final void a(C0091a c0091a) {
-        this.adU = c0091a;
-        this.adV = c0091a.adX.sR().dc(IXAdRequestInfo.CS);
+    public final void a(C0083a c0083a) {
+        this.aeK = c0083a;
+        this.aeL = c0083a.aeM.sr().cV(IXAdRequestInfo.CS);
     }
 
     public abstract void a(c cVar);

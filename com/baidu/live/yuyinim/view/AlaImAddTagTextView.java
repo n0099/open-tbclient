@@ -2,12 +2,12 @@ package com.baidu.live.yuyinim.view;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.util.SkinManager;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaImAddTagTextView extends TextView {
     public AlaImAddTagTextView(Context context) {
         this(context, null);

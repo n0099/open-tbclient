@@ -10,12 +10,14 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class CustomAlertDialog extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    private ViewSwitcher f1744a;
-    private TextView b;
+    private ViewSwitcher f2378a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private TextView f2379b;
     private TextView c;
     private Button d;
     private Button e;
@@ -41,8 +43,8 @@ public class CustomAlertDialog extends Dialog {
     private void a() {
         setContentView(R.layout.layout_sapi_liveness_dialog_alert);
         setCanceledOnTouchOutside(false);
-        this.f1744a = (ViewSwitcher) findViewById(R.id.view_switcher);
-        this.b = (TextView) findViewById(R.id.dialog_title);
+        this.f2378a = (ViewSwitcher) findViewById(R.id.view_switcher);
+        this.f2379b = (TextView) findViewById(R.id.dialog_title);
         this.c = (TextView) findViewById(R.id.msg_text);
         this.d = (Button) findViewById(R.id.positive_btn);
         this.e = (Button) findViewById(R.id.negative_btn);
@@ -50,14 +52,14 @@ public class CustomAlertDialog extends Dialog {
     }
 
     public void setTitleMsg(String str) {
-        this.b.setText(str);
+        this.f2379b.setText(str);
     }
 
     public void setTitleVisible(boolean z) {
         if (z) {
-            this.b.setVisibility(0);
+            this.f2379b.setVisibility(0);
         } else {
-            this.b.setVisibility(8);
+            this.f2379b.setVisibility(8);
         }
     }
 
@@ -68,9 +70,9 @@ public class CustomAlertDialog extends Dialog {
             i = 2;
         }
         if (i == 2) {
-            this.f1744a.setDisplayedChild(0);
+            this.f2378a.setDisplayedChild(0);
         } else {
-            this.f1744a.setDisplayedChild(1);
+            this.f2378a.setDisplayedChild(1);
         }
     }
 

@@ -1,26 +1,26 @@
 package com.faceunity.gles;
 
-import android.support.v4.internal.view.SupportMenu;
-import android.support.v4.view.InputDeviceCompat;
-import android.support.v4.view.MotionEventCompat;
-import android.support.v4.view.ViewCompat;
+import androidx.core.internal.view.SupportMenu;
+import androidx.core.view.InputDeviceCompat;
+import androidx.core.view.MotionEventCompat;
+import androidx.core.view.ViewCompat;
 import java.nio.ByteBuffer;
-/* loaded from: classes23.dex */
+/* loaded from: classes8.dex */
 public class GeneratedTexture {
-    private static final int[] prF = {-16776961, -16711681, -16711936, -65281, -1, 1073742079, 1073807104, -16711681, -65281, MotionEventCompat.ACTION_POINTER_INDEX_MASK, -2147483393, ViewCompat.MEASURED_STATE_MASK, InputDeviceCompat.SOURCE_ANY, -65281, InputDeviceCompat.SOURCE_ANY, SupportMenu.CATEGORY_MASK};
-    private static final ByteBuffer prG = exC();
-    private static final ByteBuffer prH = exD();
+    private static final int[] pHd = {-16776961, -16711681, -16711936, -65281, -1, 1073742079, 1073807104, -16711681, -65281, MotionEventCompat.ACTION_POINTER_INDEX_MASK, -2147483393, ViewCompat.MEASURED_STATE_MASK, InputDeviceCompat.SOURCE_ANY, -65281, InputDeviceCompat.SOURCE_ANY, SupportMenu.CATEGORY_MASK};
+    private static final ByteBuffer pHe = eBj();
+    private static final ByteBuffer pHf = eBk();
 
-    /* loaded from: classes23.dex */
+    /* loaded from: classes8.dex */
     public enum Image {
         COARSE,
         FINE
     }
 
-    private static ByteBuffer exC() {
+    private static ByteBuffer eBj() {
         byte[] bArr = new byte[16384];
         for (int i = 0; i < bArr.length; i += 4) {
-            int i2 = prF[((((i / 4) / 64) / 16) * 4) + (((i / 4) % 64) / 16)];
+            int i2 = pHd[((((i / 4) / 64) / 16) * 4) + (((i / 4) % 64) / 16)];
             if (i == 0) {
                 i2 = -1;
             } else if (i == bArr.length - 4) {
@@ -40,7 +40,7 @@ public class GeneratedTexture {
         return allocateDirect;
     }
 
-    private static ByteBuffer exD() {
+    private static ByteBuffer eBk() {
         byte[] bArr = new byte[16384];
         a(bArr, 0, 0, 32, 32, -16776961, SupportMenu.CATEGORY_MASK, 1);
         a(bArr, 32, 32, 64, 64, -16776961, -16711936, 2);

@@ -2,35 +2,35 @@ package com.baidu.swan.apps.adaptation.implementation;
 
 import com.baidu.android.imsdk.internal.IMConnection;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class b implements com.baidu.swan.apps.adaptation.a.d {
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public String aiN() {
+    public String ajV() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public int aiO() {
+    public int ajW() {
         return 10;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public int aiP() {
+    public int ajX() {
         return 1;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public int aiQ() {
+    public int ajY() {
         return 1;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public int aiR() {
+    public int ajZ() {
         return 60000;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean aiS() {
+    public boolean aka() {
         return false;
     }
 
@@ -55,172 +55,172 @@ public class b implements com.baidu.swan.apps.adaptation.a.d {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean aiT() {
+    public boolean akb() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean aiU() {
+    public boolean akc() {
         return true;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean aiV() {
+    public boolean akd() {
         return true;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean aiW() {
+    public boolean ake() {
         return true;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public String aiX() {
+    public String akf() {
         return "";
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean aiY() {
+    public boolean akg() {
         return true;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean hM(int i) {
+    public boolean hG(int i) {
         return false;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean aiZ() {
+    public boolean akh() {
         return true;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean aja() {
+    public boolean aki() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean ajb() {
+    public boolean akj() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public long ajc() {
+    public long akk() {
         return 10000L;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean ajd() {
+    public boolean akl() {
         return true;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean aje() {
+    public boolean akm() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public long ajf() {
+    public long akn() {
         return IMConnection.RETRY_DELAY_TIMES;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean ajg() {
+    public boolean ako() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean ajh() {
+    public boolean akp() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean aji() {
+    public boolean akq() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean ajj() {
+    public boolean akr() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public long ajk() {
+    public long aks() {
         return 6000L;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean ajl() {
+    public boolean akt() {
         return true;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean ajm() {
+    public boolean aku() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public int ajn() {
+    public int akv() {
         return 6000;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public int ajo() {
+    public int akw() {
         return 2000;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public double ajp() {
+    public double akx() {
         return 0.5d;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean ajq() {
+    public boolean aky() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public double ajr() {
+    public double akz() {
         return 0.7d;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public double ajs() {
+    public double akA() {
         return 0.5d;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public int ajt() {
+    public int akB() {
         return 5000;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean aju() {
+    public boolean akC() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean ajv() {
+    public boolean akD() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean ajw() {
+    public boolean akE() {
         return true;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean ajx() {
+    public boolean akF() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public int ajy() {
+    public int akG() {
         return 25;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean ajz() {
+    public boolean akH() {
         return false;
     }
 }

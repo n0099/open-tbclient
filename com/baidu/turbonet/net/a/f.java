@@ -4,20 +4,20 @@ import com.baidu.turbonet.net.UploadDataProvider;
 import java.io.IOException;
 import java.io.OutputStream;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public abstract class f extends OutputStream {
     private boolean mClosed;
-    private IOException oGl;
-    private boolean oGm;
+    private IOException oMu;
+    private boolean oMv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract void eio() throws IOException;
+    public abstract UploadDataProvider eiA();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract void eip() throws IOException;
+    public abstract void eiy() throws IOException;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract UploadDataProvider eiq();
+    public abstract void eiz() throws IOException;
 
     @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
@@ -26,14 +26,14 @@ public abstract class f extends OutputStream {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void d(IOException iOException) {
-        this.oGl = iOException;
-        this.oGm = true;
+        this.oMu = iOException;
+        this.oMv = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void checkNotClosed() throws IOException {
-        if (this.oGm) {
-            eiE();
+        if (this.oMv) {
+            eiO();
             throw new IOException("Writing after request completed.");
         } else if (this.mClosed) {
             throw new IOException("Stream has been closed.");
@@ -41,9 +41,9 @@ public abstract class f extends OutputStream {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void eiE() throws IOException {
-        if (this.oGl != null) {
-            throw this.oGl;
+    public void eiO() throws IOException {
+        if (this.oMu != null) {
+            throw this.oMu;
         }
     }
 }

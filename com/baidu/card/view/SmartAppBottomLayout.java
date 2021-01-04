@@ -1,7 +1,6 @@
 package com.baidu.card.view;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -9,19 +8,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import com.baidu.adp.lib.util.l;
 import com.baidu.card.p;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.by;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.data.bz;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes21.dex */
+/* loaded from: classes.dex */
 public class SmartAppBottomLayout extends LinearLayout implements p<com.baidu.tbadk.core.data.a> {
-    private static final int ahn = (l.getEquipmentWidth(TbadkCoreApplication.getInst()) - (l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2)) - l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds58);
-    private HeadImageView amF;
-    private TextView amG;
+    private static final int ahY = (l.getEquipmentWidth(TbadkCoreApplication.getInst()) - (l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2)) - l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds58);
+    private HeadImageView anj;
+    private TextView ank;
     private int mSkinType;
     private View mView;
 
@@ -39,28 +39,28 @@ public class SmartAppBottomLayout extends LinearLayout implements p<com.baidu.tb
     private void initUI(Context context) {
         this.mView = LayoutInflater.from(context).inflate(R.layout.smart_app_bottom_layout, (ViewGroup) this, true);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.amF = (HeadImageView) this.mView.findViewById(R.id.ai_smart_app_icon);
-        this.amG = (TextView) this.mView.findViewById(R.id.ai_smart_app_text);
-        this.amF.setIsBigV(false);
-        this.amF.setIsGod(false);
-        this.amF.setShowV(false);
+        this.anj = (HeadImageView) this.mView.findViewById(R.id.ai_smart_app_icon);
+        this.ank = (TextView) this.mView.findViewById(R.id.ai_smart_app_text);
+        this.anj.setIsBigV(false);
+        this.anj.setIsGod(false);
+        this.anj.setShowV(false);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.p
     /* renamed from: b */
-    public void H(com.baidu.tbadk.core.data.a aVar) {
-        by bmn = aVar.bmn();
-        if (bmn != null && bmn.bpE() != null) {
-            if (!TextUtils.isEmpty(bmn.bpE().avatar)) {
-                this.amF.startLoad(bmn.bpE().avatar, 10, false);
+    public void D(com.baidu.tbadk.core.data.a aVar) {
+        bz boO = aVar.boO();
+        if (boO != null && boO.bsf() != null) {
+            if (!TextUtils.isEmpty(boO.bsf().avatar)) {
+                this.anj.startLoad(boO.bsf().avatar, 10, false);
             } else {
-                ap.setImageResource(this.amF, R.drawable.icon_avatar_smallapp_tie);
+                ao.setImageResource(this.anj, R.drawable.icon_avatar_smallapp_tie);
             }
-            if (bmn.bpE() != null && !TextUtils.isEmpty(bmn.bpE().name)) {
-                az.a(this.amG, bmn.bpE().name, R.string.ai_smart_app, R.dimen.tbds0, 1, ahn, false);
+            if (boO.bsf() != null && !TextUtils.isEmpty(boO.bsf().name)) {
+                ay.a(this.ank, boO.bsf().name, R.string.ai_smart_app, R.dimen.tbds0, 1, ahY, false);
             } else {
-                this.amG.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.ai_smart_app));
+                this.ank.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.ai_smart_app));
             }
         }
     }
@@ -68,7 +68,7 @@ public class SmartAppBottomLayout extends LinearLayout implements p<com.baidu.tb
     public void onChangeSkinType() {
         if (this.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-            ap.setViewTextColor(this.amG, R.color.CAM_X0109);
+            ao.setViewTextColor(this.ank, R.color.CAM_X0109);
         }
     }
 }

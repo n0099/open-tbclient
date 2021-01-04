@@ -19,7 +19,7 @@ import com.baidu.sumeru.universalimageloader.core.imageaware.ImageNonViewAware;
 import com.baidu.sumeru.universalimageloader.core.imageaware.ImageViewAware;
 import com.baidu.sumeru.universalimageloader.utils.ImageSizeUtils;
 import com.baidu.sumeru.universalimageloader.utils.L;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public class ImageLoader {
     private static final String ERROR_INIT_CONFIG_WITH_NULL = "ImageLoader configuration can not be initialized with null";
     private static final String ERROR_NOT_INIT = "ImageLoader must be init with configuration before using";

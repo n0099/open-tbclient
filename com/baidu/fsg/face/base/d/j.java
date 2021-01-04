@@ -14,13 +14,16 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
+import com.baidu.ar.constants.HttpConstants;
 import java.lang.reflect.Method;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f1592a = -1728053248;
-    private static String b;
+    public static final int f2150a = -1728053248;
+
+    /* renamed from: b  reason: collision with root package name */
+    private static String f2151b;
     private final a c;
     private boolean d;
     private boolean e;
@@ -32,9 +35,9 @@ public class j {
             try {
                 Method declaredMethod = Class.forName("android.os.SystemProperties").getDeclaredMethod("get", String.class);
                 declaredMethod.setAccessible(true);
-                b = (String) declaredMethod.invoke(null, "qemu.hw.mainkeys");
+                f2151b = (String) declaredMethod.invoke(null, "qemu.hw.mainkeys");
             } catch (Throwable th) {
-                b = null;
+                f2151b = null;
             }
         }
     }
@@ -130,12 +133,14 @@ public class j {
         viewGroup.addView(this.g);
     }
 
-    /* loaded from: classes17.dex */
+    /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final String f1593a = "status_bar_height";
-        private static final String b = "navigation_bar_height";
+        private static final String f2152a = "status_bar_height";
+
+        /* renamed from: b  reason: collision with root package name */
+        private static final String f2153b = "navigation_bar_height";
         private static final String c = "navigation_bar_height_landscape";
         private static final String d = "navigation_bar_width";
         private static final String e = "config_showNavigationBar";
@@ -150,7 +155,7 @@ public class j {
             Resources resources = activity.getResources();
             this.j = resources.getConfiguration().orientation == 1;
             this.k = a(activity);
-            this.f = a(resources, f1593a);
+            this.f = a(resources, f2152a);
             this.h = a((Context) activity);
             this.i = b(activity);
             this.g = this.h > 0;
@@ -164,7 +169,7 @@ public class j {
                 return 0;
             }
             if (this.j) {
-                str = b;
+                str = f2153b;
             } else {
                 str = c;
             }
@@ -191,13 +196,13 @@ public class j {
         @TargetApi(14)
         private boolean c(Context context) {
             Resources resources = context.getResources();
-            int identifier = resources.getIdentifier(e, "bool", "android");
+            int identifier = resources.getIdentifier(e, "bool", HttpConstants.OS_TYPE_VALUE);
             if (identifier != 0) {
                 boolean z = resources.getBoolean(identifier);
-                if ("1".equals(j.b)) {
+                if ("1".equals(j.f2151b)) {
                     return false;
                 }
-                if ("0".equals(j.b)) {
+                if ("0".equals(j.f2151b)) {
                     return true;
                 }
                 return z;
@@ -206,7 +211,7 @@ public class j {
         }
 
         private int a(Resources resources, String str) {
-            int identifier = resources.getIdentifier(str, "dimen", "android");
+            int identifier = resources.getIdentifier(str, "dimen", HttpConstants.OS_TYPE_VALUE);
             if (identifier <= 0) {
                 return 0;
             }

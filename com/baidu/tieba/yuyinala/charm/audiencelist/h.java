@@ -1,5 +1,6 @@
 package com.baidu.tieba.yuyinala.charm.audiencelist;
 
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,9 +10,9 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class h extends BaseAdapter {
-    private ArrayList<com.baidu.tieba.yuyinala.charm.audiencelist.a> eOt = new ArrayList<>();
+    private ArrayList<com.baidu.tieba.yuyinala.charm.audiencelist.a> eYq = new ArrayList<>();
     private TbPageContext mPageContext;
 
     public h(TbPageContext tbPageContext) {
@@ -20,28 +21,28 @@ public class h extends BaseAdapter {
 
     public void setData(List<com.baidu.tieba.yuyinala.charm.audiencelist.a> list) {
         if (list != null) {
-            this.eOt.clear();
-            this.eOt.addAll(list);
+            this.eYq.clear();
+            this.eYq.addAll(list);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.eOt == null) {
+        if (this.eYq == null) {
             return 0;
         }
-        return this.eOt.size();
+        return this.eYq.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: Nj */
+    /* renamed from: MV */
     public com.baidu.tieba.yuyinala.charm.audiencelist.a getItem(int i) {
-        if (this.eOt == null) {
+        if (this.eYq == null) {
             return null;
         }
-        return this.eOt.get(i);
+        return this.eYq.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -55,24 +56,26 @@ public class h extends BaseAdapter {
         AlaLiveUserInfoData alaLiveUserInfoData;
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(a.g.yuyin_sdk_charm_list_item, viewGroup, false);
-            a aVar2 = new a();
-            aVar2.oix = (OnlineAudienceItemView) view.findViewById(a.f.item);
-            view.setTag(aVar2);
-            aVar = aVar2;
+            aVar = new a();
+            aVar.okh = (OnlineAudienceItemView) view.findViewById(a.f.item);
+            view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
         }
-        if (aVar != null && getItem(i) != null && (alaLiveUserInfoData = getItem(i).aJV) != null) {
-            aVar.oix.setData(i + 1, alaLiveUserInfoData.userName, alaLiveUserInfoData.portrait, alaLiveUserInfoData.contribution, alaLiveUserInfoData.nobleRoleId);
-            aVar.oix.oiw.setData4Yuyin(alaLiveUserInfoData);
+        if (aVar != null && getItem(i) != null && (alaLiveUserInfoData = getItem(i).aKu) != null) {
+            if (aVar.okh.getTag() == null || !TextUtils.equals(((AlaLiveUserInfoData) aVar.okh.getTag()).userUk, alaLiveUserInfoData.userUk)) {
+                aVar.okh.okg.setData4Yuyin(alaLiveUserInfoData);
+                aVar.okh.setTag(alaLiveUserInfoData);
+            }
+            aVar.okh.setData(i + 1, alaLiveUserInfoData.userName, alaLiveUserInfoData.portrait, alaLiveUserInfoData.contribution, alaLiveUserInfoData.contributionStr, alaLiveUserInfoData.nobleRoleId);
         }
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     private class a {
-        private OnlineAudienceItemView oix;
+        private OnlineAudienceItemView okh;
 
         private a() {
         }

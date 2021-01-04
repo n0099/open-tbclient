@@ -3,7 +3,7 @@ package com.google.zxing.maxicode.decoder;
 import com.baidu.android.imsdk.internal.Constants;
 import com.google.zxing.common.DecoderResult;
 import java.text.DecimalFormat;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 final class DecodedBitStreamParser {
     private static final char ECI = 65530;
     private static final char FS = 28;
@@ -65,14 +65,20 @@ final class DecodedBitStreamParser {
     }
 
     private static int getInt(byte[] bArr, byte[] bArr2) {
+        int i = 0;
         if (bArr2.length == 0) {
             throw new IllegalArgumentException();
         }
-        int i = 0;
-        for (int i2 = 0; i2 < bArr2.length; i2++) {
-            i += getBit(bArr2[i2], bArr) << ((bArr2.length - i2) - 1);
+        int i2 = 0;
+        while (true) {
+            int i3 = i;
+            if (i2 < bArr2.length) {
+                i = (getBit(bArr2[i2], bArr) << ((bArr2.length - i2) - 1)) + i3;
+                i2++;
+            } else {
+                return i3;
+            }
         }
-        return i;
     }
 
     private static int getCountry(byte[] bArr) {
@@ -97,80 +103,69 @@ final class DecodedBitStreamParser {
 
     private static String getMessage(byte[] bArr, int i, int i2) {
         int i3;
-        int i4;
-        int i5;
-        int i6;
-        int i7;
-        int i8;
         StringBuilder sb = new StringBuilder();
-        int i9 = i;
-        int i10 = 0;
-        int i11 = 0;
-        int i12 = -1;
-        while (i9 < i + i2) {
-            char charAt = SETS[i11].charAt(bArr[i9]);
+        int i4 = i;
+        int i5 = 0;
+        int i6 = 0;
+        int i7 = -1;
+        while (i4 < i + i2) {
+            char charAt = SETS[i6].charAt(bArr[i4]);
             switch (charAt) {
                 case 65520:
                 case 65521:
                 case 65522:
                 case 65523:
                 case 65524:
-                    i12 = 1;
-                    int i13 = i11;
-                    i3 = i9;
-                    i4 = charAt - SHIFTA;
-                    i10 = i13;
+                    i3 = charAt - SHIFTA;
+                    i5 = i6;
+                    i7 = 1;
                     break;
                 case 65525:
-                    i12 = 2;
-                    i10 = i11;
-                    i3 = i9;
-                    i4 = 0;
+                    i7 = 2;
+                    i5 = i6;
+                    i3 = 0;
                     break;
                 case 65526:
-                    i12 = 3;
-                    i10 = i11;
-                    i3 = i9;
-                    i4 = 0;
+                    i7 = 3;
+                    i5 = i6;
+                    i3 = 0;
                     break;
                 case 65527:
-                    i3 = i9;
-                    i12 = -1;
-                    i4 = 0;
+                    i3 = 0;
+                    i7 = -1;
                     break;
                 case 65528:
-                    i3 = i9;
-                    i12 = -1;
-                    i4 = 1;
+                    i3 = 1;
+                    i7 = -1;
                     break;
                 case 65529:
-                    i12 = -1;
-                    int i14 = i11;
-                    i3 = i9;
-                    i4 = i14;
+                    i3 = i6;
+                    i7 = -1;
                     break;
                 case 65530:
                 default:
                     sb.append(charAt);
-                    int i15 = i9;
-                    i4 = i11;
-                    i3 = i15;
+                    i3 = i6;
                     break;
                 case 65531:
-                    int i16 = i9 + 1 + 1 + 1 + 1 + 1;
-                    sb.append(new DecimalFormat("000000000").format((bArr[i5] << 24) + (bArr[i6] << 18) + (bArr[i7] << 12) + (bArr[i8] << 6) + bArr[i16]));
-                    i4 = i11;
-                    i3 = i16;
+                    int i8 = i4 + 1;
+                    int i9 = i8 + 1;
+                    int i10 = i9 + 1;
+                    int i11 = (bArr[i8] << 24) + (bArr[i9] << 18) + (bArr[i10] << 12);
+                    int i12 = i10 + 1;
+                    int i13 = (bArr[i12] << 6) + i11;
+                    i4 = i12 + 1;
+                    sb.append(new DecimalFormat("000000000").format(bArr[i4] + i13));
+                    i3 = i6;
                     break;
             }
-            int i17 = i12 - 1;
-            if (i12 == 0) {
-                i4 = i10;
+            int i14 = i7 - 1;
+            if (i7 == 0) {
+                i3 = i5;
             }
-            i12 = i17;
-            int i18 = i4;
-            i9 = i3 + 1;
-            i11 = i18;
+            i4++;
+            i6 = i3;
+            i7 = i14;
         }
         while (sb.length() > 0 && sb.charAt(sb.length() - 1) == 65532) {
             sb.setLength(sb.length() - 1);

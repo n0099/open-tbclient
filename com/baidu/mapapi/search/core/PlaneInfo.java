@@ -2,13 +2,15 @@ package com.baidu.mapapi.search.core;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class PlaneInfo extends TransitBaseInfo {
     public static final Parcelable.Creator<PlaneInfo> CREATOR = new d();
 
     /* renamed from: a  reason: collision with root package name */
-    private double f2102a;
-    private String b;
+    private double f2958a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private String f2959b;
     private double c;
     private String d;
 
@@ -18,8 +20,8 @@ public class PlaneInfo extends TransitBaseInfo {
     /* JADX INFO: Access modifiers changed from: protected */
     public PlaneInfo(Parcel parcel) {
         super(parcel);
-        this.f2102a = parcel.readDouble();
-        this.b = parcel.readString();
+        this.f2958a = parcel.readDouble();
+        this.f2959b = parcel.readString();
         this.c = parcel.readDouble();
         this.d = parcel.readString();
     }
@@ -30,7 +32,7 @@ public class PlaneInfo extends TransitBaseInfo {
     }
 
     public String getAirlines() {
-        return this.b;
+        return this.f2959b;
     }
 
     public String getBooking() {
@@ -38,7 +40,7 @@ public class PlaneInfo extends TransitBaseInfo {
     }
 
     public double getDiscount() {
-        return this.f2102a;
+        return this.f2958a;
     }
 
     public double getPrice() {
@@ -46,7 +48,7 @@ public class PlaneInfo extends TransitBaseInfo {
     }
 
     public void setAirlines(String str) {
-        this.b = str;
+        this.f2959b = str;
     }
 
     public void setBooking(String str) {
@@ -54,7 +56,7 @@ public class PlaneInfo extends TransitBaseInfo {
     }
 
     public void setDiscount(double d) {
-        this.f2102a = d;
+        this.f2958a = d;
     }
 
     public void setPrice(double d) {
@@ -64,8 +66,8 @@ public class PlaneInfo extends TransitBaseInfo {
     @Override // com.baidu.mapapi.search.core.TransitBaseInfo, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         super.writeToParcel(parcel, i);
-        parcel.writeDouble(this.f2102a);
-        parcel.writeString(this.b);
+        parcel.writeDouble(this.f2958a);
+        parcel.writeString(this.f2959b);
         parcel.writeDouble(this.c);
         parcel.writeString(this.d);
     }

@@ -4,7 +4,7 @@ import com.idlefish.flutterboost.FlutterBoost;
 import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.embedding.engine.plugins.PluginRegistry;
-/* loaded from: classes25.dex */
+/* loaded from: classes12.dex */
 public class FlutterHotReload {
     private static boolean changePlugin() {
         FlutterEngine engineProvider = FlutterBoost.instance().engineProvider();

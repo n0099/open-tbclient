@@ -33,7 +33,7 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import javax.security.auth.x500.X500Principal;
 import org.apache.http.cookie.SM;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public class BdNetEngine extends HandlerThread implements INoProGuard {
     private static final int ALT_DNS_NAME = 2;
     private static final int ALT_IPA_NAME = 7;
@@ -67,12 +67,14 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
     private static long mWaitTime = 10000;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        final String f3972a;
-        final int b;
+        final String f6021a;
+
+        /* renamed from: b  reason: collision with root package name */
+        final int f6022b;
         int c;
         int d;
         int e;
@@ -80,15 +82,15 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
         char[] g;
 
         public a(X500Principal x500Principal) {
-            this.f3972a = x500Principal.getName("RFC2253");
-            this.b = this.f3972a.length();
+            this.f6021a = x500Principal.getName("RFC2253");
+            this.f6022b = this.f6021a.length();
         }
 
         private int a(int i) {
             int i2;
             int i3;
-            if (i + 1 >= this.b) {
-                throw new IllegalStateException("Malformed DN: " + this.f3972a);
+            if (i + 1 >= this.f6022b) {
+                throw new IllegalStateException("Malformed DN: " + this.f6021a);
             }
             char c = this.g[i];
             if (c >= '0' && c <= '9') {
@@ -96,7 +98,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
             } else if (c >= 'a' && c <= 'f') {
                 i2 = c - 'W';
             } else if (c < 'A' || c > 'F') {
-                throw new IllegalStateException("Malformed DN: " + this.f3972a);
+                throw new IllegalStateException("Malformed DN: " + this.f6021a);
             } else {
                 i2 = c - '7';
             }
@@ -106,7 +108,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
             } else if (c2 >= 'a' && c2 <= 'f') {
                 i3 = c2 - 'W';
             } else if (c2 < 'A' || c2 > 'F') {
-                throw new IllegalStateException("Malformed DN: " + this.f3972a);
+                throw new IllegalStateException("Malformed DN: " + this.f6021a);
             } else {
                 i3 = c2 - '7';
             }
@@ -137,7 +139,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
             int i3 = i2;
             for (int i4 = 0; i4 < i; i4++) {
                 this.c++;
-                if (this.c == this.b || this.g[this.c] != '\\') {
+                if (this.c == this.f6022b || this.g[this.c] != '\\') {
                     return '?';
                 }
                 this.c++;
@@ -152,32 +154,32 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
         }
 
         final String a() {
-            while (this.c < this.b && this.g[this.c] == ' ') {
+            while (this.c < this.f6022b && this.g[this.c] == ' ') {
                 this.c++;
             }
-            if (this.c == this.b) {
+            if (this.c == this.f6022b) {
                 return null;
             }
             this.d = this.c;
             this.c++;
-            while (this.c < this.b && this.g[this.c] != '=' && this.g[this.c] != ' ') {
+            while (this.c < this.f6022b && this.g[this.c] != '=' && this.g[this.c] != ' ') {
                 this.c++;
             }
-            if (this.c >= this.b) {
-                throw new IllegalStateException("Unexpected end of DN: " + this.f3972a);
+            if (this.c >= this.f6022b) {
+                throw new IllegalStateException("Unexpected end of DN: " + this.f6021a);
             }
             this.e = this.c;
             if (this.g[this.c] == ' ') {
-                while (this.c < this.b && this.g[this.c] != '=' && this.g[this.c] == ' ') {
+                while (this.c < this.f6022b && this.g[this.c] != '=' && this.g[this.c] == ' ') {
                     this.c++;
                 }
-                if (this.g[this.c] != '=' || this.c == this.b) {
-                    throw new IllegalStateException("Unexpected end of DN: " + this.f3972a);
+                if (this.g[this.c] != '=' || this.c == this.f6022b) {
+                    throw new IllegalStateException("Unexpected end of DN: " + this.f6021a);
                 }
             }
             do {
                 this.c++;
-                if (this.c >= this.b) {
+                if (this.c >= this.f6022b) {
                     break;
                 }
             } while (this.g[this.c] == ' ');
@@ -189,21 +191,21 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
 
         final String b() {
             int i;
-            if (this.c + 4 >= this.b) {
-                throw new IllegalStateException("Unexpected end of DN: " + this.f3972a);
+            if (this.c + 4 >= this.f6022b) {
+                throw new IllegalStateException("Unexpected end of DN: " + this.f6021a);
             }
             this.d = this.c;
             this.c++;
-            while (this.c != this.b && this.g[this.c] != '+' && this.g[this.c] != ',' && this.g[this.c] != ';') {
+            while (this.c != this.f6022b && this.g[this.c] != '+' && this.g[this.c] != ',' && this.g[this.c] != ';') {
                 if (this.g[this.c] == ' ') {
                     this.e = this.c;
                     this.c++;
-                    while (this.c < this.b && this.g[this.c] == ' ') {
+                    while (this.c < this.f6022b && this.g[this.c] == ' ') {
                         this.c++;
                     }
                     i = this.e - this.d;
                     if (i >= 5 || (i & 1) == 0) {
-                        throw new IllegalStateException("Unexpected end of DN: " + this.f3972a);
+                        throw new IllegalStateException("Unexpected end of DN: " + this.f6021a);
                     }
                     byte[] bArr = new byte[i / 2];
                     int i2 = this.d + 1;
@@ -224,13 +226,13 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
             i = this.e - this.d;
             if (i >= 5) {
             }
-            throw new IllegalStateException("Unexpected end of DN: " + this.f3972a);
+            throw new IllegalStateException("Unexpected end of DN: " + this.f6021a);
         }
 
         final String c() {
             this.d = this.c;
             this.e = this.c;
-            while (this.c < this.b) {
+            while (this.c < this.f6022b) {
                 switch (this.g[this.c]) {
                     case ' ':
                         this.f = this.e;
@@ -239,14 +241,14 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
                         int i = this.e;
                         this.e = i + 1;
                         cArr[i] = ' ';
-                        while (this.c < this.b && this.g[this.c] == ' ') {
+                        while (this.c < this.f6022b && this.g[this.c] == ' ') {
                             char[] cArr2 = this.g;
                             int i2 = this.e;
                             this.e = i2 + 1;
                             cArr2[i2] = ' ';
                             this.c++;
                         }
-                        if (this.c != this.b && this.g[this.c] != ',' && this.g[this.c] != '+' && this.g[this.c] != ';') {
+                        if (this.c != this.f6022b && this.g[this.c] != ',' && this.g[this.c] != '+' && this.g[this.c] != ';') {
                             break;
                         } else {
                             return new String(this.g, this.d, this.f - this.d);
@@ -276,8 +278,8 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
 
         final char d() {
             this.c++;
-            if (this.c == this.b) {
-                throw new IllegalStateException("Unexpected end of DN: " + this.f3972a);
+            if (this.c == this.f6022b) {
+                throw new IllegalStateException("Unexpected end of DN: " + this.f6021a);
             }
             switch (this.g[this.c]) {
                 case ' ':
@@ -300,7 +302,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         BdNetTask onNetDownloadComplete(BdNetEngine bdNetEngine, BdNetTask bdNetTask, boolean z);
 
@@ -359,126 +361,130 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
         return (HttpURLConnection) url.openConnection();
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:30:0x0057 A[Catch: all -> 0x00b9, TRY_LEAVE, TryCatch #10 {all -> 0x00b9, blocks: (B:28:0x0053, B:30:0x0057), top: B:100:0x0053 }] */
-    /* JADX WARN: Removed duplicated region for block: B:88:0x00a6 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:90:0x00a1 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:92:0x0066 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:94:0x0061 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x0056 A[Catch: all -> 0x00bf, TRY_LEAVE, TryCatch #14 {all -> 0x00bf, blocks: (B:28:0x0052, B:30:0x0056), top: B:101:0x0052 }] */
+    /* JADX WARN: Removed duplicated region for block: B:89:0x00a6 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:91:0x00a1 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:93:0x0065 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:95:0x0060 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private boolean download(BdNetTask bdNetTask) {
-        InputStream inputStream;
+        Throwable th;
         GZIPInputStream gZIPInputStream;
-        GZIPInputStream gZIPInputStream2 = null;
+        InputStream inputStream;
+        GZIPInputStream gZIPInputStream2;
+        GZIPInputStream gZIPInputStream3 = null;
         try {
             inputStream = this.mConnection.getInputStream();
             if (inputStream != null) {
                 try {
-                    try {
-                        if (this.mIsRunning && !bdNetTask.isStop()) {
-                            byte[] bArr = new byte[4096];
-                            String headerField = this.mConnection.getHeaderField("Content-Encoding");
-                            if (headerField != null && headerField.contains("gzip")) {
-                                GZIPInputStream gZIPInputStream3 = new GZIPInputStream(inputStream);
-                                while (true) {
+                    if (this.mIsRunning && !bdNetTask.isStop()) {
+                        byte[] bArr = new byte[4096];
+                        String headerField = this.mConnection.getHeaderField("Content-Encoding");
+                        if (headerField != null && headerField.contains("gzip")) {
+                            gZIPInputStream = new GZIPInputStream(inputStream);
+                            while (true) {
+                                try {
+                                    int read = gZIPInputStream.read(bArr);
+                                    if (read == -1 || !this.mIsRunning || bdNetTask.isStop()) {
+                                        break;
+                                    } else if (this.mListener != null) {
+                                        this.mListener.onNetReceiveData(this, bdNetTask, bArr, read);
+                                    }
+                                } catch (IOException e) {
+                                    gZIPInputStream2 = gZIPInputStream;
                                     try {
-                                        int read = gZIPInputStream3.read(bArr);
-                                        if (read == -1 || !this.mIsRunning || bdNetTask.isStop()) {
-                                            break;
-                                        } else if (this.mListener != null) {
-                                            this.mListener.onNetReceiveData(this, bdNetTask, bArr, read);
+                                        if (this.mListener != null) {
+                                            this.mListener.onNetDownloadError(this, bdNetTask, BdNet.NetError.ERROR_IO, 0);
                                         }
-                                    } catch (IOException e) {
-                                        gZIPInputStream = gZIPInputStream3;
-                                        gZIPInputStream2 = inputStream;
-                                        try {
-                                            if (this.mListener != null) {
-                                            }
-                                            if (gZIPInputStream != null) {
-                                            }
-                                            if (gZIPInputStream2 != null) {
-                                            }
-                                            return false;
-                                        } catch (Throwable th) {
-                                            inputStream = gZIPInputStream2;
-                                            gZIPInputStream2 = gZIPInputStream;
-                                            th = th;
-                                            if (gZIPInputStream2 != null) {
-                                                try {
-                                                    gZIPInputStream2.close();
-                                                } catch (IOException e2) {
-                                                }
-                                            }
-                                            if (inputStream != null) {
-                                                try {
-                                                    inputStream.close();
-                                                } catch (IOException e3) {
-                                                }
-                                            }
-                                            throw th;
-                                        }
-                                    } catch (Throwable th2) {
-                                        th = th2;
-                                        gZIPInputStream2 = gZIPInputStream3;
                                         if (gZIPInputStream2 != null) {
+                                            try {
+                                                gZIPInputStream2.close();
+                                            } catch (IOException e2) {
+                                            }
                                         }
                                         if (inputStream != null) {
+                                            try {
+                                                inputStream.close();
+                                            } catch (IOException e3) {
+                                            }
+                                        }
+                                        return false;
+                                    } catch (Throwable th2) {
+                                        th = th2;
+                                        gZIPInputStream = gZIPInputStream2;
+                                        if (gZIPInputStream != null) {
+                                            try {
+                                                gZIPInputStream.close();
+                                            } catch (IOException e4) {
+                                            }
+                                        }
+                                        if (inputStream != null) {
+                                            try {
+                                                inputStream.close();
+                                            } catch (IOException e5) {
+                                            }
                                         }
                                         throw th;
                                     }
+                                } catch (Throwable th3) {
+                                    th = th3;
+                                    if (gZIPInputStream != null) {
+                                    }
+                                    if (inputStream != null) {
+                                    }
+                                    throw th;
                                 }
-                                gZIPInputStream3.close();
-                                gZIPInputStream2 = gZIPInputStream3;
-                            } else {
-                                while (true) {
-                                    int read2 = inputStream.read(bArr);
-                                    if (read2 != -1 && this.mIsRunning && !bdNetTask.isStop()) {
-                                        if (this.mListener != null) {
-                                            this.mListener.onNetReceiveData(this, bdNetTask, bArr, read2);
-                                        }
+                            }
+                            gZIPInputStream.close();
+                            gZIPInputStream3 = gZIPInputStream;
+                        } else {
+                            while (true) {
+                                int read2 = inputStream.read(bArr);
+                                if (read2 != -1 && this.mIsRunning && !bdNetTask.isStop()) {
+                                    if (this.mListener != null) {
+                                        this.mListener.onNetReceiveData(this, bdNetTask, bArr, read2);
                                     }
                                 }
                             }
                         }
-                    } catch (IOException e4) {
-                        gZIPInputStream = null;
-                        gZIPInputStream2 = inputStream;
                     }
-                    try {
-                        inputStream.close();
-                        break;
-                    } catch (IOException e5) {
-                        gZIPInputStream = gZIPInputStream2;
-                        gZIPInputStream2 = inputStream;
-                        if (this.mListener != null) {
-                            this.mListener.onNetDownloadError(this, bdNetTask, BdNet.NetError.ERROR_IO, 0);
-                        }
-                        if (gZIPInputStream != null) {
-                            try {
-                                gZIPInputStream.close();
-                            } catch (IOException e6) {
-                            }
-                        }
-                        if (gZIPInputStream2 != null) {
-                            try {
-                                gZIPInputStream2.close();
-                            } catch (IOException e7) {
-                            }
-                        }
-                        return false;
+                } catch (IOException e6) {
+                    gZIPInputStream2 = null;
+                } catch (Throwable th4) {
+                    th = th4;
+                    gZIPInputStream = null;
+                }
+                try {
+                    inputStream.close();
+                    break;
+                } catch (IOException e7) {
+                    gZIPInputStream2 = gZIPInputStream3;
+                    if (this.mListener != null) {
                     }
-                } catch (Throwable th3) {
-                    th = th3;
+                    if (gZIPInputStream2 != null) {
+                    }
+                    if (inputStream != null) {
+                    }
+                    return false;
+                } catch (Throwable th5) {
+                    th = th5;
+                    gZIPInputStream = gZIPInputStream3;
+                    if (gZIPInputStream != null) {
+                    }
+                    if (inputStream != null) {
+                    }
+                    throw th;
                 }
             }
-            if (gZIPInputStream2 != null) {
+            if (gZIPInputStream3 != null) {
                 try {
-                    gZIPInputStream2.close();
+                    gZIPInputStream3.close();
                 } catch (IOException e8) {
                 }
             }
-            if (inputStream != 0) {
+            if (inputStream != null) {
                 try {
                     inputStream.close();
                     return true;
@@ -488,9 +494,11 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
             }
             return true;
         } catch (IOException e10) {
+            gZIPInputStream2 = null;
+            inputStream = null;
+        } catch (Throwable th6) {
+            th = th6;
             gZIPInputStream = null;
-        } catch (Throwable th4) {
-            th = th4;
             inputStream = null;
         }
     }
@@ -833,8 +841,8 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
             quit();
             this.mListener = null;
             e a2 = e.a();
-            if (a2.b != null && !a2.b.isEmpty()) {
-                a2.b.remove(this);
+            if (a2.f6028b != null && !a2.f6028b.isEmpty()) {
+                a2.f6028b.remove(this);
             }
         }
     }
@@ -948,12 +956,12 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
             aVar.d = 0;
             aVar.e = 0;
             aVar.f = 0;
-            aVar.g = aVar.f3972a.toCharArray();
+            aVar.g = aVar.f6021a.toCharArray();
             String a2 = aVar.a();
             if (a2 != null) {
                 do {
                     str2 = "";
-                    if (aVar.c == aVar.b) {
+                    if (aVar.c == aVar.f6022b) {
                         str2 = null;
                     } else {
                         switch (aVar.g[aVar.c]) {
@@ -961,10 +969,10 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
                                 aVar.c++;
                                 aVar.d = aVar.c;
                                 aVar.e = aVar.d;
-                                while (aVar.c != aVar.b) {
+                                while (aVar.c != aVar.f6022b) {
                                     if (aVar.g[aVar.c] == '\"') {
                                         aVar.c++;
-                                        while (aVar.c < aVar.b && aVar.g[aVar.c] == ' ') {
+                                        while (aVar.c < aVar.f6022b && aVar.g[aVar.c] == ' ') {
                                             aVar.c++;
                                         }
                                         str2 = new String(aVar.g, aVar.d, aVar.e - aVar.d);
@@ -979,7 +987,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
                                         aVar.e++;
                                     }
                                 }
-                                throw new IllegalStateException("Unexpected end of DN: " + aVar.f3972a);
+                                throw new IllegalStateException("Unexpected end of DN: " + aVar.f6021a);
                             case '#':
                                 str2 = aVar.b();
                                 break;
@@ -992,10 +1000,10 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
                                 break;
                         }
                         if (!AdvanceSetting.CLEAR_NOTIFICATION.equalsIgnoreCase(a2)) {
-                            if (aVar.c >= aVar.b) {
+                            if (aVar.c >= aVar.f6022b) {
                                 str2 = null;
                             } else if (aVar.g[aVar.c] != '+') {
-                                throw new IllegalStateException("Malformed DN: " + aVar.f3972a);
+                                throw new IllegalStateException("Malformed DN: " + aVar.f6021a);
                             } else {
                                 aVar.c++;
                                 a2 = aVar.a();
@@ -1003,7 +1011,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
                         }
                     }
                 } while (a2 != null);
-                throw new IllegalStateException("Malformed DN: " + aVar.f3972a);
+                throw new IllegalStateException("Malformed DN: " + aVar.f6021a);
             }
             str2 = null;
             if (str2 != null) {

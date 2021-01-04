@@ -12,7 +12,7 @@ import java.io.File;
 import java.io.FileDescriptor;
 import java.io.FileInputStream;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public abstract class PlayerProxy implements IPlayer {
     protected OnReportListener mOnReportListener;
     protected OnVideoEndedListener mOnVideoEndedListener;
@@ -21,7 +21,7 @@ public abstract class PlayerProxy implements IPlayer {
     protected PlayerState mPlayerState = PlayerState.NOT_PREPARED;
     protected String mSourcePath;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public enum PlayerState {
         NOT_PREPARED,
         PREPARING,
@@ -50,80 +50,86 @@ public abstract class PlayerProxy implements IPlayer {
         setSourceFile(new File(str));
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:50:0x00c3 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:44:0x00c5 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     @Override // com.baidu.searchbox.afx.proxy.IPlayer
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void setSourceFile(File file) {
         FileInputStream fileInputStream;
-        IOException e;
+        IOException iOException;
+        FileInputStream fileInputStream2;
         if (file != null) {
             this.mSourcePath = file.getPath();
             try {
-                FileInputStream fileInputStream2 = new FileInputStream(file);
-                try {
-                    setSourceFD(fileInputStream2.getFD());
-                    if (fileInputStream2 != null) {
-                        try {
-                            fileInputStream2.close();
-                        } catch (IOException e2) {
-                            e2.printStackTrace();
-                        }
-                    }
-                } catch (IOException e3) {
-                    e = e3;
-                    fileInputStream = fileInputStream2;
+                fileInputStream2 = new FileInputStream(file);
+            } catch (IOException e) {
+                iOException = e;
+                fileInputStream = null;
+            } catch (Throwable th) {
+                th = th;
+                fileInputStream = null;
+            }
+            try {
+                setSourceFD(fileInputStream2.getFD());
+                if (fileInputStream2 != null) {
                     try {
-                        e.printStackTrace();
-                        String valueOf = String.valueOf(System.currentTimeMillis() / 1000);
-                        String str = ErrorInfo.PARAMETER_ERROR_SRCFILE_ERRORMSG + file;
-                        if (this.mOnReportListener != null) {
-                            this.mOnReportListener.onError(new ErrorInfo(1, str, e, "-1", null, getSourcePath(), valueOf));
-                        }
-                        if (this.mOnVideoErrorListener != null) {
-                            this.mOnVideoErrorListener.onError(new ErrorInfo(1, str, e, "-1", null, getSourcePath(), valueOf));
-                        }
-                        if (fileInputStream != null) {
-                            try {
-                                fileInputStream.close();
-                            } catch (IOException e4) {
-                                e4.printStackTrace();
-                            }
-                        }
-                    } catch (Throwable th) {
-                        th = th;
-                        if (fileInputStream != null) {
-                            try {
-                                fileInputStream.close();
-                            } catch (IOException e5) {
-                                e5.printStackTrace();
-                            }
-                        }
-                        throw th;
+                        fileInputStream2.close();
+                        return;
+                    } catch (IOException e2) {
+                        e2.printStackTrace();
+                        return;
                     }
+                }
+                return;
+            } catch (IOException e3) {
+                iOException = e3;
+                fileInputStream = fileInputStream2;
+                try {
+                    iOException.printStackTrace();
+                    String valueOf = String.valueOf(System.currentTimeMillis() / 1000);
+                    String str = ErrorInfo.PARAMETER_ERROR_SRCFILE_ERRORMSG + file;
+                    if (this.mOnReportListener != null) {
+                        this.mOnReportListener.onError(new ErrorInfo(1, str, iOException, "-1", null, getSourcePath(), valueOf));
+                    }
+                    if (this.mOnVideoErrorListener != null) {
+                        this.mOnVideoErrorListener.onError(new ErrorInfo(1, str, iOException, "-1", null, getSourcePath(), valueOf));
+                    }
+                    if (fileInputStream != null) {
+                        try {
+                            fileInputStream.close();
+                            return;
+                        } catch (IOException e4) {
+                            e4.printStackTrace();
+                            return;
+                        }
+                    }
+                    return;
                 } catch (Throwable th2) {
-                    fileInputStream = fileInputStream2;
                     th = th2;
                     if (fileInputStream != null) {
+                        try {
+                            fileInputStream.close();
+                        } catch (IOException e5) {
+                            e5.printStackTrace();
+                        }
                     }
                     throw th;
                 }
-            } catch (IOException e6) {
-                fileInputStream = null;
-                e = e6;
             } catch (Throwable th3) {
                 th = th3;
-                fileInputStream = null;
+                fileInputStream = fileInputStream2;
+                if (fileInputStream != null) {
+                }
+                throw th;
             }
-        } else {
-            String valueOf2 = String.valueOf(System.currentTimeMillis() / 1000);
-            if (this.mOnReportListener != null) {
-                this.mOnReportListener.onError(new ErrorInfo(4, ErrorInfo.PARAMETER_ERROR_ERRORMSG, null, "-1", null, getSourcePath(), valueOf2));
-            }
-            if (this.mOnVideoErrorListener != null) {
-                this.mOnVideoErrorListener.onError(new ErrorInfo(4, ErrorInfo.PARAMETER_ERROR_ERRORMSG, null, "-1", null, getSourcePath(), valueOf2));
-            }
+        }
+        String valueOf2 = String.valueOf(System.currentTimeMillis() / 1000);
+        if (this.mOnReportListener != null) {
+            this.mOnReportListener.onError(new ErrorInfo(4, ErrorInfo.PARAMETER_ERROR_ERRORMSG, null, "-1", null, getSourcePath(), valueOf2));
+        }
+        if (this.mOnVideoErrorListener != null) {
+            this.mOnVideoErrorListener.onError(new ErrorInfo(4, ErrorInfo.PARAMETER_ERROR_ERRORMSG, null, "-1", null, getSourcePath(), valueOf2));
         }
     }
 

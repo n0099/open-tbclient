@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tieba.R;
 import com.baidu.tieba.sharesdk.bean.ShareEntity;
-/* loaded from: classes24.dex */
+/* loaded from: classes8.dex */
 public class d extends a {
     public d(Context context) {
         super(context);
@@ -16,9 +16,9 @@ public class d extends a {
     public void a(ShareEntity shareEntity, com.baidu.tieba.sharesdk.b.b bVar) {
         String str;
         if (shareEntity == null || TextUtils.isEmpty(shareEntity.getContent())) {
-            l.showToast(getAppContext(), (int) R.string.share_empty_tip);
+            l.showToast(getAppContext(), R.string.share_empty_tip);
             if (bVar != null) {
-                bVar.ds(0, 2);
+                bVar.mo41do(0, 2);
                 return;
             }
             return;
@@ -34,10 +34,10 @@ public class d extends a {
         intent.setType("text/plain");
         if (com.baidu.tieba.sharesdk.c.a.startActivity(this.context, Intent.createChooser(intent, this.context.getString(R.string.share_to)))) {
             if (bVar != null) {
-                bVar.ds(0, 1);
+                bVar.mo41do(0, 1);
             }
         } else if (bVar != null) {
-            bVar.ds(0, 2);
+            bVar.mo41do(0, 2);
         }
     }
 }

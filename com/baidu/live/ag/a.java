@@ -1,15 +1,55 @@
 package com.baidu.live.ag;
 
-import com.baidu.live.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes4.dex */
-interface a {
-    public static final String bxI = TbadkCoreApplication.getInst().getApp().getFilesDir() + "/live_sdk";
-    public static final String bxJ = bxI + "/resource";
-    public static final String bxK = bxI + "/permanent";
-    public static final String bxL = bxJ + "/dynamic_gift";
-    public static final String bxM = bxJ + "/enter_effect";
-    public static final String bxN = bxJ + "/pk_rank";
-    public static final String bxO = bxJ + "/dating_anim";
-    public static final String bxP = bxJ + "/poke";
-    public static final String bxQ = bxJ + "/apk";
+import android.view.ViewGroup;
+import com.baidu.live.data.x;
+/* loaded from: classes11.dex */
+public interface a {
+
+    /* renamed from: com.baidu.live.ag.a$a  reason: collision with other inner class name */
+    /* loaded from: classes11.dex */
+    public interface InterfaceC0165a {
+        void F(Object obj);
+
+        void Ta();
+
+        void Tb();
+
+        int Tc();
+
+        int Td();
+
+        int Te();
+
+        int getImMsgListViewHeight();
+    }
+
+    void SY();
+
+    void SZ();
+
+    void a(InterfaceC0165a interfaceC0165a);
+
+    void a(com.baidu.live.j.a aVar);
+
+    void a(com.baidu.live.liveroom.b.a aVar);
+
+    void cQ(boolean z);
+
+    void fA(int i);
+
+    void fz(int i);
+
+    void onDestroy();
+
+    void onKeyboardVisibilityChanged(boolean z);
+
+    void setLiveShowInfo(x xVar);
+
+    void setStickerCanOperate(boolean z);
+
+    void t(ViewGroup viewGroup);
+
+    void u(ViewGroup viewGroup);
+
+    void v(ViewGroup viewGroup);
 }

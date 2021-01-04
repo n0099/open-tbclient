@@ -7,7 +7,7 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class MemoryUtils {
     private static final int BUFFER_SIZE = 8192;
     private static final boolean DEBUG = false;
@@ -25,7 +25,6 @@ public class MemoryUtils {
         BufferedReader bufferedReader;
         FileReader fileReader;
         String readLine;
-        FileReader fileReader2 = null;
         if (sTotalMemory == 0) {
             try {
                 fileReader = new FileReader("/proc/meminfo");
@@ -36,9 +35,8 @@ public class MemoryUtils {
                         Closeables.closeSafely(bufferedReader);
                         Closeables.closeSafely(fileReader);
                     } catch (IOException e) {
-                        fileReader2 = fileReader;
                         Closeables.closeSafely(bufferedReader);
-                        Closeables.closeSafely(fileReader2);
+                        Closeables.closeSafely(fileReader);
                         sTotalMemory = r0;
                         return sTotalMemory;
                     } catch (Throwable th) {
@@ -49,13 +47,13 @@ public class MemoryUtils {
                     }
                 } catch (IOException e2) {
                     bufferedReader = null;
-                    fileReader2 = fileReader;
                 } catch (Throwable th2) {
                     th = th2;
                     bufferedReader = null;
                 }
             } catch (IOException e3) {
                 bufferedReader = null;
+                fileReader = null;
             } catch (Throwable th3) {
                 th = th3;
                 bufferedReader = null;

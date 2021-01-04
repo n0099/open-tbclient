@@ -2,10 +2,10 @@ package com.baidu.tieba.homepage.gamevideo.message;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.u;
+import com.baidu.tbadk.util.t;
 import tbclient.RecomVertical.DataReq;
 import tbclient.RecomVertical.RecomVerticalReqIdl;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class GameVideoRequestMessage extends NetMessage {
     public String class_id;
     public int load_type;
@@ -26,7 +26,7 @@ public class GameVideoRequestMessage extends NetMessage {
         builder.load_type = Integer.valueOf(this.load_type);
         builder.page_thread_count = Integer.valueOf(this.page_thread_count);
         if (z) {
-            u.a(builder, true);
+            t.b(builder, true);
         }
         RecomVerticalReqIdl.Builder builder2 = new RecomVerticalReqIdl.Builder();
         builder2.data = builder.build(false);

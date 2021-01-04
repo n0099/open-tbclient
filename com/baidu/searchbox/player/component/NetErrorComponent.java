@@ -1,15 +1,15 @@
 package com.baidu.searchbox.player.component;
 
-import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.player.constants.PlayerStatus;
 import com.baidu.searchbox.player.event.LayerEvent;
 import com.baidu.searchbox.player.event.VideoEvent;
 import com.baidu.searchbox.videoplayer.framework.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class NetErrorComponent extends AbsComponent {
     private Button mBtnRetry;
     private LinearLayout mRootView;

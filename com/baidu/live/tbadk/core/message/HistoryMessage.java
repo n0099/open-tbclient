@@ -4,7 +4,7 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.BaseActivity;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class HistoryMessage extends CustomResponsedMessage<Boolean> {
     public BaseActivity Activity;
     public long cartoonId;

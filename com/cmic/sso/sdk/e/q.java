@@ -7,21 +7,21 @@ import com.cmic.sso.sdk.e.k;
 import org.apache.http.HttpHost;
 import org.apache.http.HttpVersion;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class q {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile boolean f4033a = false;
+    private static volatile boolean f8034a = false;
 
     public static void b(com.cmic.sso.sdk.a aVar) {
-        if (f4033a) {
+        if (f8034a) {
             c.a("UmcConfigUtil", "正在获取配置中...");
             return;
         }
-        f4033a = true;
-        com.cmic.sso.sdk.c.c.a.eoD().a(aVar.b("isNeedToGetCert", true), aVar, new com.cmic.sso.sdk.c.c.d() { // from class: com.cmic.sso.sdk.e.q.1
+        f8034a = true;
+        com.cmic.sso.sdk.c.c.a.esP().a(aVar.b("isNeedToGetCert", true), aVar, new com.cmic.sso.sdk.c.c.d() { // from class: com.cmic.sso.sdk.e.q.1
             @Override // com.cmic.sso.sdk.c.c.d
-            public void j(String str, String str2, JSONObject jSONObject) {
+            public void i(String str, String str2, JSONObject jSONObject) {
                 try {
                     if ("103000".equals(str)) {
                         q.b(jSONObject);
@@ -29,7 +29,7 @@ public class q {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                boolean unused = q.f4033a = false;
+                boolean unused = q.f8034a = false;
             }
         });
     }
@@ -44,11 +44,11 @@ public class q {
         String str4;
         String str5;
         String str6 = null;
-        k.a eoJ = k.eoJ();
+        k.a esV = k.esV();
         try {
-            eoJ.a("getConfigDate", p.b());
+            esV.a("getConfigDate", p.b());
             if (jSONObject.has("client_valid")) {
-                eoJ.a("client_valid", (Integer.valueOf(jSONObject.getString("client_valid")).intValue() * 60 * 60 * 1000) + System.currentTimeMillis());
+                esV.a("client_valid", (Integer.valueOf(jSONObject.getString("client_valid")).intValue() * 60 * 60 * 1000) + System.currentTimeMillis());
             }
             if (jSONObject.has("Configlist")) {
                 JSONObject jSONObject2 = jSONObject.getJSONObject("Configlist");
@@ -82,14 +82,14 @@ public class q {
                                 str2 = null;
                             }
                             c.a("UmcConfigUtil", "HTTP:" + str5 + "||||||||HTTPS:" + str2);
-                            eoJ.a("httpHost", str5);
-                            eoJ.a("httpsHost", str2);
+                            esV.a("httpHost", str5);
+                            esV.a("httpsHost", str2);
                         }
                         str5 = null;
                         str2 = null;
                         c.a("UmcConfigUtil", "HTTP:" + str5 + "||||||||HTTPS:" + str2);
-                        eoJ.a("httpHost", str5);
-                        eoJ.a("httpsHost", str2);
+                        esV.a("httpHost", str5);
+                        esV.a("httpsHost", str2);
                     } else {
                         str2 = null;
                     }
@@ -112,7 +112,7 @@ public class q {
                             str = str.substring(str.lastIndexOf("=") + 1);
                         }
                         c.a("UmcConfigUtil", "HTTPS:" + str);
-                        eoJ.a("logHost", str);
+                        esV.a("logHost", str);
                     } else {
                         str = null;
                     }
@@ -148,7 +148,7 @@ public class q {
                             str6 = str6.substring(str6.indexOf(":") + 1, str6.indexOf(","));
                         }
                         c.a("UmcConfigUtil", "log CERT:");
-                        eoJ.a(SapiUtils.COOKIE_HTTPS_URL_PREFIX + str + "/log/logReport", str6);
+                        esV.a(SapiUtils.COOKIE_HTTPS_URL_PREFIX + str + "/log/logReport", str6);
                     }
                     if (string2.contains("log1.cmpassport.com")) {
                         int length4 = split3.length;
@@ -168,7 +168,7 @@ public class q {
                             str6 = str6.substring(str6.indexOf(":") + 1, str6.indexOf(","));
                         }
                         c.a("UmcConfigUtil", "log1 CERT:");
-                        eoJ.a("https://log1.cmpassport.com:9443/log/logReport", str6);
+                        esV.a("https://log1.cmpassport.com:9443/log/logReport", str6);
                     }
                     if (TextUtils.isEmpty(str2) || !str2.contains(":")) {
                         charSequence2 = str2;
@@ -195,7 +195,7 @@ public class q {
                             str6 = str6.substring(str6.indexOf(":") + 1, str6.indexOf(","));
                         }
                         c.a("UmcConfigUtil", "httpsHost CERT:");
-                        eoJ.a(SapiUtils.COOKIE_HTTPS_URL_PREFIX + str2 + "/unisdk", str6);
+                        esV.a(SapiUtils.COOKIE_HTTPS_URL_PREFIX + str2 + "/unisdk", str6);
                     }
                     if (string2.contains("onekey1.cmpassport.com")) {
                         int length6 = split3.length;
@@ -215,32 +215,32 @@ public class q {
                             str3 = str3.substring(str3.indexOf(":") + 1, str3.indexOf(","));
                         }
                         c.a("UmcConfigUtil", "omekey1 CERT:");
-                        eoJ.a("https://onekey1.cmpassport.com/unisdk", str3);
+                        esV.a("https://onekey1.cmpassport.com/unisdk", str3);
                     }
                 }
-                a(jSONObject2, "CLOSE_CERT_VERIFY", "0", eoJ);
-                a(jSONObject2, "CLOSE_FRIEND_WAPKS", "0", eoJ);
-                a(jSONObject2, "CLOSE_LOGS_VERSION", "0", eoJ);
-                a(jSONObject2, "CLOSE_IPV4_LIST", "0", eoJ);
-                a(jSONObject2, "CLOSE_IPV6_LIST", "1", eoJ);
-                a(jSONObject2, "CLOSE_M001_SDKVERSION_LIST", "0", eoJ);
-                a(jSONObject2, "CLOSE_M001_APPID_LIST", "0", eoJ);
-                a(jSONObject2, "CLOSE_M005_SDKVERSION_LIST", "0", eoJ);
-                a(jSONObject2, "CLOSE_M005_APPID_LIST", "0", eoJ);
+                a(jSONObject2, "CLOSE_CERT_VERIFY", "0", esV);
+                a(jSONObject2, "CLOSE_FRIEND_WAPKS", "0", esV);
+                a(jSONObject2, "CLOSE_LOGS_VERSION", "0", esV);
+                a(jSONObject2, "CLOSE_IPV4_LIST", "0", esV);
+                a(jSONObject2, "CLOSE_IPV6_LIST", "1", esV);
+                a(jSONObject2, "CLOSE_M001_SDKVERSION_LIST", "0", esV);
+                a(jSONObject2, "CLOSE_M001_APPID_LIST", "0", esV);
+                a(jSONObject2, "CLOSE_M005_SDKVERSION_LIST", "0", esV);
+                a(jSONObject2, "CLOSE_M005_APPID_LIST", "0", esV);
                 if (jSONObject2.has("LOGS_CONTROL")) {
                     String[] split4 = jSONObject2.getString("LOGS_CONTROL").replace("h", "").split(ETAG.ITEM_SEPARATOR);
                     if (split4.length > 0 && !TextUtils.isEmpty(split4[0])) {
-                        eoJ.a("maxFailedLogTimes", Integer.parseInt(split4[0]));
+                        esV.a("maxFailedLogTimes", Integer.parseInt(split4[0]));
                     }
                     if (1 < split4.length && !TextUtils.isEmpty(split4[1])) {
-                        eoJ.a("pauseTime", Integer.parseInt(split4[1]));
+                        esV.a("pauseTime", Integer.parseInt(split4[1]));
                     }
                 }
             }
         } catch (Exception e) {
             c.a("UmcConfigUtil", e.getMessage());
         } finally {
-            eoJ.b();
+            esV.b();
         }
     }
 
@@ -251,7 +251,7 @@ public class q {
     }
 
     public static boolean a() {
-        return System.currentTimeMillis() >= k.P("client_valid", 0L);
+        return System.currentTimeMillis() >= k.a("client_valid", 0L);
     }
 
     public static boolean b() {
@@ -267,18 +267,18 @@ public class q {
     }
 
     public static String e() {
-        String b = k.b("httpHost", null);
-        return TextUtils.isEmpty(b) ? "http://www.cmpassport.com/unisdk" : "http://" + b + "/unisdk";
+        String b2 = k.b("httpHost", null);
+        return TextUtils.isEmpty(b2) ? "http://www.cmpassport.com/unisdk" : "http://" + b2 + "/unisdk";
     }
 
     public static String f() {
-        String b = k.b("httpsHost", null);
-        return TextUtils.isEmpty(b) ? "https://onekey1.cmpassport.com/unisdk" : SapiUtils.COOKIE_HTTPS_URL_PREFIX + b + "/unisdk";
+        String b2 = k.b("httpsHost", null);
+        return TextUtils.isEmpty(b2) ? "https://onekey1.cmpassport.com/unisdk" : SapiUtils.COOKIE_HTTPS_URL_PREFIX + b2 + "/unisdk";
     }
 
     public static String g() {
-        String b = k.b("logHost", "");
-        return TextUtils.isEmpty(b) ? "https://log1.cmpassport.com:9443/log/logReport" : SapiUtils.COOKIE_HTTPS_URL_PREFIX + b + "/log/logReport";
+        String b2 = k.b("logHost", "");
+        return TextUtils.isEmpty(b2) ? "https://log1.cmpassport.com:9443/log/logReport" : SapiUtils.COOKIE_HTTPS_URL_PREFIX + b2 + "/log/logReport";
     }
 
     public static boolean h() {

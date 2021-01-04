@@ -1,6 +1,5 @@
 package com.baidu.tieba.personPolymeric.header;
 
-import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import android.view.View;
@@ -10,12 +9,12 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.n;
 import com.baidu.live.tbadk.core.data.RequestResponseCode;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.util.MemberPayStatistic;
 import com.baidu.live.tbadk.data.Config;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationConstants;
-import com.baidu.searchbox.ugc.model.PublishType;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
@@ -28,13 +27,14 @@ import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tbadk.core.util.bf;
-import com.baidu.tbadk.core.util.bh;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tbadk.core.util.q;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tbadk.data.IconData;
@@ -43,79 +43,80 @@ import com.baidu.tbadk.data.o;
 import com.baidu.tieba.R;
 import com.baidu.tieba.personPolymeric.b.i;
 import com.baidu.tieba.view.FollowUserSpinnerBtn;
+import com.tencent.connect.common.Constants;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.http.HttpHost;
 import tbclient.BaijiahaoInfo;
-/* loaded from: classes24.dex */
+/* loaded from: classes8.dex */
 public class c {
-    private com.baidu.tbadk.coreExtra.model.a eTC;
+    private com.baidu.tbadk.coreExtra.model.a fcZ;
     private boolean mIsHost;
     private TbPageContext mPageContext;
     private UserData mUserData;
-    private com.baidu.tieba.personPolymeric.c.a mtd;
-    private b mte;
-    private i mtf;
+    private com.baidu.tieba.personPolymeric.c.a myq;
+    private b myr;
+    private i mys;
     private View.OnClickListener mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.header.c.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             String intro;
-            if (view == c.this.mte.dAD()) {
-                c.this.dAQ();
-            } else if (view == c.this.mte.dAE()) {
-                c.this.dAP();
-            } else if (view != c.this.mte.dAF()) {
-                if (view == c.this.mte.getUserName()) {
+            if (view == c.this.myr.dAs()) {
+                c.this.dAF();
+            } else if (view == c.this.myr.dAt()) {
+                c.this.dAE();
+            } else if (view != c.this.myr.dAu()) {
+                if (view == c.this.myr.getUserName()) {
                     if (c.this.mIsHost) {
-                        TiebaStatic.log(new ar("c12502").dY("obj_locate", "7"));
-                        c.this.dAZ();
+                        TiebaStatic.log(new aq("c12502").dX("obj_locate", "7"));
+                        c.this.dAO();
                     }
-                } else if (view != c.this.mte.dAG() && view != c.this.mte.dAO()) {
-                    if (view == c.this.mte.dAH()) {
-                        c.this.dAV();
-                    } else if (view == c.this.mte.dAJ()) {
-                        c.this.dAW();
-                    } else if (view == c.this.mte.dAI()) {
-                        c.this.dAX();
-                    } else if (view == c.this.mte.dAK()) {
-                        c.this.dAU();
-                    } else if (view == c.this.mte.dAL()) {
-                        c.this.dAR();
-                    } else if (view == c.this.mte.dAM()) {
+                } else if (view != c.this.myr.dAv() && view != c.this.myr.dAD()) {
+                    if (view == c.this.myr.dAw()) {
+                        c.this.dAK();
+                    } else if (view == c.this.myr.dAy()) {
+                        c.this.dAL();
+                    } else if (view == c.this.myr.dAx()) {
+                        c.this.dAM();
+                    } else if (view == c.this.myr.dAz()) {
+                        c.this.dAJ();
+                    } else if (view == c.this.myr.dAA()) {
+                        c.this.dAG();
+                    } else if (view == c.this.myr.dAB()) {
                         if (c.this.mIsHost) {
-                            TiebaStatic.log(new ar("c13613").dY("obj_param1", "0"));
+                            TiebaStatic.log(new aq("c13613").dX("obj_param1", "0"));
                         } else {
-                            TiebaStatic.log(new ar("c13613").dY("obj_param1", "1"));
+                            TiebaStatic.log(new aq("c13613").dX("obj_param1", "1"));
                         }
-                        c.this.dAS();
-                    } else if (view == c.this.mte.dAN()) {
-                        c.this.dAT();
+                        c.this.dAH();
+                    } else if (view == c.this.myr.dAC()) {
+                        c.this.dAI();
                     }
                 } else {
-                    TiebaStatic.log(new ar("c12502").dY("obj_locate", "14"));
+                    TiebaStatic.log(new aq("c12502").dX("obj_locate", Constants.VIA_REPORT_TYPE_MAKE_FRIEND));
                     if (c.this.mIsHost) {
                         if (c.this.mUserData != null && c.this.mUserData.isBaijiahaoUser()) {
-                            PersonIntroductionActivity.aX(c.this.mPageContext.getPageActivity(), c.this.mUserData.getIntro());
+                            PersonIntroductionActivity.bd(c.this.mPageContext.getPageActivity(), c.this.mUserData.getIntro());
                         }
-                        c.this.dAZ();
+                        c.this.dAO();
                         return;
                     }
                     BaijiahaoInfo baijiahaoInfo = c.this.mUserData.getBaijiahaoInfo();
-                    if (baijiahaoInfo == null || au.isEmpty(baijiahaoInfo.auth_desc)) {
+                    if (baijiahaoInfo == null || at.isEmpty(baijiahaoInfo.auth_desc)) {
                         intro = c.this.mUserData.getIntro();
                     } else {
                         intro = baijiahaoInfo.auth_desc;
                     }
-                    PersonIntroductionActivity.aX(c.this.mPageContext.getPageActivity(), intro);
+                    PersonIntroductionActivity.bd(c.this.mPageContext.getPageActivity(), intro);
                 }
             } else {
-                TiebaStatic.log(new ar("c12503").dY("obj_locate", "3"));
+                TiebaStatic.log(new aq("c12503").dX("obj_locate", "3"));
                 TiebaStatic.log("igift_icon_ck");
-                c.this.dAY();
+                c.this.dAN();
             }
         }
     };
-    private CustomMessageListener eTG = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.personPolymeric.header.c.2
+    private CustomMessageListener fdd = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.personPolymeric.header.c.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -128,7 +129,7 @@ public class c {
                             c.this.mUserData.setLike(true);
                             return;
                         }
-                        if (!updateAttentionMessage.getData().fhi) {
+                        if (!updateAttentionMessage.getData().fqS) {
                             c.this.mPageContext.showToast(R.string.unlike_success);
                         }
                         c.this.mUserData.setLike(false);
@@ -138,8 +139,8 @@ public class c {
                 }
                 Message<?> message2 = updateAttentionMessage.getmOrginalMessage();
                 if (message2 != null && message2.getTag() != null && message2.getTag().equals(c.this.mPageContext.getUniqueId())) {
-                    c.this.mte.wF(c.this.mUserData.isLike());
-                    if (updateAttentionMessage.getData() == null || au.isEmpty(updateAttentionMessage.getData().errorString)) {
+                    c.this.myr.wG(c.this.mUserData.isLike());
+                    if (updateAttentionMessage.getData() == null || at.isEmpty(updateAttentionMessage.getData().errorString)) {
                         if (c.this.mUserData.getIsLike()) {
                             c.this.mPageContext.showToast(R.string.unlike_failure);
                             return;
@@ -157,96 +158,96 @@ public class c {
     public c(TbPageContext tbPageContext, boolean z) {
         this.mPageContext = tbPageContext;
         this.mIsHost = z;
-        this.mte = new b(this.mPageContext, this.mIsHost, this.mClickListener);
-        this.mPageContext.registerListener(this.eTG);
-        this.mtf = new i(this.mPageContext, this.mPageContext.getUniqueId(), z);
+        this.myr = new b(this.mPageContext, this.mIsHost, this.mClickListener);
+        this.mPageContext.registerListener(this.fdd);
+        this.mys = new i(this.mPageContext, this.mPageContext.getUniqueId(), z);
     }
 
     public void b(com.baidu.tieba.personPolymeric.c.a aVar) {
         if (aVar != null && aVar.getUserData() != null) {
-            this.mtd = aVar;
-            this.mUserData = this.mtd.getUserData();
-            this.mte.a(this.mtd.getUserData(), this.mtd.dAz());
-            this.mtf.d(aVar);
+            this.myq = aVar;
+            this.mUserData = this.myq.getUserData();
+            this.myr.a(this.myq.getUserData(), this.myq.dAo());
+            this.mys.d(aVar);
         }
     }
 
     public View getView() {
-        return this.mte.getView();
+        return this.myr.getView();
     }
 
     public void onChangeSkinType(int i) {
-        if (this.mte != null) {
-            this.mte.onChangeSkinType(i);
+        if (this.myr != null) {
+            this.myr.onChangeSkinType(i);
         }
     }
 
-    public void dAq() {
-        if (this.mtf != null) {
-            this.mtf.dAq();
+    public void dAf() {
+        if (this.mys != null) {
+            this.mys.dAf();
         }
     }
 
-    public void Y(Intent intent) {
-        if (this.mtf != null) {
-            this.mtf.Y(intent);
+    public void af(Intent intent) {
+        if (this.mys != null) {
+            this.mys.af(intent);
         }
     }
 
-    public void wG(boolean z) {
-        this.mte.wG(z);
+    public void wH(boolean z) {
+        this.myr.wH(z);
     }
 
-    public void Rk(String str) {
-        if (this.mte != null) {
-            this.mte.Rk(str);
+    public void QQ(String str) {
+        if (this.myr != null) {
+            this.myr.QQ(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dAP() {
-        if (bh.checkUpIsLogin(this.mPageContext.getPageActivity())) {
-            if (this.eTC == null) {
-                this.eTC = new com.baidu.tbadk.coreExtra.model.a(this.mPageContext);
-                this.eTC.jL(true);
+    public void dAE() {
+        if (bg.checkUpIsLogin(this.mPageContext.getPageActivity())) {
+            if (this.fcZ == null) {
+                this.fcZ = new com.baidu.tbadk.coreExtra.model.a(this.mPageContext);
+                this.fcZ.kh(true);
             }
-            this.eTC.a(!this.mUserData.isLike(), this.mUserData.getPortrait(), this.mUserData.getUserId(), this.mUserData.isGod(), "2", this.mPageContext.getUniqueId(), null, "0");
-            this.mte.wF(this.mUserData.isLike() ? false : true);
-            ar arVar = new ar("c13570");
-            arVar.dY("obj_id", this.mUserData.getUserId());
-            arVar.w("uid", TbadkCoreApplication.getCurrentAccountId());
+            this.fcZ.a(!this.mUserData.isLike(), this.mUserData.getPortrait(), this.mUserData.getUserId(), this.mUserData.isGod(), "2", this.mPageContext.getUniqueId(), null, "0");
+            this.myr.wG(this.mUserData.isLike() ? false : true);
+            aq aqVar = new aq("c13570");
+            aqVar.dX("obj_id", this.mUserData.getUserId());
+            aqVar.w("uid", TbadkCoreApplication.getCurrentAccountId());
             if (this.mPageContext != null && this.mPageContext.getPageActivity() != null && this.mPageContext.getPageActivity().getIntent() != null) {
-                arVar.dY("nid", this.mPageContext.getPageActivity().getIntent().getStringExtra("nid"));
+                aqVar.dX(IntentConfig.NID, this.mPageContext.getPageActivity().getIntent().getStringExtra(IntentConfig.NID));
             }
             if (this.mPageContext != null) {
-                com.baidu.tbadk.pageInfo.c.b(this.mPageContext.getPageActivity(), arVar);
+                com.baidu.tbadk.pageInfo.c.b(this.mPageContext.getPageActivity(), aqVar);
             }
-            if (this.mPageContext != null && this.mPageContext.getPageActivity() != null && com.baidu.tbadk.pageInfo.c.eY(this.mPageContext.getPageActivity()) != null && com.baidu.tbadk.pageInfo.c.eY(this.mPageContext.getPageActivity()).getPrePageTag() != null && !TextUtils.isEmpty(com.baidu.tbadk.pageInfo.c.eY(this.mPageContext.getPageActivity()).getPrePageTag().locatePage) && PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE.equals(com.baidu.tbadk.pageInfo.c.eY(this.mPageContext.getPageActivity()).getPrePageTag().locatePage)) {
-                arVar.dY("obj_pre_page", com.baidu.tbadk.pageInfo.c.eY(this.mPageContext.getPageActivity()).getPrePageTag().locatePage);
-                arVar.dY("obj_cur_page", PageStayDurationConstants.PageName.PERSON);
+            if (this.mPageContext != null && this.mPageContext.getPageActivity() != null && com.baidu.tbadk.pageInfo.c.fu(this.mPageContext.getPageActivity()) != null && com.baidu.tbadk.pageInfo.c.fu(this.mPageContext.getPageActivity()).getPrePageTag() != null && !TextUtils.isEmpty(com.baidu.tbadk.pageInfo.c.fu(this.mPageContext.getPageActivity()).getPrePageTag().locatePage) && PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE.equals(com.baidu.tbadk.pageInfo.c.fu(this.mPageContext.getPageActivity()).getPrePageTag().locatePage)) {
+                aqVar.dX("obj_pre_page", com.baidu.tbadk.pageInfo.c.fu(this.mPageContext.getPageActivity()).getPrePageTag().locatePage);
+                aqVar.dX("obj_cur_page", PageStayDurationConstants.PageName.PERSON);
             }
-            TiebaStatic.log(arVar);
+            TiebaStatic.log(aqVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dAQ() {
-        TiebaStatic.log(new ar("c12502").dY("obj_locate", "6"));
+    public void dAF() {
+        TiebaStatic.log(new aq("c12502").dX("obj_locate", "6"));
         if (this.mIsHost) {
-            if (bh.checkUpIsLogin(this.mPageContext.getPageActivity())) {
-                bf.bua().b(this.mPageContext, new String[]{TbConfig.URL_MEMBER_BUY});
+            if (bg.checkUpIsLogin(this.mPageContext.getPageActivity())) {
+                be.bwu().b(this.mPageContext, new String[]{TbConfig.URL_MEMBER_BUY});
                 return;
             }
             return;
         }
         ArrayList<IconData> tShowInfo = this.mUserData.getTShowInfo();
-        if (y.getItem(tShowInfo, 0) != null) {
-            bf.bua().b(this.mPageContext, new String[]{tShowInfo.get(0).getUrl()});
+        if (x.getItem(tShowInfo, 0) != null) {
+            be.bwu().b(this.mPageContext, new String[]{tShowInfo.get(0).getUrl()});
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dAR() {
+    public void dAG() {
         AlaUserInfoData alaUserData = this.mUserData.getAlaUserData();
         if (!this.mIsHost && alaUserData != null && alaUserData.live_status == 1 && alaUserData.live_id > 0) {
             TiebaStatic.log("c12542");
@@ -257,98 +258,98 @@ public class c {
         }
         o oVar = new o();
         if (this.mUserData.getBaijiahaoInfo() != null && !TextUtils.isEmpty(this.mUserData.getBaijiahaoInfo().avatar)) {
-            oVar.DC(this.mUserData.getBaijiahaoInfo().avatar);
-            oVar.DD(this.mUserData.getBaijiahaoInfo().avatar);
-            oVar.kk(true);
+            oVar.DA(this.mUserData.getBaijiahaoInfo().avatar);
+            oVar.DB(this.mUserData.getBaijiahaoInfo().avatar);
+            oVar.kG(true);
         } else if (!StringUtils.isNull(this.mUserData.getPortrait()) && this.mUserData.getPortrait().startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
-            oVar.DC(this.mUserData.getPortrait());
-            oVar.DD(q.BR(this.mUserData.getPortrait()));
-            oVar.kk(true);
+            oVar.DA(this.mUserData.getPortrait());
+            oVar.DB(q.BQ(this.mUserData.getPortrait()));
+            oVar.kG(true);
         } else {
-            oVar.DC(q.BR(this.mUserData.getPortraitH()));
-            oVar.DD(q.BR(this.mUserData.getPortrait()));
-            oVar.kk(true);
+            oVar.DA(q.BQ(this.mUserData.getPortraitH()));
+            oVar.DB(q.BQ(this.mUserData.getPortrait()));
+            oVar.kG(true);
         }
         ArrayList arrayList = new ArrayList();
         arrayList.add(oVar);
-        this.mtf.a((com.baidu.adp.widget.ListView.q) oVar, (List<com.baidu.adp.widget.ListView.q>) arrayList, 0);
+        this.mys.a((n) oVar, (List<n>) arrayList, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dAS() {
-        if (this.mtd != null && this.mtd.dAz() != null && !TextUtils.isEmpty(this.mtd.dAz().goods_url)) {
-            bf.bua().a(this.mPageContext, new String[]{this.mtd.dAz().goods_url}, true);
+    public void dAH() {
+        if (this.myq != null && this.myq.dAo() != null && !TextUtils.isEmpty(this.myq.dAo().goods_url)) {
+            be.bwu().a(this.mPageContext, new String[]{this.myq.dAo().goods_url}, true);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dAT() {
+    public void dAI() {
         if (this.mUserData != null && this.mUserData.getLiveRoomInfo() != null && !TextUtils.isEmpty(this.mUserData.getLiveRoomInfo().jump_url)) {
-            bf.bua().a(this.mPageContext, new String[]{this.mUserData.getLiveRoomInfo().jump_url}, true);
+            be.bwu().a(this.mPageContext, new String[]{this.mUserData.getLiveRoomInfo().jump_url}, true);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dAU() {
-        ar arVar = new ar("c13574");
-        arVar.al("obj_type", this.mIsHost ? 1 : 0);
-        arVar.dY("uid", TbadkCoreApplication.getCurrentAccount());
-        TiebaStatic.log(arVar);
-        TiebaStatic.log(new ar("c12502").dY("obj_locate", "10"));
-        if (bh.checkUpIsLogin(this.mPageContext.getPageActivity())) {
+    public void dAJ() {
+        aq aqVar = new aq("c13574");
+        aqVar.an("obj_type", this.mIsHost ? 1 : 0);
+        aqVar.dX("uid", TbadkCoreApplication.getCurrentAccount());
+        TiebaStatic.log(aqVar);
+        TiebaStatic.log(new aq("c12502").dX("obj_locate", Constants.VIA_REPORT_TYPE_SHARE_TO_QQ));
+        if (bg.checkUpIsLogin(this.mPageContext.getPageActivity())) {
             boolean equals = TbadkCoreApplication.getCurrentAccount().equals(this.mUserData.getUserId());
             boolean z = this.mUserData.getIsFriend() == 1;
             if (this.mUserData.getPersonPrivate() == null) {
-                Ix(this.mUserData.getSex());
-            } else if (this.mUserData.getPersonPrivate().bBH() == 1 || equals || (z && this.mUserData.getPersonPrivate().bBH() == 2)) {
-                TiebaStatic.log(new ar("c11597").al("obj_locate", 4).al("obj_type", TextUtils.equals(TbadkCoreApplication.getCurrentAccount(), this.mUserData.getUserId()) ? 1 : 2).al("obj_source", this.mUserData.isGod() ? 1 : 2));
+                Ir(this.mUserData.getSex());
+            } else if (this.mUserData.getPersonPrivate().bEc() == 1 || equals || (z && this.mUserData.getPersonPrivate().bEc() == 2)) {
+                TiebaStatic.log(new aq("c11597").an("obj_locate", 4).an("obj_type", TextUtils.equals(TbadkCoreApplication.getCurrentAccount(), this.mUserData.getUserId()) ? 1 : 2).an("obj_source", this.mUserData.isGod() ? 1 : 2));
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonBarActivityConfig(this.mPageContext.getPageActivity(), this.mUserData.getLike_bars(), this.mUserData.getUserId(), this.mUserData.getSex())));
             } else {
-                Ix(this.mUserData.getSex());
+                Ir(this.mUserData.getSex());
             }
         }
     }
 
-    private void Ix(int i) {
-        BdToast.a((Context) this.mPageContext.getPageActivity(), (CharSequence) String.format(this.mPageContext.getString(R.string.person_privacy_toast), au.getUserDescByGender(i)), (int) R.drawable.icon_pure_toast_mistake40_svg, true).brB();
+    private void Ir(int i) {
+        BdToast.b(this.mPageContext.getPageActivity(), String.format(this.mPageContext.getString(R.string.person_privacy_toast), at.getUserDescByGender(i)), R.drawable.icon_pure_toast_mistake40_svg, true).bud();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dAV() {
-        TiebaStatic.log(new ar("c12502").dY("obj_locate", "4"));
+    public void dAK() {
+        TiebaStatic.log(new aq("c12502").dX("obj_locate", "4"));
         com.baidu.tbadk.browser.a.startWebActivity(this.mPageContext.getPageActivity(), this.mPageContext.getString(R.string.user_icon_web_view_title), e.SERVER_ADDRESS_WEB_VIEW + Config.USER_ICON_WEBVIEW + "?user_id=" + this.mUserData.getUserId(), true, true, true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dAW() {
-        ar arVar = new ar("c13575");
-        arVar.al("obj_type", this.mIsHost ? 1 : 0);
-        arVar.dY("uid", TbadkCoreApplication.getCurrentAccount());
-        TiebaStatic.log(arVar);
-        TiebaStatic.log(new ar("c12502").dY("obj_locate", PublishType.TYPE_VIDEO_SHARE));
-        if (bh.checkUpIsLogin(this.mPageContext.getPageActivity())) {
-            TiebaStatic.log(new ar("c11597").al("obj_locate", 2).al("obj_type", TextUtils.equals(TbadkCoreApplication.getCurrentAccount(), this.mUserData.getUserId()) ? 1 : 2).al("obj_source", this.mUserData.isGod() ? 1 : 2));
+    public void dAL() {
+        aq aqVar = new aq("c13575");
+        aqVar.an("obj_type", this.mIsHost ? 1 : 0);
+        aqVar.dX("uid", TbadkCoreApplication.getCurrentAccount());
+        TiebaStatic.log(aqVar);
+        TiebaStatic.log(new aq("c12502").dX("obj_locate", "9"));
+        if (bg.checkUpIsLogin(this.mPageContext.getPageActivity())) {
+            TiebaStatic.log(new aq("c11597").an("obj_locate", 2).an("obj_type", TextUtils.equals(TbadkCoreApplication.getCurrentAccount(), this.mUserData.getUserId()) ? 1 : 2).an("obj_source", this.mUserData.isGod() ? 1 : 2));
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonListActivityConfig(this.mPageContext.getPageActivity(), true, this.mUserData.getUserId(), this.mUserData.getSex()).updateFollowNum(this.mUserData.getConcernNum(), this.mUserData.getPortrait())));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dAX() {
-        ar arVar = new ar("c13573");
-        arVar.al("obj_type", this.mIsHost ? 1 : 0);
-        arVar.dY("uid", TbadkCoreApplication.getCurrentAccount());
-        TiebaStatic.log(arVar);
-        TiebaStatic.log(new ar("c12502").dY("obj_locate", "8"));
-        if (bh.checkUpIsLogin(this.mPageContext.getPageActivity())) {
-            com.baidu.tieba.q.a.dGO().h(2, false, this.mIsHost);
-            TiebaStatic.log(new ar("c11597").al("obj_locate", 3).al("obj_type", TextUtils.equals(TbadkCoreApplication.getCurrentAccount(), this.mUserData.getUserId()) ? 1 : 2).al("obj_source", this.mUserData.isGod() ? 1 : 2));
+    public void dAM() {
+        aq aqVar = new aq("c13573");
+        aqVar.an("obj_type", this.mIsHost ? 1 : 0);
+        aqVar.dX("uid", TbadkCoreApplication.getCurrentAccount());
+        TiebaStatic.log(aqVar);
+        TiebaStatic.log(new aq("c12502").dX("obj_locate", "8"));
+        if (bg.checkUpIsLogin(this.mPageContext.getPageActivity())) {
+            com.baidu.tieba.p.a.dGD().h(2, false, this.mIsHost);
+            TiebaStatic.log(new aq("c11597").an("obj_locate", 3).an("obj_type", TextUtils.equals(TbadkCoreApplication.getCurrentAccount(), this.mUserData.getUserId()) ? 1 : 2).an("obj_source", this.mUserData.isGod() ? 1 : 2));
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonListActivityConfig(this.mPageContext.getPageActivity(), false, this.mUserData.getUserId(), this.mUserData.getSex())));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dAY() {
-        if (bh.checkUpIsLogin(this.mPageContext.getPageActivity())) {
+    public void dAN() {
+        if (bg.checkUpIsLogin(this.mPageContext.getPageActivity())) {
             GiftTabActivityConfig giftTabActivityConfig = new GiftTabActivityConfig(this.mPageContext.getPageActivity(), this.mUserData.getUserIdLong(), this.mUserData.getUserName(), this.mUserData.getName_show(), GiftTabActivityConfig.FROM_PERSON_CENTER, RequestResponseCode.REQUEST_MEMBER_GIFT);
             giftTabActivityConfig.setReferPageAndClickZone(MemberPayStatistic.REFER_PAGE_HE_HER_PERSONAL_CENTER, MemberPayStatistic.CLICK_ZONE_T_RECHARGE);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, giftTabActivityConfig));
@@ -356,7 +357,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dAZ() {
+    public void dAO() {
         if (TbadkCoreApplication.getCurrentAccountInfo() != null) {
             PersonChangeData personChangeData = new PersonChangeData();
             if (this.mUserData != null) {
@@ -372,13 +373,13 @@ public class c {
                 if (this.mUserData.alaUserData != null) {
                     personChangeData.setAlaId(this.mUserData.alaUserData.ala_id);
                 }
-                if (this.mtd.mrI != null) {
-                    personChangeData.setNickNameLeftDays(this.mtd.mrI.left_days.intValue());
+                if (this.myq.mwW != null) {
+                    personChangeData.setNickNameLeftDays(this.myq.mwW.left_days.intValue());
                 }
                 if (this.mUserData.getBirthdayInfo() != null) {
                     personChangeData.setUserAge(this.mUserData.getBirthdayInfo().age);
-                    personChangeData.setBirthdayTime(this.mUserData.getBirthdayInfo().eMU);
-                    personChangeData.setBirthdayShowStatus(this.mUserData.getBirthdayInfo().eMV);
+                    personChangeData.setBirthdayTime(this.mUserData.getBirthdayInfo().eWS);
+                    personChangeData.setBirthdayShowStatus(this.mUserData.getBirthdayInfo().eWT);
                 }
             }
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonChangeActivityConfig(this.mPageContext.getPageActivity(), 101, personChangeData, false)));
@@ -386,31 +387,31 @@ public class c {
     }
 
     public void a(com.baidu.tieba.personPolymeric.b.a aVar) {
-        this.mte.a(aVar);
+        this.myr.a(aVar);
     }
 
-    public FollowUserSpinnerBtn dBa() {
-        return this.mte.dAE();
+    public FollowUserSpinnerBtn dAP() {
+        return this.myr.dAt();
     }
 
-    public void dAB() {
-        this.mte.dAB();
+    public void dAq() {
+        this.myr.dAq();
     }
 
-    public void dAC() {
-        this.mte.dAC();
+    public void dAr() {
+        this.myr.dAr();
     }
 
-    public void wH(boolean z) {
-        this.mte.wE(z);
+    public void wI(boolean z) {
+        this.myr.wF(z);
     }
 
     public void onDestroy() {
-        if (this.mtf != null) {
-            this.mtf.onDestroy();
+        if (this.mys != null) {
+            this.mys.onDestroy();
         }
-        if (this.mte != null) {
-            this.mte.onDestroy();
+        if (this.myr != null) {
+            this.myr.onDestroy();
         }
     }
 }

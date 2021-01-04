@@ -1,20 +1,20 @@
 package com.baidu.live.im;
 
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class s {
-    public String bcO;
-    public long bmD;
-    public long bmF;
-    public long bmG;
-    public long bmI;
-    public List<a> bne;
+    public String bey;
+    public List<a> boL;
+    public long boi;
+    public long bok;
+    public long bol;
+    public long bon;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public static class a {
-        public long bmE;
-        public long bmH;
-        public long bmJ;
-        public long bmK;
+        public long boj;
+        public long bom;
+        public long boo;
+        public long bop;
     }
 }

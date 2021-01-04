@@ -1,17 +1,17 @@
 package com.baidu.ar.npc;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 class i implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ArBridge f1223a;
+    final /* synthetic */ ArBridge f1532a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(ArBridge arBridge) {
-        this.f1223a = arBridge;
+        this.f1532a = arBridge;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f1223a.k = this.f1223a.nativeGetFps();
+        this.f1532a.k = this.f1532a.nativeGetFps();
     }
 }

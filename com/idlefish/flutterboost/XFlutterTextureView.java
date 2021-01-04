@@ -2,15 +2,15 @@ package com.idlefish.flutterboost;
 
 import android.content.Context;
 import android.graphics.SurfaceTexture;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.Surface;
 import android.view.TextureView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import io.flutter.Log;
 import io.flutter.embedding.engine.renderer.FlutterRenderer;
 import io.flutter.embedding.engine.renderer.RenderSurface;
-/* loaded from: classes19.dex */
+/* loaded from: classes7.dex */
 public class XFlutterTextureView extends TextureView implements RenderSurface {
     @Nullable
     private FlutterRenderer flutterRenderer;

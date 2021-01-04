@@ -6,11 +6,11 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
 import android.os.RemoteException;
-import android.support.annotation.Keep;
 import android.util.Log;
+import androidx.annotation.Keep;
 import com.samsung.android.deviceidservice.a;
 @Keep
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class SumsungCore {
     private com.bun.miitmdid.supplier.c.a mCallerCallBack;
     private ServiceConnection mConnection;
@@ -31,7 +31,7 @@ public class SumsungCore {
         this.mConnection = new ServiceConnection() { // from class: com.bun.miitmdid.supplier.sumsung.SumsungCore.1
             @Override // android.content.ServiceConnection
             public synchronized void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-                SumsungCore.this.mDeviceidInterface = a.AbstractBinderC1016a.a(iBinder);
+                SumsungCore.this.mDeviceidInterface = a.AbstractBinderC1187a.a(iBinder);
                 if (SumsungCore.this.mCallerCallBack != null) {
                     SumsungCore.this.mCallerCallBack.a(true);
                 }

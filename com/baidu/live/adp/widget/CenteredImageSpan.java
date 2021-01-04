@@ -5,10 +5,10 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.NonNull;
 import android.text.style.ImageSpan;
+import androidx.annotation.NonNull;
 import java.lang.ref.WeakReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class CenteredImageSpan extends ImageSpan {
     private WeakReference<Drawable> mDrawableRef;
 

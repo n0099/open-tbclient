@@ -3,7 +3,6 @@ package com.baidu.android.imsdk.shield.request;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Pair;
-import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.chatmessage.ChatSession;
 import com.baidu.android.imsdk.internal.Constants;
@@ -22,7 +21,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class IMGetShieldAndTopListRequest extends IMSettingBaseHttpRequest {
     private static final String TAG = "IMGetShieldAndTopListRequest";
     private int mFilterType;
@@ -77,7 +76,7 @@ public class IMGetShieldAndTopListRequest extends IMSettingBaseHttpRequest {
         try {
             JSONObject jSONObject = new JSONObject(str2);
             i2 = jSONObject.getInt("error_code");
-            str = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG, "");
+            str = jSONObject.optString("error_msg", "");
             JSONArray optJSONArray = jSONObject.optJSONArray("uks");
             if (optJSONArray != null) {
                 for (int i3 = 0; i3 < optJSONArray.length(); i3++) {

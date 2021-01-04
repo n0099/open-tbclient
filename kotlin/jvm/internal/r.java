@@ -1,31 +1,31 @@
 package kotlin.jvm.internal;
 @kotlin.e
-/* loaded from: classes17.dex */
+/* loaded from: classes5.dex */
 public final class r implements l {
-    private final String kde;
-    private final Class<?> pKE;
+    private final String kqq;
+    private final Class<?> qmh;
 
     public r(Class<?> cls, String str) {
         p.o(cls, "jClass");
         p.o(str, "moduleName");
-        this.pKE = cls;
-        this.kde = str;
+        this.qmh = cls;
+        this.kqq = str;
     }
 
     @Override // kotlin.jvm.internal.l
-    public Class<?> eDY() {
-        return this.pKE;
+    public Class<?> eMg() {
+        return this.qmh;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof r) && p.l(eDY(), ((r) obj).eDY());
+        return (obj instanceof r) && p.l(eMg(), ((r) obj).eMg());
     }
 
     public int hashCode() {
-        return eDY().hashCode();
+        return eMg().hashCode();
     }
 
     public String toString() {
-        return eDY().toString() + " (Kotlin reflection is not available)";
+        return eMg().toString() + " (Kotlin reflection is not available)";
     }
 }

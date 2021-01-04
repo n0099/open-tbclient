@@ -1,18 +1,31 @@
 package com.baidu.live.aa;
 
 import android.view.ViewGroup;
-import com.baidu.live.data.w;
-/* loaded from: classes4.dex */
+import com.baidu.live.data.x;
+import com.baidu.live.liveroom.g.d;
+/* loaded from: classes11.dex */
 public interface a {
-    void IB();
+    void C(int i, int i2);
 
-    void dX(int i);
+    void DC();
 
-    boolean o(w wVar);
+    d RY();
 
-    void p(ViewGroup viewGroup);
+    com.baidu.live.liveroom.g.b RZ();
 
-    void release();
+    void a(ViewGroup viewGroup, ViewGroup viewGroup2);
 
-    void setCanVisible(boolean z);
+    void a(b bVar);
+
+    void a(c cVar);
+
+    void close();
+
+    boolean isOpen();
+
+    void o(x xVar);
+
+    void onClose();
+
+    void onDestroy();
 }

@@ -1,6 +1,5 @@
 package com.googlecode.mp4parser;
 
-import com.baidu.searchbox.account.contants.AccountConstants;
 import com.coremedia.iso.BoxParser;
 import com.coremedia.iso.IsoTypeWriter;
 import com.coremedia.iso.boxes.Box;
@@ -8,7 +7,7 @@ import com.coremedia.iso.boxes.Container;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class AbstractContainerBox extends BasicContainer implements Box {
     ByteBuffer header;
     protected boolean largeBox;
@@ -37,7 +36,7 @@ public class AbstractContainerBox extends BasicContainer implements Box {
 
     public long getSize() {
         long containerSize = getContainerSize();
-        return ((this.largeBox || 8 + containerSize >= AccountConstants.TYPE_MODIFY_EXT_FIELDS) ? 16 : 8) + containerSize;
+        return ((this.largeBox || 8 + containerSize >= 4294967296L) ? 16 : 8) + containerSize;
     }
 
     @Override // com.coremedia.iso.boxes.Box
@@ -48,7 +47,7 @@ public class AbstractContainerBox extends BasicContainer implements Box {
     /* JADX INFO: Access modifiers changed from: protected */
     public ByteBuffer getHeader() {
         ByteBuffer wrap;
-        if (this.largeBox || getSize() >= AccountConstants.TYPE_MODIFY_EXT_FIELDS) {
+        if (this.largeBox || getSize() >= 4294967296L) {
             byte[] bArr = new byte[16];
             bArr[3] = 1;
             bArr[4] = this.type.getBytes()[0];

@@ -6,77 +6,77 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.l.h;
 import com.baidu.tieba.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public abstract class LiveTabBaseSubFragment extends BaseFragment {
-    protected String fFV;
-    protected LinearLayout gsa;
-    private h gsb;
-    protected String gsd;
+    protected String fPy;
+    protected LinearLayout gCZ;
+    private h gDa;
+    protected String gDc;
     protected Context mContext;
-    public final String grZ = "c13008";
-    protected boolean grw = false;
-    protected boolean gsc = false;
-    protected CustomMessageListener gse = new CustomMessageListener(2921442) { // from class: com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabBaseSubFragment.1
+    public final String gCY = "c13008";
+    protected boolean gCv = false;
+    protected boolean gDb = false;
+    protected CustomMessageListener gDd = new CustomMessageListener(2921442) { // from class: com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabBaseSubFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Boolean bool = (Boolean) customResponsedMessage.getData();
             if (bool != null && bool.booleanValue()) {
-                LiveTabBaseSubFragment.this.gsc = false;
+                LiveTabBaseSubFragment.this.gDb = false;
             }
         }
     };
 
-    public abstract void VC();
+    public abstract void WE();
 
-    public abstract void bSl();
+    public abstract void bUN();
 
     public abstract void loadData();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bSj() {
-        this.gsa.setVisibility(0);
-        if (this.gsb == null) {
-            this.gsb = new h(this.mContext, null);
+    public void bUL() {
+        this.gCZ.setVisibility(0);
+        if (this.gDa == null) {
+            this.gDa = new h(this.mContext, null);
         }
-        this.gsb.hideRefreshButton();
-        this.gsb.sC(R.drawable.new_pic_emotion_03);
-        this.gsb.Ek(this.mContext.getResources().getString(R.string.no_data_common_txt));
-        this.gsb.onChangeSkinType();
+        this.gDa.hideRefreshButton();
+        this.gDa.sO(R.drawable.new_pic_emotion_03);
+        this.gDa.Eh(this.mContext.getResources().getString(R.string.no_data_common_txt));
+        this.gDa.onChangeSkinType();
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-        if (this.gsb.getAttachedView() != null && this.gsb.getAttachedView().getParent() == null) {
-            this.gsa.addView(this.gsb.getAttachedView(), layoutParams);
+        if (this.gDa.getAttachedView() != null && this.gDa.getAttachedView().getParent() == null) {
+            this.gCZ.addView(this.gDa.getAttachedView(), layoutParams);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void hideEmptyView() {
-        this.gsa.setVisibility(8);
+        this.gCZ.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bSk() {
+    public void bUM() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921441, false));
-        this.gsc = true;
+        this.gDb = true;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.gsb != null) {
-            this.gsb.onChangeSkinType();
+        if (this.gDa != null) {
+            this.gDa.onChangeSkinType();
         }
     }
 
-    public void ek(String str, String str2) {
-        this.fFV = str;
-        this.gsd = str2;
+    public void ej(String str, String str2) {
+        this.fPy = str;
+        this.gDc = str2;
     }
 
-    public boolean bmu() {
-        return (au.isEmpty(this.fFV) || au.isEmpty(this.gsd)) ? false : true;
+    public boolean boV() {
+        return (at.isEmpty(this.fPy) || at.isEmpty(this.gDc)) ? false : true;
     }
 }

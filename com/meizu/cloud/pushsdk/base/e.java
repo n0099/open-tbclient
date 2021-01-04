@@ -1,7 +1,6 @@
 package com.meizu.cloud.pushsdk.base;
 
 import android.util.Log;
-import com.baidu.searchbox.ui.animview.praise.guide.ControlShowManager;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileFilter;
@@ -12,19 +11,21 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Date;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class e {
     private BufferedWriter d;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4144a = "EncryptionWriter";
-    private SimpleDateFormat b = new SimpleDateFormat(ControlShowManager.DAY_TIME_FORMAT);
+    private String f11537a = "EncryptionWriter";
+
+    /* renamed from: b  reason: collision with root package name */
+    private SimpleDateFormat f11538b = new SimpleDateFormat("yyyy-MM-dd");
     private int e = 7;
     private String f = ".log.txt";
     private d c = new d("lo");
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes6.dex */
     public class a implements Comparator<File> {
         a() {
         }
@@ -69,13 +70,13 @@ public class e {
         if (!file.exists() && !file.mkdirs()) {
             throw new IOException("create " + str + " dir failed!!!");
         }
-        String format = this.b.format(new Date());
+        String format = this.f11538b.format(new Date());
         File file2 = new File(str, format + this.f);
         if (!file2.exists()) {
             if (file2.createNewFile()) {
                 a(file);
             } else {
-                Log.e(this.f4144a, "create new file " + format + " failed !!!");
+                Log.e(this.f11537a, "create new file " + format + " failed !!!");
             }
         }
         this.d = new BufferedWriter(new FileWriter(file2, true));

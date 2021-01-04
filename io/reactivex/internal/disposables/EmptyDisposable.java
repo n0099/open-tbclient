@@ -3,7 +3,7 @@ package io.reactivex.internal.disposables;
 import io.reactivex.m;
 import io.reactivex.u;
 import io.reactivex.y;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public enum EmptyDisposable implements io.reactivex.internal.a.b<Object> {
     INSTANCE,
     NEVER;

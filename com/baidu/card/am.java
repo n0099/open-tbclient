@@ -1,212 +1,160 @@
 package com.baidu.card;
 
+import android.content.Context;
 import android.view.View;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.af;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.card.a.a;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.core.data.a;
-import com.baidu.tbadk.core.data.by;
-import com.baidu.tbadk.core.util.az;
-import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
-import com.baidu.tieba.view.FollowUserButton;
-/* loaded from: classes21.dex */
-public class am<T extends com.baidu.tbadk.core.data.a> extends af.a {
-    private com.baidu.tieba.card.ab<T> aiV;
-    private ak<T> aiW;
-    private ar aiX;
-    private u aiY;
-    private aj aiZ;
-    private ad aja;
-    private j ajb;
-    private g ajc;
-    private BdUniqueId mId;
-    private ab mNegFeedBackItem;
+import com.baidu.tbadk.core.view.ThreadCardBottomOpSegmentLayout;
+import com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout;
+import java.util.List;
+/* loaded from: classes.dex */
+public class am extends a<com.baidu.tbadk.core.data.a> {
+    private int ajP;
+    private int ajQ;
+    private ThreadCommentAndPraiseInfoLayout ajR;
+    private com.baidu.tbadk.core.data.a ajS;
 
-    public am(ak<T> akVar) {
-        super(akVar.getView());
-        this.aiW = akVar;
+    public am(Context context) {
+        super(context);
+        this.ajP = 11;
+        this.ajQ = this.ajP;
+        this.ajR = new ThreadCardBottomOpSegmentLayout(context);
+        this.ajR.setReplyTimeVisible(false);
+        this.ajR.setShowPraiseNum(true);
+        this.ajR.setNeedAddPraiseIcon(true);
+        this.ajR.setNeedAddReplyIcon(true);
+        this.ajR.setShareVisible(true);
+        this.ajR.setForumAfterClickListener(new View.OnClickListener() { // from class: com.baidu.card.am.1
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                if (am.this.tc() != null) {
+                    am.this.tc().a(view, am.this.ajS);
+                }
+            }
+        });
     }
 
-    @Override // com.baidu.adp.widget.ListView.af.a
+    public void setOnCommentClickCallback(ThreadCommentAndPraiseInfoLayout.a aVar) {
+        if (this.ajR != null) {
+            this.ajR.setOnCommentClickCallback(aVar);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.card.a
+    public void tb() {
+        this.ahd.a(4, new a.b() { // from class: com.baidu.card.am.2
+            @Override // com.baidu.card.a.a.b
+            public boolean a(a.C0090a c0090a) {
+                if (c0090a.tF() instanceof Boolean) {
+                    if (!((Boolean) c0090a.tF()).booleanValue()) {
+                        if ((am.this.ajP & 128) <= 0) {
+                            am.this.ajP &= -5;
+                            am.this.ajP |= 64;
+                        }
+                    } else {
+                        am.this.ajP = am.this.ajQ;
+                    }
+                    am.this.ajR.setShowFlag(am.this.ajP);
+                }
+                return false;
+            }
+        });
+    }
+
+    @Override // com.baidu.card.a
+    public void bs(int i) {
+        this.ajP |= i;
+        this.ajR.setShowFlag(this.ajP);
+        this.ajQ = this.ajP;
+    }
+
+    @Override // com.baidu.card.a
+    public void bt(int i) {
+        this.ajP &= i ^ (-1);
+        this.ajR.setShowFlag(this.ajP);
+        this.ajQ = this.ajP;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.card.a
     public View getView() {
-        return this.aiW.getView();
+        return this.ajR;
     }
 
-    public ak<T> tZ() {
-        return this.aiW;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.card.p
+    /* renamed from: b */
+    public void D(com.baidu.tbadk.core.data.a aVar) {
+        this.ajS = aVar;
+        this.ajR.setData(aVar.boO());
+        tC();
     }
 
-    private TbPageContext getTbPageContext() {
-        return ((TbPageContextSupport) this.aiW.getView().getContext()).getPageContext();
-    }
-
-    private void c(d dVar) {
-        if (dVar != null && dVar.tJ() != null) {
-            this.aiW.a(dVar);
-        }
-    }
-
-    public void a(boolean z, Align align, NEGFeedBackView.a aVar) {
-        if (!z) {
-            c(this.mNegFeedBackItem);
-            return;
-        }
-        if (this.mNegFeedBackItem == null) {
-            this.mNegFeedBackItem = new ab(getTbPageContext(), align);
-            this.mNegFeedBackItem.ahP.setUniqueId(this.mId);
-            this.mNegFeedBackItem.a(aVar);
-        }
-        this.mNegFeedBackItem.a(align);
-        this.aiW.b(this.mNegFeedBackItem);
-    }
-
-    public ab aN(boolean z) {
-        if (this.mNegFeedBackItem == null) {
-            this.mNegFeedBackItem = new ab(getTbPageContext(), z);
-            this.mNegFeedBackItem.ahP.setUniqueId(this.mId);
-        }
-        this.aiW.b(this.mNegFeedBackItem);
-        return this.mNegFeedBackItem;
-    }
-
-    public void a(boolean z, Align align) {
-        if (!z) {
-            c(this.aiX);
-            return;
-        }
-        if (this.aiX == null) {
-            this.aiX = new ar(getTbPageContext(), align);
-        }
-        this.aiX.a(align);
-        this.aiW.b(this.aiX);
-    }
-
-    public void a(boolean z, FollowUserButton.a aVar) {
-        if (!z) {
-            c(this.ajb);
-            return;
-        }
-        if (this.ajb == null) {
-            this.ajb = new j(getTbPageContext(), com.baidu.tbadk.a.d.bkq());
-            this.ajb.setOnClickEvent(aVar);
-        }
-        this.ajb.setPageUniqueId(this.mId);
-        this.aiW.b(this.ajb);
-    }
-
-    public u ua() {
-        return aO(true);
-    }
-
-    public u aO(boolean z) {
-        if (this.aiY == null) {
-            this.aiY = new u(this.aiW.getContext());
-        }
-        this.aiY.h(this.mId);
-        this.aiY.aI(z);
-        this.aiW.b(this.aiY);
-        return this.aiY;
-    }
-
-    public void b(int i, al alVar) {
-        if (this.aiY != null) {
-            this.aiY.a(i, alVar);
-        }
-    }
-
-    public aj ub() {
-        if (this.aiZ == null) {
-            this.aiZ = new aj(getTbPageContext());
-            this.aiZ.setPageId(this.mId);
-        }
-        this.aiW.b(this.aiZ);
-        return this.aiZ;
-    }
-
-    public ad bE(int i) {
-        if (this.aja == null) {
-            this.aja = new ad(this.aiW.getView().getContext(), i);
-            this.aja.setPageId(this.mId);
-        }
-        this.aiW.b(this.aja);
-        return this.aja;
-    }
-
-    public g uc() {
-        if (this.ajc == null) {
-            this.ajc = new g(getTbPageContext());
-        }
-        this.aiW.b(this.ajc);
-        return this.ajc;
-    }
-
-    public void b(T t) {
-        boolean z = false;
-        if (t == null) {
-            this.aiW.getView().setVisibility(8);
-            return;
-        }
-        if (t.bmn() != null) {
-            t.bmn().getTid();
-        }
-        if (t.bmn() != null && t.bmn().boP() != null) {
-            t.bmn().boP().getName_show();
-        }
-        this.aiW.getView().setVisibility(0);
-        if (this.mNegFeedBackItem != null && this.mNegFeedBackItem.ahP != null) {
-            if (!t.isSelf() && t.bmp() != null) {
-                this.mNegFeedBackItem.g(t);
-                this.mNegFeedBackItem.H(t.bmp());
-                this.mNegFeedBackItem.ahP.setVisibility(0);
-                z = true;
-            } else if (this.mNegFeedBackItem != null && this.mNegFeedBackItem.ahP != null) {
-                this.mNegFeedBackItem.ahP.setVisibility(8);
+    private void tC() {
+        boolean z;
+        setMarginsTop(this.ajR, 0);
+        a tr = this.ahd.tr();
+        if (tr != null) {
+            ViewGroup viewGroup = (ViewGroup) tr.getView();
+            int childCount = viewGroup.getChildCount();
+            int i = 0;
+            while (true) {
+                if (i >= childCount) {
+                    z = true;
+                    break;
+                } else if (!(viewGroup.getChildAt(i) instanceof TextView) && viewGroup.getChildAt(i).getVisibility() == 0) {
+                    z = false;
+                    break;
+                } else {
+                    i++;
+                }
+            }
+            if (z) {
+                List<h> tt = this.ahd.tt();
+                if (!com.baidu.tbadk.core.util.x.isEmpty(tt)) {
+                    for (h hVar : tt) {
+                        if (hVar != null && hVar.getView() != null && hVar.getView().getVisibility() == 0) {
+                            return;
+                        }
+                    }
+                }
             }
         }
-        if (this.aiX != null) {
-            if (c(t.bmn())) {
-                c(this.aiX);
-            } else {
-                this.aiX.g(t);
-                this.aiX.H(t.bmn());
-            }
-        }
-        if (this.aiZ != null) {
-            this.aiZ.aK(z);
-            this.aiZ.H(t.bmn());
-        }
-        if (this.aiY != null) {
-            this.aiY.H(t.bmn());
-        }
-        if (this.aja != null) {
-            this.aja.g(t);
-            this.aja.H(t.bmn());
-        }
-        if (this.ajb != null) {
-            this.ajb.a(t, z);
-            this.ajb.H(t.bmn());
-        }
-        if (this.ajc != null) {
-            if (c(t.bmn())) {
-                this.ajc.H(t.bmn());
-            } else {
-                c(this.ajc);
-            }
-        }
-        this.aiW.h((ak<T>) t);
     }
 
-    public void setPageId(BdUniqueId bdUniqueId) {
-        this.mId = bdUniqueId;
+    @Override // com.baidu.card.q
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        this.ajR.onChangeSkinType();
     }
 
-    public void b(com.baidu.tieba.card.ab<T> abVar) {
-        this.aiV = abVar;
-        this.aiW.a(abVar);
+    public void setFromForPb(int i) {
+        this.ajR.fmP = i;
     }
 
-    private boolean c(by byVar) {
-        return (byVar == null || byVar.boP() == null || !byVar.eMj || !com.baidu.tbadk.a.d.bkz() || byVar.boP().hadConcerned() || az.x(byVar)) ? false : true;
+    public void setFrom(int i) {
+        this.ajR.setFrom(i);
+    }
+
+    public void setStType(String str) {
+        this.ajR.setStType(str);
+    }
+
+    public void setAgreeStatisticData(com.baidu.tbadk.core.data.d dVar) {
+        this.ajR.setAgreeStatisticData(dVar);
+    }
+
+    public void setShareReportFrom(int i) {
+        this.ajR.setShareReportFrom(i);
+    }
+
+    public void setGameId(int i) {
+        this.ajR.setGameId(i);
+    }
+
+    public void setTabName(String str) {
+        this.ajR.setTabName(str);
     }
 }

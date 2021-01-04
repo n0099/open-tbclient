@@ -1,11 +1,11 @@
 package com.facebook.imagepipeline.common;
 
-import android.support.v7.widget.ActivityChooserView;
+import androidx.appcompat.widget.ActivityChooserView;
 import com.facebook.common.internal.g;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 @Immutable
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a {
     public final int from;
     public final int to;
@@ -20,10 +20,10 @@ public class a {
     }
 
     public String toString() {
-        return String.format(null, "%s-%s", QC(this.from), QC(this.to));
+        return String.format(null, "%s-%s", Qz(this.from), Qz(this.to));
     }
 
-    private static String QC(int i) {
+    private static String Qz(int i) {
         return i == Integer.MAX_VALUE ? "" : Integer.toString(i);
     }
 
@@ -42,12 +42,12 @@ public class a {
         return com.facebook.common.util.a.hashCode(this.from, this.to);
     }
 
-    public static a QD(int i) {
+    public static a QA(int i) {
         g.checkArgument(i >= 0);
         return new a(i, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
     }
 
-    public static a QE(int i) {
+    public static a QB(int i) {
         g.checkArgument(i > 0);
         return new a(0, i);
     }

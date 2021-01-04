@@ -2,7 +2,7 @@ package com.baidu.searchbox.logsystem.logsys;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public final class LogExtra implements Parcelable {
     public static final Parcelable.Creator<LogExtra> CREATOR = new Parcelable.Creator<LogExtra>() { // from class: com.baidu.searchbox.logsystem.logsys.LogExtra.1
         /* JADX DEBUG: Method merged with bridge method */

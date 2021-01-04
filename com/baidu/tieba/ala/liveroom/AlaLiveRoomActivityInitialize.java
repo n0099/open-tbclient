@@ -8,30 +8,30 @@ import com.baidu.live.adp.framework.task.CustomMessageTask;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.d;
 import com.baidu.live.d.o;
-import com.baidu.live.h.c;
+import com.baidu.live.i.c;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.atomdata.AlaLiveRoomActivityConfig;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.util.UrlManager;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaLiveRoomActivityInitialize {
     static {
-        bZh();
-        bZi();
-        bZl();
-        bZk();
-        bZm();
-        bZj();
+        cbO();
+        cbP();
+        cbS();
+        cbR();
+        cbT();
+        cbQ();
     }
 
-    private static void bZh() {
+    private static void cbO() {
     }
 
-    public static void bZi() {
+    public static void cbP() {
         UrlManager.getInstance().addListener(new UrlManager.UrlDealListener() { // from class: com.baidu.tieba.ala.liveroom.AlaLiveRoomActivityInitialize.1
-            /* JADX WARN: Code restructure failed: missing block: B:20:0x0053, code lost:
+            /* JADX WARN: Code restructure failed: missing block: B:20:0x0062, code lost:
                 if (com.baidu.live.adp.lib.util.StringUtils.isNull(r0) == false) goto L21;
              */
             @Override // com.baidu.live.tbadk.core.util.UrlManager.UrlDealListener
@@ -46,6 +46,7 @@ public class AlaLiveRoomActivityInitialize {
                 }
                 String lowerCase = strArr[0].toLowerCase();
                 if (lowerCase.startsWith("http://tieba.baidu.com/ala/share?") || lowerCase.startsWith("https://tieba.baidu.com/ala/share?") || lowerCase.startsWith("http://tieba.baidu.com/ala/share/live") || lowerCase.startsWith("https://tieba.baidu.com/ala/share/live")) {
+                    com.baidu.live.liveroom.a.OO().a(com.baidu.live.liveroom.a.OO().OP());
                     String paramStr = UrlManager.getParamStr(lowerCase);
                     if (!StringUtils.isNull(paramStr) && (paramPair = UrlManager.getParamPair(paramStr)) != null) {
                         str = paramPair.get("from_type");
@@ -53,7 +54,7 @@ public class AlaLiveRoomActivityInitialize {
                     str = "share_play";
                     AlaLiveRoomActivityConfig alaLiveRoomActivityConfig = new AlaLiveRoomActivityConfig(tbPageContext.getPageActivity());
                     alaLiveRoomActivityConfig.addExtraByUrl(lowerCase, null, str);
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_ALA_LIVE_ROOM_START, alaLiveRoomActivityConfig));
+                    com.baidu.live.liveroom.a.OO().a(alaLiveRoomActivityConfig);
                     return 1;
                 }
                 return 3;
@@ -61,7 +62,7 @@ public class AlaLiveRoomActivityInitialize {
         });
     }
 
-    private static void bZj() {
+    private static void cbQ() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913078, new CustomMessageTask.CustomRunnable<c>() { // from class: com.baidu.tieba.ala.liveroom.AlaLiveRoomActivityInitialize.2
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<c> run(CustomMessage<c> customMessage) {
@@ -72,27 +73,27 @@ public class AlaLiveRoomActivityInitialize {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bZk() {
+    private static void cbR() {
     }
 
-    private static void bZl() {
+    private static void cbS() {
         TbadkCoreApplication.getInst().RegisterIntent(o.class, AlaLiveFloatWindowActivity.class);
     }
 
-    private static void bZm() {
+    private static void cbT() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_PERSON_ALA_ENTRANCE_LIVE_ID) { // from class: com.baidu.tieba.ala.liveroom.AlaLiveRoomActivityInitialize.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Long)) {
                     long longValue = ((Long) customResponsedMessage.getData()).longValue();
-                    long j = d.BM().getLong("ala_live_room_last_live_id", -1L);
+                    long j = d.Ba().getLong("ala_live_room_last_live_id", -1L);
                     if (j > 0 && longValue > 0 && j == longValue) {
-                        d.BM().putBoolean("ala_person_ala_entrance_same_live_room", true);
+                        d.Ba().putBoolean("ala_person_ala_entrance_same_live_room", true);
                     } else {
-                        d.BM().putBoolean("ala_person_ala_entrance_same_live_room", false);
+                        d.Ba().putBoolean("ala_person_ala_entrance_same_live_room", false);
                     }
-                    d.BM().remove("ala_live_room_last_live_id");
+                    d.Ba().remove("ala_live_room_last_live_id");
                 }
             }
         });

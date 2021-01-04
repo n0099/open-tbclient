@@ -4,9 +4,9 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.data.by;
+import com.baidu.tbadk.core.data.bz;
 import com.baidu.tbadk.core.view.ThreadUserInfoLayout;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class ConcernThreadUserInfoLayout extends ThreadUserInfoLayout {
     public ConcernThreadUserInfoLayout(Context context) {
         super(context);
@@ -21,26 +21,26 @@ public class ConcernThreadUserInfoLayout extends ThreadUserInfoLayout {
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadUserInfoLayout
-    public boolean setData(by byVar) {
-        if (super.setData(byVar)) {
-            this.akA.setVisibility(8);
+    public boolean setData(bz bzVar) {
+        if (super.setData(bzVar)) {
+            this.alc.setVisibility(8);
             return true;
         }
         return false;
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadUserInfoLayout
-    protected void j(by byVar) {
-        if (byVar == null || StringUtils.isNull(byVar.bmo())) {
-            this.akF.setVisibility(8);
+    protected void j(bz bzVar) {
+        if (bzVar == null || StringUtils.isNull(bzVar.boP())) {
+            this.alh.setVisibility(8);
             return;
         }
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.akF.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.alh.getLayoutParams();
         if (layoutParams != null && layoutParams.bottomMargin != 0) {
             layoutParams.bottomMargin = 0;
-            this.akF.setLayoutParams(layoutParams);
+            this.alh.setLayoutParams(layoutParams);
         }
-        this.akF.setText(byVar.bmo());
-        this.akF.setVisibility(0);
+        this.alh.setText(bzVar.boP());
+        this.alh.setVisibility(0);
     }
 }

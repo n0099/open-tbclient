@@ -1,8 +1,8 @@
 package com.baidu.searchbox.logsystem.javacrash;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import java.lang.Thread;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public interface ProcessExceptionListener {
     void onProcessExceptionFail(@NonNull Thread.UncaughtExceptionHandler uncaughtExceptionHandler, @NonNull Throwable th, @NonNull Throwable th2);
 

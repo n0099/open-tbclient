@@ -1,31 +1,31 @@
 package org.aspectj.a.a;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class a {
-    public static Object RZ(int i) {
+    public static Object Ts(int i) {
         return new Integer(i);
     }
 
-    public static Object l(short s) {
+    public static Object m(short s) {
         return new Short(s);
     }
 
-    public static Object h(byte b) {
-        return new Byte(b);
+    public static Object i(byte b2) {
+        return new Byte(b2);
     }
 
-    public static Object iI(long j) {
+    public static Object js(long j) {
         return new Long(j);
     }
 
-    public static Object bC(float f) {
+    public static Object bO(float f) {
         return new Float(f);
     }
 
-    public static Object R(double d) {
+    public static Object S(double d) {
         return new Double(d);
     }
 
-    public static Object Bq(boolean z) {
+    public static Object CI(boolean z) {
         return new Boolean(z);
     }
 }

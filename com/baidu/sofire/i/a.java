@@ -3,7 +3,7 @@ package com.baidu.sofire.i;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public final class a {
     public static byte[] a(byte[] bArr, byte[] bArr2) {
         try {
@@ -15,10 +15,10 @@ public final class a {
             }
             cipher.init(1, secretKeySpec, new IvParameterSpec(bArr3));
             byte[] doFinal = cipher.doFinal(bArr2);
-            byte[] b = p.b(bArr2);
-            byte[] bArr4 = new byte[doFinal.length + b.length];
+            byte[] b2 = p.b(bArr2);
+            byte[] bArr4 = new byte[doFinal.length + b2.length];
             System.arraycopy(doFinal, 0, bArr4, 0, doFinal.length);
-            System.arraycopy(b, 0, bArr4, doFinal.length, b.length);
+            System.arraycopy(b2, 0, bArr4, doFinal.length, b2.length);
             return bArr4;
         } catch (Throwable th) {
             e.a();
@@ -99,18 +99,18 @@ public final class a {
         Lf:
             java.io.FileInputStream r4 = new java.io.FileInputStream     // Catch: java.lang.Throwable -> L8c
             r4.<init>(r10)     // Catch: java.lang.Throwable -> L8c
-            java.io.FileOutputStream r2 = new java.io.FileOutputStream     // Catch: java.lang.Throwable -> L8f
-            r2.<init>(r11)     // Catch: java.lang.Throwable -> L8f
+            java.io.FileOutputStream r2 = new java.io.FileOutputStream     // Catch: java.lang.Throwable -> L90
+            r2.<init>(r11)     // Catch: java.lang.Throwable -> L90
             r3 = 8192(0x2000, float:1.148E-41)
             byte[] r5 = new byte[r3]     // Catch: java.lang.Throwable -> L4c
         L1d:
             int r6 = r4.read(r5)     // Catch: java.lang.Throwable -> L4c
-            if (r6 == r1) goto L60
+            if (r6 == r1) goto L5f
             java.lang.StringBuilder r3 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L4c
             r3.<init>()     // Catch: java.lang.Throwable -> L4c
             r3.append(r6)     // Catch: java.lang.Throwable -> L4c
             com.baidu.sofire.b.a()     // Catch: java.lang.Throwable -> L4c
-            if (r6 >= r9) goto L5e
+            if (r6 >= r9) goto L5d
             byte[] r3 = new byte[r6]     // Catch: java.lang.Throwable -> L4c
             r7 = 0
             r8 = 0
@@ -128,34 +128,34 @@ public final class a {
         L4c:
             r0 = move-exception
             r0 = r2
-            r3 = r4
-        L4f:
-            com.baidu.sofire.i.e.a()     // Catch: java.lang.Throwable -> L87
-            if (r3 == 0) goto L57
-            r3.close()     // Catch: java.lang.Throwable -> L7c
-        L57:
-            if (r0 == 0) goto L5c
-            r0.close()     // Catch: java.lang.Throwable -> L69
-        L5c:
+        L4e:
+            com.baidu.sofire.i.e.a()     // Catch: java.lang.Throwable -> L89
+            if (r4 == 0) goto L56
+            r4.close()     // Catch: java.lang.Throwable -> L7c
+        L56:
+            if (r0 == 0) goto L5b
+            r0.close()     // Catch: java.lang.Throwable -> L68
+        L5b:
             r0 = r1
             goto Le
-        L5e:
+        L5d:
             r3 = r5
             goto L37
-        L60:
+        L5f:
             r4.close()     // Catch: java.lang.Throwable -> L7a
-        L63:
-            r2.close()     // Catch: java.lang.Throwable -> L67
+        L62:
+            r2.close()     // Catch: java.lang.Throwable -> L66
             goto Le
-        L67:
+        L66:
             r1 = move-exception
             goto Le
-        L69:
+        L68:
             r0 = move-exception
             r0 = r1
             goto Le
-        L6c:
+        L6b:
             r0 = move-exception
+            r1 = r0
             r2 = r3
             r4 = r3
         L6f:
@@ -165,41 +165,41 @@ public final class a {
             if (r2 == 0) goto L79
             r2.close()     // Catch: java.lang.Throwable -> L80
         L79:
-            throw r0
+            throw r1
         L7a:
             r1 = move-exception
-            goto L63
+            goto L62
         L7c:
             r2 = move-exception
-            goto L57
+            goto L56
         L7e:
-            r1 = move-exception
+            r0 = move-exception
             goto L74
         L80:
-            r1 = move-exception
+            r0 = move-exception
             goto L79
         L82:
             r0 = move-exception
+            r1 = r0
             r2 = r3
             goto L6f
-        L85:
+        L86:
             r0 = move-exception
+            r1 = r0
             goto L6f
-        L87:
+        L89:
             r1 = move-exception
             r2 = r0
-            r4 = r3
-            r0 = r1
             goto L6f
         L8c:
             r0 = move-exception
             r0 = r3
-            goto L4f
-        L8f:
+            r4 = r3
+            goto L4e
+        L90:
             r0 = move-exception
             r0 = r3
-            r3 = r4
-            goto L4f
+            goto L4e
         */
         throw new UnsupportedOperationException("Method not decompiled: com.baidu.sofire.i.a.a(java.io.File, java.io.File, byte[]):int");
     }

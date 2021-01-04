@@ -7,127 +7,127 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.data.by;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.data.bz;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class ThreadViewAndCommentInfoLayout extends LinearLayout {
-    private TextView eBF;
-    public int fdg;
-    private TextView feq;
-    private boolean fer;
-    private boolean fes;
-    private boolean fet;
-    private boolean feu;
-    private boolean fev;
+    private TextView eLi;
+    public int fmP;
+    private TextView fnZ;
+    private boolean foa;
+    private boolean fob;
+    private boolean foc;
+    private boolean fod;
+    private boolean foe;
     private Context mContext;
 
     public ThreadViewAndCommentInfoLayout(Context context) {
         super(context);
-        this.fer = false;
-        this.fes = false;
-        this.fet = false;
-        this.feu = false;
-        this.fev = false;
+        this.foa = false;
+        this.fob = false;
+        this.foc = false;
+        this.fod = false;
+        this.foe = false;
         init(context);
     }
 
     public ThreadViewAndCommentInfoLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fer = false;
-        this.fes = false;
-        this.fet = false;
-        this.feu = false;
-        this.fev = false;
+        this.foa = false;
+        this.fob = false;
+        this.foc = false;
+        this.fod = false;
+        this.foe = false;
         init(context);
     }
 
     private void init(Context context) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.thread_comment_and_view_info_layout, (ViewGroup) this, true);
-        this.feq = (TextView) inflate.findViewById(R.id.thread_view_num);
-        this.eBF = (TextView) inflate.findViewById(R.id.thread_comment_num);
+        this.fnZ = (TextView) inflate.findViewById(R.id.thread_view_num);
+        this.eLi = (TextView) inflate.findViewById(R.id.thread_comment_num);
         this.mContext = context;
     }
 
-    public void setData(by byVar) {
-        if (byVar == null) {
+    public void setData(bz bzVar) {
+        if (bzVar == null) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
-        M(byVar);
-        N(byVar);
-        O(byVar);
-        P(byVar);
-        B(byVar);
+        M(bzVar);
+        N(bzVar);
+        O(bzVar);
+        P(bzVar);
+        B(bzVar);
     }
 
-    private void M(by byVar) {
-        if (this.feq != null && byVar != null && this.fet && byVar.bpj() != null && byVar.bql()) {
-            this.feq.setVisibility(0);
-            this.feq.setText(String.format(this.mContext.getString(R.string.person_view_item_live_watch_num), au.numberUniformFormat(byVar.bpj().audience_count)));
+    private void M(bz bzVar) {
+        if (this.fnZ != null && bzVar != null && this.foc && bzVar.brJ() != null && bzVar.bsN()) {
+            this.fnZ.setVisibility(0);
+            this.fnZ.setText(String.format(this.mContext.getString(R.string.person_view_item_live_watch_num), at.numberUniformFormat(bzVar.brJ().audience_count)));
         }
     }
 
-    private void N(by byVar) {
-        if (this.feq != null && byVar != null && this.fer) {
-            if (byVar.boH() >= 0) {
-                this.feq.setVisibility(0);
-                this.feq.setText(String.format(this.mContext.getString(R.string.person_view_num), au.numberUniformFormat(byVar.boH())));
+    private void N(bz bzVar) {
+        if (this.fnZ != null && bzVar != null && this.foa) {
+            if (bzVar.bri() >= 0) {
+                this.fnZ.setVisibility(0);
+                this.fnZ.setText(String.format(this.mContext.getString(R.string.person_view_num), at.numberUniformFormat(bzVar.bri())));
                 return;
             }
-            this.feq.setVisibility(8);
+            this.fnZ.setVisibility(8);
         }
     }
 
-    private void O(by byVar) {
-        if (this.eBF != null && byVar != null && this.fes) {
-            if (byVar.boG() >= 0) {
-                this.eBF.setVisibility(0);
-                this.eBF.setText(String.format(this.mContext.getString(R.string.comment_num_tip), au.numberUniformFormat(byVar.boG())));
+    private void O(bz bzVar) {
+        if (this.eLi != null && bzVar != null && this.fob) {
+            if (bzVar.brh() >= 0) {
+                this.eLi.setVisibility(0);
+                this.eLi.setText(String.format(this.mContext.getString(R.string.comment_num_tip), at.numberUniformFormat(bzVar.brh())));
                 return;
             }
-            this.eBF.setVisibility(8);
+            this.eLi.setVisibility(8);
         }
     }
 
-    private void P(by byVar) {
-        if (this.eBF != null && byVar != null && this.feu && byVar.bql()) {
-            this.eBF.setVisibility(0);
-            this.eBF.setText(String.format(this.mContext.getString(R.string.person_view_item_live_zan_num), au.numberUniformFormat(byVar.bqp())));
+    private void P(bz bzVar) {
+        if (this.eLi != null && bzVar != null && this.fod && bzVar.bsN()) {
+            this.eLi.setVisibility(0);
+            this.eLi.setText(String.format(this.mContext.getString(R.string.person_view_item_live_zan_num), at.numberUniformFormat(bzVar.bsR())));
         }
     }
 
-    private void B(by byVar) {
-        if (this.eBF != null && byVar != null && this.fev && byVar.bql()) {
-            this.eBF.setVisibility(0);
-            this.eBF.setText(String.format(this.mContext.getString(R.string.person_view_item_live_share_num), au.numberUniformFormat((byVar.bpj() == null || byVar.bpj().share_info == null) ? 0 : byVar.bpj().share_info.share_count)));
+    private void B(bz bzVar) {
+        if (this.eLi != null && bzVar != null && this.foe && bzVar.bsN()) {
+            this.eLi.setVisibility(0);
+            this.eLi.setText(String.format(this.mContext.getString(R.string.person_view_item_live_share_num), at.numberUniformFormat((bzVar.brJ() == null || bzVar.brJ().share_info == null) ? 0 : bzVar.brJ().share_info.share_count)));
         }
     }
 
     public void setIsShowReadNum(boolean z) {
-        this.fer = z;
+        this.foa = z;
     }
 
     public void setIsShowReplayNum(boolean z) {
-        this.fes = z;
+        this.fob = z;
     }
 
     public void setIsShowAudienceNum(boolean z) {
-        this.fet = z;
+        this.foc = z;
     }
 
     public void setIsShowZanNum(boolean z) {
-        this.feu = z;
+        this.fod = z;
     }
 
     public void setIsShowShareNum(boolean z) {
-        this.fev = z;
+        this.foe = z;
     }
 
     public void onChangeSkinType() {
-        ap.setViewTextColor(this.feq, R.color.CAM_X0109);
-        ap.setViewTextColor(this.eBF, R.color.CAM_X0109);
+        ao.setViewTextColor(this.fnZ, R.color.CAM_X0109);
+        ao.setViewTextColor(this.eLi, R.color.CAM_X0109);
     }
 }

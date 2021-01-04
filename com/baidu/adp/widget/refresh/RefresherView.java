@@ -16,12 +16,12 @@ import com.baidu.adp.widget.refresh.IRefreshable;
 import com.baidu.live.adp.widget.VerticalTranslateLayout;
 /* loaded from: classes.dex */
 public class RefresherView extends ViewGroup implements IRefreshable {
-    private final b ZA;
-    private IRefreshable.a ZB;
-    private c ZC;
-    private com.baidu.adp.widget.e ZD;
-    private IRefreshable.State ZE;
-    private final a Zz;
+    private final a aai;
+    private final b aaj;
+    private IRefreshable.a aak;
+    private c aal;
+    private com.baidu.adp.widget.e aam;
+    private IRefreshable.State aan;
     private final int kMinVelocity;
     private final int kVelocity;
     private int mAbsX;
@@ -57,9 +57,9 @@ public class RefresherView extends ViewGroup implements IRefreshable {
         this.mEnable = true;
         this.mContentLocation = new int[2];
         this.mTempLocation = new int[2];
-        this.ZE = IRefreshable.State.idle;
-        this.Zz = new a();
-        this.ZA = new b();
+        this.aan = IRefreshable.State.idle;
+        this.aai = new a();
+        this.aaj = new b();
         float f = getResources().getDisplayMetrics().density;
         this.kMinVelocity = (int) ((100.0f * f) + 0.5f);
         this.kVelocity = (int) ((500.0f * f) + 0.5f);
@@ -74,11 +74,11 @@ public class RefresherView extends ViewGroup implements IRefreshable {
         }
         String string = obtainStyledAttributes.getString(R.styleable.RefresherView_direction);
         if (string == null) {
-            this.ZD = new e();
+            this.aam = new e();
         } else if (string.equals("side")) {
-            this.ZD = new d();
+            this.aam = new d();
         } else if (string.equals(VerticalTranslateLayout.TOP)) {
-            this.ZD = new e();
+            this.aam = new e();
         }
         this.mRefresherContentId = obtainStyledAttributes.getResourceId(R.styleable.RefresherView_refresher_content, -1);
         this.mRefresherHeaderId = obtainStyledAttributes.getResourceId(R.styleable.RefresherView_refresher_head, -1);
@@ -112,36 +112,36 @@ public class RefresherView extends ViewGroup implements IRefreshable {
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
-        this.ZD.measure(i, i2);
+        this.aam.measure(i, i2);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        this.ZD.layout(z, i, i2, i3, i4);
+        this.aam.layout(z, i, i2, i3, i4);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        return this.ZD.dispatchTouchEvent(motionEvent);
+        return this.aam.dispatchTouchEvent(motionEvent);
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        return this.ZD.interceptionTouchEvent(motionEvent);
+        return this.aam.interceptionTouchEvent(motionEvent);
     }
 
     @Override // android.view.View
     public final boolean onTouchEvent(MotionEvent motionEvent) {
-        return this.ZD.touchEvent(motionEvent);
+        return this.aam.touchEvent(motionEvent);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
-        this.ZD.draw(canvas);
+        this.aam.draw(canvas);
     }
 
     public void setOnRefreshListener(IRefreshable.a aVar) {
-        this.ZB = aVar;
+        this.aak = aVar;
     }
 
     public void setEnable(boolean z) {
@@ -154,13 +154,13 @@ public class RefresherView extends ViewGroup implements IRefreshable {
     }
 
     public IRefreshable.State getState() {
-        return this.ZE;
+        return this.aan;
     }
 
     public void refresh() {
-        if (this.ZC == null || this.ZC.getStatus() != BdAsyncTask.BdAsyncTaskStatus.RUNNING) {
-            this.ZC = new c();
-            this.ZC.execute(null);
+        if (this.aal == null || this.aal.getStatus() != BdAsyncTask.BdAsyncTaskStatus.RUNNING) {
+            this.aal = new c();
+            this.aal.execute(null);
         }
     }
 
@@ -183,8 +183,8 @@ public class RefresherView extends ViewGroup implements IRefreshable {
             if (this.animatingPosition >= this.animationDistance) {
                 RefresherView.this.mYOffset = RefresherView.this.mBackPosition;
                 this.animating = false;
-                RefresherView.this.ZE = IRefreshable.State.idle;
-                IRefreshable.a aVar = RefresherView.this.ZB;
+                RefresherView.this.aan = IRefreshable.State.idle;
+                IRefreshable.a aVar = RefresherView.this.aak;
                 if (aVar != null) {
                     aVar.a(IRefreshable.State.idle);
                 }
@@ -196,8 +196,8 @@ public class RefresherView extends ViewGroup implements IRefreshable {
                 RefresherView.this.mYOffset = (int) (RefresherView.this.mBackPosition + (this.animationDistance * (1.0f - com.baidu.adp.widget.a.sInterpolator.getInterpolation(this.animatingPosition / this.animationDistance))));
                 this.lastAnimationTime = uptimeMillis;
                 this.currentAnimatingTime = uptimeMillis + 16;
-                RefresherView.this.ZA.removeMessages(1000);
-                RefresherView.this.ZA.sendEmptyMessageAtTime(1000, this.currentAnimatingTime);
+                RefresherView.this.aaj.removeMessages(1000);
+                RefresherView.this.aaj.sendEmptyMessageAtTime(1000, this.currentAnimatingTime);
             }
             RefresherView.this.invalidate();
         }
@@ -208,8 +208,8 @@ public class RefresherView extends ViewGroup implements IRefreshable {
             if (this.animatingPosition >= this.animationDistance) {
                 RefresherView.this.mYOffset = RefresherView.this.mThresholdHeight;
                 this.animating = false;
-                RefresherView.this.ZE = IRefreshable.State.idle;
-                IRefreshable.a aVar = RefresherView.this.ZB;
+                RefresherView.this.aan = IRefreshable.State.idle;
+                IRefreshable.a aVar = RefresherView.this.aak;
                 if (aVar != null) {
                     aVar.a(IRefreshable.State.idle);
                     RefresherView.this.refresh();
@@ -218,8 +218,8 @@ public class RefresherView extends ViewGroup implements IRefreshable {
                 RefresherView.this.mYOffset = com.baidu.adp.widget.a.computeInterpolator(this.animationDistance, this.animatingPosition, false);
                 this.lastAnimationTime = uptimeMillis;
                 this.currentAnimatingTime = uptimeMillis + 16;
-                RefresherView.this.ZA.removeMessages(1001);
-                RefresherView.this.ZA.sendEmptyMessageAtTime(1001, this.currentAnimatingTime);
+                RefresherView.this.aaj.removeMessages(1001);
+                RefresherView.this.aaj.sendEmptyMessageAtTime(1001, this.currentAnimatingTime);
             }
             RefresherView.this.invalidate();
         }
@@ -234,19 +234,19 @@ public class RefresherView extends ViewGroup implements IRefreshable {
                     this.animationDistance = RefresherView.this.mYOffset - RefresherView.this.mBackPosition;
                     this.animatingPosition = 0;
                     this.animatingVelocity = Math.max(RefresherView.this.kMinVelocity, (RefresherView.this.mYOffset - RefresherView.this.mBackPosition) * 2);
-                    RefresherView.this.ZA.removeMessages(1000);
-                    RefresherView.this.ZA.sendEmptyMessageAtTime(1000, this.currentAnimatingTime);
+                    RefresherView.this.aaj.removeMessages(1000);
+                    RefresherView.this.aaj.sendEmptyMessageAtTime(1000, this.currentAnimatingTime);
                     break;
                 case 1001:
                     this.animationDistance = RefresherView.this.mThresholdHeight;
                     this.animatingPosition = 0;
                     this.animatingVelocity = RefresherView.this.kVelocity;
-                    RefresherView.this.ZA.removeMessages(1001);
-                    RefresherView.this.ZA.sendEmptyMessageAtTime(1001, this.currentAnimatingTime);
+                    RefresherView.this.aaj.removeMessages(1001);
+                    RefresherView.this.aaj.sendEmptyMessageAtTime(1001, this.currentAnimatingTime);
                     break;
             }
-            RefresherView.this.ZE = IRefreshable.State.animating;
-            IRefreshable.a aVar = RefresherView.this.ZB;
+            RefresherView.this.aan = IRefreshable.State.animating;
+            IRefreshable.a aVar = RefresherView.this.aak;
             if (aVar != null) {
                 aVar.a(IRefreshable.State.animating);
             }
@@ -312,9 +312,9 @@ public class RefresherView extends ViewGroup implements IRefreshable {
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message.what == 1000) {
-                RefresherView.this.Zz.computeBack();
+                RefresherView.this.aai.computeBack();
             } else if (message.what == 1001) {
-                RefresherView.this.Zz.computeDown();
+                RefresherView.this.aai.computeDown();
             }
         }
     }
@@ -322,18 +322,18 @@ public class RefresherView extends ViewGroup implements IRefreshable {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class c extends BdAsyncTask<Void, Void, Void> {
-        private final IRefreshable.a ZG;
+        private final IRefreshable.a aap;
 
         c() {
-            this.ZG = RefresherView.this.ZB;
+            this.aap = RefresherView.this.aak;
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
-            if (this.ZG != null) {
+            if (this.aap != null) {
                 RefresherView.this.mBackPosition = RefresherView.this.mThresholdHeight;
-                this.ZG.onPreRefresh();
+                this.aap.onPreRefresh();
             }
         }
 
@@ -342,8 +342,8 @@ public class RefresherView extends ViewGroup implements IRefreshable {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Void... voidArr) {
             RefresherView.this.mRefreshing = true;
-            if (this.ZG != null) {
-                this.ZG.onRefreshData();
+            if (this.aap != null) {
+                this.aap.onRefreshData();
                 return null;
             }
             return null;
@@ -354,7 +354,7 @@ public class RefresherView extends ViewGroup implements IRefreshable {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Void r3) {
             RefresherView.this.mBackPosition = 0;
-            RefresherView.this.ZD.animate(1000);
+            RefresherView.this.aam.animate(1000);
         }
     }
 
@@ -429,14 +429,14 @@ public class RefresherView extends ViewGroup implements IRefreshable {
             switch (action) {
                 case 0:
                     RefresherView.this.mLastDownY = y;
-                    RefresherView.this.ZA.removeMessages(1000);
+                    RefresherView.this.aaj.removeMessages(1000);
                     break;
                 case 2:
                     if (!(RefresherView.this.mRefresherContent instanceof ViewGroup) || (childAt = ((ViewGroup) RefresherView.this.mRefresherContent).getChildAt(0)) == null) {
                         RefresherView.this.mRefresherContent.getLocationOnScreen(RefresherView.this.mContentLocation);
                         if (RefresherView.this.mContentLocation[1] == RefresherView.this.mAbsY && y > RefresherView.this.mLastDownY) {
-                            RefresherView.this.ZE = IRefreshable.State.pulling_no_refresh;
-                            IRefreshable.a aVar = RefresherView.this.ZB;
+                            RefresherView.this.aan = IRefreshable.State.pulling_no_refresh;
+                            IRefreshable.a aVar = RefresherView.this.aak;
                             if (aVar != null) {
                                 aVar.a(IRefreshable.State.pulling_no_refresh);
                             }
@@ -445,8 +445,8 @@ public class RefresherView extends ViewGroup implements IRefreshable {
                     } else {
                         childAt.getLocationOnScreen(RefresherView.this.mContentLocation);
                         if (RefresherView.this.mContentLocation[1] == RefresherView.this.mAbsY && y > RefresherView.this.mLastDownY) {
-                            RefresherView.this.ZE = IRefreshable.State.pulling_no_refresh;
-                            IRefreshable.a aVar2 = RefresherView.this.ZB;
+                            RefresherView.this.aan = IRefreshable.State.pulling_no_refresh;
+                            IRefreshable.a aVar2 = RefresherView.this.aak;
                             if (aVar2 != null) {
                                 aVar2.a(IRefreshable.State.pulling_no_refresh);
                             }
@@ -474,17 +474,17 @@ public class RefresherView extends ViewGroup implements IRefreshable {
                     return true;
                 case 2:
                     RefresherView.this.mYOffset = Math.max(0, Math.min(y - RefresherView.this.mLastDownY, RefresherView.this.mMaxHeight * 2));
-                    if (RefresherView.this.mYOffset <= RefresherView.this.mThresholdHeight || RefresherView.this.ZE != IRefreshable.State.pulling_no_refresh) {
-                        if (RefresherView.this.mYOffset < RefresherView.this.mThresholdHeight && RefresherView.this.ZE == IRefreshable.State.pulling_refresh) {
-                            RefresherView.this.ZE = IRefreshable.State.pulling_no_refresh;
-                            IRefreshable.a aVar = RefresherView.this.ZB;
+                    if (RefresherView.this.mYOffset <= RefresherView.this.mThresholdHeight || RefresherView.this.aan != IRefreshable.State.pulling_no_refresh) {
+                        if (RefresherView.this.mYOffset < RefresherView.this.mThresholdHeight && RefresherView.this.aan == IRefreshable.State.pulling_refresh) {
+                            RefresherView.this.aan = IRefreshable.State.pulling_no_refresh;
+                            IRefreshable.a aVar = RefresherView.this.aak;
                             if (aVar != null) {
                                 aVar.a(IRefreshable.State.pulling_no_refresh);
                             }
                         }
                     } else {
-                        RefresherView.this.ZE = IRefreshable.State.pulling_refresh;
-                        IRefreshable.a aVar2 = RefresherView.this.ZB;
+                        RefresherView.this.aan = IRefreshable.State.pulling_refresh;
+                        IRefreshable.a aVar2 = RefresherView.this.aak;
                         if (aVar2 != null) {
                             aVar2.a(IRefreshable.State.pulling_refresh);
                         }
@@ -498,7 +498,7 @@ public class RefresherView extends ViewGroup implements IRefreshable {
 
         @Override // com.baidu.adp.widget.f
         public void animate(int i) {
-            RefresherView.this.Zz.animate(i);
+            RefresherView.this.aai.animate(i);
         }
     }
 
@@ -603,8 +603,8 @@ public class RefresherView extends ViewGroup implements IRefreshable {
                     if (!(RefresherView.this.mRefresherContent instanceof ViewGroup) || (childAt = ((ViewGroup) RefresherView.this.mRefresherContent).getChildAt(0)) == null) {
                         RefresherView.this.mRefresherContent.getLocationOnScreen(RefresherView.this.mContentLocation);
                         if (RefresherView.this.mContentLocation[0] == RefresherView.this.mAbsX && x > RefresherView.this.mLastDownX + this.moveThreshold) {
-                            RefresherView.this.ZE = IRefreshable.State.pulling_no_refresh;
-                            IRefreshable.a aVar = RefresherView.this.ZB;
+                            RefresherView.this.aan = IRefreshable.State.pulling_no_refresh;
+                            IRefreshable.a aVar = RefresherView.this.aak;
                             if (aVar != null) {
                                 aVar.a(IRefreshable.State.pulling_no_refresh);
                             }
@@ -613,8 +613,8 @@ public class RefresherView extends ViewGroup implements IRefreshable {
                     } else {
                         childAt.getLocationOnScreen(RefresherView.this.mContentLocation);
                         if (RefresherView.this.mContentLocation[0] == RefresherView.this.mAbsX && x > RefresherView.this.mLastDownX + this.moveThreshold) {
-                            RefresherView.this.ZE = IRefreshable.State.pulling_no_refresh;
-                            IRefreshable.a aVar2 = RefresherView.this.ZB;
+                            RefresherView.this.aan = IRefreshable.State.pulling_no_refresh;
+                            IRefreshable.a aVar2 = RefresherView.this.aak;
                             if (aVar2 != null) {
                                 aVar2.a(IRefreshable.State.pulling_no_refresh);
                             }
@@ -642,17 +642,17 @@ public class RefresherView extends ViewGroup implements IRefreshable {
                     return true;
                 case 2:
                     RefresherView.this.mXOffset = Math.max(0, Math.min((x - RefresherView.this.mLastDownX) - this.moveThreshold, RefresherView.this.mMaxHeight * 2));
-                    if (RefresherView.this.mXOffset <= RefresherView.this.mThresholdHeight || RefresherView.this.ZE != IRefreshable.State.pulling_no_refresh) {
-                        if (RefresherView.this.mXOffset < RefresherView.this.mThresholdHeight && RefresherView.this.ZE == IRefreshable.State.pulling_refresh) {
-                            RefresherView.this.ZE = IRefreshable.State.pulling_no_refresh;
-                            IRefreshable.a aVar = RefresherView.this.ZB;
+                    if (RefresherView.this.mXOffset <= RefresherView.this.mThresholdHeight || RefresherView.this.aan != IRefreshable.State.pulling_no_refresh) {
+                        if (RefresherView.this.mXOffset < RefresherView.this.mThresholdHeight && RefresherView.this.aan == IRefreshable.State.pulling_refresh) {
+                            RefresherView.this.aan = IRefreshable.State.pulling_no_refresh;
+                            IRefreshable.a aVar = RefresherView.this.aak;
                             if (aVar != null) {
                                 aVar.a(IRefreshable.State.pulling_no_refresh);
                             }
                         }
                     } else {
-                        RefresherView.this.ZE = IRefreshable.State.pulling_refresh;
-                        IRefreshable.a aVar2 = RefresherView.this.ZB;
+                        RefresherView.this.aan = IRefreshable.State.pulling_refresh;
+                        IRefreshable.a aVar2 = RefresherView.this.aak;
                         if (aVar2 != null) {
                             aVar2.a(IRefreshable.State.pulling_refresh);
                         }
@@ -708,8 +708,8 @@ public class RefresherView extends ViewGroup implements IRefreshable {
             if (this.animatingPosition >= this.animationDistance) {
                 RefresherView.this.mXOffset = RefresherView.this.mThresholdHeight;
                 this.animating = false;
-                RefresherView.this.ZE = IRefreshable.State.idle;
-                IRefreshable.a aVar = RefresherView.this.ZB;
+                RefresherView.this.aan = IRefreshable.State.idle;
+                IRefreshable.a aVar = RefresherView.this.aak;
                 if (aVar != null) {
                     aVar.a(IRefreshable.State.idle);
                     RefresherView.this.refresh();
@@ -730,8 +730,8 @@ public class RefresherView extends ViewGroup implements IRefreshable {
             if (this.animatingPosition >= this.animationDistance) {
                 RefresherView.this.mXOffset = RefresherView.this.mBackPosition;
                 this.animating = false;
-                RefresherView.this.ZE = IRefreshable.State.idle;
-                IRefreshable.a aVar = RefresherView.this.ZB;
+                RefresherView.this.aan = IRefreshable.State.idle;
+                IRefreshable.a aVar = RefresherView.this.aak;
                 if (aVar != null) {
                     aVar.a(IRefreshable.State.idle);
                 }

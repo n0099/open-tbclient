@@ -4,33 +4,27 @@ import android.app.Activity;
 import android.content.pm.PackageManager;
 import android.os.Handler;
 import android.os.Looper;
-/* JADX WARN: Classes with same name are omitted:
-  classes16.dex
- */
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class a extends com.baidu.n.b.a {
 
-    /* JADX WARN: Classes with same name are omitted:
-      classes16.dex
-     */
     /* renamed from: com.baidu.n.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC0276a {
+    /* loaded from: classes3.dex */
+    public interface InterfaceC0277a {
         void onRequestPermissionsResult(int i, String[] strArr, int[] iArr);
     }
 
     public static void requestPermissions(Activity activity, String[] strArr, int i) {
-        if (com.baidu.n.a.adp()) {
+        if (com.baidu.n.a.afl()) {
             b.requestPermissions(activity, strArr, i);
-        } else if (activity instanceof InterfaceC0276a) {
-            a(activity, strArr, i, (InterfaceC0276a) activity);
+        } else if (activity instanceof InterfaceC0277a) {
+            a(activity, strArr, i, (InterfaceC0277a) activity);
         }
     }
 
-    public static void a(final Activity activity, final String[] strArr, final int i, final InterfaceC0276a interfaceC0276a) {
-        if (com.baidu.n.a.adp()) {
+    public static void a(final Activity activity, final String[] strArr, final int i, final InterfaceC0277a interfaceC0277a) {
+        if (com.baidu.n.a.afl()) {
             b.requestPermissions(activity, strArr, i);
-        } else if (!activity.isFinishing() && interfaceC0276a != null) {
+        } else if (!activity.isFinishing() && interfaceC0277a != null) {
             new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.n.a.a.1
                 @Override // java.lang.Runnable
                 public void run() {
@@ -41,14 +35,14 @@ public class a extends com.baidu.n.b.a {
                     for (int i2 = 0; i2 < length; i2++) {
                         iArr[i2] = packageManager.checkPermission(strArr[i2], packageName);
                     }
-                    interfaceC0276a.onRequestPermissionsResult(i, strArr, iArr);
+                    interfaceC0277a.onRequestPermissionsResult(i, strArr, iArr);
                 }
             });
         }
     }
 
     public static boolean shouldShowRequestPermissionRationale(Activity activity, String str) {
-        if (com.baidu.n.a.adp()) {
+        if (com.baidu.n.a.afl()) {
             return b.shouldShowRequestPermissionRationale(activity, str);
         }
         return false;

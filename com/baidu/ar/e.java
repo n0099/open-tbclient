@@ -8,7 +8,6 @@ import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
 import com.baidu.ala.dumixar.utils.LuaMessageHelper;
-import com.baidu.android.imsdk.ResponseCode;
 import com.baidu.ar.arplay.core.engine.ARPScriptEnvironment;
 import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.baidu.ar.arplay.core.pixel.PixelReadListener;
@@ -21,9 +20,9 @@ import com.baidu.ar.callback.ICallbackWith;
 import com.baidu.ar.h.n;
 import com.baidu.ar.libloader.ILibLoader;
 import com.baidu.ar.libloader.c;
-import com.baidu.ar.recorder.MovieRecorder;
 import com.baidu.ar.statistic.StatisticApi;
 import com.baidu.ar.statistic.StatisticConstants;
+import com.kwai.sodler.lib.ext.PluginError;
 import java.io.File;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -32,7 +31,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class e {
     private com.baidu.ar.filter.a B;
     private DuMixInput V;
@@ -63,7 +62,7 @@ public class e {
     private ConcurrentHashMap<PixelReadParams, PixelReadListener> at = new ConcurrentHashMap<>();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes6.dex */
     public class a extends Handler {
         public a(Looper looper) {
             super(looper);
@@ -77,31 +76,31 @@ public class e {
                     CaseModel caseModel = (CaseModel) message.obj;
                     e.this.c(caseModel.mCaseType, caseModel.mCasePath, caseModel.mCaseId);
                     return;
-                case MovieRecorder.ERROR_CODE_ON_STOP /* 4002 */:
+                case 4002:
                     com.baidu.ar.h.b.c("ControllerHelper", "CaseHandler MSG_DESTROY_CASE");
                     e.this.J();
                     return;
-                case ResponseCode.ERROR_LOGIN_INVALID_REQUEST /* 4003 */:
+                case 4003:
                     com.baidu.ar.h.b.c("ControllerHelper", "CaseHandler MSG_ON_FILTER_CREATE");
                     e.this.K();
                     return;
-                case ResponseCode.ERROR_LOGIN_LOGIN_FAILED /* 4004 */:
+                case 4004:
                     com.baidu.ar.h.b.c("ControllerHelper", "CaseHandler MSG_ON_FILTER_CHANGE");
                     e.this.c((List) ((HashMap) message.obj).get("filter_name_list"));
                     return;
-                case ResponseCode.ERROR_LOGIN_CALL_BACKEND_FAILED /* 4005 */:
+                case 4005:
                     com.baidu.ar.h.b.c("ControllerHelper", "CaseHandler MSG_ON_ENGINE_CREATE");
                     e.this.L();
                     return;
-                case 4006:
+                case PluginError.ERROR_LOA_ASSET_MANAGER /* 4006 */:
                     com.baidu.ar.h.b.c("ControllerHelper", "CaseHandler MSG_ON_ENGINE_DESTROY");
                     e.this.M();
                     return;
-                case 4007:
+                case PluginError.ERROR_LOA_CLASS /* 4007 */:
                     com.baidu.ar.h.b.c("ControllerHelper", "CaseHandler MSG_ON_CASE_CREATE");
                     e.this.N();
                     return;
-                case 4008:
+                case PluginError.ERROR_LOA_SO_MD5_CHECK /* 4008 */:
                     com.baidu.ar.h.b.c("ControllerHelper", "CaseHandler MSG_ON_CASE_DESTROY");
                     e.this.O();
                     return;
@@ -127,38 +126,38 @@ public class e {
                 switch (i) {
                     case 6:
                         if (e.this.as != null) {
-                            e.this.as.sendMessage(e.this.as.obtainMessage(ResponseCode.ERROR_LOGIN_CALL_BACKEND_FAILED));
+                            e.this.as.sendMessage(e.this.as.obtainMessage(4005));
                             return;
                         }
                         return;
                     case 7:
                         if (e.this.as != null) {
-                            e.this.as.sendMessage(e.this.as.obtainMessage(4006));
+                            e.this.as.sendMessage(e.this.as.obtainMessage(PluginError.ERROR_LOA_ASSET_MANAGER));
                             return;
                         }
                         return;
                     case 8:
                         e.this.g.bw();
                         if (e.this.as != null) {
-                            e.this.as.sendMessage(e.this.as.obtainMessage(4007));
+                            e.this.as.sendMessage(e.this.as.obtainMessage(PluginError.ERROR_LOA_CLASS));
                             return;
                         }
                         return;
                     case 9:
                         if (e.this.as != null) {
-                            e.this.as.sendMessage(e.this.as.obtainMessage(4008));
+                            e.this.as.sendMessage(e.this.as.obtainMessage(PluginError.ERROR_LOA_SO_MD5_CHECK));
                             return;
                         }
                         return;
                     case 12:
                         if (e.this.as != null) {
-                            e.this.as.sendMessage(e.this.as.obtainMessage(ResponseCode.ERROR_LOGIN_INVALID_REQUEST));
+                            e.this.as.sendMessage(e.this.as.obtainMessage(4003));
                             return;
                         }
                         return;
                     case 50:
                         if (e.this.as != null) {
-                            e.this.as.sendMessage(e.this.as.obtainMessage(ResponseCode.ERROR_LOGIN_LOGIN_FAILED, hashMap));
+                            e.this.as.sendMessage(e.this.as.obtainMessage(4004, hashMap));
                             return;
                         }
                         return;
@@ -263,8 +262,8 @@ public class e {
             this.ad.onCaseCreate(this.ai + File.separator + "ar");
         }
         if ((this.ao || this.aq) && this.as != null) {
-            this.as.removeMessages(MovieRecorder.ERROR_CODE_ON_STOP);
-            this.as.sendMessage(this.as.obtainMessage(MovieRecorder.ERROR_CODE_ON_STOP));
+            this.as.removeMessages(4002);
+            this.as.sendMessage(this.as.obtainMessage(4002));
         } else {
             this.an = true;
         }
@@ -387,7 +386,7 @@ public class e {
                 if (this.am) {
                     this.al = caseModel;
                     this.ao = true;
-                    this.as.sendMessage(this.as.obtainMessage(MovieRecorder.ERROR_CODE_ON_STOP));
+                    this.as.sendMessage(this.as.obtainMessage(4002));
                 } else {
                     this.as.sendMessage(this.as.obtainMessage(4001, caseModel));
                 }
@@ -481,7 +480,7 @@ public class e {
                 if (i == 0) {
                     e.this.ak = true;
                     if (e.this.as != null) {
-                        e.this.as.sendMessage(e.this.as.obtainMessage(MovieRecorder.ERROR_CODE_ON_STOP));
+                        e.this.as.sendMessage(e.this.as.obtainMessage(4002));
                     }
                 }
                 if (this.aw || !ARAuth.isShowAuthTip()) {
@@ -582,7 +581,7 @@ public class e {
         if (this.an && this.am) {
             this.an = false;
             if (this.as != null) {
-                this.as.sendMessage(this.as.obtainMessage(MovieRecorder.ERROR_CODE_ON_STOP));
+                this.as.sendMessage(this.as.obtainMessage(4002));
             }
         } else {
             this.al = null;

@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ScrollView;
 import com.baidu.live.sdk.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class MaxHeightScrollView extends ScrollView {
     private int mMaxHeight;
 
@@ -16,15 +16,15 @@ public class MaxHeightScrollView extends ScrollView {
 
     public MaxHeightScrollView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        g(context, attributeSet);
+        h(context, attributeSet);
     }
 
     public MaxHeightScrollView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        g(context, attributeSet);
+        h(context, attributeSet);
     }
 
-    private void g(Context context, AttributeSet attributeSet) {
+    private void h(Context context, AttributeSet attributeSet) {
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.j.MaxHeightScrollView);
         this.mMaxHeight = obtainStyledAttributes.getLayoutDimension(a.j.MaxHeightScrollView_scrollviewMaxHeight, this.mMaxHeight);
         obtainStyledAttributes.recycle();

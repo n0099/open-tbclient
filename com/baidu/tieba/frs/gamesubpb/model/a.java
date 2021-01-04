@@ -4,149 +4,149 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.widget.ListView.q;
+import com.baidu.adp.widget.ListView.n;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.frs.gamesubpb.FrsGameSubPbActivity;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class a {
     private boolean hasMore;
-    private boolean jnC;
-    private String jnm;
-    private FrsGameSubPbActivity jny;
-    private InterfaceC0748a jnz;
+    private boolean jAa;
+    private String jzK;
+    private FrsGameSubPbActivity jzW;
+    private InterfaceC0741a jzX;
     private int mForumId;
-    private String jnA = "0";
-    private int jnB = 1;
-    private HttpMessageListener jnD = new HttpMessageListener(0) { // from class: com.baidu.tieba.frs.gamesubpb.model.a.1
+    private String jzY = "0";
+    private int jzZ = 1;
+    private HttpMessageListener jAb = new HttpMessageListener(0) { // from class: com.baidu.tieba.frs.gamesubpb.model.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (a.this.jnz != null) {
+            if (a.this.jzX != null) {
                 if (httpResponsedMessage == null || httpResponsedMessage.hasError() || !(httpResponsedMessage instanceof FrsSelectSubCommentReponseMessage) || ((FrsSelectSubCommentReponseMessage) httpResponsedMessage).getSelectSubCommentData() == null) {
-                    a.this.jnz.a(false, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), false, a.this.jnC, null, null);
+                    a.this.jzX.a(false, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), false, a.this.jAa, null, null);
                 } else {
                     FrsSelectSubCommentReponseMessage frsSelectSubCommentReponseMessage = (FrsSelectSubCommentReponseMessage) httpResponsedMessage;
                     if (1003379 == httpResponsedMessage.getCmd()) {
                         a.this.hasMore = frsSelectSubCommentReponseMessage.getSelectSubCommentData().hasMore;
-                        if (!a.this.jnC || 1 == frsSelectSubCommentReponseMessage.getSelectSubCommentData().jnB) {
+                        if (!a.this.jAa || 1 == frsSelectSubCommentReponseMessage.getSelectSubCommentData().jzZ) {
                             a.this.mDataList.clear();
                         } else {
                             a.c(a.this);
                         }
-                        if (!y.isEmpty(frsSelectSubCommentReponseMessage.getSelectSubCommentData().jnM)) {
-                            a.this.mDataList.addAll(frsSelectSubCommentReponseMessage.getSelectSubCommentData().jnM);
+                        if (!x.isEmpty(frsSelectSubCommentReponseMessage.getSelectSubCommentData().jAk)) {
+                            a.this.mDataList.addAll(frsSelectSubCommentReponseMessage.getSelectSubCommentData().jAk);
                         }
-                        a.this.jnz.a(true, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), a.this.hasMore, a.this.jnC, frsSelectSubCommentReponseMessage.getSelectSubCommentData().jnL, a.this.mDataList);
+                        a.this.jzX.a(true, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), a.this.hasMore, a.this.jAa, frsSelectSubCommentReponseMessage.getSelectSubCommentData().jAj, a.this.mDataList);
                     }
                 }
-                a.this.jnC = false;
+                a.this.jAa = false;
             }
         }
     };
-    private HttpMessageListener jnE = new HttpMessageListener(0) { // from class: com.baidu.tieba.frs.gamesubpb.model.a.2
+    private HttpMessageListener jAc = new HttpMessageListener(0) { // from class: com.baidu.tieba.frs.gamesubpb.model.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (a.this.jnz != null) {
+            if (a.this.jzX != null) {
                 if (httpResponsedMessage == null || httpResponsedMessage.hasError() || !(httpResponsedMessage instanceof FrsAddSubCommentResponseMessage) || ((FrsAddSubCommentResponseMessage) httpResponsedMessage).getSubCommentData() == null) {
-                    a.this.jnz.a(false, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), null);
+                    a.this.jzX.a(false, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), null);
                     return;
                 }
                 FrsAddSubCommentResponseMessage frsAddSubCommentResponseMessage = (FrsAddSubCommentResponseMessage) httpResponsedMessage;
                 if (1003380 == httpResponsedMessage.getCmd()) {
-                    a.this.jnz.a(true, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), frsAddSubCommentResponseMessage.getSubCommentData());
+                    a.this.jzX.a(true, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), frsAddSubCommentResponseMessage.getSubCommentData());
                 }
             }
         }
     };
-    private HttpMessageListener jnF = new HttpMessageListener(0) { // from class: com.baidu.tieba.frs.gamesubpb.model.a.3
+    private HttpMessageListener jAd = new HttpMessageListener(0) { // from class: com.baidu.tieba.frs.gamesubpb.model.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (a.this.jnz != null) {
+            if (a.this.jzX != null) {
                 if (httpResponsedMessage == null || httpResponsedMessage.hasError() || !(httpResponsedMessage instanceof FrsDeleteSubCommentResponseMessage) || ((FrsDeleteSubCommentResponseMessage) httpResponsedMessage).getSubCommentData() == null) {
-                    a.this.jnz.b(false, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), null);
+                    a.this.jzX.b(false, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), null);
                     return;
                 }
                 FrsDeleteSubCommentResponseMessage frsDeleteSubCommentResponseMessage = (FrsDeleteSubCommentResponseMessage) httpResponsedMessage;
                 if (1003381 == httpResponsedMessage.getCmd()) {
-                    a.this.jnz.b(true, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), frsDeleteSubCommentResponseMessage.getSubCommentData());
+                    a.this.jzX.b(true, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), frsDeleteSubCommentResponseMessage.getSubCommentData());
                 }
             }
         }
     };
-    private List<q> mDataList = new ArrayList();
+    private List<n> mDataList = new ArrayList();
 
     /* renamed from: com.baidu.tieba.frs.gamesubpb.model.a$a  reason: collision with other inner class name */
-    /* loaded from: classes22.dex */
-    public interface InterfaceC0748a {
+    /* loaded from: classes2.dex */
+    public interface InterfaceC0741a {
         void a(boolean z, int i, String str, d dVar);
 
-        void a(boolean z, int i, String str, boolean z2, boolean z3, b bVar, List<q> list);
+        void a(boolean z, int i, String str, boolean z2, boolean z3, b bVar, List<n> list);
 
         void b(boolean z, int i, String str, d dVar);
     }
 
     static /* synthetic */ int c(a aVar) {
-        int i = aVar.jnB;
-        aVar.jnB = i + 1;
+        int i = aVar.jzZ;
+        aVar.jzZ = i + 1;
         return i;
     }
 
     public a(FrsGameSubPbActivity frsGameSubPbActivity, int i, String str) {
-        this.jny = frsGameSubPbActivity;
+        this.jzW = frsGameSubPbActivity;
         this.mForumId = i;
-        this.jnm = str;
-        cHT();
-        cHU();
-        cHV();
+        this.jzK = str;
+        cKT();
+        cKU();
+        cKV();
     }
 
-    private void cHT() {
+    private void cKT() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003379, TbConfig.SERVER_ADDRESS + "game/client/selectSubComment");
         tbHttpMessageTask.setResponsedClass(FrsSelectSubCommentReponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        this.jny.registerListener(1003379, this.jnD);
+        this.jzW.registerListener(1003379, this.jAb);
     }
 
-    private void cHU() {
+    private void cKU() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003380, TbConfig.SERVER_ADDRESS + "game/client/addSubComment");
         tbHttpMessageTask.setResponsedClass(FrsAddSubCommentResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        this.jny.registerListener(1003380, this.jnE);
+        this.jzW.registerListener(1003380, this.jAc);
     }
 
-    private void cHV() {
+    private void cKV() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003381, TbConfig.SERVER_ADDRESS + "game/client/deleteSubComment");
         tbHttpMessageTask.setResponsedClass(FrsDeleteSubCommentResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        this.jny.registerListener(1003381, this.jnF);
+        this.jzW.registerListener(1003381, this.jAd);
     }
 
-    public void a(InterfaceC0748a interfaceC0748a) {
-        this.jnz = interfaceC0748a;
+    public void a(InterfaceC0741a interfaceC0741a) {
+        this.jzX = interfaceC0741a;
     }
 
-    public void mk(boolean z) {
+    public void mH(boolean z) {
         if (!z || this.hasMore) {
-            this.jnC = z;
+            this.jAa = z;
             HttpMessage httpMessage = new HttpMessage(1003379);
-            httpMessage.addParam(Config.PACKAGE_NAME, z ? this.jnB + 1 : 1);
+            httpMessage.addParam(Config.PACKAGE_NAME, z ? this.jzZ + 1 : 1);
             httpMessage.addParam("ps", 20);
             httpMessage.addParam("forum_id", this.mForumId);
-            httpMessage.addParam("main_tower_id", this.jnm);
-            httpMessage.addParam(ImageViewerConfig.LAST_ID, this.jnA);
+            httpMessage.addParam("main_tower_id", this.jzK);
+            httpMessage.addParam(ImageViewerConfig.LAST_ID, this.jzY);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 
     public void Li(String str) {
-        this.jnA = str;
+        this.jzY = str;
     }
 }

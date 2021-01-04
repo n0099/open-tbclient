@@ -12,12 +12,14 @@ import java.io.FileOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Observable;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class f extends Observable implements IOAdDownloader, Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Context f2381a;
-    protected URL b;
+    protected Context f3442a;
+
+    /* renamed from: b  reason: collision with root package name */
+    protected URL f3443b;
     protected String c;
     protected String d;
     protected int e;
@@ -28,8 +30,8 @@ public class f extends Observable implements IOAdDownloader, Runnable {
 
     public f(Context context, URL url, String str, String str2, boolean z) {
         this.i = false;
-        this.f2381a = context;
-        this.b = url;
+        this.f3442a = context;
+        this.f3443b = url;
         this.c = str;
         this.i = z;
         if (str2 != null && str2.trim().length() > 0) {
@@ -67,7 +69,7 @@ public class f extends Observable implements IOAdDownloader, Runnable {
 
     @Override // com.baidu.mobads.openad.interfaces.download.IOAdDownloader
     public String getURL() {
-        return this.b.toString();
+        return this.f3443b.toString();
     }
 
     @Override // com.baidu.mobads.openad.interfaces.download.IOAdDownloader
@@ -114,35 +116,34 @@ public class f extends Observable implements IOAdDownloader, Runnable {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [255=4] */
-    /* JADX WARN: Removed duplicated region for block: B:117:0x012e A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:119:0x0124 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:123:0x0129 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:137:0x0133 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:115:0x0128 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:119:0x012d A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:121:0x0123 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:137:0x0132 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     @Override // java.lang.Runnable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void run() {
+        Throwable th;
+        ByteArrayOutputStream byteArrayOutputStream;
         BufferedOutputStream bufferedOutputStream;
         BufferedInputStream bufferedInputStream;
         HttpURLConnection httpURLConnection;
-        BufferedOutputStream bufferedOutputStream2;
-        BufferedInputStream bufferedInputStream2;
-        HttpURLConnection httpURLConnection2;
+        Exception exc;
         IXAdLogger adLogger;
         Object[] objArr;
         int read;
-        ByteArrayOutputStream byteArrayOutputStream = null;
         try {
-            HttpURLConnection httpURLConnection3 = (HttpURLConnection) this.b.openConnection();
+            HttpURLConnection httpURLConnection2 = (HttpURLConnection) this.f3443b.openConnection();
             try {
-                httpURLConnection3.setConnectTimeout(10000);
-                httpURLConnection3.setInstanceFollowRedirects(true);
-                httpURLConnection3.connect();
-                if (httpURLConnection3.getResponseCode() / 100 != 2) {
+                httpURLConnection2.setConnectTimeout(10000);
+                httpURLConnection2.setInstanceFollowRedirects(true);
+                httpURLConnection2.connect();
+                if (httpURLConnection2.getResponseCode() / 100 != 2) {
                     d();
                 }
-                int contentLength = httpURLConnection3.getContentLength();
+                int contentLength = httpURLConnection2.getContentLength();
                 if (contentLength > 0) {
                     this.e = contentLength;
                 }
@@ -150,7 +151,7 @@ public class f extends Observable implements IOAdDownloader, Runnable {
                 if (!file.exists()) {
                     file.mkdirs();
                 }
-                bufferedInputStream = new BufferedInputStream(httpURLConnection3.getInputStream());
+                bufferedInputStream = new BufferedInputStream(httpURLConnection2.getInputStream());
                 try {
                     bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(getOutputPath() + ".tmp"));
                     try {
@@ -166,17 +167,15 @@ public class f extends Observable implements IOAdDownloader, Runnable {
                                 i += read;
                                 a(read, i / this.e);
                             } catch (Exception e) {
+                                exc = e;
                                 byteArrayOutputStream = byteArrayOutputStream2;
-                                bufferedOutputStream2 = bufferedOutputStream;
-                                bufferedInputStream2 = bufferedInputStream;
-                                httpURLConnection2 = httpURLConnection3;
-                                e = e;
+                                httpURLConnection = httpURLConnection2;
                                 try {
-                                    XAdSDKFoundationFacade.getInstance().getAdLogger().e("OAdSimpleFileDownloader", e.getMessage());
+                                    XAdSDKFoundationFacade.getInstance().getAdLogger().e("OAdSimpleFileDownloader", exc.getMessage());
                                     d();
-                                    if (bufferedOutputStream2 != null) {
+                                    if (bufferedOutputStream != null) {
                                         try {
-                                            bufferedOutputStream2.close();
+                                            bufferedOutputStream.close();
                                         } catch (Exception e2) {
                                             XAdSDKFoundationFacade.getInstance().getAdLogger().e("OAdSimpleFileDownloader", e2.getMessage());
                                         }
@@ -188,16 +187,16 @@ public class f extends Observable implements IOAdDownloader, Runnable {
                                             XAdSDKFoundationFacade.getInstance().getAdLogger().e("OAdSimpleFileDownloader", e3.getMessage());
                                         }
                                     }
-                                    if (bufferedInputStream2 != null) {
+                                    if (bufferedInputStream != null) {
                                         try {
-                                            bufferedInputStream2.close();
+                                            bufferedInputStream.close();
                                         } catch (Exception e4) {
                                             XAdSDKFoundationFacade.getInstance().getAdLogger().e("OAdSimpleFileDownloader", e4.getMessage());
                                         }
                                     }
-                                    if (httpURLConnection2 != null) {
+                                    if (httpURLConnection != null) {
                                         try {
-                                            httpURLConnection2.disconnect();
+                                            httpURLConnection.disconnect();
                                             return;
                                         } catch (Exception e5) {
                                             adLogger = XAdSDKFoundationFacade.getInstance().getAdLogger();
@@ -206,12 +205,8 @@ public class f extends Observable implements IOAdDownloader, Runnable {
                                         }
                                     }
                                     return;
-                                } catch (Throwable th) {
-                                    th = th;
-                                    BufferedOutputStream bufferedOutputStream3 = bufferedOutputStream2;
-                                    httpURLConnection = httpURLConnection2;
-                                    bufferedInputStream = bufferedInputStream2;
-                                    bufferedOutputStream = bufferedOutputStream3;
+                                } catch (Throwable th2) {
+                                    th = th2;
                                     if (bufferedOutputStream != null) {
                                         try {
                                             bufferedOutputStream.close();
@@ -242,10 +237,10 @@ public class f extends Observable implements IOAdDownloader, Runnable {
                                     }
                                     throw th;
                                 }
-                            } catch (Throwable th2) {
+                            } catch (Throwable th3) {
+                                th = th3;
                                 byteArrayOutputStream = byteArrayOutputStream2;
-                                httpURLConnection = httpURLConnection3;
-                                th = th2;
+                                httpURLConnection = httpURLConnection2;
                                 if (bufferedOutputStream != null) {
                                 }
                                 if (byteArrayOutputStream != null) {
@@ -287,9 +282,9 @@ public class f extends Observable implements IOAdDownloader, Runnable {
                                 XAdSDKFoundationFacade.getInstance().getAdLogger().e("OAdSimpleFileDownloader", e12.getMessage());
                             }
                         }
-                        if (httpURLConnection3 != null) {
+                        if (httpURLConnection2 != null) {
                             try {
-                                httpURLConnection3.disconnect();
+                                httpURLConnection2.disconnect();
                             } catch (Exception e13) {
                                 adLogger = XAdSDKFoundationFacade.getInstance().getAdLogger();
                                 objArr = new Object[]{"OAdSimpleFileDownloader", e13.getMessage()};
@@ -297,42 +292,47 @@ public class f extends Observable implements IOAdDownloader, Runnable {
                             }
                         }
                     } catch (Exception e14) {
-                        bufferedOutputStream2 = bufferedOutputStream;
-                        bufferedInputStream2 = bufferedInputStream;
-                        httpURLConnection2 = httpURLConnection3;
-                        e = e14;
-                    } catch (Throwable th3) {
-                        httpURLConnection = httpURLConnection3;
-                        th = th3;
+                        exc = e14;
+                        byteArrayOutputStream = null;
+                        httpURLConnection = httpURLConnection2;
+                    } catch (Throwable th4) {
+                        th = th4;
+                        byteArrayOutputStream = null;
+                        httpURLConnection = httpURLConnection2;
                     }
                 } catch (Exception e15) {
-                    bufferedInputStream2 = bufferedInputStream;
-                    httpURLConnection2 = httpURLConnection3;
-                    e = e15;
-                    bufferedOutputStream2 = null;
-                } catch (Throwable th4) {
+                    exc = e15;
+                    byteArrayOutputStream = null;
                     bufferedOutputStream = null;
-                    httpURLConnection = httpURLConnection3;
-                    th = th4;
+                    httpURLConnection = httpURLConnection2;
+                } catch (Throwable th5) {
+                    th = th5;
+                    byteArrayOutputStream = null;
+                    bufferedOutputStream = null;
+                    httpURLConnection = httpURLConnection2;
                 }
             } catch (Exception e16) {
-                bufferedInputStream2 = null;
-                httpURLConnection2 = httpURLConnection3;
-                e = e16;
-                bufferedOutputStream2 = null;
-            } catch (Throwable th5) {
+                exc = e16;
+                byteArrayOutputStream = null;
                 bufferedOutputStream = null;
                 bufferedInputStream = null;
-                httpURLConnection = httpURLConnection3;
-                th = th5;
+                httpURLConnection = httpURLConnection2;
+            } catch (Throwable th6) {
+                th = th6;
+                byteArrayOutputStream = null;
+                bufferedOutputStream = null;
+                bufferedInputStream = null;
+                httpURLConnection = httpURLConnection2;
             }
         } catch (Exception e17) {
-            e = e17;
-            bufferedOutputStream2 = null;
-            bufferedInputStream2 = null;
-            httpURLConnection2 = null;
-        } catch (Throwable th6) {
-            th = th6;
+            exc = e17;
+            byteArrayOutputStream = null;
+            bufferedOutputStream = null;
+            bufferedInputStream = null;
+            httpURLConnection = null;
+        } catch (Throwable th7) {
+            th = th7;
+            byteArrayOutputStream = null;
             bufferedOutputStream = null;
             bufferedInputStream = null;
             httpURLConnection = null;

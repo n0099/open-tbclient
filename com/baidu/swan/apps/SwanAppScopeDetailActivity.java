@@ -10,24 +10,24 @@ import android.widget.TextView;
 import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.adaptation.b.d;
 import com.baidu.swan.apps.adaptation.b.f;
-import com.baidu.swan.apps.ap.ah;
-import com.baidu.swan.apps.ap.u;
-/* loaded from: classes25.dex */
+import com.baidu.swan.apps.ao.ah;
+import com.baidu.swan.apps.ao.u;
+/* loaded from: classes9.dex */
 public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
     private static final boolean DEBUG = b.DEBUG;
-    private d czQ;
-    private boolean czR = true;
-    private int mEnterAnimWhenFinishing = 0;
-    private int mExitAnimWhenFinishing = 0;
+    private d cEG;
     private String mUrl;
+    private boolean cEH = true;
+    private int cEC = 0;
+    private int cED = 0;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, com.baidu.swan.support.v4.app.f, android.app.Activity
     public void onCreate(Bundle bundle) {
-        ag(a.C0379a.aiapps_hold, a.C0379a.aiapps_slide_out_to_right);
+        ab(a.C0372a.aiapps_hold, a.C0372a.aiapps_slide_out_to_right);
         super.onCreate(bundle);
         setContentView(a.g.swanapp_scope_detail_activity);
-        ah.R(this);
+        ah.T(this);
         k(getIntent());
         initView();
         initWebView();
@@ -42,7 +42,7 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
 
     public void k(Intent intent) {
         if (intent != null) {
-            this.mUrl = u.safeGetStringExtra(intent, "url");
+            this.mUrl = u.a(intent, "url");
             if (DEBUG) {
                 Log.d("ScopeDetailActivity", "mUrl=" + this.mUrl);
             }
@@ -67,48 +67,48 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
     /* JADX WARN: Type inference failed for: r0v4, types: [com.baidu.swan.apps.adaptation.b.d] */
     private void initWebView() {
         if (!TextUtils.isEmpty(this.mUrl)) {
-            f ch = new com.baidu.swan.apps.adaptation.b.a.b().ch(this);
-            ch.a(new com.baidu.swan.apps.core.f.a() { // from class: com.baidu.swan.apps.SwanAppScopeDetailActivity.2
+            f co = new com.baidu.swan.apps.adaptation.b.a.b().co(this);
+            co.a(new com.baidu.swan.apps.core.f.a() { // from class: com.baidu.swan.apps.SwanAppScopeDetailActivity.2
                 @Override // com.baidu.swan.apps.core.f.a, com.baidu.swan.apps.core.f.d
-                public void jn(String str) {
-                    super.jn(str);
-                    if (SwanAppScopeDetailActivity.this.czR) {
+                public void jg(String str) {
+                    super.jg(str);
+                    if (SwanAppScopeDetailActivity.this.cEH) {
                         SwanAppScopeDetailActivity.this.setTitle(str);
                     }
                 }
             });
-            this.czQ = ch.alh();
-            ch.loadUrl(this.mUrl);
-            ch.b((FrameLayout) findViewById(a.f.webview_container), this.czQ.covertToView());
+            this.cEG = co.amr();
+            co.loadUrl(this.mUrl);
+            co.b((FrameLayout) findViewById(a.f.webview_container), this.cEG.covertToView());
         }
     }
 
-    public void ag(int i, int i2) {
-        this.mEnterAnimWhenFinishing = i;
-        this.mExitAnimWhenFinishing = i2;
+    public void ab(int i, int i2) {
+        this.cEC = i;
+        this.cED = i2;
     }
 
-    private void startExitActivityAnim() {
-        if (this.mEnterAnimWhenFinishing != 0 || this.mExitAnimWhenFinishing != 0) {
-            overridePendingTransition(this.mEnterAnimWhenFinishing, this.mExitAnimWhenFinishing);
-            this.mEnterAnimWhenFinishing = 0;
-            this.mExitAnimWhenFinishing = 0;
+    private void ajH() {
+        if (this.cEC != 0 || this.cED != 0) {
+            overridePendingTransition(this.cEC, this.cED);
+            this.cEC = 0;
+            this.cED = 0;
         }
     }
 
     @Override // android.app.Activity
     public void finish() {
         super.finish();
-        startExitActivityAnim();
+        ajH();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.czQ != null) {
-            this.czQ.destroy();
-            this.czQ = null;
+        if (this.cEG != null) {
+            this.cEG.destroy();
+            this.cEG = null;
         }
         this.mUrl = null;
     }

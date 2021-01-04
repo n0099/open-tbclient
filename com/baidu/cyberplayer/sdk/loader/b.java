@@ -19,11 +19,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static b f1400a;
+    private static b f1836a;
     private Context f;
     private final Object c = new Object();
     private volatile int e = 0;
@@ -35,9 +35,9 @@ public class b {
             switch (message.what) {
                 case 0:
                     synchronized (b.this.c) {
-                        for (int i2 = 0; i2 < b.this.b.size(); i2++) {
-                            a aVar = (a) b.this.b.get(i2);
-                            if (aVar.c != null && CyberPlayerManager.isCoreLoaded(aVar.b)) {
+                        for (int i2 = 0; i2 < b.this.f1837b.size(); i2++) {
+                            a aVar = (a) b.this.f1837b.get(i2);
+                            if (aVar.c != null && CyberPlayerManager.isCoreLoaded(aVar.f1843b)) {
                                 aVar.c.onInstallSuccess(message.arg1, CyberPlayerManager.getCoreVersion());
                             }
                         }
@@ -46,8 +46,8 @@ public class b {
                     break;
                 case 1:
                     synchronized (b.this.c) {
-                        for (int i3 = 0; i3 < b.this.b.size(); i3++) {
-                            a aVar2 = (a) b.this.b.get(i3);
+                        for (int i3 = 0; i3 < b.this.f1837b.size(); i3++) {
+                            a aVar2 = (a) b.this.f1837b.get(i3);
                             if (aVar2.c != null) {
                                 aVar2.c.onInstallError(message.arg1, message.arg2, (String) message.obj);
                             }
@@ -58,10 +58,10 @@ public class b {
                 case 2:
                     while (true) {
                         int i4 = i;
-                        if (i4 >= b.this.b.size()) {
+                        if (i4 >= b.this.f1837b.size()) {
                             break;
                         } else {
-                            a aVar3 = (a) b.this.b.get(i4);
+                            a aVar3 = (a) b.this.f1837b.get(i4);
                             if (aVar3.c != null) {
                                 aVar3.c.onInstallProgress(message.arg1, message.arg2);
                             }
@@ -78,17 +78,21 @@ public class b {
             super.handleMessage(message);
         }
     };
-    private List<a> b = new ArrayList();
+
+    /* renamed from: b  reason: collision with root package name */
+    private List<a> f1837b = new ArrayList();
     private ExecutorService d = Executors.newSingleThreadExecutor();
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes17.dex */
+    /* loaded from: classes6.dex */
     public class a {
-        private int b;
+
+        /* renamed from: b  reason: collision with root package name */
+        private int f1843b;
         private CyberPlayerManager.InstallListener c;
 
         public a(int i, CyberPlayerManager.InstallListener installListener) {
-            this.b = i;
+            this.f1843b = i;
             this.c = installListener;
         }
     }
@@ -99,10 +103,10 @@ public class b {
     public static synchronized b a() {
         b bVar;
         synchronized (b.class) {
-            if (f1400a == null) {
-                f1400a = new b();
+            if (f1836a == null) {
+                f1836a = new b();
             }
-            bVar = f1400a;
+            bVar = f1836a;
         }
         return bVar;
     }
@@ -175,9 +179,9 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(int i) {
-        Iterator<a> it = this.b.iterator();
+        Iterator<a> it = this.f1837b.iterator();
         while (it.hasNext()) {
-            if (it.next().b == i) {
+            if (it.next().f1843b == i) {
                 it.remove();
             }
         }
@@ -199,7 +203,7 @@ public class b {
                 return;
             }
             if (installListener != null) {
-                this.b.add(new a(i, installListener));
+                this.f1837b.add(new a(i, installListener));
             }
             if (a(i)) {
                 if (map != null) {

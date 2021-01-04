@@ -8,16 +8,16 @@ import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.k;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.lego.view.AdCardBaseView;
 import com.baidu.tieba.recapp.lego.view.LoopADView;
-/* loaded from: classes26.dex */
+/* loaded from: classes8.dex */
 public class AdCardLoopPicView extends AdCardBaseView {
-    private View mKn;
-    private LoopADView mKo;
+    private View mPw;
+    private LoopADView mPx;
 
     public AdCardLoopPicView(TbPageContext tbPageContext) {
         super(tbPageContext);
@@ -29,45 +29,45 @@ public class AdCardLoopPicView extends AdCardBaseView {
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
-    protected void dS(View view) {
-        this.mKn = view.findViewById(R.id.advert_loop_ad_container);
-        this.mKo = (LoopADView) view.findViewById(R.id.loop_view);
+    protected void ec(View view) {
+        this.mPw = view.findViewById(R.id.advert_loop_ad_container);
+        this.mPx = (LoopADView) view.findViewById(R.id.loop_view);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     protected void a(final AdCard adCard) {
         AdCard.d[] dVarArr = adCard.threadPicList;
-        boolean isShowImages = k.blV().isShowImages();
-        this.mKo.setBussinessType(getBusinessType());
+        boolean isShowImages = k.bou().isShowImages();
+        this.mPx.setBussinessType(getBusinessType());
         if (!isShowImages) {
-            this.mKn.setVisibility(8);
+            this.mPw.setVisibility(8);
             return;
         }
-        this.mKn.setVisibility(0);
-        A(this.mKn, 0);
-        this.mKo.setOnClickCallbackListener(new LoopADView.a() { // from class: com.baidu.tieba.recapp.lego.view.AdCardLoopPicView.1
+        this.mPw.setVisibility(0);
+        D(this.mPw, 0);
+        this.mPx.setOnClickCallbackListener(new LoopADView.a() { // from class: com.baidu.tieba.recapp.lego.view.AdCardLoopPicView.1
             @Override // com.baidu.tieba.recapp.lego.view.LoopADView.a
             public void b(TbImageView tbImageView, AdCard.b bVar) {
                 AdCardLoopPicView.this.a(tbImageView, bVar, new AdCardBaseView.b(adCard));
             }
 
             @Override // com.baidu.tieba.recapp.lego.view.LoopADView.a
-            public String Sd(String str) {
-                return au.cutStringWithSuffix(str, 100, StringHelper.STRING_MORE);
+            public String RI(String str) {
+                return at.cutStringWithSuffix(str, 100, StringHelper.STRING_MORE);
             }
 
             @Override // com.baidu.tieba.recapp.lego.view.LoopADView.a
             public void reset() {
-                if (AdCardLoopPicView.this.mKn != null) {
-                    AdCardLoopPicView.this.mKn.setScrollX(0);
+                if (AdCardLoopPicView.this.mPw != null) {
+                    AdCardLoopPicView.this.mPw.setScrollX(0);
                 }
             }
         });
         int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds92);
-        if (!adCard.needResize) {
-            this.mKo.a(dVarArr, 30, 0, 0, dimensionPixelSize);
+        if (adCard.needResize) {
+            this.mPx.a(dVarArr, 30, adCard.width, adCard.height, dimensionPixelSize);
         } else {
-            this.mKo.a(dVarArr, 30, adCard.width, adCard.height, dimensionPixelSize);
+            this.mPx.a(dVarArr, 30, 0, 0, dimensionPixelSize);
         }
     }
 
@@ -81,12 +81,12 @@ public class AdCardLoopPicView extends AdCardBaseView {
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView, com.baidu.tieba.lego.card.view.BaseLegoCardView
     public void a(AdCard adCard, int i) {
         super.a(adCard, i);
-        if (this.mKo != null && this.mKo.getVisibility() == 0) {
-            this.mKo.bvs();
+        if (this.mPx != null && this.mPx.getVisibility() == 0) {
+            this.mPx.bxN();
         }
     }
 
-    private void A(View view, int i) {
+    private void D(View view, int i) {
         if (view != null && view.getVisibility() == 0) {
             ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
             if (layoutParams instanceof RelativeLayout.LayoutParams) {

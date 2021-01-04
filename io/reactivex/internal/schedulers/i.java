@@ -11,12 +11,12 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class i {
-    public static final boolean pIo;
-    public static final int pIp;
-    static final AtomicReference<ScheduledExecutorService> pIq = new AtomicReference<>();
-    static final Map<ScheduledThreadPoolExecutor, Object> pIr = new ConcurrentHashMap();
+    public static final boolean qjR;
+    public static final int qjS;
+    static final AtomicReference<ScheduledExecutorService> qjT = new AtomicReference<>();
+    static final Map<ScheduledThreadPoolExecutor, Object> qjU = new ConcurrentHashMap();
 
     static {
         int i = 1;
@@ -25,21 +25,21 @@ public final class i {
         if (z && properties.containsKey("rx2.purge-period-seconds")) {
             i = Integer.getInteger("rx2.purge-period-seconds", 1).intValue();
         }
-        pIo = z;
-        pIp = i;
+        qjR = z;
+        qjS = i;
         start();
     }
 
     public static void start() {
-        if (!pIo) {
+        if (!qjR) {
             return;
         }
         while (true) {
-            ScheduledExecutorService scheduledExecutorService = pIq.get();
+            ScheduledExecutorService scheduledExecutorService = qjT.get();
             if (scheduledExecutorService == null || scheduledExecutorService.isShutdown()) {
                 ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(1, new RxThreadFactory("RxSchedulerPurge"));
-                if (pIq.compareAndSet(scheduledExecutorService, newScheduledThreadPool)) {
-                    newScheduledThreadPool.scheduleAtFixedRate(new a(), pIp, pIp, TimeUnit.SECONDS);
+                if (qjT.compareAndSet(scheduledExecutorService, newScheduledThreadPool)) {
+                    newScheduledThreadPool.scheduleAtFixedRate(new a(), qjS, qjS, TimeUnit.SECONDS);
                     return;
                 }
                 newScheduledThreadPool.shutdownNow();
@@ -51,14 +51,14 @@ public final class i {
 
     public static ScheduledExecutorService a(ThreadFactory threadFactory) {
         ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(1, threadFactory);
-        if (pIo && (newScheduledThreadPool instanceof ScheduledThreadPoolExecutor)) {
-            pIr.put((ScheduledThreadPoolExecutor) newScheduledThreadPool, newScheduledThreadPool);
+        if (qjR && (newScheduledThreadPool instanceof ScheduledThreadPoolExecutor)) {
+            qjU.put((ScheduledThreadPoolExecutor) newScheduledThreadPool, newScheduledThreadPool);
         }
         return newScheduledThreadPool;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static final class a implements Runnable {
         a() {
         }
@@ -66,11 +66,11 @@ public final class i {
         @Override // java.lang.Runnable
         public void run() {
             try {
-                Iterator it = new ArrayList(i.pIr.keySet()).iterator();
+                Iterator it = new ArrayList(i.qjU.keySet()).iterator();
                 while (it.hasNext()) {
                     ScheduledThreadPoolExecutor scheduledThreadPoolExecutor = (ScheduledThreadPoolExecutor) it.next();
                     if (scheduledThreadPoolExecutor.isShutdown()) {
-                        i.pIr.remove(scheduledThreadPoolExecutor);
+                        i.qjU.remove(scheduledThreadPoolExecutor);
                     } else {
                         scheduledThreadPoolExecutor.purge();
                     }

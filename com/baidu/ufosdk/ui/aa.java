@@ -9,19 +9,21 @@ import android.widget.TextView;
 import java.util.List;
 import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes22.dex */
+/* loaded from: classes8.dex */
 public final class aa implements TextWatcher {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EditText f3744a;
-    final /* synthetic */ String b;
+    final /* synthetic */ EditText f5704a;
+
+    /* renamed from: b  reason: collision with root package name */
+    final /* synthetic */ String f5705b;
     final /* synthetic */ FeedbackEditActivity c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(FeedbackEditActivity feedbackEditActivity, EditText editText, String str) {
         this.c = feedbackEditActivity;
-        this.f3744a = editText;
-        this.b = str;
+        this.f5704a = editText;
+        this.f5705b = str;
     }
 
     @Override // android.text.TextWatcher
@@ -38,11 +40,11 @@ public final class aa implements TextWatcher {
         Button button2;
         List list4;
         Button button3;
-        this.c.ad = this.f3744a.getText().toString();
+        this.c.ad = this.f5704a.getText().toString();
         str = this.c.ad;
         Log.d("editcontent", str);
-        Map map = this.c.f3736a;
-        String str5 = this.b;
+        Map map = this.c.f5688a;
+        String str5 = this.f5705b;
         str2 = this.c.ad;
         map.put(str5, str2);
         str3 = this.c.ad;

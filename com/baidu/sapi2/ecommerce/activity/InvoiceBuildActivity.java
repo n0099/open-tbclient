@@ -18,7 +18,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes16.dex */
+/* loaded from: classes15.dex */
 public class InvoiceBuildActivity extends SlideActiviy {
     private static final String EXTRA_PARAMS_ISCHECK = "isCheck";
     private static final String EXTRA_PARAMS_ISCHECKTAG = "isCheckTag";

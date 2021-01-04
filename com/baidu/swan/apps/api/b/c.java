@@ -3,37 +3,37 @@ package com.baidu.swan.apps.api.b;
 import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class c implements a {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile c cGg;
-    private List<a> cGh = new ArrayList();
+    private static volatile c cKW;
+    private List<a> cKX = new ArrayList();
 
     private c() {
-        this.cGh.add(new b());
+        this.cKX.add(new b());
     }
 
-    public static c amO() {
-        if (cGg == null) {
+    public static c anY() {
+        if (cKW == null) {
             synchronized (c.class) {
-                if (cGg == null) {
-                    cGg = new c();
+                if (cKW == null) {
+                    cKW = new c();
                 }
             }
         }
-        return cGg;
+        return cKW;
     }
 
     @Override // com.baidu.swan.apps.api.b.a
-    public void mx(String str) {
+    public void mq(String str) {
         if (DEBUG) {
             Log.d("Api-Marker", "markStart: " + str);
         }
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.cGh.size()) {
-                this.cGh.get(i2).mx(str);
+            if (i2 < this.cKX.size()) {
+                this.cKX.get(i2).mq(str);
                 i = i2 + 1;
             } else {
                 return;
@@ -42,15 +42,15 @@ public class c implements a {
     }
 
     @Override // com.baidu.swan.apps.api.b.a
-    public void my(String str) {
+    public void mr(String str) {
         if (DEBUG) {
             Log.d("Api-Marker", "markEnd: " + str);
         }
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.cGh.size()) {
-                this.cGh.get(i2).my(str);
+            if (i2 < this.cKX.size()) {
+                this.cKX.get(i2).mr(str);
                 i = i2 + 1;
             } else {
                 return;
@@ -62,8 +62,8 @@ public class c implements a {
         if (DEBUG) {
             Log.d("Api-Marker", "release: ");
         }
-        if (cGg != null) {
-            cGg = null;
+        if (cKW != null) {
+            cKW = null;
         }
     }
 }

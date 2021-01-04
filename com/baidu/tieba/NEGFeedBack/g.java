@@ -1,28 +1,28 @@
 package com.baidu.tieba.NEGFeedBack;
 
-import com.baidu.tbadk.core.data.by;
+import com.baidu.tbadk.core.data.bz;
 import com.baidu.tieba.tbadkCore.model.ForumManageModel;
-/* loaded from: classes21.dex */
+/* loaded from: classes.dex */
 public class g {
-    private by alu;
-    private ForumManageModel fXd;
+    private bz alW;
+    private ForumManageModel ggJ;
     private int type;
 
-    public g(int i, ForumManageModel forumManageModel, by byVar) {
+    public g(int i, ForumManageModel forumManageModel, bz bzVar) {
         this.type = i;
-        this.fXd = forumManageModel;
-        this.alu = byVar;
+        this.ggJ = forumManageModel;
+        this.alW = bzVar;
     }
 
     public int getType() {
         return this.type;
     }
 
-    public by bLw() {
-        return this.alu;
+    public bz bNO() {
+        return this.alW;
     }
 
-    public ForumManageModel bLx() {
-        return this.fXd;
+    public ForumManageModel bNP() {
+        return this.ggJ;
     }
 }

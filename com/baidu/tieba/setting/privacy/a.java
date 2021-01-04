@@ -5,113 +5,113 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import com.baidu.adp.base.c;
-import com.baidu.adp.base.e;
+import com.baidu.adp.base.d;
+import com.baidu.adp.base.f;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.setting.PrivacyMarkActivityConfig;
 import com.baidu.tieba.setting.im.more.PrivacySettingMessage;
-/* loaded from: classes26.dex */
-public class a extends c<PrivacyMarkActivity> {
-    private NavigationBar gcI;
-    private BdSwitchView.a mYA;
-    private e<?> mYI;
-    private TextView mYJ;
-    private TextView mYK;
-    private BdSwitchView mYL;
-    private TextView mYM;
-    private TextView mYN;
-    private BdSwitchView mYO;
-    private boolean mYP;
-    private boolean mYQ;
+/* loaded from: classes8.dex */
+public class a extends d<PrivacyMarkActivity> {
+    private NavigationBar glZ;
+    private BdSwitchView.a ndU;
+    private f<?> nec;
+    private TextView ned;
+    private TextView nee;
+    private BdSwitchView nef;
+    private TextView neg;
+    private TextView neh;
+    private BdSwitchView nei;
+    private boolean nej;
+    private boolean nek;
     private View rootView;
 
-    public a(e<PrivacyMarkActivity> eVar, int i) {
-        super(eVar);
-        this.mYA = new BdSwitchView.a() { // from class: com.baidu.tieba.setting.privacy.a.1
+    public a(f<PrivacyMarkActivity> fVar, int i) {
+        super(fVar);
+        this.ndU = new BdSwitchView.a() { // from class: com.baidu.tieba.setting.privacy.a.1
             @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
             public void a(View view, BdSwitchView.SwitchState switchState) {
-                if (view == a.this.mYL) {
-                    a.this.mYQ = switchState == BdSwitchView.SwitchState.ON;
-                    a.this.mYI.sendMessage(new PrivacySettingMessage(PrivacyMarkActivityConfig.BAZHU_SHOW_INSIDE, switchState == BdSwitchView.SwitchState.ON ? 1 : 3));
-                } else if (view == a.this.mYO) {
-                    a.this.mYP = switchState == BdSwitchView.SwitchState.ON;
-                    a.this.mYI.sendMessage(new PrivacySettingMessage(PrivacyMarkActivityConfig.BAZHU_SHOW_OUTSIDE, switchState == BdSwitchView.SwitchState.ON ? 1 : 3));
+                if (view == a.this.nef) {
+                    a.this.nek = switchState == BdSwitchView.SwitchState.ON;
+                    a.this.nec.sendMessage(new PrivacySettingMessage(PrivacyMarkActivityConfig.BAZHU_SHOW_INSIDE, switchState == BdSwitchView.SwitchState.ON ? 1 : 3));
+                } else if (view == a.this.nei) {
+                    a.this.nej = switchState == BdSwitchView.SwitchState.ON;
+                    a.this.nec.sendMessage(new PrivacySettingMessage(PrivacyMarkActivityConfig.BAZHU_SHOW_OUTSIDE, switchState == BdSwitchView.SwitchState.ON ? 1 : 3));
                 }
-                TiebaStatic.log(new ar("c14003").dY("uid", TbadkCoreApplication.getCurrentAccount()).al("obj_type", view != a.this.mYL ? 2 : 1));
+                TiebaStatic.log(new aq("c14003").dX("uid", TbadkCoreApplication.getCurrentAccount()).an("obj_type", view != a.this.nef ? 2 : 1));
             }
         };
-        this.mYI = eVar;
-        O(eVar.getPageActivity(), i);
+        this.nec = fVar;
+        P(fVar.getPageActivity(), i);
         onChangeSkinType();
     }
 
-    private void O(Context context, int i) {
+    private void P(Context context, int i) {
         this.rootView = LayoutInflater.from(context).inflate(R.layout.privacy_mark_activity, (ViewGroup) null);
-        this.gcI = (NavigationBar) this.rootView.findViewById(R.id.navigation_bar);
-        this.gcI.setCenterTextTitle(context.getString(R.string.privacy_mark_setting));
-        this.gcI.showBottomLine();
-        this.gcI.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mYJ = (TextView) this.rootView.findViewById(R.id.inside_text);
-        this.mYK = (TextView) this.rootView.findViewById(R.id.inside_desc);
-        this.mYL = (BdSwitchView) this.rootView.findViewById(R.id.inside_switch);
-        this.mYM = (TextView) this.rootView.findViewById(R.id.outside_text);
-        this.mYN = (TextView) this.rootView.findViewById(R.id.outside_desc);
-        this.mYO = (BdSwitchView) this.rootView.findViewById(R.id.outside_switch);
-        this.mYJ.setText(R.string.mark_show_inside);
-        this.mYK.setText(R.string.mark_show_everywhere);
-        this.mYM.setText(R.string.mark_show_outside);
-        this.mYN.setText(R.string.mark_show_somewhere);
+        this.glZ = (NavigationBar) this.rootView.findViewById(R.id.navigation_bar);
+        this.glZ.setCenterTextTitle(context.getString(R.string.privacy_mark_setting));
+        this.glZ.showBottomLine();
+        this.glZ.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.ned = (TextView) this.rootView.findViewById(R.id.inside_text);
+        this.nee = (TextView) this.rootView.findViewById(R.id.inside_desc);
+        this.nef = (BdSwitchView) this.rootView.findViewById(R.id.inside_switch);
+        this.neg = (TextView) this.rootView.findViewById(R.id.outside_text);
+        this.neh = (TextView) this.rootView.findViewById(R.id.outside_desc);
+        this.nei = (BdSwitchView) this.rootView.findViewById(R.id.outside_switch);
+        this.ned.setText(R.string.mark_show_inside);
+        this.nee.setText(R.string.mark_show_everywhere);
+        this.neg.setText(R.string.mark_show_outside);
+        this.neh.setText(R.string.mark_show_somewhere);
         int i2 = i & 3;
         int i3 = (i >> 2) & 3;
         if (i2 == 3) {
-            this.mYO.turnOffNoCallback();
+            this.nei.turnOffNoCallback();
         } else {
-            this.mYO.turnOnNoCallback();
+            this.nei.turnOnNoCallback();
         }
         if (i3 == 3) {
-            this.mYL.turnOffNoCallback();
+            this.nef.turnOffNoCallback();
         } else {
-            this.mYL.turnOnNoCallback();
+            this.nef.turnOnNoCallback();
         }
-        this.mYP = i2 != 3;
-        this.mYQ = i3 != 3;
-        this.mYL.setOnSwitchStateChangeListener(this.mYA);
-        this.mYO.setOnSwitchStateChangeListener(this.mYA);
+        this.nej = i2 != 3;
+        this.nek = i3 != 3;
+        this.nef.setOnSwitchStateChangeListener(this.ndU);
+        this.nei.setOnSwitchStateChangeListener(this.ndU);
     }
 
     public void onChangeSkinType() {
-        ap.setViewTextColor(this.mYJ, R.color.CAM_X0105);
-        ap.setViewTextColor(this.mYK, R.color.CAM_X0109);
-        ap.setViewTextColor(this.mYM, R.color.CAM_X0105);
-        ap.setViewTextColor(this.mYN, R.color.CAM_X0109);
-        this.gcI.onChangeSkinType(this.mYI, TbadkCoreApplication.getInst().getSkinType());
+        ao.setViewTextColor(this.ned, R.color.CAM_X0105);
+        ao.setViewTextColor(this.nee, R.color.CAM_X0109);
+        ao.setViewTextColor(this.neg, R.color.CAM_X0105);
+        ao.setViewTextColor(this.neh, R.color.CAM_X0109);
+        this.glZ.onChangeSkinType(this.nec, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public View getView() {
         return this.rootView;
     }
 
-    public void dKH() {
-        this.mYQ = !this.mYQ;
-        if (this.mYQ) {
-            this.mYL.turnOnNoCallback();
+    public void dKw() {
+        this.nek = !this.nek;
+        if (this.nek) {
+            this.nef.turnOnNoCallback();
         } else {
-            this.mYL.turnOffNoCallback();
+            this.nef.turnOffNoCallback();
         }
     }
 
-    public void dKI() {
-        this.mYP = !this.mYP;
-        if (this.mYP) {
-            this.mYO.turnOnNoCallback();
+    public void dKx() {
+        this.nej = !this.nej;
+        if (this.nej) {
+            this.nei.turnOnNoCallback();
         } else {
-            this.mYO.turnOffNoCallback();
+            this.nei.turnOffNoCallback();
         }
     }
 }

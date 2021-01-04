@@ -14,18 +14,18 @@ import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.HashSet;
 import java.util.Iterator;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f2993a = null;
+    private static String f4459a = null;
 
     public static void a(String str) {
-        f2993a = str;
+        f4459a = str;
     }
 
     public static String a() {
-        return f2993a;
+        return f4459a;
     }
 
     public static String b() {
@@ -36,25 +36,25 @@ public final class f {
     }
 
     public static String a(String str, int i) {
-        String b = b();
+        String b2 = b();
         String str2 = null;
-        if (b != null) {
+        if (b2 != null) {
             switch (i) {
                 case 0:
-                    str2 = b + "/track";
+                    str2 = b2 + "/track";
                     break;
                 case 1:
                 default:
-                    str2 = b + "/normal";
+                    str2 = b2 + "/normal";
                     break;
                 case 2:
-                    str2 = b + "/track";
+                    str2 = b2 + "/track";
                     break;
                 case 3:
-                    str2 = b + "/udt";
+                    str2 = b2 + "/udt";
                     break;
                 case 4:
-                    str2 = b + "/npc";
+                    str2 = b2 + "/npc";
                     break;
             }
         }
@@ -78,21 +78,11 @@ public final class f {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [197=5, 198=5, 200=5, 201=5, 203=5, 204=5, 206=5] */
     public static void a(String str, String str2) {
+        Throwable th;
+        BufferedWriter bufferedWriter;
         OutputStreamWriter outputStreamWriter;
         FileOutputStream fileOutputStream;
-        BufferedWriter bufferedWriter;
-        FileOutputStream fileOutputStream2;
-        BufferedWriter bufferedWriter2 = null;
-        r1 = null;
-        r1 = null;
-        bufferedWriter2 = null;
-        r1 = null;
-        r1 = null;
-        r1 = null;
-        bufferedWriter2 = null;
-        OutputStreamWriter outputStreamWriter2 = null;
-        BufferedWriter bufferedWriter3 = null;
-        BufferedWriter bufferedWriter4 = null;
+        BufferedWriter bufferedWriter2;
         File file = new File(b());
         if (!file.exists()) {
             file.mkdirs();
@@ -113,127 +103,131 @@ public final class f {
             try {
                 outputStreamWriter = new OutputStreamWriter(fileOutputStream, "UTF-8");
                 try {
-                    bufferedWriter = new BufferedWriter(outputStreamWriter);
-                    try {
-                        bufferedWriter.write(str);
-                        bufferedWriter.newLine();
-                        if (bufferedWriter != null) {
-                            try {
-                                bufferedWriter.close();
-                            } catch (IOException e2) {
-                                return;
-                            }
-                        }
-                        if (outputStreamWriter != null) {
-                            outputStreamWriter.close();
-                        }
-                        if (fileOutputStream != null) {
-                            fileOutputStream.close();
-                        }
-                    } catch (FileNotFoundException e3) {
-                        outputStreamWriter2 = outputStreamWriter;
-                        fileOutputStream2 = fileOutputStream;
-                        if (bufferedWriter != null) {
-                            try {
-                                bufferedWriter.close();
-                            } catch (IOException e4) {
-                                return;
-                            }
-                        }
-                        if (outputStreamWriter2 != null) {
-                            outputStreamWriter2.close();
-                        }
-                        if (fileOutputStream2 != null) {
-                            fileOutputStream2.close();
-                        }
-                    } catch (UnsupportedEncodingException e5) {
-                        bufferedWriter3 = bufferedWriter;
-                        if (bufferedWriter3 != null) {
-                            try {
-                                bufferedWriter3.close();
-                            } catch (IOException e6) {
-                                return;
-                            }
-                        }
-                        if (outputStreamWriter != null) {
-                            outputStreamWriter.close();
-                        }
-                        if (fileOutputStream != null) {
-                            fileOutputStream.close();
-                        }
-                    } catch (IOException e7) {
-                        bufferedWriter4 = bufferedWriter;
-                        if (bufferedWriter4 != null) {
-                            try {
-                                bufferedWriter4.close();
-                            } catch (IOException e8) {
-                                return;
-                            }
-                        }
-                        if (outputStreamWriter != null) {
-                            outputStreamWriter.close();
-                        }
-                        if (fileOutputStream != null) {
-                            fileOutputStream.close();
-                        }
-                    } catch (Throwable th) {
-                        bufferedWriter2 = bufferedWriter;
-                        th = th;
-                        if (bufferedWriter2 != null) {
-                            try {
-                                bufferedWriter2.close();
-                            } catch (IOException e9) {
-                                throw th;
-                            }
-                        }
-                        if (outputStreamWriter != null) {
-                            outputStreamWriter.close();
-                        }
-                        if (fileOutputStream != null) {
-                            fileOutputStream.close();
-                        }
-                        throw th;
-                    }
-                } catch (FileNotFoundException e10) {
-                    bufferedWriter = null;
-                    outputStreamWriter2 = outputStreamWriter;
-                    fileOutputStream2 = fileOutputStream;
-                } catch (UnsupportedEncodingException e11) {
-                } catch (IOException e12) {
+                    bufferedWriter2 = new BufferedWriter(outputStreamWriter);
+                } catch (FileNotFoundException e2) {
+                    bufferedWriter2 = null;
+                } catch (UnsupportedEncodingException e3) {
+                    bufferedWriter2 = null;
+                } catch (IOException e4) {
+                    bufferedWriter2 = null;
                 } catch (Throwable th2) {
                     th = th2;
+                    bufferedWriter = null;
                 }
-            } catch (FileNotFoundException e13) {
-                bufferedWriter = null;
-                fileOutputStream2 = fileOutputStream;
-            } catch (UnsupportedEncodingException e14) {
+            } catch (FileNotFoundException e5) {
+                bufferedWriter2 = null;
                 outputStreamWriter = null;
-            } catch (IOException e15) {
+            } catch (UnsupportedEncodingException e6) {
+                bufferedWriter2 = null;
+                outputStreamWriter = null;
+            } catch (IOException e7) {
+                bufferedWriter2 = null;
                 outputStreamWriter = null;
             } catch (Throwable th3) {
                 th = th3;
+                bufferedWriter = null;
                 outputStreamWriter = null;
             }
-        } catch (FileNotFoundException e16) {
-            bufferedWriter = null;
-            fileOutputStream2 = null;
-        } catch (UnsupportedEncodingException e17) {
+        } catch (FileNotFoundException e8) {
+            bufferedWriter2 = null;
             outputStreamWriter = null;
             fileOutputStream = null;
-        } catch (IOException e18) {
+        } catch (UnsupportedEncodingException e9) {
+            bufferedWriter2 = null;
+            outputStreamWriter = null;
+            fileOutputStream = null;
+        } catch (IOException e10) {
+            bufferedWriter2 = null;
             outputStreamWriter = null;
             fileOutputStream = null;
         } catch (Throwable th4) {
             th = th4;
+            bufferedWriter = null;
             outputStreamWriter = null;
             fileOutputStream = null;
+        }
+        try {
+            bufferedWriter2.write(str);
+            bufferedWriter2.newLine();
+            if (bufferedWriter2 != null) {
+                try {
+                    bufferedWriter2.close();
+                } catch (IOException e11) {
+                    return;
+                }
+            }
+            if (outputStreamWriter != null) {
+                outputStreamWriter.close();
+            }
+            if (fileOutputStream != null) {
+                fileOutputStream.close();
+            }
+        } catch (FileNotFoundException e12) {
+            if (bufferedWriter2 != null) {
+                try {
+                    bufferedWriter2.close();
+                } catch (IOException e13) {
+                    return;
+                }
+            }
+            if (outputStreamWriter != null) {
+                outputStreamWriter.close();
+            }
+            if (fileOutputStream != null) {
+                fileOutputStream.close();
+            }
+        } catch (UnsupportedEncodingException e14) {
+            if (bufferedWriter2 != null) {
+                try {
+                    bufferedWriter2.close();
+                } catch (IOException e15) {
+                    return;
+                }
+            }
+            if (outputStreamWriter != null) {
+                outputStreamWriter.close();
+            }
+            if (fileOutputStream != null) {
+                fileOutputStream.close();
+            }
+        } catch (IOException e16) {
+            if (bufferedWriter2 != null) {
+                try {
+                    bufferedWriter2.close();
+                } catch (IOException e17) {
+                    return;
+                }
+            }
+            if (outputStreamWriter != null) {
+                outputStreamWriter.close();
+            }
+            if (fileOutputStream != null) {
+                fileOutputStream.close();
+            }
+        } catch (Throwable th5) {
+            th = th5;
+            bufferedWriter = bufferedWriter2;
+            if (bufferedWriter != null) {
+                try {
+                    bufferedWriter.close();
+                } catch (IOException e18) {
+                    throw th;
+                }
+            }
+            if (outputStreamWriter != null) {
+                outputStreamWriter.close();
+            }
+            if (fileOutputStream != null) {
+                fileOutputStream.close();
+            }
+            throw th;
         }
     }
 
     public static boolean b(String str, String str2) {
-        HashSet<String> b = b(b() + File.separator + str2);
-        if (b != null) {
-            Iterator<String> it = b.iterator();
+        HashSet<String> b2 = b(b() + File.separator + str2);
+        if (b2 != null) {
+            Iterator<String> it = b2.iterator();
             while (it.hasNext()) {
                 String next = it.next();
                 boolean equals = str.equals(next);
@@ -251,10 +245,7 @@ public final class f {
         BufferedReader bufferedReader;
         InputStreamReader inputStreamReader;
         FileInputStream fileInputStream;
-        Throwable th;
         BufferedReader bufferedReader2;
-        InputStreamReader inputStreamReader2;
-        FileInputStream fileInputStream2;
         HashSet<String> hashSet = new HashSet<>();
         if (!new File(str).exists()) {
             return null;
@@ -274,8 +265,6 @@ public final class f {
                             hashSet.add(readLine);
                         } catch (FileNotFoundException e) {
                             bufferedReader2 = bufferedReader;
-                            inputStreamReader2 = inputStreamReader;
-                            fileInputStream2 = fileInputStream;
                             if (bufferedReader2 != null) {
                                 try {
                                     bufferedReader2.close();
@@ -283,11 +272,11 @@ public final class f {
                                     return null;
                                 }
                             }
-                            if (inputStreamReader2 != null) {
-                                inputStreamReader2.close();
+                            if (inputStreamReader != null) {
+                                inputStreamReader.close();
                             }
-                            if (fileInputStream2 != null) {
-                                fileInputStream2.close();
+                            if (fileInputStream != null) {
+                                fileInputStream.close();
                                 return null;
                             }
                             return null;
@@ -307,8 +296,8 @@ public final class f {
                                 return null;
                             }
                             return null;
-                        } catch (Throwable th2) {
-                            th = th2;
+                        } catch (Throwable th) {
+                            th = th;
                             if (bufferedReader != null) {
                                 try {
                                     bufferedReader.close();
@@ -341,39 +330,36 @@ public final class f {
                     return hashSet;
                 } catch (FileNotFoundException e7) {
                     bufferedReader2 = null;
-                    inputStreamReader2 = inputStreamReader;
-                    fileInputStream2 = fileInputStream;
                 } catch (IOException e8) {
                     bufferedReader = null;
-                } catch (Throwable th3) {
+                } catch (Throwable th2) {
+                    th = th2;
                     bufferedReader = null;
-                    th = th3;
                 }
             } catch (FileNotFoundException e9) {
                 bufferedReader2 = null;
-                inputStreamReader2 = null;
-                fileInputStream2 = fileInputStream;
+                inputStreamReader = null;
             } catch (IOException e10) {
                 bufferedReader = null;
                 inputStreamReader = null;
-            } catch (Throwable th4) {
+            } catch (Throwable th3) {
+                th = th3;
                 bufferedReader = null;
                 inputStreamReader = null;
-                th = th4;
             }
         } catch (FileNotFoundException e11) {
             bufferedReader2 = null;
-            inputStreamReader2 = null;
-            fileInputStream2 = null;
+            inputStreamReader = null;
+            fileInputStream = null;
         } catch (IOException e12) {
             bufferedReader = null;
             inputStreamReader = null;
             fileInputStream = null;
-        } catch (Throwable th5) {
+        } catch (Throwable th4) {
+            th = th4;
             bufferedReader = null;
             inputStreamReader = null;
             fileInputStream = null;
-            th = th5;
         }
     }
 }

@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class PinYinUtils {
     private static Comparator<PinYinObject> pyComparator = new Comparator<PinYinObject>() { // from class: com.baidu.android.imsdk.utils.PinYinUtils.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -16,7 +16,7 @@ public class PinYinUtils {
         }
     };
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public interface PinYinObject {
         String getPy();
     }

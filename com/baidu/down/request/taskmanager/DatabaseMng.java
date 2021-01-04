@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.down.request.db.DownloadDatabaseHelper;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public class DatabaseMng {
     public static final String DB_NAME = "bddownloads.db";
     public static final int DB_VERSION = 1;

@@ -4,7 +4,7 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.util.zip.CRC32;
 import java.util.zip.Inflater;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class GzipSource implements Source {
     private static final byte FCOMMENT = 4;
     private static final byte FEXTRA = 2;
@@ -62,14 +62,14 @@ public final class GzipSource implements Source {
 
     private void consumeHeader() throws IOException {
         this.source.require(10L);
-        byte b = this.source.buffer().getByte(3L);
-        boolean z = ((b >> 1) & 1) == 1;
+        byte b2 = this.source.buffer().getByte(3L);
+        boolean z = ((b2 >> 1) & 1) == 1;
         if (z) {
             updateCrc(this.source.buffer(), 0L, 10L);
         }
         checkEqual("ID1ID2", 8075, this.source.readShort());
         this.source.skip(8L);
-        if (((b >> 2) & 1) == 1) {
+        if (((b2 >> 2) & 1) == 1) {
             this.source.require(2L);
             if (z) {
                 updateCrc(this.source.buffer(), 0L, 2L);
@@ -81,7 +81,7 @@ public final class GzipSource implements Source {
             }
             this.source.skip(readShortLe);
         }
-        if (((b >> 3) & 1) == 1) {
+        if (((b2 >> 3) & 1) == 1) {
             long indexOf = this.source.indexOf((byte) 0);
             if (indexOf == -1) {
                 throw new EOFException();
@@ -91,7 +91,7 @@ public final class GzipSource implements Source {
             }
             this.source.skip(1 + indexOf);
         }
-        if (((b >> FCOMMENT) & 1) == 1) {
+        if (((b2 >> FCOMMENT) & 1) == 1) {
             long indexOf2 = this.source.indexOf((byte) 0);
             if (indexOf2 == -1) {
                 throw new EOFException();

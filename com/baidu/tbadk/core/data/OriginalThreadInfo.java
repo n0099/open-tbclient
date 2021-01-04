@@ -6,7 +6,7 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.WriteVideoActivityConfig;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.video.ActivityItemData;
@@ -29,15 +29,15 @@ public class OriginalThreadInfo {
     public Agree agree;
     public User author;
     public List<PbContent> content;
-    public boolean eGg = false;
-    public ArrayList<MediaData> eHb;
-    public List<AbstractData> eHc;
-    public AlaInfoData eHd;
-    public boolean eHe;
-    public ArrayList<VoiceData.VoiceModel> eHf;
-    public SpannableString eHg;
-    public boolean eHh;
-    public List<HeadItem> eHi;
+    public boolean ePW = false;
+    public ArrayList<MediaData> eQS;
+    public List<AbstractData> eQT;
+    public AlaInfoData eQU;
+    public boolean eQV;
+    public ArrayList<VoiceData.VoiceModel> eQW;
+    public SpannableString eQX;
+    public boolean eQY;
+    public List<HeadItem> eQZ;
     public long forumId;
     public String forumName;
     public Item item;
@@ -59,7 +59,7 @@ public class OriginalThreadInfo {
 
     public void a(OriginThreadInfo originThreadInfo) {
         if (originThreadInfo == null) {
-            bnr();
+            bpR();
             return;
         }
         this.forumName = originThreadInfo.fname;
@@ -72,50 +72,50 @@ public class OriginalThreadInfo {
         this.agree = originThreadInfo.agree;
         this.reply_num = originThreadInfo.reply_num;
         this.shared_num = originThreadInfo.shared_num;
-        if (!com.baidu.tbadk.core.util.y.isEmpty(originThreadInfo.media)) {
-            this.eHb = new ArrayList<>();
+        if (!com.baidu.tbadk.core.util.x.isEmpty(originThreadInfo.media)) {
+            this.eQS = new ArrayList<>();
             for (Media media : originThreadInfo.media) {
                 if (media != null) {
                     MediaData mediaData = new MediaData();
                     mediaData.parserProtobuf(media);
-                    this.eHb.add(mediaData);
+                    this.eQS.add(mediaData);
                 }
             }
         } else {
-            this.eHb = null;
+            this.eQS = null;
         }
-        if (!com.baidu.tbadk.core.util.y.isEmpty(originThreadInfo._abstract)) {
-            this.eHc = new ArrayList();
+        if (!com.baidu.tbadk.core.util.x.isEmpty(originThreadInfo._abstract)) {
+            this.eQT = new ArrayList();
             for (Abstract r0 : originThreadInfo._abstract) {
                 if (r0 != null) {
                     AbstractData abstractData = new AbstractData();
                     abstractData.parser(r0);
-                    this.eHc.add(abstractData);
+                    this.eQT.add(abstractData);
                 }
             }
         } else {
-            this.eHc = null;
+            this.eQT = null;
         }
         if (originThreadInfo.ala_info != null) {
-            this.eHd = new AlaInfoData();
-            this.eHd.parserProtobuf(originThreadInfo.ala_info);
+            this.eQU = new AlaInfoData();
+            this.eQU.parserProtobuf(originThreadInfo.ala_info);
         } else {
-            this.eHd = null;
+            this.eQU = null;
         }
-        this.eGg = originThreadInfo.is_deleted.intValue() == 1;
-        this.eHe = originThreadInfo.is_ugc.intValue() == 1;
+        this.ePW = originThreadInfo.is_deleted.intValue() == 1;
+        this.eQV = originThreadInfo.is_ugc.intValue() == 1;
         if (originThreadInfo.ori_ugc_info != null) {
             this.oriUgcInfo = new BaijiahaoData();
             this.oriUgcInfo.parseProto(originThreadInfo.ori_ugc_info);
         }
         this.videoInfo = originThreadInfo.video_info;
-        this.eHh = originThreadInfo.is_new_style.intValue() == 1;
+        this.eQY = originThreadInfo.is_new_style.intValue() == 1;
         if (originThreadInfo.voice_info != null) {
-            this.eHf = new ArrayList<>();
+            this.eQW = new ArrayList<>();
             for (int i = 0; i < originThreadInfo.voice_info.size(); i++) {
                 VoiceData.VoiceModel voiceModel = new VoiceData.VoiceModel();
                 voiceModel.parserProtobuf(originThreadInfo.voice_info.get(i));
-                this.eHf.add(voiceModel);
+                this.eQW.add(voiceModel);
             }
         }
         if (originThreadInfo.item != null && originThreadInfo.item.item_id.longValue() != 0) {
@@ -125,22 +125,22 @@ public class OriginalThreadInfo {
             this.itemData = new ItemData();
             this.itemData.parseProto(this.item);
         }
-        this.eHi = originThreadInfo.item_star;
-        if (!com.baidu.tbadk.core.util.y.isEmpty(this.eHi)) {
+        this.eQZ = originThreadInfo.item_star;
+        if (!com.baidu.tbadk.core.util.x.isEmpty(this.eQZ)) {
             this.itemStarData = new ItemStarData();
-            this.itemStarData.parseProto(this.eHi);
+            this.itemStarData.parseProto(this.eQZ);
         }
         if (originThreadInfo.poll_info != null) {
             this.pollData = new PollData();
             this.pollData.parserProtobuf(originThreadInfo.poll_info);
         }
-        bnt();
-        bnp();
+        bpT();
+        bpP();
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject == null) {
-            bnr();
+            bpR();
             return;
         }
         try {
@@ -152,139 +152,139 @@ public class OriginalThreadInfo {
             this.content = ay.R(jSONObject.optJSONArray("content"));
             JSONObject optJSONObject = jSONObject.optJSONObject("ala_info");
             if (optJSONObject != null) {
-                this.eHd = new AlaInfoData();
-                this.eHd.parserJson(optJSONObject);
+                this.eQU = new AlaInfoData();
+                this.eQU.parserJson(optJSONObject);
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("media");
             if (optJSONArray != null) {
-                this.eHb = new ArrayList<>();
+                this.eQS = new ArrayList<>();
                 int length = optJSONArray.length();
                 for (int i = 0; i < length; i++) {
                     MediaData mediaData = new MediaData();
                     mediaData.parserJson(optJSONArray.getJSONObject(i));
-                    this.eHb.add(mediaData);
+                    this.eQS.add(mediaData);
                 }
             } else {
-                this.eHb = null;
+                this.eQS = null;
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("abstract");
             if (optJSONArray2 != null) {
-                this.eHc = new ArrayList();
+                this.eQT = new ArrayList();
                 int length2 = optJSONArray2.length();
                 for (int i2 = 0; i2 < length2; i2++) {
                     AbstractData abstractData = new AbstractData();
                     abstractData.parserJson(optJSONArray2.getJSONObject(i2));
-                    this.eHc.add(abstractData);
+                    this.eQT.add(abstractData);
                 }
             } else {
-                this.eHc = null;
+                this.eQT = null;
             }
-            this.eGg = jSONObject.optInt("is_deleted") == 1;
-            this.eHe = jSONObject.optInt("is_ugc") == 1;
-            this.eHh = jSONObject.optInt("is_new_style") == 1;
+            this.ePW = jSONObject.optInt("is_deleted") == 1;
+            this.eQV = jSONObject.optInt("is_ugc") == 1;
+            this.eQY = jSONObject.optInt("is_new_style") == 1;
             JSONObject optJSONObject2 = jSONObject.optJSONObject("ori_ugc_info");
             if (optJSONObject2 != null) {
                 this.oriUgcInfo = new BaijiahaoData();
                 this.oriUgcInfo.parseJson(optJSONObject2);
             }
-            this.videoInfo = ch.dj(jSONObject.optJSONObject(WriteVideoActivityConfig.VIDEO_INFO));
+            this.videoInfo = ci.dr(jSONObject.optJSONObject(WriteActivityConfig.VIDEO_INFO));
             JSONArray optJSONArray3 = jSONObject.optJSONArray("voice_info");
             if (optJSONArray3 != null && optJSONArray3.length() > 0) {
-                this.eHf = new ArrayList<>();
+                this.eQW = new ArrayList<>();
                 for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
                     VoiceData.VoiceModel voiceModel = new VoiceData.VoiceModel();
                     voiceModel.parseJson(optJSONArray3.optJSONObject(i3));
-                    this.eHf.add(voiceModel);
+                    this.eQW.add(voiceModel);
                 }
             }
-            bnp();
+            bpP();
         } catch (Throwable th) {
             try {
                 BdLog.e(th.getMessage());
             } finally {
-                bnt();
+                bpT();
             }
         }
     }
 
-    private void bnp() {
-        this.eHg = new SpannableString(com.baidu.tbadk.widget.richText.e.a(this.content, this.eHi, true));
+    private void bpP() {
+        this.eQX = new SpannableString(com.baidu.tbadk.widget.richText.e.a(this.content, this.eQZ, true));
     }
 
-    public static OriginalThreadInfo t(by byVar) {
-        if (byVar == null) {
+    public static OriginalThreadInfo t(bz bzVar) {
+        if (bzVar == null) {
             return null;
         }
-        if (byVar.eLH != null) {
-            return byVar.eLH;
+        if (bzVar.eVB != null) {
+            return bzVar.eVB;
         }
         OriginalThreadInfo originalThreadInfo = new OriginalThreadInfo();
-        originalThreadInfo.forumName = byVar.boT();
-        originalThreadInfo.forumId = byVar.getFid();
-        originalThreadInfo.threadId = byVar.getTid();
-        originalThreadInfo.title = byVar.getTitle();
-        originalThreadInfo.threadType = byVar.getThreadType();
+        originalThreadInfo.forumName = bzVar.bru();
+        originalThreadInfo.forumId = bzVar.getFid();
+        originalThreadInfo.threadId = bzVar.getTid();
+        originalThreadInfo.title = bzVar.getTitle();
+        originalThreadInfo.threadType = bzVar.getThreadType();
         ArrayList arrayList = new ArrayList();
         AbstractData abstractData = new AbstractData();
-        abstractData.text = byVar.getAbstract();
+        abstractData.text = bzVar.getAbstract();
         arrayList.add(abstractData);
-        originalThreadInfo.eHc = arrayList;
+        originalThreadInfo.eQT = arrayList;
         ArrayList<MediaData> arrayList2 = new ArrayList<>();
         MediaData mediaData = new MediaData();
         arrayList2.add(mediaData);
-        originalThreadInfo.eHb = arrayList2;
-        originalThreadInfo.videoInfo = byVar.bph();
-        if (byVar.isLinkThread() && byVar.bqv() != null) {
-            ao bqv = byVar.bqv();
-            originalThreadInfo.title = bqv.bnh();
-            abstractData.text = bqv.bni();
-            mediaData.setPic(bqv.bnj());
-        } else if (byVar.bpY() && byVar.bov() != null) {
-            mediaData.setPic(byVar.bov().getThreadImgUrl());
-        } else if (com.baidu.tbadk.core.util.y.getCount(byVar.boY()) > 0) {
-            originalThreadInfo.eHb = byVar.boY();
-        } else if (byVar.bph() != null && !StringUtils.isNull(byVar.bph().thumbnail_url)) {
-            mediaData.setPic(byVar.bph().thumbnail_url);
+        originalThreadInfo.eQS = arrayList2;
+        originalThreadInfo.videoInfo = bzVar.brH();
+        if (bzVar.isLinkThread() && bzVar.bsX() != null) {
+            ao bsX = bzVar.bsX();
+            originalThreadInfo.title = bsX.bpG();
+            abstractData.text = bsX.bpH();
+            mediaData.setPic(bsX.bpI());
+        } else if (bzVar.bsz() && bzVar.bqW() != null) {
+            mediaData.setPic(bzVar.bqW().getThreadImgUrl());
+        } else if (com.baidu.tbadk.core.util.x.getCount(bzVar.brz()) > 0) {
+            originalThreadInfo.eQS = bzVar.brz();
+        } else if (bzVar.brH() != null && !StringUtils.isNull(bzVar.brH().thumbnail_url)) {
+            mediaData.setPic(bzVar.brH().thumbnail_url);
         }
-        originalThreadInfo.eHd = byVar.bpj();
-        originalThreadInfo.bnt();
-        originalThreadInfo.itemData = byVar.itemData;
-        originalThreadInfo.itemStarData = byVar.itemStarData;
-        originalThreadInfo.oriUgcInfo = byVar.getBaijiahaoData();
-        originalThreadInfo.pollData = byVar.bqX();
+        originalThreadInfo.eQU = bzVar.brJ();
+        originalThreadInfo.bpT();
+        originalThreadInfo.itemData = bzVar.itemData;
+        originalThreadInfo.itemStarData = bzVar.itemStarData;
+        originalThreadInfo.oriUgcInfo = bzVar.getBaijiahaoData();
+        originalThreadInfo.pollData = bzVar.btz();
         return originalThreadInfo;
     }
 
-    public by bnq() {
-        by byVar = new by();
-        byVar.setTitle(this.title);
-        if (this.eHb != null) {
-            byVar.G(new ArrayList<>(this.eHb));
+    public bz bpQ() {
+        bz bzVar = new bz();
+        bzVar.setTitle(this.title);
+        if (this.eQS != null) {
+            bzVar.G(new ArrayList<>(this.eQS));
         }
-        byVar.Be(this.forumName);
-        byVar.setTid(this.threadId);
-        byVar.a(this.eHd);
-        byVar.setFid(this.forumId);
-        byVar.setThreadType(this.threadType);
-        byVar.isShareThread = true;
-        byVar.setBaijiahaoData(this.oriUgcInfo);
-        byVar.a(this.videoInfo);
-        byVar.Bm(this.showPicUrl);
-        byVar.eLH = this;
-        return byVar;
+        bzVar.Bd(this.forumName);
+        bzVar.setTid(this.threadId);
+        bzVar.a(this.eQU);
+        bzVar.setFid(this.forumId);
+        bzVar.setThreadType(this.threadType);
+        bzVar.isShareThread = true;
+        bzVar.setBaijiahaoData(this.oriUgcInfo);
+        bzVar.a(this.videoInfo);
+        bzVar.Bl(this.showPicUrl);
+        bzVar.eVB = this;
+        return bzVar;
     }
 
-    private void bnr() {
+    private void bpR() {
         this.showType = 0;
         this.showText = TbadkCoreApplication.getInst().getString(R.string.original_thread_default_txt);
         this.showPicUrl = null;
     }
 
-    public boolean bns() {
-        return this.eHh;
+    public boolean bpS() {
+        return this.eQY;
     }
 
-    public void bnt() {
+    public void bpT() {
         switch (this.threadType) {
             case 40:
                 this.showType = 3;
@@ -301,10 +301,10 @@ public class OriginalThreadInfo {
                 this.showType = 0;
                 break;
         }
-        if (com.baidu.tbadk.core.util.y.getItem(this.eHb, 0) != null) {
-            this.showPicUrl = ((MediaData) com.baidu.tbadk.core.util.y.getItem(this.eHb, 0)).small_pic_url;
+        if (com.baidu.tbadk.core.util.x.getItem(this.eQS, 0) != null) {
+            this.showPicUrl = ((MediaData) com.baidu.tbadk.core.util.x.getItem(this.eQS, 0)).small_pic_url;
             if (StringUtils.isNull(this.showPicUrl)) {
-                this.showPicUrl = ((MediaData) com.baidu.tbadk.core.util.y.getItem(this.eHb, 0)).getPicUrl();
+                this.showPicUrl = ((MediaData) com.baidu.tbadk.core.util.x.getItem(this.eQS, 0)).getPicUrl();
             }
         }
         if (StringUtils.isNull(this.showPicUrl) && this.videoInfo != null) {
@@ -317,8 +317,8 @@ public class OriginalThreadInfo {
                 this.showType = 1;
             }
         }
-        if (com.baidu.tbadk.core.util.y.getItem(this.eHc, 0) != null && !StringUtils.isNull(((AbstractData) com.baidu.tbadk.core.util.y.getItem(this.eHc, 0)).text)) {
-            this.showText = ((AbstractData) com.baidu.tbadk.core.util.y.getItem(this.eHc, 0)).text;
+        if (com.baidu.tbadk.core.util.x.getItem(this.eQT, 0) != null && !StringUtils.isNull(((AbstractData) com.baidu.tbadk.core.util.x.getItem(this.eQT, 0)).text)) {
+            this.showText = ((AbstractData) com.baidu.tbadk.core.util.x.getItem(this.eQT, 0)).text;
         } else if (!StringUtils.isNull(this.title)) {
             this.showText = this.title;
         } else {
@@ -326,14 +326,14 @@ public class OriginalThreadInfo {
         }
     }
 
-    public ActivityItemData bnu() {
+    public ActivityItemData bpU() {
         if (this.content != null && this.content.size() > 0) {
             int size = this.content.size();
             for (int i = 0; i < size; i++) {
                 PbContent pbContent = this.content.get(i);
-                if (pbContent != null && !TextUtils.isEmpty(pbContent.text) && 18 == pbContent.type.intValue() && bnv() && pbContent.text != null && pbContent.text.length() >= 3) {
+                if (pbContent != null && !TextUtils.isEmpty(pbContent.text) && 18 == pbContent.type.intValue() && bpV() && pbContent.text != null && pbContent.text.length() >= 3) {
                     ActivityItemData activityItemData = new ActivityItemData();
-                    activityItemData.link_url = com.baidu.tbadk.plugins.b.EB(pbContent.text);
+                    activityItemData.link_url = com.baidu.tbadk.plugins.b.Ey(pbContent.text);
                     activityItemData.activity_name = pbContent.text.substring(1, pbContent.text.length() - 2);
                     return activityItemData;
                 }
@@ -342,18 +342,18 @@ public class OriginalThreadInfo {
         return null;
     }
 
-    public boolean bnv() {
+    public boolean bpV() {
         return this.threadType == 40 || this.threadType == 50;
     }
 
-    public String bnw() {
+    public String bpW() {
         String str;
         if (!StringUtils.isNull(this.title)) {
             str = this.title;
-        } else if (com.baidu.tbadk.core.util.y.getItem(this.eHc, 0) == null || StringUtils.isNull(((AbstractData) com.baidu.tbadk.core.util.y.getItem(this.eHc, 0)).text)) {
+        } else if (com.baidu.tbadk.core.util.x.getItem(this.eQT, 0) == null || StringUtils.isNull(((AbstractData) com.baidu.tbadk.core.util.x.getItem(this.eQT, 0)).text)) {
             str = null;
         } else {
-            str = ((AbstractData) com.baidu.tbadk.core.util.y.getItem(this.eHc, 0)).text;
+            str = ((AbstractData) com.baidu.tbadk.core.util.x.getItem(this.eQT, 0)).text;
         }
         if (TextUtils.isEmpty(str)) {
             return TbadkCoreApplication.getInst().getString(R.string.publisher_share_default_title);
@@ -361,15 +361,15 @@ public class OriginalThreadInfo {
         return str;
     }
 
-    public boolean bnx() {
+    public boolean bpX() {
         return this.oriUgcInfo != null && this.oriUgcInfo.oriUgcType == 1;
     }
 
-    public boolean bny() {
+    public boolean bpY() {
         return this.oriUgcInfo != null && this.oriUgcInfo.oriUgcType == 2;
     }
 
-    public boolean bnz() {
+    public boolean bpZ() {
         if (this.oriUgcInfo == null) {
             return false;
         }
@@ -410,8 +410,8 @@ public class OriginalThreadInfo {
             return shareInfo;
         }
 
-        public static ShareInfo generateShareInfo(by byVar) {
-            return generateShareInfo(OriginalThreadInfo.t(byVar));
+        public static ShareInfo generateShareInfo(bz bzVar) {
+            return generateShareInfo(OriginalThreadInfo.t(bzVar));
         }
     }
 }

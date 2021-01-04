@@ -2,7 +2,7 @@ package com.baidu.tbadk.browser;
 
 import android.os.Build;
 import com.baidu.adp.lib.util.j;
-import com.baidu.android.ext.manage.PopItemMethodConstant;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.hybrid.l;
@@ -18,18 +18,18 @@ public class b extends n {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.hybrid.n
-    public String blw() {
+    public String bnV() {
         return "TBHY_COMMON_Utils";
     }
 
-    @o(bsz = false, value = PopItemMethodConstant.showToast)
+    @o(bvb = false, value = "showToast")
     private void showToast(JSONObject jSONObject) {
         if (jSONObject != null) {
-            BdToast.b(getContext(), jSONObject.optString("message")).brB();
+            BdToast.b(getContext(), jSONObject.optString("message")).bud();
         }
     }
 
-    @o(bsz = false, value = "showNetStatus")
+    @o(bvb = false, value = "showNetStatus")
     private JSONObject showNetStatus() {
         JSONObject jSONObject = new JSONObject();
         int i = 0;
@@ -55,7 +55,7 @@ public class b extends n {
         return jSONObject;
     }
 
-    @o(bsz = false, value = "showDeviceInfo")
+    @o(bvb = false, value = "showDeviceInfo")
     private JSONObject showDeviceInfo() {
         JSONObject jSONObject = new JSONObject();
         String cuid = TbadkCoreApplication.getInst().getCuid();
@@ -64,7 +64,7 @@ public class b extends n {
         String str3 = String.valueOf(com.baidu.adp.lib.util.l.getEquipmentWidth(getContext())) + "," + String.valueOf(com.baidu.adp.lib.util.l.getEquipmentHeight(getContext()));
         String versionName = TbadkCoreApplication.getInst().getVersionName();
         try {
-            jSONObject.put("systemName", "android");
+            jSONObject.put("systemName", HttpConstants.OS_TYPE_VALUE);
             jSONObject.put("systemVersion", str);
             jSONObject.put("model", str2);
             jSONObject.put("cuid", cuid);

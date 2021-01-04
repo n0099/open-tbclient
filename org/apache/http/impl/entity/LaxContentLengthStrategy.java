@@ -4,7 +4,7 @@ import org.apache.http.HttpException;
 import org.apache.http.HttpMessage;
 import org.apache.http.entity.ContentLengthStrategy;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes6.dex */
 public class LaxContentLengthStrategy implements ContentLengthStrategy {
     public LaxContentLengthStrategy() {
         throw new RuntimeException("Stub!");

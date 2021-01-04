@@ -6,19 +6,19 @@ import com.baidu.down.manage.DownloadConstants;
 import com.facebook.common.internal.g;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class b {
-    public static int Rp(int i) {
-        return d.Rp(i);
+    public static int Rm(int i) {
+        return d.Rm(i);
     }
 
-    public static int z(InputStream inputStream) {
+    public static int C(InputStream inputStream) {
         try {
-            int A = A(inputStream);
-            if (A == 0) {
+            int D = D(inputStream);
+            if (D == 0) {
                 return 0;
             }
-            return d.h(inputStream, A);
+            return d.h(inputStream, D);
         } catch (IOException e) {
             return 0;
         }
@@ -31,7 +31,7 @@ public class b {
             while (i2 == 255) {
                 i2 = c.a(inputStream, 1, false);
             }
-            if ((i == 192 && Rq(i2)) || i2 == i) {
+            if ((i == 192 && Rn(i2)) || i2 == i) {
                 return true;
             }
             if (i2 != 216 && i2 != 1) {
@@ -44,7 +44,7 @@ public class b {
         return false;
     }
 
-    private static boolean Rq(int i) {
+    private static boolean Rn(int i) {
         switch (i) {
             case 192:
             case 193:
@@ -68,7 +68,7 @@ public class b {
         }
     }
 
-    private static int A(InputStream inputStream) throws IOException {
+    private static int D(InputStream inputStream) throws IOException {
         int a2;
         if (g(inputStream, 225) && c.a(inputStream, 2, false) - 2 > 6) {
             int a3 = c.a(inputStream, 4, false);

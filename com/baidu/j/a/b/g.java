@@ -1,0 +1,7 @@
+package com.baidu.j.a.b;
+/* loaded from: classes10.dex */
+public interface g {
+    void d(int i, Object obj);
+
+    void e(int i, Object obj);
+}

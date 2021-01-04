@@ -4,27 +4,29 @@ import android.content.Context;
 import com.xiaomi.push.ft;
 import com.xiaomi.push.service.XMPushService;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class bx extends XMPushService.i {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ XMPushService f4867a;
+    final /* synthetic */ XMPushService f14588a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ String f901a;
+    final /* synthetic */ String f979a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ byte[] f902a;
-    final /* synthetic */ int b;
+    final /* synthetic */ byte[] f980a;
+
+    /* renamed from: b  reason: collision with root package name */
+    final /* synthetic */ int f14589b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bx(XMPushService xMPushService, int i, int i2, byte[] bArr, String str) {
         super(i);
-        this.f4867a = xMPushService;
-        this.b = i2;
-        this.f902a = bArr;
-        this.f901a = str;
+        this.f14588a = xMPushService;
+        this.f14589b = i2;
+        this.f980a = bArr;
+        this.f979a = str;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -35,11 +37,11 @@ public class bx extends XMPushService.i {
     @Override // com.xiaomi.push.service.XMPushService.i
     public void a() {
         ft ftVar;
-        l.m571a((Context) this.f4867a);
-        ap.a().m541a("5");
-        com.xiaomi.push.ab.a(this.b);
-        ftVar = this.f4867a.f803a;
+        l.m597a((Context) this.f14588a);
+        ap.a().m567a("5");
+        com.xiaomi.push.ab.a(this.f14589b);
+        ftVar = this.f14588a.f881a;
         ftVar.c(ft.a());
-        this.f4867a.a(this.f902a, this.f901a);
+        this.f14588a.a(this.f980a, this.f979a);
     }
 }

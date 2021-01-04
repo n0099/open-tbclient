@@ -2,43 +2,45 @@ package com.baidu.mapapi.bikenavi.controllers.a;
 
 import com.baidu.mapapi.bikenavi.adapter.IBRoutePlanListener;
 import com.baidu.mapapi.bikenavi.model.BikeRoutePlanError;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 class c implements com.baidu.platform.comapi.wnplatform.j.c {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ IBRoutePlanListener f1978a;
-    final /* synthetic */ a b;
+    final /* synthetic */ IBRoutePlanListener f2757a;
+
+    /* renamed from: b  reason: collision with root package name */
+    final /* synthetic */ a f2758b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar, IBRoutePlanListener iBRoutePlanListener) {
-        this.b = aVar;
-        this.f1978a = iBRoutePlanListener;
+        this.f2758b = aVar;
+        this.f2757a = iBRoutePlanListener;
     }
 
     @Override // com.baidu.platform.comapi.wnplatform.j.c
     public void a() {
-        this.f1978a.onRoutePlanStart();
+        this.f2757a.onRoutePlanStart();
     }
 
     @Override // com.baidu.platform.comapi.wnplatform.j.c
     public void b() {
-        this.f1978a.onRoutePlanSuccess();
+        this.f2757a.onRoutePlanSuccess();
     }
 
     @Override // com.baidu.platform.comapi.wnplatform.j.c
     public void a(int i) {
         switch (i) {
             case 16777214:
-                this.f1978a.onRoutePlanFail(BikeRoutePlanError.FORWARD_AK_ERROR);
+                this.f2757a.onRoutePlanFail(BikeRoutePlanError.FORWARD_AK_ERROR);
                 return;
             case 16777216:
-                this.f1978a.onRoutePlanFail(BikeRoutePlanError.SERVER_UNUSUAL);
+                this.f2757a.onRoutePlanFail(BikeRoutePlanError.SERVER_UNUSUAL);
                 return;
             case 805306368:
-                this.f1978a.onRoutePlanFail(BikeRoutePlanError.NET_ERR);
+                this.f2757a.onRoutePlanFail(BikeRoutePlanError.NET_ERR);
                 return;
             default:
-                this.f1978a.onRoutePlanFail(BikeRoutePlanError.PARSE_FAIL);
+                this.f2757a.onRoutePlanFail(BikeRoutePlanError.PARSE_FAIL);
                 return;
         }
     }

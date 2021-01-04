@@ -7,13 +7,13 @@ import kotlin.text.l;
 import org.json.JSONArray;
 import org.json.JSONObject;
 @e
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public final class d {
     /* JADX INFO: Access modifiers changed from: private */
-    public static final JSONArray aFv() {
-        com.baidu.swan.apps.runtime.e aJV = com.baidu.swan.apps.runtime.e.aJV();
-        if (aJV != null) {
-            String string = aJV.aKg().getString("note_data_pay_check_list", "");
+    public static final JSONArray aGP() {
+        com.baidu.swan.apps.runtime.e aMl = com.baidu.swan.apps.runtime.e.aMl();
+        if (aMl != null) {
+            String string = aMl.aMw().getString("note_data_pay_check_list", "");
             String str = string;
             if (str == null || l.isBlank(str)) {
                 return null;
@@ -24,31 +24,31 @@ public final class d {
     }
 
     @e
-    /* loaded from: classes25.dex */
+    /* loaded from: classes9.dex */
     static final class a implements com.baidu.swan.apps.network.c.a.a {
-        final /* synthetic */ kotlin.jvm.a.b cXP;
-        final /* synthetic */ String dnk;
+        final /* synthetic */ kotlin.jvm.a.b dcK;
+        final /* synthetic */ String dsk;
 
         a(kotlin.jvm.a.b bVar, String str) {
-            this.cXP = bVar;
-            this.dnk = str;
+            this.dcK = bVar;
+            this.dsk = str;
         }
 
         @Override // com.baidu.swan.apps.network.c.a.a
-        public final void aFo() {
-            JSONArray aFv = d.aFv();
-            if (aFv == null || aFv.length() == 0) {
-                kotlin.jvm.a.b bVar = this.cXP;
+        public final void aGI() {
+            JSONArray aGP = d.aGP();
+            if (aGP == null || aGP.length() == 0) {
+                kotlin.jvm.a.b bVar = this.dcK;
                 if (bVar != null) {
                     h hVar = (h) bVar.invoke(true);
                     return;
                 }
                 return;
             }
-            int length = aFv.length();
+            int length = aGP.length();
             for (int i = 0; i < length; i++) {
-                if (p.l(this.dnk, aFv.get(i))) {
-                    kotlin.jvm.a.b bVar2 = this.cXP;
+                if (p.l(this.dsk, aGP.get(i))) {
+                    kotlin.jvm.a.b bVar2 = this.dcK;
                     if (bVar2 != null) {
                         h hVar2 = (h) bVar2.invoke(true);
                         return;
@@ -56,7 +56,7 @@ public final class d {
                     return;
                 }
             }
-            kotlin.jvm.a.b bVar3 = this.cXP;
+            kotlin.jvm.a.b bVar3 = this.dcK;
             if (bVar3 != null) {
                 h hVar3 = (h) bVar3.invoke(false);
             }
@@ -64,6 +64,6 @@ public final class d {
     }
 
     public static final void b(String str, kotlin.jvm.a.b<? super Boolean, h> bVar) {
-        com.baidu.swan.apps.network.c.a.aFl().a(new a(bVar, str));
+        com.baidu.swan.apps.network.c.a.aGF().a(new a(bVar, str));
     }
 }

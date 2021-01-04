@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.utils.LogUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class AlertMsg extends NormalMsg {
     public static final Parcelable.Creator<AlertMsg> CREATOR = new Parcelable.Creator<AlertMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.AlertMsg.1
         /* JADX DEBUG: Method merged with bridge method */

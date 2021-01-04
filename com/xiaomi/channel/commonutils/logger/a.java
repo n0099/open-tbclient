@@ -2,24 +2,24 @@ package com.xiaomi.channel.commonutils.logger;
 
 import android.util.Log;
 import com.baidu.android.util.devices.RomUtils;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class a implements LoggerInterface {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4488a = RomUtils.MANUFACTURER_XIAOMI;
+    private String f14068a = RomUtils.MANUFACTURER_XIAOMI;
 
     @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
     public void log(String str) {
-        Log.v(this.f4488a, str);
+        Log.v(this.f14068a, str);
     }
 
     @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
     public void log(String str, Throwable th) {
-        Log.v(this.f4488a, str, th);
+        Log.v(this.f14068a, str, th);
     }
 
     @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
     public void setTag(String str) {
-        this.f4488a = str;
+        this.f14068a = str;
     }
 }

@@ -1,57 +1,57 @@
 package com.baidu.swan.pms.node.b;
 
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.swan.c.i;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class b {
-    private static volatile b eov;
-    private a eow = new a();
+    private static volatile b eyd;
+    private a eyf = new a();
 
-    public static b beO() {
-        if (eov == null) {
+    public static b bhj() {
+        if (eyd == null) {
             synchronized (b.class) {
-                if (eov == null) {
-                    eov = new b();
+                if (eyd == null) {
+                    eyd = new b();
                 }
             }
         }
-        return eov;
+        return eyd;
     }
 
     private b() {
     }
 
     public String getVersion() {
-        return this.eow.getString("version", "0");
+        return this.eyf.getString("version", "0");
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void cO(JSONObject jSONObject) {
+    public void cW(JSONObject jSONObject) {
         if (jSONObject != null) {
             String optString = jSONObject.optString("version");
             if (!TextUtils.isEmpty(optString)) {
                 String optString2 = jSONObject.optString("data");
                 if (!TextUtils.isEmpty(optString2)) {
-                    this.eow.edit().putString("version", optString).putString("data", optString2).apply();
+                    this.eyf.edit().putString("version", optString).putString("data", optString2).apply();
                 }
             }
         }
     }
 
     @NonNull
-    public com.baidu.swan.pms.node.b.a beP() {
+    public com.baidu.swan.pms.node.b.a bhk() {
         com.baidu.swan.pms.node.b.a aVar;
         try {
-            aVar = com.baidu.swan.pms.node.b.a.cN(new JSONObject(this.eow.getString("data", "")));
+            aVar = com.baidu.swan.pms.node.b.a.cV(new JSONObject(this.eyf.getString("data", "")));
         } catch (JSONException e) {
             e.printStackTrace();
             aVar = null;
         }
         if (aVar == null) {
-            return com.baidu.swan.pms.node.b.a.eou;
+            return com.baidu.swan.pms.node.b.a.eyc;
         }
         return aVar;
     }

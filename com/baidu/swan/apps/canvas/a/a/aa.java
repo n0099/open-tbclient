@@ -4,28 +4,28 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.text.TextUtils;
 import org.json.JSONArray;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class aa extends a {
-    private Paint.Cap cHO;
+    private Paint.Cap cME;
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {
         if (jSONArray.length() > 0) {
             String optString = jSONArray.optString(0);
             if (TextUtils.equals(optString, "butt")) {
-                this.cHO = Paint.Cap.BUTT;
+                this.cME = Paint.Cap.BUTT;
             } else if (TextUtils.equals(optString, "round")) {
-                this.cHO = Paint.Cap.ROUND;
+                this.cME = Paint.Cap.ROUND;
             } else if (TextUtils.equals(optString, "square")) {
-                this.cHO = Paint.Cap.SQUARE;
+                this.cME = Paint.Cap.SQUARE;
             }
         }
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
-        if (this.cHO != null) {
-            bVar.mStrokePaint.setStrokeCap(this.cHO);
+        if (this.cME != null) {
+            bVar.mStrokePaint.setStrokeCap(this.cME);
         }
     }
 }

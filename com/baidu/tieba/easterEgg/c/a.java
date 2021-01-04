@@ -8,15 +8,15 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tieba.easterEgg.c;
 import com.google.gson.Gson;
 import java.util.HashMap;
-/* loaded from: classes24.dex */
+/* loaded from: classes8.dex */
 public class a extends d {
-    private Gson eBJ;
-    private c ise;
-    private HashMap<String, String> isf;
+    private Gson eLm;
+    private c iEr;
+    private HashMap<String, String> iEs;
 
     public a(int i) {
         super(i);
-        this.eBJ = new Gson();
+        this.eLm = new Gson();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,39 +24,39 @@ public class a extends d {
     /* renamed from: d */
     public HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         String json;
-        String JF = JF(httpMessageTask.getUrl());
-        if (JF != null && this.ise != null) {
+        String JD = JD(httpMessageTask.getUrl());
+        if (JD != null && this.iEr != null) {
             if (httpMessage.getExtra() instanceof NetMessage) {
                 NetMessage netMessage = (NetMessage) httpMessage.getExtra();
                 if (netMessage.getSocketMessage() == null) {
                     json = "";
                 } else {
-                    json = this.eBJ.toJson(netMessage.getSocketMessage().getData());
+                    json = this.eLm.toJson(netMessage.getSocketMessage().getData());
                 }
             } else {
-                json = this.eBJ.toJson(httpMessage.getParams());
+                json = this.eLm.toJson(httpMessage.getParams());
             }
-            this.ise.aB(httpMessageTask.getUrl(), this.eBJ.toJson(JF), this.eBJ.toJson(json));
+            this.iEr.aE(httpMessageTask.getUrl(), this.eLm.toJson(JD), this.eLm.toJson(json));
         }
         return httpMessage;
     }
 
-    public String JF(String str) {
+    public String JD(String str) {
         if (str.contains("?")) {
             str = str.split("[?]")[0];
         }
         String replace = str.replace(TbConfig.SERVER_ADDRESS, "");
-        if (this.isf != null) {
-            return this.isf.get(replace);
+        if (this.iEs != null) {
+            return this.iEs.get(replace);
         }
         return null;
     }
 
-    public void F(HashMap<String, String> hashMap) {
-        this.isf = hashMap;
+    public void E(HashMap<String, String> hashMap) {
+        this.iEs = hashMap;
     }
 
     public void a(c cVar) {
-        this.ise = cVar;
+        this.iEr = cVar;
     }
 }

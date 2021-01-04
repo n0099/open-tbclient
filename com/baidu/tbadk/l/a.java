@@ -23,7 +23,7 @@ public class a {
     public void attachView(View view, boolean z) {
         if (view != null && this.attachedView != null && this.attachedView.getParent() == null) {
             this.isAttached = true;
-            e.h(view, this.isWrapStyle).attachView(view, this.attachedView, z);
+            e.g(view, this.isWrapStyle).attachView(view, this.attachedView, z);
             onViewAttached();
         }
     }

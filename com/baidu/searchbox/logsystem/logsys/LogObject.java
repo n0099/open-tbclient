@@ -1,10 +1,10 @@
 package com.baidu.searchbox.logsystem.logsys;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.searchbox.logsystem.util.LLog;
 import java.io.File;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class LogObject extends LogBaseObject {
     private String mCrashTAG;
     @Nullable

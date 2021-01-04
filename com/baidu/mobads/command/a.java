@@ -14,14 +14,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class a implements Serializable {
     private long A;
     private boolean B;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f2326a;
-    public String b;
+    public String f3349a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f3350b;
     public String c;
     public int f;
     public String i;
@@ -49,7 +51,7 @@ public class a implements Serializable {
 
     public a(String str, String str2) {
         this.i = str;
-        this.f2326a = str2;
+        this.f3349a = str2;
     }
 
     public void a(String str, String str2, String str3, boolean z) {
@@ -60,7 +62,7 @@ public class a implements Serializable {
     }
 
     public void a(String str, String str2) {
-        this.b = str;
+        this.f3350b = str;
         this.c = str2;
     }
 
@@ -73,9 +75,9 @@ public class a implements Serializable {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(IXAdCommonUtils.PKGS_PREF_DOWNLOAD_STATUS, this.g.getCode());
-            jSONObject.put("filename", this.b);
+            jSONObject.put("filename", this.f3350b);
             jSONObject.put("folder", this.c);
-            jSONObject.put("title", this.f2326a);
+            jSONObject.put("title", this.f3349a);
             jSONObject.put("contentLength", this.d);
             jSONObject.put("pk", this.i);
             jSONObject.put("qk", this.n);
@@ -110,6 +112,7 @@ public class a implements Serializable {
     }
 
     public static a a(Context context, String str) {
+        Exception e;
         a aVar = null;
         if (str == null || "".equals(str)) {
             return null;
@@ -141,17 +144,17 @@ public class a implements Serializable {
                     aVar2.u = jSONObject.optLong("ts");
                     aVar2.v = jSONObject.optInt("clickProcId");
                     return aVar2;
-                } catch (Exception e) {
+                } catch (Exception e2) {
+                    e = e2;
                     aVar = aVar2;
-                    e = e;
                     XAdSDKFoundationFacade.getInstance().getAdLogger().d(e);
                     com.baidu.mobads.c.a.a().a("get stored download info failed: " + e.toString());
                     return aVar;
                 }
             }
             return null;
-        } catch (Exception e2) {
-            e = e2;
+        } catch (Exception e3) {
+            e = e3;
         }
     }
 
@@ -161,9 +164,9 @@ public class a implements Serializable {
         try {
             for (Map.Entry<String, ?> entry : context.getSharedPreferences(IXAdCommonUtils.PKGS_PREF_DOWNLOAD, 0).getAll().entrySet()) {
                 try {
-                    String b = b();
+                    String b2 = b();
                     String key = entry.getKey();
-                    if (key.contains("#$#" + b)) {
+                    if (key.contains("#$#" + b2)) {
                         JSONObject jSONObject = new JSONObject((String) entry.getValue());
                         if (jSONObject.getLong("cts") >= j && ((i = jSONObject.getInt(IXAdCommonUtils.PKGS_PREF_DOWNLOAD_STATUS)) == 0 || i == 1 || i == 4)) {
                             arrayList.add(key.substring(0, key.indexOf("#$#")));

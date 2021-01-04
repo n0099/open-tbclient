@@ -4,7 +4,7 @@ public interface b {
 
     /* loaded from: classes6.dex */
     public interface a {
-        void fv(boolean z);
+        void fE(boolean z);
     }
 
     void a(String str, a aVar);

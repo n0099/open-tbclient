@@ -1,7 +1,7 @@
 package com.example.utility_plugin;
 
-import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
+import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -17,14 +17,15 @@ import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.data.SignData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.a.g;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.b.g;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.coreExtra.message.ShareSDKResultMessage;
 import com.baidu.tbadk.data.n;
 import com.baidu.tieba.forumMember.tbtitle.TbTitleActivityConfig;
-import com.baidu.tieba.q.a;
+import com.baidu.tieba.p.a;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.tieba.tbadkCore.data.e;
 import com.baidu.tieba.tbadkCore.w;
@@ -33,7 +34,7 @@ import io.flutter.plugin.common.MethodChannel;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
+/* loaded from: classes6.dex */
 public class NativeListeners {
     public MethodChannel mMethodChannel;
     private int mLastMainTabIndex = -1;
@@ -74,11 +75,11 @@ public class NativeListeners {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                if (a.dGO().dGK()) {
+                if (a.dGD().dGz()) {
                     HashMap hashMap = new HashMap();
                     hashMap.put("uniqueKey", "FansCountUpdate");
                     NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap);
-                } else if (a.dGO().dGL()) {
+                } else if (a.dGD().dGA()) {
                     HashMap hashMap2 = new HashMap();
                     hashMap2.put("uniqueKey", "BookMarkUpdate");
                     NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap2);
@@ -216,7 +217,7 @@ public class NativeListeners {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof e) && (agreeData = ((e) customResponsedMessage.getData()).agreeData) != null) {
                 HashMap hashMap = new HashMap();
                 HashMap hashMap2 = new HashMap();
-                hashMap2.put("nid", agreeData.nid);
+                hashMap2.put(IntentConfig.NID, agreeData.nid);
                 hashMap2.put("tid", agreeData.threadId);
                 hashMap2.put("agreeType", String.valueOf(agreeData.agreeType));
                 hashMap2.put("hasAgree", agreeData.hasAgree ? "1" : "0");
@@ -313,7 +314,7 @@ public class NativeListeners {
             HashMap hashMap = new HashMap();
             if (customResponsedMessage.getData() instanceof g) {
                 g gVar = (g) customResponsedMessage.getData();
-                if (!y.isEmpty(gVar.mPostData)) {
+                if (!x.isEmpty(gVar.mPostData)) {
                     int i = 0;
                     while (true) {
                         int i2 = i;
@@ -329,7 +330,7 @@ public class NativeListeners {
             }
             HashMap hashMap2 = new HashMap();
             hashMap2.put("tid", hashMap.get("tid"));
-            hashMap2.put("nid", hashMap.get("ori_ugc_nid"));
+            hashMap2.put(IntentConfig.NID, hashMap.get("ori_ugc_nid"));
             HashMap hashMap3 = new HashMap();
             hashMap3.put("uniqueKey", "ThreadWriteReplyListener");
             hashMap3.put("data", hashMap2);
@@ -506,10 +507,10 @@ public class NativeListeners {
                 wVar.setFid(str2);
                 wVar.setLike(1);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS, wVar));
-                com.baidu.tieba.tbadkCore.writeModel.a aVar = new com.baidu.tieba.tbadkCore.writeModel.a();
-                aVar.forumId = b.toLong(str2, 0L);
-                aVar.isSuccess = true;
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_LIKE_FORUM, aVar));
+                com.baidu.tieba.tbadkCore.writeModel.e eVar = new com.baidu.tieba.tbadkCore.writeModel.e();
+                eVar.forumId = b.toLong(str2, 0L);
+                eVar.isSuccess = true;
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_LIKE_FORUM, eVar));
                 break;
             case 1:
                 String str3 = (String) argument(obj, "payload");

@@ -2,7 +2,7 @@ package com.baidu.ubc;
 
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public interface ab {
     public static final com.baidu.pyramid.runtime.service.d SERVICE_REFERENCE = new com.baidu.pyramid.runtime.service.d("ubc", UBC.TAG);
 
@@ -14,13 +14,11 @@ public interface ab {
 
     void b(w wVar, boolean z, s sVar);
 
-    Flow beginFlow(String str);
-
     Flow beginFlow(String str, String str2, int i);
 
     Flow beginFlow(String str, JSONObject jSONObject);
 
-    boolean ejd();
+    boolean ejn();
 
     void flowAddEvent(Flow flow, String str, String str2);
 
@@ -37,8 +35,6 @@ public interface ab {
     String getUploadType(String str);
 
     void onEvent(String str);
-
-    void onEvent(String str, String str2);
 
     void onEvent(String str, JSONObject jSONObject);
 }

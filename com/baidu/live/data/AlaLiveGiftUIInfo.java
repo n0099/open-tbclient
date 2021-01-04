@@ -3,11 +3,10 @@ package com.baidu.live.data;
 import android.graphics.Color;
 import android.text.TextUtils;
 import com.baidu.live.tbadk.core.data.BaseData;
-import com.baidu.searchbox.ugc.model.UgcConstant;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaLiveGiftUIInfo extends BaseData implements Serializable {
     private String categoryTextSelectedColor;
     private String horizontalBgUrl;
@@ -54,7 +53,7 @@ public class AlaLiveGiftUIInfo extends BaseData implements Serializable {
             return 0;
         }
         if (this.panelBgColor.charAt(0) != '#') {
-            this.panelBgColor = UgcConstant.TOPIC_PATTERN_TAG + this.panelBgColor;
+            this.panelBgColor = '#' + this.panelBgColor;
         }
         try {
             return Color.parseColor(this.panelBgColor);
@@ -76,7 +75,7 @@ public class AlaLiveGiftUIInfo extends BaseData implements Serializable {
             return 0;
         }
         if (this.tabBgSelectedColor.charAt(0) != '#') {
-            this.tabBgSelectedColor = UgcConstant.TOPIC_PATTERN_TAG + this.tabBgSelectedColor;
+            this.tabBgSelectedColor = '#' + this.tabBgSelectedColor;
         }
         try {
             return Color.parseColor(this.tabBgSelectedColor);
@@ -90,7 +89,7 @@ public class AlaLiveGiftUIInfo extends BaseData implements Serializable {
             return 0;
         }
         if (this.tabBgUnSelectedColor.charAt(0) != '#') {
-            this.tabBgUnSelectedColor = UgcConstant.TOPIC_PATTERN_TAG + this.tabBgUnSelectedColor;
+            this.tabBgUnSelectedColor = '#' + this.tabBgUnSelectedColor;
         }
         try {
             return Color.parseColor(this.tabBgUnSelectedColor);
@@ -104,7 +103,7 @@ public class AlaLiveGiftUIInfo extends BaseData implements Serializable {
             return 0;
         }
         if (this.tabTextSelectedColor.charAt(0) != '#') {
-            this.tabTextSelectedColor = UgcConstant.TOPIC_PATTERN_TAG + this.tabTextSelectedColor;
+            this.tabTextSelectedColor = '#' + this.tabTextSelectedColor;
         }
         try {
             return Color.parseColor(this.tabTextSelectedColor);
@@ -118,7 +117,7 @@ public class AlaLiveGiftUIInfo extends BaseData implements Serializable {
             return 0;
         }
         if (this.tabTextUnSelectedColor.charAt(0) != '#') {
-            this.tabTextUnSelectedColor = UgcConstant.TOPIC_PATTERN_TAG + this.tabTextUnSelectedColor;
+            this.tabTextUnSelectedColor = '#' + this.tabTextUnSelectedColor;
         }
         try {
             return Color.parseColor(this.tabTextUnSelectedColor);
@@ -132,7 +131,7 @@ public class AlaLiveGiftUIInfo extends BaseData implements Serializable {
             return 0;
         }
         if (this.categoryTextSelectedColor.charAt(0) != '#') {
-            this.categoryTextSelectedColor = UgcConstant.TOPIC_PATTERN_TAG + this.categoryTextSelectedColor;
+            this.categoryTextSelectedColor = '#' + this.categoryTextSelectedColor;
         }
         try {
             return Color.parseColor(this.categoryTextSelectedColor);

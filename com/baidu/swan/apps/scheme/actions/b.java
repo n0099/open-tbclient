@@ -1,14 +1,14 @@
 package com.baidu.swan.apps.scheme.actions;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public abstract class b extends aa {
     public abstract boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, com.baidu.swan.apps.runtime.e eVar);
 
@@ -31,14 +31,14 @@ public abstract class b extends aa {
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, com.baidu.swan.apps.runtime.e eVar) {
         boolean e;
-        String tb = tb("insert");
-        String tb2 = tb(IMTrack.DbBuilder.ACTION_UPDATE);
-        String tb3 = tb("remove");
-        if (TextUtils.equals(tb, str)) {
+        String sY = sY("insert");
+        String sY2 = sY(IMTrack.DbBuilder.ACTION_UPDATE);
+        String sY3 = sY("remove");
+        if (TextUtils.equals(sY, str)) {
             e = a(context, unitedSchemeEntity, callbackHandler, str, eVar);
-        } else if (TextUtils.equals(tb2, str)) {
+        } else if (TextUtils.equals(sY2, str)) {
             e = b(context, unitedSchemeEntity, callbackHandler, str, eVar);
-        } else if (TextUtils.equals(tb3, str)) {
+        } else if (TextUtils.equals(sY3, str)) {
             e = c(context, unitedSchemeEntity, callbackHandler, str, eVar);
         } else {
             e = e(context, unitedSchemeEntity, callbackHandler, str, eVar);
@@ -48,7 +48,7 @@ public abstract class b extends aa {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public JSONObject n(UnitedSchemeEntity unitedSchemeEntity) {
+    public JSONObject m(UnitedSchemeEntity unitedSchemeEntity) {
         JSONObject jSONObject;
         if (unitedSchemeEntity == null) {
             com.baidu.swan.apps.console.c.e("AbsSwanAppWidget", "getParamsJSONObject entity is null");
@@ -71,7 +71,7 @@ public abstract class b extends aa {
         return jSONObject;
     }
 
-    private String tb(String str) {
+    private String sY(String str) {
         return getModuleName() + "/" + str;
     }
 

@@ -2,7 +2,6 @@ package com.baidu.android.imsdk.shield.request;
 
 import android.content.Context;
 import android.util.Pair;
-import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.ListenerManager;
@@ -13,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class IMGetSubscriptionRequest extends IMSubscriptionBaseRequest {
     public static final String TAG = "IMGetSubscriptionRequest";
 
@@ -30,24 +29,21 @@ public class IMGetSubscriptionRequest extends IMSubscriptionBaseRequest {
     public void onSuccess(int i, byte[] bArr) {
         int i2;
         String str;
-        String str2;
-        String str3;
-        long j;
-        String str4 = new String(bArr);
-        LogUtils.d(TAG, "IMGetSubscriptionRequest onSuccess :" + str4);
+        String str2 = new String(bArr);
+        LogUtils.d(TAG, "IMGetSubscriptionRequest onSuccess :" + str2);
+        String str3 = "";
+        long j = 0;
+        String str4 = "";
         String str5 = "";
-        long j2 = 0;
-        String str6 = "";
-        String str7 = "";
         ArrayList arrayList = new ArrayList();
         try {
-            JSONObject jSONObject = new JSONObject(str4);
-            int optInt = jSONObject.optInt("error_code");
-            if (optInt == 0) {
-                str5 = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG, "");
-                j2 = jSONObject.optLong("pa_uid");
-                str6 = jSONObject.optString("pa_avatar");
-                str7 = jSONObject.optString("pa_nickname");
+            JSONObject jSONObject = new JSONObject(str2);
+            i2 = jSONObject.optInt("error_code");
+            if (i2 == 0) {
+                str3 = jSONObject.optString("error_msg", "");
+                j = jSONObject.optLong("pa_uid");
+                str4 = jSONObject.optString("pa_avatar");
+                str5 = jSONObject.optString("pa_nickname");
                 JSONArray optJSONArray = jSONObject.optJSONArray("data");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
@@ -58,30 +54,20 @@ public class IMGetSubscriptionRequest extends IMSubscriptionBaseRequest {
                     }
                 }
             }
-            i2 = optInt;
-            String str8 = str6;
-            str = str7;
-            long j3 = j2;
-            str2 = str5;
-            str3 = str8;
-            j = j3;
+            str = str5;
         } catch (Exception e) {
             LogUtils.e(TAG, "JSONException", e);
             i2 = 1010;
-            String str9 = str6;
-            str = str7;
-            long j4 = j2;
-            str2 = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
-            str3 = str9;
-            j = j4;
+            str3 = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
+            str = str5;
         }
         IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
         if (removeListener != null && (removeListener instanceof IGetSubscriptionListener)) {
             GetSubscriptionResult getSubscriptionResult = new GetSubscriptionResult();
             getSubscriptionResult.setErrorCode(i2);
-            getSubscriptionResult.setErrorMsg(str2);
+            getSubscriptionResult.setErrorMsg(str3);
             getSubscriptionResult.setPauid(j);
-            getSubscriptionResult.setPaAvatar(str3);
+            getSubscriptionResult.setPaAvatar(str4);
             getSubscriptionResult.setPaNickName(str);
             getSubscriptionResult.setSubscriptionList(arrayList);
             ((IGetSubscriptionListener) removeListener).onResult(getSubscriptionResult);

@@ -1,7 +1,7 @@
 package com.baidu.platform.comapi.walknavi.d.a.f;
 
 import com.baidu.platform.comapi.walknavi.d.a.f.f;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public interface a<T> extends f.a<T> {
     void a(int i);
 

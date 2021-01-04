@@ -3,34 +3,34 @@ package com.xiaomi.push;
 import android.content.Context;
 import com.xiaomi.push.cb;
 import java.lang.ref.WeakReference;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class bu implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4594a;
+    private String f14193a;
 
     /* renamed from: a  reason: collision with other field name */
-    private WeakReference<Context> f144a;
+    private WeakReference<Context> f222a;
 
     public bu(String str, WeakReference<Context> weakReference) {
-        this.f4594a = str;
-        this.f144a = weakReference;
+        this.f14193a = str;
+        this.f222a = weakReference;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Context context;
-        if (this.f144a == null || (context = this.f144a.get()) == null) {
+        if (this.f222a == null || (context = this.f222a.get()) == null) {
             return;
         }
-        if (ch.a(this.f4594a) <= bt.f142a) {
+        if (ch.a(this.f14193a) <= bt.f220a) {
             com.xiaomi.channel.commonutils.logger.b.b("=====> do not need clean db");
             return;
         }
-        bx a2 = bx.a(this.f4594a);
-        bw a3 = bw.a(this.f4594a);
+        bx a2 = bx.a(this.f14193a);
+        bw a3 = bw.a(this.f14193a);
         a2.a(a3);
-        a3.a(bv.a(context, this.f4594a, 1000));
+        a3.a(bv.a(context, this.f14193a, 1000));
         cb.a(context).a((cb.a) a2);
     }
 }

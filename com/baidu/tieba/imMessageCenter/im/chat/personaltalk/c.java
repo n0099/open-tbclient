@@ -1,9 +1,9 @@
 package com.baidu.tieba.imMessageCenter.im.chat.personaltalk;
 
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class c extends com.baidu.tieba.im.c.a.b {
     public c() {
-        super(com.baidu.tieba.im.settingcache.e.daa(), CmdConfigCustom.CMD_SAVE_DRAFT_PERSONAL);
+        super(com.baidu.tieba.im.settingcache.e.cZN(), CmdConfigCustom.CMD_SAVE_DRAFT_PERSONAL);
     }
 }

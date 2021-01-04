@@ -2,30 +2,30 @@ package com.baidu.live.challenge;
 
 import android.view.ViewGroup;
 import com.baidu.live.challenge.i;
-import com.baidu.live.data.w;
-/* loaded from: classes4.dex */
+import com.baidu.live.data.x;
+/* loaded from: classes11.dex */
 public interface h extends i.c, i.d, i.n {
-    void En();
+    void DC();
 
-    void Eu();
+    void DJ();
 
     void a(g gVar);
 
     void a(i iVar);
 
-    void a(w wVar);
+    void a(x xVar);
 
-    void b(boolean z, boolean z2, boolean z3);
+    int br(boolean z);
 
-    int bu(boolean z);
+    void c(boolean z, boolean z2, boolean z3);
 
-    void c(int i, long j);
+    void dY(int i);
 
-    void eb(int i);
-
-    void i(ViewGroup viewGroup);
+    void f(int i, long j);
 
     boolean isActive();
+
+    void k(ViewGroup viewGroup);
 
     void onDestroy();
 

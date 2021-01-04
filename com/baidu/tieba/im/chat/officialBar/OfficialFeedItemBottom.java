@@ -7,13 +7,13 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.message.chat.a;
-/* loaded from: classes26.dex */
+/* loaded from: classes8.dex */
 public class OfficialFeedItemBottom extends LinearLayout {
-    private TextView knF;
-    private TextView knG;
+    private TextView kAk;
+    private TextView kAl;
     private Context mContext;
 
     public OfficialFeedItemBottom(Context context) {
@@ -29,31 +29,31 @@ public class OfficialFeedItemBottom extends LinearLayout {
     private void initView() {
         setOrientation(1);
         LayoutInflater.from(this.mContext).inflate(R.layout.official_feed_item_bottom, (ViewGroup) this, true);
-        this.knF = (TextView) findViewById(R.id.message_no_image_title);
-        this.knG = (TextView) findViewById(R.id.message_info);
-        cUm();
+        this.kAk = (TextView) findViewById(R.id.message_no_image_title);
+        this.kAl = (TextView) findViewById(R.id.message_info);
+        cWY();
     }
 
-    public void cUm() {
-        ap.setViewTextColor(this.knG, R.color.CAM_X0107);
-        ap.setViewTextColor(this.knF, R.color.CAM_X0105);
+    public void cWY() {
+        ao.setViewTextColor(this.kAl, R.color.CAM_X0107);
+        ao.setViewTextColor(this.kAk, R.color.CAM_X0105);
     }
 
-    public void setData(a.C0782a c0782a, boolean z) {
-        int i = TextUtils.isEmpty(c0782a.text) ? 8 : 0;
-        this.knF.setText(c0782a.title);
-        this.knG.setText(c0782a.text);
-        this.knG.setVisibility(i);
+    public void setData(a.C0766a c0766a, boolean z) {
+        int i = TextUtils.isEmpty(c0766a.text) ? 8 : 0;
+        this.kAk.setText(c0766a.title);
+        this.kAl.setText(c0766a.text);
+        this.kAl.setVisibility(i);
         if (z) {
-            this.knF.setVisibility(8);
+            this.kAk.setVisibility(8);
         } else {
-            this.knF.setVisibility(0);
+            this.kAk.setVisibility(0);
         }
     }
 
-    public void DP(int i) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.knG.getLayoutParams();
+    public void Eb(int i) {
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.kAl.getLayoutParams();
         layoutParams.topMargin = i;
-        this.knG.setLayoutParams(layoutParams);
+        this.kAl.setLayoutParams(layoutParams);
     }
 }

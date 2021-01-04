@@ -1,5 +1,5 @@
 package com.baidu.live.adp.lib.interfaces;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public interface BdLoadDataCallback {
     void onAfterLoadData(int i, Object obj);
 

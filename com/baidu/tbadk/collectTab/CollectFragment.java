@@ -9,52 +9,52 @@ import com.baidu.adp.lib.util.j;
 import com.baidu.live.adp.framework.MessageConfig;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.BaseFragment;
-/* loaded from: classes24.dex */
+/* loaded from: classes8.dex */
 public abstract class CollectFragment extends BaseFragment {
-    protected boolean eCt = false;
+    protected boolean eLX = false;
     private final CustomMessageListener mNetworkChangedMessageListener = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tbadk.collectTab.CollectFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage)) {
-                CollectFragment.this.of(CollectFragment.this.getType());
-                if (!CollectFragment.this.eCt) {
-                    CollectFragment.this.q(false, CollectFragment.this.getType());
+                CollectFragment.this.op(CollectFragment.this.getType());
+                if (!CollectFragment.this.eLX) {
+                    CollectFragment.this.p(false, CollectFragment.this.getType());
                 }
             }
         }
     };
 
-    public abstract boolean blS();
+    public abstract boolean bor();
 
     public abstract int getType();
 
-    public boolean blR() {
-        return this.eCt;
+    public boolean boq() {
+        return this.eLX;
     }
 
-    @Override // android.support.v4.app.Fragment
+    @Override // androidx.fragment.app.Fragment
     public void onStart() {
         super.onStart();
         registerListener(this.mNetworkChangedMessageListener);
     }
 
-    @Override // android.support.v4.app.Fragment
+    @Override // androidx.fragment.app.Fragment
     public void onStop() {
         super.onStop();
         MessageManager.getInstance().unRegisterListener(this.mNetworkChangedMessageListener);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void of(int i) {
+    public void op(int i) {
         Bundle bundle = new Bundle();
-        this.eCt = !blS() && j.isNetWorkAvailable();
-        bundle.putBoolean("is_enable_edit", this.eCt);
+        this.eLX = !bor() && j.isNetWorkAvailable();
+        bundle.putBoolean("is_enable_edit", this.eLX);
         bundle.putInt("fragment_type", i);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.COLLECT_TAB_NAVI_EDIT_ENABLE, bundle));
     }
 
-    protected void q(boolean z, int i) {
+    protected void p(boolean z, int i) {
         Bundle bundle = new Bundle();
         bundle.putBoolean("is_edit_state", z);
         bundle.putInt("fragment_type", i);

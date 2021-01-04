@@ -10,7 +10,7 @@ import com.baidu.live.adp.widget.listview.AbsDelegateAdapter;
 import com.baidu.live.adp.widget.listview.TypeAdapter;
 import com.baidu.live.sdk.a;
 import com.baidu.tieba.yuyinala.liveroom.recommend.data.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class b extends AbsDelegateAdapter<c, a> {
     public b(Context context, BdUniqueId bdUniqueId) {
         super(context, bdUniqueId);
@@ -19,7 +19,7 @@ public class b extends AbsDelegateAdapter<c, a> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.adp.widget.listview.AbsDelegateAdapter
-    /* renamed from: cT */
+    /* renamed from: dg */
     public a onCreateViewHolder(ViewGroup viewGroup) {
         return new a(LayoutInflater.from(this.mContext).inflate(a.g.ala_recommend_live_type_item_layout, viewGroup, false));
     }
@@ -38,23 +38,23 @@ public class b extends AbsDelegateAdapter<c, a> {
                 string = this.mContext.getString(a.h.recommend_live_recommend);
                 break;
         }
-        aVar.mQv.setText(string);
+        aVar.mVU.setText(string);
         int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds16);
         if (i == 0) {
-            aVar.mQv.setPadding(0, this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds20), 0, dimensionPixelSize);
+            aVar.mVU.setPadding(0, this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds20), 0, dimensionPixelSize);
         } else {
-            aVar.mQv.setPadding(0, this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds40), 0, dimensionPixelSize);
+            aVar.mVU.setPadding(0, this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds40), 0, dimensionPixelSize);
         }
         return view;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public static class a extends TypeAdapter.ViewHolder {
-        private TextView mQv;
+        private TextView mVU;
 
         private a(View view) {
             super(view);
-            this.mQv = (TextView) view.findViewById(a.f.ala_recommend_live_type);
+            this.mVU = (TextView) view.findViewById(a.f.ala_recommend_live_type);
         }
     }
 }

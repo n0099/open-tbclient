@@ -5,53 +5,53 @@ import android.os.Looper;
 import com.facebook.common.internal.g;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes15.dex */
 public class a {
-    private static a pel = null;
-    private final Runnable pen = new Runnable() { // from class: com.facebook.drawee.components.a.1
+    private static a pvr = null;
+    private final Runnable pvt = new Runnable() { // from class: com.facebook.drawee.components.a.1
         @Override // java.lang.Runnable
         public void run() {
-            a.erb();
-            for (InterfaceC0992a interfaceC0992a : a.this.pem) {
-                interfaceC0992a.release();
+            a.evd();
+            for (InterfaceC1021a interfaceC1021a : a.this.pvs) {
+                interfaceC1021a.release();
             }
-            a.this.pem.clear();
+            a.this.pvs.clear();
         }
     };
-    private final Set<InterfaceC0992a> pem = new HashSet();
+    private final Set<InterfaceC1021a> pvs = new HashSet();
     private final Handler mUiHandler = new Handler(Looper.getMainLooper());
 
     /* renamed from: com.facebook.drawee.components.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public interface InterfaceC0992a {
+    /* loaded from: classes15.dex */
+    public interface InterfaceC1021a {
         void release();
     }
 
-    public static synchronized a era() {
+    public static synchronized a evc() {
         a aVar;
         synchronized (a.class) {
-            if (pel == null) {
-                pel = new a();
+            if (pvr == null) {
+                pvr = new a();
             }
-            aVar = pel;
+            aVar = pvr;
         }
         return aVar;
     }
 
-    public void a(InterfaceC0992a interfaceC0992a) {
-        erb();
-        if (this.pem.add(interfaceC0992a) && this.pem.size() == 1) {
-            this.mUiHandler.post(this.pen);
+    public void a(InterfaceC1021a interfaceC1021a) {
+        evd();
+        if (this.pvs.add(interfaceC1021a) && this.pvs.size() == 1) {
+            this.mUiHandler.post(this.pvt);
         }
     }
 
-    public void b(InterfaceC0992a interfaceC0992a) {
-        erb();
-        this.pem.remove(interfaceC0992a);
+    public void b(InterfaceC1021a interfaceC1021a) {
+        evd();
+        this.pvs.remove(interfaceC1021a);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void erb() {
+    public static void evd() {
         g.checkState(Looper.getMainLooper().getThread() == Thread.currentThread());
     }
 }

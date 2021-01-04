@@ -4,15 +4,15 @@ import android.view.View;
 import com.baidu.live.data.AlaLiveInfoData;
 import com.baidu.live.data.AlaLiveUserInfoData;
 import com.baidu.live.tbadk.core.data.AlaBroadcastGiftToastData;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public interface ab {
-    View Ip();
+    View HQ();
 
     void a(AlaLiveInfoData alaLiveInfoData, AlaLiveUserInfoData alaLiveUserInfoData);
 
     void a(AlaBroadcastGiftToastData alaBroadcastGiftToastData);
 
-    void en(int i);
+    void el(int i);
 
     void onDestroy();
 }

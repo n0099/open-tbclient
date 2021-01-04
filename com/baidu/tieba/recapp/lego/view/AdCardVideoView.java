@@ -14,9 +14,9 @@ import com.baidu.tieba.recapp.lego.a.a;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.m;
 import com.baidu.tieba.recapp.view.DistributeVideoView;
-/* loaded from: classes26.dex */
+/* loaded from: classes8.dex */
 public class AdCardVideoView extends AdCardBaseView implements m {
-    public DistributeVideoView mHJ;
+    public DistributeVideoView mMZ;
     private TbPageContext mTbPageContext;
 
     public AdCardVideoView(TbPageContext<?> tbPageContext) {
@@ -30,35 +30,35 @@ public class AdCardVideoView extends AdCardBaseView implements m {
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
-    protected void dS(View view) {
+    protected void ec(View view) {
         if (view != null) {
-            float Jm = Jm(R.string.J_X05);
-            ((XfremodeRoundLayout) view).setRoundLayoutRadius(new float[]{Jm, Jm, Jm, Jm, Jm, Jm, Jm, Jm});
+            float Jg = Jg(R.string.J_X05);
+            ((XfremodeRoundLayout) view).setRoundLayoutRadius(new float[]{Jg, Jg, Jg, Jg, Jg, Jg, Jg, Jg});
             ((XfremodeRoundLayout) view).setLayerType(2, null);
-            this.mHJ = (DistributeVideoView) view.findViewById(R.id.advert_video);
-            this.mHJ.setHolderView(view);
+            this.mMZ = (DistributeVideoView) view.findViewById(R.id.advert_video);
+            this.mMZ.setHolderView(view);
         }
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     protected void a(AdCard adCard) {
         if (adCard != null && adCard.videoInfo != null) {
-            this.mHJ.setPageContext(this.mTbPageContext);
-            this.mHJ.setVideoTailFrameData(adCard.tailFrame);
-            this.mHJ.setData(adCard.videoInfo, this.mMaxWidth, this.mImageHeight, this.mImageWidth);
-            this.mHJ.setChargeInfo(adCard.chargeInfo);
-            this.mHJ.setScheme(adCard.getScheme());
-            this.mHJ.setAdInfo(adCard);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mHJ.getLayoutParams();
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.mJr.getLayoutParams();
+            this.mMZ.setPageContext(this.mTbPageContext);
+            this.mMZ.setVideoTailFrameData(adCard.tailFrame);
+            this.mMZ.setData(adCard.videoInfo, this.mMaxWidth, this.mImageHeight, this.mImageWidth);
+            this.mMZ.setChargeInfo(adCard.chargeInfo);
+            this.mMZ.setScheme(adCard.getScheme());
+            this.mMZ.setAdInfo(adCard);
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mMZ.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.mOy.getLayoutParams();
             if (adCard.goodsStyle == 14) {
-                ViewGroup.LayoutParams layoutParams3 = this.mJQ.getLayoutParams();
-                int equipmentWidth = layoutParams3.width > 0 ? layoutParams3.width / 2 : (l.getEquipmentWidth(getContext()) - (this.mJw * 2)) / 2;
+                ViewGroup.LayoutParams layoutParams3 = this.mOX.getLayoutParams();
+                int equipmentWidth = layoutParams3.width > 0 ? layoutParams3.width / 2 : (l.getEquipmentWidth(getContext()) - (this.mOD * 2)) / 2;
                 layoutParams.width = equipmentWidth;
                 layoutParams2.width = equipmentWidth;
-                int Jk = a.Jk(layoutParams.width);
-                layoutParams.height = Jk;
-                layoutParams2.height = Jk;
+                int Je = a.Je(layoutParams.width);
+                layoutParams.height = Je;
+                layoutParams2.height = Je;
                 layoutParams.gravity = 3;
                 layoutParams2.gravity = 3;
             } else {
@@ -67,9 +67,9 @@ public class AdCardVideoView extends AdCardBaseView implements m {
                 layoutParams.gravity = 1;
                 layoutParams2.gravity = 1;
             }
-            this.mJr.requestLayout();
+            this.mOy.requestLayout();
             AdvertAppInfo advertAppInfo = adCard.getAdvertAppInfo();
-            this.mHJ.updateTailFrameView(advertAppInfo);
+            this.mMZ.updateTailFrameView(advertAppInfo);
             if (advertAppInfo != null) {
                 int i = -1;
                 String pageTypeByBusiness = TextUtils.isEmpty(advertAppInfo.page) ? getPageTypeByBusiness() : advertAppInfo.page;
@@ -77,13 +77,13 @@ public class AdCardVideoView extends AdCardBaseView implements m {
                     i = advertAppInfo.advertAppContext.pn;
                     pageTypeByBusiness = advertAppInfo.advertAppContext.page;
                 }
-                this.mHJ.setStatisticInfo(advertAppInfo, i, pageTypeByBusiness);
+                this.mMZ.setStatisticInfo(advertAppInfo, i, pageTypeByBusiness);
             }
-            this.mHJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.AdCardVideoView.1
+            this.mMZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.AdCardVideoView.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    AdCardVideoView.this.mHJ.jump2DownloadDetailPage();
-                    AdCardVideoView.this.dFy();
+                    AdCardVideoView.this.mMZ.jump2DownloadDetailPage();
+                    AdCardVideoView.this.dFn();
                 }
             });
         }
@@ -106,7 +106,7 @@ public class AdCardVideoView extends AdCardBaseView implements m {
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, com.baidu.tieba.lego.card.view.e
     public void setDownloadAppCallback(c cVar) {
         super.setDownloadAppCallback(cVar);
-        this.mHJ.setDownloadCallback(cVar);
+        this.mMZ.setDownloadCallback(cVar);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
@@ -116,6 +116,6 @@ public class AdCardVideoView extends AdCardBaseView implements m {
 
     @Override // com.baidu.tieba.recapp.m
     public j getVideoOrVrView() {
-        return this.mHJ;
+        return this.mMZ;
     }
 }

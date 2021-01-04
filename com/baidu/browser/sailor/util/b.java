@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.WebViewFactory;
@@ -16,11 +17,11 @@ import java.io.FileInputStream;
 import java.net.URLEncoder;
 import java.security.MessageDigest;
 import java.text.SimpleDateFormat;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static SimpleDateFormat f1286a = null;
+    private static SimpleDateFormat f1650a = null;
 
     /* JADX WARN: Removed duplicated region for block: B:36:0x0044 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
@@ -31,7 +32,7 @@ public final class b {
         DataInputStream dataInputStream2 = null;
         try {
             try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                MessageDigest messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
                 dataInputStream = new DataInputStream(new FileInputStream(str));
                 try {
                     byte[] bArr = new byte[131072];
@@ -82,8 +83,8 @@ public final class b {
 
     private static String a(byte[] bArr, String str) {
         StringBuilder sb = new StringBuilder();
-        for (byte b : bArr) {
-            String hexString = Integer.toHexString(b & 255);
+        for (byte b2 : bArr) {
+            String hexString = Integer.toHexString(b2 & 255);
             if (hexString.length() == 1) {
                 sb.append("0");
             }

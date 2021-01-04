@@ -3,25 +3,25 @@ package com.baidu.swan.c;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import java.io.File;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class i implements b {
-    private String dCs;
+    private String dKW;
     private final Context mContext = AppRuntime.getAppContext();
     @NonNull
     private final SharedPreferences mSp;
 
     public i(String str) {
-        this.dCs = (TextUtils.isEmpty(str) || str.indexOf(File.separatorChar) >= 0) ? "default" : str;
-        if ("default".equals(this.dCs)) {
+        this.dKW = (TextUtils.isEmpty(str) || str.indexOf(File.separatorChar) >= 0) ? "default" : str;
+        if ("default".equals(this.dKW)) {
             this.mSp = PreferenceManager.getDefaultSharedPreferences(this.mContext);
-            this.dCs = this.mContext.getPackageName() + "_preferences";
+            this.dKW = this.mContext.getPackageName() + "_preferences";
             return;
         }
         this.mSp = this.mContext.getSharedPreferences(str, 0);
@@ -35,16 +35,16 @@ public class i implements b {
     @Override // com.baidu.swan.c.b
     @NonNull
     public File getFile() {
-        return ar(this.mContext, this.dCs);
+        return az(this.mContext, this.dKW);
     }
 
     @Override // com.baidu.swan.c.b
-    public boolean aNp() {
+    public boolean aPF() {
         return false;
     }
 
     @Override // com.baidu.swan.c.b
-    public Set<String> aNq() {
+    public Set<String> aPG() {
         return this.mSp.getAll().keySet();
     }
 
@@ -162,7 +162,7 @@ public class i implements b {
         edit().apply();
     }
 
-    public static File ar(@NonNull Context context, @NonNull String str) {
+    public static File az(@NonNull Context context, @NonNull String str) {
         return new File(context.getApplicationInfo().dataDir, "shared_prefs/" + str + ".xml");
     }
 }

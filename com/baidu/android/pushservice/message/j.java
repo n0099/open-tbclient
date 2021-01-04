@@ -9,13 +9,15 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class j extends c {
-    private Context b;
+
+    /* renamed from: b  reason: collision with root package name */
+    private Context f1469b;
 
     public j(Context context) {
         super(context);
-        this.b = context.getApplicationContext();
+        this.f1469b = context.getApplicationContext();
     }
 
     private static String a(byte[] bArr) {
@@ -50,7 +52,7 @@ public class j extends c {
         eVar.d = true;
         g gVar2 = new g();
         gVar2.a(-1);
-        byte[] bArr = eVar.b;
+        byte[] bArr = eVar.f1462b;
         if (bArr == null) {
             return gVar2;
         }
@@ -89,7 +91,7 @@ public class j extends c {
                     }
                     kVar.a(false);
                 } catch (JSONException e) {
-                    new b.c(this.f1177a).a(Log.getStackTraceString(e)).a();
+                    new b.c(this.f1458a).a(Log.getStackTraceString(e)).a();
                 }
             } else {
                 kVar.a(false);
@@ -107,17 +109,17 @@ public class j extends c {
             }
             byte[] bArr5 = new byte[length];
             System.arraycopy(bArr, i, bArr5, 0, length);
-            m.a("New MSG: " + kVar.toString(), this.f1177a);
+            m.a("New MSG: " + kVar.toString(), this.f1458a);
             com.baidu.android.pushservice.message.a.j a2 = com.baidu.android.pushservice.message.a.j.a(kVar.f());
-            if (com.baidu.android.pushservice.c.c.c(this.f1177a, kVar.d())) {
+            if (com.baidu.android.pushservice.c.c.c(this.f1458a, kVar.d())) {
                 String str = "Message ID(" + kVar.e() + ") received duplicated, ack success to server directly.";
-                com.baidu.android.pushservice.f.a.a("PushMessageHandler", str, this.b);
-                m.a(str, this.b);
-                a(this.f1177a, a2, kVar.e(), 4);
+                com.baidu.android.pushservice.f.a.a("PushMessageHandler", str, this.f1469b);
+                m.a(str, this.f1469b);
+                a(this.f1458a, a2, kVar.e(), 4);
                 gVar2.a(4);
                 return gVar2;
             }
-            com.baidu.android.pushservice.message.a.b a3 = new com.baidu.android.pushservice.message.a.i(this.f1177a).a(a2);
+            com.baidu.android.pushservice.message.a.b a3 = new com.baidu.android.pushservice.message.a.i(this.f1458a).a(a2);
             if (a3 != null) {
                 gVar = a3.a(kVar, bArr5);
             } else {
@@ -125,16 +127,16 @@ public class j extends c {
                 gVar = gVar2;
             }
             if (a2 == com.baidu.android.pushservice.message.a.j.MSG_TYPE_SINGLE_PRIVATE || a2 == com.baidu.android.pushservice.message.a.j.MSG_TYPE_MULTI_PRIVATE || a2 == com.baidu.android.pushservice.message.a.j.MSG_TYPE_PRIVATE_MESSAGE) {
-                com.baidu.android.pushservice.c.c.a(this.f1177a, kVar.b(), kVar.f(), kVar.d(), bArr5, kVar.g(), kVar.a(), gVar.a());
+                com.baidu.android.pushservice.c.c.a(this.f1458a, kVar.b(), kVar.f(), kVar.d(), bArr5, kVar.g(), kVar.a(), gVar.a());
             } else {
-                com.baidu.android.pushservice.c.c.a(this.f1177a, kVar.b(), kVar.f(), kVar.d(), null, null, 0L, gVar.a());
+                com.baidu.android.pushservice.c.c.a(this.f1458a, kVar.b(), kVar.f(), kVar.d(), null, null, 0L, gVar.a());
             }
-            if (m.o(this.f1177a)) {
+            if (m.o(this.f1458a)) {
             }
-            a(this.f1177a, a2, kVar.e(), gVar.a());
+            a(this.f1458a, a2, kVar.e(), gVar.a());
             return gVar;
         } catch (IOException e2) {
-            new b.c(this.f1177a).a(Log.getStackTraceString(e2)).a();
+            new b.c(this.f1458a).a(Log.getStackTraceString(e2)).a();
             return gVar2;
         }
     }

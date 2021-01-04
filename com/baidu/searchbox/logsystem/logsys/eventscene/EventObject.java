@@ -1,8 +1,8 @@
 package com.baidu.searchbox.logsystem.logsys.eventscene;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.logsystem.logsys.LogType;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class EventObject {
     @NonNull
     public final String mEventLog;

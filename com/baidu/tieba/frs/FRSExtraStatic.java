@@ -1,6 +1,5 @@
 package com.baidu.tieba.frs;
 
-import android.os.Build;
 import android.os.Bundle;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -20,9 +19,9 @@ import com.baidu.tbadk.core.atomData.GameShareActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoAggregationActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoEasterEggActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoMiddlePageActivityConfig;
-import com.baidu.tbadk.core.data.bn;
-import com.baidu.tbadk.core.data.by;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.data.bo;
+import com.baidu.tbadk.core.data.bz;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tieba.forumMember.tbtitle.TbTitleActivityConfig;
 import com.baidu.tieba.frs.aggregation.VideoAggregationActivity;
 import com.baidu.tieba.frs.frsfeedforums.FrsMoreFeedForumsActivity;
@@ -37,7 +36,7 @@ import com.tencent.connect.share.QzonePublish;
 import java.net.URLDecoder;
 import java.util.Map;
 import tbclient.FrsTabInfo;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class FRSExtraStatic {
     public static String Tag = "tag";
 
@@ -49,18 +48,18 @@ public class FRSExtraStatic {
         TbadkCoreApplication.getInst().RegisterIntent(FrsGameCommentActivityConfig.class, FrsGameCommentActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(FrsGameSubPbActivityConfig.class, FrsGameSubPbActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(FrsProfessionIntroActivityConfig.class, FrsProfessionIntroActivity.class);
-        by.eJF.set(true);
-        e.iRQ.set(new bc());
+        bz.eTy.set(true);
+        e.jec.set(new az());
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_FRS_ADD_ADAPTER) { // from class: com.baidu.tieba.frs.FRSExtraStatic.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                     AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
-                    absDelegateAdapterList.add(new y(null, bn.eHW, null));
-                    absDelegateAdapterList.add(new com.baidu.tieba.frs.a.a.a(null, com.baidu.tieba.card.data.n.inG, true));
-                    absDelegateAdapterList.add(new com.baidu.tieba.frs.a.a.b(null, com.baidu.tieba.tbadkCore.ad.nkR, null));
-                    absDelegateAdapterList.add(new com.baidu.tieba.frs.gamepaltform.a(null, com.baidu.tieba.i.b.jDN, null));
+                    absDelegateAdapterList.add(new FrsSchoolRecommendAdapter(null, bo.eRO, null));
+                    absDelegateAdapterList.add(new com.baidu.tieba.frs.extra.adapter.a(null, com.baidu.tieba.card.data.n.iAa, true));
+                    absDelegateAdapterList.add(new com.baidu.tieba.frs.extra.adapter.b(null, com.baidu.tieba.tbadkCore.ad.nqz, null));
+                    absDelegateAdapterList.add(new com.baidu.tieba.frs.gamepaltform.a(null, com.baidu.tieba.i.b.jRf, null));
                 }
             }
         });
@@ -70,27 +69,27 @@ public class FRSExtraStatic {
                 return null;
             }
         }));
-        com.baidu.tbadk.core.util.bf.bua().a(new bf.a() { // from class: com.baidu.tieba.frs.FRSExtraStatic.3
-            @Override // com.baidu.tbadk.core.util.bf.a
+        be.bwu().a(new be.a() { // from class: com.baidu.tieba.frs.FRSExtraStatic.3
+            @Override // com.baidu.tbadk.core.util.be.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 Map<String, String> paramPair;
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {
                     return 3;
                 }
                 String str = strArr[0];
-                if (!str.contains("tieba.baidu.com/videoMiddlePage") || (paramPair = com.baidu.tbadk.core.util.bf.getParamPair(com.baidu.tbadk.core.util.bf.getParamStr(str))) == null) {
+                if (!str.contains("tieba.baidu.com/videoMiddlePage") || (paramPair = be.getParamPair(be.getParamStr(str))) == null) {
                     return 3;
                 }
                 String str2 = paramPair.get(TbEnum.SystemMessage.KEY_USER_NAME);
-                String decode = !com.baidu.tbadk.core.util.au.isEmpty(str2) ? URLDecoder.decode(str2) : str2;
+                String decode = !com.baidu.tbadk.core.util.at.isEmpty(str2) ? URLDecoder.decode(str2) : str2;
                 String str3 = paramPair.get("portrait");
-                String decode2 = !com.baidu.tbadk.core.util.au.isEmpty(str3) ? URLDecoder.decode(str3) : str3;
+                String decode2 = !com.baidu.tbadk.core.util.at.isEmpty(str3) ? URLDecoder.decode(str3) : str3;
                 String str4 = paramPair.get("videoUrl");
-                String decode3 = !com.baidu.tbadk.core.util.au.isEmpty(str4) ? URLDecoder.decode(str4) : str4;
+                String decode3 = !com.baidu.tbadk.core.util.at.isEmpty(str4) ? URLDecoder.decode(str4) : str4;
                 String str5 = paramPair.get("thumbnailUrl");
-                String decode4 = !com.baidu.tbadk.core.util.au.isEmpty(str5) ? URLDecoder.decode(str5) : str5;
+                String decode4 = !com.baidu.tbadk.core.util.at.isEmpty(str5) ? URLDecoder.decode(str5) : str5;
                 String str6 = paramPair.get("title");
-                String decode5 = !com.baidu.tbadk.core.util.au.isEmpty(str6) ? URLDecoder.decode(str6) : str6;
+                String decode5 = !com.baidu.tbadk.core.util.at.isEmpty(str6) ? URLDecoder.decode(str6) : str6;
                 VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo = new VideoSerializeVideoThreadInfo();
                 videoSerializeVideoThreadInfo.author = new VideoSerializeVideoThreadInfo.VideoAggregationAuthorData();
                 videoSerializeVideoThreadInfo.author.userId = paramPair.get(TbEnum.SystemMessage.KEY_USER_ID);
@@ -125,14 +124,14 @@ public class FRSExtraStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001616) {
                     Object data = customResponsedMessage.getData();
-                    if (data instanceof al) {
-                        al alVar = (al) data;
-                        alVar.b(new com.baidu.tieba.frs.gamerecommend.a(alVar.getForumId(), alVar.getForumName()));
-                        for (FrsTabInfo frsTabInfo : alVar.bBY()) {
+                    if (data instanceof ai) {
+                        ai aiVar = (ai) data;
+                        aiVar.b(new com.baidu.tieba.frs.gamerecommend.a(aiVar.getForumId(), aiVar.getForumName()));
+                        for (FrsTabInfo frsTabInfo : aiVar.bEt()) {
                             if (frsTabInfo.tab_id.intValue() > 100) {
                                 com.baidu.tieba.frs.gametabs.c cVar = new com.baidu.tieba.frs.gametabs.c(frsTabInfo.tab_id.intValue(), frsTabInfo.tab_url);
-                                alVar.b(cVar);
-                                if (alVar.getContext() == null) {
+                                aiVar.b(cVar);
+                                if (aiVar.getContext() == null) {
                                     continue;
                                 } else {
                                     com.baidu.tbadk.mainTab.c fragmentTabStructure = cVar.getFragmentTabStructure();
@@ -149,26 +148,23 @@ public class FRSExtraStatic {
             }
         });
         TbadkCoreApplication.getInst().RegisterIntent(FrsMoreFeedForumsConfig.class, FrsMoreFeedForumsActivity.class);
-        bHR();
-        bTl();
-        if (Build.VERSION.SDK_INT < 24) {
-            com.baidu.tieba.nativecrash.a.djV();
-        }
+        bKl();
+        bVQ();
     }
 
-    private static void bHR() {
+    private static void bKl() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_FRS_ADD_ADAPTER) { // from class: com.baidu.tieba.frs.FRSExtraStatic.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
-                    ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new com.baidu.tieba.frs.frsfeedforums.c(null, com.baidu.tieba.tbadkCore.l.njV, true));
+                    ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new com.baidu.tieba.frs.frsfeedforums.c(null, com.baidu.tieba.tbadkCore.l.npC, true));
                 }
             }
         });
     }
 
-    private static void bTl() {
+    private static void bVQ() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_FRS_MORE_FEED_FORUMS_CONTROLLER, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.frs.FRSExtraStatic.6
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {

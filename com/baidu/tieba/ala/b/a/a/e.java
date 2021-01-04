@@ -3,7 +3,7 @@ package com.baidu.tieba.ala.b.a.a;
 import android.content.Context;
 import dalvik.system.PathClassLoader;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes10.dex */
 public class e implements a {
     @Override // com.baidu.tieba.ala.b.a.a.a
     public void j(Context context, File file) {
@@ -16,6 +16,6 @@ public class e implements a {
 
     @Override // com.baidu.tieba.ala.b.a.a.a
     public boolean k(Context context, File file) {
-        return com.baidu.tieba.ala.b.a.b.a.b((String[]) com.baidu.tieba.ala.b.a.b.b.getFieldValue((PathClassLoader) context.getClassLoader(), "mLibPaths"), file.getAbsolutePath());
+        return com.baidu.tieba.ala.b.a.b.a.c((String[]) com.baidu.tieba.ala.b.a.b.b.getFieldValue((PathClassLoader) context.getClassLoader(), "mLibPaths"), file.getAbsolutePath());
     }
 }

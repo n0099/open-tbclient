@@ -11,7 +11,7 @@ import io.reactivex.t;
 import io.reactivex.u;
 import java.util.ArrayDeque;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class ObservableConcatMapEager<T, R> extends a<T, R> {
     final ErrorMode errorMode;
     final h<? super T, ? extends t<? extends R>> mapper;
@@ -23,7 +23,7 @@ public final class ObservableConcatMapEager<T, R> extends a<T, R> {
         this.source.subscribe(new ConcatMapEagerMainObserver(uVar, this.mapper, this.maxConcurrency, this.prefetch, this.errorMode));
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class ConcatMapEagerMainObserver<T, R> extends AtomicInteger implements io.reactivex.disposables.b, c<R>, u<T> {
         private static final long serialVersionUID = 8080567949447303262L;
         int activeCount;
@@ -300,7 +300,7 @@ public final class ObservableConcatMapEager<T, R> extends a<T, R> {
             r0 = move-exception;
          */
         /* JADX WARN: Code restructure failed: missing block: B:68:0x0158, code lost:
-            io.reactivex.exceptions.a.J(r0);
+            io.reactivex.exceptions.a.O(r0);
             r13.error.addThrowable(r0);
             r13.current = null;
             r13.activeCount--;
@@ -364,7 +364,7 @@ public final class ObservableConcatMapEager<T, R> extends a<T, R> {
                                 tVar.subscribe(innerQueuedObserver);
                                 i2 = i3 + 1;
                             } catch (Throwable th) {
-                                io.reactivex.exceptions.a.J(th);
+                                io.reactivex.exceptions.a.O(th);
                                 this.d.dispose();
                                 fVar.clear();
                                 disposeAll();

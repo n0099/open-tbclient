@@ -6,9 +6,9 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-/* loaded from: classes22.dex */
+/* loaded from: classes.dex */
 public class b implements com.baidu.tbadk.core.e.a {
-    private a nsA;
+    private a nyz;
 
     @Override // com.baidu.tbadk.core.e.a
     public void c(Context context, int i, boolean z) {
@@ -16,17 +16,17 @@ public class b implements com.baidu.tbadk.core.e.a {
     }
 
     @Override // com.baidu.tbadk.core.e.a
-    public void A(Context context, int i) {
+    public void B(Context context, int i) {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(context).createNormalCfg(i)));
     }
 
     @Override // com.baidu.tbadk.core.e.a
-    public void eD(Context context) {
+    public void eW(Context context) {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount != null && currentAccount.length() > 0) {
-            A(context, 1);
+            B(context, 1);
         } else {
-            A(context, 0);
+            B(context, 0);
         }
     }
 
@@ -36,24 +36,24 @@ public class b implements com.baidu.tbadk.core.e.a {
     }
 
     @Override // com.baidu.tbadk.core.e.a
-    public Class<?> bsE() {
+    public Class<?> bvg() {
         return MainTabActivity.class;
     }
 
     @Override // com.baidu.tbadk.core.e.a
-    public String bsF() {
+    public String bvh() {
         return MainTabActivity.class.getName();
     }
 
     @Override // com.baidu.tbadk.core.e.a
     public int getCurrentTabType() {
-        if (this.nsA != null) {
-            return this.nsA.getCurrentTabType();
+        if (this.nyz != null) {
+            return this.nyz.getCurrentTabType();
         }
         return -1;
     }
 
     public void a(a aVar) {
-        this.nsA = aVar;
+        this.nyz = aVar;
     }
 }

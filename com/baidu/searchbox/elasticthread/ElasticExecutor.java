@@ -1,6 +1,8 @@
 package com.baidu.searchbox.elasticthread;
+
+import androidx.annotation.NonNull;
 @Deprecated
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class ElasticExecutor extends ExecutorProxy {
     @Deprecated
     public static final int TASK_PRIORITY_BACKGROUND = 3;
@@ -16,17 +18,17 @@ public class ElasticExecutor extends ExecutorProxy {
     }
 
     @Override // com.baidu.searchbox.elasticthread.ExecutorProxy, java.util.concurrent.Executor
-    public void execute(Runnable runnable) {
+    public void execute(@NonNull Runnable runnable) {
         execute(runnable, this.mDefaultTaskName, this.mDefaultPriority);
     }
 
     @Override // com.baidu.searchbox.elasticthread.ExecutorProxy
-    public void execute(Runnable runnable, String str) {
+    public void execute(@NonNull Runnable runnable, @NonNull String str) {
         execute(runnable, str, this.mDefaultPriority);
     }
 
     @Override // com.baidu.searchbox.elasticthread.ExecutorProxy
-    public void execute(Runnable runnable, String str, int i) {
+    public void execute(@NonNull Runnable runnable, @NonNull String str, int i) {
         ExecutorUtilsExt.postOnElastic(runnable, str, i);
     }
 }

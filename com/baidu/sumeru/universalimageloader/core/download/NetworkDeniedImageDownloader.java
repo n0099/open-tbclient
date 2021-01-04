@@ -3,7 +3,7 @@ package com.baidu.sumeru.universalimageloader.core.download;
 import com.baidu.sumeru.universalimageloader.core.download.ImageDownloader;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public class NetworkDeniedImageDownloader implements ImageDownloader {
     private final ImageDownloader wrappedDownloader;
 

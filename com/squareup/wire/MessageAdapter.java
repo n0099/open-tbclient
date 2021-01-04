@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes10.dex */
+/* loaded from: classes5.dex */
 public final class MessageAdapter<M extends Message> {
     private static /* synthetic */ int[] $SWITCH_TABLE$com$squareup$wire$Message$Datatype;
     private static /* synthetic */ int[] $SWITCH_TABLE$com$squareup$wire$WireType;
@@ -134,7 +134,7 @@ public final class MessageAdapter<M extends Message> {
         return iArr;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes5.dex */
     public static final class FieldInfo {
         private final Field builderMethod;
         final Message.Datatype datatype;
@@ -502,24 +502,26 @@ public final class MessageAdapter<M extends Message> {
     }
 
     private int utf8Length(String str) {
-        int i = 0;
+        int i;
         int length = str.length();
         int i2 = 0;
-        while (i < length) {
-            char charAt = str.charAt(i);
+        int i3 = 0;
+        while (i2 < length) {
+            char charAt = str.charAt(i2);
             if (charAt <= 127) {
-                i2++;
+                i = i3 + 1;
             } else if (charAt <= 2047) {
-                i2 += 2;
+                i = i3 + 2;
             } else if (Character.isHighSurrogate(charAt)) {
-                i2 += 4;
-                i++;
+                i = i3 + 4;
+                i2++;
             } else {
-                i2 += 3;
+                i = i3 + 3;
             }
-            i++;
+            i2++;
+            i3 = i;
         }
-        return i2;
+        return i3;
     }
 
     private <E extends ProtoEnum> int getEnumSize(E e) {
@@ -606,8 +608,8 @@ public final class MessageAdapter<M extends Message> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public M read(WireInput wireInput) throws IOException {
         Message.Datatype datatype;
-        Extension<ExtendableMessage<?>, ?> extension;
         Message.Label label;
+        Extension<ExtendableMessage<?>, ?> extension;
         try {
             Message.Builder<M> newInstance = this.builderType.newInstance();
             Storage storage = new Storage(null);
@@ -629,18 +631,15 @@ public final class MessageAdapter<M extends Message> {
                 FieldInfo fieldInfo = this.fieldInfoMap.get(Integer.valueOf(i));
                 if (fieldInfo != null) {
                     datatype = fieldInfo.datatype;
-                    extension = null;
                     label = fieldInfo.label;
+                    extension = null;
                 } else {
-                    Extension<ExtendableMessage<?>, ?> extension2 = getExtension(i);
-                    if (extension2 == null) {
+                    extension = getExtension(i);
+                    if (extension == null) {
                         readUnknownField(newInstance, wireInput, i, valueOf);
                     } else {
-                        Message.Datatype datatype2 = extension2.getDatatype();
-                        Message.Label label2 = extension2.getLabel();
-                        extension = extension2;
-                        datatype = datatype2;
-                        label = label2;
+                        datatype = extension.getDatatype();
+                        label = extension.getLabel();
                     }
                 }
                 if (label.isPacked() && valueOf == WireType.LENGTH_DELIMITED) {
@@ -778,7 +777,7 @@ public final class MessageAdapter<M extends Message> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes5.dex */
     public static class Storage {
         private final Map<Integer, List<Object>> map;
 

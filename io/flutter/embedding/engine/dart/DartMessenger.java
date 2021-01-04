@@ -1,5 +1,8 @@
 package io.flutter.embedding.engine.dart;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.UiThread;
 import io.flutter.Log;
 import io.flutter.embedding.engine.FlutterJNI;
 import io.flutter.plugin.common.BinaryMessenger;
@@ -8,21 +11,24 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class DartMessenger implements PlatformMessageHandler, BinaryMessenger {
     private static final String TAG = "DartMessenger";
+    @NonNull
     private final FlutterJNI flutterJNI;
     private int nextReplyId = 1;
+    @NonNull
     private final Map<String, BinaryMessenger.BinaryMessageHandler> messageHandlers = new HashMap();
+    @NonNull
     private final Map<Integer, BinaryMessenger.BinaryReply> pendingReplies = new HashMap();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public DartMessenger(FlutterJNI flutterJNI) {
+    public DartMessenger(@NonNull FlutterJNI flutterJNI) {
         this.flutterJNI = flutterJNI;
     }
 
     @Override // io.flutter.plugin.common.BinaryMessenger
-    public void setMessageHandler(String str, BinaryMessenger.BinaryMessageHandler binaryMessageHandler) {
+    public void setMessageHandler(@NonNull String str, @Nullable BinaryMessenger.BinaryMessageHandler binaryMessageHandler) {
         if (binaryMessageHandler == null) {
             Log.v(TAG, "Removing handler for channel '" + str + "'");
             this.messageHandlers.remove(str);
@@ -33,13 +39,14 @@ public class DartMessenger implements PlatformMessageHandler, BinaryMessenger {
     }
 
     @Override // io.flutter.plugin.common.BinaryMessenger
-    public void send(String str, ByteBuffer byteBuffer) {
+    @UiThread
+    public void send(@NonNull String str, @NonNull ByteBuffer byteBuffer) {
         Log.v(TAG, "Sending message over channel '" + str + "'");
         send(str, byteBuffer, null);
     }
 
     @Override // io.flutter.plugin.common.BinaryMessenger
-    public void send(String str, ByteBuffer byteBuffer, BinaryMessenger.BinaryReply binaryReply) {
+    public void send(@NonNull String str, @Nullable ByteBuffer byteBuffer, @Nullable BinaryMessenger.BinaryReply binaryReply) {
         Log.v(TAG, "Sending message with callback over channel '" + str + "'");
         int i = 0;
         if (binaryReply != null) {
@@ -55,7 +62,7 @@ public class DartMessenger implements PlatformMessageHandler, BinaryMessenger {
     }
 
     @Override // io.flutter.embedding.engine.dart.PlatformMessageHandler
-    public void handleMessageFromDart(String str, byte[] bArr, int i) {
+    public void handleMessageFromDart(@NonNull String str, @Nullable byte[] bArr, int i) {
         Log.v(TAG, "Received message from Dart over channel '" + str + "'");
         BinaryMessenger.BinaryMessageHandler binaryMessageHandler = this.messageHandlers.get(str);
         if (binaryMessageHandler != null) {
@@ -74,7 +81,7 @@ public class DartMessenger implements PlatformMessageHandler, BinaryMessenger {
     }
 
     @Override // io.flutter.embedding.engine.dart.PlatformMessageHandler
-    public void handlePlatformMessageResponse(int i, byte[] bArr) {
+    public void handlePlatformMessageResponse(int i, @Nullable byte[] bArr) {
         Log.v(TAG, "Received message reply from Dart.");
         BinaryMessenger.BinaryReply remove = this.pendingReplies.remove(Integer.valueOf(i));
         if (remove != null) {
@@ -87,23 +94,25 @@ public class DartMessenger implements PlatformMessageHandler, BinaryMessenger {
         }
     }
 
+    @UiThread
     public int getPendingChannelResponseCount() {
         return this.pendingReplies.size();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     private static class Reply implements BinaryMessenger.BinaryReply {
         private final AtomicBoolean done = new AtomicBoolean(false);
+        @NonNull
         private final FlutterJNI flutterJNI;
         private final int replyId;
 
-        Reply(FlutterJNI flutterJNI, int i) {
+        Reply(@NonNull FlutterJNI flutterJNI, int i) {
             this.flutterJNI = flutterJNI;
             this.replyId = i;
         }
 
         @Override // io.flutter.plugin.common.BinaryMessenger.BinaryReply
-        public void reply(ByteBuffer byteBuffer) {
+        public void reply(@Nullable ByteBuffer byteBuffer) {
             if (this.done.getAndSet(true)) {
                 throw new IllegalStateException("Reply already submitted");
             }

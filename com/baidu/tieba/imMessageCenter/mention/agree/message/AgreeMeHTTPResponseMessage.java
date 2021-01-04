@@ -7,7 +7,7 @@ import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import tbclient.AgreeList;
 import tbclient.AgreeMe.AgreeMeResIdl;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class AgreeMeHTTPResponseMessage extends TbHttpResponsedMessage {
     public ArrayList<a> datas;
     public boolean hasMore;
@@ -45,7 +45,7 @@ public class AgreeMeHTTPResponseMessage extends TbHttpResponsedMessage {
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         if (!hasError() && (getOrginalMessage().getExtra() instanceof AgreeMeRequestMessage) && ((AgreeMeRequestMessage) getOrginalMessage().getExtra()).id == 0) {
-            com.baidu.tbadk.core.c.a.brq().dM("tb_user_agreeme", TbadkCoreApplication.getCurrentAccountName()).asyncSetForever("agree_me_cache_key", bArr);
+            com.baidu.tbadk.core.c.a.btS().dL("tb_user_agreeme", TbadkCoreApplication.getCurrentAccountName()).asyncSetForever("agree_me_cache_key", bArr);
         }
     }
 }

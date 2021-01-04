@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.base.g;
+import com.baidu.adp.base.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -27,7 +27,7 @@ import com.baidu.tbadk.mainTab.d;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.flutter.util.OpenFlutter;
 import com.idlefish.flutterboost.containers.FlutterFragment;
-/* loaded from: classes25.dex */
+/* loaded from: classes12.dex */
 public class FlutterNewCategoryDelegateStatic extends b {
     private Boolean isNew = false;
     private CustomMessageListener mChannelDataGetListener = new CustomMessageListener(2921493) { // from class: com.baidu.tieba.flutter.view.FlutterNewCategoryDelegateStatic.1
@@ -84,7 +84,7 @@ public class FlutterNewCategoryDelegateStatic extends b {
                 FlutterNewCategoryDelegateStatic.this.tipView.setVisibility(8);
             }
         });
-        Resources resources = g.li().getResources();
+        Resources resources = h.kE().getResources();
         cVar.textResId = resources.getIdentifier("new_category", "string", BdBaseApplication.getInst().getPackageName());
         cVar.animationResId = resources.getIdentifier("lottie_tab_category", "raw", BdBaseApplication.getInst().getPackageName());
         cVar.showIconType = c.SHOWBOTH;
@@ -93,16 +93,16 @@ public class FlutterNewCategoryDelegateStatic extends b {
 
     @Override // com.baidu.tbadk.mainTab.b
     public TbFragmentTabIndicator getTabIndicator(Context context) {
-        this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(g.li().getResources().getIdentifier("maintab_bottom_indicator", "layout", BdBaseApplication.getInst().getPackageName()), (ViewGroup) null);
+        this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(h.kE().getResources().getIdentifier("maintab_bottom_indicator", "layout", BdBaseApplication.getInst().getPackageName()), (ViewGroup) null);
         this.tipView = new MessageRedDotView(context);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-        aVar.fAk = this.mIndicator;
+        aVar.fJQ = this.mIndicator;
         aVar.offsetX = com.baidu.adp.lib.util.l.dip2px(context, 10.0f);
         aVar.view = this.tipView;
         this.mIndicator.b("emotion", aVar);
         this.tipView.refresh(0);
         if (this.mFinalData != null) {
-            if (this.mFinalData.bxt() == l.fjn) {
+            if (this.mFinalData.bzN() == l.fsW) {
                 this.tipView.setVisibility(0);
             } else {
                 this.tipView.setVisibility(8);
@@ -115,29 +115,29 @@ public class FlutterNewCategoryDelegateStatic extends b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void loadStatus() {
-        this.mFinalData = TbSingleton.getInstance().getChannelConfigModel().bzK();
+        this.mFinalData = TbSingleton.getInstance().getChannelConfigModel().bCe();
         if (this.mFinalData != null) {
-            if (this.mFinalData.bxt() == l.fjo) {
+            if (this.mFinalData.bzN() == l.fsX) {
                 if (!TextUtils.isEmpty(this.mFinalData.getIcon())) {
                     final c cVar = new c();
-                    cVar.fzR = this.mFinalData.getIcon();
+                    cVar.fJx = this.mFinalData.getIcon();
                     cVar.type = 21;
                     if (!TextUtils.isEmpty(this.mFinalData.getPopText())) {
                         cVar.text = this.mFinalData.getPopText();
                     }
-                    e.mY().postDelayed(new Runnable() { // from class: com.baidu.tieba.flutter.view.FlutterNewCategoryDelegateStatic.4
+                    e.mB().postDelayed(new Runnable() { // from class: com.baidu.tieba.flutter.view.FlutterNewCategoryDelegateStatic.4
                         @Override // java.lang.Runnable
                         public void run() {
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921492, cVar));
                         }
                     }, 2000L);
                 }
-                TbSingleton.getInstance().getChannelConfigModel().rL(l.fjo);
-            } else if (this.mFinalData.bxt() == l.fjn) {
+                TbSingleton.getInstance().getChannelConfigModel().rX(l.fsX);
+            } else if (this.mFinalData.bzN() == l.fsW) {
                 if (this.tipView != null) {
                     this.tipView.setVisibility(0);
                 }
-                TbSingleton.getInstance().getChannelConfigModel().rL(l.fjn);
+                TbSingleton.getInstance().getChannelConfigModel().rX(l.fsW);
             } else if (this.tipView != null) {
                 this.tipView.setVisibility(8);
             }

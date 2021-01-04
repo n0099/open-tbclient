@@ -9,9 +9,10 @@ import com.baidu.live.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.lcs.a;
+import com.fun.ad.sdk.FunAdConfig;
 /* loaded from: classes.dex */
 public class GuardServiceObserver extends Service {
-    private final long STEP = 900000;
+    private final long STEP = FunAdConfig.Builder.AD_EXPIRED_INTERVAL;
 
     public static void startNativeServiceForUnder23(Context context) {
         try {

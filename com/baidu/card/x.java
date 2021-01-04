@@ -4,17 +4,17 @@ import android.content.Context;
 import android.view.View;
 import com.baidu.card.view.MutiImgSingleHorizontalLayout;
 import com.baidu.tbadk.TbPageContext;
-/* loaded from: classes21.dex */
-public class x extends b<com.baidu.tbadk.core.data.a> {
-    private com.baidu.tbadk.core.data.a agJ;
-    private MutiImgSingleHorizontalLayout ahI;
+/* loaded from: classes.dex */
+public class x extends a<com.baidu.tbadk.core.data.a> {
+    private com.baidu.tbadk.core.data.a ahi;
+    private MutiImgSingleHorizontalLayout aiv;
     private String mFrom;
     private int mSkinType;
 
     public x(Context context) {
         super(context);
         this.mSkinType = 3;
-        this.ahI = new MutiImgSingleHorizontalLayout(context);
+        this.aiv = new MutiImgSingleHorizontalLayout(context);
     }
 
     public void setFrom(String str) {
@@ -22,22 +22,22 @@ public class x extends b<com.baidu.tbadk.core.data.a> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.card.b
+    @Override // com.baidu.card.a
     public View getView() {
-        return this.ahI;
+        return this.aiv;
     }
 
-    @Override // com.baidu.card.b
-    public void setOnCardSubClickListener(com.baidu.tieba.card.ab<com.baidu.tbadk.core.data.a> abVar) {
-        this.ahI.setSubClickListener(abVar);
+    @Override // com.baidu.card.a
+    public void setOnCardSubClickListener(com.baidu.tieba.card.aa<com.baidu.tbadk.core.data.a> aaVar) {
+        this.aiv.setSubClickListener(aaVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.p
     /* renamed from: b */
-    public void H(com.baidu.tbadk.core.data.a aVar) {
-        this.agJ = aVar;
-        this.ahI.H(aVar);
+    public void D(com.baidu.tbadk.core.data.a aVar) {
+        this.ahi = aVar;
+        this.aiv.D(aVar);
     }
 
     @Override // com.baidu.card.q
@@ -48,11 +48,11 @@ public class x extends b<com.baidu.tbadk.core.data.a> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.card.b
-    public void tD() {
+    @Override // com.baidu.card.a
+    public void tb() {
     }
 
     public void setFromCDN(boolean z) {
-        this.ahI.setFromCDN(z);
+        this.aiv.setFromCDN(z);
     }
 }

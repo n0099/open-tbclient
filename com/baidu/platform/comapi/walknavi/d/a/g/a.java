@@ -1,14 +1,14 @@
 package com.baidu.platform.comapi.walknavi.d.a.g;
 
 import android.util.Log;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f2990a = 5;
+    private static int f4455a = 5;
 
     public static void a(String str) {
-        if (f2990a <= 3) {
+        if (f4455a <= 3) {
             Log.d("ARLOG", a() + " " + str);
         }
     }

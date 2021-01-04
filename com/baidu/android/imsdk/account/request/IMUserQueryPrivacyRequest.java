@@ -3,7 +3,6 @@ package com.baidu.android.imsdk.account.request;
 import android.content.Context;
 import android.util.Log;
 import android.util.Pair;
-import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.chatuser.request.IMUserBaseHttpRequest;
@@ -12,7 +11,7 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class IMUserQueryPrivacyRequest extends IMUserBaseHttpRequest {
     private long mAppid;
 
@@ -48,7 +47,7 @@ public class IMUserQueryPrivacyRequest extends IMUserBaseHttpRequest {
                 i3 = jSONObject2.getJSONObject("user_setting").optInt("push_privacy");
             } else {
                 i2 = jSONObject.getInt("error_code");
-                str2 = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG, "");
+                str2 = jSONObject.optString("error_msg", "");
             }
         } catch (JSONException e) {
             LogUtils.e("IMUserQueryPrivacyRequest", "JSONException", e);

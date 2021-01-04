@@ -12,7 +12,7 @@ import java.lang.reflect.Modifier;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class FieldInfo implements Comparable<FieldInfo> {
     public final String[] alternateNames;
     public final Class<?> declaringClass;
@@ -72,7 +72,8 @@ public class FieldInfo implements Comparable<FieldInfo> {
 
     public FieldInfo(String str, Method method, Field field, Class<?> cls, Type type, int i, int i2, int i3, JSONField jSONField, JSONField jSONField2, String str2) {
         boolean z;
-        Type type2;
+        String str3;
+        Type genericType;
         Class<?> cls2;
         Type inheritGenericType;
         Class<?> returnType;
@@ -105,7 +106,6 @@ public class FieldInfo implements Comparable<FieldInfo> {
         } else {
             this.label = "";
         }
-        String str3 = null;
         JSONField annotation = getAnnotation();
         if (annotation != null) {
             String format = annotation.format();
@@ -113,12 +113,13 @@ public class FieldInfo implements Comparable<FieldInfo> {
             boolean jsonDirect = annotation.jsonDirect();
             this.unwrapped = annotation.unwrapped();
             this.alternateNames = annotation.alternateNames();
-            str3 = format;
             z = jsonDirect;
+            str3 = format;
         } else {
-            z = false;
             this.unwrapped = false;
             this.alternateNames = new String[0];
+            z = false;
+            str3 = null;
         }
         this.format = str3;
         this.name_chars = genFieldNameChars();
@@ -135,47 +136,46 @@ public class FieldInfo implements Comparable<FieldInfo> {
                 returnType = parameterTypes[0];
                 genericReturnType = method.getGenericParameterTypes()[0];
             } else if (parameterTypes.length == 2 && parameterTypes[0] == String.class && parameterTypes[1] == Object.class) {
-                returnType = parameterTypes[0];
-                genericReturnType = returnType;
+                Class<?> cls3 = parameterTypes[0];
+                returnType = cls3;
+                genericReturnType = cls3;
             } else {
                 returnType = method.getReturnType();
-                genericReturnType = method.getGenericReturnType();
                 z2 = true;
+                genericReturnType = method.getGenericReturnType();
             }
             this.declaringClass = method.getDeclaringClass();
-            Class<?> cls3 = returnType;
-            type2 = genericReturnType;
-            cls2 = cls3;
+            cls2 = returnType;
+            genericType = genericReturnType;
         } else {
-            Class<?> type3 = field.getType();
-            Type genericType = field.getGenericType();
+            Class<?> type2 = field.getType();
+            genericType = field.getGenericType();
             this.declaringClass = field.getDeclaringClass();
             z2 = Modifier.isFinal(field.getModifiers());
-            type2 = genericType;
-            cls2 = type3;
+            cls2 = type2;
         }
         this.getOnly = z2;
         this.jsonDirect = z && cls2 == String.class;
-        if (cls != null && cls2 == Object.class && (type2 instanceof TypeVariable) && (inheritGenericType = getInheritGenericType(cls, type, (TypeVariable) type2)) != null) {
+        if (cls != null && cls2 == Object.class && (genericType instanceof TypeVariable) && (inheritGenericType = getInheritGenericType(cls, type, (TypeVariable) genericType)) != null) {
             this.fieldClass = TypeUtils.getClass(inheritGenericType);
             this.fieldType = inheritGenericType;
             this.isEnum = cls2.isEnum();
             return;
         }
-        if (!(type2 instanceof Class)) {
-            Type fieldType = getFieldType(cls, type == null ? cls : type, type2);
-            if (fieldType != type2) {
+        if (!(genericType instanceof Class)) {
+            Type fieldType = getFieldType(cls, type == null ? cls : type, genericType);
+            if (fieldType != genericType) {
                 if (fieldType instanceof ParameterizedType) {
                     cls2 = TypeUtils.getClass(fieldType);
-                    type2 = fieldType;
+                    genericType = fieldType;
                 } else if (fieldType instanceof Class) {
                     cls2 = TypeUtils.getClass(fieldType);
-                    type2 = fieldType;
+                    genericType = fieldType;
                 }
             }
-            type2 = fieldType;
+            genericType = fieldType;
         }
-        this.fieldType = type2;
+        this.fieldType = genericType;
         this.fieldClass = cls2;
         this.isEnum = cls2.isEnum();
     }
@@ -202,8 +202,8 @@ public class FieldInfo implements Comparable<FieldInfo> {
     }
 
     public static Type getFieldType(Class<?> cls, Type type, Type type2) {
-        TypeVariable<Class<?>>[] typeParameters;
         ParameterizedType parameterizedType;
+        TypeVariable<Class<?>>[] typeParameters;
         if (cls != null && type != null) {
             if (type2 instanceof GenericArrayType) {
                 Type genericComponentType = ((GenericArrayType) type2).getGenericComponentType();
@@ -230,11 +230,11 @@ public class FieldInfo implements Comparable<FieldInfo> {
                         parameterizedType = (ParameterizedType) type;
                         typeParameters = cls.getTypeParameters();
                     } else if (cls.getGenericSuperclass() instanceof ParameterizedType) {
-                        parameterizedType = (ParameterizedType) cls.getGenericSuperclass();
                         typeParameters = cls.getSuperclass().getTypeParameters();
+                        parameterizedType = (ParameterizedType) cls.getGenericSuperclass();
                     } else {
-                        typeParameters = type.getClass().getTypeParameters();
                         parameterizedType = parameterizedType3;
+                        typeParameters = type.getClass().getTypeParameters();
                     }
                     if (getArgument(actualTypeArguments, typeParameters, parameterizedType.getActualTypeArguments())) {
                         return new ParameterizedTypeImpl(actualTypeArguments, parameterizedType3.getOwnerType(), parameterizedType3.getRawType());

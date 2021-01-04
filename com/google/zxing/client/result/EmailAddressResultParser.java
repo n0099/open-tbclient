@@ -4,7 +4,7 @@ import com.baidu.webkit.sdk.WebView;
 import com.google.zxing.Result;
 import java.util.Map;
 import java.util.regex.Pattern;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class EmailAddressResultParser extends ResultParser {
     private static final Pattern COMMA = Pattern.compile(",");
 
@@ -14,6 +14,7 @@ public final class EmailAddressResultParser extends ResultParser {
         String str;
         String str2;
         String[] strArr;
+        String[] strArr2;
         String str3;
         String massagedText = getMassagedText(result);
         if (massagedText.startsWith(WebView.SCHEME_MAILTO) || massagedText.startsWith("MAILTO:")) {
@@ -29,20 +30,20 @@ public final class EmailAddressResultParser extends ResultParser {
                 if (parseNameValuePairs != null) {
                     String[] split2 = (split != null || (str3 = parseNameValuePairs.get("to")) == null) ? split : COMMA.split(str3);
                     String str4 = parseNameValuePairs.get("cc");
-                    String[] split3 = str4 != null ? COMMA.split(str4) : null;
+                    strArr2 = str4 != null ? COMMA.split(str4) : null;
                     String str5 = parseNameValuePairs.get("bcc");
-                    r2 = str5 != null ? COMMA.split(str5) : null;
+                    String[] split3 = str5 != null ? COMMA.split(str5) : null;
                     str = parseNameValuePairs.get("body");
-                    split = split2;
-                    strArr = r2;
-                    r2 = split3;
                     str2 = parseNameValuePairs.get("subject");
+                    strArr = split3;
+                    split = split2;
                 } else {
                     str = null;
                     str2 = null;
                     strArr = null;
+                    strArr2 = null;
                 }
-                return new EmailAddressParsedResult(split, r2, strArr, str2, str);
+                return new EmailAddressParsedResult(split, strArr2, strArr, str2, str);
             } catch (IllegalArgumentException e) {
                 return null;
             }

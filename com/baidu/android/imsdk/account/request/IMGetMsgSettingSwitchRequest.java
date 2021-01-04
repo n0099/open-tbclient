@@ -3,7 +3,6 @@ package com.baidu.android.imsdk.account.request;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Pair;
-import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.IGetMsgSettingSwitchListener;
 import com.baidu.android.imsdk.internal.Constants;
@@ -19,7 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class IMGetMsgSettingSwitchRequest extends BaseHttpRequest {
     private static final String TAG = "IMGetMsgSettingSwitchRequest";
     private IGetMsgSettingSwitchListener mListener;
@@ -58,41 +57,35 @@ public class IMGetMsgSettingSwitchRequest extends BaseHttpRequest {
     }
 
     /* JADX WARN: Removed duplicated region for block: B:19:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:8:0x003f  */
+    /* JADX WARN: Removed duplicated region for block: B:8:0x003e  */
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void onFailure(int i, byte[] bArr, Throwable th) {
-        JSONException e;
         int i2;
         int i3;
-        int i4;
-        JSONObject jSONObject;
         Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
         String str = new String(bArr);
         LogUtils.e(TAG, "IMGetMsgSettingSwitchRequest onFailure :" + str);
         try {
-            jSONObject = new JSONObject(str);
+            JSONObject jSONObject = new JSONObject(str);
             i2 = jSONObject.optInt("push_privacy", 0);
+            try {
+                i3 = jSONObject.optInt("block_stranger", 0);
+            } catch (JSONException e) {
+                e = e;
+                LogUtils.e(TAG, "onFailure JSONException", e);
+                i3 = 0;
+                if (this.mListener == null) {
+                }
+            }
         } catch (JSONException e2) {
             e = e2;
             i2 = 0;
         }
-        try {
-            int optInt = jSONObject.optInt("block_stranger", 0);
-            i3 = i2;
-            i4 = optInt;
-        } catch (JSONException e3) {
-            e = e3;
-            LogUtils.e(TAG, "onFailure JSONException", e);
-            i3 = i2;
-            i4 = 0;
-            if (this.mListener == null) {
-            }
-        }
         if (this.mListener == null) {
-            this.mListener.onGetMsgSettingSwitch(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, i4, i3);
+            this.mListener.onGetMsgSettingSwitch(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, i3, i2);
         }
     }
 
@@ -103,7 +96,6 @@ public class IMGetMsgSettingSwitchRequest extends BaseHttpRequest {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void onSuccess(int i, byte[] bArr) {
-        JSONException e;
         int i2;
         int i3;
         String str;
@@ -113,20 +105,20 @@ public class IMGetMsgSettingSwitchRequest extends BaseHttpRequest {
         try {
             JSONObject jSONObject = new JSONObject(str2);
             i3 = jSONObject.getInt("error_code");
-            str = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG, "");
+            str = jSONObject.optString("error_msg", "");
             i2 = jSONObject.optInt("push_privacy", 0);
             try {
                 i4 = jSONObject.optInt("block_stranger", 0);
-            } catch (JSONException e2) {
-                e = e2;
+            } catch (JSONException e) {
+                e = e;
                 LogUtils.e(TAG, "JSONException", e);
                 i3 = 1010;
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
                 if (this.mListener == null) {
                 }
             }
-        } catch (JSONException e3) {
-            e = e3;
+        } catch (JSONException e2) {
+            e = e2;
             i2 = 0;
         }
         if (this.mListener == null) {

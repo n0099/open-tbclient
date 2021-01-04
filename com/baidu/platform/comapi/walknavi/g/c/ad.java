@@ -4,20 +4,23 @@ import android.content.Context;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-/* loaded from: classes26.dex */
+import com.baidu.tieba.R;
+/* loaded from: classes15.dex */
 public class ad extends b {
 
     /* renamed from: a  reason: collision with root package name */
-    private RelativeLayout f3028a;
-    private TextView b;
+    private RelativeLayout f4513a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private TextView f4514b;
     private TextView c;
 
     public ad(Context context, View view) {
-        this.b = null;
+        this.f4514b = null;
         this.c = null;
-        this.f3028a = (RelativeLayout) view.findViewById(2131165230);
-        this.b = (TextView) this.f3028a.findViewById(2131165231);
-        this.c = (TextView) this.f3028a.findViewById(2131165232);
+        this.f4513a = (RelativeLayout) view.findViewById(R.dimen.M_W_X021);
+        this.f4514b = (TextView) this.f4513a.findViewById(R.dimen.M_W_X022);
+        this.c = (TextView) this.f4513a.findViewById(R.dimen.T_X01);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

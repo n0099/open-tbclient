@@ -3,7 +3,7 @@ package com.baidu.live.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaSquareTabInfo implements Parcelable {
     public static final Parcelable.Creator<AlaSquareTabInfo> CREATOR = new Parcelable.Creator<AlaSquareTabInfo>() { // from class: com.baidu.live.data.AlaSquareTabInfo.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -15,7 +15,7 @@ public class AlaSquareTabInfo implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: eh */
+        /* renamed from: ee */
         public AlaSquareTabInfo[] newArray(int i) {
             return new AlaSquareTabInfo[i];
         }

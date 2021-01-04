@@ -1,6 +1,6 @@
 package okhttp3;
 
-import android.support.v7.widget.ActivityChooserView;
+import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.searchbox.v8engine.util.TimeUtils;
 import java.lang.ref.Reference;
 import java.net.Socket;
@@ -19,7 +19,7 @@ import okhttp3.internal.connection.RealConnection;
 import okhttp3.internal.connection.RouteDatabase;
 import okhttp3.internal.connection.StreamAllocation;
 import okhttp3.internal.platform.Platform;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public final class ConnectionPool {
     static final /* synthetic */ boolean $assertionsDisabled;
     private static final Executor executor;
@@ -156,37 +156,31 @@ public final class ConnectionPool {
     }
 
     long cleanup(long j) {
-        RealConnection realConnection;
-        long j2;
-        RealConnection realConnection2 = null;
-        long j3 = Long.MIN_VALUE;
+        RealConnection realConnection = null;
+        long j2 = Long.MIN_VALUE;
         synchronized (this) {
             int i = 0;
             int i2 = 0;
-            for (RealConnection realConnection3 : this.connections) {
-                if (pruneAndGetAllocationCount(realConnection3, j) > 0) {
+            for (RealConnection realConnection2 : this.connections) {
+                if (pruneAndGetAllocationCount(realConnection2, j) > 0) {
                     i2++;
                 } else {
-                    int i3 = i + 1;
-                    long j4 = j - realConnection3.idleAtNanos;
-                    if (j4 > j3) {
-                        realConnection = realConnection3;
-                        j2 = j4;
-                    } else {
-                        realConnection = realConnection2;
-                        j2 = j3;
+                    i++;
+                    long j3 = j - realConnection2.idleAtNanos;
+                    if (j3 <= j2) {
+                        j3 = j2;
+                        realConnection2 = realConnection;
                     }
-                    j3 = j2;
-                    realConnection2 = realConnection;
-                    i = i3;
+                    j2 = j3;
+                    realConnection = realConnection2;
                 }
             }
-            if (j3 >= this.keepAliveDurationNs || i > this.maxIdleConnections) {
-                this.connections.remove(realConnection2);
-                Util.closeQuietly(realConnection2.socket());
+            if (j2 >= this.keepAliveDurationNs || i > this.maxIdleConnections) {
+                this.connections.remove(realConnection);
+                Util.closeQuietly(realConnection.socket());
                 return 0L;
             } else if (i > 0) {
-                return this.keepAliveDurationNs - j3;
+                return this.keepAliveDurationNs - j2;
             } else if (i2 > 0) {
                 return this.keepAliveDurationNs;
             } else {

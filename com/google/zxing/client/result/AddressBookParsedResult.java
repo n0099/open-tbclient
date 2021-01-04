@@ -1,5 +1,5 @@
 package com.google.zxing.client.result;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class AddressBookParsedResult extends ParsedResult {
     private final String[] addressTypes;
     private final String[] addresses;
@@ -13,7 +13,7 @@ public final class AddressBookParsedResult extends ParsedResult {
     private final String note;
 
     /* renamed from: org  reason: collision with root package name */
-    private final String f4055org;
+    private final String f8187org;
     private final String[] phoneNumbers;
     private final String[] phoneTypes;
     private final String pronunciation;
@@ -37,7 +37,7 @@ public final class AddressBookParsedResult extends ParsedResult {
         this.note = str3;
         this.addresses = strArr7;
         this.addressTypes = strArr8;
-        this.f4055org = str4;
+        this.f8187org = str4;
         this.birthday = str5;
         this.title = str6;
         this.urls = strArr9;
@@ -93,7 +93,7 @@ public final class AddressBookParsedResult extends ParsedResult {
     }
 
     public String getOrg() {
-        return this.f4055org;
+        return this.f8187org;
     }
 
     public String[] getURLs() {
@@ -115,7 +115,7 @@ public final class AddressBookParsedResult extends ParsedResult {
         maybeAppend(this.nicknames, sb);
         maybeAppend(this.pronunciation, sb);
         maybeAppend(this.title, sb);
-        maybeAppend(this.f4055org, sb);
+        maybeAppend(this.f8187org, sb);
         maybeAppend(this.addresses, sb);
         maybeAppend(this.phoneNumbers, sb);
         maybeAppend(this.emails, sb);

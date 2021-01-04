@@ -3,28 +3,28 @@ package com.baidu.adp.framework.d;
 import com.baidu.live.adp.framework.MessageConfig;
 /* loaded from: classes.dex */
 public class b extends d {
-    private static b Km = null;
-    private e Kn;
+    private static b JM = null;
+    private e JN;
 
-    public static b lD() {
-        if (Km == null) {
+    public static b kZ() {
+        if (JM == null) {
             synchronized (b.class) {
-                if (Km == null) {
-                    Km = new b();
+                if (JM == null) {
+                    JM = new b();
                 }
             }
         }
-        return Km;
+        return JM;
     }
 
     private b() {
-        this.Kn = null;
-        this.Kp = new e(MessageConfig.HTTP_TIME_OUT_MS_2G, 18000, 10000);
-        this.Kn = new e(18000, 10000, 5000);
+        this.JN = null;
+        this.JP = new e(MessageConfig.HTTP_TIME_OUT_MS_2G, 18000, 10000);
+        this.JN = new e(18000, 10000, 5000);
         this.mRetryCount = 3;
     }
 
-    public e lE() {
-        return this.Kn;
+    public e la() {
+        return this.JN;
     }
 }

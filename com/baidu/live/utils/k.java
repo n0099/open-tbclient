@@ -1,15 +1,15 @@
 package com.baidu.live.utils;
 
-import com.baidu.searchbox.ui.animview.praise.guide.ControlShowManager;
+import com.kwad.sdk.collector.AppStatusRules;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class k {
     public static String bs(long j) {
-        long j2 = j / 60000;
-        long j3 = (j % 60000) / 1000;
+        long j2 = j / AppStatusRules.DEFAULT_GRANULARITY;
+        long j3 = (j % AppStatusRules.DEFAULT_GRANULARITY) / 1000;
         String str = (j2 < 10 ? "0" : "") + j2 + ":";
         if (j3 < 10) {
             str = str + "0";
@@ -18,12 +18,12 @@ public class k {
     }
 
     public static String b(Date date) {
-        return new SimpleDateFormat(ControlShowManager.DAY_TIME_FORMAT).format(date);
+        return new SimpleDateFormat("yyyy-MM-dd").format(date);
     }
 
-    public static Date jc(String str) {
+    public static Date iR(String str) {
         try {
-            return new SimpleDateFormat(ControlShowManager.DAY_TIME_FORMAT).parse(str);
+            return new SimpleDateFormat("yyyy-MM-dd").parse(str);
         } catch (ParseException e) {
             e.printStackTrace();
             return null;

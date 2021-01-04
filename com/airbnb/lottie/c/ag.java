@@ -1,11 +1,12 @@
 package com.airbnb.lottie.c;
 
 import android.util.JsonReader;
+import com.fun.ad.sdk.FunAdSdk;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 class ag {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static com.airbnb.lottie.model.content.k y(JsonReader jsonReader, com.airbnb.lottie.e eVar) throws IOException {
+    public static com.airbnb.lottie.model.content.k y(JsonReader jsonReader, com.airbnb.lottie.d dVar) throws IOException {
         com.airbnb.lottie.model.a.h hVar = null;
         int i = 0;
         String str = null;
@@ -14,7 +15,7 @@ class ag {
             char c = 65535;
             switch (nextName.hashCode()) {
                 case 3432:
-                    if (nextName.equals("ks")) {
+                    if (nextName.equals(FunAdSdk.PLATFORM_KS)) {
                         c = 2;
                         break;
                     }
@@ -40,7 +41,7 @@ class ag {
                     i = jsonReader.nextInt();
                     break;
                 case 2:
-                    hVar = d.j(jsonReader, eVar);
+                    hVar = d.j(jsonReader, dVar);
                     break;
                 default:
                     jsonReader.skipValue();

@@ -12,7 +12,7 @@ import com.google.zxing.common.PerspectiveTransform;
 import com.google.zxing.common.detector.MathUtils;
 import com.google.zxing.qrcode.decoder.Version;
 import java.util.Map;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class Detector {
     private final BitMatrix image;
     private ResultPointCallback resultPointCallback;
@@ -78,8 +78,9 @@ public class Detector {
         if (resultPoint4 != null) {
             x = resultPoint4.getX();
             y = resultPoint4.getY();
-            f = f3 - 3.0f;
-            f2 = f;
+            float f4 = f3 - 3.0f;
+            f = f4;
+            f2 = f4;
         } else {
             x = (resultPoint2.getX() - resultPoint.getX()) + resultPoint3.getX();
             y = (resultPoint2.getY() - resultPoint.getY()) + resultPoint3.getY();
@@ -132,8 +133,8 @@ public class Detector {
         float sizeOfBlackWhiteBlackRun = sizeOfBlackWhiteBlackRun(i, i2, i3, i4);
         int i7 = i - (i3 - i);
         if (i7 < 0) {
-            f = i / (i - i7);
             i5 = 0;
+            f = i / (i - i7);
         } else if (i7 >= this.image.getWidth()) {
             f = ((this.image.getWidth() - 1) - i) / (i7 - i);
             i5 = this.image.getWidth() - 1;
@@ -145,13 +146,13 @@ public class Detector {
         if (i8 < 0) {
             f2 = i2 / (i2 - i8);
         } else if (i8 >= this.image.getHeight()) {
-            f2 = ((this.image.getHeight() - 1) - i2) / (i8 - i2);
             i6 = this.image.getHeight() - 1;
+            f2 = ((this.image.getHeight() - 1) - i2) / (i8 - i2);
         } else {
             i6 = i8;
             f2 = 1.0f;
         }
-        return (sizeOfBlackWhiteBlackRun(i, i2, (int) ((f2 * (i5 - i)) + i), i6) + sizeOfBlackWhiteBlackRun) - 1.0f;
+        return (sizeOfBlackWhiteBlackRun(i, i2, (int) (i + (f2 * (i5 - i))), i6) + sizeOfBlackWhiteBlackRun) - 1.0f;
     }
 
     private float sizeOfBlackWhiteBlackRun(int i, int i2, int i3, int i4) {
@@ -159,53 +160,53 @@ public class Detector {
         int i6;
         int i7;
         int i8;
+        int i9;
         boolean z = Math.abs(i4 - i2) > Math.abs(i3 - i);
-        if (!z) {
-            i4 = i3;
-            i3 = i4;
-            i2 = i;
-            i = i2;
+        if (z) {
+            i5 = i3;
+            i6 = i4;
+            i7 = i;
+            i8 = i2;
+        } else {
+            i5 = i4;
+            i6 = i3;
+            i7 = i2;
+            i8 = i;
         }
-        int abs = Math.abs(i4 - i2);
-        int abs2 = Math.abs(i3 - i);
-        int i9 = (-abs) / 2;
-        int i10 = i2 < i4 ? 1 : -1;
-        int i11 = i < i3 ? 1 : -1;
-        int i12 = 0;
-        int i13 = i4 + i10;
-        int i14 = i2;
-        int i15 = i9;
-        int i16 = i;
+        int abs = Math.abs(i6 - i8);
+        int abs2 = Math.abs(i5 - i7);
+        int i10 = (-abs) / 2;
+        int i11 = i8 < i6 ? 1 : -1;
+        int i12 = i7 < i5 ? 1 : -1;
+        int i13 = 0;
+        int i14 = i6 + i11;
+        int i15 = i7;
+        int i16 = i8;
         while (true) {
-            if (i14 == i13) {
-                i5 = i12;
+            int i17 = i10;
+            if (i16 == i14) {
                 break;
             }
-            if ((i12 == 1) != this.image.get(z ? i16 : i14, z ? i14 : i16)) {
-                i6 = i12;
-            } else if (i12 == 2) {
-                return MathUtils.distance(i14, i16, i2, i);
-            } else {
-                i6 = i12 + 1;
+            if ((i13 == 1) == this.image.get(z ? i15 : i16, z ? i16 : i15)) {
+                if (i13 == 2) {
+                    return MathUtils.distance(i16, i15, i8, i7);
+                }
+                i13++;
             }
-            int i17 = i15 + abs2;
-            if (i17 <= 0) {
-                i7 = i16;
-                i8 = i17;
-            } else if (i16 == i3) {
-                i5 = i6;
+            i10 = i17 + abs2;
+            if (i10 <= 0) {
+                i9 = i15;
+            } else if (i15 == i5) {
                 break;
             } else {
-                i7 = i16 + i11;
-                i8 = i17 - abs;
+                i9 = i15 + i12;
+                i10 -= abs;
             }
-            i14 += i10;
-            i12 = i6;
-            i15 = i8;
-            i16 = i7;
+            i16 += i11;
+            i15 = i9;
         }
-        if (i5 == 2) {
-            return MathUtils.distance(i4 + i10, i3, i2, i);
+        if (i13 == 2) {
+            return MathUtils.distance(i6 + i11, i5, i8, i7);
         }
         return Float.NaN;
     }

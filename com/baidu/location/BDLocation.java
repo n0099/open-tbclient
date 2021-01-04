@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Locale;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public final class BDLocation implements Parcelable {
     public static final String BDLOCATION_BD09LL_TO_GCJ02 = "bd09ll2gcj";
     public static final String BDLOCATION_BD09_TO_GCJ02 = "bd092gcj";
@@ -99,11 +99,13 @@ public final class BDLocation implements Parcelable {
     private double Z;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1856a;
+    private int f2567a;
     private int aa;
     private int ab;
     private BDLocation ac;
-    private String b;
+
+    /* renamed from: b  reason: collision with root package name */
+    private String f2568b;
     private double c;
     private double d;
     private boolean e;
@@ -130,8 +132,8 @@ public final class BDLocation implements Parcelable {
     private int z;
 
     public BDLocation() {
-        this.f1856a = 0;
-        this.b = null;
+        this.f2567a = 0;
+        this.f2568b = null;
         this.c = Double.MIN_VALUE;
         this.d = Double.MIN_VALUE;
         this.e = false;
@@ -186,8 +188,8 @@ public final class BDLocation implements Parcelable {
     }
 
     private BDLocation(Parcel parcel) {
-        this.f1856a = 0;
-        this.b = null;
+        this.f2567a = 0;
+        this.f2568b = null;
         this.c = Double.MIN_VALUE;
         this.d = Double.MIN_VALUE;
         this.e = false;
@@ -239,8 +241,8 @@ public final class BDLocation implements Parcelable {
         this.Z = -1.0d;
         this.aa = 0;
         this.ab = -1;
-        this.f1856a = parcel.readInt();
-        this.b = parcel.readString();
+        this.f2567a = parcel.readInt();
+        this.f2568b = parcel.readString();
         this.c = parcel.readDouble();
         this.d = parcel.readDouble();
         this.f = parcel.readDouble();
@@ -342,8 +344,8 @@ public final class BDLocation implements Parcelable {
 
     public BDLocation(BDLocation bDLocation) {
         int i = 0;
-        this.f1856a = 0;
-        this.b = null;
+        this.f2567a = 0;
+        this.f2568b = null;
         this.c = Double.MIN_VALUE;
         this.d = Double.MIN_VALUE;
         this.e = false;
@@ -395,8 +397,8 @@ public final class BDLocation implements Parcelable {
         this.Z = -1.0d;
         this.aa = 0;
         this.ab = -1;
-        this.f1856a = bDLocation.f1856a;
-        this.b = bDLocation.b;
+        this.f2567a = bDLocation.f2567a;
+        this.f2568b = bDLocation.f2568b;
         this.c = bDLocation.c;
         this.d = bDLocation.d;
         this.e = bDLocation.e;
@@ -469,7 +471,6 @@ public final class BDLocation implements Parcelable {
         String string;
         String[] split;
         JSONObject jSONObject;
-        boolean z;
         String str2;
         String str3;
         String str4;
@@ -479,10 +480,8 @@ public final class BDLocation implements Parcelable {
         String str8;
         String str9;
         String str10;
-        String str11;
-        boolean z2;
-        this.f1856a = 0;
-        this.b = null;
+        this.f2567a = 0;
+        this.f2568b = null;
         this.c = Double.MIN_VALUE;
         this.d = Double.MIN_VALUE;
         this.e = false;
@@ -614,12 +613,12 @@ public final class BDLocation implements Parcelable {
                                 String string3 = jSONObject11.getString("pname");
                                 String string4 = jSONObject11.getString("pid");
                                 double d = jSONObject11.getDouble(Config.PRINCIPAL_PART);
-                                String str12 = "";
+                                String str11 = "";
                                 String string5 = jSONObject11.has(CommandMessage.TYPE_TAGS) ? jSONObject11.getString(CommandMessage.TYPE_TAGS) : "";
                                 if (jSONObject11.has("addr")) {
-                                    str12 = jSONObject11.getString("addr");
+                                    str11 = jSONObject11.getString("addr");
                                 }
-                                arrayList.add(new Poi(string4, string3, d, string5, str12));
+                                arrayList.add(new Poi(string4, string3, d, string5, str11));
                             }
                             this.L = arrayList;
                         }
@@ -641,31 +640,43 @@ public final class BDLocation implements Parcelable {
                         }
                     }
                     if (jSONObject8.has("addr")) {
+                        String str12 = null;
+                        boolean z = false;
                         try {
                             jSONObject = jSONObject8.getJSONObject("addr");
                             z = true;
                         } catch (Exception e3) {
                             jSONObject = null;
-                            z = false;
                         }
                         if (jSONObject != null) {
-                            str6 = jSONObject.has("city") ? jSONObject.getString("city") : "";
-                            str7 = jSONObject.has("city_code") ? jSONObject.getString("city_code") : "";
-                            String string8 = jSONObject.has("country") ? jSONObject.getString("country") : "";
-                            str4 = jSONObject.has("country_code") ? jSONObject.getString("country_code") : "";
-                            str5 = jSONObject.has("province") ? jSONObject.getString("province") : "";
-                            str8 = jSONObject.has("district") ? jSONObject.getString("district") : "";
-                            str9 = jSONObject.has("street") ? jSONObject.getString("street") : "";
-                            str10 = jSONObject.has("street_number") ? jSONObject.getString("street_number") : "";
-                            str11 = jSONObject.has("adcode") ? jSONObject.getString("adcode") : "";
+                            String string8 = jSONObject.has("city") ? jSONObject.getString("city") : "";
+                            String string9 = jSONObject.has("city_code") ? jSONObject.getString("city_code") : "";
+                            str10 = jSONObject.has("country") ? jSONObject.getString("country") : "";
+                            String string10 = jSONObject.has("country_code") ? jSONObject.getString("country_code") : "";
+                            String string11 = jSONObject.has("province") ? jSONObject.getString("province") : "";
+                            String string12 = jSONObject.has("district") ? jSONObject.getString("district") : "";
+                            String string13 = jSONObject.has("street") ? jSONObject.getString("street") : "";
+                            String string14 = jSONObject.has("street_number") ? jSONObject.getString("street_number") : "";
+                            String string15 = jSONObject.has("adcode") ? jSONObject.getString("adcode") : "";
                             if (jSONObject.has("town")) {
-                                str3 = string8;
-                                z2 = z;
-                                str2 = jSONObject.getString("town");
+                                str12 = jSONObject.getString("town");
+                                str2 = string15;
+                                str3 = string14;
+                                str4 = string13;
+                                str5 = string12;
+                                str6 = string9;
+                                str7 = string8;
+                                str8 = string11;
+                                str9 = string10;
                             } else {
-                                z2 = z;
-                                str2 = null;
-                                str3 = string8;
+                                str2 = string15;
+                                str3 = string14;
+                                str4 = string13;
+                                str5 = string12;
+                                str6 = string9;
+                                str7 = string8;
+                                str8 = string11;
+                                str9 = string10;
                             }
                         } else {
                             try {
@@ -680,34 +691,32 @@ public final class BDLocation implements Parcelable {
                                 r11 = length > 6 ? split2[6] : null;
                                 r10 = length > 7 ? split2[7] : null;
                                 String str13 = length > 8 ? split2[8] : null;
-                                str2 = null;
-                                str3 = r11;
-                                str4 = r10;
-                                str5 = r9;
-                                str6 = r8;
-                                str7 = r7;
-                                str8 = r6;
-                                str9 = r5;
-                                str10 = r4;
-                                str11 = str13;
-                                z2 = true;
+                                z = true;
+                                str2 = str13;
+                                str3 = r4;
+                                str4 = r5;
+                                str5 = r6;
+                                str6 = r7;
+                                str7 = r8;
+                                str8 = r9;
+                                str9 = r10;
+                                str10 = r11;
                             } catch (Exception e4) {
                                 e4.printStackTrace();
+                                z = false;
                                 str2 = null;
-                                str3 = r11;
-                                str4 = r10;
-                                str5 = r9;
-                                str6 = r8;
-                                str7 = r7;
-                                str8 = r6;
-                                str9 = r5;
-                                str10 = r4;
-                                str11 = null;
-                                z2 = false;
+                                str3 = r4;
+                                str4 = r5;
+                                str5 = r6;
+                                str6 = r7;
+                                str7 = r8;
+                                str8 = r9;
+                                str9 = r10;
+                                str10 = r11;
                             }
                         }
-                        if (z2) {
-                            this.u = new Address.Builder().country(str3).countryCode(str4).province(str5).city(str6).cityCode(str7).district(str8).street(str9).streetNumber(str10).adcode(str11).town(str2).build();
+                        if (z) {
+                            this.u = new Address.Builder().country(str10).countryCode(str9).province(str8).city(str7).cityCode(str6).district(str5).street(str4).streetNumber(str3).adcode(str2).town(str12).build();
                             this.o = true;
                         }
                     } else {
@@ -721,9 +730,9 @@ public final class BDLocation implements Parcelable {
                         }
                     }
                     if (jSONObject8.has("indoor")) {
-                        String string9 = jSONObject8.getString("indoor");
-                        if (!TextUtils.isEmpty(string9)) {
-                            setUserIndoorState(Integer.valueOf(string9).intValue());
+                        String string16 = jSONObject8.getString("indoor");
+                        if (!TextUtils.isEmpty(string16)) {
+                            setUserIndoorState(Integer.valueOf(string16).intValue());
                         }
                     }
                     if (jSONObject8.has("loctp")) {
@@ -745,13 +754,13 @@ public final class BDLocation implements Parcelable {
                         }
                     }
                     if (jSONObject8.has("ibav")) {
-                        String string10 = jSONObject8.getString("ibav");
-                        if (TextUtils.isEmpty(string10)) {
+                        String string17 = jSONObject8.getString("ibav");
+                        if (TextUtils.isEmpty(string17)) {
                             this.z = 0;
-                        } else if (string10.equals("0")) {
+                        } else if (string17.equals("0")) {
                             this.z = 0;
                         } else {
-                            this.z = Integer.valueOf(string10).intValue();
+                            this.z = Integer.valueOf(string17).intValue();
                         }
                     }
                     if (jSONObject8.has("indoorflags")) {
@@ -842,12 +851,12 @@ public final class BDLocation implements Parcelable {
                 }
             } catch (Exception e8) {
                 e8.printStackTrace();
-                this.f1856a = 0;
+                this.f2567a = 0;
                 this.o = false;
             }
         } catch (Error e9) {
             e9.printStackTrace();
-            this.f1856a = 0;
+            this.f2567a = 0;
             this.o = false;
         }
     }
@@ -985,7 +994,7 @@ public final class BDLocation implements Parcelable {
     }
 
     public int getLocType() {
-        return this.f1856a;
+        return this.f2567a;
     }
 
     public String getLocTypeDescription() {
@@ -1090,7 +1099,7 @@ public final class BDLocation implements Parcelable {
     }
 
     public String getTime() {
-        return this.b;
+        return this.f2568b;
     }
 
     public String getTown() {
@@ -1254,7 +1263,7 @@ public final class BDLocation implements Parcelable {
     }
 
     public void setLocType(int i) {
-        this.f1856a = i;
+        this.f2567a = i;
         switch (i) {
             case 61:
                 setLocTypeDescription("GPS location successful!");
@@ -1376,7 +1385,7 @@ public final class BDLocation implements Parcelable {
     }
 
     public void setTime(String str) {
-        this.b = str;
+        this.f2568b = str;
         setLocationID(l.a(str));
     }
 
@@ -1397,8 +1406,8 @@ public final class BDLocation implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.f1856a);
-        parcel.writeString(this.b);
+        parcel.writeInt(this.f2567a);
+        parcel.writeString(this.f2568b);
         parcel.writeDouble(this.c);
         parcel.writeDouble(this.d);
         parcel.writeDouble(this.f);

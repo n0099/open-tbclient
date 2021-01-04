@@ -7,22 +7,24 @@ import com.baidu.fsg.base.restnet.http.HttpDefines;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.List;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class e implements com.baidu.fsg.base.restnet.rest.d {
 
     /* renamed from: a  reason: collision with root package name */
-    private final com.baidu.fsg.base.restnet.rest.c f1469a;
+    private final com.baidu.fsg.base.restnet.rest.c f1947a;
     private String c;
     private HttpDefines.HttpMethod d;
     private String e;
     private String f;
     private List<RestNameValuePair> g;
     private RestMultipartEntity h;
-    private final com.baidu.fsg.base.restnet.http.a b = new com.baidu.fsg.base.restnet.http.a();
+
+    /* renamed from: b  reason: collision with root package name */
+    private final com.baidu.fsg.base.restnet.http.a f1948b = new com.baidu.fsg.base.restnet.http.a();
     private int i = -1;
 
     public e(com.baidu.fsg.base.restnet.rest.c cVar, String str, HttpDefines.HttpMethod httpMethod, List<RestNameValuePair> list, RestMultipartEntity restMultipartEntity, String str2) {
-        this.f1469a = cVar;
+        this.f1947a = cVar;
         this.c = str2;
         this.d = httpMethod;
         this.e = str;
@@ -36,7 +38,7 @@ public class e implements com.baidu.fsg.base.restnet.rest.d {
 
     @Override // com.baidu.fsg.base.restnet.rest.d
     public com.baidu.fsg.base.restnet.http.a b() {
-        return this.b;
+        return this.f1948b;
     }
 
     @Override // com.baidu.fsg.base.restnet.rest.d
@@ -58,7 +60,7 @@ public class e implements com.baidu.fsg.base.restnet.rest.d {
         if (Thread.currentThread().isInterrupted()) {
             return null;
         }
-        return this.f1469a.a(this);
+        return this.f1947a.a(this);
     }
 
     @Override // com.baidu.fsg.base.restnet.rest.d
@@ -68,7 +70,7 @@ public class e implements com.baidu.fsg.base.restnet.rest.d {
 
     @Override // com.baidu.fsg.base.restnet.rest.d
     public void g() {
-        this.f1469a.a();
+        this.f1947a.a();
     }
 
     @Override // com.baidu.fsg.base.restnet.rest.d

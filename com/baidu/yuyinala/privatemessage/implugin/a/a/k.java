@@ -22,54 +22,54 @@ import com.baidu.sumeru.universalimageloader.core.ImageLoader;
 import com.baidu.yuyinala.privatemessage.implugin.a.a.b;
 import com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.RoundedImageView;
 import com.baidu.yuyinala.privatemessage.implugin.ui.theme.ThemeManager;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class k extends c {
-    public View ijG;
-    private ImageView jCJ;
+    public View iwb;
+    private ImageView jPl;
     public View mContentView;
     private Context mContext;
     public View mConvertView;
     private int mPosition;
-    private b.a oMB;
-    private TextView oMC;
-    private TextView oMD;
-    private TextView oME;
-    private TextView oMF;
-    public RelativeLayout oMG;
-    private RelativeLayout oMH;
-    private PopupWindow oMI;
-    private LinearLayout oMJ;
-    private TextView oMK;
-    private TextView oML;
-    private TextView oMM;
-    private TextView oMN;
-    private TextView oMO;
-    private TextView oMP;
-    private RoundedImageView oMQ;
-    public LinearLayout oMs;
+    public LinearLayout oSA;
+    private b.a oSJ;
+    private TextView oSK;
+    private TextView oSL;
+    private TextView oSM;
+    private TextView oSN;
+    public RelativeLayout oSO;
+    private RelativeLayout oSP;
+    private PopupWindow oSQ;
+    private LinearLayout oSR;
+    private TextView oSS;
+    private TextView oST;
+    private TextView oSU;
+    private TextView oSV;
+    private TextView oSW;
+    private TextView oSX;
+    private RoundedImageView oSY;
 
     @SuppressLint({"InflateParams"})
     public k(Context context, LayoutInflater layoutInflater, int i, b.a aVar) {
         this.mContext = context;
-        this.oMB = aVar;
+        this.oSJ = aVar;
         this.mPosition = i;
         this.mConvertView = layoutInflater.inflate(a.g.bd_im_chating_push_smart_template, (ViewGroup) null);
         this.mContentView = this.mConvertView.findViewById(a.f.bd_im_chating_push_content_view);
-        this.oMc = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
-        this.oMd = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_smart_title);
-        this.oMM = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_smart_reject_flag);
-        this.ijG = this.mConvertView.findViewById(a.f.bd_im_template_sep_line);
-        this.jCJ = (ImageView) this.mConvertView.findViewById(a.f.bd_im_arrow_right);
-        this.oMQ = (RoundedImageView) this.mConvertView.findViewById(a.f.bd_im_smart_headview);
-        this.oMO = (TextView) this.mConvertView.findViewById(a.f.bd_im_menu_divider);
-        this.oMP = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_smart_newest);
-        this.oMC = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_template_time);
-        this.oMD = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_template_first);
-        this.oME = (TextView) this.mConvertView.findViewById(a.f.bd_im_template_remark);
-        this.oMF = (TextView) this.mConvertView.findViewById(a.f.bd_im_template_detail_more);
-        this.oMH = (RelativeLayout) this.mConvertView.findViewById(a.f.bd_im_chating_smart_menu);
-        this.oMG = (RelativeLayout) this.mConvertView.findViewById(a.f.bd_im_template_detail);
-        this.oMs = (LinearLayout) this.mConvertView.findViewById(a.f.bd_im_chating_template_multi);
+        this.oSk = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
+        this.oSl = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_smart_title);
+        this.oSU = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_smart_reject_flag);
+        this.iwb = this.mConvertView.findViewById(a.f.bd_im_template_sep_line);
+        this.jPl = (ImageView) this.mConvertView.findViewById(a.f.bd_im_arrow_right);
+        this.oSY = (RoundedImageView) this.mConvertView.findViewById(a.f.bd_im_smart_headview);
+        this.oSW = (TextView) this.mConvertView.findViewById(a.f.bd_im_menu_divider);
+        this.oSX = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_smart_newest);
+        this.oSK = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_template_time);
+        this.oSL = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_template_first);
+        this.oSM = (TextView) this.mConvertView.findViewById(a.f.bd_im_template_remark);
+        this.oSN = (TextView) this.mConvertView.findViewById(a.f.bd_im_template_detail_more);
+        this.oSP = (RelativeLayout) this.mConvertView.findViewById(a.f.bd_im_chating_smart_menu);
+        this.oSO = (RelativeLayout) this.mConvertView.findViewById(a.f.bd_im_template_detail);
+        this.oSA = (LinearLayout) this.mConvertView.findViewById(a.f.bd_im_chating_template_multi);
         this.mConvertView.setTag(this);
     }
 
@@ -92,14 +92,14 @@ public class k extends c {
         r1 = move-exception;
      */
     /* JADX WARN: Code restructure failed: missing block: B:34:0x00f0, code lost:
-        r13.oMD.setTextColor(com.baidu.yuyinala.privatemessage.implugin.ui.theme.ThemeManager.U(r13.mContext, com.baidu.live.sdk.a.c.send_text_item_color));
+        r13.oSL.setTextColor(com.baidu.yuyinala.privatemessage.implugin.ui.theme.ThemeManager.U(r13.mContext, com.baidu.live.sdk.a.c.send_text_item_color));
         com.baidu.yuyinala.privatemessage.implugin.util.c.e("PushSmartTemplateItem", "Error:" + r1.getMessage());
      */
     /* JADX WARN: Code restructure failed: missing block: B:37:0x0120, code lost:
         r1 = move-exception;
      */
     /* JADX WARN: Code restructure failed: missing block: B:38:0x0121, code lost:
-        r13.oME.setTextColor(com.baidu.yuyinala.privatemessage.implugin.ui.theme.ThemeManager.U(r13.mContext, com.baidu.live.sdk.a.c.template_time_txt_color));
+        r13.oSM.setTextColor(com.baidu.yuyinala.privatemessage.implugin.ui.theme.ThemeManager.U(r13.mContext, com.baidu.live.sdk.a.c.template_time_txt_color));
         com.baidu.yuyinala.privatemessage.implugin.util.c.e("PushSmartTemplateItem", "Error:" + r1.getMessage());
      */
     /* JADX WARN: Removed duplicated region for block: B:10:0x0062  */
@@ -120,45 +120,45 @@ public class k extends c {
         int i2 = 0;
         if (chatMsg instanceof SmartMsg) {
             SmartMsg smartMsg = (SmartMsg) chatMsg;
-            this.oMd.setText(smartMsg.getName());
-            this.oMP.setText(smartMsg.getTitle());
-            this.oMC.setText(com.baidu.yuyinala.privatemessage.implugin.util.f.i(context, smartMsg.getMsgTime()));
-            com.baidu.yuyinala.privatemessage.implugin.util.b.hr(context);
-            ImageLoader.getInstance().displayImage(smartMsg.getIcon(), this.oMQ, com.baidu.yuyinala.privatemessage.implugin.util.b.enR());
+            this.oSl.setText(smartMsg.getName());
+            this.oSX.setText(smartMsg.getTitle());
+            this.oSK.setText(com.baidu.yuyinala.privatemessage.implugin.util.f.j(context, smartMsg.getMsgTime()));
+            com.baidu.yuyinala.privatemessage.implugin.util.b.hE(context);
+            ImageLoader.getInstance().displayImage(smartMsg.getIcon(), this.oSY, com.baidu.yuyinala.privatemessage.implugin.util.b.enT());
             int notifyCmd = chatMsg.getNotifyCmd();
             if (notifyCmd >= -1) {
                 if (notifyCmd < 1) {
-                    this.oMM.setVisibility(0);
-                    this.oMH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.k.1
+                    this.oSU.setVisibility(0);
+                    this.oSP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.k.1
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             k.this.a(z, chatMsg);
                         }
                     });
                     if (!TextUtils.isEmpty(smartMsg.getFirstName())) {
-                        this.oMD.setVisibility(8);
+                        this.oSL.setVisibility(8);
                     } else {
-                        this.oMD.setText(smartMsg.getFirstName());
-                        this.oMD.setVisibility(0);
+                        this.oSL.setText(smartMsg.getFirstName());
+                        this.oSL.setVisibility(0);
                     }
                     if (!TextUtils.isEmpty(smartMsg.getRemarkName())) {
-                        this.oME.setVisibility(8);
+                        this.oSM.setVisibility(8);
                     } else {
-                        this.oME.setText(smartMsg.getRemarkName());
-                        this.oME.setVisibility(0);
+                        this.oSM.setText(smartMsg.getRemarkName());
+                        this.oSM.setVisibility(0);
                     }
                     if (!TextUtils.isEmpty(smartMsg.getDetail()) && TextUtils.isEmpty(smartMsg.getSchema())) {
-                        this.oMG.setVisibility(8);
+                        this.oSO.setVisibility(8);
                     } else {
-                        this.oMG.setVisibility(0);
+                        this.oSO.setVisibility(0);
                     }
-                    this.oMD.setTextColor(Color.parseColor(Yx(smartMsg.getFirstColor())));
-                    this.oME.setTextColor(Color.parseColor(ThemeManager.enO() != ThemeManager.ThemeMode.NIGHT ? "#666666" : "#999999"));
+                    this.oSL.setTextColor(Color.parseColor(Yh(smartMsg.getFirstColor())));
+                    this.oSM.setTextColor(Color.parseColor(ThemeManager.enQ() != ThemeManager.ThemeMode.NIGHT ? "#666666" : "#999999"));
                     if (smartMsg.getCommodity() != null) {
                         com.baidu.yuyinala.privatemessage.implugin.util.c.e("PushSmartTemplateItem", "Error:getCommodity is null");
                         return;
                     }
-                    this.oMs.removeAllViews();
+                    this.oSA.removeAllViews();
                     SmartMsg.Commodity[] commodity = smartMsg.getCommodity();
                     int length = commodity.length;
                     int i3 = 0;
@@ -166,12 +166,12 @@ public class k extends c {
                     while (i3 < length) {
                         SmartMsg.Commodity commodity2 = commodity[i3];
                         if (!TextUtils.isEmpty(commodity2.getName())) {
-                            int h = (int) h(context, commodity2.getName(), 14);
-                            int h2 = (int) h(context, context.getResources().getString(a.h.bd_im_space_comma), 14);
+                            int i5 = (int) i(context, commodity2.getName(), 14);
+                            int i6 = (int) i(context, context.getResources().getString(a.h.bd_im_space_comma), 14);
                             if (context.getResources().getDisplayMetrics().scaledDensity < 3.0f) {
-                                h2 = (int) (h2 * 1.5d);
+                                i6 = (int) (i6 * 1.5d);
                             }
-                            i = h2 + h;
+                            i = i6 + i5;
                             if (i > i4) {
                                 i3++;
                                 i4 = i;
@@ -182,11 +182,11 @@ public class k extends c {
                         i4 = i;
                     }
                     while (true) {
-                        int i5 = i2;
-                        if (i5 >= smartMsg.getCommodity().length) {
+                        int i7 = i2;
+                        if (i7 >= smartMsg.getCommodity().length) {
                             break;
                         }
-                        SmartMsg.Commodity commodity3 = smartMsg.getCommodity()[i5];
+                        SmartMsg.Commodity commodity3 = smartMsg.getCommodity()[i7];
                         View inflate = View.inflate(context, a.g.bd_im_chating_cell_push_template, null);
                         TextView textView = (TextView) inflate.findViewById(a.f.bd_im_chating_cell_template_name);
                         TextView textView2 = (TextView) inflate.findViewById(a.f.bd_im_chating_cell_template_value);
@@ -206,21 +206,21 @@ public class k extends c {
                             }
                             try {
                                 if (!TextUtils.isEmpty(color)) {
-                                    textView2.setTextColor(Color.parseColor(Yx(color)));
+                                    textView2.setTextColor(Color.parseColor(Yh(color)));
                                 }
                             } catch (Exception e) {
                                 com.baidu.yuyinala.privatemessage.implugin.util.c.e("PushSmartTemplateItem", "Error:color parse error");
                             }
                         }
-                        this.oMs.addView(inflate, i5);
-                        i2 = i5 + 1;
+                        this.oSA.addView(inflate, i7);
+                        i2 = i7 + 1;
                     }
                 } else {
-                    this.oMM.setVisibility(8);
+                    this.oSU.setVisibility(8);
                 }
             }
             z = false;
-            this.oMH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.k.1
+            this.oSP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.k.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     k.this.a(z, chatMsg);
@@ -232,77 +232,77 @@ public class k extends c {
             }
             if (!TextUtils.isEmpty(smartMsg.getDetail())) {
             }
-            this.oMG.setVisibility(0);
-            this.oMD.setTextColor(Color.parseColor(Yx(smartMsg.getFirstColor())));
-            this.oME.setTextColor(Color.parseColor(ThemeManager.enO() != ThemeManager.ThemeMode.NIGHT ? "#666666" : "#999999"));
+            this.oSO.setVisibility(0);
+            this.oSL.setTextColor(Color.parseColor(Yh(smartMsg.getFirstColor())));
+            this.oSM.setTextColor(Color.parseColor(ThemeManager.enQ() != ThemeManager.ThemeMode.NIGHT ? "#666666" : "#999999"));
             if (smartMsg.getCommodity() != null) {
             }
         }
-        ekZ();
+        eld();
         super.b(context, chatMsg);
     }
 
-    private String Yx(String str) {
-        if (ThemeManager.enO() == ThemeManager.ThemeMode.NIGHT) {
+    private String Yh(String str) {
+        if (ThemeManager.enQ() == ThemeManager.ThemeMode.NIGHT) {
             return "#555555";
         }
         return "#000000";
     }
 
-    private float h(Context context, String str, int i) {
+    private float i(Context context, String str, int i) {
         TextPaint textPaint = new TextPaint();
         textPaint.setTextSize(context.getResources().getDisplayMetrics().scaledDensity * i);
         return textPaint.measureText(str);
     }
 
-    private void ekZ() {
+    private void eld() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z, ChatMsg chatMsg) {
         final SmartMsg smartMsg = (SmartMsg) chatMsg;
         View inflate = View.inflate(this.mContext, a.g.bd_im_smart_pop_win, null);
-        this.oMK = (TextView) inflate.findViewById(a.f.bd_im_chating_smart_reject_menu);
-        this.oML = (TextView) inflate.findViewById(a.f.bd_im_chating_smart_receive_menu);
-        this.oMN = (TextView) inflate.findViewById(a.f.bd_im_smart_pop_txt);
-        this.oMJ = (LinearLayout) inflate.findViewById(a.f.bd_im_pop_win);
-        this.oMI = new PopupWindow(inflate, -2, -2, true);
-        this.oMI.setTouchable(true);
-        this.oMI.setTouchInterceptor(new View.OnTouchListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.k.2
+        this.oSS = (TextView) inflate.findViewById(a.f.bd_im_chating_smart_reject_menu);
+        this.oST = (TextView) inflate.findViewById(a.f.bd_im_chating_smart_receive_menu);
+        this.oSV = (TextView) inflate.findViewById(a.f.bd_im_smart_pop_txt);
+        this.oSR = (LinearLayout) inflate.findViewById(a.f.bd_im_pop_win);
+        this.oSQ = new PopupWindow(inflate, -2, -2, true);
+        this.oSQ.setTouchable(true);
+        this.oSQ.setTouchInterceptor(new View.OnTouchListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.k.2
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 return false;
             }
         });
-        this.oMI.setBackgroundDrawable(new ColorDrawable());
-        this.oMI.showAsDropDown(this.oMQ, com.baidu.yuyinala.privatemessage.implugin.util.f.dip2px(this.mContext, 162.0f), com.baidu.yuyinala.privatemessage.implugin.util.f.dip2px(this.mContext, 14.0f));
-        this.oMJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.k.3
+        this.oSQ.setBackgroundDrawable(new ColorDrawable());
+        this.oSQ.showAsDropDown(this.oSY, com.baidu.yuyinala.privatemessage.implugin.util.f.dip2px(this.mContext, 162.0f), com.baidu.yuyinala.privatemessage.implugin.util.f.dip2px(this.mContext, 14.0f));
+        this.oSR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.k.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (k.this.oMI != null && k.this.oMI.isShowing()) {
-                    k.this.oMI.dismiss();
+                if (k.this.oSQ != null && k.this.oSQ.isShowing()) {
+                    k.this.oSQ.dismiss();
                 }
                 k.this.a(smartMsg);
             }
         });
-        ekZ();
+        eld();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final SmartMsg smartMsg) {
-        com.baidu.yuyinala.privatemessage.implugin.f.h hZ = com.baidu.yuyinala.privatemessage.implugin.f.k.hm(this.mContext).hZ(smartMsg.getContacter());
-        if (hZ != null && !TextUtils.isEmpty(hZ.getThirdId()) && !TextUtils.isEmpty(hZ.getType())) {
-            a(hZ, smartMsg);
+        com.baidu.yuyinala.privatemessage.implugin.f.h hT = com.baidu.yuyinala.privatemessage.implugin.f.k.hB(this.mContext).hT(smartMsg.getContacter());
+        if (hT != null && !TextUtils.isEmpty(hT.getThirdId()) && !TextUtils.isEmpty(hT.getType())) {
+            a(hT, smartMsg);
         } else {
-            com.baidu.yuyinala.privatemessage.implugin.b.b.hg(this.mContext).C(new com.baidu.yuyinala.privatemessage.implugin.f.d(this.mContext, smartMsg.getContacter(), new com.baidu.yuyinala.privatemessage.implugin.f.g() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.k.4
+            com.baidu.yuyinala.privatemessage.implugin.b.b.hv(this.mContext).z(new com.baidu.yuyinala.privatemessage.implugin.f.d(this.mContext, smartMsg.getContacter(), new com.baidu.yuyinala.privatemessage.implugin.f.g() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.k.4
                 @Override // com.baidu.yuyinala.privatemessage.implugin.f.g
                 public void d(int i, String str, long j) {
                     if (i == 200) {
                         com.baidu.yuyinala.privatemessage.implugin.f.h hVar = new com.baidu.yuyinala.privatemessage.implugin.f.h();
                         hVar.setPaid(smartMsg.getContacter());
-                        hVar.YB(str);
+                        hVar.Yl(str);
                         if (hVar.isDataValid()) {
-                            com.baidu.yuyinala.privatemessage.implugin.f.k.hm(k.this.mContext).a(smartMsg.getContacter(), hVar);
+                            com.baidu.yuyinala.privatemessage.implugin.f.k.hB(k.this.mContext).a(smartMsg.getContacter(), hVar);
                             k.this.a(hVar, smartMsg);
                         }
                     }
@@ -314,23 +314,23 @@ public class k extends c {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final com.baidu.yuyinala.privatemessage.implugin.f.h hVar, final SmartMsg smartMsg) {
         try {
-            com.baidu.yuyinala.privatemessage.implugin.b.b.hg(this.mContext).C(new com.baidu.yuyinala.privatemessage.implugin.f.a(this.mContext, Long.valueOf(hVar.ell()).longValue(), hVar.getType(), hVar.elk(), new com.baidu.yuyinala.privatemessage.implugin.f.g() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.k.5
+            com.baidu.yuyinala.privatemessage.implugin.b.b.hv(this.mContext).z(new com.baidu.yuyinala.privatemessage.implugin.f.a(this.mContext, Long.valueOf(hVar.elp()).longValue(), hVar.getType(), hVar.elo(), new com.baidu.yuyinala.privatemessage.implugin.f.g() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.k.5
                 @Override // com.baidu.yuyinala.privatemessage.implugin.f.g
                 public void d(int i, String str, long j) {
                     if (i == 200) {
                         com.baidu.yuyinala.privatemessage.implugin.f.h hVar2 = new com.baidu.yuyinala.privatemessage.implugin.f.h();
                         hVar.setPaid(smartMsg.getContacter());
-                        if (hVar.elk() == 0) {
-                            hVar.OZ(1);
-                        } else if (hVar.elk() == 1) {
-                            hVar.OZ(0);
+                        if (hVar.elo() == 0) {
+                            hVar.OO(1);
+                        } else if (hVar.elo() == 1) {
+                            hVar.OO(0);
                         }
-                        hVar2.YB(str);
+                        hVar2.Yl(str);
                         if (hVar2.isDataValid()) {
-                            com.baidu.yuyinala.privatemessage.implugin.f.k.hm(k.this.mContext).a(smartMsg.getContacter(), hVar);
-                            if (k.this.oMB != null) {
-                                smartMsg.setNotifyCmd(hVar.elk());
-                                k.this.oMB.a(k.this.mConvertView, k.this.mPosition, smartMsg);
+                            com.baidu.yuyinala.privatemessage.implugin.f.k.hB(k.this.mContext).a(smartMsg.getContacter(), hVar);
+                            if (k.this.oSJ != null) {
+                                smartMsg.setNotifyCmd(hVar.elo());
+                                k.this.oSJ.a(k.this.mConvertView, k.this.mPosition, smartMsg);
                             }
                         }
                     }

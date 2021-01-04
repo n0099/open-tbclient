@@ -13,13 +13,15 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.concurrent.ExecutorService;
 import org.json.JSONObject;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public abstract class l {
     public static String c = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.location.c.h f1893a = null;
-    public com.baidu.location.c.a b = null;
+    public com.baidu.location.c.h f2630a = null;
+
+    /* renamed from: b  reason: collision with root package name */
+    public com.baidu.location.c.a f2631b = null;
     private boolean e = true;
     private boolean f = true;
     private boolean g = false;
@@ -28,7 +30,7 @@ public abstract class l {
     private String i = null;
     private boolean j = false;
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public class a extends Handler {
         public a() {
         }
@@ -52,12 +54,14 @@ public abstract class l {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public class b extends com.baidu.location.e.f {
 
         /* renamed from: a  reason: collision with root package name */
-        String f1895a = null;
-        String b = null;
+        String f2633a = null;
+
+        /* renamed from: b  reason: collision with root package name */
+        String f2634b = null;
         long c = 0;
         long d = 0;
 
@@ -69,32 +73,32 @@ public abstract class l {
         public void a() {
             this.h = com.baidu.location.e.l.e();
             if ((com.baidu.location.e.l.h || com.baidu.location.e.l.j) && l.this.h != null && l.this.i != null) {
-                this.b += String.format(Locale.CHINA, "&ki=%s&sn=%s", l.this.h, l.this.i);
+                this.f2634b += String.format(Locale.CHINA, "&ki=%s&sn=%s", l.this.h, l.this.i);
             }
             if (m.a().b()) {
-                this.b += "&enc=2";
+                this.f2634b += "&enc=2";
             }
-            String encodeTp4 = Jni.encodeTp4(this.b);
-            this.b = null;
-            if (this.f1895a == null) {
-                this.f1895a = ab.b();
+            String encodeTp4 = Jni.encodeTp4(this.f2634b);
+            this.f2634b = null;
+            if (this.f2633a == null) {
+                this.f2633a = ab.b();
             }
             this.k.put(BaseLocationBox.TYPE, encodeTp4);
-            if (this.f1895a != null) {
-                this.k.put(MapBundleKey.OfflineMapKey.OFFLINE_UPDATE, this.f1895a);
+            if (this.f2633a != null) {
+                this.k.put(MapBundleKey.OfflineMapKey.OFFLINE_UPDATE, this.f2633a);
             }
             this.k.put("trtm", String.format(Locale.CHINA, "%d", Long.valueOf(System.currentTimeMillis())));
         }
 
         public void a(String str, long j) {
-            this.b = str;
+            this.f2634b = str;
             this.d = System.currentTimeMillis();
             this.c = j;
-            ExecutorService b = z.a().b();
+            ExecutorService b2 = z.a().b();
             if (com.baidu.location.e.l.b()) {
-                a(b, false, null);
-            } else if (b != null) {
-                a(b, com.baidu.location.e.l.f);
+                a(b2, false, null);
+            } else if (b2 != null) {
+                a(b2, com.baidu.location.e.l.f);
             } else {
                 b(com.baidu.location.e.l.f);
             }
@@ -137,7 +141,7 @@ public abstract class l {
                         bDLocation3.setLocType(0);
                         bDLocation = bDLocation3;
                     }
-                    this.f1895a = null;
+                    this.f2633a = null;
                     if (bDLocation.getLocType() == 0 && bDLocation.getLatitude() == Double.MIN_VALUE && bDLocation.getLongitude() == Double.MIN_VALUE) {
                         Message obtainMessage2 = l.this.d.obtainMessage(63);
                         obtainMessage2.obj = "HttpStatus error";
@@ -175,14 +179,14 @@ public abstract class l {
         if (this.i == null) {
             this.i = com.baidu.location.a.a.c(com.baidu.location.f.getServiceContext());
         }
-        if (this.b == null || !this.b.a()) {
-            this.b = com.baidu.location.c.b.a().f();
+        if (this.f2631b == null || !this.f2631b.a()) {
+            this.f2631b = com.baidu.location.c.b.a().f();
         }
-        if (this.f1893a == null || !this.f1893a.j()) {
-            this.f1893a = com.baidu.location.c.i.a().o();
+        if (this.f2630a == null || !this.f2630a.j()) {
+            this.f2630a = com.baidu.location.c.i.a().o();
         }
         Location g = com.baidu.location.c.f.a().j() ? com.baidu.location.c.f.a().g() : null;
-        if ((this.b == null || this.b.d() || this.b.c()) && ((this.f1893a == null || this.f1893a.a() == 0) && g == null)) {
+        if ((this.f2631b == null || this.f2631b.d() || this.f2631b.c()) && ((this.f2630a == null || this.f2630a.a() == 0) && g == null)) {
             return null;
         }
         String b2 = b();
@@ -203,12 +207,12 @@ public abstract class l {
                 }
             }
         }
-        String str2 = ((this.f1893a == null || this.f1893a.a() == 0) && (l = com.baidu.location.c.i.a().l()) != null) ? l + b2 : b2;
+        String str2 = ((this.f2630a == null || this.f2630a.a() == 0) && (l = com.baidu.location.c.i.a().l()) != null) ? l + b2 : b2;
         if (this.f) {
             this.f = false;
-            return com.baidu.location.e.l.a(this.b, this.f1893a, g, str2, 0, true);
+            return com.baidu.location.e.l.a(this.f2631b, this.f2630a, g, str2, 0, true);
         }
-        return com.baidu.location.e.l.a(this.b, this.f1893a, g, str2, 0);
+        return com.baidu.location.e.l.a(this.f2631b, this.f2630a, g, str2, 0);
     }
 
     public abstract void a();

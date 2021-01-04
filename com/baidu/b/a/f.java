@@ -1,18 +1,20 @@
 package com.baidu.b.a;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f1244a = 5;
-    public static int b = 40;
-    private b adR = new b(b);
+    public static int f1565a = 5;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static int f1566b = 40;
+    private b aeH = new b(f1566b);
 
     public f() {
-        this.adR.a(0, b, true);
+        this.aeH.a(0, f1566b, true);
     }
 
     public void a(b bVar, int i, int i2, int i3) {
-        b c = this.adR.c(i, i + i2);
+        b c = this.aeH.c(i, i + i2);
         switch (i3) {
             case 0:
                 c.a(bVar);
@@ -31,11 +33,11 @@ class f {
                 break;
         }
         for (int i4 = 0; i4 < i2; i4++) {
-            this.adR.a(i + i4, c.c(i4));
+            this.aeH.a(i + i4, c.c(i4));
         }
     }
 
     public byte[] a() {
-        return this.adR.a();
+        return this.aeH.a();
     }
 }

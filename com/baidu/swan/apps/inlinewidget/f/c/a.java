@@ -1,22 +1,22 @@
 package com.baidu.swan.apps.inlinewidget.f.c;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.view.Surface;
+import androidx.annotation.NonNull;
 import com.baidu.swan.apps.inlinewidget.d;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public interface a extends d {
 
     /* renamed from: com.baidu.swan.apps.inlinewidget.f.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes25.dex */
-    public interface InterfaceC0457a {
-        void ayx();
+    /* loaded from: classes9.dex */
+    public interface InterfaceC0449a {
+        void azO();
 
-        void hB(String str);
+        void hm(String str);
 
-        void jp(int i);
+        void jk(int i);
 
-        void jq(int i);
+        void jl(int i);
 
         void onEnded();
 
@@ -24,30 +24,30 @@ public interface a extends d {
 
         void onPrepared();
 
-        void pm(String str);
+        void pf(String str);
 
-        void pn(String str);
+        void pg(String str);
 
-        void po(@NonNull String str);
+        void ph(@NonNull String str);
     }
 
-    void a(@NonNull InterfaceC0457a interfaceC0457a);
+    void a(@NonNull InterfaceC0449a interfaceC0449a);
 
-    String ayG();
+    InterfaceC0449a aAa();
 
-    void ayH();
+    boolean aAb();
 
-    void ayI();
+    int aAc();
 
-    InterfaceC0457a ayJ();
+    String azX();
 
-    boolean ayK();
+    void azY();
 
-    int ayL();
+    void azZ();
 
-    boolean c(String str, String str2, String str3, boolean z);
+    boolean e(String str, String str2, String str3, boolean z);
 
-    void fG(boolean z);
+    void fP(boolean z);
 
     Context getContext();
 
@@ -61,17 +61,17 @@ public interface a extends d {
 
     boolean isPlaying();
 
-    void jr(int i);
+    void jm(int i);
 
-    void js(int i);
+    void jn(int i);
 
     void o(int i, int i2, int i3, int i4);
 
     void pause();
 
-    boolean prepareAsync();
+    void pm(String str);
 
-    void pt(String str);
+    boolean prepareAsync();
 
     void release();
 

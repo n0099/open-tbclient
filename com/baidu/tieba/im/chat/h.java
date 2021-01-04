@@ -1,150 +1,263 @@
 package com.baidu.tieba.im.chat;
 
-import android.support.v7.widget.ActivityChooserView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.util.l;
+import com.baidu.live.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.im.chat.MsgAdapterScanMessage;
+import com.baidu.tbadk.core.data.VoiceData;
+import com.baidu.tbadk.core.util.LocalViewSize;
+import com.baidu.tbadk.core.util.ae;
+import com.baidu.tbadk.data.ShareFromFrsMsgData;
+import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
+import com.baidu.tbadk.data.ShareFromPBMsgData;
+import com.baidu.tbadk.gif.GifInfo;
+import com.baidu.tbadk.gif.GifView;
+import com.baidu.tbadk.util.m;
+import com.baidu.tbadk.widget.richText.TbRichText;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.R;
+import com.baidu.tieba.im.chat.view.ChatClipImageItemView;
+import com.baidu.tieba.im.chat.view.ChatImageWithTailView;
+import com.baidu.tieba.im.data.InviteMsgData;
 import com.baidu.tieba.im.data.MsgCacheData;
+import com.baidu.tieba.im.data.VoiceMsgData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.tieba.im.widget.ShareFromFrsView;
+import com.baidu.tieba.im.widget.ShareFromGameCenter;
+import com.baidu.tieba.im.widget.ShareFromPBView;
+import com.baidu.tieba.im.widget.chatVoiceView.ChatVoiceView;
+import com.baidu.tieba.im.widget.invite2GroupView.Invite2GroupView;
+import org.apache.http.HttpHost;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class h {
-    private List<e> bnf;
-    private TbPageContext<MsglistActivity<?>> eNx;
-    private BdTypeListView gpZ;
-    private MsgLeftViewItemAdapter kkK;
-    private MsgRightViewItemAdapter kkL;
-    private MsgMidViewItemAdapter kkM;
-    private CustomMessageListener kkN;
-    private List<ChatMessage> mData;
+    public static boolean kxB = m.bIP();
 
-    public h(TbPageContext<MsglistActivity<?>> tbPageContext, BdTypeListView bdTypeListView) {
-        this(tbPageContext, bdTypeListView, 0);
-    }
-
-    public h(TbPageContext<MsglistActivity<?>> tbPageContext, BdTypeListView bdTypeListView, int i) {
-        this.mData = null;
-        this.bnf = new ArrayList();
-        this.kkN = new CustomMessageListener(CmdConfigCustom.CMD_MSG_LIST_ADAPTER_SCAN) { // from class: com.baidu.tieba.im.chat.h.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
-                    MsgAdapterScanMessage.a aVar = (MsgAdapterScanMessage.a) customResponsedMessage.getData();
-                    if (aVar.kkd != null && aVar.context != null) {
-                        h.this.bnf.addAll(aVar.kkd);
-                        h.this.gpZ.addAdapters(new ArrayList(h.this.bnf));
+    public static void a(Context context, TbRichTextView tbRichTextView, ChatMessage chatMessage, String str, int i) {
+        if (chatMessage != null) {
+            MsgCacheData cacheData = chatMessage.getCacheData();
+            if (cacheData == null) {
+                cacheData = com.baidu.tieba.im.util.c.t(chatMessage);
+                chatMessage.setCacheData(cacheData);
+            }
+            if (cacheData.getRich_content() == null) {
+                String content = chatMessage.getContent();
+                if (content != null) {
+                    TbRichText tbRichText = null;
+                    if (StringUtils.isJSONArray(content)) {
+                        try {
+                            tbRichText = TbRichTextView.a(context, new JSONArray(chatMessage.getContent()), 7);
+                        } catch (Exception e) {
+                        }
                     }
+                    if (tbRichText == null) {
+                        tbRichText = new TbRichText(context, a.f(context, chatMessage.getContent(), i));
+                    }
+                    cacheData.setRich_content(tbRichText);
+                } else {
+                    return;
                 }
             }
-        };
-        this.eNx = tbPageContext;
-        this.gpZ = bdTypeListView;
-        Nt();
-        this.kkK.DK(i);
-        this.kkL.DK(i);
-    }
-
-    private void Nt() {
-        this.kkK = new MsgLeftViewItemAdapter(this.eNx, ChatMessage.TYPE_MSG_LEFT);
-        this.kkK.sa(true);
-        this.kkK.rZ(true);
-        this.kkL = new MsgRightViewItemAdapter(this.eNx, ChatMessage.TYPE_MSG_RIGHT);
-        this.kkL.sa(true);
-        this.kkL.rZ(true);
-        this.kkM = new MsgMidViewItemAdapter(this.eNx, ChatMessage.TYPE_MSG_MID);
-        this.bnf.add(this.kkK);
-        this.bnf.add(this.kkL);
-        this.bnf.add(this.kkM);
-        initListener();
-        MsgAdapterScanMessage.a aVar = new MsgAdapterScanMessage.a();
-        aVar.kkd = new ArrayList();
-        aVar.context = this.eNx;
-        MessageManager.getInstance().dispatchResponsedMessage(new MsgAdapterScanMessage(aVar));
-    }
-
-    private void initListener() {
-        this.kkN.setPriority(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
-        this.eNx.registerListener(this.kkN);
-    }
-
-    public void sb(boolean z) {
-        if (this.kkK != null) {
-            this.kkK.sb(z);
+            tbRichTextView.setVisibility(0);
+            tbRichTextView.setText(cacheData.getRich_content());
         }
     }
 
-    public void sc(boolean z) {
-        if (this.kkL != null) {
-            this.kkL.sc(z);
-        }
-    }
-
-    public void a(com.baidu.adp.lib.b.a aVar) {
-        for (e eVar : this.bnf) {
-            if (eVar.cTL()) {
-                eVar.a(aVar);
-            }
-        }
-    }
-
-    public void setOnItemViewLongClickListener(com.baidu.adp.lib.b.b bVar) {
-        for (e eVar : this.bnf) {
-            if (eVar.cTK()) {
-                eVar.setOnItemViewLongClickListener(bVar);
-            }
-        }
-    }
-
-    public List<ChatMessage> getData() {
-        return this.mData;
-    }
-
-    public void e(ChatMessage chatMessage) {
-        if (this.gpZ.getAdapter() instanceof com.baidu.adp.widget.ListView.f) {
-            this.gpZ.getAdapter().notifyDataSetChanged();
-        }
-    }
-
-    public void notifyDataSetChanged() {
-        if (this.gpZ.getAdapter() instanceof com.baidu.adp.widget.ListView.f) {
-            this.gpZ.getAdapter().notifyDataSetChanged();
-        }
-    }
-
-    public void notifyDataSetInvalidated() {
-        if (this.gpZ.getAdapter() instanceof com.baidu.adp.widget.ListView.f) {
-            this.gpZ.getAdapter().notifyDataSetInvalidated();
-        }
-    }
-
-    public void setData(List<ChatMessage> list) {
-        this.mData = list;
-        ArrayList arrayList = new ArrayList();
-        if (this.mData != null) {
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                if (i > 0) {
-                    if (list.get(i).getCacheData() == null) {
-                        list.get(i).setCacheData(new MsgCacheData());
+    @SuppressLint({"ResourceAsColor"})
+    public static void a(Context context, View view, ChatImageWithTailView chatImageWithTailView, ChatMessage chatMessage, long j, String str) {
+        com.baidu.adp.widget.ImageView.a aVar;
+        String optString;
+        if (chatMessage.getContent() != null && chatMessage.getContent().length() != 0) {
+            try {
+                JSONObject jSONObject = new JSONArray(chatMessage.getContent()).getJSONObject(0);
+                String g = com.baidu.tieba.im.util.c.g(jSONObject, false);
+                String optString2 = jSONObject.optString("shareSourceIcon");
+                String optString3 = jSONObject.optString("shareSource");
+                String optString4 = jSONObject.optString("shareSourceUrl");
+                if (g != null) {
+                    if (g.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
+                        chatImageWithTailView.getImage().startLoad(g, 10, false);
+                        aVar = null;
+                    } else {
+                        try {
+                            aVar = com.baidu.tbadk.imageManager.c.bGp().Ef(g);
+                            try {
+                                if (aVar == null) {
+                                    Bitmap v = ae.bvZ().v(com.baidu.adp.lib.util.d.nI().getImageAbsolutePath(g));
+                                    if (v == null) {
+                                        aVar = null;
+                                    } else {
+                                        aVar = new com.baidu.adp.widget.ImageView.a(v, false);
+                                        if (chatMessage.getWidth() < 1) {
+                                            chatMessage.setWidth(aVar.getWidth());
+                                            chatMessage.setHeight(aVar.getHeight());
+                                        }
+                                        com.baidu.tbadk.imageManager.c.bGp().b(g, aVar);
+                                    }
+                                } else if (chatMessage.getWidth() < 1) {
+                                    chatMessage.setWidth(aVar.getWidth());
+                                    chatMessage.setHeight(aVar.getHeight());
+                                }
+                            } catch (Exception e) {
+                            }
+                        } catch (Exception e2) {
+                            aVar = null;
+                        }
                     }
-                    list.get(i).getCacheData().setLastMsgTime(list.get(i - 1).getTime());
+                    if (chatMessage.getWidth() < 1 && (optString = jSONObject.optString("bsize")) != null) {
+                        String[] split = optString.split(",");
+                        if (split.length > 0) {
+                            chatMessage.setWidth(com.baidu.adp.lib.f.b.toInt(split[0], 0));
+                        }
+                        if (split.length > 1) {
+                            chatMessage.setHeight(com.baidu.adp.lib.f.b.toInt(split[1], 0));
+                        }
+                    }
+                    LocalViewSize.bvN();
+                    LocalViewSize.ImageSize a2 = LocalViewSize.bvN().a(LocalViewSize.bvN().bvO(), chatMessage.getHeight(), chatMessage.getWidth());
+                    com.baidu.tbadk.core.util.c.a i = ae.bvZ().i(a2.width, a2.height, true);
+                    a2.height = i.height;
+                    a2.width = i.width;
+                    ViewGroup.LayoutParams layoutParams = chatImageWithTailView.getImage().getLayoutParams();
+                    layoutParams.height = a2.height;
+                    layoutParams.width = a2.width;
+                    chatImageWithTailView.getImage().setLayoutParams(layoutParams);
+                    if (aVar != null) {
+                        chatImageWithTailView.getImage().reset();
+                        if (chatImageWithTailView.getImage() instanceof ChatClipImageItemView) {
+                            chatImageWithTailView.getImage().cXb();
+                        }
+                        aVar.drawImageTo(chatImageWithTailView.getImage());
+                    } else {
+                        chatImageWithTailView.getImage().setImageDrawable(null);
+                        chatImageWithTailView.getImage().setDefaultResource(R.drawable.pic_image_h_not);
+                        chatImageWithTailView.getImage().setTag(g);
+                    }
+                    chatImageWithTailView.getImage().setDrawBorder(false);
+                    chatImageWithTailView.getImage().setAutoChangeStyle(false);
+                    if (TextUtils.isEmpty(optString4) || TextUtils.isEmpty(optString3) || TextUtils.isEmpty(optString2)) {
+                        chatImageWithTailView.setVisibility(0);
+                        return;
+                    }
+                    if (!TextUtils.isEmpty(str) && str.endsWith("MsgleftView")) {
+                        LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
+                        layoutParams2.setMargins(l.getDimens(context, R.dimen.ds14), 0, 0, 0);
+                        layoutParams2.height = l.getDimens(context, R.dimen.ds48);
+                        chatImageWithTailView.getTail().setLayoutParams(layoutParams2);
+                    }
+                    chatImageWithTailView.getIcon().setDefaultResource(R.drawable.tb_launcher_icon);
+                    chatImageWithTailView.getIcon().startLoad(optString2, 10, false);
+                    chatImageWithTailView.getFromSource().setText(optString3);
+                    chatImageWithTailView.setVisibility(0);
+                    chatImageWithTailView.getTail().setVisibility(0);
                 }
+            } catch (Exception e3) {
+                e3.printStackTrace();
             }
-            arrayList.addAll(this.mData);
         }
-        this.gpZ.setData(arrayList);
     }
 
-    public void onDestory() {
-        if (this.kkN != null) {
-            MessageManager.getInstance().unRegisterListener(this.kkN);
-            this.kkN = null;
+    public static void a(TbPageContext<?> tbPageContext, Context context, View view, Invite2GroupView invite2GroupView, ChatMessage chatMessage, String str) {
+        if (chatMessage.getContent() != null && chatMessage.getContent().length() != 0) {
+            invite2GroupView.setVisibility(0);
+            try {
+                JSONObject jSONObject = new JSONObject(chatMessage.getContent());
+                if (jSONObject.getString("portrait") != null) {
+                    InviteMsgData inviteMsgData = new InviteMsgData();
+                    inviteMsgData.setFromUid(jSONObject.getLong("fromUid"));
+                    inviteMsgData.setGroupId(jSONObject.getLong(TbEnum.SystemMessage.KEY_GROUP_ID));
+                    inviteMsgData.setNotice(jSONObject.getString("notice"));
+                    inviteMsgData.setPortrait(jSONObject.getString("portrait"));
+                    inviteMsgData.setText(jSONObject.getString("text"));
+                    inviteMsgData.setTitle(jSONObject.getString("title"));
+                    inviteMsgData.setToUid(jSONObject.getLong("toUid"));
+                    inviteMsgData.setGroupName(jSONObject.getString(TbEnum.SystemMessage.KEY_GROUP_NAME));
+                    inviteMsgData.setGroupOwnerId(jSONObject.getLong("groupOwnerId"));
+                    invite2GroupView.setData(tbPageContext, inviteMsgData);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void a(Context context, ChatVoiceView chatVoiceView, ChatMessage chatMessage, String str) {
+        if (chatMessage.getContent() != null && chatMessage.getContent().length() > 0) {
+            try {
+                MsgCacheData cacheData = chatMessage.getCacheData();
+                if (cacheData == null) {
+                    cacheData = new MsgCacheData();
+                    cacheData.setVoice_status(1);
+                    chatMessage.setCacheData(cacheData);
+                } else if (cacheData.getVoice_status() == 0) {
+                    cacheData.setVoice_status(1);
+                }
+                VoiceMsgData u = com.baidu.tieba.im.util.c.u(chatMessage);
+                if (u != null && u.getDuring_time() != 0.0f && cacheData.getVoice_model() == null) {
+                    cacheData.setVoice_model(new VoiceData.VoiceModel());
+                    cacheData.getVoice_model().voiceId = u.getVoice_md5();
+                    cacheData.getVoice_model().duration = Math.round(u.getDuring_time());
+                }
+                chatVoiceView.setTag(null);
+                chatVoiceView.setData(chatMessage);
+                chatVoiceView.setVisibility(0);
+            } catch (Exception e) {
+            }
+        }
+    }
+
+    public static void a(Context context, GifView gifView, ChatMessage chatMessage, boolean z) {
+        float f = context.getResources().getDisplayMetrics().density;
+        int i = ((double) f) > 1.5d ? 240 : 160;
+        int i2 = ((double) f) <= 1.5d ? 160 : 240;
+        gifView.setVisibility(0);
+        GifInfo gifInfo = chatMessage.getGifInfo();
+        if (chatMessage.getGifInfo() != null) {
+            gifInfo.mGifWidth = gifInfo.mGifWidth > 0 ? gifInfo.mGifWidth : i;
+            if (gifInfo.mGifHeight > 0) {
+                i2 = gifInfo.mGifHeight;
+            }
+            gifInfo.mGifHeight = i2;
+            gifView.setLayoutParams(new FrameLayout.LayoutParams(gifInfo.mGifWidth, gifInfo.mGifHeight));
+            gifView.a(gifInfo);
+            gifView.setVisibility(0);
+            return;
+        }
+        gifView.setVisibility(8);
+    }
+
+    public static void a(Context context, View view, ShareFromPBView shareFromPBView, ShareFromFrsView shareFromFrsView, ShareFromGameCenter shareFromGameCenter, ChatMessage chatMessage, String str) {
+        if (chatMessage.getContent() != null && chatMessage.getContent().length() != 0) {
+            com.baidu.tieba.im.widget.a aVar = new com.baidu.tieba.im.widget.a();
+            int fD = aVar.fD(chatMessage.getContent(), str);
+            if (1 == aVar.getSubType()) {
+                if (aVar.cZV() != null) {
+                    if (fD == 0) {
+                        shareFromPBView.setVisibility(0);
+                        shareFromPBView.setData(aVar.cZV() instanceof ShareFromPBMsgData ? (ShareFromPBMsgData) aVar.cZV() : null);
+                    } else if (fD == 1) {
+                        shareFromGameCenter.setVisibility(0);
+                        ShareFromGameCenterMsgData shareFromGameCenterMsgData = aVar.cZV() instanceof ShareFromGameCenterMsgData ? (ShareFromGameCenterMsgData) aVar.cZV() : null;
+                        if (!TextUtils.isEmpty(str) && str.endsWith("MsgleftView")) {
+                            shareFromGameCenter.setData(shareFromGameCenterMsgData, false);
+                        } else if (!TextUtils.isEmpty(str) && str.endsWith("MsgrightView")) {
+                            shareFromGameCenter.setData(shareFromGameCenterMsgData, true);
+                        }
+                    }
+                }
+            } else if (4 == aVar.getSubType()) {
+                shareFromFrsView.setVisibility(0);
+                shareFromFrsView.setData(aVar.cZV() instanceof ShareFromFrsMsgData ? (ShareFromFrsMsgData) aVar.cZV() : null);
+            }
         }
     }
 }

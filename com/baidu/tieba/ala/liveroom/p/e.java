@@ -9,39 +9,39 @@ import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.liveroom.messages.AlaDiversionInfoResponseMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class e extends BdBaseModel {
-    private a hze;
-    private HttpMessageListener hzf;
+    private a hLc;
+    private HttpMessageListener hLd;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void a(com.baidu.tieba.ala.liveroom.data.c cVar);
 
-        void bh(int i, String str);
+        void bj(int i, String str);
     }
 
     public e(BdPageContext<?> bdPageContext, a aVar) {
         super(bdPageContext);
-        this.hzf = new HttpMessageListener(1021181) { // from class: com.baidu.tieba.ala.liveroom.p.e.1
+        this.hLd = new HttpMessageListener(1021181) { // from class: com.baidu.tieba.ala.liveroom.p.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021181 && (httpResponsedMessage instanceof AlaDiversionInfoResponseMessage)) {
                     AlaDiversionInfoResponseMessage alaDiversionInfoResponseMessage = (AlaDiversionInfoResponseMessage) httpResponsedMessage;
-                    if (e.this.hze != null) {
+                    if (e.this.hLc != null) {
                         if (alaDiversionInfoResponseMessage.getError() != 0 || !alaDiversionInfoResponseMessage.isSuccess()) {
-                            e.this.hze.bh(alaDiversionInfoResponseMessage.getError(), alaDiversionInfoResponseMessage.getErrorString());
+                            e.this.hLc.bj(alaDiversionInfoResponseMessage.getError(), alaDiversionInfoResponseMessage.getErrorString());
                         } else {
-                            e.this.hze.a(alaDiversionInfoResponseMessage.ciV());
+                            e.this.hLc.a(alaDiversionInfoResponseMessage.clH());
                         }
                     }
                 }
             }
         };
-        this.hze = aVar;
+        this.hLc = aVar;
         initTasks();
-        registerListener(this.hzf);
+        registerListener(this.hLd);
     }
 
     private void initTasks() {
@@ -53,7 +53,7 @@ public class e extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void h(String str, String str2, long j) {
+    public void i(String str, String str2, long j) {
         HttpMessage httpMessage = new HttpMessage(1021181);
         httpMessage.addParam("live_id", str);
         httpMessage.addParam("anchor_user_id", str2);

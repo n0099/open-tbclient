@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes22.dex */
+/* loaded from: classes8.dex */
 public final class q {
     private static int a(BitmapFactory.Options options) {
         int i = options.outHeight;
@@ -20,11 +20,11 @@ public final class q {
     }
 
     public static byte[] a(byte[] bArr) {
-        Bitmap bitmap;
+        Throwable th;
         ByteArrayOutputStream byteArrayOutputStream;
-        Bitmap bitmap2;
+        Bitmap bitmap;
         ByteArrayOutputStream byteArrayOutputStream2;
-        ByteArrayOutputStream byteArrayOutputStream3 = null;
+        Bitmap bitmap2;
         if (bArr == null) {
             return null;
         }
@@ -37,85 +37,86 @@ public final class q {
             options.inPurgeable = true;
             options.inInputShareable = true;
             options.inJustDecodeBounds = false;
-            Bitmap decodeByteArray = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
+            bitmap2 = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
             try {
-                bitmap = Bitmap.createBitmap(decodeByteArray, 0, 0, decodeByteArray.getWidth(), decodeByteArray.getHeight(), new Matrix(), true);
+                bitmap = Bitmap.createBitmap(bitmap2, 0, 0, bitmap2.getWidth(), bitmap2.getHeight(), new Matrix(), true);
                 try {
                     byteArrayOutputStream2 = new ByteArrayOutputStream();
-                } catch (Exception e) {
-                    byteArrayOutputStream = null;
+                    try {
+                        bitmap.compress(Bitmap.CompressFormat.JPEG, 70, byteArrayOutputStream2);
+                        byteArrayOutputStream2.flush();
+                        byteArrayOutputStream2.close();
+                        byte[] byteArray = byteArrayOutputStream2.toByteArray();
+                        if (bitmap != null) {
+                            try {
+                                if (!bitmap.isRecycled()) {
+                                    bitmap.recycle();
+                                }
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                                return byteArray;
+                            }
+                        }
+                        byteArrayOutputStream2.flush();
+                        byteArrayOutputStream2.close();
+                        return byteArray;
+                    } catch (Exception e2) {
+                        bitmap2 = bitmap;
+                        if (bitmap2 != null) {
+                            try {
+                                if (!bitmap2.isRecycled()) {
+                                    bitmap2.recycle();
+                                }
+                            } catch (Exception e3) {
+                                e3.printStackTrace();
+                                return null;
+                            }
+                        }
+                        if (byteArrayOutputStream2 != null) {
+                            byteArrayOutputStream2.flush();
+                            byteArrayOutputStream2.close();
+                        }
+                        return null;
+                    } catch (Throwable th2) {
+                        th = th2;
+                        byteArrayOutputStream = byteArrayOutputStream2;
+                        if (bitmap != null) {
+                            try {
+                                if (!bitmap.isRecycled()) {
+                                    bitmap.recycle();
+                                }
+                            } catch (Exception e4) {
+                                e4.printStackTrace();
+                                throw th;
+                            }
+                        }
+                        if (byteArrayOutputStream != null) {
+                            byteArrayOutputStream.flush();
+                            byteArrayOutputStream.close();
+                        }
+                        throw th;
+                    }
+                } catch (Exception e5) {
+                    byteArrayOutputStream2 = null;
                     bitmap2 = bitmap;
-                } catch (Throwable th) {
-                    th = th;
+                } catch (Throwable th3) {
+                    th = th3;
+                    byteArrayOutputStream = null;
                 }
-            } catch (Exception e2) {
-                bitmap2 = decodeByteArray;
+            } catch (Exception e6) {
+                byteArrayOutputStream2 = null;
+            } catch (Throwable th4) {
+                th = th4;
                 byteArrayOutputStream = null;
-            } catch (Throwable th2) {
-                bitmap = decodeByteArray;
-                th = th2;
+                bitmap = bitmap2;
             }
-        } catch (Exception e3) {
-            byteArrayOutputStream = null;
+        } catch (Exception e7) {
+            byteArrayOutputStream2 = null;
             bitmap2 = null;
-        } catch (Throwable th3) {
-            th = th3;
+        } catch (Throwable th5) {
+            th = th5;
+            byteArrayOutputStream = null;
             bitmap = null;
-        }
-        try {
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 70, byteArrayOutputStream2);
-            byteArrayOutputStream2.flush();
-            byteArrayOutputStream2.close();
-            byte[] byteArray = byteArrayOutputStream2.toByteArray();
-            if (bitmap != null) {
-                try {
-                    if (!bitmap.isRecycled()) {
-                        bitmap.recycle();
-                    }
-                } catch (Exception e4) {
-                    e4.printStackTrace();
-                    return byteArray;
-                }
-            }
-            byteArrayOutputStream2.flush();
-            byteArrayOutputStream2.close();
-            return byteArray;
-        } catch (Exception e5) {
-            byteArrayOutputStream = byteArrayOutputStream2;
-            bitmap2 = bitmap;
-            if (bitmap2 != null) {
-                try {
-                    if (!bitmap2.isRecycled()) {
-                        bitmap2.recycle();
-                    }
-                } catch (Exception e6) {
-                    e6.printStackTrace();
-                    return null;
-                }
-            }
-            if (byteArrayOutputStream != null) {
-                byteArrayOutputStream.flush();
-                byteArrayOutputStream.close();
-            }
-            return null;
-        } catch (Throwable th4) {
-            th = th4;
-            byteArrayOutputStream3 = byteArrayOutputStream2;
-            if (bitmap != null) {
-                try {
-                    if (!bitmap.isRecycled()) {
-                        bitmap.recycle();
-                    }
-                } catch (Exception e7) {
-                    e7.printStackTrace();
-                    throw th;
-                }
-            }
-            if (byteArrayOutputStream3 != null) {
-                byteArrayOutputStream3.flush();
-                byteArrayOutputStream3.close();
-            }
-            throw th;
         }
     }
 }

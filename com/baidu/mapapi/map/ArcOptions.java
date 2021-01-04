@@ -1,31 +1,33 @@
 package com.baidu.mapapi.map;
 
 import android.os.Bundle;
-import android.support.v4.view.ViewCompat;
+import androidx.core.view.ViewCompat;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public final class ArcOptions extends OverlayOptions {
     private static final String d = ArcOptions.class.getSimpleName();
 
     /* renamed from: a  reason: collision with root package name */
-    int f1998a;
+    int f2791a;
     Bundle c;
     private LatLng g;
     private LatLng h;
     private LatLng i;
     private int e = ViewCompat.MEASURED_STATE_MASK;
     private int f = 5;
-    boolean b = true;
+
+    /* renamed from: b  reason: collision with root package name */
+    boolean f2792b = true;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.mapapi.map.OverlayOptions
     public Overlay a() {
         Arc arc = new Arc();
-        arc.B = this.b;
-        arc.A = this.f1998a;
+        arc.B = this.f2792b;
+        arc.A = this.f2791a;
         arc.C = this.c;
-        arc.f1997a = this.e;
-        arc.b = this.f;
+        arc.f2789a = this.e;
+        arc.f2790b = this.f;
         arc.c = this.g;
         arc.d = this.h;
         arc.e = this.i;
@@ -67,11 +69,11 @@ public final class ArcOptions extends OverlayOptions {
     }
 
     public int getZIndex() {
-        return this.f1998a;
+        return this.f2791a;
     }
 
     public boolean isVisible() {
-        return this.b;
+        return this.f2792b;
     }
 
     public ArcOptions points(LatLng latLng, LatLng latLng2, LatLng latLng3) {
@@ -88,7 +90,7 @@ public final class ArcOptions extends OverlayOptions {
     }
 
     public ArcOptions visible(boolean z) {
-        this.b = z;
+        this.f2792b = z;
         return this;
     }
 
@@ -100,7 +102,7 @@ public final class ArcOptions extends OverlayOptions {
     }
 
     public ArcOptions zIndex(int i) {
-        this.f1998a = i;
+        this.f2791a = i;
         return this;
     }
 }

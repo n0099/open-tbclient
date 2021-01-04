@@ -1,234 +1,35 @@
 package com.baidu.tieba.n;
 
-import android.app.ActivityManager;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
-import android.graphics.Canvas;
-import android.graphics.LinearGradient;
-import android.graphics.Matrix;
-import android.graphics.Paint;
-import android.graphics.Shader;
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Process;
-import android.support.v7.widget.ActivityChooserView;
-import android.text.TextUtils;
-import android.view.WindowManager;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.tieba.R;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
-import io.flutter.plugin.platform.PlatformPlugin;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-/* loaded from: classes.dex */
-public class c {
-    private RelativeLayout lmn;
-    private TextView lmo;
-    private Runnable lmp;
-    private Runnable lmq;
-    private Context mContext;
-    private Handler mHandler;
-    private HandlerThread mHandlerThread;
-    private volatile boolean mIsShowing;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.n.b;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public class c extends b.AbstractC0797b {
+    private final int code;
+    private final String msg;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        c getSplash();
+    public c(int i, String str, int i2, String str2) {
+        super(i, str);
+        this.code = i2;
+        this.msg = str2;
     }
 
-    public c(Context context) {
-        this.mContext = context;
-    }
-
-    public void djd() {
-        if (!this.mIsShowing && isMainProcess() && dje()) {
-            if (this.mHandlerThread == null) {
-                this.mHandlerThread = new HandlerThread("splash-thread");
-                this.mHandlerThread.start();
+    @Override // com.baidu.tieba.n.b.AbstractC0797b, com.baidu.tieba.n.b
+    public JSONObject dCA() {
+        JSONObject dCA = super.dCA();
+        try {
+            JSONObject jSONObject = new JSONObject();
+            if (this.code != -4399) {
+                jSONObject.put("code", this.code);
             }
-            if (this.mHandler == null) {
-                this.mHandler = new Handler(this.mHandlerThread.getLooper());
+            if (!StringUtils.isNull(this.msg)) {
+                jSONObject.put("msg", this.msg);
             }
-            if (this.lmp == null) {
-                this.lmp = new Runnable() { // from class: com.baidu.tieba.n.c.1
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        if (c.this.lmn != null) {
-                            ((WindowManager) c.this.mContext.getSystemService("window")).removeViewImmediate(c.this.lmn);
-                            c.this.clean();
-                        }
-                    }
-                };
-            }
-            if (this.lmq == null) {
-                this.lmq = new Runnable() { // from class: com.baidu.tieba.n.c.2
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        c.this.Pw(c.this.mContext.getString(R.string.data_init));
-                    }
-                };
-            }
-            this.mHandler.removeCallbacks(this.lmq);
-            this.mHandler.postAtFrontOfQueue(this.lmq);
-            this.mIsShowing = true;
-            this.mHandler.postDelayed(this.lmp, 20000L);
+            dCA.put("ext", jSONObject);
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-    }
-
-    public void hide() {
-        if (this.lmn != null && this.lmo != null) {
-            this.mHandler.removeCallbacks(this.lmp);
-            this.mHandler.post(this.lmp);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void clean() {
-        if (this.mHandler != null) {
-            this.mHandler.removeCallbacks(this.lmp);
-            this.mHandler.removeCallbacks(this.lmq);
-            this.lmq = null;
-            this.lmp = null;
-            this.mHandler = null;
-        }
-        if (this.mHandlerThread != null) {
-            this.mHandlerThread.quit();
-        }
-        if (this.lmo != null) {
-            this.lmo = null;
-        }
-        if (this.lmn != null) {
-            this.lmn = null;
-        }
-        this.mIsShowing = false;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void Pw(String str) {
-        if (this.lmo == null) {
-            this.lmo = new b(this.mContext);
-            this.lmo.setTextSize(1, 18.0f);
-        }
-        this.lmo.setText(str);
-        this.lmn = new RelativeLayout(this.mContext);
-        this.lmn.setBackgroundResource(R.drawable.pic_splash_logo);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-        layoutParams.addRule(14);
-        layoutParams.addRule(15);
-        this.lmn.addView(this.lmo, layoutParams);
-        WindowManager.LayoutParams layoutParams2 = new WindowManager.LayoutParams();
-        layoutParams2.type = 2005;
-        layoutParams2.format = 1;
-        layoutParams2.gravity = 17;
-        layoutParams2.x = 0;
-        layoutParams2.y = 0;
-        layoutParams2.width = -1;
-        layoutParams2.height = -1;
-        layoutParams2.flags = PlatformPlugin.DEFAULT_SYSTEM_UI;
-        ((WindowManager) this.mContext.getSystemService("window")).addView(this.lmn, layoutParams2);
-    }
-
-    private boolean isMainProcess() {
-        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses;
-        ActivityManager activityManager = (ActivityManager) this.mContext.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
-        if (activityManager == null || (runningAppProcesses = activityManager.getRunningAppProcesses()) == null) {
-            return false;
-        }
-        String packageName = this.mContext.getPackageName();
-        int myPid = Process.myPid();
-        for (int i = 0; i < runningAppProcesses.size(); i++) {
-            if (runningAppProcesses.get(i).pid == myPid && TextUtils.equals(runningAppProcesses.get(i).processName, packageName)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:11:0x003d  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private boolean dje() {
-        List<String> gn = gn(this.mContext);
-        if (gn == null || gn.size() == 0) {
-            return false;
-        }
-        ActivityManager.RunningTaskInfo runningTaskInfo = ((ActivityManager) this.mContext.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningTasks(1).get(0);
-        String shortString = runningTaskInfo.baseActivity.toShortString();
-        String shortString2 = runningTaskInfo.topActivity.toShortString();
-        for (String str : gn) {
-            if (shortString.equals(str) || shortString2.equals(str)) {
-                return true;
-            }
-            while (r3.hasNext()) {
-            }
-        }
-        return false;
-    }
-
-    private List<String> gn(Context context) {
-        PackageManager packageManager = context.getPackageManager();
-        Intent intent = new Intent("com.baidu.tieba.SPLASH_PIPELINE_ACTION");
-        intent.setPackage(context.getPackageName());
-        List<ResolveInfo> queryIntentActivities = packageManager.queryIntentActivities(intent, 64);
-        ArrayList arrayList = new ArrayList();
-        if (queryIntentActivities != null && queryIntentActivities.size() > 0) {
-            String packageName = context.getPackageName();
-            Iterator<ResolveInfo> it = queryIntentActivities.iterator();
-            while (it.hasNext()) {
-                arrayList.add("{" + packageName + "/" + it.next().activityInfo.name + "}");
-            }
-        }
-        return arrayList;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public class b extends TextView {
-        private LinearGradient bHl;
-        private Matrix lms;
-        private int lmt;
-        private boolean mAnimating;
-        private Paint mPaint;
-        private int mViewWidth;
-
-        public b(Context context) {
-            super(context);
-            this.mViewWidth = 0;
-            this.lmt = 0;
-            this.mAnimating = true;
-        }
-
-        @Override // android.widget.TextView, android.view.View
-        protected void onDraw(Canvas canvas) {
-            super.onDraw(canvas);
-            if (this.mAnimating && this.lms != null) {
-                this.lmt += this.mViewWidth / 10;
-                if (this.lmt > this.mViewWidth * 2) {
-                    this.lmt = -this.mViewWidth;
-                }
-                this.lms.setTranslate(this.lmt, 0.0f);
-                this.bHl.setLocalMatrix(this.lms);
-                postInvalidateDelayed(50L);
-            }
-        }
-
-        @Override // android.view.View
-        protected void onSizeChanged(int i, int i2, int i3, int i4) {
-            super.onSizeChanged(i, i2, i3, i4);
-            if (this.mViewWidth == 0) {
-                this.mViewWidth = getMeasuredWidth();
-                if (this.mViewWidth > 0) {
-                    this.mPaint = getPaint();
-                    this.bHl = new LinearGradient(-this.mViewWidth, 0.0f, 0.0f, 0.0f, new int[]{1610612736, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 1610612736}, new float[]{0.0f, 0.5f, 1.0f}, Shader.TileMode.CLAMP);
-                    this.mPaint.setShader(this.bHl);
-                    this.lms = new Matrix();
-                }
-            }
-        }
+        return dCA;
     }
 }

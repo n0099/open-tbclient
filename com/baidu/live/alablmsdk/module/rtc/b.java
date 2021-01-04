@@ -5,48 +5,48 @@ import android.graphics.SurfaceTexture;
 import android.view.Surface;
 import android.view.TextureView;
 import com.baidu.live.alablmsdk.d.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class b implements TextureView.SurfaceTextureListener {
-    public long aCK;
-    public a aCL;
-    public c aCb;
+    public c aCs;
+    public long aDb;
+    public a aDc;
     public Context mContext;
     public int mHeight;
     public Surface mSurface;
     public TextureView mTextureView;
     public int mWidth;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface a {
-        void aD(long j);
+        void aC(long j);
     }
 
     public b(Context context, c cVar, long j) {
-        com.baidu.live.alablmsdk.a.b.a.ak(" ExternalTextureInfo construct id=" + j, "");
-        this.aCb = cVar;
-        this.aCK = j;
+        com.baidu.live.alablmsdk.a.b.a.aj(" ExternalTextureInfo construct id=" + j, "");
+        this.aCs = cVar;
+        this.aDb = j;
         this.mContext = context;
         this.mTextureView = new TextureView(this.mContext);
         this.mTextureView.setSurfaceTextureListener(this);
     }
 
     public void a(a aVar) {
-        com.baidu.live.alablmsdk.a.b.a.fY(" setSurfaceDestroyedListener ");
-        this.aCL = aVar;
+        com.baidu.live.alablmsdk.a.b.a.fI(" setSurfaceDestroyedListener ");
+        this.aDc = aVar;
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
     public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
-        com.baidu.live.alablmsdk.a.b.a.ak(" onSurfaceTextureAvailable mRemoteUid=" + this.aCK + " width=" + i + " , height=" + i2, "");
+        com.baidu.live.alablmsdk.a.b.a.aj(" onSurfaceTextureAvailable mRemoteUid=" + this.aDb + " width=" + i + " , height=" + i2, "");
         this.mSurface = new Surface(surfaceTexture);
         this.mWidth = i;
         this.mHeight = i2;
-        com.baidu.live.alablmsdk.a.c.BS().post(new Runnable() { // from class: com.baidu.live.alablmsdk.module.rtc.b.1
+        com.baidu.live.alablmsdk.a.c.Bj().post(new Runnable() { // from class: com.baidu.live.alablmsdk.module.rtc.b.1
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.live.alablmsdk.a.b.a.ak(" setExternalSurface remoteUid=" + b.this.aCK + " tempSurface=" + b.this.mSurface, "");
-                b.this.aCb.setExternalSurface(b.this.aCK, b.this.mSurface);
-                b.this.aCb.changeSurfaceSize(b.this.aCK, b.this.mWidth, b.this.mHeight);
+                com.baidu.live.alablmsdk.a.b.a.aj(" setExternalSurface remoteUid=" + b.this.aDb + " tempSurface=" + b.this.mSurface, "");
+                b.this.aCs.setExternalSurface(b.this.aDb, b.this.mSurface);
+                b.this.aCs.changeSurfaceSize(b.this.aDb, b.this.mWidth, b.this.mHeight);
             }
         });
     }
@@ -55,26 +55,26 @@ public class b implements TextureView.SurfaceTextureListener {
     public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i2) {
         this.mWidth = i;
         this.mHeight = i2;
-        com.baidu.live.alablmsdk.a.b.a.ak(" onSurfaceTextureSizeChanged mRemoteUid=" + this.aCK + " width=" + i + " , height=" + i2, "");
-        com.baidu.live.alablmsdk.a.c.BS().post(new Runnable() { // from class: com.baidu.live.alablmsdk.module.rtc.b.2
+        com.baidu.live.alablmsdk.a.b.a.aj(" onSurfaceTextureSizeChanged mRemoteUid=" + this.aDb + " width=" + i + " , height=" + i2, "");
+        com.baidu.live.alablmsdk.a.c.Bj().post(new Runnable() { // from class: com.baidu.live.alablmsdk.module.rtc.b.2
             @Override // java.lang.Runnable
             public void run() {
-                b.this.aCb.changeSurfaceSize(b.this.aCK, b.this.mWidth, b.this.mHeight);
+                b.this.aCs.changeSurfaceSize(b.this.aDb, b.this.mWidth, b.this.mHeight);
             }
         });
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
     public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
-        com.baidu.live.alablmsdk.a.b.a.ak(" onSurfaceTextureDestroyed mRemoteUid=" + this.aCK, "");
-        com.baidu.live.alablmsdk.a.c.BS().post(new Runnable() { // from class: com.baidu.live.alablmsdk.module.rtc.b.3
+        com.baidu.live.alablmsdk.a.b.a.aj(" onSurfaceTextureDestroyed mRemoteUid=" + this.aDb, "");
+        com.baidu.live.alablmsdk.a.c.Bj().post(new Runnable() { // from class: com.baidu.live.alablmsdk.module.rtc.b.3
             @Override // java.lang.Runnable
             public void run() {
-                b.this.aCb.destroyExternalSurface(b.this.aCK, b.this.mSurface);
+                b.this.aCs.destroyExternalSurface(b.this.aDb, b.this.mSurface);
             }
         });
-        if (this.aCL != null) {
-            this.aCL.aD(this.aCK);
+        if (this.aDc != null) {
+            this.aDc.aC(this.aDb);
             return false;
         }
         return false;
@@ -85,11 +85,11 @@ public class b implements TextureView.SurfaceTextureListener {
     }
 
     public void release() {
-        this.aCL = null;
-        com.baidu.live.alablmsdk.a.b.a.ak(" external texture info release not, mRemoteUid=" + this.aCK + " ,mSurface=" + this.mSurface, "");
+        this.aDc = null;
+        com.baidu.live.alablmsdk.a.b.a.aj(" external texture info release not, mRemoteUid=" + this.aDb + " ,mSurface=" + this.mSurface, "");
     }
 
     public String toString() {
-        return " mRemoteUid=" + this.aCK + ", mTextureView=" + this.mTextureView + " , mSurface=" + this.mSurface + " mWidth=" + this.mWidth + " , mHeight=" + this.mHeight;
+        return " mRemoteUid=" + this.aDb + ", mTextureView=" + this.mTextureView + " , mSurface=" + this.mSurface + " mWidth=" + this.mWidth + " , mHeight=" + this.mHeight;
     }
 }

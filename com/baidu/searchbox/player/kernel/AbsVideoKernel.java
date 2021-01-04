@@ -1,10 +1,10 @@
 package com.baidu.searchbox.player.kernel;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.view.Surface;
 import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.ICyberVideoView;
 import com.baidu.searchbox.player.constants.PlayerStatus;
@@ -15,7 +15,7 @@ import com.baidu.searchbox.player.session.VideoSession;
 import com.baidu.searchbox.player.utils.BdVideoLog;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public abstract class AbsVideoKernel implements IPoolItem {
     public static final String CYBER_PLAYER = "CyberVideoKernel";
     protected static final int DURATION_MIN_DIFF = 2;

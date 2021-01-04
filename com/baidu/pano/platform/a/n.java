@@ -13,13 +13,15 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Collections;
 import java.util.Map;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public abstract class n<T> implements Comparable<n<T>> {
     private static long p;
 
     /* renamed from: a  reason: collision with root package name */
-    private final w.a f2660a;
-    private final int b;
+    private final w.a f3919a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private final int f3920b;
     private final String c;
     private String d;
     private String e;
@@ -34,7 +36,7 @@ public abstract class n<T> implements Comparable<n<T>> {
     private s n;
     private b.a o;
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public enum a {
         LOW,
         NORMAL,
@@ -54,13 +56,13 @@ public abstract class n<T> implements Comparable<n<T>> {
     }
 
     public n(int i, String str, q.a aVar) {
-        this.f2660a = w.a.f2667a ? new w.a() : null;
+        this.f3919a = w.a.f3933a ? new w.a() : null;
         this.j = true;
         this.k = false;
         this.l = false;
         this.m = 0L;
         this.o = null;
-        this.b = i;
+        this.f3920b = i;
         this.c = str;
         this.e = a(i, str);
         this.g = aVar;
@@ -69,7 +71,7 @@ public abstract class n<T> implements Comparable<n<T>> {
     }
 
     public int a() {
-        return this.b;
+        return this.f3920b;
     }
 
     public int b() {
@@ -93,8 +95,8 @@ public abstract class n<T> implements Comparable<n<T>> {
     }
 
     public void a(String str) {
-        if (w.a.f2667a) {
-            this.f2660a.a(str, Thread.currentThread().getId());
+        if (w.a.f3933a) {
+            this.f3919a.a(str, Thread.currentThread().getId());
         } else if (this.m == 0) {
             this.m = SystemClock.elapsedRealtime();
         }
@@ -105,14 +107,14 @@ public abstract class n<T> implements Comparable<n<T>> {
         if (this.i != null) {
             this.i.b(this);
         }
-        if (w.a.f2667a) {
+        if (w.a.f3933a) {
             long id = Thread.currentThread().getId();
             if (Looper.myLooper() != Looper.getMainLooper()) {
                 new Handler(Looper.getMainLooper()).post(new o(this, str, id));
                 return;
             }
-            this.f2660a.a(str, id);
-            this.f2660a.a(toString());
+            this.f3919a.a(str, id);
+            this.f3919a.a(toString());
             return;
         }
         long elapsedRealtime = SystemClock.elapsedRealtime() - this.m;

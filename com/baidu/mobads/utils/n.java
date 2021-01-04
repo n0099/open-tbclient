@@ -21,7 +21,7 @@ import com.baidu.mobads.openad.FileProvider;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class n implements IXAdPackageUtils {
     @Override // com.baidu.mobads.interfaces.utils.IXAdPackageUtils
     public boolean isInstalled(Context context, String str) {
@@ -256,9 +256,9 @@ public class n implements IXAdPackageUtils {
         List<ResolveInfo> queryIntentActivities = packageManager.queryIntentActivities(intent, 65536);
         String str5 = "&sn=" + systemUtils.getEncodedSN(context) + "&fb_act=" + i2 + "&pack=" + context.getPackageName() + "&v=" + ("android_" + com.baidu.mobads.a.a.c + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + "4.1.30") + "&targetscheme=" + encodeUrl + "&pk=" + str2;
         if (queryIntentActivities.size() > 0) {
-            String str6 = "";
-            str3 = ("&open=true") + "&n=" + queryIntentActivities.size();
             z = true;
+            str3 = ("&open=true") + "&n=" + queryIntentActivities.size();
+            String str6 = "";
             int i4 = 0;
             while (i4 < queryIntentActivities.size()) {
                 ResolveInfo resolveInfo = queryIntentActivities.get(i4);
@@ -283,7 +283,6 @@ public class n implements IXAdPackageUtils {
                     str4 = str6;
                 }
                 i4++;
-                z = z;
                 str6 = str4;
             }
             if (!str6.equals("")) {

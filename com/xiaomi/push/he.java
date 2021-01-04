@@ -9,54 +9,54 @@ import com.xiaomi.push.service.XMPushService;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.NoSuchElementException;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class he {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f4716a;
+    private int f14380a;
 
     /* renamed from: a  reason: collision with other field name */
-    private long f429a;
+    private long f507a;
 
     /* renamed from: a  reason: collision with other field name */
-    private hd f431a;
+    private hd f509a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f432a;
+    private String f510a;
 
     /* renamed from: a  reason: collision with other field name */
-    private boolean f433a = false;
+    private boolean f511a = false;
 
     /* renamed from: a  reason: collision with other field name */
-    private bb f430a = bb.a();
+    private bb f508a = bb.a();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes18.dex */
+    /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        static final he f4717a = new he();
+        static final he f14381a = new he();
     }
 
     private fi a(bb.a aVar) {
-        if (aVar.f122a == 0) {
-            if (aVar.f123a instanceof fi) {
-                return (fi) aVar.f123a;
+        if (aVar.f200a == 0) {
+            if (aVar.f201a instanceof fi) {
+                return (fi) aVar.f201a;
             }
             return null;
         }
-        fi m329a = m329a();
-        m329a.a(fh.CHANNEL_STATS_COUNTER.a());
-        m329a.c(aVar.f122a);
-        m329a.c(aVar.f124a);
-        return m329a;
+        fi m355a = m355a();
+        m355a.a(fh.CHANNEL_STATS_COUNTER.a());
+        m355a.c(aVar.f200a);
+        m355a.c(aVar.f202a);
+        return m355a;
     }
 
     private fj a(int i) {
         ArrayList arrayList = new ArrayList();
-        fj fjVar = new fj(this.f432a, arrayList);
-        if (!az.d(this.f431a.f426a)) {
-            fjVar.a(i.m(this.f431a.f426a));
+        fj fjVar = new fj(this.f510a, arrayList);
+        if (!az.d(this.f509a.f504a)) {
+            fjVar.a(i.m(this.f509a.f504a));
         }
         jq jqVar = new jq(i);
         ji a2 = new jo.a().a(jqVar);
@@ -64,10 +64,10 @@ public class he {
             fjVar.b(a2);
         } catch (jc e) {
         }
-        LinkedList<bb.a> m154a = this.f430a.m154a();
-        while (m154a.size() > 0) {
+        LinkedList<bb.a> m180a = this.f508a.m180a();
+        while (m180a.size() > 0) {
             try {
-                fi a3 = a(m154a.getLast());
+                fi a3 = a(m180a.getLast());
                 if (a3 != null) {
                     a3.b(a2);
                 }
@@ -77,7 +77,7 @@ public class he {
                 if (a3 != null) {
                     arrayList.add(a3);
                 }
-                m154a.removeLast();
+                m180a.removeLast();
             } catch (jc e2) {
             } catch (NoSuchElementException e3) {
             }
@@ -87,46 +87,46 @@ public class he {
 
     public static hd a() {
         hd hdVar;
-        synchronized (a.f4717a) {
-            hdVar = a.f4717a.f431a;
+        synchronized (a.f14381a) {
+            hdVar = a.f14381a.f509a;
         }
         return hdVar;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static he m327a() {
-        return a.f4717a;
+    public static he m353a() {
+        return a.f14381a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private void m328a() {
-        if (!this.f433a || System.currentTimeMillis() - this.f429a <= this.f4716a) {
+    private void m354a() {
+        if (!this.f511a || System.currentTimeMillis() - this.f507a <= this.f14380a) {
             return;
         }
-        this.f433a = false;
-        this.f429a = 0L;
+        this.f511a = false;
+        this.f507a = 0L;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized fi m329a() {
+    public synchronized fi m355a() {
         fi fiVar;
         fiVar = new fi();
-        fiVar.a(az.m133a((Context) this.f431a.f426a));
-        fiVar.f324a = (byte) 0;
-        fiVar.f328b = 1;
+        fiVar.a(az.m159a((Context) this.f509a.f504a));
+        fiVar.f402a = (byte) 0;
+        fiVar.f406b = 1;
         fiVar.d((int) (System.currentTimeMillis() / 1000));
         return fiVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized fj m330a() {
+    public synchronized fj m356a() {
         fj fjVar;
         fjVar = null;
         if (b()) {
             int i = FormCard.WIDTH_DEFAULT_SIZE;
-            if (!az.d(this.f431a.f426a)) {
+            if (!az.d(this.f509a.f504a)) {
                 i = 375;
             }
             fjVar = a(i);
@@ -135,41 +135,41 @@ public class he {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m331a(int i) {
+    public void m357a(int i) {
         int i2 = PersonListModel.CACHETIME;
         if (i > 0) {
             int i3 = i * 1000;
             if (i3 <= 604800000) {
                 i2 = i3;
             }
-            if (this.f4716a == i2 && this.f433a) {
+            if (this.f14380a == i2 && this.f511a) {
                 return;
             }
-            this.f433a = true;
-            this.f429a = System.currentTimeMillis();
-            this.f4716a = i2;
-            com.xiaomi.channel.commonutils.logger.b.c("enable dot duration = " + i2 + " start = " + this.f429a);
+            this.f511a = true;
+            this.f507a = System.currentTimeMillis();
+            this.f14380a = i2;
+            com.xiaomi.channel.commonutils.logger.b.c("enable dot duration = " + i2 + " start = " + this.f507a);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void a(fi fiVar) {
-        this.f430a.a(fiVar);
+        this.f508a.a(fiVar);
     }
 
     public synchronized void a(XMPushService xMPushService) {
-        this.f431a = new hd(xMPushService);
-        this.f432a = "";
+        this.f509a = new hd(xMPushService);
+        this.f510a = "";
         com.xiaomi.push.service.be.a().a(new hf(this));
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m332a() {
-        return this.f433a;
+    public boolean m358a() {
+        return this.f511a;
     }
 
     boolean b() {
-        m328a();
-        return this.f433a && this.f430a.m153a() > 0;
+        m354a();
+        return this.f511a && this.f508a.m179a() > 0;
     }
 }

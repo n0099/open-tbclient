@@ -1,11 +1,12 @@
 package com.baidu.adp.widget.ListView;
+
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
-public interface t {
-    void cancelRefresh();
+public class t implements n {
+    public static final BdUniqueId Yq = BdUniqueId.gen();
 
-    r getAdapter();
-
-    int getFirstVisiblePosition();
-
-    int getLastVisiblePosition();
+    @Override // com.baidu.adp.widget.ListView.n
+    public BdUniqueId getType() {
+        return Yq;
+    }
 }

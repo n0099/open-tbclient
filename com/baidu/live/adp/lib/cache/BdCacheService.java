@@ -10,7 +10,7 @@ import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.lib.cache.BdKVCache;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class BdCacheService extends CustomMessageListener {
     public static final String CACHE_TABLE_PREFIX = "cache_kv_";
     public static final String SHARED_BLOB_TABLE = "cache_kv_bshare";
@@ -25,14 +25,14 @@ public class BdCacheService extends CustomMessageListener {
     private BdNameSpaceDBManager nameSpaceManager;
     private HashMap<String, BdKVCache<String>> textCaches;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public enum CacheEvictPolicy {
         NO_EVICT,
         LRU_ON_COUNT,
         LRU_ON_INSERT
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public enum CacheStorage {
         SQLite_CACHE_PER_TABLE,
         SQLite_CACHE_All_IN_ONE_TABLE
@@ -114,8 +114,8 @@ public class BdCacheService extends CustomMessageListener {
     public synchronized BdKVCache<String> getAndStartTextCache(String str, CacheStorage cacheStorage, CacheEvictPolicy cacheEvictPolicy, int i) {
         BdKVCache<String> bdKVCache;
         BdCacheEvictPolicy newNoEvictCachePolicy;
-        BdTextCachePerTableDBManager bdTextCacheAllInOneTableDBManager;
         boolean z;
+        BdTextCachePerTableDBManager bdTextCacheAllInOneTableDBManager;
         bdKVCache = this.textCaches.get(str);
         if (bdKVCache == null) {
             if (cacheEvictPolicy == CacheEvictPolicy.LRU_ON_COUNT) {
@@ -126,11 +126,11 @@ public class BdCacheService extends CustomMessageListener {
                 newNoEvictCachePolicy = BdCacheEvictPolicyFactory.newNoEvictCachePolicy();
             }
             if (cacheStorage == CacheStorage.SQLite_CACHE_PER_TABLE) {
-                bdTextCacheAllInOneTableDBManager = new BdTextCachePerTableDBManager(getDatabaseManager());
                 z = false;
+                bdTextCacheAllInOneTableDBManager = new BdTextCachePerTableDBManager(getDatabaseManager());
             } else {
-                bdTextCacheAllInOneTableDBManager = new BdTextCacheAllInOneTableDBManager(getDatabaseManager(), SHARED_TEXT_TABLE);
                 z = true;
+                bdTextCacheAllInOneTableDBManager = new BdTextCacheAllInOneTableDBManager(getDatabaseManager(), SHARED_TEXT_TABLE);
             }
             bdTextCacheAllInOneTableDBManager.startup(newNoEvictCachePolicy, initAndGetTableName(bdTextCacheAllInOneTableDBManager, str, "text", i));
             bdKVCache = getAndStartTextCache(str, new BdCacheSQLiteStorage(bdTextCacheAllInOneTableDBManager, newNoEvictCachePolicy, z));
@@ -184,8 +184,8 @@ public class BdCacheService extends CustomMessageListener {
     public synchronized BdKVCache<byte[]> getAndStartBlobCache(String str, CacheStorage cacheStorage, CacheEvictPolicy cacheEvictPolicy, int i) {
         BdKVCache<byte[]> bdKVCache;
         BdCacheEvictPolicy newNoEvictCachePolicy;
-        BdBlobCachePerTableDBManager bdBlobCacheAllInOneTableDBManager;
         boolean z;
+        BdBlobCachePerTableDBManager bdBlobCacheAllInOneTableDBManager;
         bdKVCache = this.blobCaches.get(str);
         if (bdKVCache == null) {
             if (cacheEvictPolicy == CacheEvictPolicy.LRU_ON_COUNT) {
@@ -196,11 +196,11 @@ public class BdCacheService extends CustomMessageListener {
                 newNoEvictCachePolicy = BdCacheEvictPolicyFactory.newNoEvictCachePolicy();
             }
             if (cacheStorage == CacheStorage.SQLite_CACHE_PER_TABLE) {
-                bdBlobCacheAllInOneTableDBManager = new BdBlobCachePerTableDBManager(getDatabaseManager());
                 z = false;
+                bdBlobCacheAllInOneTableDBManager = new BdBlobCachePerTableDBManager(getDatabaseManager());
             } else {
-                bdBlobCacheAllInOneTableDBManager = new BdBlobCacheAllInOneTableDBManager(getDatabaseManager(), SHARED_BLOB_TABLE);
                 z = true;
+                bdBlobCacheAllInOneTableDBManager = new BdBlobCacheAllInOneTableDBManager(getDatabaseManager(), SHARED_BLOB_TABLE);
             }
             bdBlobCacheAllInOneTableDBManager.startup(newNoEvictCachePolicy, initAndGetTableName(bdBlobCacheAllInOneTableDBManager, str, BdCacheNSItem.CACHE_TYPE_BLOB, i));
             bdKVCache = getAndStartBlobCache(str, new BdCacheSQLiteStorage(bdBlobCacheAllInOneTableDBManager, newNoEvictCachePolicy, z));

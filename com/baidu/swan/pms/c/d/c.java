@@ -1,74 +1,74 @@
 package com.baidu.swan.pms.c.d;
 /* loaded from: classes6.dex */
 public class c extends g {
-    private String eob;
-    private long eoc;
-    private long eod;
-    private String eoe;
-    private String eog;
-    private int eoh;
+    private String exJ;
+    private long exK;
+    private long exL;
+    private String exM;
+    private String exN;
+    private int exO;
     private String mPath;
 
     public c(String str, int i) {
         super(i);
-        this.eoc = -1L;
-        this.eod = -1L;
-        this.eoh = -1;
-        this.eob = str;
+        this.exK = -1L;
+        this.exL = -1L;
+        this.exO = -1;
+        this.exJ = str;
     }
 
-    public c nq(int i) {
-        this.eoh = i;
+    public c nz(int i) {
+        this.exO = i;
         return this;
     }
 
-    public int bey() {
-        return this.eoh;
+    public int bgT() {
+        return this.exO;
     }
 
-    public c yW(String str) {
-        this.eoe = str;
-        return this;
-    }
-
-    public c dr(long j) {
-        this.eoc = j;
+    public c yV(String str) {
+        this.exM = str;
         return this;
     }
 
     public c ds(long j) {
-        this.eod = j;
+        this.exK = j;
+        return this;
+    }
+
+    public c dt(long j) {
+        this.exL = j;
+        return this;
+    }
+
+    public c yW(String str) {
+        this.exN = str;
         return this;
     }
 
     public c yX(String str) {
-        this.eog = str;
-        return this;
-    }
-
-    public c yY(String str) {
         this.mPath = str;
         return this;
     }
 
     public String getBundleId() {
-        return this.eob;
+        return this.exJ;
     }
 
-    public long bew() {
-        return this.eoc;
+    public long bgR() {
+        return this.exK;
     }
 
-    public long bex() {
-        return this.eod;
+    public long bgS() {
+        return this.exL;
     }
 
-    public String bez() {
-        return this.eoe;
+    public String bgU() {
+        return this.exM;
     }
 
-    public String beA() {
-        return this.eog;
+    public String bgV() {
+        return this.exN;
     }
 
     public String getPath() {

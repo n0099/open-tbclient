@@ -19,12 +19,14 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Map;
-/* loaded from: classes18.dex */
+/* loaded from: classes15.dex */
 public class Utils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f2259a = "filecache-Utils";
-    public static int b = 536870912;
+    public static String f3233a = "filecache-Utils";
+
+    /* renamed from: b  reason: collision with root package name */
+    public static int f3234b = 536870912;
     public static String c = ".video_cache";
     private static volatile int d = -1;
     private static volatile int e = -1;
@@ -37,14 +39,14 @@ public class Utils {
             if ("mounted".equals(Environment.getExternalStorageState())) {
                 String path = Environment.getExternalStorageDirectory().getPath();
                 if (path == null || path.length() <= 0) {
-                    CyberLog.w(f2259a, "External path is null, so SDCard no free space");
+                    CyberLog.w(f3233a, "External path is null, so SDCard no free space");
                 } else {
                     StatFs statFs = new StatFs(path);
                     j = statFs.getAvailableBlocks() * statFs.getBlockSize();
                 }
             }
         } catch (Exception e2) {
-            CyberLog.d(f2259a, "SDCard no free space");
+            CyberLog.d(f3233a, "SDCard no free space");
         }
         return j;
     }
@@ -77,7 +79,7 @@ public class Utils {
                 file.delete();
             }
         } catch (Exception e2) {
-            CyberLog.w(f2259a, e2.toString());
+            CyberLog.w(f3233a, e2.toString());
         }
     }
 
@@ -121,7 +123,7 @@ public class Utils {
         String a2 = a(context);
         String str = TextUtils.isEmpty(a2) ? null : a2 + File.separator + "baidu" + File.separator + "flyflow" + File.separator + "video_statistic" + File.separator + "duplayer" + File.separator + context.getPackageName();
         String str2 = context.getFilesDir().getAbsolutePath() + File.separator + ".video_statistic" + File.separator + "duplayer";
-        CyberLog.i(f2259a, "Utils.getExternalStorageSpace():" + a());
+        CyberLog.i(f3233a, "Utils.getExternalStorageSpace():" + a());
         if (a() < 10485760 || str == null) {
             str = str2;
         }
@@ -129,7 +131,7 @@ public class Utils {
         if (!d(context)) {
             str = str + File.separator + "remote";
         }
-        CyberLog.i(f2259a, "getVideoStatisticsPath folder:" + str);
+        CyberLog.i(f3233a, "getVideoStatisticsPath folder:" + str);
         return str;
     }
 

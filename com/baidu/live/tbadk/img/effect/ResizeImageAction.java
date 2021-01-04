@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import com.baidu.live.adp.lib.safe.JavaTypesHelper;
 import com.baidu.live.tbadk.core.util.BitmapHelper;
 import com.baidu.live.tbadk.imagemanager.TbImageMemoryCache;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class ResizeImageAction extends ImageAction {
     public static final String ACTION_NAME = "resize";
     private int maxHeight;

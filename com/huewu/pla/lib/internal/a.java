@@ -10,9 +10,9 @@ import android.widget.WrapperListAdapter;
 import com.huewu.pla.lib.internal.PLA_ListView;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class a implements Filterable, WrapperListAdapter {
-    static final ArrayList<PLA_ListView.a> bFn = new ArrayList<>();
+    static final ArrayList<PLA_ListView.a> bKb = new ArrayList<>();
     private final ListAdapter mAdapter;
     boolean mAreAllFixedViewsSelectable;
     ArrayList<PLA_ListView.a> mFooterViewInfos;
@@ -23,12 +23,12 @@ public class a implements Filterable, WrapperListAdapter {
         this.mAdapter = listAdapter;
         this.mIsFilterable = listAdapter instanceof Filterable;
         if (arrayList == null) {
-            this.mHeaderViewInfos = bFn;
+            this.mHeaderViewInfos = bKb;
         } else {
             this.mHeaderViewInfos = arrayList;
         }
         if (arrayList2 == null) {
-            this.mFooterViewInfos = bFn;
+            this.mFooterViewInfos = bKb;
         } else {
             this.mFooterViewInfos = arrayList2;
         }

@@ -1,18 +1,18 @@
 package com.xiaomi.push;
 
 import java.net.InetSocketAddress;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public final class cx {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f4617a;
+    private int f14225a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f187a;
+    private String f265a;
 
     public cx(String str, int i) {
-        this.f187a = str;
-        this.f4617a = i;
+        this.f265a = str;
+        this.f14225a = i;
     }
 
     public static cx a(String str, int i) {
@@ -33,21 +33,21 @@ public final class cx {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static InetSocketAddress m206a(String str, int i) {
+    public static InetSocketAddress m232a(String str, int i) {
         cx a2 = a(str, i);
-        return new InetSocketAddress(a2.m207a(), a2.a());
+        return new InetSocketAddress(a2.m233a(), a2.a());
     }
 
     public int a() {
-        return this.f4617a;
+        return this.f14225a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m207a() {
-        return this.f187a;
+    public String m233a() {
+        return this.f265a;
     }
 
     public String toString() {
-        return this.f4617a > 0 ? this.f187a + ":" + this.f4617a : this.f187a;
+        return this.f14225a > 0 ? this.f265a + ":" + this.f14225a : this.f265a;
     }
 }

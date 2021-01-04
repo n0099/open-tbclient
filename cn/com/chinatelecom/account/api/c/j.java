@@ -2,7 +2,7 @@ package cn.com.chinatelecom.account.api.c;
 
 import android.content.Context;
 import cn.com.chinatelecom.account.api.Helper;
-/* loaded from: classes16.dex */
+/* loaded from: classes4.dex */
 public class j implements g {
     @Override // cn.com.chinatelecom.account.api.c.g
     public String a() {

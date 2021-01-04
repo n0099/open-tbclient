@@ -1,5 +1,5 @@
 package com.baidu.ala.ndk;
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class AlaAudioFrame {
     private static final int CHANNEL_NB = 1;
     private static final int SAMPLE_RATE = 44100;
@@ -12,7 +12,7 @@ public class AlaAudioFrame {
 
     public void setupConfig(int i, int i2) {
         this.sampleRate = i;
-        this.channels = i2 == 4 ? 1 : 2;
+        this.channels = isMono(i2) ? 1 : 2;
     }
 
     public void fillAudioData(byte[] bArr, int i) {
@@ -20,5 +20,9 @@ public class AlaAudioFrame {
         this.length = i;
         this.pts = AlaNdkAdapter.getMediaStreamTS(false);
         this.dts = AlaNdkAdapter.getMediaStreamTS(false);
+    }
+
+    public static boolean isMono(int i) {
+        return 16 == i || 4 == i;
     }
 }

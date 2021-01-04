@@ -4,7 +4,7 @@ import com.baidu.fsg.base.NoProguard;
 import com.baidu.fsg.base.utils.JsonUtils;
 import com.baidu.fsg.base.utils.StringUtils;
 import org.json.JSONObject;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class BeanResponseBase implements NoProguard {
     public int retCode = 0;
     public String retMsg = null;

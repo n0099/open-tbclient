@@ -42,7 +42,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class BdUtilHelper {
     private static final double EARTH_RADIUS = 6378.137d;
     private static final int TOAST_LONG = 3500;
@@ -54,7 +54,7 @@ public class BdUtilHelper {
     private static ICustomToast mToast = null;
     private static Handler mHandler = new Handler(Looper.getMainLooper());
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface ICustomToastView {
         View getToastContentView();
 
@@ -285,19 +285,18 @@ public class BdUtilHelper {
 
     public static DisplayMetrics getScreenSize(Activity activity) {
         DisplayMetrics displayMetrics;
-        Exception e;
         try {
             displayMetrics = new DisplayMetrics();
             try {
                 activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-            } catch (Exception e2) {
-                e = e2;
+            } catch (Exception e) {
+                e = e;
                 BdLog.e(e.toString());
                 return displayMetrics;
             }
-        } catch (Exception e3) {
+        } catch (Exception e2) {
+            e = e2;
             displayMetrics = null;
-            e = e3;
         }
         return displayMetrics;
     }
@@ -317,16 +316,14 @@ public class BdUtilHelper {
 
     public static int getTextWidth(Paint paint, String str) {
         float[] fArr;
+        if (str == null || str.length() <= 0) {
+            return 0;
+        }
+        int length = str.length();
+        paint.getTextWidths(str, new float[length]);
         int i = 0;
-        if (str != null && str.length() > 0) {
-            int length = str.length();
-            paint.getTextWidths(str, new float[length]);
-            int i2 = 0;
-            while (i2 < length) {
-                int ceil = ((int) Math.ceil(fArr[i2])) + i;
-                i2++;
-                i = ceil;
-            }
+        for (int i2 = 0; i2 < length; i2++) {
+            i += (int) Math.ceil(fArr[i2]);
         }
         return i;
     }
@@ -544,7 +541,6 @@ public class BdUtilHelper {
 
     public static String getLocalDns() {
         BufferedReader bufferedReader;
-        Throwable th;
         String str = null;
         try {
             try {
@@ -558,17 +554,17 @@ public class BdUtilHelper {
                     CloseUtil.close((Reader) bufferedReader);
                     return str;
                 }
-            } catch (Throwable th2) {
-                th = th2;
+            } catch (Throwable th) {
+                th = th;
                 CloseUtil.close((Reader) bufferedReader);
                 throw th;
             }
         } catch (Exception e2) {
             e = e2;
             bufferedReader = null;
-        } catch (Throwable th3) {
+        } catch (Throwable th2) {
+            th = th2;
             bufferedReader = null;
-            th = th3;
             CloseUtil.close((Reader) bufferedReader);
             throw th;
         }
@@ -577,7 +573,6 @@ public class BdUtilHelper {
 
     public static String getLocalDnsBak() {
         BufferedReader bufferedReader;
-        Throwable th;
         String str = null;
         try {
             try {
@@ -591,17 +586,17 @@ public class BdUtilHelper {
                     CloseUtil.close((Reader) bufferedReader);
                     return str;
                 }
-            } catch (Throwable th2) {
-                th = th2;
+            } catch (Throwable th) {
+                th = th;
                 CloseUtil.close((Reader) bufferedReader);
                 throw th;
             }
         } catch (Exception e2) {
             e = e2;
             bufferedReader = null;
-        } catch (Throwable th3) {
+        } catch (Throwable th2) {
+            th = th2;
             bufferedReader = null;
-            th = th3;
             CloseUtil.close((Reader) bufferedReader);
             throw th;
         }

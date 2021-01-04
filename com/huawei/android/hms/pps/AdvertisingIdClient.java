@@ -5,17 +5,17 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Looper;
 import android.os.RemoteException;
-import android.support.annotation.Keep;
 import android.util.Log;
+import androidx.annotation.Keep;
 import com.huawei.android.hms.pps.a.a;
 import com.huawei.android.hms.pps.a.b;
 import java.io.IOException;
 @Keep
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class AdvertisingIdClient {
 
     @Keep
-    /* loaded from: classes18.dex */
+    /* loaded from: classes6.dex */
     public static final class Info {
         private final String advertisingId;
         private final boolean limitAdTrackingEnabled;
@@ -55,12 +55,12 @@ public class AdvertisingIdClient {
             Log.i(getTag(), "bind ok");
             try {
                 try {
-                    if (aVar.f4064a) {
+                    if (aVar.f8203a) {
                         throw new IllegalStateException();
                     }
-                    aVar.f4064a = true;
-                    b.a.C1006a c1006a = new b.a.C1006a(aVar.b.take());
-                    return new Info(c1006a.a(), c1006a.b());
+                    aVar.f8203a = true;
+                    b.a.C1034a c1034a = new b.a.C1034a(aVar.f8204b.take());
+                    return new Info(c1034a.a(), c1034a.b());
                 } catch (RemoteException e) {
                     Log.e(getTag(), "bind hms service RemoteException");
                     throw new IOException("bind hms service RemoteException");

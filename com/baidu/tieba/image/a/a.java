@@ -5,90 +5,112 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.live.tbadk.core.data.RequestResponseCode;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.atomData.PbFullScreenEditorActivityConfig;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
+import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.coreExtra.data.u;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.editortools.pb.PbEditorData;
 import com.baidu.tbadk.editortools.pb.e;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.tieba.tbadkCore.y;
-/* loaded from: classes21.dex */
+/* loaded from: classes8.dex */
 public class a extends e {
-    public boolean kMZ;
-    public String kMo;
-    public String kNa;
+    public String kRG;
+    public boolean kSC;
+    public String kSD;
+    private PermissionJudgePolicy mPermissionJudgePolicy;
     public String postId;
 
     public a(EditorTools editorTools) {
         super(editorTools);
+        editorTools.setActionListener(24, new com.baidu.tbadk.editortools.b() { // from class: com.baidu.tieba.image.a.a.1
+            @Override // com.baidu.tbadk.editortools.b
+            public void a(com.baidu.tbadk.editortools.a aVar) {
+                if (aVar.data instanceof u) {
+                    if (((u) aVar.data).bzW() == EmotionGroupType.BIG_EMOTION || ((u) aVar.data).bzW() == EmotionGroupType.USER_COLLECT) {
+                        if (a.this.mPermissionJudgePolicy == null) {
+                            a.this.mPermissionJudgePolicy = new PermissionJudgePolicy();
+                        }
+                        a.this.mPermissionJudgePolicy.clearRequestPermissionList();
+                        a.this.mPermissionJudgePolicy.appendRequestPermission(a.this.eXu.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
+                        if (!a.this.mPermissionJudgePolicy.startRequestPermission(a.this.eXu.getPageActivity())) {
+                            a.this.c((u) aVar.data);
+                            a.this.a(false, (PostWriteCallBackData) null);
+                        }
+                    }
+                }
+            }
+        });
     }
 
     @Override // com.baidu.tbadk.editortools.pb.e
     public void a(String str, WriteData writeData) {
         boolean z = true;
-        if (this.fwu.dcE() == null) {
-            this.fwu.e(dcE());
+        if (this.fGa.dco() == null) {
+            this.fGa.f(dco());
         }
-        if (this.fwu.dcE() != null) {
-            this.fwu.setSpanGroupManager(this.mSpanGroupManager);
-            this.fwu.dcE().setIsBJHPost(this.isBJH);
-            this.fwu.dcE().setWriteImagesInfo(this.writeImagesInfo);
-            this.fwu.yk(this.writeImagesInfo.size() > 0);
-            WriteData dcE = this.fwu.dcE();
-            if (this.fwt == null || !this.fwt.clC()) {
+        if (this.fGa.dco() != null) {
+            this.fGa.setSpanGroupManager(this.mSpanGroupManager);
+            this.fGa.dco().setIsBJHPost(this.isBJH);
+            this.fGa.dco().setWriteImagesInfo(this.writeImagesInfo);
+            this.fGa.yp(this.writeImagesInfo.size() > 0);
+            WriteData dco = this.fGa.dco();
+            if (this.fFZ == null || !this.fFZ.cot()) {
                 z = false;
             }
-            dcE.setHasLocationData(z);
+            dco.setHasLocationData(z);
             if (str == null) {
-                this.fwu.dcE().setContent(this.mPostContent);
+                this.fGa.dco().setContent(this.mPostContent);
             }
             if (this.mVoiceModel != null) {
                 if (this.mVoiceModel.getId() != null) {
-                    this.fwu.dcE().setVoice(this.mVoiceModel.getId());
-                    this.fwu.dcE().setVoiceDuringTime(this.mVoiceModel.duration);
+                    this.fGa.dco().setVoice(this.mVoiceModel.getId());
+                    this.fGa.dco().setVoiceDuringTime(this.mVoiceModel.duration);
                 } else {
-                    this.fwu.dcE().setVoice(null);
-                    this.fwu.dcE().setVoiceDuringTime(-1);
+                    this.fGa.dco().setVoice(null);
+                    this.fGa.dco().setVoiceDuringTime(-1);
                 }
             } else {
-                this.fwu.dcE().setVoice(null);
-                this.fwu.dcE().setVoiceDuringTime(-1);
+                this.fGa.dco().setVoice(null);
+                this.fGa.dco().setVoiceDuringTime(-1);
             }
-            if (!this.fwu.dQH()) {
-                this.eNx.showToast(R.string.write_img_limit);
+            if (!this.fGa.dQD()) {
+                this.eXu.showToast(R.string.write_img_limit);
                 return;
             }
-            if ((this.fwC == null || !this.fwC.bCR()) && !this.fwu.dQE()) {
+            if ((this.fGi == null || !this.fGi.bFm()) && !this.fGa.dQB()) {
             }
         }
     }
 
-    public WriteData dcE() {
+    public WriteData dco() {
         WriteData writeData = new WriteData();
-        if (this.fwx != null) {
-            if (this.fwD && !this.kMZ) {
+        if (this.fGd != null) {
+            if (this.fGj && !this.kSC) {
                 writeData.setCanNoForum(true);
-                writeData.setVForumId(this.fwx.getId());
-                writeData.setVForumName(this.fwx.getName());
+                writeData.setVForumId(this.fGd.getId());
+                writeData.setVForumName(this.fGd.getName());
                 writeData.setForumId("0");
                 writeData.setForumName("");
             } else {
                 writeData.setCanNoForum(false);
                 writeData.setVForumId("");
                 writeData.setVForumName("");
-                writeData.setForumId(this.fwx.getId());
-                writeData.setForumName(this.fwx.getName());
+                writeData.setForumId(this.fGd.getId());
+                writeData.setForumName(this.fGd.getName());
             }
         }
         writeData.setThreadId(this.mThreadId);
-        if (!this.kMZ) {
+        if (!this.kSC) {
             writeData.setType(1);
         } else {
             writeData.setType(2);
             writeData.setFloor(this.postId);
             writeData.setFloorNum(0);
-            writeData.setReplyId(this.kNa);
+            writeData.setReplyId(this.kSD);
             writeData.setRepostId(this.postId);
         }
         return writeData;
@@ -97,16 +119,16 @@ public class a extends e {
     @Override // com.baidu.tbadk.editortools.pb.e
     public void a(boolean z, PostWriteCallBackData postWriteCallBackData) {
         PbEditorData pbEditorData = new PbEditorData();
-        pbEditorData.setEditorType(this.kMZ ? 1 : 0);
+        pbEditorData.setEditorType(this.kSC ? 1 : 0);
         pbEditorData.setContent(this.mPostContent);
         pbEditorData.setWriteImagesInfo(this.writeImagesInfo);
         pbEditorData.setVoiceModel(this.mVoiceModel);
         PbEditorData.ThreadData threadData = new PbEditorData.ThreadData();
-        if (this.fwx != null) {
-            threadData.setForumId(this.fwx.getId());
-            threadData.setForumName(this.fwx.getName());
-            threadData.setFirstDir(this.fwx.getFirst_class());
-            threadData.setSecondDir(this.fwx.getSecond_class());
+        if (this.fGd != null) {
+            threadData.setForumId(this.fGd.getId());
+            threadData.setForumName(this.fGd.getName());
+            threadData.setFirstDir(this.fGd.getFirst_class());
+            threadData.setSecondDir(this.fGd.getSecond_class());
         }
         threadData.setAuthorId(this.authorId);
         threadData.setAuthorName(this.authorName);
@@ -115,40 +137,40 @@ public class a extends e {
         threadData.setThreadId(this.mThreadId);
         threadData.isBJH = this.isBJH;
         pbEditorData.setThreadData(threadData);
-        pbEditorData.setDisableVoiceMessage(this.fwy);
+        pbEditorData.setDisableVoiceMessage(this.fGe);
         pbEditorData.setOpenVoiceRecordButton(z);
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PbFullScreenEditorActivityConfig(this.eNx.getPageActivity(), RequestResponseCode.REQUEST_PB_FULL_SCREEN_EDITOR, pbEditorData, postWriteCallBackData)));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PbFullScreenEditorActivityConfig(this.eXu.getPageActivity(), RequestResponseCode.REQUEST_PB_FULL_SCREEN_EDITOR, pbEditorData, postWriteCallBackData)));
     }
 
     @Override // com.baidu.tbadk.editortools.pb.e
-    public void DV(String str) {
-        if (this.kMZ) {
-            y.b(this.postId, this);
+    public void DS(String str) {
+        if (this.kSC) {
+            y.e(this.postId, this);
         } else {
             y.a(str, this);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.pb.e
-    public void DU(String str) {
-        WriteData dcE = this.fwu.dcE();
-        if (dcE == null) {
-            WriteData writeData = new WriteData(this.kMZ ? 2 : 1);
+    public void DR(String str) {
+        WriteData dco = this.fGa.dco();
+        if (dco == null) {
+            WriteData writeData = new WriteData(this.kSC ? 2 : 1);
             writeData.setThreadId(str);
             writeData.setWriteImagesInfo(this.writeImagesInfo);
-            dcE = writeData;
+            dco = writeData;
         }
-        if (!au.isEmpty(this.kMo)) {
-            dcE.setFromForumId(this.kMo);
+        if (!at.isEmpty(this.kRG)) {
+            dco.setFromForumId(this.kRG);
         }
-        dcE.setContent(this.mPostContent);
-        dcE.setVoiceModel(this.mVoiceModel);
-        if (this.kMZ) {
-            dcE.setReplyId(this.kNa);
-            dcE.setThreadId(this.postId);
-            y.g(this.postId, dcE);
+        dco.setContent(this.mPostContent);
+        dco.setVoiceModel(this.mVoiceModel);
+        if (this.kSC) {
+            dco.setReplyId(this.kSD);
+            dco.setThreadId(this.postId);
+            y.f(this.postId, dco);
             return;
         }
-        y.f(str, dcE);
+        y.b(str, dco);
     }
 }

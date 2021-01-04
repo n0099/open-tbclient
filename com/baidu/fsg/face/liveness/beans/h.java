@@ -7,7 +7,7 @@ import com.baidu.fsg.face.liveness.datamodel.GetRecordVedioQuestionModel;
 import com.baidu.fsg.face.liveness.dto.LivenessRecogDTO;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class h extends b {
     public h(Context context) {
         super(context);

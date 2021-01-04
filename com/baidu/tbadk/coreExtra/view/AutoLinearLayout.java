@@ -8,47 +8,47 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class AutoLinearLayout extends LinearLayout {
-    private int Yp;
-    private int fou;
-    private int fov;
-    private int fow;
-    private int fox;
-    private int foy;
-    private int foz;
+    private int Yn;
+    private int fyd;
+    private int fye;
+    private int fyf;
+    private int fyg;
+    private int fyh;
+    private int fyi;
     private Context mContext;
 
     public AutoLinearLayout(Context context) {
         super(context);
-        this.fou = 0;
-        this.Yp = 0;
-        this.fov = 0;
-        this.fox = 0;
-        this.foy = 0;
-        this.foz = 0;
+        this.fyd = 0;
+        this.Yn = 0;
+        this.fye = 0;
+        this.fyg = 0;
+        this.fyh = 0;
+        this.fyi = 0;
         this.mContext = context;
         setOrientation(0);
-        this.Yp = l.getDimens(context, R.dimen.ds24);
-        this.fov = l.getDimens(context, R.dimen.ds20);
-        this.foy = l.getDimens(context, R.dimen.ds32);
-        this.fow = l.getEquipmentWidth(this.mContext) - (this.foy * 2);
-        this.foz = (int) this.mContext.getResources().getDimension(R.dimen.ds60);
+        this.Yn = l.getDimens(context, R.dimen.ds24);
+        this.fye = l.getDimens(context, R.dimen.ds20);
+        this.fyh = l.getDimens(context, R.dimen.ds32);
+        this.fyf = l.getEquipmentWidth(this.mContext) - (this.fyh * 2);
+        this.fyi = (int) this.mContext.getResources().getDimension(R.dimen.ds60);
     }
 
     public AutoLinearLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fou = 0;
-        this.Yp = 0;
-        this.fov = 0;
-        this.fox = 0;
-        this.foy = 0;
-        this.foz = 0;
+        this.fyd = 0;
+        this.Yn = 0;
+        this.fye = 0;
+        this.fyg = 0;
+        this.fyh = 0;
+        this.fyi = 0;
         this.mContext = context;
         setOrientation(0);
-        this.Yp = l.getDimens(context, R.dimen.ds24);
-        this.fov = l.getDimens(context, R.dimen.ds20);
-        this.foy = l.getDimens(context, R.dimen.ds32);
-        this.fow = l.getEquipmentWidth(this.mContext) - (this.foy * 2);
-        this.foz = (int) this.mContext.getResources().getDimension(R.dimen.ds60);
+        this.Yn = l.getDimens(context, R.dimen.ds24);
+        this.fye = l.getDimens(context, R.dimen.ds20);
+        this.fyh = l.getDimens(context, R.dimen.ds32);
+        this.fyf = l.getEquipmentWidth(this.mContext) - (this.fyh * 2);
+        this.fyi = (int) this.mContext.getResources().getDimension(R.dimen.ds60);
     }
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
@@ -57,43 +57,39 @@ public class AutoLinearLayout extends LinearLayout {
         int dimension = (int) this.mContext.getResources().getDimension(R.dimen.ds24);
         int i5 = 0;
         int i6 = 0;
-        int i7 = 0;
-        while (i5 < childCount) {
-            View childAt = getChildAt(i5);
+        for (int i7 = 0; i7 < childCount; i7++) {
+            View childAt = getChildAt(i7);
             if (childAt != null) {
                 int measuredWidth = childAt.getMeasuredWidth();
                 int measuredHeight = childAt.getMeasuredHeight();
-                if (i7 != 0 && i6 < measuredWidth) {
-                    dimension += this.Yp + measuredHeight;
-                    i7 = 0;
+                if (i6 != 0 && i5 < measuredWidth) {
+                    dimension += this.Yn + measuredHeight;
+                    i6 = 0;
                 }
-                childAt.layout(i7, dimension, i7 + measuredWidth, measuredHeight + dimension);
-                i6 = (((i3 - i) - i7) - measuredWidth) - this.fov;
-                i7 += this.fov + measuredWidth;
+                childAt.layout(i6, dimension, i6 + measuredWidth, measuredHeight + dimension);
+                i5 = (((i3 - i) - i6) - measuredWidth) - this.fye;
+                i6 += this.fye + measuredWidth;
             }
-            i5++;
-            i7 = i7;
-            i6 = i6;
         }
     }
 
     @Override // android.widget.LinearLayout, android.view.View
     protected void onMeasure(int i, int i2) {
         int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
-        int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(this.foz, 1073741824);
+        int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(this.fyi, 1073741824);
         int childCount = getChildCount();
         int culumnsCount = getCulumnsCount();
-        if (this.fou != 0 && this.fox != 0) {
-            rQ(childCount);
+        if (this.fyd != 0 && this.fyg != 0) {
+            sc(childCount);
         }
-        if (this.fou != 0) {
-            for (int i3 = 0; i3 < this.fox; i3++) {
+        if (this.fyd != 0) {
+            for (int i3 = 0; i3 < this.fyg; i3++) {
                 View childAt = getChildAt(i3);
                 if (childAt != null) {
                     childAt.measure(makeMeasureSpec, makeMeasureSpec2);
                 }
             }
-            this.fox = 0;
+            this.fyg = 0;
         } else {
             for (int i4 = 0; i4 < childCount; i4++) {
                 View childAt2 = getChildAt(i4);
@@ -102,73 +98,67 @@ public class AutoLinearLayout extends LinearLayout {
                 }
             }
         }
-        if (this.fou != 0) {
-            setMeasuredDimension(resolveSize(0, i), resolveSize((this.foz * this.fou) + this.Yp, i2));
+        if (this.fyd != 0) {
+            setMeasuredDimension(resolveSize(0, i), resolveSize((this.fyi * this.fyd) + this.Yn, i2));
         } else {
-            setMeasuredDimension(resolveSize(0, i), resolveSize((this.foz * culumnsCount) + (this.Yp * culumnsCount), i2));
+            setMeasuredDimension(resolveSize(0, i), resolveSize((this.fyi * culumnsCount) + (this.Yn * culumnsCount), i2));
         }
     }
 
-    private void rQ(int i) {
-        if (this.fox <= i) {
-            removeViews(this.fox, i - this.fox);
+    private void sc(int i) {
+        if (this.fyg <= i) {
+            removeViews(this.fyg, i - this.fyg);
         }
     }
 
     private int getCulumnsCount() {
         int i;
         int i2;
-        int i3;
         int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
-        int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(this.foz, 1073741824);
+        int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(this.fyi, 1073741824);
         int childCount = getChildCount();
-        int i4 = this.fow;
+        int i3 = this.fyf;
+        int i4 = 0;
         int i5 = 0;
         int i6 = 0;
-        int i7 = 0;
-        while (i5 < childCount) {
-            View childAt = getChildAt(i5);
+        while (i4 < childCount) {
+            View childAt = getChildAt(i4);
             if (childAt == null) {
-                int i8 = i6;
-                i2 = i7;
-                i3 = i8;
+                i2 = i3;
             } else {
                 childAt.measure(makeMeasureSpec, makeMeasureSpec2);
                 int measuredWidth = childAt.getMeasuredWidth();
-                if (i4 < measuredWidth) {
-                    i7++;
-                    if (i7 == 1) {
-                        this.fox = i5;
+                if (i3 < measuredWidth) {
+                    i6++;
+                    if (i6 == 1) {
+                        this.fyg = i4;
                     }
-                    i = this.fov + measuredWidth + 0;
+                    i = this.fye + measuredWidth + 0;
                 } else {
-                    i = this.fov + measuredWidth + i6;
+                    i = this.fye + measuredWidth + i5;
                 }
-                i2 = i7;
-                i3 = i;
-                i4 = this.fow - i;
+                i2 = this.fyf - i;
+                i5 = i;
             }
-            i5++;
-            int i9 = i3;
-            i7 = i2;
-            i6 = i9;
+            i4++;
+            i3 = i2;
         }
-        return i7 + 1;
+        return i6 + 1;
     }
 
     public void setShowColumns(int i) {
-        this.fou = i;
+        this.fyd = i;
     }
 
     public void setMarginRight(int i) {
-        this.fov = i;
+        this.fye = i;
     }
 
     public void setParentWidth(int i) {
-        this.fow = i;
+        this.fyf = i;
     }
 
     public void setCellHeight(int i) {
-        this.foz = i;
+        this.fyi = i;
     }
 }

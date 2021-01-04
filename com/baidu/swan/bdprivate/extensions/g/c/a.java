@@ -1,12 +1,12 @@
 package com.baidu.swan.bdprivate.extensions.g.c;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.location.BDLocation;
 import com.baidu.platform.comapi.location.CoordinateType;
 import com.baidu.sapi2.utils.e;
@@ -19,15 +19,15 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
 
-    public static boolean dY(@NonNull Context context) {
+    public static boolean er(@NonNull Context context) {
         return (context.getResources().getConfiguration().screenLayout & 15) >= 3;
     }
 
-    public static int dZ(Context context) {
+    public static int es(Context context) {
         TelephonyManager telephonyManager;
         String simOperator;
         if (context != null && (telephonyManager = (TelephonyManager) context.getSystemService("phone")) != null && (simOperator = telephonyManager.getSimOperator()) != null) {
@@ -42,7 +42,7 @@ public class a {
         return 0;
     }
 
-    public static int aRd() {
+    public static int aTy() {
         String networkClass = SwanAppNetworkUtils.getNetworkClass();
         if ("wifi".equals(networkClass)) {
             return 1;
@@ -60,7 +60,7 @@ public class a {
     }
 
     @Nullable
-    public static String vB(String str) {
+    public static String vA(String str) {
         try {
             Cipher cipher = Cipher.getInstance(e.p);
             cipher.init(1, new SecretKeySpec((EncryptConstant.getPartRecommendAesKey() + "rtad@mic").getBytes(), e.q), new IvParameterSpec((EncryptConstant.getPartRecommendAesIv() + "21248000").getBytes()));
@@ -75,7 +75,7 @@ public class a {
                     e2.printStackTrace();
                 }
             }
-            vC(jSONObject.toString());
+            vB(jSONObject.toString());
             return null;
         }
     }
@@ -85,7 +85,7 @@ public class a {
         boolean z;
         int i;
         if (aVar != null && bVar != null) {
-            String str = TextUtils.isEmpty(bVar.dOY) ? "unknown" : bVar.dOY;
+            String str = TextUtils.isEmpty(bVar.dXQ) ? "unknown" : bVar.dXQ;
             switch (str.hashCode()) {
                 case -1395470197:
                     if (str.equals("bd09ll")) {
@@ -136,18 +136,18 @@ public class a {
                     i = -1;
                     break;
             }
-            aVar.dOP.coordType = i;
-            aVar.dOP.latitude = bVar.latitude;
-            aVar.dOP.longitude = bVar.longitude;
+            aVar.dXI.coordType = i;
+            aVar.dXI.latitude = bVar.latitude;
+            aVar.dXI.longitude = bVar.longitude;
         }
     }
 
-    public static void vC(String str) {
+    public static void vB(String str) {
         if (!TextUtils.isEmpty(str)) {
             if (DEBUG) {
                 Log.d("recommend", "reportInfoWhenResponseIsNull: " + str);
             }
-            new c.a(10003).tz(str).ty(com.baidu.swan.apps.runtime.e.aJW()).awr();
+            new c.a(10003).tw(str).tv(com.baidu.swan.apps.runtime.e.aMm()).axJ();
         }
     }
 }

@@ -3,19 +3,19 @@ package com.baidu.prologue.image;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.prologue.b;
-import com.bumptech.glide.load.Transformation;
+import com.bumptech.glide.load.resource.bitmap.BitmapTransformation;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
 @SuppressLint({"AppCompatCustomView"})
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class PrologueImageView extends ImageView {
-    private RequestOptions cnR;
-    private boolean cnS;
+    private RequestOptions cuY;
+    private boolean cuZ;
 
     public PrologueImageView(@NonNull Context context) {
         this(context, null);
@@ -27,45 +27,45 @@ public class PrologueImageView extends ImageView {
 
     public PrologueImageView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.cnR = null;
-        this.cnS = false;
-        d(attributeSet);
+        this.cuY = null;
+        this.cuZ = false;
+        h(attributeSet);
     }
 
-    private void d(AttributeSet attributeSet) {
+    private void h(AttributeSet attributeSet) {
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, b.e.PrologueImageView);
             int resourceId = obtainStyledAttributes.getResourceId(b.e.PrologueImageView_prologue_holder, 0);
             if (resourceId != 0) {
-                afs();
-                this.cnR = this.cnR.placeholder(resourceId);
+                aho();
+                this.cuY = this.cuY.placeholder(resourceId);
             }
             int resourceId2 = obtainStyledAttributes.getResourceId(b.e.PrologueImageView_prologue_errorHolder, 0);
             if (resourceId2 != 0) {
-                afs();
-                this.cnR = this.cnR.error(resourceId2);
+                aho();
+                this.cuY = this.cuY.error(resourceId2);
             }
-            Transformation transformation = null;
+            BitmapTransformation bitmapTransformation = null;
             if (obtainStyledAttributes.getBoolean(b.e.PrologueImageView_prologue_circleType, false)) {
-                transformation = new a(com.baidu.prologue.a.b.a.clZ.get().aei());
+                bitmapTransformation = new a(com.baidu.prologue.a.b.a.ctd.get().age());
             } else {
                 int i = obtainStyledAttributes.getInt(b.e.PrologueImageView_prologue_cornerRadius, 0);
                 if (i > 0) {
-                    this.cnS = true;
-                    transformation = new RoundedCorners(i);
+                    this.cuZ = true;
+                    bitmapTransformation = new RoundedCorners(i);
                 }
             }
-            if (transformation != null) {
-                afs();
-                this.cnR = this.cnR.transform(transformation);
+            if (bitmapTransformation != null) {
+                aho();
+                this.cuY = this.cuY.transform(bitmapTransformation);
             }
             obtainStyledAttributes.recycle();
         }
     }
 
-    private void afs() {
-        if (this.cnR == null) {
-            this.cnR = new RequestOptions();
+    private void aho() {
+        if (this.cuY == null) {
+            this.cuY = new RequestOptions();
         }
     }
 }

@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaUploadStatItem {
     private Map<String, String> map = new HashMap();
     public AlaStatsItem statsItem;

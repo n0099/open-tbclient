@@ -4,17 +4,17 @@ import android.content.Context;
 import org.webrtc.CapturerObserver;
 import org.webrtc.SurfaceTextureHelper;
 import org.webrtc.VideoCapturer;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public abstract class i implements VideoCapturer {
-    private CapturerObserver cqO = null;
-    private a cqP = new a() { // from class: com.baidu.rtc.i.1
+    private CapturerObserver cxT = null;
+    private a cxU = new a() { // from class: com.baidu.rtc.i.1
         @Override // com.baidu.rtc.i.a
         public void a(l lVar) {
-            i.this.cqO.onFrameCaptured(lVar);
+            i.this.cxT.onFrameCaptured(lVar);
         }
     };
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a(l lVar);
     }
@@ -31,8 +31,8 @@ public abstract class i implements VideoCapturer {
 
     @Override // org.webrtc.VideoCapturer
     public void initialize(SurfaceTextureHelper surfaceTextureHelper, Context context, CapturerObserver capturerObserver) {
-        this.cqO = capturerObserver;
-        a(this.cqP);
+        this.cxT = capturerObserver;
+        a(this.cxU);
     }
 
     @Override // org.webrtc.VideoCapturer

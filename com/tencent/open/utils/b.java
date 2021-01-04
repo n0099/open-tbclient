@@ -13,13 +13,15 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public class b {
     private static String c;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4380a;
-    private c b;
+    private String f13725a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private c f13726b;
     private long d;
     private Handler e;
     private Runnable f = new Runnable() { // from class: com.tencent.open.utils.b.2
@@ -27,12 +29,12 @@ public class b {
         public void run() {
             boolean z;
             com.tencent.open.a.f.a("AsynLoadImg", "saveFileRunnable:");
-            String str = "share_qq_" + j.f(b.this.f4380a) + ".jpg";
+            String str = "share_qq_" + j.f(b.this.f13725a) + ".jpg";
             String str2 = b.c + str;
             File file = new File(str2);
             Message obtainMessage = b.this.e.obtainMessage();
             if (!file.exists()) {
-                Bitmap a2 = b.a(b.this.f4380a);
+                Bitmap a2 = b.a(b.this.f13725a);
                 if (a2 != null) {
                     z = b.this.a(a2, str);
                 } else {
@@ -61,9 +63,9 @@ public class b {
             public void handleMessage(Message message) {
                 com.tencent.open.a.f.a("AsynLoadImg", "handleMessage:" + message.arg1);
                 if (message.arg1 == 0) {
-                    b.this.b.a(message.arg1, (String) message.obj);
+                    b.this.f13726b.a(message.arg1, (String) message.obj);
                 } else {
-                    b.this.b.a(message.arg1, (String) null);
+                    b.this.f13726b.a(message.arg1, (String) null);
                 }
             }
         };
@@ -78,8 +80,8 @@ public class b {
         } else {
             c = Environment.getExternalStorageDirectory() + "/tmp/";
             this.d = System.currentTimeMillis();
-            this.f4380a = str;
-            this.b = cVar;
+            this.f13725a = str;
+            this.f13726b = cVar;
             new Thread(this.f).start();
         }
     }

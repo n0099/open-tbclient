@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Build;
+import com.baidu.ar.constants.HttpConstants;
 import com.heytap.mcssdk.callback.PushCallback;
 import com.heytap.mcssdk.mode.AppMessage;
 import com.heytap.mcssdk.mode.CommandMessage;
@@ -18,7 +19,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes5.dex */
 public class PushManager implements b {
     private static final String APP_PACKAGE = "appPackage";
     private static final String APP_VERSION_CODE = "versionCode";
@@ -176,7 +177,7 @@ public class PushManager implements b {
                 String str = resolveInfo.serviceInfo.packageName;
                 try {
                     z = (context.getPackageManager().getApplicationInfo(str, 0).flags & 1) == 1;
-                    z2 = context.getPackageManager().getPackageUid(str, 0) == context.getPackageManager().getPackageUid("android", 0);
+                    z2 = context.getPackageManager().getPackageUid(str, 0) == context.getPackageManager().getPackageUid(HttpConstants.OS_TYPE_VALUE, 0);
                 } catch (PackageManager.NameNotFoundException e) {
                 }
                 if (z || z2) {

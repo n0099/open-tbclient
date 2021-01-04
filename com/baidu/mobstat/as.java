@@ -3,13 +3,15 @@ package com.baidu.mobstat;
 import android.text.TextUtils;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class as {
     private static final as e = new as();
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f2548a = false;
-    private float b = 50.0f;
+    private boolean f3723a = false;
+
+    /* renamed from: b  reason: collision with root package name */
+    private float f3724b = 50.0f;
     private long c = 500;
     private volatile boolean d;
 
@@ -25,10 +27,10 @@ public class as {
                     int optInt = jSONObject.optInt("close");
                     String optString = jSONObject.optString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA);
                     String optString2 = jSONObject.optString("duration");
-                    this.f2548a = optInt != 0;
+                    this.f3723a = optInt != 0;
                     if (!TextUtils.isEmpty(optString)) {
                         try {
-                            this.b = Float.valueOf(optString).floatValue();
+                            this.f3724b = Float.valueOf(optString).floatValue();
                         } catch (Exception e2) {
                         }
                     }
@@ -46,12 +48,12 @@ public class as {
     }
 
     public boolean b() {
-        return this.f2548a;
+        return this.f3723a;
     }
 
     public float c() {
         float f = 0.0f;
-        float f2 = this.b;
+        float f2 = this.f3724b;
         if (f2 >= 0.0f) {
             f = f2 > 100.0f ? 100.0f : f2;
         }

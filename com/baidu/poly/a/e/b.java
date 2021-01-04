@@ -2,11 +2,11 @@ package com.baidu.poly.a.e;
 
 import android.graphics.Bitmap;
 import android.util.LruCache;
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 public class b {
-    private LruCache<String, Bitmap> cgT = new a(((int) (Runtime.getRuntime().maxMemory() / 1024)) / 8);
+    private LruCache<String, Bitmap> cnW = new a(((int) (Runtime.getRuntime().maxMemory() / 1024)) / 8);
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     class a extends LruCache<String, Bitmap> {
         a(int i) {
             super(i);
@@ -21,18 +21,18 @@ public class b {
         }
     }
 
-    private Bitmap jX(String str) {
-        return this.cgT.get(str);
+    private Bitmap jT(String str) {
+        return this.cnW.get(str);
     }
 
     public void e(String str, Bitmap bitmap) {
         String g = com.baidu.poly.a.g.b.g(str);
-        if (jX(g) == null) {
-            this.cgT.put(g, bitmap);
+        if (jT(g) == null) {
+            this.cnW.put(g, bitmap);
         }
     }
 
-    public Bitmap jY(String str) {
-        return jX(com.baidu.poly.a.g.b.g(str));
+    public Bitmap jU(String str) {
+        return jT(com.baidu.poly.a.g.b.g(str));
     }
 }

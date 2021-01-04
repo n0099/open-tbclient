@@ -5,13 +5,14 @@ import android.opengl.EGLContext;
 import android.os.Build;
 import android.os.Handler;
 import com.baidu.ala.helper.AlaLiveUtilHelper;
+import com.baidu.ala.helper.EncodePerformanceHelper;
 import com.baidu.ala.recorder.video.gles.AFullFrameRect;
 import com.baidu.ala.recorder.video.gles.EglCore;
 import com.baidu.ala.recorder.video.gles.GlUtil;
 import com.baidu.ala.recorder.video.gles.Texture2dProgram;
 import com.baidu.ala.recorder.video.gles.WindowSurface;
 import com.baidu.ala.recorder.video.hardware.VideoEncoderCore;
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class TextureEncoder {
     private static final int ENCODE_TIMEOUT_MS = 1000;
     private static final int OFFSET = 20;
@@ -57,10 +58,10 @@ public class TextureEncoder {
                     }
 
                     @Override // com.baidu.ala.recorder.video.hardware.VideoEncoderCore.OutputCallback
-                    public void onCodecData(byte[] bArr, int i, int i2, int i3, long j, long j2) {
+                    public void onCodecData(byte[] bArr, int i, int i2, int i3, long j, long j2, int i4) {
                         TextureEncoder.this.mLastOutputEncodeMS = System.currentTimeMillis();
                         if (!TextureEncoder.this.mIsGoingRelase && TextureEncoder.this.mCallback != null) {
-                            TextureEncoder.this.mCallback.onCodecData(bArr, i, i2, i3, j, j2);
+                            TextureEncoder.this.mCallback.onCodecData(bArr, i, i2, i3, j, j2, i4);
                         }
                     }
 
@@ -135,6 +136,7 @@ public class TextureEncoder {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void doDrawFrame(int i, float[] fArr, long j) {
+        EncodePerformanceHelper.getInst().before();
         try {
             this.mInputWindowSurface.makeCurrent();
             this.mVideoEncoder.drainEncoder(false);
@@ -144,6 +146,7 @@ public class TextureEncoder {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        EncodePerformanceHelper.getInst().after();
     }
 
     public void release() {
@@ -184,7 +187,7 @@ public class TextureEncoder {
         GlUtil.logPrint("TextureEncoder.doRelease done ");
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes15.dex */
     public static class EncodeConfig {
         public int H264FPS;
         public int H264GOP;
@@ -192,6 +195,7 @@ public class TextureEncoder {
         public int encodeHeight;
         public int encodeWidth;
         public boolean isLandscape;
+        public int mVideoCodecId = 7;
 
         public static EncodeConfig CloneObj(EncodeConfig encodeConfig) {
             EncodeConfig encodeConfig2 = new EncodeConfig();
@@ -201,6 +205,7 @@ public class TextureEncoder {
             encodeConfig2.H264GOP = encodeConfig.H264GOP;
             encodeConfig2.H264FPS = encodeConfig.H264FPS;
             encodeConfig2.isLandscape = encodeConfig.isLandscape;
+            encodeConfig2.mVideoCodecId = encodeConfig.mVideoCodecId;
             return encodeConfig2;
         }
     }

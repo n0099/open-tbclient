@@ -3,89 +3,89 @@ package com.baidu.tieba.ala.liveroom.turntable;
 import android.app.Activity;
 import android.graphics.Color;
 import android.net.Uri;
-import android.support.v4.graphics.ColorUtils;
 import android.text.TextUtils;
+import androidx.core.graphics.ColorUtils;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.TbConfig;
-import com.baidu.live.utils.p;
+import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
+import com.baidu.live.utils.q;
 import com.baidu.live.view.web.g;
-import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.baidu.tieba.ala.liveroom.turntable.d;
 import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class e {
-    private CustomMessageListener bRw;
-    private Activity beD;
-    private d.a hCT;
-    private d hCV;
+    private CustomMessageListener bXd;
+    private d.a hOT;
+    private d hOV;
+    private Activity mContext;
 
     public e(Activity activity) {
-        this.beD = activity;
-        YP();
+        this.mContext = activity;
+        aaf();
     }
 
-    public void a(String str, long j, long j2, long j3) {
-        this.hCV = new d(this.beD);
-        this.hCV.a(this.hCT);
-        this.hCV.getWebView().setBackgroundColor(iu(str));
+    public void b(String str, long j, long j2, long j3) {
+        this.hOV = new d(this.mContext);
+        this.hOV.a(this.hOT);
+        this.hOV.getWebView().setBackgroundColor(ih(str));
         g gVar = new g();
-        gVar.x(this.beD).a(this.hCV).a(this.hCV.getWebView().getSchemeCallback());
-        com.baidu.live.view.web.a[] YO = gVar.YO();
-        for (com.baidu.live.view.web.a aVar : YO) {
-            this.hCV.getWebView().addJavascriptInterface(aVar, aVar.getName());
+        gVar.w(this.mContext).a(this.hOV).a(this.hOV.getWebView().getSchemeCallback());
+        com.baidu.live.view.web.a[] aae = gVar.aae();
+        for (com.baidu.live.view.web.a aVar : aae) {
+            this.hOV.getWebView().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.hCV.GD(b(str, j, j2, j3));
+        this.hOV.GB(a(str, j, ExtraParamsManager.getEncryptionUserId(String.valueOf(j2)), ExtraParamsManager.getEncryptionUserId(String.valueOf(j3))));
     }
 
     public void resume() {
-        if (this.hCV != null && this.hCV.isShowing() && this.hCV.getWebView() != null) {
-            this.hCV.getWebView().onResume();
+        if (this.hOV != null && this.hOV.isShowing() && this.hOV.getWebView() != null) {
+            this.hOV.getWebView().onResume();
         }
     }
 
     public void pause() {
-        if (this.hCV != null && this.hCV.isShowing() && this.hCV.getWebView() != null) {
-            this.hCV.getWebView().onPause();
+        if (this.hOV != null && this.hOV.isShowing() && this.hOV.getWebView() != null) {
+            this.hOV.getWebView().onPause();
         }
     }
 
     public void dismiss() {
-        if (this.hCV != null) {
-            this.hCV.YQ();
+        if (this.hOV != null) {
+            this.hOV.aag();
         }
     }
 
-    public void dX(int i) {
-        if (this.hCV != null && this.hCV.isShowing()) {
-            this.hCV.dX(i);
+    public void dU(int i) {
+        if (this.hOV != null && this.hOV.isShowing()) {
+            this.hOV.dU(i);
         }
     }
 
-    public void IB() {
+    public void Id() {
         dismiss();
     }
 
     public void release() {
-        IB();
-        MessageManager.getInstance().unRegisterListener(this.bRw);
+        Id();
+        MessageManager.getInstance().unRegisterListener(this.bXd);
     }
 
-    private void YP() {
-        this.bRw = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.turntable.e.1
+    private void aaf() {
+        this.bXd = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.turntable.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (e.this.hCV != null && e.this.hCV.isShowing()) {
-                    e.this.hCV.dismiss();
+                if (e.this.hOV != null && e.this.hOV.isShowing()) {
+                    e.this.hOV.dismiss();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.bRw);
+        MessageManager.getInstance().registerListener(this.bXd);
     }
 
-    private int iu(String str) {
+    private int ih(String str) {
         int indexOf;
         String queryParameter = Uri.parse(str).getQueryParameter("background");
         if ((TextUtils.isEmpty(queryParameter) || queryParameter.length() != 8) && (indexOf = str.indexOf("background=")) >= 0 && indexOf + 19 <= str.length()) {
@@ -96,13 +96,13 @@ public class e {
         }
         try {
             int parseInt = Integer.parseInt(queryParameter.substring(6, 8), 16);
-            return (parseInt < 0 || parseInt > 255) ? 0 : ColorUtils.setAlphaComponent(Color.parseColor(UgcConstant.TOPIC_PATTERN_TAG + queryParameter.substring(0, 6)), parseInt);
+            return (parseInt < 0 || parseInt > 255) ? 0 : ColorUtils.setAlphaComponent(Color.parseColor('#' + queryParameter.substring(0, 6)), parseInt);
         } catch (Exception e) {
             return 0;
         }
     }
 
-    private String b(String str, long j, long j2, long j3) {
+    private String a(String str, long j, String str2, String str3) {
         StringBuilder sb = new StringBuilder(str);
         if (str.contains("?")) {
             sb.append(ETAG.ITEM_SEPARATOR);
@@ -112,9 +112,9 @@ public class e {
         sb.append("live_id=");
         sb.append(j);
         sb.append("&user_id=");
-        sb.append(j2);
+        sb.append(str2);
         sb.append("&anchor_id=");
-        sb.append(j3);
+        sb.append(str3);
         sb.append("&subapp_type=");
         sb.append(TbConfig.getSubappType());
         sb.append("&client_type=");
@@ -122,15 +122,15 @@ public class e {
         sb.append("&_sdk_version=");
         sb.append(TbConfig.SDK_VERSION);
         sb.append("&scene_from=");
-        sb.append(p.WB());
+        sb.append(q.XF());
         return sb.toString();
     }
 
     public void a(d.a aVar) {
-        this.hCT = aVar;
+        this.hOT = aVar;
     }
 
-    public d.a ckI() {
-        return this.hCT;
+    public d.a cnz() {
+        return this.hOT;
     }
 }

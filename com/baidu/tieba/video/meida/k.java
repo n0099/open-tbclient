@@ -1,5 +1,5 @@
 package com.baidu.tieba.video.meida;
-/* loaded from: classes23.dex */
+/* loaded from: classes8.dex */
 public class k {
     public void a(int i, int i2, double[] dArr, int[] iArr, double[] dArr2) {
         int i3 = iArr[0];
@@ -53,31 +53,30 @@ public class k {
                 dArr[i3 + 2] = Math.cos(3.0d * d * i3);
                 dArr[i3 + 3] = Math.sin(3.0d * d * i3);
             }
-            int i4 = i2;
-            int i5 = 0;
-            while (i4 > 2) {
-                int i6 = i5 + i4;
-                int i7 = i4 >> 1;
+            int i4 = 0;
+            int i5 = i2;
+            while (i5 > 2) {
+                int i6 = i4 + i5;
+                i5 >>= 1;
                 dArr[i6] = 1.0d;
                 dArr[i6 + 1] = cos;
-                if (i7 >= 4) {
-                    double d2 = dArr[i5 + 4];
-                    double d3 = dArr[i5 + 6];
+                if (i5 >= 4) {
+                    double d2 = dArr[i4 + 4];
+                    double d3 = dArr[i4 + 6];
                     dArr[i6 + 2] = 0.5d / d2;
                     dArr[i6 + 3] = 0.5d / d3;
                 }
-                for (int i8 = 4; i8 < i7; i8 += 4) {
-                    double d4 = dArr[(i8 * 2) + i5];
-                    double d5 = dArr[(i8 * 2) + i5 + 1];
-                    double d6 = dArr[(i8 * 2) + i5 + 2];
-                    double d7 = dArr[(i8 * 2) + i5 + 3];
-                    dArr[i6 + i8] = d4;
-                    dArr[i6 + i8 + 1] = d5;
-                    dArr[i6 + i8 + 2] = d6;
-                    dArr[i6 + i8 + 3] = d7;
+                for (int i7 = 4; i7 < i5; i7 += 4) {
+                    double d4 = dArr[(i7 * 2) + i4];
+                    double d5 = dArr[(i7 * 2) + i4 + 1];
+                    double d6 = dArr[(i7 * 2) + i4 + 2];
+                    double d7 = dArr[(i7 * 2) + i4 + 3];
+                    dArr[i6 + i7] = d4;
+                    dArr[i6 + i7 + 1] = d5;
+                    dArr[i6 + i7 + 2] = d6;
+                    dArr[i6 + i7 + 3] = d7;
                 }
-                i5 = i6;
-                i4 = i7;
+                i4 = i6;
             }
         }
     }

@@ -2,25 +2,25 @@ package com.facebook.imagepipeline.b;
 
 import android.app.ActivityManager;
 import android.os.Build;
-import android.support.v7.widget.ActivityChooserView;
+import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.tbadk.TbConfig;
-/* loaded from: classes15.dex */
+/* loaded from: classes5.dex */
 public class i implements com.facebook.common.internal.j<q> {
-    private final ActivityManager dIC;
+    private final ActivityManager dRh;
 
     public i(ActivityManager activityManager) {
-        this.dIC = activityManager;
+        this.dRh = activityManager;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.internal.j
-    /* renamed from: etd */
+    /* renamed from: ewM */
     public q get() {
-        return new q(ete(), 256, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+        return new q(ewN(), 256, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
     }
 
-    private int ete() {
-        int min = Math.min(this.dIC.getMemoryClass() * 1048576, (int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+    private int ewN() {
+        int min = Math.min(this.dRh.getMemoryClass() * 1048576, (int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
         if (min < 33554432) {
             return 4194304;
         }

@@ -13,20 +13,20 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.c;
 import org.a.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class ParallelSortedJoin<T> extends g<T> {
     final Comparator<? super T> comparator;
-    final a<List<T>> pHh;
+    final a<List<T>> qiK;
 
     @Override // io.reactivex.g
     protected void a(c<? super T> cVar) {
-        SortedJoinSubscription sortedJoinSubscription = new SortedJoinSubscription(cVar, this.pHh.eDe(), this.comparator);
+        SortedJoinSubscription sortedJoinSubscription = new SortedJoinSubscription(cVar, this.qiK.eLm(), this.comparator);
         cVar.onSubscribe(sortedJoinSubscription);
-        this.pHh.a(sortedJoinSubscription.subscribers);
+        this.qiK.a(sortedJoinSubscription.subscribers);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static final class SortedJoinSubscription<T> extends AtomicInteger implements d {
         private static final long serialVersionUID = 3481980673745556697L;
         final c<? super T> actual;
@@ -94,68 +94,68 @@ public final class ParallelSortedJoin<T> extends g<T> {
             }
         }
 
-        /* JADX WARN: Code restructure failed: missing block: B:38:0x00a9, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:38:0x00a8, code lost:
             if (r6 != r12) goto L76;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:40:0x00ad, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:40:0x00ac, code lost:
             if (r15.cancelled == false) goto L56;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:41:0x00af, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:41:0x00ae, code lost:
             java.util.Arrays.fill(r9, (java.lang.Object) null);
          */
-        /* JADX WARN: Code restructure failed: missing block: B:42:0x00b5, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:42:0x00b4, code lost:
             r0 = r15.error.get();
          */
-        /* JADX WARN: Code restructure failed: missing block: B:43:0x00bd, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:43:0x00bc, code lost:
             if (r0 == null) goto L58;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:44:0x00bf, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:44:0x00be, code lost:
             cancelAll();
             java.util.Arrays.fill(r9, (java.lang.Object) null);
             r8.onError(r0);
          */
-        /* JADX WARN: Code restructure failed: missing block: B:45:0x00cb, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:45:0x00ca, code lost:
             r0 = true;
             r2 = 0;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:46:0x00cd, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:46:0x00cc, code lost:
             if (r2 >= r11) goto L69;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:48:0x00d7, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:48:0x00d6, code lost:
             if (r10[r2] == r9[r2].size()) goto L62;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:49:0x00d9, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:49:0x00d8, code lost:
             r0 = false;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:50:0x00da, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:50:0x00d9, code lost:
             if (r0 == false) goto L76;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:51:0x00dc, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:51:0x00db, code lost:
             java.util.Arrays.fill(r9, (java.lang.Object) null);
             r8.onComplete();
          */
-        /* JADX WARN: Code restructure failed: missing block: B:52:0x00e5, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:52:0x00e4, code lost:
             r2 = r2 + 1;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:54:0x00ec, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:54:0x00eb, code lost:
             if (r6 == 0) goto L81;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:56:0x00f5, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:56:0x00f4, code lost:
             if (r12 == Long.MAX_VALUE) goto L81;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:57:0x00f7, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:57:0x00f6, code lost:
             r15.requested.addAndGet(-r6);
          */
-        /* JADX WARN: Code restructure failed: missing block: B:58:0x00fd, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:58:0x00fc, code lost:
             r0 = get();
          */
-        /* JADX WARN: Code restructure failed: missing block: B:59:0x0101, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:59:0x0100, code lost:
             if (r0 != r1) goto L89;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:60:0x0103, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:60:0x0102, code lost:
             r0 = addAndGet(-r1);
          */
-        /* JADX WARN: Code restructure failed: missing block: B:61:0x0108, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:61:0x0107, code lost:
             if (r0 == 0) goto L85;
          */
         /* JADX WARN: Code restructure failed: missing block: B:86:?, code lost:
@@ -217,7 +217,7 @@ public final class ParallelSortedJoin<T> extends g<T> {
                                                 i3 = i4;
                                             }
                                         } catch (Throwable th2) {
-                                            io.reactivex.exceptions.a.J(th2);
+                                            io.reactivex.exceptions.a.O(th2);
                                             cancelAll();
                                             Arrays.fill(listArr, (Object) null);
                                             if (!this.error.compareAndSet(null, th2)) {
@@ -250,7 +250,7 @@ public final class ParallelSortedJoin<T> extends g<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static final class SortedJoinInnerSubscriber<T> extends AtomicReference<d> implements j<List<T>> {
         private static final long serialVersionUID = 6751017204873808094L;
         final int index;

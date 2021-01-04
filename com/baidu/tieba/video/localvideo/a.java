@@ -1,105 +1,61 @@
 package com.baidu.tieba.video.localvideo;
 
 import android.content.Context;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.live.adp.lib.cache.BdKVCache;
 import com.baidu.tieba.R;
-import java.util.ArrayList;
+import java.text.SimpleDateFormat;
 import java.util.List;
-/* loaded from: classes23.dex */
-public class a extends BaseAdapter {
-    private Context mContext;
-    private ArrayList<d> nGg = new ArrayList<>();
-    private boolean nGh = false;
+import java.util.TimeZone;
+/* loaded from: classes8.dex */
+public class a extends BdAsyncTask<Void, Void, List<b>> {
+    private static long nJP = BdKVCache.MILLS_1Hour;
+    private Context context;
+    private int maxHeight;
+    private int maxWidth;
+    private InterfaceC0865a nJQ;
+    private SimpleDateFormat nJS = new SimpleDateFormat("mm:ss");
+    private SimpleDateFormat nJR = new SimpleDateFormat("HH:mm:ss");
+
+    /* renamed from: com.baidu.tieba.video.localvideo.a$a  reason: collision with other inner class name */
+    /* loaded from: classes8.dex */
+    public interface InterfaceC0865a {
+        void gb(List<b> list);
+    }
 
     public a(Context context) {
-        this.mContext = context;
+        this.context = context;
+        this.maxHeight = context.getResources().getDimensionPixelSize(R.dimen.ds220);
+        this.maxWidth = this.maxHeight;
+        TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
+        this.nJS.setTimeZone(timeZone);
+        this.nJR.setTimeZone(timeZone);
     }
 
-    public void setData(List<d> list) {
-        this.nGh = true;
-        this.nGg.clear();
-        if ((list != null ? list.size() : 0) > 0) {
-            this.nGg.addAll(list);
-        }
-        notifyDataSetChanged();
-    }
-
-    public void UV(String str) {
-        if (this.nGg != null && !TextUtils.isEmpty(str)) {
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 < this.nGg.size()) {
-                    d dVar = this.nGg.get(i2);
-                    if (dVar == null || !str.equals(dVar.getVideoPath())) {
-                        i = i2 + 1;
-                    } else {
-                        this.nGg.remove(i2);
-                        notifyDataSetChanged();
-                        return;
-                    }
-                } else {
-                    return;
-                }
-            }
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        if (y.isEmpty(this.nGg)) {
-            return 0;
-        }
-        return this.nGg.size();
+    public void a(InterfaceC0865a interfaceC0865a) {
+        this.nJQ = interfaceC0865a;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: Mf */
-    public d getItem(int i) {
-        if (this.nGg == null || this.nGg.isEmpty() || i < 0 || i >= this.nGg.size()) {
-            return null;
-        }
-        return this.nGg.get(i);
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: c */
+    public List<b> doInBackground(Void... voidArr) {
+        List<b> ha = c.ha(this.context);
+        c.e("/sdcard", ha, false);
+        c.e("/sdcard/DCIM", ha, true);
+        c.gc(ha);
+        return ha;
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return 0L;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        LocalVideoInfoView localVideoInfoView;
-        View view2;
-        if (view == null) {
-            View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.local_video_item_layout, (ViewGroup) null);
-            LocalVideoInfoView localVideoInfoView2 = (LocalVideoInfoView) inflate.findViewById(R.id.local_video_info_view);
-            inflate.setTag(localVideoInfoView2);
-            localVideoInfoView = localVideoInfoView2;
-            view2 = inflate;
-        } else if (view.getTag() instanceof LocalVideoInfoView) {
-            localVideoInfoView = (LocalVideoInfoView) view.getTag();
-            view2 = view;
-        } else {
-            localVideoInfoView = null;
-            view2 = view;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: B */
+    public void onPostExecute(List<b> list) {
+        super.onPostExecute(list);
+        if (this.nJQ != null) {
+            this.nJQ.gb(list);
         }
-        if (localVideoInfoView == null) {
-            return null;
-        }
-        if (this.nGg != null && this.nGg.size() > i) {
-            localVideoInfoView.a(this.nGg.get(i));
-        } else if (i == 0 && this.nGh) {
-            localVideoInfoView.yK(true);
-        } else {
-            localVideoInfoView.yK(false);
-        }
-        return view2;
     }
 }

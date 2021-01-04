@@ -6,9 +6,10 @@ import android.net.NetworkInfo;
 import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import com.baidu.ar.constants.HttpConstants;
 import com.xiaomi.mipush.sdk.Constants;
 import java.lang.reflect.Method;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class n {
     public static int a(Context context, String str) {
         ConnectivityManager connectivityManager;
@@ -65,7 +66,7 @@ public class n {
     }
 
     public static String c() {
-        return "android" + Build.VERSION.RELEASE;
+        return HttpConstants.OS_TYPE_VALUE + Build.VERSION.RELEASE;
     }
 
     public static boolean d() {

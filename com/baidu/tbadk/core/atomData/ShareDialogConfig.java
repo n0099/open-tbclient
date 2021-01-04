@@ -6,6 +6,7 @@ import android.util.Pair;
 import android.util.SparseArray;
 import android.view.View;
 import com.baidu.tbadk.core.data.TransmitForumData;
+import com.baidu.tbadk.core.dialog.k;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import java.util.ArrayList;
@@ -14,9 +15,14 @@ import java.util.List;
 public class ShareDialogConfig extends IntentConfig {
     public View.OnClickListener copyLinkListener;
     public int copyTitleId;
+    public k.b dialogAddToExpressionListener;
+    public k.b dialogDownloadOriginListener;
+    public k.b dialogRecognizePicListener;
+    public k.b dialogSaveToDiskListener;
     public boolean hasSpecialItem;
     public int hideMode;
     public boolean isCopyLink;
+    public boolean isImageViewerDialog;
     @Deprecated
     public boolean isInsertBack;
     public boolean isLandscape;
@@ -33,8 +39,13 @@ public class ShareDialogConfig extends IntentConfig {
     public SparseArray<String> mtjStatistics;
     public DialogInterface.OnCancelListener onCancelListener;
     public DialogInterface.OnDismissListener onDismissListener;
+    public View.OnClickListener onWeChatEmotionShareListener;
+    public String originImgText;
+    public k.b qrCodeClickListener;
     public ShareItem shareItem;
+    public boolean showAddEmotion;
     public boolean showLocation;
+    public boolean showQRCode;
     public ShareItem[] specialShareItems;
     public ArrayList<Pair<Integer, Pair<Integer, View.OnClickListener>>> textViewList;
 

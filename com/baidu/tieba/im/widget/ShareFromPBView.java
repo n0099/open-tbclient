@@ -10,9 +10,9 @@ import com.baidu.tbadk.data.ShareFromPBMsgData;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public final class ShareFromPBView extends LinearLayout {
-    private HeadImageView jCu;
-    private ShareFromPBMsgData kEB;
-    private TextView khi;
+    private HeadImageView jOW;
+    private ShareFromPBMsgData kJK;
+    private TextView kuu;
     private TextView title;
 
     public ShareFromPBView(Context context, AttributeSet attributeSet) {
@@ -29,30 +29,30 @@ public final class ShareFromPBView extends LinearLayout {
         LayoutInflater.from(getContext()).inflate(R.layout.share_from_pb_view, this);
         setOrientation(1);
         this.title = (TextView) findViewById(R.id.chat_title);
-        this.jCu = (HeadImageView) findViewById(R.id.chat_group_img);
-        this.khi = (TextView) findViewById(R.id.chat_group_desc);
+        this.jOW = (HeadImageView) findViewById(R.id.chat_group_img);
+        this.kuu = (TextView) findViewById(R.id.chat_group_desc);
     }
 
     public void setIsLeft(boolean z) {
         if (z) {
             this.title.setTextColor(getContext().getResources().getColor(R.color.CAM_X0105));
-            this.khi.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
+            this.kuu.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
             return;
         }
         this.title.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
-        this.khi.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
+        this.kuu.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
     }
 
     public void setData(ShareFromPBMsgData shareFromPBMsgData) {
-        this.kEB = shareFromPBMsgData;
+        this.kJK = shareFromPBMsgData;
         updateUI();
     }
 
     private void updateUI() {
-        this.title.setText(this.kEB.getTitle());
-        this.jCu.setPlaceHolder(1);
-        this.jCu.setAutoChangeStyle(false);
-        this.jCu.startLoad(this.kEB.getImageUrl(), 10, false);
-        this.khi.setText(this.kEB.getContent());
+        this.title.setText(this.kJK.getTitle());
+        this.jOW.setPlaceHolder(1);
+        this.jOW.setAutoChangeStyle(false);
+        this.jOW.startLoad(this.kJK.getImageUrl(), 10, false);
+        this.kuu.setText(this.kJK.getContent());
     }
 }

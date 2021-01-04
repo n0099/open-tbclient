@@ -1,13 +1,13 @@
 package com.baidu.searchbox.player.pool;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.player.BDPlayerConfig;
 import com.baidu.searchbox.player.kernel.AbsVideoKernel;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class VideoKernelPool {
     private static final FIFOPool<AbsVideoKernel> sPool = new FIFOPool<>(5);
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     private static class InstanceHolder {
         private static final VideoKernelPool INSTANCE = new VideoKernelPool();
 

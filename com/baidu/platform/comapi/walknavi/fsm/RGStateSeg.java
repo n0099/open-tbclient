@@ -1,12 +1,11 @@
 package com.baidu.platform.comapi.walknavi.fsm;
 
 import com.baidu.platform.comapi.walknavi.b;
-import com.baidu.tieba.R;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class RGStateSeg extends RGState {
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGState
     protected void onActionUI() {
-        b.a().T().c(R.drawable.aiapps_loading);
+        b.a().T().c(2130837817);
         if (b.a().M() != 4) {
             b.a().T().a(false);
         }

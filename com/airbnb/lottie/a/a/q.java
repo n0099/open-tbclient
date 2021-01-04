@@ -3,32 +3,32 @@ package com.airbnb.lottie.a.a;
 import android.graphics.Canvas;
 import android.graphics.ColorFilter;
 import android.graphics.Matrix;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import com.airbnb.lottie.model.content.ShapeStroke;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class q extends a {
-    private final com.airbnb.lottie.model.layer.a DH;
     @Nullable
-    private com.airbnb.lottie.a.b.a<ColorFilter, ColorFilter> DQ;
-    private final com.airbnb.lottie.a.b.a<Integer, Integer> DZ;
+    private com.airbnb.lottie.a.b.a<ColorFilter, ColorFilter> DC;
+    private final com.airbnb.lottie.a.b.a<Integer, Integer> DN;
+    private final com.airbnb.lottie.model.layer.a Du;
     private final String name;
 
-    public q(com.airbnb.lottie.g gVar, com.airbnb.lottie.model.layer.a aVar, ShapeStroke shapeStroke) {
-        super(gVar, aVar, shapeStroke.jV().toPaintCap(), shapeStroke.jW().toPaintJoin(), shapeStroke.jZ(), shapeStroke.jJ(), shapeStroke.jU(), shapeStroke.jX(), shapeStroke.jY());
-        this.DH = aVar;
+    public q(com.airbnb.lottie.f fVar, com.airbnb.lottie.model.layer.a aVar, ShapeStroke shapeStroke) {
+        super(fVar, aVar, shapeStroke.ju().toPaintCap(), shapeStroke.jv().toPaintJoin(), shapeStroke.jy(), shapeStroke.ji(), shapeStroke.jt(), shapeStroke.jw(), shapeStroke.jx());
+        this.Du = aVar;
         this.name = shapeStroke.getName();
-        this.DZ = shapeStroke.kp().jD();
-        this.DZ.b(this);
-        aVar.a(this.DZ);
+        this.DN = shapeStroke.jO().jc();
+        this.DN.b(this);
+        aVar.a(this.DN);
     }
 
     @Override // com.airbnb.lottie.a.a.a, com.airbnb.lottie.a.a.d
-    public void a(Canvas canvas, Matrix matrix, int i) {
-        this.paint.setColor(this.DZ.getValue().intValue());
-        if (this.DQ != null) {
-            this.paint.setColorFilter(this.DQ.getValue());
+    public void c(Canvas canvas, Matrix matrix, int i) {
+        this.paint.setColor(this.DN.getValue().intValue());
+        if (this.DC != null) {
+            this.paint.setColorFilter(this.DC.getValue());
         }
-        super.a(canvas, matrix, i);
+        super.c(canvas, matrix, i);
     }
 
     @Override // com.airbnb.lottie.a.a.b
@@ -38,17 +38,17 @@ public class q extends a {
 
     @Override // com.airbnb.lottie.a.a.a, com.airbnb.lottie.model.f
     public <T> void a(T t, @Nullable com.airbnb.lottie.e.c<T> cVar) {
-        super.a((q) t, (com.airbnb.lottie.e.c<q>) cVar);
-        if (t == com.airbnb.lottie.k.CO) {
-            this.DZ.a(cVar);
-        } else if (t == com.airbnb.lottie.k.Do) {
+        super.a(t, cVar);
+        if (t == com.airbnb.lottie.j.CC) {
+            this.DN.a(cVar);
+        } else if (t == com.airbnb.lottie.j.Dd) {
             if (cVar == null) {
-                this.DQ = null;
+                this.DC = null;
                 return;
             }
-            this.DQ = new com.airbnb.lottie.a.b.p(cVar);
-            this.DQ.b(this);
-            this.DH.a(this.DZ);
+            this.DC = new com.airbnb.lottie.a.b.p(cVar);
+            this.DC.b(this);
+            this.Du.a(this.DN);
         }
     }
 }

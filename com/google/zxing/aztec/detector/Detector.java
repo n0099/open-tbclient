@@ -11,7 +11,7 @@ import com.google.zxing.common.detector.WhiteRectangleDetector;
 import com.google.zxing.common.reedsolomon.GenericGF;
 import com.google.zxing.common.reedsolomon.ReedSolomonDecoder;
 import com.google.zxing.common.reedsolomon.ReedSolomonException;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class Detector {
     private static final int[] EXPECTED_CORNER_BITS = {3808, 476, RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL7, 1799};
     private boolean compact;
@@ -50,7 +50,8 @@ public final class Detector {
         int[] iArr = {sampleLine(resultPointArr[0], resultPointArr[1], i2), sampleLine(resultPointArr[1], resultPointArr[2], i2), sampleLine(resultPointArr[2], resultPointArr[3], i2), sampleLine(resultPointArr[3], resultPointArr[0], i2)};
         this.shift = getRotation(iArr, i2);
         long j2 = 0;
-        for (int i3 = 0; i3 < 4; i3++) {
+        int i3 = 0;
+        while (i3 < 4) {
             int i4 = iArr[(this.shift + i3) % 4];
             if (this.compact) {
                 j = j2 << 7;
@@ -59,7 +60,8 @@ public final class Detector {
                 j = j2 << 10;
                 i = ((i4 >> 1) & 31) + ((i4 >> 2) & 992);
             }
-            j2 = j + i;
+            i3++;
+            j2 = i + j;
         }
         int correctedParameterData = getCorrectedParameterData(j2, this.compact);
         if (this.compact) {
@@ -88,7 +90,6 @@ public final class Detector {
     private static int getCorrectedParameterData(long j, boolean z) throws NotFoundException {
         int i;
         int i2;
-        int i3 = 0;
         if (z) {
             i = 7;
             i2 = 2;
@@ -96,18 +97,22 @@ public final class Detector {
             i = 10;
             i2 = 4;
         }
-        int i4 = i - i2;
+        int i3 = i - i2;
         int[] iArr = new int[i];
-        for (int i5 = i - 1; i5 >= 0; i5--) {
-            iArr[i5] = ((int) j) & 15;
+        for (int i4 = i - 1; i4 >= 0; i4--) {
+            iArr[i4] = ((int) j) & 15;
             j >>= 4;
         }
         try {
-            new ReedSolomonDecoder(GenericGF.AZTEC_PARAM).decode(iArr, i4);
-            for (int i6 = 0; i6 < i2; i6++) {
-                i3 = iArr[i6] + (i3 << 4);
+            new ReedSolomonDecoder(GenericGF.AZTEC_PARAM).decode(iArr, i3);
+            int i5 = 0;
+            int i6 = 0;
+            while (i5 < i2) {
+                int i7 = iArr[i5];
+                i5++;
+                i6 = i7 + (i6 << 4);
             }
-            return i3;
+            return i6;
         } catch (ReedSolomonException e) {
             throw NotFoundException.getNotFoundInstance();
         }
@@ -119,13 +124,14 @@ public final class Detector {
         Point point2 = point;
         Point point3 = point;
         Point point4 = point;
+        Point point5 = point;
         while (this.nbCenterLayers < 9) {
-            Point firstDifferent = getFirstDifferent(point4, z, 1, -1);
-            Point firstDifferent2 = getFirstDifferent(point3, z, 1, 1);
-            Point firstDifferent3 = getFirstDifferent(point2, z, -1, 1);
-            Point firstDifferent4 = getFirstDifferent(point, z, -1, -1);
+            Point firstDifferent = getFirstDifferent(point5, z, 1, -1);
+            Point firstDifferent2 = getFirstDifferent(point4, z, 1, 1);
+            Point firstDifferent3 = getFirstDifferent(point3, z, -1, 1);
+            Point firstDifferent4 = getFirstDifferent(point2, z, -1, -1);
             if (this.nbCenterLayers > 2) {
-                float distance = (distance(firstDifferent4, firstDifferent) * this.nbCenterLayers) / (distance(point, point4) * (this.nbCenterLayers + 2));
+                float distance = (distance(firstDifferent4, firstDifferent) * this.nbCenterLayers) / (distance(point2, point5) * (this.nbCenterLayers + 2));
                 if (distance >= 0.75d) {
                     if (distance <= 1.25d) {
                         if (!isWhiteOrBlackRectangle(firstDifferent, firstDifferent2, firstDifferent3, firstDifferent4)) {
@@ -140,16 +146,16 @@ public final class Detector {
             }
             z = !z;
             this.nbCenterLayers++;
-            point = firstDifferent4;
-            point2 = firstDifferent3;
-            point3 = firstDifferent2;
-            point4 = firstDifferent;
+            point2 = firstDifferent4;
+            point3 = firstDifferent3;
+            point4 = firstDifferent2;
+            point5 = firstDifferent;
         }
         if (this.nbCenterLayers != 5 && this.nbCenterLayers != 7) {
             throw NotFoundException.getNotFoundInstance();
         }
         this.compact = this.nbCenterLayers == 5;
-        return expandSquare(new ResultPoint[]{new ResultPoint(point4.getX() + 0.5f, point4.getY() - 0.5f), new ResultPoint(point3.getX() + 0.5f, point3.getY() + 0.5f), new ResultPoint(point2.getX() - 0.5f, point2.getY() + 0.5f), new ResultPoint(point.getX() - 0.5f, point.getY() - 0.5f)}, (this.nbCenterLayers * 2) - 3, this.nbCenterLayers * 2);
+        return expandSquare(new ResultPoint[]{new ResultPoint(point5.getX() + 0.5f, point5.getY() - 0.5f), new ResultPoint(point4.getX() + 0.5f, point4.getY() + 0.5f), new ResultPoint(point3.getX() - 0.5f, point3.getY() + 0.5f), new ResultPoint(point2.getX() - 0.5f, point2.getY() - 0.5f)}, (this.nbCenterLayers * 2) - 3, this.nbCenterLayers * 2);
     }
 
     private Point getMatrixCenter() {
@@ -205,13 +211,13 @@ public final class Detector {
     }
 
     private int sampleLine(ResultPoint resultPoint, ResultPoint resultPoint2, int i) {
-        int i2 = 0;
         float distance = distance(resultPoint, resultPoint2);
         float f = distance / i;
         float x = resultPoint.getX();
         float y = resultPoint.getY();
         float x2 = ((resultPoint2.getX() - resultPoint.getX()) * f) / distance;
         float y2 = (f * (resultPoint2.getY() - resultPoint.getY())) / distance;
+        int i2 = 0;
         for (int i3 = 0; i3 < i; i3++) {
             if (this.image.get(MathUtils.round((i3 * x2) + x), MathUtils.round((i3 * y2) + y))) {
                 i2 |= 1 << ((i - i3) - 1);
@@ -233,23 +239,21 @@ public final class Detector {
         float distance = distance(point, point2);
         float x = (point2.getX() - point.getX()) / distance;
         float y = (point2.getY() - point.getY()) / distance;
+        int i = 0;
         float x2 = point.getX();
         float y2 = point.getY();
         boolean z = this.image.get(point.getX(), point.getY());
         int ceil = (int) Math.ceil(distance);
-        int i = 0;
-        float f = x2;
-        float f2 = y2;
         for (int i2 = 0; i2 < ceil; i2++) {
-            f += x;
-            f2 += y;
-            if (this.image.get(MathUtils.round(f), MathUtils.round(f2)) != z) {
+            x2 += x;
+            y2 += y;
+            if (this.image.get(MathUtils.round(x2), MathUtils.round(y2)) != z) {
                 i++;
             }
         }
-        float f3 = i / distance;
-        if (f3 <= 0.1f || f3 >= 0.9f) {
-            return ((f3 > 0.1f ? 1 : (f3 == 0.1f ? 0 : -1)) <= 0) == z ? 1 : -1;
+        float f = i / distance;
+        if (f <= 0.1f || f >= 0.9f) {
+            return ((f > 0.1f ? 1 : (f == 0.1f ? 0 : -1)) <= 0) == z ? 1 : -1;
         }
         return 0;
     }
@@ -319,7 +323,7 @@ public final class Detector {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes16.dex */
+    /* loaded from: classes6.dex */
     public static final class Point {
         private final int x;
         private final int y;

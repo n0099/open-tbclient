@@ -8,15 +8,13 @@ import android.util.Log;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class ScreenOrientationCompat {
     public static final boolean DEBUG = true;
     private static final String TAG = "ScreenOrientationCompat";
 
     public static int releaseFixedOrientation(Activity activity) {
         int i;
-        NoSuchFieldException e;
-        IllegalAccessException e2;
         Log.d(TAG, "releaseFixedOrientation() called with: activity = [" + activity + "]");
         if (Build.VERSION.SDK_INT != 26 || activity.getApplicationInfo().targetSdkVersion <= 26 || !isTranslucentOrFloating(activity) || !isFixedOrientation(activity)) {
             return -1;
@@ -33,23 +31,23 @@ public class ScreenOrientationCompat {
                     declaredField2.setInt(obj, -1);
                     Log.d(TAG, "set " + activity.getComponentName() + " screenOrientation to UNSPECIFIED");
                     return i;
-                } catch (IllegalAccessException e3) {
-                    e2 = e3;
-                    e2.printStackTrace();
+                } catch (IllegalAccessException e) {
+                    e = e;
+                    e.printStackTrace();
                     return i;
-                } catch (NoSuchFieldException e4) {
-                    e = e4;
+                } catch (NoSuchFieldException e2) {
+                    e = e2;
                     e.printStackTrace();
                     return i;
                 }
             }
             return i;
-        } catch (IllegalAccessException e5) {
+        } catch (IllegalAccessException e3) {
+            e = e3;
             i = -1;
-            e2 = e5;
-        } catch (NoSuchFieldException e6) {
+        } catch (NoSuchFieldException e4) {
+            e = e4;
             i = -1;
-            e = e6;
         }
     }
 

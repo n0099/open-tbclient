@@ -8,19 +8,19 @@ import com.baidu.swan.games.bdtls.model.g;
 import com.baidu.swan.games.bdtls.model.h;
 import com.baidu.swan.games.bdtls.model.i;
 import com.baidu.swan.games.bdtls.model.j;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class d {
-    private static volatile d dWX;
+    private static volatile d efU;
 
-    public static d aVx() {
-        if (dWX == null) {
+    public static d aXR() {
+        if (efU == null) {
             synchronized (d.class) {
-                if (dWX == null) {
-                    dWX = new d();
+                if (efU == null) {
+                    efU = new d();
                 }
             }
         }
-        return dWX;
+        return efU;
     }
 
     private d() {
@@ -33,11 +33,11 @@ public class d {
         try {
             byte[] a2 = com.baidu.swan.games.bdtls.a.a.a(jVar, new g());
             if (a2 != null) {
-                h aWv = h.dXr.aWv();
-                aWv.c((byte) 22);
-                aWv.d((short) a2.length);
-                aWv.V(a2);
-                return com.baidu.swan.games.bdtls.a.b.a(aWv);
+                h aYP = h.egp.aYP();
+                aYP.c((byte) 22);
+                aYP.d((short) a2.length);
+                aYP.S(a2);
+                return com.baidu.swan.games.bdtls.a.b.a(aYP);
             }
             return null;
         } catch (Exception e) {
@@ -55,19 +55,19 @@ public class d {
             return null;
         }
         try {
-            h aWv = h.dXr.aWv();
-            aWv.c((byte) 23);
-            byte[] aWH = jVar.aWH();
-            if (aWH != null && aWH.length > 0 && aWH.length <= 32767) {
-                aWv.d((short) aWH.length);
-                aWv.V(aWH);
+            h aYP = h.egp.aYP();
+            aYP.c((byte) 23);
+            byte[] aZb = jVar.aZb();
+            if (aZb != null && aZb.length > 0 && aZb.length <= 32767) {
+                aYP.d((short) aZb.length);
+                aYP.S(aZb);
             }
             if (!TextUtils.isEmpty(str)) {
-                byte[] f = AES.f(str, jVar.aWG());
-                aWv.mu(f.length);
-                aWv.setContent(f);
+                byte[] h = AES.h(str, jVar.aZa());
+                aYP.mC(h.length);
+                aYP.setContent(h);
             }
-            return com.baidu.swan.games.bdtls.a.b.a(aWv);
+            return com.baidu.swan.games.bdtls.a.b.a(aYP);
         } catch (Exception e) {
             if (a.DEBUG) {
                 e.printStackTrace();
@@ -81,10 +81,10 @@ public class d {
     public i a(j jVar, byte[] bArr) {
         i iVar = new i();
         try {
-            h Z = com.baidu.swan.games.bdtls.a.b.Z(bArr);
-            switch (Z.aWq()) {
+            h W = com.baidu.swan.games.bdtls.a.b.W(bArr);
+            switch (W.aYK()) {
                 case 21:
-                    Bdtls.Alert parseFrom = Bdtls.Alert.parseFrom(Z.aWu());
+                    Bdtls.Alert parseFrom = Bdtls.Alert.parseFrom(W.aYO());
                     if (parseFrom != null) {
                         String str = new String(parseFrom.getDescription().toByteArray());
                         if (a.DEBUG) {
@@ -92,11 +92,11 @@ public class d {
                         }
                         f.a(jVar, parseFrom);
                         if (1 == parseFrom.getLevel()) {
-                            iVar.f(-2);
+                            iVar.h(-2);
                         } else if (TextUtils.equals(str, "down grade")) {
-                            iVar.f(2);
+                            iVar.h(2);
                         } else {
-                            iVar.f(-1);
+                            iVar.h(-1);
                         }
                         if (a.DEBUG) {
                             if (parseFrom.getDescription() != null) {
@@ -110,13 +110,13 @@ public class d {
                             }
                         }
                     } else {
-                        iVar.f(-1);
+                        iVar.h(-1);
                         break;
                     }
                     break;
                 case 23:
-                    iVar.wW(new String(AES.d(Z.getContent(), jVar.aWG())));
-                    iVar.f(1);
+                    iVar.wV(new String(AES.d(W.getContent(), jVar.aZa())));
+                    iVar.h(1);
                     break;
             }
         } catch (Exception e) {
@@ -124,29 +124,35 @@ public class d {
                 e.printStackTrace();
                 Log.d("BDTLS", "exception=" + e.getMessage());
             }
-            iVar.f(-1);
+            iVar.h(-1);
         }
         return iVar;
     }
 
-    public static byte[] mp(int i) {
+    public static byte[] mx(int i) {
         return new byte[]{(byte) ((i >> 24) & 255), (byte) ((i >> 16) & 255), (byte) ((i >> 8) & 255), (byte) (i & 255)};
     }
 
-    public static int R(byte[] bArr) {
-        if (bArr != null) {
-            int i = 0;
-            for (byte b : bArr) {
-                i = (i << 8) | (b & 255);
-            }
-            return i;
+    public static int O(byte[] bArr) {
+        int i = 0;
+        if (bArr == null) {
+            return 0;
         }
-        return 0;
+        int i2 = 0;
+        while (true) {
+            int i3 = i;
+            if (i2 < bArr.length) {
+                i = (i3 << 8) | (bArr[i2] & 255);
+                i2++;
+            } else {
+                return i3;
+            }
+        }
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: char */
     /* JADX WARN: Multi-variable type inference failed */
-    public static String S(byte[] bArr) {
+    public static String P(byte[] bArr) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < bArr.length; i++) {
             sb.append(bArr[i] > 0 ? bArr[i] : bArr[i] & 255);

@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.schemeability;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class SchemeAbilityManager {
     private ISchemeAbility mSchemeAbility;
     private ISchemeAbilityBuilder mSchemeAbilityBuilder;
@@ -30,7 +30,7 @@ public class SchemeAbilityManager {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public static class InstanceHolder {
         private static final SchemeAbilityManager sInst = new SchemeAbilityManager();
     }

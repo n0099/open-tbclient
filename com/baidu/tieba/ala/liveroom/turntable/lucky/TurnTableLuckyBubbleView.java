@@ -9,10 +9,10 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class TurnTableLuckyBubbleView extends LinearLayout {
-    private TextView aGc;
-    private String hCX;
+    private TextView aGt;
+    private String hOX;
     private String mName;
 
     public TurnTableLuckyBubbleView(Context context) {
@@ -21,21 +21,21 @@ public class TurnTableLuckyBubbleView extends LinearLayout {
     }
 
     public void setContent(String str) {
-        this.aGc.setText(str);
+        this.aGt.setText(str);
     }
 
     public void setContent(String str, String str2) {
-        if (TextUtils.isEmpty(this.mName) || TextUtils.isEmpty(this.hCX) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || !this.mName.equals(str) || !this.hCX.equals(str2)) {
+        if (TextUtils.isEmpty(this.mName) || TextUtils.isEmpty(this.hOX) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || !this.mName.equals(str) || !this.hOX.equals(str2)) {
             this.mName = str;
-            this.hCX = str2;
-            this.aGc.setText(!TextUtils.isEmpty(this.hCX) ? this.mName + "x" + this.hCX : this.mName);
+            this.hOX = str2;
+            this.aGt.setText(!TextUtils.isEmpty(this.hOX) ? this.mName + "x" + this.hOX : this.mName);
         }
     }
 
     private void init() {
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(a.g.turn_table_widget_lucky_bubble, (ViewGroup) this, true);
-        this.aGc = (TextView) findViewById(a.f.tv_content);
+        this.aGt = (TextView) findViewById(a.f.tv_content);
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setCornerRadius(getResources().getDimensionPixelOffset(a.d.sdk_ds40));
         gradientDrawable.setShape(0);
@@ -45,6 +45,6 @@ public class TurnTableLuckyBubbleView extends LinearLayout {
         } else {
             gradientDrawable.setColor(-2199);
         }
-        this.aGc.setBackgroundDrawable(gradientDrawable);
+        this.aGt.setBackgroundDrawable(gradientDrawable);
     }
 }

@@ -8,20 +8,20 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class FlowableTakeUntil<T, U> extends a<T, T> {
-    final org.a.b<? extends U> pFC;
+    final org.a.b<? extends U> qhe;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
         TakeUntilMainSubscriber takeUntilMainSubscriber = new TakeUntilMainSubscriber(cVar);
         cVar.onSubscribe(takeUntilMainSubscriber);
-        this.pFC.subscribe(takeUntilMainSubscriber.other);
-        this.pFi.a((j) takeUntilMainSubscriber);
+        this.qhe.subscribe(takeUntilMainSubscriber.other);
+        this.qgK.a((j) takeUntilMainSubscriber);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static final class TakeUntilMainSubscriber<T> extends AtomicInteger implements j<T>, d {
         private static final long serialVersionUID = -4945480365982832967L;
         final org.a.c<? super T> actual;
@@ -67,7 +67,7 @@ public final class FlowableTakeUntil<T, U> extends a<T, T> {
             SubscriptionHelper.cancel(this.other);
         }
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes3.dex */
         final class OtherSubscriber extends AtomicReference<d> implements j<Object> {
             private static final long serialVersionUID = -3592821756711087922L;
 

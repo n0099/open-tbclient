@@ -2,18 +2,18 @@ package com.baidu.live.tieba.horizonallist.widget;
 
 import android.widget.ExpandableListView;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 class a {
-    private static ArrayList<a> bEB = new ArrayList<>(5);
-    public int bEF;
-    public int bEG;
-    int bEH;
+    private static ArrayList<a> bJp = new ArrayList<>(5);
+    public int bJt;
+    public int bJu;
+    int bJv;
     public int type;
 
-    private void UW() {
-        this.bEF = 0;
-        this.bEG = 0;
-        this.bEH = 0;
+    private void Wb() {
+        this.bJt = 0;
+        this.bJu = 0;
+        this.bJv = 0;
         this.type = 0;
     }
 
@@ -21,31 +21,31 @@ class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long UZ() {
-        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.bEF, this.bEG) : ExpandableListView.getPackedPositionForGroup(this.bEF);
+    public long Wd() {
+        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.bJt, this.bJu) : ExpandableListView.getPackedPositionForGroup(this.bJt);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a gb(int i) {
+    public static a gc(int i) {
         return j(2, i, 0, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a j(int i, int i2, int i3, int i4) {
-        a Va = Va();
-        Va.type = i;
-        Va.bEF = i2;
-        Va.bEG = i3;
-        Va.bEH = i4;
-        return Va;
+        a We = We();
+        We.type = i;
+        We.bJt = i2;
+        We.bJu = i3;
+        We.bJv = i4;
+        return We;
     }
 
-    private static a Va() {
+    private static a We() {
         a aVar;
-        synchronized (bEB) {
-            if (bEB.size() > 0) {
-                aVar = bEB.remove(0);
-                aVar.UW();
+        synchronized (bJp) {
+            if (bJp.size() > 0) {
+                aVar = bJp.remove(0);
+                aVar.Wb();
             } else {
                 aVar = new a();
             }
@@ -54,9 +54,9 @@ class a {
     }
 
     public void recycle() {
-        synchronized (bEB) {
-            if (bEB.size() < 5) {
-                bEB.add(this);
+        synchronized (bJp) {
+            if (bJp.size() < 5) {
+                bJp.add(this);
             }
         }
     }

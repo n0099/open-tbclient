@@ -4,50 +4,23 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.tieba.im.message.LoadHistoryResponsedMessage;
-import com.baidu.tieba.im.message.OfficialFeedHeadResponsedMessage;
-import com.baidu.tieba.im.message.chat.ChatMessage;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-/* loaded from: classes26.dex */
-public class l implements CustomMessageTask.CustomRunnable<OfficialFeedHeadResponsedMessage.a> {
-    private int mCmd = 2001154;
-    private com.baidu.tieba.im.db.l kDx = com.baidu.tieba.im.db.l.cWg();
-
+import com.baidu.tieba.im.message.RequestOfficialBarMenuLocalMessage;
+import com.baidu.tieba.im.message.ResponseOfficialBarMenuLocalMessage;
+import com.baidu.tieba.im.message.ResponseOfficialBarMenuMessage;
+/* loaded from: classes8.dex */
+public class l implements CustomMessageTask.CustomRunnable<Object> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<OfficialFeedHeadResponsedMessage.a> customMessage) {
-        if (this.kDx == null) {
-            return EJ(this.mCmd);
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        if (customMessage == null || !(customMessage instanceof RequestOfficialBarMenuLocalMessage)) {
+            return null;
         }
-        List<com.baidu.tieba.im.db.pojo.a> cWi = com.baidu.tieba.im.db.l.cWi();
-        if (cWi == null || cWi.size() <= 0) {
-            return EJ(this.mCmd);
-        }
-        HashMap hashMap = new HashMap(cWi.size());
-        for (com.baidu.tieba.im.db.pojo.a aVar : cWi) {
-            hashMap.put(aVar.getGid(), aVar);
-        }
-        LinkedList<ChatMessage> b = this.kDx.b(hashMap, 80);
-        if (b == null) {
-            return EJ(this.mCmd);
-        }
-        OfficialFeedHeadResponsedMessage.a aVar2 = new OfficialFeedHeadResponsedMessage.a();
-        OfficialFeedHeadResponsedMessage officialFeedHeadResponsedMessage = new OfficialFeedHeadResponsedMessage(this.mCmd);
-        aVar2.kAl = b;
-        aVar2.msgList = cWi;
+        byte[] bArr = com.baidu.tbadk.core.c.a.btS().Bm("tb.official_bar_menu").get(ResponseOfficialBarMenuMessage.OFFICIAL_BAR_MENU_KEY_PRE + ((RequestOfficialBarMenuLocalMessage) customMessage).getForum_id());
+        ResponseOfficialBarMenuLocalMessage responseOfficialBarMenuLocalMessage = new ResponseOfficialBarMenuLocalMessage();
         try {
-            officialFeedHeadResponsedMessage.decodeInBackGround(CmdConfigCustom.CMD_LOAD_HISTORY, aVar2);
-            return officialFeedHeadResponsedMessage;
+            responseOfficialBarMenuLocalMessage.decodeInBackGround(CmdConfigCustom.CMD_OFFICIAL_BAR_MENU_LOCAL, bArr);
         } catch (Exception e) {
             e.printStackTrace();
-            return officialFeedHeadResponsedMessage;
         }
-    }
-
-    private LoadHistoryResponsedMessage EJ(int i) {
-        LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(i);
-        loadHistoryResponsedMessage.setError(-18);
-        return loadHistoryResponsedMessage;
+        return responseOfficialBarMenuLocalMessage;
     }
 }

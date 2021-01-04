@@ -7,10 +7,11 @@ import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.j;
 import com.baidu.adp.lib.util.s;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ad;
+import com.baidu.tbadk.core.util.ac;
 import com.baidu.tbadk.switchs.EncSigNewSwitch;
 import com.baidu.tbadk.switchs.NetDeleteSwitch;
 import com.baidu.tbadk.task.TbHttpMessageTask;
@@ -115,9 +116,9 @@ public class c extends com.baidu.adp.framework.b.d {
             httpMessage.addParam("from", from);
         }
         httpMessage.addParam("net_type", String.valueOf(j.netType()));
-        String zj = com.baidu.helios.b.al(TbadkCoreApplication.getInst()).zj();
-        if (!TextUtils.isEmpty(zj)) {
-            httpMessage.addParam("oaid", zj);
+        String yA = com.baidu.helios.b.ak(TbadkCoreApplication.getInst()).yA();
+        if (!TextUtils.isEmpty(yA)) {
+            httpMessage.addParam("oaid", yA);
         }
         if (tbHttpMessageTask.isNeedTbs()) {
             httpMessage.addParam("tbs", TbadkCoreApplication.getInst().isMainProcess(false) ? TbadkCoreApplication.getInst().getTbs() : com.baidu.tbadk.mutiprocess.f.getTbs());
@@ -132,11 +133,15 @@ public class c extends com.baidu.adp.framework.b.d {
         httpMessage.addParam("sdk_ver", TbadkCoreApplication.getInst().getSdk_ver());
         httpMessage.addParam("framework_ver", TbadkCoreApplication.getInst().getFramework_ver());
         httpMessage.addParam("swan_game_ver", TbadkCoreApplication.getInst().getSwan_game_ver());
+        httpMessage.addParam("active_timestamp", TbSingleton.getInstance().getActiveTimeStamp());
+        httpMessage.addParam("first_install_time", TbSingleton.getInstance().getAppFirstInstallTime());
+        httpMessage.addParam(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, TbSingleton.getInstance().getAppLastUpdateTime());
+        httpMessage.addParam("event_day", TbSingleton.getInstance().getData());
     }
 
     private void c(HttpMessage httpMessage) {
-        if (com.baidu.tbadk.coreExtra.b.a.bwX().bwY()) {
-            httpMessage.addCookie("pub_env", String.valueOf(com.baidu.tbadk.coreExtra.b.a.bwX().bwZ()));
+        if (com.baidu.tbadk.coreExtra.b.a.bzq().bzr()) {
+            httpMessage.addCookie("pub_env", String.valueOf(com.baidu.tbadk.coreExtra.b.a.bzq().bzs()));
         }
         if (TbSingleton.getInstance().isVisitPreviewServer()) {
             httpMessage.addCookie("pub_env", TbSingleton.getInstance().getPubEnvValue());
@@ -185,23 +190,23 @@ public class c extends com.baidu.adp.framework.b.d {
         stringBuffer.append("tiebaclient!!!");
         httpMessage.addParam("sign", s.toMd5(stringBuffer.toString()));
         if (httpMessage.getHeaders() != null && "1".equals(httpMessage.getHeaders().get("needSig")) && EncSigNewSwitch.isOn()) {
-            httpMessage.addParam("sig", StringU.Fk(stringBuffer.toString()));
+            httpMessage.addParam("sig", StringU.Fi(stringBuffer.toString()));
         }
         httpMessage.getHeaders().remove("needSig");
     }
 
     private void f(HttpMessage httpMessage) {
-        ad.a btA = ad.btA();
-        if (btA != null) {
-            httpMessage.addParam("stTime", String.valueOf(btA.mTime));
-            httpMessage.addParam("stSize", String.valueOf(btA.mSize));
-            httpMessage.addParam("stTimesNum", String.valueOf(btA.mTimesNum));
-            httpMessage.addParam("stMode", String.valueOf(btA.mMode));
-            httpMessage.addParam("stMethod", String.valueOf(btA.mMethod));
+        ac.a bvV = ac.bvV();
+        if (bvV != null) {
+            httpMessage.addParam("stTime", String.valueOf(bvV.mTime));
+            httpMessage.addParam("stSize", String.valueOf(bvV.mSize));
+            httpMessage.addParam("stTimesNum", String.valueOf(bvV.mTimesNum));
+            httpMessage.addParam("stMode", String.valueOf(bvV.mMode));
+            httpMessage.addParam("stMethod", String.valueOf(bvV.mMethod));
         }
-        int errorNumsAndSet = ad.getErrorNumsAndSet(0);
-        if (errorNumsAndSet == 0 && btA != null) {
-            errorNumsAndSet = btA.mTimesNum;
+        int errorNumsAndSet = ac.getErrorNumsAndSet(0);
+        if (errorNumsAndSet == 0 && bvV != null) {
+            errorNumsAndSet = bvV.mTimesNum;
         }
         httpMessage.addParam("stErrorNums", String.valueOf(errorNumsAndSet));
     }

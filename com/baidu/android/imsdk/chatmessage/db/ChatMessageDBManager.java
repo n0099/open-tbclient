@@ -4,10 +4,10 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.SparseArray;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.ChatObject;
 import com.baidu.android.imsdk.GetChatObjectInfoForRecordManager;
 import com.baidu.android.imsdk.IMConstants;
@@ -45,14 +45,14 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class ChatMessageDBManager extends DBBase {
     private static final long CAST_RELIABLE_MSG_EXPIRED_TIME = 172800;
     private static final String TAG = ChatMessageDBManager.class.getSimpleName();
     private static ChatMessageDBManager mInstance = null;
     private List<ChatMessageDbOberser> mObservers = null;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public interface ChatMessageDbOberser {
         void notifyDbChange(int i, ChatSession chatSession);
     }
@@ -2195,21 +2195,18 @@ public class ChatMessageDBManager extends DBBase {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [2193=4, 2194=4] */
     private int delMsgsOfCertainContacterForSingle(ChatObject chatObject, long j) {
         int delete;
+        boolean z = false;
         synchronized (mSyncLock) {
             SQLiteDatabase openDatabase = openDatabase();
-            boolean z = false;
             if (openDatabase == null) {
                 LogUtils.d(TAG, "getWritableDb fail!");
                 return -1;
             }
             try {
                 openDatabase.beginTransaction();
-                int i = -1;
                 String[] strArr = {String.valueOf(chatObject.getContacter()), String.valueOf(chatObject.getCategory())};
                 String addPaidCondition = addPaidCondition(j != -1 ? "contacter = ?  AND category = ? AND msgid <= " + j : "contacter = ?  AND category = ?", "paid", chatObject.getPaid());
-                if (addPaidCondition != null && strArr != null) {
-                    i = openDatabase.delete("message", addPaidCondition, strArr);
-                }
+                int delete2 = (addPaidCondition == null || strArr == null) ? -1 : openDatabase.delete("message", addPaidCondition, strArr);
                 long maxMsgid = getMaxMsgid(chatObject);
                 ChatSession chatSession = null;
                 if (j == -1 || maxMsgid <= j) {
@@ -2235,12 +2232,12 @@ public class ChatMessageDBManager extends DBBase {
                         notifyDbChange(2, chatSession);
                     }
                 } else {
-                    i = -1;
+                    delete2 = -1;
                 }
                 if (openDatabase != null) {
                     openDatabase.endTransaction();
                 }
-                return i;
+                return delete2;
             } catch (Exception e) {
                 new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                 LogUtils.e(TAG, "delMsg:", e);
@@ -2317,46 +2314,44 @@ public class ChatMessageDBManager extends DBBase {
     }
 
     private int delMsgs(long[] jArr) {
-        int i;
+        long j;
+        int i = -1;
+        int i2 = 0;
         synchronized (mSyncLock) {
-            int i2 = -1;
             SQLiteDatabase openDatabase = openDatabase();
             if (openDatabase == null) {
                 LogUtils.d(TAG, "getWritableDb fail!");
-                i = -1;
-            } else {
-                if (jArr != null) {
+            } else if (jArr != null) {
+                try {
+                } catch (Exception e) {
+                    e = e;
+                    i2 = i;
+                }
+                if (jArr.length > 0) {
                     try {
-                    } catch (Exception e) {
-                        e = e;
-                    }
-                    if (jArr.length > 0) {
-                        i2 = 0;
                         String[] strArr = new String[2];
                         strArr[1] = String.valueOf(0);
                         i = 0;
-                        for (long j : jArr) {
-                            try {
-                                strArr[0] = String.valueOf(j);
-                                if ("msgid = ? AND status=?" != 0 && strArr != null) {
-                                    i = (int) (openDatabase.delete("message", "msgid = ? AND status=?", strArr) + i);
-                                }
-                            } catch (Exception e2) {
-                                i2 = i;
-                                e = e2;
-                                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                                LogUtils.e(TAG, "delMsg:", e);
-                                i = i2;
-                                return i;
+                        for (long j2 : jArr) {
+                            strArr[0] = String.valueOf(j2);
+                            if ("msgid = ? AND status=?" != 0 && strArr != null) {
+                                i = (int) (openDatabase.delete("message", "msgid = ? AND status=?", strArr) + i);
                             }
                         }
-                        for (long j2 : jArr) {
-                            openDatabase.execSQL("delete from message where msgid=? and type in (?, ?, ?)", new Object[]{Long.valueOf(1 + j2), 2012, 2001, Integer.valueOf((int) IMConstants.IM_MSG_TYPE_UNSUBSCRIBE_ME_SEND_FAIL)});
-                            LogUtils.e(TAG, "delete notSendButShowTipMsg :delete from message where msgid=? and type in (?, ?, ?), msgId :" + (j2 + 1));
+                        int length = jArr.length;
+                        while (i2 < length) {
+                            openDatabase.execSQL("delete from message where msgid=? and type in (?, ?, ?)", new Object[]{Long.valueOf(jArr[i2] + 1), 2012, 2001, Integer.valueOf((int) IMConstants.IM_MSG_TYPE_UNSUBSCRIBE_ME_SEND_FAIL)});
+                            LogUtils.e(TAG, "delete notSendButShowTipMsg :delete from message where msgid=? and type in (?, ?, ?), msgId :" + (j + 1));
+                            i2++;
                         }
+                    } catch (Exception e2) {
+                        e = e2;
+                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                        LogUtils.e(TAG, "delMsg:", e);
+                        i = i2;
+                        return i;
                     }
                 }
-                i = -1;
             }
         }
         return i;
@@ -2793,14 +2788,14 @@ public class ChatMessageDBManager extends DBBase {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:17:0x01ef A[ORIG_RETURN, RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x0345  */
+    /* JADX WARN: Removed duplicated region for block: B:17:0x01e1 A[ORIG_RETURN, RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x031e  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private ChatMsg construChatMsg(Cursor cursor) {
         int i;
-        Exception e;
+        JSONObject jSONObject;
         ChatMsg newChatMsg;
         int i2 = cursor.getInt(cursor.getColumnIndex(IMConstants.MSG_ROW_ID));
         int i3 = cursor.getInt(cursor.getColumnIndex("type"));
@@ -2828,65 +2823,64 @@ public class ChatMessageDBManager extends DBBase {
         int i10 = cursor.getInt(cursor.getColumnIndex(TableDefine.MessageColumns.COLUME_TEMPLATE));
         if (i3 == 80) {
             try {
-                JSONObject jSONObject = new JSONObject(new JSONObject(new JSONObject(new JSONObject(string).optString("text")).optString("msg")).optString("ext"));
+                jSONObject = new JSONObject(new JSONObject(new JSONObject(new JSONObject(string).optString("text")).optString("msg")).optString("ext"));
                 i = jSONObject.optInt("type", -1);
-                try {
-                    if (i == 1) {
-                        i = 0;
-                        JSONObject jSONObject2 = new JSONObject();
-                        jSONObject2.put("text", jSONObject.optString("body"));
-                        string = jSONObject2.toString();
-                    } else if (i == 0) {
-                        if (jSONObject.has("content") && !jSONObject.has("body")) {
-                            i = 0;
-                            JSONObject jSONObject3 = new JSONObject();
-                            jSONObject3.put("text", new JSONObject(jSONObject.optString("content")).optString("text"));
-                            string = jSONObject3.toString();
-                        } else {
-                            JSONArray jSONArray = new JSONArray(jSONObject.optString("body"));
-                            int length = jSONArray.length();
-                            if (length == 1) {
-                                i3 = 8;
-                                JSONObject optJSONObject = jSONArray.optJSONObject(0);
-                                JSONObject jSONObject4 = new JSONObject();
-                                jSONObject4.put("title", optJSONObject.optString("title"));
-                                jSONObject4.put("article_url", optJSONObject.optString("url"));
-                                jSONObject4.put("cover", optJSONObject.optString("headImage"));
-                                string = jSONObject4.toString();
-                                i = 8;
-                            } else {
-                                i = i3;
-                            }
-                            if (length > 1) {
-                                i = 9;
-                                JSONArray jSONArray2 = new JSONArray();
-                                for (int i11 = 0; i11 < length; i11++) {
-                                    JSONObject optJSONObject2 = jSONArray.optJSONObject(i11);
-                                    JSONObject jSONObject5 = new JSONObject();
-                                    jSONObject5.put("title", optJSONObject2.optString("title"));
-                                    jSONObject5.put("article_url", optJSONObject2.optString("url"));
-                                    jSONObject5.put("cover", optJSONObject2.optString("headImage"));
-                                    jSONArray2.put(jSONObject5);
-                                }
-                                JSONObject jSONObject6 = new JSONObject();
-                                jSONObject6.put("articles", jSONArray2);
-                                string = jSONObject6.toString();
-                            }
-                        }
-                    } else {
-                        string = jSONObject.optString("content");
-                    }
-                } catch (Exception e2) {
-                    e = e2;
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                    LogUtils.e(TAG, "du construChatMsg:", e);
-                    newChatMsg = ChatMsgFactory.getInstance().newChatMsg(this.mContext, i6, i, i7);
-                    if (newChatMsg != null) {
-                    }
-                }
-            } catch (Exception e3) {
+            } catch (Exception e) {
+                e = e;
                 i = i3;
-                e = e3;
+            }
+            try {
+                if (i == 1) {
+                    i = 0;
+                    JSONObject jSONObject2 = new JSONObject();
+                    jSONObject2.put("text", jSONObject.optString("body"));
+                    string = jSONObject2.toString();
+                } else if (i == 0) {
+                    if (jSONObject.has("content") && !jSONObject.has("body")) {
+                        i = 0;
+                        JSONObject jSONObject3 = new JSONObject();
+                        jSONObject3.put("text", new JSONObject(jSONObject.optString("content")).optString("text"));
+                        string = jSONObject3.toString();
+                    } else {
+                        JSONArray jSONArray = new JSONArray(jSONObject.optString("body"));
+                        int length = jSONArray.length();
+                        if (length == 1) {
+                            i = 8;
+                            JSONObject optJSONObject = jSONArray.optJSONObject(0);
+                            JSONObject jSONObject4 = new JSONObject();
+                            jSONObject4.put("title", optJSONObject.optString("title"));
+                            jSONObject4.put("article_url", optJSONObject.optString("url"));
+                            jSONObject4.put("cover", optJSONObject.optString("headImage"));
+                            string = jSONObject4.toString();
+                        } else {
+                            i = i3;
+                        }
+                        if (length > 1) {
+                            i = 9;
+                            JSONArray jSONArray2 = new JSONArray();
+                            for (int i11 = 0; i11 < length; i11++) {
+                                JSONObject optJSONObject2 = jSONArray.optJSONObject(i11);
+                                JSONObject jSONObject5 = new JSONObject();
+                                jSONObject5.put("title", optJSONObject2.optString("title"));
+                                jSONObject5.put("article_url", optJSONObject2.optString("url"));
+                                jSONObject5.put("cover", optJSONObject2.optString("headImage"));
+                                jSONArray2.put(jSONObject5);
+                            }
+                            JSONObject jSONObject6 = new JSONObject();
+                            jSONObject6.put("articles", jSONArray2);
+                            string = jSONObject6.toString();
+                        }
+                    }
+                } else {
+                    string = jSONObject.optString("content");
+                }
+            } catch (Exception e2) {
+                e = e2;
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                LogUtils.e(TAG, "du construChatMsg:", e);
+                newChatMsg = ChatMsgFactory.getInstance().newChatMsg(this.mContext, i6, i, i7);
+                if (newChatMsg != null) {
+                }
             }
         } else {
             i = i3;
@@ -3010,11 +3004,11 @@ public class ChatMessageDBManager extends DBBase {
             } else {
                 ChatMsg chatMsg2 = fetchMsg.get(0);
                 if (!notSendButShowTipMsg(chatMsg2) || fetchMsg.size() <= 1) {
+                    z = true;
                     chatMsg = chatMsg2;
-                    z = true;
                 } else {
-                    chatMsg = fetchMsg.get(1);
                     z = true;
+                    chatMsg = fetchMsg.get(1);
                 }
             }
         } else {
@@ -3033,14 +3027,13 @@ public class ChatMessageDBManager extends DBBase {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [3042=5, 3043=4] */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:20:0x007c */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x00d8 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r2v0, types: [android.database.sqlite.SQLiteDatabase] */
-    /* JADX WARN: Type inference failed for: r2v1, types: [android.database.Cursor] */
-    /* JADX WARN: Type inference failed for: r2v2 */
     /* JADX WARN: Type inference failed for: r2v3 */
     /* JADX WARN: Type inference failed for: r2v4, types: [android.database.Cursor] */
     public ArrayList<ChatMsg> fetchMsg(String str, String str2) {
+        Throwable th;
+        Cursor cursor;
         ArrayList<ChatMsg> arrayList = new ArrayList<>();
         ?? openDatabase = openDatabase();
         try {
@@ -3076,8 +3069,8 @@ public class ChatMessageDBManager extends DBBase {
                                     rawQuery.close();
                                 }
                                 return arrayList;
-                            } catch (Throwable th) {
-                                th = th;
+                            } catch (Throwable th2) {
+                                th = th2;
                                 throw th;
                             }
                         }
@@ -3091,52 +3084,41 @@ public class ChatMessageDBManager extends DBBase {
                         }
                         return null;
                     }
-                } catch (Throwable th2) {
-                    th = th2;
+                } catch (Throwable th3) {
+                    th = th3;
                 }
             } catch (Exception e2) {
                 e = e2;
                 openDatabase = 0;
-            } catch (Throwable th3) {
-                openDatabase = 0;
-                th = th3;
-                if (openDatabase != 0) {
-                    openDatabase.close();
+            } catch (Throwable th4) {
+                th = th4;
+                cursor = null;
+                if (cursor != null) {
+                    cursor.close();
                 }
                 throw th;
             }
-        } catch (Throwable th4) {
-            th = th4;
+        } catch (Throwable th5) {
+            th = th5;
+            cursor = openDatabase;
         }
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [3188=7, 3189=6] */
-    /* JADX WARN: Code restructure failed: missing block: B:100:0x02ab, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:100:0x02ae, code lost:
         com.baidu.android.imsdk.utils.LogUtils.d(com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager.TAG, "cursor is moveToPrevious failed!");
      */
-    /* JADX WARN: Code restructure failed: missing block: B:102:0x02b4, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:102:0x02b7, code lost:
         r2 = th;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:103:0x02b5, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:103:0x02b8, code lost:
         r3 = r9;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:104:0x02b6, code lost:
-        if (r3 != null) goto L99;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:105:0x02b8, code lost:
-        r3.close();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:106:0x02bb, code lost:
-        throw r2;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:129:?, code lost:
-        return null;
      */
     /* JADX WARN: Code restructure failed: missing block: B:130:?, code lost:
         return null;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:132:?, code lost:
-        return r8;
+    /* JADX WARN: Code restructure failed: missing block: B:131:?, code lost:
+        return null;
      */
     /* JADX WARN: Code restructure failed: missing block: B:133:?, code lost:
         return r8;
@@ -3144,77 +3126,82 @@ public class ChatMessageDBManager extends DBBase {
     /* JADX WARN: Code restructure failed: missing block: B:134:?, code lost:
         return r8;
      */
+    /* JADX WARN: Code restructure failed: missing block: B:135:?, code lost:
+        return r8;
+     */
     /* JADX WARN: Code restructure failed: missing block: B:42:0x0157, code lost:
-        if (r9 != null) goto L51;
+        if (r9 != null) goto L50;
      */
     /* JADX WARN: Code restructure failed: missing block: B:44:0x015a, code lost:
-        if (r9 == null) goto L50;
+        if (r9 == null) goto L49;
      */
     /* JADX WARN: Code restructure failed: missing block: B:45:0x015c, code lost:
         r9.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:73:0x0238, code lost:
-        r2 = getCursorMoveDirection(r22, r16, r6);
+    /* JADX WARN: Code restructure failed: missing block: B:73:0x0239, code lost:
+        r2 = getCursorMoveDirection(r24, r18, r6);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:74:0x023c, code lost:
-        if (r2 != false) goto L84;
+    /* JADX WARN: Code restructure failed: missing block: B:74:0x023d, code lost:
+        if (r2 != false) goto L83;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:76:0x0242, code lost:
-        if (r9.moveToLast() != false) goto L61;
+    /* JADX WARN: Code restructure failed: missing block: B:76:0x0243, code lost:
+        if (r9.moveToLast() != false) goto L60;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:77:0x0244, code lost:
-        if (r9 == null) goto L59;
+    /* JADX WARN: Code restructure failed: missing block: B:77:0x0245, code lost:
+        if (r9 == null) goto L58;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:78:0x0246, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:78:0x0247, code lost:
         r9.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:81:0x0250, code lost:
-        if (r9.moveToFirst() != false) goto L61;
+    /* JADX WARN: Code restructure failed: missing block: B:81:0x0251, code lost:
+        if (r9.moveToFirst() != false) goto L60;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:82:0x0252, code lost:
-        if (r9 == null) goto L88;
+    /* JADX WARN: Code restructure failed: missing block: B:82:0x0253, code lost:
+        if (r9 == null) goto L87;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:83:0x0254, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:83:0x0255, code lost:
         r9.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:85:0x025a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:85:0x025b, code lost:
         r3 = construChatMsg(r9);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:86:0x025e, code lost:
-        if (r3 == null) goto L83;
+    /* JADX WARN: Code restructure failed: missing block: B:86:0x0261, code lost:
+        if (r3 == null) goto L82;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:87:0x0260, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:87:0x0263, code lost:
         com.baidu.android.imsdk.utils.LogUtils.d(com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager.TAG, "msgid : " + r3.getMsgId());
         r8.add(r3);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:88:0x0280, code lost:
-        if (r2 == false) goto L66;
+    /* JADX WARN: Code restructure failed: missing block: B:88:0x0283, code lost:
+        if (r2 == false) goto L65;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:90:0x0286, code lost:
-        if (r9.moveToNext() != false) goto L82;
+    /* JADX WARN: Code restructure failed: missing block: B:90:0x0289, code lost:
+        if (r9.moveToNext() != false) goto L81;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:91:0x0288, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:91:0x028b, code lost:
         com.baidu.android.imsdk.utils.LogUtils.d(com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager.TAG, "cursor is moveToNext failed!");
      */
-    /* JADX WARN: Code restructure failed: missing block: B:92:0x0290, code lost:
-        if (r9 == null) goto L73;
+    /* JADX WARN: Code restructure failed: missing block: B:92:0x0293, code lost:
+        if (r9 == null) goto L72;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:93:0x0292, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:93:0x0295, code lost:
         r9.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:95:0x0298, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:95:0x029b, code lost:
         com.baidu.android.imsdk.utils.LogUtils.d(com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager.TAG, "construChatMsg msg is null ");
      */
-    /* JADX WARN: Code restructure failed: missing block: B:96:0x02a1, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:96:0x02a4, code lost:
         r2 = e;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:97:0x02a2, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:97:0x02a5, code lost:
         r3 = r9;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:99:0x02a9, code lost:
-        if (r9.moveToPrevious() != false) goto L75;
+    /* JADX WARN: Code restructure failed: missing block: B:99:0x02ac, code lost:
+        if (r9.moveToPrevious() != false) goto L74;
      */
+    /* JADX WARN: Removed duplicated region for block: B:105:0x02bb  */
     /* JADX WARN: Removed duplicated region for block: B:70:0x022d  */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:64:0x020b -> B:65:0x020c). Please submit an issue!!! */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -3224,7 +3211,6 @@ public class ChatMessageDBManager extends DBBase {
         String str3;
         String str4;
         String[] strArr;
-        String str5;
         ArrayList<ChatMsg> arrayList = new ArrayList<>();
         SQLiteDatabase openDatabase = openDatabase();
         Cursor cursor = null;
@@ -3240,29 +3226,28 @@ public class ChatMessageDBManager extends DBBase {
         } else {
             j4 = j2;
         }
-        try {
-            if (0 == j && j3 == -1) {
-                str3 = null;
-                str4 = " >= ";
-            } else {
-                if (j4 == 0) {
-                    str2 = " = ";
-                    j3 = -2;
-                } else if (j4 > 0) {
-                    str2 = " > ";
-                    if (j3 == Long.MAX_VALUE) {
-                        j3 = 0;
-                    }
-                } else {
-                    str2 = " < ";
-                    if (j3 == -1) {
-                        j3 = Long.MAX_VALUE;
-                    }
+        if (0 == j && j3 == -1) {
+            str2 = " >= ";
+            str3 = null;
+        } else {
+            if (j4 == 0) {
+                str2 = " = ";
+                j3 = -2;
+            } else if (j4 > 0) {
+                str2 = " > ";
+                if (j3 == Long.MAX_VALUE) {
+                    j3 = 0;
                 }
-                if (j3 != -2) {
+            } else {
+                str2 = " < ";
+                if (j3 == -1) {
+                    j3 = Long.MAX_VALUE;
+                }
+            }
+            if (j3 != -2) {
+                try {
                     try {
                         str3 = " AND _id" + str2 + j3;
-                        str4 = str2;
                     } catch (Exception e) {
                         e = e;
                         new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
@@ -3272,47 +3257,50 @@ public class ChatMessageDBManager extends DBBase {
                         }
                         return null;
                     }
-                } else {
-                    str3 = null;
-                    str4 = str2;
-                }
-            }
-            if (chatObject.getContacter() == 17 || chatObject.getContacter() == 26) {
-                strArr = new String[]{String.valueOf(chatObject.getContacter()), String.valueOf(j), String.valueOf(0)};
-                str5 = "type = ? AND msgid" + str4 + "? AND category = ? ";
-            } else {
-                strArr = new String[]{String.valueOf(chatObject.getContacter()), String.valueOf(j), String.valueOf(chatObject.getCategory())};
-                str5 = "contacter = ? AND msgid" + str4 + "? AND category = ? ";
-            }
-            if (str3 != null) {
-                str5 = str5 + str3;
-            }
-            if (str != null) {
-                str5 = str5 + " AND " + str;
-            }
-            String str6 = str5 + " AND status != 3";
-            String addPaidCondition = (chatObject.getCategory() == 17 || chatObject.getCategory() == 26) ? str6 : addPaidCondition(str6, "paid", chatObject.getPaid());
-            if (j4 == 0) {
-                j4 = 1;
-            }
-            String str7 = (j4 <= 0 || j <= 0) ? " desc " : " asc ";
-            String str8 = "select * from message where " + addPaidCondition + " ORDER BY msgid" + str7 + "," + IMConstants.MSG_ROW_ID + str7 + " limit " + Math.abs(j4);
-            synchronized (mSyncLock) {
-                try {
-                    Cursor rawQuery = openDatabase.rawQuery(str8, strArr);
-                    try {
-                    } catch (Throwable th) {
-                        th = th;
-                        cursor = rawQuery;
+                } catch (Throwable th) {
+                    Throwable th2 = th;
+                    if (cursor != null) {
+                        cursor.close();
                     }
-                } catch (Throwable th2) {
-                    th = th2;
+                    throw th2;
                 }
+            } else {
+                str3 = null;
             }
-            throw th;
-        } catch (Throwable th3) {
-            th = th3;
         }
+        if (chatObject.getContacter() == 17 || chatObject.getContacter() == 26) {
+            str4 = "type = ? AND msgid" + str2 + "? AND category = ? ";
+            strArr = new String[]{String.valueOf(chatObject.getContacter()), String.valueOf(j), String.valueOf(0)};
+        } else {
+            str4 = "contacter = ? AND msgid" + str2 + "? AND category = ? ";
+            strArr = new String[]{String.valueOf(chatObject.getContacter()), String.valueOf(j), String.valueOf(chatObject.getCategory())};
+        }
+        if (str3 != null) {
+            str4 = str4 + str3;
+        }
+        if (str != null) {
+            str4 = str4 + " AND " + str;
+        }
+        String str5 = str4 + " AND status != 3";
+        String addPaidCondition = (chatObject.getCategory() == 17 || chatObject.getCategory() == 26) ? str5 : addPaidCondition(str5, "paid", chatObject.getPaid());
+        if (j4 == 0) {
+            j4 = 1;
+        }
+        String str6 = (j4 <= 0 || j <= 0) ? " desc " : " asc ";
+        String str7 = "select * from message where " + addPaidCondition + " ORDER BY msgid" + str6 + "," + IMConstants.MSG_ROW_ID + str6 + " limit " + Math.abs(j4);
+        synchronized (mSyncLock) {
+            try {
+                Cursor rawQuery = openDatabase.rawQuery(str7, strArr);
+                try {
+                } catch (Throwable th3) {
+                    th = th3;
+                    cursor = rawQuery;
+                }
+            } catch (Throwable th4) {
+                th = th4;
+            }
+        }
+        throw th;
     }
 
     public ArrayList<ChatMsg> getPaMsgByChatTypeAndPaidList(List<Integer> list, List<Long> list2, long j, int i) {
@@ -3450,12 +3438,15 @@ public class ChatMessageDBManager extends DBBase {
         }
         String str = "" + queryPaInfoByChatType.get(0).getPaId();
         int i3 = 1;
-        while (i3 < queryPaInfoByChatType.size()) {
-            String str2 = str + ", " + queryPaInfoByChatType.get(i3).getPaId();
-            i3++;
-            str = str2;
+        while (true) {
+            int i4 = i3;
+            if (i4 >= queryPaInfoByChatType.size()) {
+                break;
+            }
+            str = str + ", " + queryPaInfoByChatType.get(i4).getPaId();
+            i3 = i4 + 1;
         }
-        String str3 = "select * from message where " + ("paid in (" + str + ") ") + " ORDER BY time desc limit " + Math.abs(i2);
+        String str2 = "select * from message where " + ("paid in (" + str + ") ") + " ORDER BY time desc limit " + Math.abs(i2);
         synchronized (mSyncLock) {
             SQLiteDatabase openDatabase = openDatabase();
             if (openDatabase == null) {
@@ -3463,7 +3454,7 @@ public class ChatMessageDBManager extends DBBase {
                 return null;
             }
             try {
-                cursor = openDatabase.rawQuery(str3, null);
+                cursor = openDatabase.rawQuery(str2, null);
                 if (cursor != null) {
                     while (cursor.moveToNext()) {
                         ChatMsg construChatMsg = construChatMsg(cursor);
@@ -3563,14 +3554,15 @@ public class ChatMessageDBManager extends DBBase {
     }
 
     public int deleteChatSession(long j) {
+        String[] strArr;
         String str;
         int delete;
-        String[] strArr = null;
         synchronized (mSyncLock) {
             if (j != -1) {
-                str = "paid = ?";
                 strArr = new String[]{String.valueOf(j)};
+                str = "paid = ?";
             } else {
+                strArr = null;
                 str = null;
             }
             delete = delete(TableDefine.DB_TABLE_CHAT_SESSION, str, strArr);
@@ -4004,10 +3996,10 @@ public class ChatMessageDBManager extends DBBase {
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:20:0x005f */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r0v0, types: [android.database.Cursor] */
-    /* JADX WARN: Type inference failed for: r0v10 */
-    /* JADX WARN: Type inference failed for: r0v11 */
-    /* JADX WARN: Type inference failed for: r0v4 */
-    /* JADX WARN: Type inference failed for: r0v6, types: [com.baidu.android.imsdk.chatmessage.messages.ChatMsg] */
+    /* JADX WARN: Type inference failed for: r0v2 */
+    /* JADX WARN: Type inference failed for: r0v4, types: [com.baidu.android.imsdk.chatmessage.messages.ChatMsg] */
+    /* JADX WARN: Type inference failed for: r0v5 */
+    /* JADX WARN: Type inference failed for: r0v6 */
     /* JADX WARN: Type inference failed for: r0v7 */
     /* JADX WARN: Type inference failed for: r0v8 */
     /* JADX WARN: Type inference failed for: r0v9 */
@@ -4015,6 +4007,7 @@ public class ChatMessageDBManager extends DBBase {
     /* JADX WARN: Type inference failed for: r2v3, types: [android.database.Cursor] */
     /* JADX WARN: Type inference failed for: r2v8, types: [java.lang.String] */
     public ChatMsg getMsgByMsgId(long j) {
+        Throwable th;
         ?? r2;
         ?? r0 = 0;
         r0 = 0;
@@ -4040,8 +4033,8 @@ public class ChatMessageDBManager extends DBBase {
                                     if (rawQuery != null) {
                                         rawQuery.close();
                                     }
-                                } catch (Throwable th) {
-                                    th = th;
+                                } catch (Throwable th2) {
+                                    th = th2;
                                     throw th;
                                 }
                             }
@@ -4054,14 +4047,14 @@ public class ChatMessageDBManager extends DBBase {
                             }
                             return r0;
                         }
-                    } catch (Throwable th2) {
-                        th = th2;
+                    } catch (Throwable th3) {
+                        th = th3;
                     }
                 } catch (Exception e2) {
                     e = e2;
                     r2 = 0;
-                } catch (Throwable th3) {
-                    th = th3;
+                } catch (Throwable th4) {
+                    th = th4;
                     if (0 != 0) {
                         r0.close();
                     }
@@ -4069,8 +4062,8 @@ public class ChatMessageDBManager extends DBBase {
                 }
             }
             return r0;
-        } catch (Throwable th4) {
-            th = th4;
+        } catch (Throwable th5) {
+            th = th5;
         }
     }
 }

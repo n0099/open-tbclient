@@ -9,15 +9,15 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes22.dex */
+/* loaded from: classes8.dex */
 final class ec implements d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackReportActivity f3853a;
+    final /* synthetic */ FeedbackReportActivity f5834a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ec(FeedbackReportActivity feedbackReportActivity) {
-        this.f3853a = feedbackReportActivity;
+        this.f5834a = feedbackReportActivity;
     }
 
     @Override // com.baidu.ufosdk.ui.d
@@ -40,61 +40,61 @@ final class ec implements d {
         LinearLayout linearLayout3;
         LinearLayout linearLayout4;
         TextView textView3;
-        this.f3853a.p = i;
-        i2 = this.f3853a.p;
+        this.f5834a.p = i;
+        i2 = this.f5834a.p;
         if (i2 == 1) {
-            this.f3853a.q = true;
-            linearLayout4 = this.f3853a.o;
+            this.f5834a.q = true;
+            linearLayout4 = this.f5834a.o;
             linearLayout4.setVisibility(0);
             SpannableString spannableString = new SpannableString("上传截图*(请上传该视频在其他平台带发布时间的截图)");
             spannableString.setSpan(new ForegroundColorSpan(com.baidu.ufosdk.b.K), 4, 5, 34);
             spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#999999")), 5, 26, 34);
             spannableString.setSpan(new AbsoluteSizeSpan(12, true), 5, 26, 34);
-            textView3 = this.f3853a.r;
+            textView3 = this.f5834a.r;
             textView3.setText(spannableString);
         }
-        i3 = this.f3853a.p;
+        i3 = this.f5834a.p;
         if (i3 == 2) {
-            linearLayout3 = this.f3853a.O;
+            linearLayout3 = this.f5834a.O;
             linearLayout3.setVisibility(0);
         }
-        i4 = this.f3853a.p;
+        i4 = this.f5834a.p;
         if (i4 == 3) {
-            this.f3853a.q = false;
-            linearLayout2 = this.f3853a.o;
+            this.f5834a.q = false;
+            linearLayout2 = this.f5834a.o;
             linearLayout2.setVisibility(8);
             SpannableString spannableString2 = new SpannableString("问题截图（系统自动截取）");
             spannableString2.setSpan(new ForegroundColorSpan(Color.parseColor("#999999")), 4, spannableString2.length(), 34);
             spannableString2.setSpan(new AbsoluteSizeSpan(12, true), 4, spannableString2.length(), 34);
-            bArr = this.f3853a.j;
+            bArr = this.f5834a.j;
             if (bArr != null) {
-                list = this.f3853a.x;
-                bArr2 = this.f3853a.j;
+                list = this.f5834a.x;
+                bArr2 = this.f5834a.j;
                 if (list.contains(bArr2)) {
-                    textView2 = this.f3853a.r;
+                    textView2 = this.f5834a.r;
                     textView2.setText(spannableString2);
                 }
             }
-            textView = this.f3853a.r;
+            textView = this.f5834a.r;
             textView.setText("上传截图");
         }
-        i5 = this.f3853a.p;
+        i5 = this.f5834a.p;
         if (i5 == 4) {
-            linearLayout = this.f3853a.O;
+            linearLayout = this.f5834a.O;
             linearLayout.setVisibility(8);
         }
         com.baidu.ufosdk.f.c.a("CheckGroup回调函数：selectedData.size() = " + arrayList.size());
         if (arrayList.size() > 0) {
-            button3 = this.f3853a.m;
+            button3 = this.f5834a.m;
             button3.setTextColor(com.baidu.ufosdk.f.i.a(com.baidu.ufosdk.b.v, com.baidu.ufosdk.b.y, com.baidu.ufosdk.b.v, com.baidu.ufosdk.b.v));
         } else {
-            button = this.f3853a.m;
+            button = this.f5834a.m;
             button.setTextColor(com.baidu.ufosdk.b.y);
         }
         if (arrayList.contains("播放问题")) {
-            str = this.f3853a.F;
+            str = this.f5834a.F;
             if (str.length() <= 0) {
-                button2 = this.f3853a.m;
+                button2 = this.f5834a.m;
                 button2.setTextColor(com.baidu.ufosdk.b.y);
             }
         }

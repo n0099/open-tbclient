@@ -1,32 +1,32 @@
 package com.baidu.tbadk.widget.lottie;
 
 import android.graphics.Bitmap;
-import com.airbnb.lottie.c;
-import com.airbnb.lottie.h;
+import com.airbnb.lottie.g;
+import com.baidu.adp.lib.e.d;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tbadk.core.util.c.n;
+import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.d.j;
 /* loaded from: classes.dex */
-public class a implements c {
+public class a implements com.airbnb.lottie.b {
     public static final String INTERNEL_STORAGE_DIRECTORY = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();
-    private n fNz;
+    private j fXd;
     private boolean isFirstLoadInternal = false;
     private String mPath;
 
-    @Override // com.airbnb.lottie.c
-    public Bitmap fetchBitmap(h hVar) {
-        if (au.isEmpty(this.mPath)) {
+    @Override // com.airbnb.lottie.b
+    public Bitmap a(g gVar) {
+        if (at.isEmpty(this.mPath)) {
             return null;
         }
-        String str = this.mPath + hVar.iN().replace("/", "") + "/" + hVar.getFileName();
-        com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) com.baidu.adp.lib.e.c.mS().loadResourceFromMemery(str, 36, new Object[0]);
+        String str = this.mPath + gVar.il().replace("/", "") + "/" + gVar.getFileName();
+        com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) d.mx().loadResourceFromMemery(str, 36, new Object[0]);
         if (aVar == null && getFristLoadInternal()) {
-            if (this.fNz == null) {
-                this.fNz = new n();
+            if (this.fXd == null) {
+                this.fXd = new j();
             }
-            aVar = this.fNz.q(str, 0, 0);
+            aVar = this.fXd.q(str, 0, 0);
         }
         if (aVar != null && aVar.getRawBitmap() != null) {
             Bitmap rawBitmap = aVar.getRawBitmap();
@@ -37,7 +37,7 @@ public class a implements c {
                 BdLog.e(e);
             }
         }
-        com.baidu.adp.lib.e.c.mS().a(str, 36, null, null);
+        d.mx().a(str, 36, null, null);
         return null;
     }
 

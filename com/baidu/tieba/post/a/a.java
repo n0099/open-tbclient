@@ -1,10 +1,9 @@
 package com.baidu.tieba.post.a;
 
 import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.adp.widget.ListView.f;
-import com.baidu.adp.widget.ListView.q;
+import com.baidu.adp.widget.ListView.n;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
 import com.baidu.tieba.personExtra.e;
 import com.baidu.tieba.personPolymeric.a.i;
@@ -14,74 +13,74 @@ import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes24.dex */
+/* loaded from: classes8.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> bnf = new ArrayList();
-    private ArrayList<q> ghy = new ArrayList<>();
-    private BdTypeListView gpZ;
-    private c mCA;
-    public j mCz;
-    public i mpD;
+    private BdTypeListView gAY;
+    public j mHQ;
+    private c mHR;
+    public i muQ;
+    private List<com.baidu.adp.widget.ListView.a> boM = new ArrayList();
+    private ArrayList<n> grW = new ArrayList<>();
 
     public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
-        this.gpZ = bdTypeListView;
-        x(tbPageContext);
+        this.gAY = bdTypeListView;
+        w(tbPageContext);
     }
 
-    private void x(TbPageContext<?> tbPageContext) {
-        this.mpD = new i(tbPageContext);
-        this.mCz = new j(tbPageContext, com.baidu.tieba.personPolymeric.c.j.mrZ);
-        this.mCA = new e(tbPageContext, this, tbPageContext.getUniqueId());
-        this.mCz.a(this.mCA);
-        this.bnf.add(this.mpD);
-        this.bnf.add(this.mCz);
-        this.gpZ.addAdapters(this.bnf);
+    private void w(TbPageContext<?> tbPageContext) {
+        this.muQ = new i(tbPageContext);
+        this.mHQ = new j(tbPageContext, com.baidu.tieba.personPolymeric.c.j.mxn);
+        this.mHR = new e(tbPageContext, this, tbPageContext.getUniqueId());
+        this.mHQ.a(this.mHR);
+        this.boM.add(this.muQ);
+        this.boM.add(this.mHQ);
+        this.gAY.addAdapters(this.boM);
     }
 
-    public void ab(ArrayList<q> arrayList) {
-        if (arrayList != null && this.gpZ != null) {
-            this.ghy.clear();
-            this.ghy.addAll(arrayList);
-            this.gpZ.setData(this.ghy);
+    public void ab(ArrayList<n> arrayList) {
+        if (arrayList != null && this.gAY != null) {
+            this.grW.clear();
+            this.grW.addAll(arrayList);
+            this.gAY.setData(this.grW);
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.gpZ.getAdapter() instanceof f) {
-            this.gpZ.getAdapter().notifyDataSetChanged();
+        if (this.gAY.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
+            this.gAY.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void startPullRefresh() {
-        if (this.gpZ != null) {
-            this.gpZ.startPullRefresh();
+        if (this.gAY != null) {
+            this.gAY.startPullRefresh();
         }
     }
 
-    public boolean Rv(String str) {
+    public boolean Rb(String str) {
         boolean z;
-        if (au.isEmpty(str)) {
+        if (at.isEmpty(str)) {
             return false;
         }
-        if (this.gpZ == null || this.ghy == null) {
+        if (this.gAY == null || this.grW == null) {
             return false;
         }
-        Iterator<q> it = this.ghy.iterator();
+        Iterator<n> it = this.grW.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;
                 break;
             }
-            q next = it.next();
-            if ((next instanceof CardPersonDynamicThreadData) && au.equals(str, ((CardPersonDynamicThreadData) next).threadId)) {
+            n next = it.next();
+            if ((next instanceof CardPersonDynamicThreadData) && at.equals(str, ((CardPersonDynamicThreadData) next).threadId)) {
                 z = true;
                 it.remove();
                 break;
             }
         }
         if (z) {
-            this.ghy = PersonPostModel.mergeDynamicThreadByTime(this.ghy);
-            this.gpZ.setData(this.ghy);
+            this.grW = PersonPostModel.mergeDynamicThreadByTime(this.grW);
+            this.gAY.setData(this.grW);
             notifyDataSetChanged();
             return z;
         }

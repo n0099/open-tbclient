@@ -1,11 +1,11 @@
 package com.baidu.live.gift.http;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
-import com.baidu.live.utils.p;
+import com.baidu.live.utils.q;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a extends HttpMessage {
-    public String aWn;
+    public String aXT;
     public int count;
     public String itemId;
     public String thumbUrl;
@@ -16,10 +16,10 @@ public class a extends HttpMessage {
 
     public void a(String str, String str2, String str3, int i, long j) {
         this.itemId = str2;
-        this.aWn = str3;
+        this.aXT = str3;
         this.count = i;
         addParam("platform", "2");
-        addParam("scene_from", p.WB());
+        addParam("scene_from", q.XF());
         addParam("live_id", str);
         addParam(LegoListActivityConfig.ITEM_ID, str2);
         addParam("item_type", str3);

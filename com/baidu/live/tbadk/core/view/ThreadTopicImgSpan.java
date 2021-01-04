@@ -7,7 +7,7 @@ import android.graphics.drawable.Drawable;
 import android.text.style.ImageSpan;
 import java.lang.ref.WeakReference;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class ThreadTopicImgSpan extends ImageSpan {
     private WeakReference<Drawable> mDrawableRef;
     private int offset;

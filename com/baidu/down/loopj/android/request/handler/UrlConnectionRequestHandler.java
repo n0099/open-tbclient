@@ -28,7 +28,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public class UrlConnectionRequestHandler implements ICommonRequestHandler {
     private static final boolean DEBUG = false;
     private static final String TAG = "UrlConnectionRequestHandler";
@@ -316,6 +316,7 @@ public class UrlConnectionRequestHandler implements ICommonRequestHandler {
 
     @SuppressLint({"LongLogTag"})
     private String convertUrlDomainNameToIp(String str) throws URLDNSException {
+        Exception e;
         if (!isConvertUrlDomainNameToIp()) {
             this.mConvertDomainNameToIp = false;
             return str;
@@ -340,23 +341,23 @@ public class UrlConnectionRequestHandler implements ICommonRequestHandler {
                         this.mDomainNameAndIpInfo.dnsTime = System.currentTimeMillis() - currentTimeMillis;
                         this.mConvertDomainNameToIp = true;
                         return replace;
-                    } catch (Exception e) {
+                    } catch (Exception e2) {
+                        e = e2;
                         str = replace;
-                        e = e;
                         e.printStackTrace();
                         this.mConvertDomainNameToIp = false;
                         return str;
                     }
-                } catch (MalformedURLException e2) {
-                    e2.printStackTrace();
+                } catch (MalformedURLException e3) {
+                    e3.printStackTrace();
                     this.mConvertDomainNameToIp = false;
                     return str;
                 }
             }
             this.mConvertDomainNameToIp = false;
             return str;
-        } catch (Exception e3) {
-            e = e3;
+        } catch (Exception e4) {
+            e = e4;
         }
     }
 

@@ -6,6 +6,7 @@ import com.baidu.tbadk.mutiprocess.SerializableEvent;
 public class SyncDataEvent extends SerializableEvent {
     public ABTestExtraData abtestExtraData;
     public String sampleId;
+    public String ubsABTest;
 
     public SyncDataEvent() {
         setType(1);

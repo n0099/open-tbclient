@@ -7,7 +7,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class SetPicTxtStickerHttpResponseMessage extends JsonHttpResponsedMessage {
     private List<AlaLiveStickerInfo> mAlaLiveStickerList;
 

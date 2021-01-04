@@ -8,15 +8,18 @@ import android.media.MediaFormat;
 import android.media.MediaMuxer;
 import android.view.Surface;
 import com.baidu.fsg.base.utils.LogUtil;
+import com.kwai.video.player.KsMediaMeta;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 @TargetApi(16)
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    protected static final boolean f1734a = true;
-    public static final String b = "video/avc";
+    protected static final boolean f2361a = true;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final String f2362b = "video/avc";
     protected static final int c = 10000;
     protected int d;
     protected int e;
@@ -47,14 +50,14 @@ public class f {
 
     public void a() {
         this.k = new byte[((this.d * this.e) * 3) / 2];
-        MediaFormat createVideoFormat = MediaFormat.createVideoFormat(b, this.d, this.e);
-        createVideoFormat.setInteger("bitrate", this.n);
+        MediaFormat createVideoFormat = MediaFormat.createVideoFormat(f2362b, this.d, this.e);
+        createVideoFormat.setInteger(KsMediaMeta.KSM_KEY_BITRATE, this.n);
         createVideoFormat.setInteger("frame-rate", this.l);
         createVideoFormat.setInteger("color-format", 21);
         createVideoFormat.setInteger("i-frame-interval", this.o);
         LogUtil.d("format: " + createVideoFormat);
         try {
-            this.f = MediaCodec.createEncoderByType(b);
+            this.f = MediaCodec.createEncoderByType(f2362b);
             this.f.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
             this.f.start();
         } catch (IOException e) {
@@ -109,8 +112,8 @@ public class f {
                     if (!this.j) {
                         this.i = this.g.addTrack(this.f.getOutputFormat());
                         try {
-                            if (!a.b && !a.b) {
-                                a.b = true;
+                            if (!a.f2358b && !a.f2358b) {
+                                a.f2358b = true;
                                 this.g.start();
                             }
                         } catch (Exception e) {

@@ -4,7 +4,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class YuyinAlaAudioUserGetPaBindInfoResponseMessage extends JsonHttpResponsedMessage {
     public String uk;
 

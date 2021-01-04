@@ -1,53 +1,53 @@
 package com.baidu.tieba.ala.frsgamelive.a;
 
 import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.adp.widget.ListView.q;
+import com.baidu.adp.widget.ListView.n;
 import com.baidu.tbadk.TbPageContext;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class g {
-    private final List<com.baidu.adp.widget.ListView.a> bnf = new ArrayList();
-    private com.baidu.adp.base.e eNZ;
-    private f gLl;
-    private c gLm;
-    private a gLn;
-    private b gLo;
-    private BdTypeListView gpZ;
+    private final List<com.baidu.adp.widget.ListView.a> boM = new ArrayList();
+    private com.baidu.adp.base.f eXW;
+    private BdTypeListView gAY;
+    private f gWX;
+    private c gWY;
+    private a gWZ;
+    private b gXa;
 
-    public g(com.baidu.adp.base.e eVar, BdTypeListView bdTypeListView, boolean z) {
-        this.eNZ = eVar;
-        this.gpZ = bdTypeListView;
-        mH(z);
+    public g(com.baidu.adp.base.f fVar, BdTypeListView bdTypeListView, boolean z) {
+        this.eXW = fVar;
+        this.gAY = bdTypeListView;
+        nh(z);
     }
 
-    private void mH(boolean z) {
+    private void nh(boolean z) {
         if (z) {
-            this.gLm = new c((TbPageContext) this.eNZ, com.baidu.tieba.ala.gamelist.b.a.gzy);
-            this.bnf.add(this.gLm);
+            this.gWY = new c((TbPageContext) this.eXW, com.baidu.tieba.ala.gamelist.b.a.gKB);
+            this.boM.add(this.gWY);
         } else {
-            this.gLl = new f((TbPageContext) this.eNZ, com.baidu.tieba.ala.gamelist.b.a.gzy);
-            this.bnf.add(this.gLl);
+            this.gWX = new f((TbPageContext) this.eXW, com.baidu.tieba.ala.gamelist.b.a.gKB);
+            this.boM.add(this.gWX);
         }
-        this.gLn = new a((TbPageContext) this.eNZ, com.baidu.tieba.ala.frsgamelive.b.a.gLq);
-        this.gLo = new b((TbPageContext) this.eNZ, com.baidu.tieba.ala.frsgamelive.b.b.gLr);
-        this.bnf.add(this.gLn);
-        this.bnf.add(this.gLo);
-        this.gpZ.addAdapters(this.bnf);
+        this.gWZ = new a((TbPageContext) this.eXW, com.baidu.tieba.ala.frsgamelive.b.a.gXc);
+        this.gXa = new b((TbPageContext) this.eXW, com.baidu.tieba.ala.frsgamelive.b.b.gXd);
+        this.boM.add(this.gWZ);
+        this.boM.add(this.gXa);
+        this.gAY.addAdapters(this.boM);
     }
 
-    public void setDatas(List<q> list) {
-        if (this.gpZ != null) {
-            this.gpZ.setData(list);
+    public void setDatas(List<n> list) {
+        if (this.gAY != null) {
+            this.gAY.setData(list);
         }
     }
 
-    public void b(com.baidu.tieba.ala.f fVar) {
-        if (this.gLl != null) {
-            this.gLl.a(fVar);
+    public void b(com.baidu.tieba.ala.g gVar) {
+        if (this.gWX != null) {
+            this.gWX.a(gVar);
         }
-        if (this.gLm != null) {
-            this.gLm.a(fVar);
+        if (this.gWY != null) {
+            this.gWY.a(gVar);
         }
     }
 }

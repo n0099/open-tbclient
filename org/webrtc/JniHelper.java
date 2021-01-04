@@ -2,7 +2,7 @@ package org.webrtc;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 class JniHelper {
     JniHelper() {
     }

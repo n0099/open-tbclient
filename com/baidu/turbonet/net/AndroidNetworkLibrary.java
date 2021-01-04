@@ -17,7 +17,7 @@ import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
 import java.util.Enumeration;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 class AndroidNetworkLibrary {
     AndroidNetworkLibrary() {
     }

@@ -4,8 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.HandlerThread;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imrtc.msg.BIMRtcListener;
 import com.baidu.android.imrtc.msg.BIMRtcNotifyMsg;
 import com.baidu.android.imrtc.msg.BIMRtcSendMsg;
@@ -39,7 +39,7 @@ import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.internal.MessageFactory;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
-import com.baidu.h.a;
+import com.baidu.i.a;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -51,7 +51,7 @@ import java.util.TimerTask;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes6.dex */
 public class BIMRtcManager {
     private static final String TAG = "BIMRtcManager";
     private static Context mContext;
@@ -228,7 +228,7 @@ public class BIMRtcManager {
             creatMethodIntent.putExtra(RtcConstants.EXTRA_RTC_INFO, bIMRtcInfo.toRtcInfoString());
             creatMethodIntent.putExtra(RtcConstants.EXTRA_RTC_ACTION_ID, i);
             creatMethodIntent.putExtra("rtc_room_id", bIMRtcInfo.getRtcRoomId());
-            a.aq(mContext).e(mContext, creatMethodIntent);
+            a.ap(mContext).e(mContext, creatMethodIntent);
             trackRequest(bIMRtcInfo, RtcConstants.METHOD_IM_RTC_MSG, i, "c_send_request", -1);
             mBIMRtcEvent.sdkAction = i;
             mBIMRtcEvent.sdkSeqId = RtcConstants.IM_RTC_SDK_SEQ_ID.get();

@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.LineNumberReader;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class SrtParser {
     public static TextTrackImpl parse(InputStream inputStream) throws IOException {
         LineNumberReader lineNumberReader = new LineNumberReader(new InputStreamReader(inputStream, "UTF-8"));

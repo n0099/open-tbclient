@@ -1,46 +1,46 @@
 package com.facebook.imagepipeline.producers;
 
 import java.util.Map;
-/* loaded from: classes15.dex */
-public abstract class aq<T> extends com.facebook.common.b.h<T> {
+/* loaded from: classes5.dex */
+public abstract class aq<T> extends com.facebook.common.b.e<T> {
     private final String mRequestId;
-    private final am poB;
-    private final k<T> poX;
-    private final String pqk;
+    private final am pEb;
+    private final k<T> pEx;
+    private final String pFK;
 
-    @Override // com.facebook.common.b.h
-    protected abstract void aZ(T t);
+    @Override // com.facebook.common.b.e
+    protected abstract void ba(T t);
 
     public aq(k<T> kVar, am amVar, String str, String str2) {
-        this.poX = kVar;
-        this.poB = amVar;
-        this.pqk = str;
+        this.pEx = kVar;
+        this.pEb = amVar;
+        this.pFK = str;
         this.mRequestId = str2;
-        this.poB.hh(this.mRequestId, this.pqk);
+        this.pEb.hm(this.mRequestId, this.pFK);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.facebook.common.b.h
+    @Override // com.facebook.common.b.e
     public void onSuccess(T t) {
-        this.poB.a(this.mRequestId, this.pqk, this.poB.Zq(this.mRequestId) ? bA(t) : null);
-        this.poX.h(t, 1);
+        this.pEb.b(this.mRequestId, this.pFK, this.pEb.ZA(this.mRequestId) ? bz(t) : null);
+        this.pEx.g(t, 1);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.facebook.common.b.h
+    @Override // com.facebook.common.b.e
     public void onFailure(Exception exc) {
-        this.poB.a(this.mRequestId, this.pqk, exc, this.poB.Zq(this.mRequestId) ? D(exc) : null);
-        this.poX.E(exc);
+        this.pEb.a(this.mRequestId, this.pFK, exc, this.pEb.ZA(this.mRequestId) ? D(exc) : null);
+        this.pEx.D(exc);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.facebook.common.b.h
-    public void epN() {
-        this.poB.b(this.mRequestId, this.pqk, this.poB.Zq(this.mRequestId) ? exj() : null);
-        this.poX.epN();
+    @Override // com.facebook.common.b.e
+    public void etQ() {
+        this.pEb.c(this.mRequestId, this.pFK, this.pEb.ZA(this.mRequestId) ? eAQ() : null);
+        this.pEx.etQ();
     }
 
-    protected Map<String, String> bA(T t) {
+    protected Map<String, String> bz(T t) {
         return null;
     }
 
@@ -48,7 +48,7 @@ public abstract class aq<T> extends com.facebook.common.b.h<T> {
         return null;
     }
 
-    protected Map<String, String> exj() {
+    protected Map<String, String> eAQ() {
         return null;
     }
 }

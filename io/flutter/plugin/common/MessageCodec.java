@@ -1,9 +1,12 @@
 package io.flutter.plugin.common;
 
+import androidx.annotation.Nullable;
 import java.nio.ByteBuffer;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public interface MessageCodec<T> {
-    T decodeMessage(ByteBuffer byteBuffer);
+    @Nullable
+    T decodeMessage(@Nullable ByteBuffer byteBuffer);
 
-    ByteBuffer encodeMessage(T t);
+    @Nullable
+    ByteBuffer encodeMessage(@Nullable T t);
 }

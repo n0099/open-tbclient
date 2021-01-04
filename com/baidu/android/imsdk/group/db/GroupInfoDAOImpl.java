@@ -20,13 +20,13 @@ import com.baidu.android.imsdk.group.GroupMember;
 import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class GroupInfoDAOImpl {
     private static final String TAG = "GroupInfoDAOImpl";
     private static GroupInfoParse sGroupInfoParse = new GroupInfoParse();
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public static class GroupInfoParse implements IResultParse<GroupInfo> {
         private GroupInfoParse() {
         }
@@ -318,23 +318,20 @@ public class GroupInfoDAOImpl {
                 str2 = "";
             } else {
                 String str4 = " AND ( bduid = " + arrayList.get(0);
-                int i2 = 1;
-                while (i2 < arrayList.size()) {
-                    String str5 = str4 + " OR bduid = " + arrayList.get(i2);
-                    i2++;
-                    str4 = str5;
+                for (int i2 = 1; i2 < arrayList.size(); i2++) {
+                    str4 = str4 + " OR bduid = " + arrayList.get(i2);
                 }
                 str2 = str4 + " ) ";
             }
-            String str6 = "";
+            String str5 = "";
             if (i < 0) {
-                str6 = "join_time DESC ";
+                str5 = "join_time DESC ";
                 str3 = String.valueOf(Math.abs(i));
             } else if (i > 0) {
-                str6 = "join_time ASC  ";
+                str5 = "join_time ASC  ";
                 str3 = String.valueOf(i);
             } else if (i == 0) {
-                str6 = "join_time ASC  ";
+                str5 = "join_time ASC  ";
                 str3 = null;
             } else {
                 str3 = null;
@@ -357,7 +354,7 @@ public class GroupInfoDAOImpl {
                     groupMember2.setNickName(string3);
                     return groupMember2;
                 }
-            }, "groupmember", null, "group_id = ? " + str2, new String[]{str}, null, null, str6, str3);
+            }, "groupmember", null, "group_id = ? " + str2, new String[]{str}, null, null, str5, str3);
         } else {
             arrayList2 = null;
         }
@@ -501,11 +498,8 @@ public class GroupInfoDAOImpl {
             return DBResponseCode.ERROR_DB_OPEN;
         }
         String str2 = " ( " + arrayList.get(0);
-        int i = 1;
-        while (i < arrayList.size()) {
-            String str3 = str2 + ", " + arrayList.get(i);
-            i++;
-            str2 = str3;
+        for (int i = 1; i < arrayList.size(); i++) {
+            str2 = str2 + ", " + arrayList.get(i);
         }
         return newDb.delete("groupmember", "group_id = ? AND bduid in " + (str2 + " ) "), new String[]{str}).intValue();
     }
@@ -547,12 +541,15 @@ public class GroupInfoDAOImpl {
         }
         String str = " ( " + arrayList.get(0);
         int i = 1;
-        while (i < arrayList.size()) {
-            String str2 = str + ", " + arrayList.get(i);
-            i++;
-            str = str2;
+        while (true) {
+            int i2 = i;
+            if (i2 < arrayList.size()) {
+                str = str + ", " + arrayList.get(i2);
+                i = i2 + 1;
+            } else {
+                return newDb.query(sGroupInfoParse, "groupinfo", null, "group_id in " + (str + " ) "), null, null, null, null, null);
+            }
         }
-        return newDb.query(sGroupInfoParse, "groupinfo", null, "group_id in " + (str + " ) "), null, null, null, null, null);
     }
 
     public static ArrayList<GroupInfo> getAllGroupInfo(Context context) {

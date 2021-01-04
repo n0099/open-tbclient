@@ -12,16 +12,16 @@ import android.text.TextUtils;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class DpNetworkUtils {
     public static String a(Context context) {
         WifiInfo connectionInfo;
         int rssi;
-        NetworkInfo b = b(context);
-        if (b != null) {
-            int type = b.getType();
+        NetworkInfo b2 = b(context);
+        if (b2 != null) {
+            int type = b2.getType();
             if (type == 0) {
-                String extraInfo = b.getExtraInfo();
+                String extraInfo = b2.getExtraInfo();
                 return TextUtils.isEmpty(extraInfo) ? "Disconnect" : extraInfo;
             } else if (type == 1) {
                 WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
@@ -85,13 +85,13 @@ public class DpNetworkUtils {
         String subscriberId;
         int i2;
         int i3 = 2;
-        NetworkInfo b = b(context);
-        if (b == null) {
+        NetworkInfo b2 = b(context);
+        if (b2 == null) {
             i = 0;
-        } else if (b.getState() != NetworkInfo.State.CONNECTED) {
+        } else if (b2.getState() != NetworkInfo.State.CONNECTED) {
             i = 0;
-        } else if (b.getType() == 0) {
-            switch (b.getSubtype()) {
+        } else if (b2.getType() == 0) {
+            switch (b2.getSubtype()) {
                 case 1:
                 case 2:
                 case 4:
@@ -119,7 +119,7 @@ public class DpNetworkUtils {
             }
             i = i2;
         } else {
-            i = b.getType() == 1 ? 100 : b.getType() == 9 ? 101 : 999;
+            i = b2.getType() == 1 ? 100 : b2.getType() == 9 ? 101 : 999;
         }
         try {
             if (!c(context) || (telephonyManager = (TelephonyManager) context.getSystemService("phone")) == null || (subscriberId = telephonyManager.getSubscriberId()) == null) {

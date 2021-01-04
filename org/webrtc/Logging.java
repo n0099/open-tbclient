@@ -1,12 +1,13 @@
 package org.webrtc;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
+import androidx.core.internal.view.SupportMenu;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.EnumSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 public class Logging {
     private static final Logger fallbackLogger = createFallbackLogger();
     @Nullable
@@ -14,7 +15,7 @@ public class Logging {
     private static Severity loggableSeverity;
     private static volatile boolean loggingEnabled;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public enum Severity {
         LS_VERBOSE,
         LS_INFO,
@@ -24,7 +25,7 @@ public class Logging {
     }
 
     @Deprecated
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public enum TraceLevel {
         TRACE_NONE(0),
         TRACE_STATEINFO(1),
@@ -40,7 +41,7 @@ public class Logging {
         TRACE_DEBUG(2048),
         TRACE_INFO(4096),
         TRACE_TERSEINFO(8192),
-        TRACE_ALL(65535);
+        TRACE_ALL(SupportMenu.USER_MASK);
         
         public final int level;
 

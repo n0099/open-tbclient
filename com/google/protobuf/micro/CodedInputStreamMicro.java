@@ -1,10 +1,10 @@
 package com.google.protobuf.micro;
 
-import android.support.v7.widget.ActivityChooserView;
+import androidx.appcompat.widget.ActivityChooserView;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Vector;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public final class CodedInputStreamMicro {
     private static final int BUFFER_SIZE = 4096;
     private static final int DEFAULT_RECURSION_LIMIT = 64;
@@ -219,7 +219,7 @@ public final class CodedInputStreamMicro {
         return readRawByte;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:11:0x001a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:11:0x001b, code lost:
         return r0;
      */
     /*

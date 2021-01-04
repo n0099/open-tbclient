@@ -6,91 +6,91 @@ import com.baidu.live.talentshow.components.selector.LiveBCMasterChatSelectorLay
 import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class d implements View.OnClickListener {
-    private LiveBCMasterChatSelectorLayer bAv;
-    private List<com.baidu.live.talentshow.b.d> bAw;
+    private LiveBCMasterChatSelectorLayer bFi;
+    private List<com.baidu.live.talentshow.b.d> bFj;
     private Context mContext;
 
     public d(Context context) {
         this.mContext = context;
-        if (this.bAv == null) {
-            this.bAv = new LiveBCMasterChatSelectorLayer(context);
-            this.bAv.setNeedHideAnim(true);
-            this.bAv.setNeedShowAnim(true);
-            this.bAv.setCanceledOnTouchOutside(true);
-            this.bAv.c(this);
+        if (this.bFi == null) {
+            this.bFi = new LiveBCMasterChatSelectorLayer(context);
+            this.bFi.setNeedHideAnim(true);
+            this.bFi.setNeedShowAnim(true);
+            this.bFi.setCanceledOnTouchOutside(true);
+            this.bFi.d(this);
         }
     }
 
     public void a(LiveBCMasterChatSelectorLayer.b bVar) {
         if (bVar != null) {
-            this.bAv.setOnConfirmListener(bVar);
+            this.bFi.setOnConfirmListener(bVar);
         }
     }
 
     public void a(LiveBCMasterChatSelectorLayer.a aVar) {
         if (aVar != null) {
-            this.bAv.setOnPanelStateChangeListener(aVar);
+            this.bFi.setOnPanelStateChangeListener(aVar);
         }
     }
 
-    private void cQ(boolean z) {
-        if (UtilHelper.getRealScreenOrientation(this.mContext) != 2 && this.bAv != null) {
+    private void cT(boolean z) {
+        if (UtilHelper.getRealScreenOrientation(this.mContext) != 2 && this.bFi != null) {
             if (z) {
-                this.bAv.Tn();
+                this.bFi.Us();
             } else {
-                this.bAv.showLoading();
+                this.bFi.showLoading();
             }
-            if (!this.bAv.Tp()) {
-                com.baidu.live.core.layer.b.EY().d(this.bAv);
+            if (!this.bFi.Uu()) {
+                com.baidu.live.core.layer.b.En().d(this.bFi);
             }
         }
     }
 
-    public void Sw() {
-        cQ(false);
+    public void TA() {
+        cT(false);
     }
 
-    public void Tv() {
-        cQ(true);
+    public void UA() {
+        cT(true);
     }
 
-    public void ae(List<com.baidu.live.talentshow.b.d> list) {
-        this.bAw = list;
-        if (this.bAv != null && list != null) {
-            this.bAv.setData(list);
+    public void af(List<com.baidu.live.talentshow.b.d> list) {
+        this.bFj = list;
+        if (this.bFi != null && list != null) {
+            this.bFi.setData(list);
         }
     }
 
-    public List<com.baidu.live.talentshow.b.d> Tw() {
-        return this.bAw;
+    public List<com.baidu.live.talentshow.b.d> UB() {
+        return this.bFj;
     }
 
     public String bg(long j) {
-        return (this.bAw == null || ListUtils.isEmpty(this.bAw)) ? "" : a(this.bAw, j);
+        return (this.bFj == null || ListUtils.isEmpty(this.bFj)) ? "" : b(this.bFj, j);
     }
 
-    private String a(List<com.baidu.live.talentshow.b.d> list, long j) {
+    private String b(List<com.baidu.live.talentshow.b.d> list, long j) {
         String str = j + "";
         for (com.baidu.live.talentshow.b.d dVar : list) {
-            if (dVar.bBD.equals(str)) {
+            if (dVar.bGr.equals(str)) {
                 return dVar.nickName;
             }
         }
         return "";
     }
 
-    public void Tx() {
-        if (this.bAv != null && this.bAv.Tp()) {
-            com.baidu.live.core.layer.b.EY().e(this.bAv);
+    public void UC() {
+        if (this.bFi != null && this.bFi.Uu()) {
+            com.baidu.live.core.layer.b.En().e(this.bFi);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.bAv.getParentLayout()) {
-            Tx();
+        if (view == this.bFi.getParentLayout()) {
+            UC();
         }
     }
 }

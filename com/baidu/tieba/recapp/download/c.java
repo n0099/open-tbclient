@@ -3,32 +3,32 @@ package com.baidu.tieba.recapp.download;
 import android.os.Handler;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.s;
-/* loaded from: classes26.dex */
+/* loaded from: classes8.dex */
 public class c {
-    private s eSP = null;
-    private com.baidu.tbadk.core.util.a.a eSO = null;
+    private s fcr = null;
+    private com.baidu.tbadk.core.util.b.a fcq = null;
 
     public c() {
         initNetWork();
     }
 
     public void setCancel() {
-        if (this.eSP != null) {
-            this.eSP.setCancel();
+        if (this.fcr != null) {
+            this.fcr.setCancel();
         }
     }
 
     public void setUrl(String str) {
-        this.eSO.bue().bui().mUrl = str;
+        this.fcq.bwz().bwD().mUrl = str;
     }
 
     private void initNetWork() {
-        this.eSO = new com.baidu.tbadk.core.util.a.a();
-        this.eSP = new d(this.eSO);
-        this.eSO.bue().bui().mNetType = com.baidu.tbadk.core.util.a.h.getNetType();
+        this.fcq = new com.baidu.tbadk.core.util.b.a();
+        this.fcr = new d(this.fcq);
+        this.fcq.bwz().bwD().mNetType = com.baidu.tbadk.core.util.b.h.getNetType();
         com.baidu.adp.lib.network.a.a.setCuid(TbadkCoreApplication.getInst().getCuid());
-        com.baidu.adp.lib.network.a.a.bT(TbadkCoreApplication.getInst().getCuidGalaxy2());
-        com.baidu.adp.lib.network.a.a.bV(TbadkCoreApplication.getInst().getCuidGid());
+        com.baidu.adp.lib.network.a.a.bN(TbadkCoreApplication.getInst().getCuidGalaxy2());
+        com.baidu.adp.lib.network.a.a.bP(TbadkCoreApplication.getInst().getCuidGid());
     }
 
     public boolean a(String str, Handler handler, int i, int i2, int i3) {
@@ -36,11 +36,11 @@ public class c {
     }
 
     public boolean downloadFile(String str, Handler handler, int i, int i2, int i3, boolean z) {
-        btv().bue().a(this.eSP);
-        return this.eSP.downloadFile(str, handler, i, i2, i3, z);
+        bvQ().bwz().a(this.fcr);
+        return this.fcr.downloadFile(str, handler, i, i2, i3, z);
     }
 
-    public com.baidu.tbadk.core.util.a.a btv() {
-        return this.eSO;
+    public com.baidu.tbadk.core.util.b.a bvQ() {
+        return this.fcq;
     }
 }

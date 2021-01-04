@@ -5,9 +5,11 @@ import android.util.Log;
 import com.baidu.lbsapi.auth.LBSAuthManager;
 import com.baidu.lbsapi.auth.LBSAuthManagerListener;
 import org.json.JSONObject;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class a implements LBSAuthManagerListener {
-    private static Object b = new Object();
+
+    /* renamed from: b  reason: collision with root package name */
+    private static Object f2577b = new Object();
     private static a c = null;
     private int d = 0;
     private Context e = null;
@@ -15,11 +17,11 @@ public class a implements LBSAuthManagerListener {
     private String g = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f1863a = 0;
+    public int f2578a = 0;
 
     public static a a() {
         a aVar;
-        synchronized (b) {
+        synchronized (f2577b) {
             if (c == null) {
                 c = new a();
             }
@@ -76,9 +78,9 @@ public class a implements LBSAuthManagerListener {
     public void onAuthResult(int i, String str) {
         this.d = i;
         if (this.d == 0) {
-            Log.i(com.baidu.location.e.a.f1946a, "LocationAuthManager Authentication AUTHENTICATE_SUCC");
+            Log.i(com.baidu.location.e.a.f2709a, "LocationAuthManager Authentication AUTHENTICATE_SUCC");
         } else {
-            Log.i(com.baidu.location.e.a.f1946a, "LocationAuthManager Authentication Error errorcode = " + i + " , msg = " + str);
+            Log.i(com.baidu.location.e.a.f2709a, "LocationAuthManager Authentication Error errorcode = " + i + " , msg = " + str);
         }
         if (str != null) {
             try {
@@ -89,8 +91,8 @@ public class a implements LBSAuthManagerListener {
                 if (jSONObject == null || !jSONObject.has("ak_permission") || jSONObject.getInt("ak_permission") == 0) {
                     return;
                 }
-                this.f1863a = jSONObject.getInt("ak_permission");
-                Log.i(com.baidu.location.e.a.f1946a, "LocationAuthManager ak_permission = " + this.f1863a);
+                this.f2578a = jSONObject.getInt("ak_permission");
+                Log.i(com.baidu.location.e.a.f2709a, "LocationAuthManager ak_permission = " + this.f2578a);
             } catch (Exception e) {
                 e.printStackTrace();
             }

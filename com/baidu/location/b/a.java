@@ -20,13 +20,15 @@ import java.util.List;
 import java.util.Locale;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class a {
     private static String o = "BDLocConfigManager";
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f1865a;
-    public int b;
+    public boolean f2580a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f2581b;
     public double c;
     public int d;
     public int e;
@@ -50,12 +52,14 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.location.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public class C0251a extends com.baidu.location.e.f {
 
         /* renamed from: a  reason: collision with root package name */
-        String f1866a = null;
-        boolean b = false;
+        String f2582a = null;
+
+        /* renamed from: b  reason: collision with root package name */
+        boolean f2583b = false;
 
         public C0251a() {
             this.k = new HashMap();
@@ -64,18 +68,18 @@ public class a {
         @Override // com.baidu.location.e.f
         public void a() {
             this.i = 2;
-            String encode = Jni.encode(this.f1866a);
-            this.f1866a = null;
+            String encode = Jni.encode(this.f2582a);
+            this.f2582a = null;
             this.k.put("qt", "conf");
             this.k.put("req", encode);
         }
 
         public void a(String str) {
-            if (this.b) {
+            if (this.f2583b) {
                 return;
             }
-            this.b = true;
-            this.f1866a = str;
+            this.f2583b = true;
+            this.f2582a = str;
             b("https://loc.map.baidu.com/cfgs/loc/commcfgs");
         }
 
@@ -95,22 +99,22 @@ public class a {
             if (this.k != null) {
                 this.k.clear();
             }
-            this.b = false;
+            this.f2583b = false;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f1867a = new a();
+        public static final a f2584a = new a();
     }
 
     private a() {
         this.p = null;
-        this.f1865a = false;
-        this.b = 16;
+        this.f2580a = false;
+        this.f2581b = 16;
         this.q = 300L;
         this.c = 0.75d;
         this.d = 0;
@@ -132,7 +136,7 @@ public class a {
     }
 
     public static a a() {
-        return b.f1867a;
+        return b.f2584a;
     }
 
     private String a(Context context) {
@@ -182,10 +186,10 @@ public class a {
         try {
             JSONObject jSONObject = new JSONObject(str);
             if (jSONObject.has("is_check_Per") && jSONObject.getInt("is_check_Per") > 0) {
-                this.f1865a = true;
+                this.f2580a = true;
             }
             if (jSONObject.has("wfnum")) {
-                this.b = jSONObject.getInt("wfnum");
+                this.f2581b = jSONObject.getInt("wfnum");
             }
             if (jSONObject.has("freq")) {
                 this.q = jSONObject.getLong("freq");
@@ -288,29 +292,36 @@ public class a {
     public void a(JSONObject jSONObject) {
         JSONArray jSONArray;
         int i = 0;
-        if (jSONObject != null) {
-            if (this.m != null && this.m.length > 0) {
-                this.m = null;
+        if (jSONObject == null) {
+            return;
+        }
+        if (this.m != null && this.m.length > 0) {
+            this.m = null;
+        }
+        try {
+            if (!jSONObject.has("bcar") || (jSONArray = jSONObject.getJSONArray("bcar")) == null || jSONArray.length() <= 0) {
+                return;
             }
-            try {
-                if (!jSONObject.has("bcar") || (jSONArray = jSONObject.getJSONArray("bcar")) == null || jSONArray.length() <= 0) {
+            if (this.m == null) {
+                this.m = new double[jSONArray.length() * 4];
+            }
+            int i2 = 0;
+            while (true) {
+                int i3 = i;
+                if (i3 >= jSONArray.length()) {
                     return;
                 }
-                if (this.m == null) {
-                    this.m = new double[jSONArray.length() * 4];
-                }
-                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                    int i3 = i + 1;
-                    this.m[i] = jSONArray.getJSONObject(i2).getDouble(GestureAR.SDK_TO_LUA_GESTURE_RESULT_X1);
-                    int i4 = i3 + 1;
-                    this.m[i3] = jSONArray.getJSONObject(i2).getDouble(GestureAR.SDK_TO_LUA_GESTURE_RESULT_Y1);
-                    int i5 = i4 + 1;
-                    this.m[i4] = jSONArray.getJSONObject(i2).getDouble(GestureAR.SDK_TO_LUA_GESTURE_RESULT_X2);
-                    i = i5 + 1;
-                    this.m[i5] = jSONArray.getJSONObject(i2).getDouble(GestureAR.SDK_TO_LUA_GESTURE_RESULT_Y2);
-                }
-            } catch (Exception e) {
+                int i4 = i2 + 1;
+                this.m[i2] = jSONArray.getJSONObject(i3).getDouble(GestureAR.SDK_TO_LUA_GESTURE_RESULT_X1);
+                int i5 = i4 + 1;
+                this.m[i4] = jSONArray.getJSONObject(i3).getDouble(GestureAR.SDK_TO_LUA_GESTURE_RESULT_Y1);
+                int i6 = i5 + 1;
+                this.m[i5] = jSONArray.getJSONObject(i3).getDouble(GestureAR.SDK_TO_LUA_GESTURE_RESULT_X2);
+                i2 = i6 + 1;
+                this.m[i6] = jSONArray.getJSONObject(i3).getDouble(GestureAR.SDK_TO_LUA_GESTURE_RESULT_Y2);
+                i = i3 + 1;
             }
+        } catch (Exception e) {
         }
     }
 }

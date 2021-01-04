@@ -3,14 +3,14 @@ package com.baidu.tieba.homepage.topic.topictab.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.data.BaseCardInfo;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class c extends BaseCardInfo {
-    public static final BdUniqueId jZq = BdUniqueId.gen();
-    public int iyV = R.dimen.tbds16;
-    public int eOT = R.color.CAM_X0204;
+    public static final BdUniqueId kmB = BdUniqueId.gen();
+    public int iLi = R.dimen.tbds16;
+    public int eYS = R.color.CAM_X0204;
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return jZq;
+        return kmB;
     }
 }

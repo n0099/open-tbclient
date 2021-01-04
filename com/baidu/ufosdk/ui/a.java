@@ -3,15 +3,17 @@ package com.baidu.ufosdk.ui;
 import android.content.Context;
 import android.widget.LinearLayout;
 import java.util.ArrayList;
-/* loaded from: classes22.dex */
+/* loaded from: classes8.dex */
 public final class a {
     private Context c;
     private d e;
     private int f = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList f3743a = new ArrayList();
-    private ArrayList b = new ArrayList();
+    private ArrayList f5702a = new ArrayList();
+
+    /* renamed from: b  reason: collision with root package name */
+    private ArrayList f5703b = new ArrayList();
     private ArrayList d = new ArrayList();
 
     public a(ArrayList arrayList, Context context, d dVar) {
@@ -23,9 +25,9 @@ public final class a {
     private void a(ArrayList arrayList) {
         for (int i = 0; i < arrayList.size(); i++) {
             if ((i + 1) % 2 == 1) {
-                this.f3743a.add(arrayList.get(i));
+                this.f5702a.add(arrayList.get(i));
             } else {
-                this.b.add(arrayList.get(i));
+                this.f5703b.add(arrayList.get(i));
             }
         }
     }
@@ -39,12 +41,12 @@ public final class a {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.f3743a.size()) {
+            if (i2 >= this.f5702a.size()) {
                 return linearLayout;
             }
             e eVar = new e(this.c);
             eVar.a();
-            eVar.a((String) this.f3743a.get(i2));
+            eVar.a((String) this.f5702a.get(i2));
             eVar.a(com.baidu.ufosdk.b.U);
             linearLayout.addView(eVar, layoutParams);
             eVar.setOnClickListener(new b(this, eVar));
@@ -61,12 +63,12 @@ public final class a {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.b.size()) {
+            if (i2 >= this.f5703b.size()) {
                 return linearLayout;
             }
             e eVar = new e(this.c);
             eVar.a();
-            eVar.a((String) this.b.get(i2));
+            eVar.a((String) this.f5703b.get(i2));
             eVar.a(com.baidu.ufosdk.b.U);
             linearLayout.addView(eVar, layoutParams);
             eVar.setOnClickListener(new c(this, eVar));

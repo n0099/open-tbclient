@@ -14,7 +14,7 @@ import java.util.Queue;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public final class ObservableFlatMap<T, U> extends a<T, U> {
     final int bufferSize;
     final boolean delayErrors;
@@ -28,7 +28,7 @@ public final class ObservableFlatMap<T, U> extends a<T, U> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     static final class MergeObserver<T, U> extends AtomicInteger implements io.reactivex.disposables.b, u<T> {
         private static final long serialVersionUID = -2117620485640801370L;
         final u<? super U> actual;
@@ -86,7 +86,7 @@ public final class ObservableFlatMap<T, U> extends a<T, U> {
                     }
                     subscribeInner(tVar);
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.J(th);
+                    io.reactivex.exceptions.a.O(th);
                     this.s.dispose();
                     onError(th);
                 }
@@ -201,7 +201,7 @@ public final class ObservableFlatMap<T, U> extends a<T, U> {
                     drainLoop();
                 }
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.J(th);
+                io.reactivex.exceptions.a.O(th);
                 this.errors.addThrowable(th);
                 drain();
             }
@@ -269,7 +269,7 @@ public final class ObservableFlatMap<T, U> extends a<T, U> {
             }
         }
 
-        /* JADX WARN: Code restructure failed: missing block: B:64:0x00ba, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:64:0x00bb, code lost:
             if (r11 != null) goto L46;
          */
         /*
@@ -277,8 +277,9 @@ public final class ObservableFlatMap<T, U> extends a<T, U> {
         */
         void drainLoop() {
             boolean z;
+            int i;
             u<? super U> uVar = this.actual;
-            int i = 1;
+            int i2 = 1;
             while (!checkTerminate()) {
                 e<U> eVar = this.queue;
                 if (eVar != null) {
@@ -310,26 +311,26 @@ public final class ObservableFlatMap<T, U> extends a<T, U> {
                 }
                 if (length != 0) {
                     long j = this.lastId;
-                    int i2 = this.lastIndex;
-                    if (length <= i2 || innerObserverArr[i2].id != j) {
-                        if (length <= i2) {
-                            i2 = 0;
+                    int i3 = this.lastIndex;
+                    if (length <= i3 || innerObserverArr[i3].id != j) {
+                        if (length <= i3) {
+                            i3 = 0;
                         }
-                        for (int i3 = 0; i3 < length && innerObserverArr[i2].id != j; i3++) {
-                            i2++;
-                            if (i2 == length) {
-                                i2 = 0;
+                        for (int i4 = 0; i4 < length && innerObserverArr[i3].id != j; i4++) {
+                            i3++;
+                            if (i3 == length) {
+                                i3 = 0;
                             }
                         }
-                        this.lastIndex = i2;
-                        this.lastId = innerObserverArr[i2].id;
+                        this.lastIndex = i3;
+                        this.lastId = innerObserverArr[i3].id;
                     }
-                    int i4 = i2;
-                    boolean z3 = false;
                     int i5 = 0;
+                    int i6 = i3;
+                    boolean z3 = false;
                     while (i5 < length) {
                         if (!checkTerminate()) {
-                            InnerObserver<T, U> innerObserver = innerObserverArr[i4];
+                            InnerObserver<T, U> innerObserver = innerObserverArr[i6];
                             while (!checkTerminate()) {
                                 f<U> fVar = innerObserver.queue;
                                 if (fVar != null) {
@@ -344,12 +345,12 @@ public final class ObservableFlatMap<T, U> extends a<T, U> {
                                                 return;
                                             }
                                         } catch (Throwable th) {
-                                            io.reactivex.exceptions.a.J(th);
+                                            io.reactivex.exceptions.a.O(th);
                                             innerObserver.dispose();
                                             this.errors.addThrowable(th);
                                             if (!checkTerminate()) {
                                                 removeInner(innerObserver);
-                                                i5++;
+                                                i = i5 + 1;
                                                 z3 = true;
                                             } else {
                                                 return;
@@ -366,18 +367,21 @@ public final class ObservableFlatMap<T, U> extends a<T, U> {
                                     }
                                     z3 = true;
                                 }
-                                i4++;
-                                if (i4 == length) {
-                                    i4 = 0;
+                                i6++;
+                                if (i6 == length) {
+                                    i = i5;
+                                    i6 = 0;
+                                } else {
+                                    i = i5;
                                 }
-                                i5++;
+                                i5 = i + 1;
                             }
                             return;
                         }
                         return;
                     }
-                    this.lastIndex = i4;
-                    this.lastId = innerObserverArr[i4].id;
+                    this.lastIndex = i6;
+                    this.lastId = innerObserverArr[i6].id;
                     z = z3;
                 } else {
                     z = false;
@@ -396,11 +400,11 @@ public final class ObservableFlatMap<T, U> extends a<T, U> {
                         continue;
                     }
                 } else {
-                    int addAndGet = addAndGet(-i);
+                    int addAndGet = addAndGet(-i2);
                     if (addAndGet == 0) {
                         return;
                     }
-                    i = addAndGet;
+                    i2 = addAndGet;
                 }
             }
         }
@@ -435,7 +439,7 @@ public final class ObservableFlatMap<T, U> extends a<T, U> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes3.dex */
     public static final class InnerObserver<T, U> extends AtomicReference<io.reactivex.disposables.b> implements u<U> {
         private static final long serialVersionUID = -4606175640614850599L;
         volatile boolean done;

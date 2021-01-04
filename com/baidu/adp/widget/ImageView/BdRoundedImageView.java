@@ -174,7 +174,7 @@ public class BdRoundedImageView extends ImageView {
     private void updateAttrs(Drawable drawable, boolean z) {
         if (drawable != null) {
             if (drawable instanceof b) {
-                ((b) drawable).a(this.mScaleType).n((this.mRoundBackground || !z) ? this.mCornerRadius : 0.0f).aQ((this.mRoundBackground || !z) ? this.mBorderWidth : 0).a(this.mBorderColor).ay(this.mOval);
+                ((b) drawable).a(this.mScaleType).n((this.mRoundBackground || !z) ? this.mCornerRadius : 0.0f).aR((this.mRoundBackground || !z) ? this.mBorderWidth : 0).a(this.mBorderColor).ax(this.mOval);
             } else if (drawable instanceof LayerDrawable) {
                 LayerDrawable layerDrawable = (LayerDrawable) drawable;
                 int numberOfLayers = layerDrawable.getNumberOfLayers();

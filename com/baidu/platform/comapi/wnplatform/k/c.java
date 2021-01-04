@@ -12,11 +12,11 @@ import android.view.WindowManager;
 import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class c extends a implements SensorEventListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f3127a = 0;
+    public static int f4651a = 0;
     private SensorManager f;
     private Sensor g;
     private boolean h;
@@ -36,13 +36,15 @@ public class c extends a implements SensorEventListener {
     private com.baidu.platform.comapi.wnplatform.model.datastruct.a o = new com.baidu.platform.comapi.wnplatform.model.datastruct.a();
     private float[] p = new float[9];
     private float[] q = new float[3];
-    private Context b = com.baidu.platform.comapi.wnplatform.p.b.a.a();
+
+    /* renamed from: b  reason: collision with root package name */
+    private Context f4652b = com.baidu.platform.comapi.wnplatform.p.b.a.a();
 
     public c() {
         this.f = null;
         this.g = null;
         try {
-            this.f = (SensorManager) this.b.getSystemService("sensor");
+            this.f = (SensorManager) this.f4652b.getSystemService("sensor");
             this.g = this.f.getDefaultSensor(11);
         } catch (Exception e) {
             this.f = null;
@@ -79,7 +81,7 @@ public class c extends a implements SensorEventListener {
         synchronized (this.i) {
             if (this.h) {
                 z = true;
-            } else if (((SensorManager) this.b.getSystemService("sensor")) == null) {
+            } else if (((SensorManager) this.f4652b.getSystemService("sensor")) == null) {
                 z = false;
             } else {
                 this.h = c();
@@ -93,7 +95,7 @@ public class c extends a implements SensorEventListener {
         SensorManager sensorManager;
         boolean z;
         try {
-            sensorManager = (SensorManager) this.b.getSystemService("sensor");
+            sensorManager = (SensorManager) this.f4652b.getSystemService("sensor");
         } catch (Exception e) {
             sensorManager = null;
         }
@@ -125,7 +127,7 @@ public class c extends a implements SensorEventListener {
         if (this != null) {
             synchronized (this.i) {
                 if (this.h) {
-                    SensorManager sensorManager = (SensorManager) this.b.getSystemService("sensor");
+                    SensorManager sensorManager = (SensorManager) this.f4652b.getSystemService("sensor");
                     if (sensorManager != null) {
                         this.h = false;
                         try {
@@ -173,8 +175,8 @@ public class c extends a implements SensorEventListener {
         SensorManager.getRotationMatrix(this.p, null, this.l, this.m);
         SensorManager.getOrientation(this.p, this.q);
         synchronized (this.o) {
-            this.o.f3136a = this.l[0];
-            this.o.b = this.l[1];
+            this.o.f4667a = this.l[0];
+            this.o.f4668b = this.l[1];
             this.o.c = this.l[2];
             float degrees = (float) Math.toDegrees(this.q[0]);
             if (degrees < 0.0f && degrees > -180.0f) {
@@ -202,7 +204,7 @@ public class c extends a implements SensorEventListener {
                 e.printStackTrace();
             }
             try {
-                windowManager = (WindowManager) this.b.getSystemService("window");
+                windowManager = (WindowManager) this.f4652b.getSystemService("window");
             } catch (Exception e2) {
                 windowManager = null;
             }
@@ -232,8 +234,8 @@ public class c extends a implements SensorEventListener {
                             message.obj = this.r;
                             this.j.sendMessage(message);
                         }
-                        f3127a++;
-                        if (f3127a % 50 == 0) {
+                        f4651a++;
+                        if (f4651a % 50 == 0) {
                             StringBuilder sb = new StringBuilder();
                             sb.append("head:" + this.r.d);
                             sb.append("pitch:" + this.r.e);

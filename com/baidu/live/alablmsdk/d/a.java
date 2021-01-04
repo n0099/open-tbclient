@@ -5,48 +5,48 @@ import android.view.TextureView;
 import com.baidu.live.alablmsdk.module.rtc.b;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a implements b.a {
-    private c aCb;
+    private c aCs;
     private Context mContext;
-    private HashMap<Long, com.baidu.live.alablmsdk.module.rtc.b> aCO = new HashMap<>();
-    com.baidu.live.alablmsdk.c.a.a aCP = new com.baidu.live.alablmsdk.c.a.a() { // from class: com.baidu.live.alablmsdk.d.a.1
+    private HashMap<Long, com.baidu.live.alablmsdk.module.rtc.b> aDf = new HashMap<>();
+    com.baidu.live.alablmsdk.c.a.a aDg = new com.baidu.live.alablmsdk.c.a.a() { // from class: com.baidu.live.alablmsdk.d.a.1
         @Override // com.baidu.live.alablmsdk.c.a.a
         public void onPixelRead(byte[] bArr, int i, int i2) {
-            com.baidu.live.alablmsdk.a.b.c.BY().setVideoSize(i, i2);
-            if (a.this.aCN != null) {
-                a.this.aCN.p(bArr, i, i2);
+            com.baidu.live.alablmsdk.a.b.c.Bp().setVideoSize(i, i2);
+            if (a.this.aDe != null) {
+                a.this.aDe.p(bArr, i, i2);
             }
         }
 
         @Override // com.baidu.live.alablmsdk.c.a.a
         public void onError(int i, String str) {
-            com.baidu.live.alablmsdk.a.b.c.BY().onRecorderError(i, str);
+            com.baidu.live.alablmsdk.a.b.c.Bp().onRecorderError(i, str);
         }
     };
-    private d aCN = new d();
+    private d aDe = new d();
 
     public a(Context context, c cVar) {
         this.mContext = context;
-        this.aCb = cVar;
-        this.aCb.a(this.aCN);
+        this.aCs = cVar;
+        this.aCs.a(this.aDe);
     }
 
-    public com.baidu.live.alablmsdk.c.a.a CW() {
-        return this.aCP;
+    public com.baidu.live.alablmsdk.c.a.a Cn() {
+        return this.aDg;
     }
 
-    public void b(boolean z, long j) {
+    public void i(boolean z, long j) {
         String str;
-        com.baidu.live.alablmsdk.a.b.a.ak(" enableRemoteDisplay ", "imUk=" + j);
+        com.baidu.live.alablmsdk.a.b.a.aj(" enableRemoteDisplay ", "imUk=" + j);
         if (j != 0) {
-            synchronized (this.aCO) {
+            synchronized (this.aDf) {
                 if (z) {
-                    aE(j);
+                    aD(j);
                     if (com.baidu.live.alablmsdk.a.b.a.isDebug()) {
                         StringBuilder sb = new StringBuilder();
-                        if (this.aCO.size() > 0) {
-                            for (Map.Entry<Long, com.baidu.live.alablmsdk.module.rtc.b> entry : this.aCO.entrySet()) {
+                        if (this.aDf.size() > 0) {
+                            for (Map.Entry<Long, com.baidu.live.alablmsdk.module.rtc.b> entry : this.aDf.entrySet()) {
                                 if (entry != null) {
                                     com.baidu.live.alablmsdk.module.rtc.b value = entry.getValue();
                                     if (value == null) {
@@ -58,42 +58,42 @@ public class a implements b.a {
                                 }
                             }
                         }
-                        com.baidu.live.alablmsdk.a.b.a.ak("  map for 循环 texture info = " + sb.toString(), "");
+                        com.baidu.live.alablmsdk.a.b.a.aj("  map for 循环 texture info = " + sb.toString(), "");
                     }
-                    com.baidu.live.alablmsdk.a.b.a.ak(" remote user view num " + this.aCO.size(), "");
+                    com.baidu.live.alablmsdk.a.b.a.aj(" remote user view num " + this.aDf.size(), "");
                 }
             }
         }
     }
 
-    private TextureView aE(final long j) {
+    private TextureView aD(final long j) {
         TextureView textureView;
-        com.baidu.live.alablmsdk.a.b.a.ak(" addRemoteUserRtcVideoView remoteUid" + j, "");
-        synchronized (this.aCO) {
-            final com.baidu.live.alablmsdk.module.rtc.b bVar = this.aCO.get(Long.valueOf(j));
+        com.baidu.live.alablmsdk.a.b.a.aj(" addRemoteUserRtcVideoView remoteUid" + j, "");
+        synchronized (this.aDf) {
+            final com.baidu.live.alablmsdk.module.rtc.b bVar = this.aDf.get(Long.valueOf(j));
             if (bVar == null || bVar.mTextureView == null || bVar.mSurface == null) {
                 String str = "";
                 if (bVar != null) {
                     str = bVar.toString();
                 }
-                com.baidu.live.alablmsdk.a.b.a.ak(" map-externalTextureInfo info has null , remoteUid=" + j, " externalTextureInfo=" + str);
-                bVar = new com.baidu.live.alablmsdk.module.rtc.b(this.mContext, this.aCb, j);
+                com.baidu.live.alablmsdk.a.b.a.aj(" map-externalTextureInfo info has null , remoteUid=" + j, " externalTextureInfo=" + str);
+                bVar = new com.baidu.live.alablmsdk.module.rtc.b(this.mContext, this.aCs, j);
                 bVar.a(this);
-                this.aCO.put(Long.valueOf(j), bVar);
-                com.baidu.live.alablmsdk.a.b.a.ak(" tempExternalTextureInfo = " + bVar.toString(), "");
+                this.aDf.put(Long.valueOf(j), bVar);
+                com.baidu.live.alablmsdk.a.b.a.aj(" tempExternalTextureInfo = " + bVar.toString(), "");
             } else {
-                com.baidu.live.alablmsdk.a.b.a.ak(" map contains , remoteUid=" + j, "");
+                com.baidu.live.alablmsdk.a.b.a.aj(" map contains , remoteUid=" + j, "");
                 final int i = bVar.mWidth;
                 final int i2 = bVar.mHeight;
-                com.baidu.live.alablmsdk.a.b.a.ak(" map contains , remoteUid=" + j + " , info=" + bVar, "");
+                com.baidu.live.alablmsdk.a.b.a.aj(" map contains , remoteUid=" + j + " , info=" + bVar, "");
                 if (bVar.mSurface != null) {
-                    com.baidu.live.alablmsdk.a.c.BS().post(new Runnable() { // from class: com.baidu.live.alablmsdk.d.a.2
+                    com.baidu.live.alablmsdk.a.c.Bj().post(new Runnable() { // from class: com.baidu.live.alablmsdk.d.a.2
                         @Override // java.lang.Runnable
                         public void run() {
-                            com.baidu.live.alablmsdk.a.b.a.ak(" re destroy set ExternalSurface , width=" + i + " , height=" + i2, "");
-                            a.this.aCb.destroyExternalSurface(j, bVar.mSurface);
-                            a.this.aCb.setExternalSurface(j, bVar.mSurface);
-                            a.this.aCb.changeSurfaceSize(j, i, i2);
+                            com.baidu.live.alablmsdk.a.b.a.aj(" re destroy set ExternalSurface , width=" + i + " , height=" + i2, "");
+                            a.this.aCs.destroyExternalSurface(j, bVar.mSurface);
+                            a.this.aCs.setExternalSurface(j, bVar.mSurface);
+                            a.this.aCs.changeSurfaceSize(j, i, i2);
                         }
                     });
                 }
@@ -104,34 +104,34 @@ public class a implements b.a {
     }
 
     @Override // com.baidu.live.alablmsdk.module.rtc.b.a
-    public void aD(long j) {
-        synchronized (this.aCO) {
-            com.baidu.live.alablmsdk.a.b.a.ak(" map remove , id=" + j, "");
+    public void aC(long j) {
+        synchronized (this.aDf) {
+            com.baidu.live.alablmsdk.a.b.a.aj(" map remove , id=" + j, "");
             if (j != 0) {
-                this.aCO.remove(Long.valueOf(j));
+                this.aDf.remove(Long.valueOf(j));
             }
         }
     }
 
     public TextureView c(com.baidu.live.alablmsdk.module.c cVar) {
-        if (cVar == null || cVar.aCp == 0) {
+        if (cVar == null || cVar.aCG == 0) {
             return null;
         }
-        com.baidu.live.alablmsdk.a.b.a.ak(" getRemoteDisplayViewForUser", " imUk=" + cVar.aCp);
-        return aF(cVar.aCp);
+        com.baidu.live.alablmsdk.a.b.a.aj(" getRemoteDisplayViewForUser", " imUk=" + cVar.aCG);
+        return aE(cVar.aCG);
     }
 
-    public TextureView aF(long j) {
+    public TextureView aE(long j) {
         TextureView textureView;
         if (j == 0) {
             return null;
         }
-        synchronized (this.aCO) {
-            if (this.aCO.containsKey(Long.valueOf(j))) {
-                com.baidu.live.alablmsdk.a.b.a.ak(" mRemoteViewMap sizes " + this.aCO.size(), "");
-                com.baidu.live.alablmsdk.module.rtc.b bVar = this.aCO.get(Long.valueOf(j));
+        synchronized (this.aDf) {
+            if (this.aDf.containsKey(Long.valueOf(j))) {
+                com.baidu.live.alablmsdk.a.b.a.aj(" mRemoteViewMap sizes " + this.aDf.size(), "");
+                com.baidu.live.alablmsdk.module.rtc.b bVar = this.aDf.get(Long.valueOf(j));
                 if (bVar != null) {
-                    com.baidu.live.alablmsdk.a.b.a.ak(" get texture view by user , imUk=" + j + ", texture info=" + bVar.toString(), "");
+                    com.baidu.live.alablmsdk.a.b.a.aj(" get texture view by user , imUk=" + j + ", texture info=" + bVar.toString(), "");
                     textureView = bVar.mTextureView;
                 } else {
                     textureView = null;
@@ -144,24 +144,24 @@ public class a implements b.a {
     }
 
     public void release() {
-        CX();
+        Co();
     }
 
-    public void CX() {
-        CY();
+    public void Co() {
+        Cp();
     }
 
-    private void CY() {
+    private void Cp() {
         com.baidu.live.alablmsdk.module.rtc.b value;
-        com.baidu.live.alablmsdk.a.b.a.ak(" releaseVideoViewMap ", "");
-        if (this.aCO != null) {
-            synchronized (this.aCO) {
-                for (Map.Entry<Long, com.baidu.live.alablmsdk.module.rtc.b> entry : this.aCO.entrySet()) {
+        com.baidu.live.alablmsdk.a.b.a.aj(" releaseVideoViewMap ", "");
+        if (this.aDf != null) {
+            synchronized (this.aDf) {
+                for (Map.Entry<Long, com.baidu.live.alablmsdk.module.rtc.b> entry : this.aDf.entrySet()) {
                     if (entry != null && (value = entry.getValue()) != null) {
                         value.release();
                     }
                 }
-                this.aCO.clear();
+                this.aDf.clear();
             }
         }
     }

@@ -1,18 +1,18 @@
 package com.xiaomi.push;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a f4555a = new a(new byte[0]);
+    public static final a f14145a = new a(new byte[0]);
 
     /* renamed from: a  reason: collision with other field name */
-    private volatile int f90a = 0;
+    private volatile int f168a = 0;
 
     /* renamed from: a  reason: collision with other field name */
-    private final byte[] f91a;
+    private final byte[] f169a;
 
     private a(byte[] bArr) {
-        this.f91a = bArr;
+        this.f169a = bArr;
     }
 
     public static a a(byte[] bArr) {
@@ -26,14 +26,14 @@ public final class a {
     }
 
     public int a() {
-        return this.f91a.length;
+        return this.f169a.length;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m116a() {
-        int length = this.f91a.length;
+    public byte[] m142a() {
+        int length = this.f169a.length;
         byte[] bArr = new byte[length];
-        System.arraycopy(this.f91a, 0, bArr, 0, length);
+        System.arraycopy(this.f169a, 0, bArr, 0, length);
         return bArr;
     }
 
@@ -43,12 +43,12 @@ public final class a {
         }
         if (obj instanceof a) {
             a aVar = (a) obj;
-            int length = this.f91a.length;
-            if (length != aVar.f91a.length) {
+            int length = this.f169a.length;
+            if (length != aVar.f169a.length) {
                 return false;
             }
-            byte[] bArr = this.f91a;
-            byte[] bArr2 = aVar.f91a;
+            byte[] bArr = this.f169a;
+            byte[] bArr2 = aVar.f169a;
             for (int i = 0; i < length; i++) {
                 if (bArr[i] != bArr2[i]) {
                     return false;
@@ -60,20 +60,18 @@ public final class a {
     }
 
     public int hashCode() {
-        int i = this.f90a;
+        int i = this.f168a;
         if (i == 0) {
-            byte[] bArr = this.f91a;
-            int length = this.f91a.length;
-            int i2 = 0;
+            byte[] bArr = this.f169a;
+            int length = this.f169a.length;
             i = length;
-            while (i2 < length) {
-                i2++;
-                i = bArr[i2] + (i * 31);
+            for (int i2 = 0; i2 < length; i2++) {
+                i = (i * 31) + bArr[i2];
             }
             if (i == 0) {
                 i = 1;
             }
-            this.f90a = i;
+            this.f168a = i;
         }
         return i;
     }

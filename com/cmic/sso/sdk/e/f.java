@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class f {
     private static PackageInfo V(Context context) {
         try {
@@ -21,7 +21,6 @@ public class f {
     }
 
     public static String a(Context context) {
-        Exception e;
         try {
             PackageManager packageManager = context.getPackageManager();
             String str = (String) packageManager.getApplicationLabel(packageManager.getApplicationInfo(d(context), 0));
@@ -32,15 +31,15 @@ public class f {
                         return null;
                     }
                     return context.getResources().getString(V.applicationInfo.labelRes);
-                } catch (Exception e2) {
-                    e = e2;
+                } catch (Exception e) {
+                    e = e;
                     e.printStackTrace();
                     return null;
                 }
             }
             return str;
-        } catch (Exception e3) {
-            e = e3;
+        } catch (Exception e2) {
+            e = e2;
         }
     }
 

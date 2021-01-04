@@ -5,6 +5,7 @@ import com.baidu.adp.framework.FrameHelper;
 import com.baidu.adp.framework.d.e;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
+import com.kwai.video.player.KsMediaMeta;
 /* loaded from: classes.dex */
 public class HttpMessageTask extends MessageTask {
     private e mConnectTimeOut;
@@ -48,8 +49,8 @@ public class HttpMessageTask extends MessageTask {
     private void addProtobufSuffix() {
         if (!StringUtils.isNull(this.mUrl)) {
             Uri parse = Uri.parse(this.mUrl);
-            if (!StringUtils.isNull(parse.getQueryParameter("cmd")) && StringUtils.isNull(parse.getQueryParameter("format"))) {
-                this.mUrl = parse.buildUpon().appendQueryParameter("format", "protobuf").toString();
+            if (!StringUtils.isNull(parse.getQueryParameter("cmd")) && StringUtils.isNull(parse.getQueryParameter(KsMediaMeta.KSM_KEY_FORMAT))) {
+                this.mUrl = parse.buildUpon().appendQueryParameter(KsMediaMeta.KSM_KEY_FORMAT, "protobuf").toString();
             }
         }
     }

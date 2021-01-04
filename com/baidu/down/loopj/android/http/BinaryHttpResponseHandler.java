@@ -19,7 +19,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public class BinaryHttpResponseHandler extends AsyncHttpResponseHandler {
     private static final boolean DEBUG = false;
     private static final String TAG = "BinaryHttpResponseHandler";
@@ -212,7 +212,6 @@ public class BinaryHttpResponseHandler extends AsyncHttpResponseHandler {
     public long receiveResponseData(ICommonRequestHandler iCommonRequestHandler, long j, int i, AsyncHttpRequest asyncHttpRequest) throws IOException {
         int read;
         long j2;
-        ByteArrayInfo byteArrayInfo;
         InputStream inputStream = iCommonRequestHandler.getInputStream();
         long contentLength = iCommonRequestHandler.getContentLength();
         ThreadSpeedStat threadSpeedStat = asyncHttpRequest.getThreadSpeedStat();
@@ -237,30 +236,25 @@ public class BinaryHttpResponseHandler extends AsyncHttpResponseHandler {
                             System.arraycopy(bArr, 0, byteArray.mByteArray, byteArray.mByteArrayLength, i3);
                             byteArray.mByteArrayLength += i3;
                             sendDownloadMessage(byteArray);
-                            long j3 = j + i3;
-                            ByteArrayInfo byteArray2 = TaskFacade.getInstance(null).getBinaryTaskMng().getByteArrayInfoMng().getByteArray();
-                            byteArray2.mFilePos = j3;
-                            byteArray2.mByteArrayLength = 0;
-                            j2 = j3;
-                            byteArrayInfo = byteArray2;
+                            j2 = i3 + j;
+                            byteArray = TaskFacade.getInstance(null).getBinaryTaskMng().getByteArrayInfoMng().getByteArray();
+                            byteArray.mFilePos = j2;
+                            byteArray.mByteArrayLength = 0;
                         } else {
                             System.arraycopy(bArr, 0, byteArray.mByteArray, byteArray.mByteArrayLength, i3);
                             byteArray.mByteArrayLength += i3;
-                            ByteArrayInfo byteArrayInfo2 = byteArray;
                             j2 = i3 + j;
-                            byteArrayInfo = byteArrayInfo2;
                         }
                         if (i3 < read) {
                             int i4 = read - i3;
-                            System.arraycopy(bArr, i3, byteArrayInfo.mByteArray, byteArrayInfo.mByteArrayLength, i4);
-                            byteArrayInfo.mByteArrayLength += i4;
+                            System.arraycopy(bArr, i3, byteArray.mByteArray, byteArray.mByteArrayLength, i4);
+                            byteArray.mByteArrayLength += i4;
                             j2 += i4;
                         }
                         if (threadSpeedStat != null) {
                             threadSpeedStat.dTempDownSize = j2;
                         }
                         j = j2;
-                        byteArray = byteArrayInfo;
                     } catch (IOException e) {
                         throw e;
                     }

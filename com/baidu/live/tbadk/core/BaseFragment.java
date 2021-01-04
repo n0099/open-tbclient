@@ -4,13 +4,13 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.adp.base.IScrollable;
 import com.baidu.live.adp.base.IScrollableHelper;
@@ -40,7 +40,7 @@ import com.baidu.megapp.ma.MAFragment;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public abstract class BaseFragment extends MAFragment implements DialogInterface.OnClickListener, View.OnClickListener, View.OnLongClickListener, AbsListView.OnScrollListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, IScrollable, IPageStayDuration {
     private static final int PRELOAD_DELAY = 100;
     private CustomToast customToast;
@@ -65,7 +65,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         }
     };
 
-    @Override // android.support.v4.app.Fragment
+    @Override // androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         if (this.mId == null) {
             this.mId = BdUniqueId.gen();
@@ -75,7 +75,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         this.mIsLogin = TbadkCoreApplication.isLogin();
     }
 
-    @Override // android.support.v4.app.Fragment
+    @Override // androidx.fragment.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
         this.isPrepared = true;
@@ -145,7 +145,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         }
     }
 
-    @Override // android.support.v4.app.Fragment
+    @Override // androidx.fragment.app.Fragment
     public void onResume() {
         if (this.customToast != null) {
             this.customToast.onResume();
@@ -233,7 +233,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         return null;
     }
 
-    @Override // android.support.v4.app.Fragment
+    @Override // androidx.fragment.app.Fragment
     public void setUserVisibleHint(boolean z) {
         if (isAdded() && !isHidden()) {
             super.setUserVisibleHint(z);
@@ -258,7 +258,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         }
     }
 
-    @Override // android.support.v4.app.Fragment
+    @Override // androidx.fragment.app.Fragment
     public void onPause() {
         this.customToast.onPause();
         super.onPause();
@@ -272,13 +272,13 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
-    @Override // android.support.v4.app.Fragment
+    @Override // androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
-    @Override // android.support.v4.app.Fragment
+    @Override // androidx.fragment.app.Fragment
     public void onDestroyView() {
         super.onDestroyView();
         if (this.loadingView != null) {
@@ -286,7 +286,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         }
     }
 
-    @Override // android.support.v4.app.Fragment
+    @Override // androidx.fragment.app.Fragment
     public void onDetach() {
         super.onDetach();
         MessageManager.getInstance().unRegisterListener(this.mId);
@@ -345,7 +345,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
     public void onResourceRecycle() {
     }
 
-    @Override // android.support.v4.app.Fragment
+    @Override // androidx.fragment.app.Fragment
     public void onHiddenChanged(boolean z) {
         super.onHiddenChanged(z);
         if (!z) {
@@ -598,7 +598,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public class NetRefreshListener implements View.OnClickListener {
         private NetRefreshListener() {
         }

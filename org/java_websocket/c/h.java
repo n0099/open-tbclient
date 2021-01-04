@@ -1,5 +1,5 @@
 package org.java_websocket.c;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface h extends f {
-    String eFc();
+    String eNk();
 }

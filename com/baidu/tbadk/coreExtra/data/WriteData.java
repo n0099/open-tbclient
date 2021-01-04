@@ -3,15 +3,16 @@ package com.baidu.tbadk.coreExtra.data;
 import android.text.TextUtils;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.atomData.EditVideoActivityConfig;
+import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.VoiceData;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.view.spanGroup.SpanGroupManager;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tbadk.widget.richText.TbRichTextEvaluateItemInfo;
-import com.baidu.tieba.write.upload.ForwardUploadData;
-import com.baidu.tieba.write.upload.ImageTextUploadData;
-import com.baidu.tieba.write.upload.VideoUploadData;
+import com.baidu.tieba.frs.FrsTabInfoData;
 import com.google.gson.Gson;
 import java.io.File;
 import java.io.Serializable;
@@ -42,10 +43,13 @@ public class WriteData extends OrmObject implements Serializable {
     private String callFrom;
     private boolean canNoForum;
     private String comment_head;
+    private String contentString;
     private int entranceType;
+    private FrsTabInfoData frsTabInfoData;
     private boolean isAd;
     private boolean isBJHPost;
     private boolean isBabaoPosted;
+    private boolean isEvaluate;
     public boolean isForumBusinessAccount;
     private int isGeneralTab;
     private boolean isLinkThread;
@@ -64,9 +68,6 @@ public class WriteData extends OrmObject implements Serializable {
     private int mCategoryTo;
     private String mContent;
     private int mDuringTime;
-    public ForwardUploadData mDynamicForwardData;
-    public ImageTextUploadData mDynamicImageTextData;
-    public VideoUploadData mDynamicVideoData;
     private TbRichTextEvaluateItemInfo mEvaluateItemInfo;
     private int mEvaluationStar;
     private String mFirstDir;
@@ -143,6 +144,8 @@ public class WriteData extends OrmObject implements Serializable {
     private String postPrefix;
     private int proZone;
     public String sourceFrom;
+    private long startPublishTime;
+    private int statisticFrom;
     private String transmitForumData;
     private String vForumId;
     private String vForumName;
@@ -154,6 +157,30 @@ public class WriteData extends OrmObject implements Serializable {
 
     public void setBabaoPosted(boolean z) {
         this.isBabaoPosted = z;
+    }
+
+    public void startPublish() {
+        this.startPublishTime = System.currentTimeMillis();
+    }
+
+    public long startPublishTime() {
+        return this.startPublishTime;
+    }
+
+    public void setFrsTabInfoData(FrsTabInfoData frsTabInfoData) {
+        this.frsTabInfoData = frsTabInfoData;
+    }
+
+    public FrsTabInfoData getFrsTabInfoData() {
+        return this.frsTabInfoData;
+    }
+
+    public void setIsEvaluate(boolean z) {
+        this.isEvaluate = z;
+    }
+
+    public boolean isEvaluate() {
+        return this.isEvaluate;
     }
 
     public void setIsBJHPost(boolean z) {
@@ -206,6 +233,7 @@ public class WriteData extends OrmObject implements Serializable {
 
     public WriteData() {
         this.mShareImageType = SHARE_SDK_NET_IMAGE;
+        this.item_id = "";
         this.proZone = -1;
         this.isUserFeedback = false;
         this.mCategoryFrom = -1;
@@ -264,6 +292,7 @@ public class WriteData extends OrmObject implements Serializable {
 
     public WriteData(int i) {
         this.mShareImageType = SHARE_SDK_NET_IMAGE;
+        this.item_id = "";
         this.proZone = -1;
         this.isUserFeedback = false;
         this.mCategoryFrom = -1;
@@ -297,7 +326,8 @@ public class WriteData extends OrmObject implements Serializable {
         try {
             jSONObject.put("mType", this.mType);
             jSONObject.put("mTitle", this.mTitle);
-            jSONObject.put("mContent", this.mSpanGroupManager == null ? this.mContent : this.mSpanGroupManager.bwj());
+            this.contentString = this.mSpanGroupManager == null ? this.mContent : this.mSpanGroupManager.byC();
+            jSONObject.put("mContent", this.contentString);
             jSONObject.put("mReplyUid", this.mReplyUid);
             jSONObject.put("mThreadId", this.mThreadId);
             jSONObject.put("mIsInterviewLive", this.mIsInterviewLivew);
@@ -316,8 +346,8 @@ public class WriteData extends OrmObject implements Serializable {
             jSONObject.put("is_barrage", this.mIsBarrage);
             jSONObject.put("barrage_time", this.mBarrageTime);
             jSONObject.put("big_count", this.mBigEmtionCount);
-            jSONObject.put("source_from", this.sourceFrom);
-            jSONObject.put("pro_zone", this.proZone);
+            jSONObject.put(VideoPlayActivityConfig.SOURCE_FROM, this.sourceFrom);
+            jSONObject.put(EditVideoActivityConfig.KEY_PRO_ZONE, this.proZone);
             jSONObject.put("topic_id", this.mTopicId);
             jSONObject.put("sub_pb_reply_prefix", this.mSubPbReplyPrefix);
             jSONObject.put("mUniversityGrade", this.mUniversityGrade);
@@ -331,6 +361,7 @@ public class WriteData extends OrmObject implements Serializable {
                 jSONObject.put("item_info", new Gson().toJson(this.mEvaluateItemInfo));
                 jSONObject.put("evaluation_star", this.mEvaluationStar);
             }
+            jSONObject.put(IntentConfig.IS_EVALUATE, this.isEvaluate);
         } catch (Exception e) {
         }
         return jSONObject.toString();
@@ -366,8 +397,8 @@ public class WriteData extends OrmObject implements Serializable {
             writeData.mIsBarrage = jSONObject.optBoolean("is_barrage");
             writeData.mBarrageTime = jSONObject.optLong("barrage_time");
             writeData.mBigEmtionCount = jSONObject.optInt("big_count");
-            writeData.sourceFrom = jSONObject.optString("source_from");
-            writeData.proZone = jSONObject.optInt("pro_zone");
+            writeData.sourceFrom = jSONObject.optString(VideoPlayActivityConfig.SOURCE_FROM);
+            writeData.proZone = jSONObject.optInt(EditVideoActivityConfig.KEY_PRO_ZONE);
             writeData.mTopicId = jSONObject.optString("topic_id");
             writeData.mSubPbReplyPrefix = jSONObject.optString("sub_pb_reply_prefix");
             writeData.mUniversityGrade = jSONObject.optString("mUniversityGrade", "");
@@ -382,6 +413,7 @@ public class WriteData extends OrmObject implements Serializable {
                 writeData.mEvaluateItemInfo = (TbRichTextEvaluateItemInfo) new Gson().fromJson(optString, (Class<Object>) TbRichTextEvaluateItemInfo.class);
             }
             writeData.mEvaluationStar = jSONObject.optInt("evaluation_star");
+            writeData.isEvaluate = jSONObject.optBoolean(IntentConfig.IS_EVALUATE, false);
             return writeData;
         } catch (Exception e) {
             return null;
@@ -1126,7 +1158,11 @@ public class WriteData extends OrmObject implements Serializable {
     }
 
     public void setItem_id(String str) {
-        this.item_id = str;
+        if (TextUtils.isEmpty(str)) {
+            this.item_id = "";
+        } else {
+            this.item_id = str;
+        }
     }
 
     public String getComment_head() {
@@ -1219,6 +1255,9 @@ public class WriteData extends OrmObject implements Serializable {
 
     public void setItemInfo(TbRichTextEvaluateItemInfo tbRichTextEvaluateItemInfo) {
         this.mEvaluateItemInfo = tbRichTextEvaluateItemInfo;
+        if (tbRichTextEvaluateItemInfo != null) {
+            this.item_id = tbRichTextEvaluateItemInfo.getItemID();
+        }
     }
 
     public TbRichTextEvaluateItemInfo getItemInfo() {
@@ -1231,5 +1270,17 @@ public class WriteData extends OrmObject implements Serializable {
 
     public int getEvaluationStar() {
         return this.mEvaluationStar;
+    }
+
+    public void setStatisticFrom(int i) {
+        this.statisticFrom = i;
+    }
+
+    public int getStatisticFrom() {
+        return this.statisticFrom;
+    }
+
+    public String getContentString() {
+        return this.contentString;
     }
 }

@@ -2,13 +2,13 @@ package com.baidu.sapi2;
 
 import android.content.Context;
 import android.text.TextUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public final class SapiSafeFacade {
     public static final int DEVICE_AUTH_TOKEN_EVENT_ID = 122;
     public static final int GET_ZID_DEFAULT_EVENT_ID = 120;
 
     /* renamed from: a  reason: collision with root package name */
-    private static SapiSafeFacade f3261a;
+    private static SapiSafeFacade f4969a;
 
     private SapiSafeFacade() {
     }
@@ -17,10 +17,10 @@ public final class SapiSafeFacade {
     public static synchronized SapiSafeFacade a() {
         SapiSafeFacade sapiSafeFacade;
         synchronized (SapiSafeFacade.class) {
-            if (f3261a == null) {
-                f3261a = new SapiSafeFacade();
+            if (f4969a == null) {
+                f4969a = new SapiSafeFacade();
             }
-            sapiSafeFacade = f3261a;
+            sapiSafeFacade = f4969a;
         }
         return sapiSafeFacade;
     }

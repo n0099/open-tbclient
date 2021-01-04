@@ -2,7 +2,7 @@ package com.sdk.base.framework.bean;
 
 import com.sdk.base.framework.f.d.a;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class PInfo {
     private String c;
     private ArrayList<String> imei;

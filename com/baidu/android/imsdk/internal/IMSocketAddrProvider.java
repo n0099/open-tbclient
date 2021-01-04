@@ -8,12 +8,13 @@ import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.searchbox.dns.DnsHelper;
+import com.baidu.searchbox.dns.statistics.HttpDNSStat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.ConcurrentLinkedQueue;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class IMSocketAddrProvider {
     private static final long SMART_DNS_TIME_OUT = 5000;
     private static ConcurrentLinkedQueue<String> SOCKET_ADDR_PRIORITY_QUEUE = null;
@@ -24,7 +25,7 @@ public class IMSocketAddrProvider {
     private String mNowConnectAddr;
     private IGetSocketAddrListener mSocketAddrListener;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes4.dex */
     public interface IGetSocketAddrListener extends IMListener {
         void onGetSocketAddrResult(String str);
     }
@@ -84,8 +85,8 @@ public class IMSocketAddrProvider {
                         }
                     }, 5000L);
                     DnsHelper dnsHelper = new DnsHelper(IMSocketAddrProvider.mContext);
-                    dnsHelper.setHttpDnsState(false, null, false, true);
-                    List<String> ipListForceHttp = dnsHelper.getIpListForceHttp(Constants.URL_SOCKET_SERVER);
+                    dnsHelper.setHttpDnsState(false, (HttpDNSStat) null, false, true);
+                    List ipListForceHttp = dnsHelper.getIpListForceHttp(Constants.URL_SOCKET_SERVER);
                     LogUtils.d(IMSocketAddrProvider.TAG, "bddns > bdDnsIps = " + ipListForceHttp);
                     Utility.writeLoginFlag(IMSocketAddrProvider.mContext, "11Y", "BDHttpDNS success, ip=" + ipListForceHttp);
                     timer.cancel();

@@ -1,47 +1,47 @@
 package com.baidu.swan.apps.event;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.swan.apps.ap.ak;
+import com.baidu.swan.apps.ao.ak;
 import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.jsbridge.SwanAppNativeSwanJsBridge;
 import com.baidu.swan.apps.performance.b.c;
 import com.baidu.swan.apps.performance.h;
 import java.util.Locale;
 import org.json.JSONObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public final class a {
     private static final boolean DEBUG = b.DEBUG;
 
     public static void a(final com.baidu.swan.apps.core.container.a aVar, com.baidu.swan.apps.event.a.a aVar2) {
         String format;
-        String L;
+        String O;
         final String format2;
         String str;
-        String L2;
+        String O2;
         if (aVar != null && aVar2 != null) {
             h.D("postMessage", "dispatchJSEvent start.");
-            if (c.aGD()) {
+            if (c.aHW()) {
                 if (aVar.isWebView()) {
-                    str = "var event = new Event('" + aVar2.cFU + "');";
-                    L2 = "";
+                    str = "var event = new Event('" + aVar2.cKK + "');";
+                    O2 = "";
                 } else {
                     str = "var event = new Object();";
-                    L2 = L("event", "type", aVar2.cFU);
+                    O2 = O("event", "type", aVar2.cKK);
                 }
-                format2 = new StringBuffer().append("javascript:(function(){").append(str).append(" ").append(L2).append(aVar2.oM("event")).append(" ").append(d(aVar)).append(".dispatchEvent(").append("event").append(");").append("})();").toString();
+                format2 = new StringBuffer().append("javascript:(function(){").append(str).append(" ").append(O2).append(aVar2.oF("event")).append(" ").append(d(aVar)).append(".dispatchEvent(").append("event").append(");").append("})();").toString();
             } else {
                 if (aVar.isWebView()) {
-                    format = String.format(Locale.getDefault(), "var %s = new Event('%s');", "event", aVar2.cFU);
-                    L = "";
+                    format = String.format(Locale.getDefault(), "var %s = new Event('%s');", "event", aVar2.cKK);
+                    O = "";
                 } else {
                     format = String.format(Locale.getDefault(), "var %s = new Object();", "event");
-                    L = L("event", "type", aVar2.cFU);
+                    O = O("event", "type", aVar2.cKK);
                 }
-                format2 = String.format(Locale.getDefault(), "javascript:(function(){%s %s %s})();", format, L + aVar2.oM("event"), String.format(Locale.getDefault(), "%s.dispatchEvent(%s);", d(aVar), "event"));
+                format2 = String.format(Locale.getDefault(), "javascript:(function(){%s %s %s})();", format, O + aVar2.oF("event"), String.format(Locale.getDefault(), "%s.dispatchEvent(%s);", d(aVar), "event"));
             }
             h.D("postMessage", "dispatchJSEvent buildEvent");
             if (DEBUG) {
@@ -80,12 +80,12 @@ public final class a {
         return SwanAppNativeSwanJsBridge.JAVASCRIPT_INTERFACE_NAME;
     }
 
-    public static String L(String str, String str2, String str3) {
+    public static String O(String str, String str2, String str3) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
             return "";
         }
         String quote = JSONObject.quote(str3);
-        return c.aGD() ? str + "." + str2 + " = " + quote + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : String.format(Locale.getDefault(), "%s.%s = %s;", str, str2, quote);
+        return c.aHW() ? str + "." + str2 + " = " + quote + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : String.format(Locale.getDefault(), "%s.%s = %s;", str, str2, quote);
     }
 
     public static String c(String str, String str2, JSONObject jSONObject) {
@@ -98,8 +98,8 @@ public final class a {
             return "";
         }
         if ((obj instanceof Integer) || (obj instanceof Float) || (obj instanceof Double) || (obj instanceof Long) || (obj instanceof Boolean)) {
-            return c.aGD() ? str + "." + str2 + " = " + obj + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : String.format(Locale.getDefault(), "%s.%s = %s;", str, str2, obj);
+            return c.aHW() ? str + "." + str2 + " = " + obj + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : String.format(Locale.getDefault(), "%s.%s = %s;", str, str2, obj);
         }
-        return L(str, str2, String.valueOf(obj));
+        return O(str, str2, String.valueOf(obj));
     }
 }

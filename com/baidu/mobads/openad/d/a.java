@@ -19,16 +19,18 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class a extends com.baidu.mobads.openad.c.c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f2386a = 1024;
+    public static int f3451a = 1024;
     private static final TimeUnit h = TimeUnit.SECONDS;
     private static int i = 5;
     private static BlockingQueue<Runnable> j = new LinkedBlockingQueue();
     private static ThreadPoolExecutor k;
-    private String b;
+
+    /* renamed from: b  reason: collision with root package name */
+    private String f3452b;
     private AtomicBoolean d;
     private Boolean e;
     private HttpURLConnection f;
@@ -46,7 +48,7 @@ public class a extends com.baidu.mobads.openad.c.c {
         this.d = new AtomicBoolean(false);
         this.e = false;
         this.g = new AtomicBoolean();
-        this.b = str;
+        this.f3452b = str;
     }
 
     public a() {
@@ -64,20 +66,22 @@ public class a extends com.baidu.mobads.openad.c.c {
 
     public void a(c cVar, double d) {
         try {
-            k.execute(new RunnableC0272a(cVar, d));
+            k.execute(new RunnableC0273a(cVar, d));
         } catch (Exception e) {
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.mobads.openad.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public class RunnableC0272a implements Runnable {
-        private c b;
+    /* loaded from: classes3.dex */
+    public class RunnableC0273a implements Runnable {
+
+        /* renamed from: b  reason: collision with root package name */
+        private c f3454b;
         private double c;
 
-        public RunnableC0272a(c cVar, double d) {
-            this.b = cVar;
+        public RunnableC0273a(c cVar, double d) {
+            this.f3454b = cVar;
             this.c = d;
         }
 
@@ -87,37 +91,37 @@ public class a extends com.baidu.mobads.openad.c.c {
             Object[] objArr;
             InputStream inputStream = null;
             try {
-                if (this.b.c > 0) {
-                    Thread.sleep(this.b.c);
+                if (this.f3454b.c > 0) {
+                    Thread.sleep(this.f3454b.c);
                 }
                 a.this.d.set(true);
-                a.this.f = (HttpURLConnection) new URL(this.b.f2389a).openConnection();
+                a.this.f = (HttpURLConnection) new URL(this.f3454b.f3456a).openConnection();
                 a.this.f.setConnectTimeout((int) this.c);
                 a.this.f.setUseCaches(false);
-                if (this.b.b != null && this.b.b.length() > 0) {
-                    a.this.f.setRequestProperty("User-Agent", this.b.b);
+                if (this.f3454b.f3457b != null && this.f3454b.f3457b.length() > 0) {
+                    a.this.f.setRequestProperty("User-Agent", this.f3454b.f3457b);
                 }
-                a.this.f.setRequestProperty("Content-type", this.b.d);
+                a.this.f.setRequestProperty("Content-type", this.f3454b.d);
                 a.this.f.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
                 a.this.f.setRequestProperty(Headers.CACHE_CONTROL, "no-cache");
                 if (Integer.parseInt(Build.VERSION.SDK) < 8) {
                     System.setProperty("http.keepAlive", "false");
                 }
-                if (this.b.e == 1) {
+                if (this.f3454b.e == 1) {
                     a.this.f.setRequestMethod("GET");
                     a.this.f.connect();
                     a.this.f.getHeaderFields();
                     if (!a.this.e.booleanValue()) {
                         inputStream = a.this.f.getInputStream();
-                        a.this.dispatchEvent(new d("URLLoader.Load.Complete", a.b(inputStream), this.b.a()));
+                        a.this.dispatchEvent(new d("URLLoader.Load.Complete", a.b(inputStream), this.f3454b.a()));
                     }
                     a.this.f.getResponseCode();
-                } else if (this.b.e == 0) {
+                } else if (this.f3454b.e == 0) {
                     a.this.f.setRequestMethod("POST");
                     a.this.f.setDoInput(true);
                     a.this.f.setDoOutput(true);
-                    if (this.b.b() != null) {
-                        String encodedQuery = this.b.b().build().getEncodedQuery();
+                    if (this.f3454b.b() != null) {
+                        String encodedQuery = this.f3454b.b().build().getEncodedQuery();
                         OutputStream outputStream = a.this.f.getOutputStream();
                         BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
                         bufferedWriter.write(encodedQuery);

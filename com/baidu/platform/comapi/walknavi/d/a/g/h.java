@@ -10,19 +10,20 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f2994a = "";
-    public static String b = "";
+    public static String f4460a = "";
+
+    /* renamed from: b  reason: collision with root package name */
+    public static String f4461b = "";
     public static String c = "";
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [222=4] */
     public static long a(Context context) {
         BufferedReader bufferedReader;
         FileReader fileReader;
-        FileReader fileReader2 = null;
         long j = 0;
         try {
             fileReader = new FileReader("/proc/meminfo");
@@ -49,16 +50,15 @@ public class h {
                         }
                     }
                 } catch (Exception e3) {
-                    fileReader2 = fileReader;
                     if (bufferedReader != null) {
                         try {
                             bufferedReader.close();
                         } catch (IOException e4) {
                         }
                     }
-                    if (fileReader2 != null) {
+                    if (fileReader != null) {
                         try {
-                            fileReader2.close();
+                            fileReader.close();
                         } catch (IOException e5) {
                         }
                     }
@@ -81,13 +81,13 @@ public class h {
                 }
             } catch (Exception e8) {
                 bufferedReader = null;
-                fileReader2 = fileReader;
             } catch (Throwable th2) {
                 th = th2;
                 bufferedReader = null;
             }
         } catch (Exception e9) {
             bufferedReader = null;
+            fileReader = null;
         } catch (Throwable th3) {
             th = th3;
             bufferedReader = null;
@@ -121,36 +121,37 @@ public class h {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [314=4] */
     public static String c() {
-        FileReader fileReader;
         Throwable th;
         BufferedReader bufferedReader;
+        FileReader fileReader;
+        BufferedReader bufferedReader2;
         String str = null;
         try {
             fileReader = new FileReader("/proc/cpuinfo");
             try {
-                bufferedReader = new BufferedReader(fileReader);
+                bufferedReader2 = new BufferedReader(fileReader);
             } catch (Exception e) {
-                bufferedReader = null;
+                bufferedReader2 = null;
             } catch (Throwable th2) {
-                bufferedReader = null;
                 th = th2;
+                bufferedReader = null;
             }
         } catch (Exception e2) {
-            bufferedReader = null;
+            bufferedReader2 = null;
             fileReader = null;
         } catch (Throwable th3) {
-            fileReader = null;
             th = th3;
             bufferedReader = null;
+            fileReader = null;
         }
         try {
-            String[] split = bufferedReader.readLine().split(":\\s+", 2);
+            String[] split = bufferedReader2.readLine().split(":\\s+", 2);
             for (int i = 0; i < split.length; i++) {
             }
             str = split[1];
-            if (bufferedReader != null) {
+            if (bufferedReader2 != null) {
                 try {
-                    bufferedReader.close();
+                    bufferedReader2.close();
                 } catch (IOException e3) {
                 }
             }
@@ -161,9 +162,9 @@ public class h {
                 }
             }
         } catch (Exception e5) {
-            if (bufferedReader != null) {
+            if (bufferedReader2 != null) {
                 try {
-                    bufferedReader.close();
+                    bufferedReader2.close();
                 } catch (IOException e6) {
                 }
             }
@@ -176,6 +177,7 @@ public class h {
             return str;
         } catch (Throwable th4) {
             th = th4;
+            bufferedReader = bufferedReader2;
             if (bufferedReader != null) {
                 try {
                     bufferedReader.close();
@@ -240,79 +242,70 @@ public class h {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [432=4] */
     public static String g() {
-        FileReader fileReader;
-        Throwable th;
         BufferedReader bufferedReader;
-        String str;
+        FileReader fileReader;
+        String str = "N/A";
         try {
             fileReader = new FileReader("/sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq");
             try {
                 bufferedReader = new BufferedReader(fileReader);
-                try {
-                    try {
-                        try {
-                            str = String.valueOf(Integer.parseInt(bufferedReader.readLine().trim().trim()) / 1000);
-                            if (bufferedReader != null) {
-                                try {
-                                    bufferedReader.close();
-                                } catch (IOException e) {
-                                }
-                            }
-                            if (fileReader != null) {
-                                try {
-                                    fileReader.close();
-                                } catch (IOException e2) {
-                                }
-                            }
-                        } catch (Exception e3) {
-                            if (bufferedReader != null) {
-                                try {
-                                    bufferedReader.close();
-                                } catch (IOException e4) {
-                                }
-                            }
-                            if (fileReader != null) {
-                                try {
-                                    fileReader.close();
-                                } catch (IOException e5) {
-                                }
-                            }
-                            return str;
-                        }
-                    } catch (Throwable th2) {
-                        th = th2;
-                        if (bufferedReader != null) {
-                            try {
-                                bufferedReader.close();
-                            } catch (IOException e6) {
-                            }
-                        }
-                        if (fileReader != null) {
-                            try {
-                                fileReader.close();
-                            } catch (IOException e7) {
-                            }
-                        }
-                        throw th;
-                    }
-                } catch (Exception e8) {
-                    str = "N/A";
-                }
-            } catch (Exception e9) {
+            } catch (Exception e) {
                 bufferedReader = null;
-                str = "N/A";
-            } catch (Throwable th3) {
+            } catch (Throwable th) {
+                th = th;
                 bufferedReader = null;
-                th = th3;
             }
-        } catch (Exception e10) {
+        } catch (Exception e2) {
             bufferedReader = null;
             fileReader = null;
-            str = "N/A";
-        } catch (Throwable th4) {
-            fileReader = null;
-            th = th4;
+        } catch (Throwable th2) {
+            th = th2;
             bufferedReader = null;
+            fileReader = null;
+        }
+        try {
+            str = String.valueOf(Integer.parseInt(bufferedReader.readLine().trim().trim()) / 1000);
+            if (bufferedReader != null) {
+                try {
+                    bufferedReader.close();
+                } catch (IOException e3) {
+                }
+            }
+            if (fileReader != null) {
+                try {
+                    fileReader.close();
+                } catch (IOException e4) {
+                }
+            }
+        } catch (Exception e5) {
+            if (bufferedReader != null) {
+                try {
+                    bufferedReader.close();
+                } catch (IOException e6) {
+                }
+            }
+            if (fileReader != null) {
+                try {
+                    fileReader.close();
+                } catch (IOException e7) {
+                }
+            }
+            return str;
+        } catch (Throwable th3) {
+            th = th3;
+            if (bufferedReader != null) {
+                try {
+                    bufferedReader.close();
+                } catch (IOException e8) {
+                }
+            }
+            if (fileReader != null) {
+                try {
+                    fileReader.close();
+                } catch (IOException e9) {
+                }
+            }
+            throw th;
         }
         return str;
     }

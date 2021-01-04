@@ -15,7 +15,7 @@ public class c {
         return bVar;
     }
 
-    public static com.baidu.tbadk.task.a b(int i, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
+    public static com.baidu.tbadk.task.a e(int i, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
         try {
             com.baidu.tbadk.task.a aVar = new com.baidu.tbadk.task.a(i, cls.newInstance());
             MessageManager.getInstance().registerTask(aVar);

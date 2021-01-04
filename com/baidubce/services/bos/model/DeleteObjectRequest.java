@@ -1,7 +1,7 @@
 package com.baidubce.services.bos.model;
 
 import com.baidubce.auth.BceCredentials;
-/* loaded from: classes25.dex */
+/* loaded from: classes6.dex */
 public class DeleteObjectRequest extends GenericObjectRequest {
     public DeleteObjectRequest(String str, String str2) {
         super(str, str2);

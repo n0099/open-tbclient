@@ -12,10 +12,11 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.baidu.live.tbadk.pay.PayHelper;
-/* loaded from: classes7.dex */
+import com.kwai.video.player.NativeErrorCode;
+/* loaded from: classes15.dex */
 public class ai {
     public static boolean a(View view) {
-        Object tag = view.getTag(-5000);
+        Object tag = view.getTag(NativeErrorCode.EKS_FFMPEG_ERROR_BASE);
         if (tag == null || !(tag instanceof String) || !((String) tag).equals("baidu_mtj_edit_txtview")) {
             return false;
         }
@@ -61,7 +62,7 @@ public class ai {
             agVar.setBackgroundColor(-16745729);
             agVar.setGravity(17);
             agVar.setText("连接中");
-            agVar.setTag(-5000, "baidu_mtj_edit_txtview");
+            agVar.setTag(NativeErrorCode.EKS_FFMPEG_ERROR_BASE, "baidu_mtj_edit_txtview");
             viewGroup.post(new Runnable() { // from class: com.baidu.mobstat.ai.1
                 @Override // java.lang.Runnable
                 public void run() {
@@ -84,8 +85,10 @@ public class ai {
         textView.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.mobstat.ai.2
 
             /* renamed from: a  reason: collision with root package name */
-            int f2527a = 0;
-            int b = 0;
+            int f3690a = 0;
+
+            /* renamed from: b  reason: collision with root package name */
+            int f3691b = 0;
             int c = 0;
             int d = 0;
 
@@ -95,13 +98,13 @@ public class ai {
                 int rawY = (int) motionEvent.getRawY();
                 switch (motionEvent.getAction()) {
                     case 0:
-                        this.f2527a = rawX;
-                        this.b = rawY;
+                        this.f3690a = rawX;
+                        this.f3691b = rawY;
                         this.c = rawX - view2.getLeft();
                         this.d = rawY - view2.getTop();
                         return true;
                     case 1:
-                        if (ai.b(this.f2527a, (int) motionEvent.getRawX(), this.b, (int) motionEvent.getRawY())) {
+                        if (ai.b(this.f3690a, (int) motionEvent.getRawX(), this.f3691b, (int) motionEvent.getRawY())) {
                             ai.b((Context) activity);
                             return true;
                         }
@@ -145,7 +148,7 @@ public class ai {
                 break;
             }
             View childAt = viewGroup.getChildAt(i2);
-            if (childAt != null && (tag = childAt.getTag(-5000)) != null && (tag instanceof String) && ((String) tag).equals("baidu_mtj_edit_txtview")) {
+            if (childAt != null && (tag = childAt.getTag(NativeErrorCode.EKS_FFMPEG_ERROR_BASE)) != null && (tag instanceof String) && ((String) tag).equals("baidu_mtj_edit_txtview")) {
                 view = childAt;
                 break;
             }

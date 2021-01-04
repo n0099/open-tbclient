@@ -5,9 +5,11 @@ import android.media.MediaCodec;
 import android.media.MediaFormat;
 import android.opengl.GLES20;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.Surface;
+import androidx.annotation.Nullable;
 import com.baidu.live.tbadk.core.data.ConstantData;
+import com.baidu.platform.comapi.map.MapBundleKey;
+import com.kwai.video.player.KsMediaMeta;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.Map;
@@ -20,7 +22,7 @@ import org.webrtc.ThreadUtils;
 import org.webrtc.VideoEncoder;
 import org.webrtc.VideoFrame;
 @TargetApi(19)
-/* loaded from: classes12.dex */
+/* loaded from: classes10.dex */
 class HardwareVideoEncoder implements VideoEncoder {
     private static final int DEQUEUE_OUTPUT_BUFFER_TIMEOUT_US = 100000;
     private static final String KEY_BITRATE_MODE = "bitrate-mode";
@@ -69,7 +71,7 @@ class HardwareVideoEncoder implements VideoEncoder {
     private final ThreadUtils.ThreadChecker outputThreadChecker = new ThreadUtils.ThreadChecker();
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public enum YuvFormat {
         I420 { // from class: org.webrtc.HardwareVideoEncoder.YuvFormat.1
             @Override // org.webrtc.HardwareVideoEncoder.YuvFormat
@@ -181,7 +183,7 @@ class HardwareVideoEncoder implements VideoEncoder {
             int intValue = (this.useSurfaceMode ? this.surfaceColorFormat : this.yuvColorFormat).intValue();
             try {
                 MediaFormat createVideoFormat = MediaFormat.createVideoFormat(this.codecType.mimeType(), this.width, this.height);
-                createVideoFormat.setInteger("bitrate", this.adjustedBitrate);
+                createVideoFormat.setInteger(KsMediaMeta.KSM_KEY_BITRATE, this.adjustedBitrate);
                 createVideoFormat.setInteger(KEY_BITRATE_MODE, 2);
                 createVideoFormat.setInteger("color-format", intValue);
                 createVideoFormat.setInteger("frame-rate", this.bitrateAdjuster.getCodecConfigFramerate());
@@ -203,7 +205,7 @@ class HardwareVideoEncoder implements VideoEncoder {
                     switch (c) {
                         case 0:
                             createVideoFormat.setInteger(ConstantData.VideoLocationType.PERSON_PROFILE, 8);
-                            createVideoFormat.setInteger("level", 256);
+                            createVideoFormat.setInteger(MapBundleKey.MapObjKey.OBJ_LEVEL, 256);
                             break;
                         case 1:
                             break;

@@ -1,8 +1,8 @@
 package com.baidu.swan.facade.requred.openstat.imupload;
 
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.ArrayMap;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.upload.action.IMPushUploadConstants;
 import com.baidu.swan.facade.requred.openstat.imupload.log.model.Bimlog;
 import com.google.protobuf.ByteString;
@@ -25,16 +25,16 @@ import okio.BufferedSink;
 import okio.GzipSink;
 import okio.Okio;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public class b {
-    private static b dPD;
+    private static b dYz;
     private OkHttpClient mOkHttpClient = createOkHttpClient();
 
-    public static b aRI() {
-        if (dPD == null) {
-            dPD = new b();
+    public static b aUc() {
+        if (dYz == null) {
+            dYz = new b();
         }
-        return dPD;
+        return dYz;
     }
 
     private b() {
@@ -93,9 +93,9 @@ public class b {
         if (TextUtils.isEmpty(str)) {
             str = "";
         }
-        Bimlog.LogRequest.AuthInfo build = newBuilder.vN(str).build();
+        Bimlog.LogRequest.AuthInfo build = newBuilder.vM(str).build();
         long currentTimeMillis = System.currentTimeMillis();
-        return Bimlog.LogRequest.newBuilder().cZ(1L).vO("smart_app").b(build).da(currentTimeMillis).vP(com.baidu.swan.facade.requred.openstat.imupload.a.u("smart_app", currentTimeMillis)).c(ByteString.copyFrom(bArr)).build().toByteArray();
+        return Bimlog.LogRequest.newBuilder().da(1L).vN("smart_app").b(build).db(currentTimeMillis).vO(com.baidu.swan.facade.requred.openstat.imupload.a.u("smart_app", currentTimeMillis)).c(ByteString.copyFrom(bArr)).build().toByteArray();
     }
 
     @NonNull
@@ -112,7 +112,7 @@ public class b {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes6.dex */
     public class a implements Interceptor {
         public a() {
         }

@@ -9,32 +9,37 @@ import android.net.Proxy;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 class n implements j {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     private static class a {
-        private static a axe;
-        private static HashMap<String, Integer> b = new HashMap<>();
+        private static a axx;
+
+        /* renamed from: b  reason: collision with root package name */
+        private static HashMap<String, Integer> f2444b = new HashMap<>();
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.baidu.helios.a.a.n$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public static class C0135a {
+        /* loaded from: classes4.dex */
+        public static class C0127a {
 
             /* renamed from: a  reason: collision with root package name */
-            private String f1787a;
-            private String b;
+            private String f2445a;
+
+            /* renamed from: b  reason: collision with root package name */
+            private String f2446b;
             private String c;
             private boolean d;
             private String e;
             private int f;
             private String g;
 
-            public C0135a(Context context) {
+            public C0127a(Context context) {
                 c(context);
             }
 
@@ -43,19 +48,19 @@ class n implements j {
                 if (networkInfo.getExtraInfo() != null && (lowerCase = networkInfo.getExtraInfo().toLowerCase()) != null) {
                     if (lowerCase.startsWith("cmwap") || lowerCase.startsWith("uniwap") || lowerCase.startsWith("3gwap")) {
                         this.d = true;
-                        this.f1787a = lowerCase;
-                        this.b = "10.0.0.172";
+                        this.f2445a = lowerCase;
+                        this.f2446b = "10.0.0.172";
                         this.c = "80";
                         return;
                     } else if (lowerCase.startsWith("ctwap")) {
                         this.d = true;
-                        this.f1787a = lowerCase;
-                        this.b = "10.0.0.200";
+                        this.f2445a = lowerCase;
+                        this.f2446b = "10.0.0.200";
                         this.c = "80";
                         return;
                     } else if (lowerCase.startsWith("cmnet") || lowerCase.startsWith("uninet") || lowerCase.startsWith("ctnet") || lowerCase.startsWith("3gnet")) {
                         this.d = false;
-                        this.f1787a = lowerCase;
+                        this.f2445a = lowerCase;
                         return;
                     }
                 }
@@ -65,11 +70,11 @@ class n implements j {
                     this.d = false;
                     return;
                 }
-                this.b = defaultHost;
-                if ("10.0.0.172".equals(this.b.trim())) {
+                this.f2446b = defaultHost;
+                if ("10.0.0.172".equals(this.f2446b.trim())) {
                     this.d = true;
                     this.c = "80";
-                } else if ("10.0.0.200".equals(this.b.trim())) {
+                } else if ("10.0.0.200".equals(this.f2446b.trim())) {
                     this.d = true;
                     this.c = "80";
                 } else {
@@ -92,7 +97,7 @@ class n implements j {
                         this.d = false;
                     } else {
                         a(context, networkInfo);
-                        this.e = this.f1787a;
+                        this.e = this.f2445a;
                     }
                     this.f = networkInfo.getSubtype();
                     this.g = networkInfo.getSubtypeName();
@@ -109,33 +114,33 @@ class n implements j {
         }
 
         static {
-            b.put("WIFI", 1);
-            b.put("3GNET", 21);
-            b.put("3GWAP", 22);
-            b.put("CMNET", 31);
-            b.put("UNINET", 32);
-            b.put("CTNET", 33);
-            b.put("CMWAP", 41);
-            b.put("UNIWAP", 42);
-            b.put("CTWAP", 43);
-            axe = new a();
+            f2444b.put("WIFI", 1);
+            f2444b.put("3GNET", 21);
+            f2444b.put("3GWAP", 22);
+            f2444b.put("CMNET", 31);
+            f2444b.put("UNINET", 32);
+            f2444b.put("CTNET", 33);
+            f2444b.put("CMWAP", 41);
+            f2444b.put("UNIWAP", 42);
+            f2444b.put("CTWAP", 43);
+            axx = new a();
         }
 
         private a() {
         }
 
-        public static a zF() {
-            return axe;
+        public static a yW() {
+            return axx;
         }
 
         public String a(Context context) {
-            C0135a c0135a = new C0135a(context);
-            String g = c0135a.g();
-            int e = c0135a.e();
+            C0127a c0127a = new C0127a(context);
+            String g = c0127a.g();
+            int e = c0127a.e();
             if (TextUtils.isEmpty(g)) {
                 return ((Object) 5) + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + e;
             }
-            Integer num = b.get(g.toUpperCase());
+            Integer num = f2444b.get(g.toUpperCase());
             if (num == null) {
                 num = 5;
             }
@@ -143,10 +148,12 @@ class n implements j {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     private static class b {
-        private static b axf = new b();
-        private String b;
+        private static b axy = new b();
+
+        /* renamed from: b  reason: collision with root package name */
+        private String f2447b;
         private DisplayMetrics c;
 
         private b() {
@@ -162,7 +169,7 @@ class n implements j {
             stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
             stringBuffer.append(e);
             stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
-            stringBuffer.append("android");
+            stringBuffer.append(HttpConstants.OS_TYPE_VALUE);
             stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
             stringBuffer.append(c);
             stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
@@ -209,27 +216,29 @@ class n implements j {
             }
         }
 
-        public static b zG() {
-            return axf;
+        public static b yX() {
+            return axy;
         }
 
         public String a(Context context) {
             synchronized (b.class) {
-                if (TextUtils.isEmpty(this.b)) {
-                    this.b = b(context);
+                if (TextUtils.isEmpty(this.f2447b)) {
+                    this.f2447b = b(context);
                 }
             }
-            return this.b;
+            return this.f2447b;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     private static class c {
-        private static c axg = new c();
+        private static c axz = new c();
 
         /* renamed from: a  reason: collision with root package name */
-        private String f1788a;
-        private String b;
+        private String f2448a;
+
+        /* renamed from: b  reason: collision with root package name */
+        private String f2449b;
         private String c;
         private String d;
 
@@ -238,17 +247,17 @@ class n implements j {
         }
 
         private void c() {
-            this.f1788a = Build.MODEL;
-            if (TextUtils.isEmpty(this.f1788a)) {
-                this.f1788a = "NUL";
+            this.f2448a = Build.MODEL;
+            if (TextUtils.isEmpty(this.f2448a)) {
+                this.f2448a = "NUL";
             } else {
-                this.f1788a = this.f1788a.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+                this.f2448a = this.f2448a.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, Constants.ACCEPT_TIME_SEPARATOR_SERVER);
             }
-            this.b = Build.MANUFACTURER;
-            if (TextUtils.isEmpty(this.b)) {
-                this.b = "NUL";
+            this.f2449b = Build.MANUFACTURER;
+            if (TextUtils.isEmpty(this.f2449b)) {
+                this.f2449b = "NUL";
             } else {
-                this.b = this.b.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+                this.f2449b = this.f2449b.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, Constants.ACCEPT_TIME_SEPARATOR_SERVER);
             }
             this.c = Build.VERSION.RELEASE;
             if (TextUtils.isEmpty(this.c)) {
@@ -260,14 +269,14 @@ class n implements j {
         }
 
         private String d() {
-            String str = this.f1788a;
+            String str = this.f2448a;
             String str2 = this.c;
             int i = Build.VERSION.SDK_INT;
-            return str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.b;
+            return str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.f2449b;
         }
 
-        public static c zH() {
-            return axg;
+        public static c yY() {
+            return axz;
         }
 
         public String b() {
@@ -277,12 +286,12 @@ class n implements j {
 
     @Override // com.baidu.helios.a.a.j
     public String a() {
-        return c.zH().b();
+        return c.yY().b();
     }
 
     @Override // com.baidu.helios.a.a.j
     public String a(Context context) {
-        return b.zG().a(context);
+        return b.yX().a(context);
     }
 
     @Override // com.baidu.helios.a.a.j
@@ -297,11 +306,11 @@ class n implements j {
 
     @Override // com.baidu.helios.a.a.j
     public String c(Context context) {
-        return com.baidu.helios.b.al(context).zh();
+        return com.baidu.helios.b.ak(context).yy();
     }
 
     @Override // com.baidu.helios.a.a.j
     public String d(Context context) {
-        return a.zF().a(context);
+        return a.yW().a(context);
     }
 }

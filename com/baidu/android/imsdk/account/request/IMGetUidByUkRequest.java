@@ -3,7 +3,7 @@ package com.baidu.android.imsdk.account.request;
 import android.content.Context;
 import android.util.Log;
 import android.util.Pair;
-import com.baidu.ala.recorder.video.AlaRecorderLog;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.upload.action.IMTrack;
@@ -16,7 +16,7 @@ import java.util.TreeMap;
 import org.apache.http.cookie.SM;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class IMGetUidByUkRequest implements HttpHelper.Request, HttpHelper.ResponseHandler {
     private Context mContext;
     private String mKey;
@@ -30,10 +30,11 @@ public class IMGetUidByUkRequest implements HttpHelper.Request, HttpHelper.Respo
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     public void onSuccess(int i, byte[] bArr) {
+        JSONException jSONException;
         TreeMap treeMap;
         int i2;
         String str;
-        String string;
+        int i3;
         TreeMap treeMap2;
         long[] jArr;
         String str2 = new String(bArr);
@@ -42,7 +43,7 @@ public class IMGetUidByUkRequest implements HttpHelper.Request, HttpHelper.Respo
             JSONObject jSONObject = new JSONObject(str2);
             if (jSONObject.has("response_params")) {
                 JSONObject jSONObject2 = jSONObject.getJSONObject("response_params");
-                int i3 = jSONObject2.getInt("error_code");
+                i3 = jSONObject2.getInt("error_code");
                 if (i3 != 0) {
                     treeMap2 = null;
                 } else {
@@ -53,26 +54,25 @@ public class IMGetUidByUkRequest implements HttpHelper.Request, HttpHelper.Respo
                             treeMap2.put(Long.valueOf(j), Long.valueOf(jSONObject3.optLong("" + j, -1L)));
                         }
                     } catch (JSONException e) {
+                        jSONException = e;
                         treeMap = treeMap2;
-                        e = e;
-                        LogUtils.e("IMGetUidByUkRequest", e.getMessage(), e);
+                        LogUtils.e("IMGetUidByUkRequest", jSONException.getMessage(), jSONException);
                         i2 = 1010;
                         str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
-                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(jSONException)).build();
                         AccountManagerImpl.getInstance(this.mContext).onGetUidByUkResult(this.mKey, i2, str, this.mUks, treeMap);
                     }
                 }
-                string = Constants.ERROR_MSG_SUCCESS;
-                i2 = i3;
+                str = Constants.ERROR_MSG_SUCCESS;
             } else {
-                i2 = jSONObject.getInt("error_code");
-                string = jSONObject.getString(AlaRecorderLog.KEY_ERROR_MSG);
+                i3 = jSONObject.getInt("error_code");
                 treeMap2 = null;
+                str = jSONObject.getString("error_msg");
             }
             treeMap = treeMap2;
-            str = string;
+            i2 = i3;
         } catch (JSONException e2) {
-            e = e2;
+            jSONException = e2;
             treeMap = null;
         }
         AccountManagerImpl.getInstance(this.mContext).onGetUidByUkResult(this.mKey, i2, str, this.mUks, treeMap);
@@ -157,11 +157,11 @@ public class IMGetUidByUkRequest implements HttpHelper.Request, HttpHelper.Respo
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
     public int getConnectTimeout() {
-        return 15000;
+        return BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL;
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
     public int getReadTimeout() {
-        return 15000;
+        return BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL;
     }
 }

@@ -5,47 +5,47 @@ import android.util.Log;
 import android.view.KeyEvent;
 import com.baidu.swan.apps.SwanAppActivity;
 import java.util.HashMap;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class j {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile j cFP;
-    private HashMap<String, Boolean> cFN = new HashMap<>();
-    private HashMap<String, com.baidu.swan.apps.inlinewidget.f.c.a> cFO = new HashMap<>();
-    private int aLF = -1;
-    private com.baidu.swan.apps.ap.e.b<Integer> cFQ = null;
-    private com.baidu.swan.apps.v.h cFR = null;
-    private com.baidu.swan.apps.framework.a cFS = new com.baidu.swan.apps.framework.a() { // from class: com.baidu.swan.apps.api.module.k.j.1
+    private static volatile j cKF;
+    private HashMap<String, Boolean> cKD = new HashMap<>();
+    private HashMap<String, com.baidu.swan.apps.inlinewidget.f.c.a> cKE = new HashMap<>();
+    private int aMj = -1;
+    private com.baidu.swan.apps.ao.e.b<Integer> cKG = null;
+    private com.baidu.swan.apps.v.h cKH = null;
+    private com.baidu.swan.apps.framework.a cKI = new com.baidu.swan.apps.framework.a() { // from class: com.baidu.swan.apps.api.module.k.j.1
         @Override // com.baidu.swan.apps.framework.a, com.baidu.swan.apps.framework.b
         public boolean onKeyDown(int i, KeyEvent keyEvent) {
-            if (i == 4 && j.this.cFQ != null && j.this.isFullScreen()) {
-                j.this.cFQ.M(1);
+            if (i == 4 && j.this.cKG != null && j.this.isFullScreen()) {
+                j.this.cKG.L(1);
                 return true;
             }
             return false;
         }
     };
 
-    public static j amD() {
-        if (cFP == null) {
+    public static j anN() {
+        if (cKF == null) {
             synchronized (j.class) {
-                if (cFP == null) {
-                    cFP = new j();
+                if (cKF == null) {
+                    cKF = new j();
                 }
             }
         }
-        return cFP;
+        return cKF;
     }
 
     public void P(String str, boolean z) {
-        if (this.cFN != null) {
-            this.cFN.put(str, Boolean.valueOf(z));
+        if (this.cKD != null) {
+            this.cKD.put(str, Boolean.valueOf(z));
         }
     }
 
-    public void mq(String str) {
-        if (this.cFN != null) {
-            this.cFN.remove(str);
-            int size = this.cFN.keySet().size();
+    public void mj(String str) {
+        if (this.cKD != null) {
+            this.cKD.remove(str);
+            int size = this.cKD.keySet().size();
             if (DEBUG) {
                 Log.i("SwanInlinePlayerManager", "removePlayerState: last player count " + size);
             }
@@ -53,101 +53,101 @@ public class j {
     }
 
     public boolean isFullScreen() {
-        return this.aLF == 90 || this.aLF == -90;
+        return this.aMj == 90 || this.aMj == -90;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void hV(int i) {
-        this.aLF = i;
+    public void hP(int i) {
+        this.aMj = i;
     }
 
-    public void amE() {
+    public void anO() {
         if (isFullScreen()) {
             if (DEBUG) {
                 Log.i("SwanInlinePlayerManager", "onForegroundChange: full screen ");
             }
-            com.baidu.swan.apps.res.widget.a.aJr();
+            com.baidu.swan.apps.res.widget.a.aLk();
             com.baidu.swan.apps.res.widget.a.setImmersive(true);
         } else if (DEBUG) {
             Log.i("SwanInlinePlayerManager", "onForegroundChange: vertical screen. ");
         }
     }
 
-    public void amF() {
-        if (isFullScreen() && this.cFQ != null) {
-            this.cFQ.M(0);
+    public void anP() {
+        if (isFullScreen() && this.cKG != null) {
+            this.cKG.L(0);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void b(com.baidu.swan.apps.ap.e.b<Integer> bVar) {
-        this.cFQ = bVar;
+    public void b(com.baidu.swan.apps.ao.e.b<Integer> bVar) {
+        this.cKG = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void amG() {
-        this.cFQ = null;
+    public void anQ() {
+        this.cKG = null;
     }
 
     public void release() {
         synchronized (this) {
-            amH();
-            amJ();
-            this.cFN = null;
-            this.cFO.clear();
-            this.cFQ = null;
+            anR();
+            anT();
+            this.cKD = null;
+            this.cKE.clear();
+            this.cKG = null;
         }
-        cFP = null;
+        cKF = null;
     }
 
-    protected void amH() {
-        if (this.cFR != null) {
-            com.baidu.swan.apps.v.i.b(this.cFR);
-            this.cFR = null;
+    protected void anR() {
+        if (this.cKH != null) {
+            com.baidu.swan.apps.v.i.b(this.cKH);
+            this.cKH = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void amI() {
-        com.baidu.swan.apps.v.f.aCp().aBZ().a(this.cFS);
+    public void anS() {
+        com.baidu.swan.apps.v.f.aDG().aDq().a(this.cKI);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void amJ() {
-        SwanAppActivity aBZ = com.baidu.swan.apps.v.f.aCp().aBZ();
-        if (this.cFS != null && aBZ != null) {
-            aBZ.b(this.cFS);
+    public void anT() {
+        SwanAppActivity aDq = com.baidu.swan.apps.v.f.aDG().aDq();
+        if (this.cKI != null && aDq != null) {
+            aDq.b(this.cKI);
         }
     }
 
     public void a(com.baidu.swan.apps.inlinewidget.f.c.a aVar) {
-        if (aVar != null && !TextUtils.isEmpty(aVar.ayG())) {
-            this.cFO.put(aVar.ayG(), aVar);
+        if (aVar != null && !TextUtils.isEmpty(aVar.azX())) {
+            this.cKE.put(aVar.azX(), aVar);
         }
     }
 
-    public void mr(String str) {
+    public void mk(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.cFO.remove(str);
+            this.cKE.remove(str);
         }
     }
 
-    public void ms(String str) {
+    public void ml(String str) {
         if (TextUtils.isEmpty(str)) {
             if (DEBUG) {
                 Log.i("SwanInlinePlayerManager", "pauseOtherPlayers: empty player id ");
             }
-        } else if (this.cFO != null && this.cFO.size() > 0) {
-            for (String str2 : this.cFO.keySet()) {
+        } else if (this.cKE != null && this.cKE.size() > 0) {
+            for (String str2 : this.cKE.keySet()) {
                 if (str2.equals(str)) {
                     if (DEBUG) {
                         Log.i("SwanInlinePlayerManager", "pauseOtherPlayers: skip itself." + str);
                     }
                 } else {
-                    com.baidu.swan.apps.inlinewidget.f.c.a aVar = this.cFO.get(str2);
+                    com.baidu.swan.apps.inlinewidget.f.c.a aVar = this.cKE.get(str2);
                     if (aVar != null) {
                         aVar.pause();
-                        aVar.ayJ().pn(aVar.ayG());
+                        aVar.aAa().pg(aVar.azX());
                     }
                 }
             }

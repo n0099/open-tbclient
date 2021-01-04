@@ -1,82 +1,82 @@
 package com.baidu.prologue.a.b;
 
 import android.content.Context;
-import android.support.annotation.IdRes;
-import android.support.annotation.NonNull;
+import androidx.annotation.IdRes;
+import androidx.annotation.NonNull;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public interface a {
-    public static final AtomicReference<a> clZ = new AtomicReference<>();
+    public static final AtomicReference<a> ctd = new AtomicReference<>();
 
     boolean a(String str, com.baidu.prologue.c.b bVar);
 
+    int agA();
+
+    String agB();
+
+    @NonNull
+    Context age();
+
+    @NonNull
+    String agf();
+
+    @NonNull
+    String agg();
+
+    @NonNull
+    String agh();
+
+    @NonNull
+    String agi();
+
+    @NonNull
+    String agj();
+
+    @NonNull
+    String agk();
+
+    @NonNull
+    String agl();
+
+    @NonNull
+    String agm();
+
+    @NonNull
+    String agn();
+
+    boolean ago();
+
+    @NonNull
+    String agp();
+
+    boolean agq();
+
+    String agr();
+
+    String ags();
+
+    String[] agt();
+
+    String agu();
+
+    String agv();
+
     @IdRes
-    int aeA();
+    int agw();
 
     @IdRes
-    int aeB();
+    int agx();
 
     @IdRes
-    int aeC();
+    int agy();
 
-    String aeD();
-
-    int aeE();
-
-    String aeF();
-
-    @NonNull
-    Context aei();
-
-    @NonNull
-    String aej();
-
-    @NonNull
-    String aek();
-
-    @NonNull
-    String ael();
-
-    @NonNull
-    String aem();
-
-    @NonNull
-    String aen();
-
-    @NonNull
-    String aeo();
-
-    @NonNull
-    String aep();
-
-    @NonNull
-    String aeq();
-
-    @NonNull
-    String aer();
-
-    boolean aes();
-
-    @NonNull
-    String aet();
-
-    boolean aeu();
-
-    String aev();
-
-    String aew();
-
-    String[] aex();
-
-    String aey();
-
-    String aez();
+    String agz();
 
     @NonNull
     String androidId();
 
     @NonNull
-    String rA();
+    String rc();
 
     @NonNull
     String userAgent();

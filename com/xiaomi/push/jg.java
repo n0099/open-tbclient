@@ -1,19 +1,19 @@
 package com.xiaomi.push;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public final class jg {
 
     /* renamed from: a  reason: collision with root package name */
-    public final byte f4771a;
+    public final byte f14471a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final int f780a;
+    public final int f858a;
 
     public jg() {
         this((byte) 0, 0);
     }
 
-    public jg(byte b, int i) {
-        this.f4771a = b;
-        this.f780a = i;
+    public jg(byte b2, int i) {
+        this.f14471a = b2;
+        this.f858a = i;
     }
 }

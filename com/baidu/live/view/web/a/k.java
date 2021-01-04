@@ -1,27 +1,34 @@
 package com.baidu.live.view.web.a;
 
-import com.baidu.live.adp.framework.MessageManager;
-import com.baidu.live.adp.framework.message.CustomResponsedMessage;
-import org.json.JSONException;
+import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import com.baidu.live.tbadk.core.util.ViewHelper;
+import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
+import com.baidu.live.tbadk.extraparams.ResultCallback;
+import com.baidu.live.tbadk.scheme.SchemeCallback;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class k extends com.baidu.live.view.web.a {
-    @Override // com.baidu.live.view.web.a
-    public String getName() {
-        return "ruleBridge";
+    private SchemeCallback schemeCallback;
+
+    public k(SchemeCallback schemeCallback) {
+        this.schemeCallback = schemeCallback;
     }
 
     @Override // com.baidu.live.view.web.a
-    public void jm(String str) {
-        if (str != null) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                if (jSONObject != null) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913259, jSONObject));
+    public String getName() {
+        return "loginBridge";
+    }
+
+    @Override // com.baidu.live.view.web.a
+    public void jf(final String str) {
+        if (this.schemeCallback != null) {
+            ExtraParamsManager.addLoginCallback(new ResultCallback() { // from class: com.baidu.live.view.web.a.k.1
+                @Override // com.baidu.live.tbadk.extraparams.ResultCallback
+                public void onCallback(JSONObject jSONObject) {
+                    k.this.schemeCallback.doJsCallback(jSONObject.optBoolean("status") ? 1 : 0, "", null, str);
                 }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+            });
         }
+        ViewHelper.skipToLoginActivity(TbadkCoreApplication.getInst());
     }
 }

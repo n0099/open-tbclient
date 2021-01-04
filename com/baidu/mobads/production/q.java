@@ -27,12 +27,14 @@ import java.util.Set;
 import java.util.Timer;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class q implements IXAdContainerEventListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f2427a;
-    private final b b;
+    private Context f3507a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private final b f3508b;
     private int g = 0;
     private int h = 2;
     private int i = 15;
@@ -59,8 +61,8 @@ public class q implements IXAdContainerEventListener {
     }
 
     public q(Context context, b bVar) {
-        this.f2427a = context;
-        this.b = bVar;
+        this.f3507a = context;
+        this.f3508b = bVar;
     }
 
     private void a(Context context, String str, String str2) {
@@ -90,7 +92,7 @@ public class q implements IXAdContainerEventListener {
         com.baidu.mobads.utils.p pVar = (com.baidu.mobads.utils.p) XAdSDKFoundationFacade.getInstance().getSystemUtils();
         com.baidu.mobads.utils.h adConstants = XAdSDKFoundationFacade.getInstance().getAdConstants();
         com.baidu.mobads.utils.n packageUtils = XAdSDKFoundationFacade.getInstance().getPackageUtils();
-        IXNonLinearAdSlot iXNonLinearAdSlot = this.b;
+        IXNonLinearAdSlot iXNonLinearAdSlot = this.f3508b;
         IXAdResource adResource = iXAdContainer.getAdContainerContext().getAdResource();
         boolean z2 = false;
         String clickThroughUrl = iXAdInstanceInfo.getClickThroughUrl();
@@ -164,7 +166,7 @@ public class q implements IXAdContainerEventListener {
             }
             bool2 = z2;
         } else if (actionType == adConstants.getActTypeLandingPage() || actionType == adConstants.getActTypeOpenMap()) {
-            if (this.b.getProdInfo().getProdType() == adConstants.getProductionTypeSplash()) {
+            if (this.f3508b.getProdInfo().getProdType() == adConstants.getProductionTypeSplash()) {
                 bool2 = false;
             } else {
                 bool2 = true;
@@ -193,8 +195,8 @@ public class q implements IXAdContainerEventListener {
                 intent.setData(Uri.parse(clickThroughUrl));
                 List<ResolveInfo> queryIntentActivities = packageManager.queryIntentActivities(intent, 64);
                 if (queryIntentActivities != null && queryIntentActivities.size() > 0) {
-                    int i3 = 0;
                     String str = null;
+                    int i3 = 0;
                     while (true) {
                         int i4 = i3;
                         if (i4 >= queryIntentActivities.size()) {
@@ -223,9 +225,9 @@ public class q implements IXAdContainerEventListener {
             bool2 = z2;
         }
         if (bool2.booleanValue()) {
-            this.b.dispatchEvent(new com.baidu.mobads.f.a(IXAdEvent.AD_CLICK_THRU));
+            this.f3508b.dispatchEvent(new com.baidu.mobads.f.a(IXAdEvent.AD_CLICK_THRU));
         }
-        this.b.dispatchEvent(new com.baidu.mobads.f.a("AdUserClick"));
+        this.f3508b.dispatchEvent(new com.baidu.mobads.f.a("AdUserClick"));
     }
 
     public boolean a(HashMap<String, Object> hashMap, IXNonLinearAdSlot iXNonLinearAdSlot, IXAdResource iXAdResource, IXAdInstanceInfo iXAdInstanceInfo) {
@@ -241,25 +243,25 @@ public class q implements IXAdContainerEventListener {
     @Override // com.baidu.mobads.interfaces.IXAdContainerEventListener
     public void onAdLoaded(IXAdContainer iXAdContainer, IXAdInstanceInfo iXAdInstanceInfo, Boolean bool, HashMap<String, Object> hashMap) {
         if (Looper.myLooper() == Looper.getMainLooper()) {
-            this.b.a(iXAdContainer, hashMap);
+            this.f3508b.a(iXAdContainer, hashMap);
         } else {
-            new Handler(this.f2427a.getMainLooper()).post(new t(this, iXAdContainer, hashMap));
+            new Handler(this.f3507a.getMainLooper()).post(new t(this, iXAdContainer, hashMap));
         }
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdContainerEventListener
     public void onAdStarted(IXAdContainer iXAdContainer, IXAdInstanceInfo iXAdInstanceInfo, Boolean bool, HashMap<String, Object> hashMap) {
         if (Looper.myLooper() == Looper.getMainLooper()) {
-            this.b.b(iXAdContainer, hashMap);
+            this.f3508b.b(iXAdContainer, hashMap);
         } else {
-            new Handler(this.f2427a.getMainLooper()).post(new u(this, iXAdContainer, hashMap));
+            new Handler(this.f3507a.getMainLooper()).post(new u(this, iXAdContainer, hashMap));
         }
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdContainerEventListener
     public void onAdImpression(IXAdContainer iXAdContainer, IXAdInstanceInfo iXAdInstanceInfo, Boolean bool, HashMap<String, Object> hashMap) {
         a(iXAdInstanceInfo.getImpressionUrls());
-        this.b.dispatchEvent(new com.baidu.mobads.f.a(IXAdEvent.AD_IMPRESSION));
+        this.f3508b.dispatchEvent(new com.baidu.mobads.f.a(IXAdEvent.AD_IMPRESSION));
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdContainerEventListener
@@ -271,11 +273,11 @@ public class q implements IXAdContainerEventListener {
         }
         if (bool2.booleanValue()) {
             IXAdContainerContext adContainerContext = iXAdContainer.getAdContainerContext();
-            this.b.a(adContainerContext.getAdResponseInfo(), adContainerContext.getAdInstanceInfo());
+            this.f3508b.a(adContainerContext.getAdResponseInfo(), adContainerContext.getAdInstanceInfo());
             return;
         }
-        this.b.e(iXAdContainer, hashMap);
-        this.b.dispatchEvent(new com.baidu.mobads.f.a(IXAdEvent.AD_STOPPED));
+        this.f3508b.e(iXAdContainer, hashMap);
+        this.f3508b.dispatchEvent(new com.baidu.mobads.f.a(IXAdEvent.AD_STOPPED));
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdContainerEventListener
@@ -286,18 +288,18 @@ public class q implements IXAdContainerEventListener {
                 com.baidu.mobads.c.a.a().a(hashMap.get(adConstants.getInfoKeyErrorCode()) + "," + hashMap.get(adConstants.getInfoKeyErrorMessage()) + "," + hashMap.get(adConstants.getInfoKeyErrorModule()));
             }
             this.e.set(true);
-            this.b.dispatchEvent(new com.baidu.mobads.f.a(IXAdEvent.AD_ERROR, hashMap));
+            this.f3508b.dispatchEvent(new com.baidu.mobads.f.a(IXAdEvent.AD_ERROR, hashMap));
         }
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdContainerEventListener
     public void onAdPlaying(IXAdContainer iXAdContainer, Boolean bool, HashMap<String, Object> hashMap) {
-        this.b.dispatchEvent(new com.baidu.mobads.f.a(IXAdEvent.AD_PLAYING));
+        this.f3508b.dispatchEvent(new com.baidu.mobads.f.a(IXAdEvent.AD_PLAYING));
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdContainerEventListener
     public void onAdPaused(IXAdContainer iXAdContainer, Boolean bool, HashMap<String, Object> hashMap) {
-        this.b.dispatchEvent(new com.baidu.mobads.f.a(IXAdEvent.AD_PAUSED));
+        this.f3508b.dispatchEvent(new com.baidu.mobads.f.a(IXAdEvent.AD_PAUSED));
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdContainerEventListener
@@ -314,7 +316,7 @@ public class q implements IXAdContainerEventListener {
 
     @Override // com.baidu.mobads.interfaces.IXAdContainerEventListener
     public void onAdUserClosed(IXAdContainer iXAdContainer, Boolean bool, HashMap<String, Object> hashMap) {
-        this.b.dispatchEvent(new com.baidu.mobads.f.a(IXAdEvent.AD_USER_CLOSE));
+        this.f3508b.dispatchEvent(new com.baidu.mobads.f.a(IXAdEvent.AD_USER_CLOSE));
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdContainerEventListener
@@ -403,9 +405,9 @@ public class q implements IXAdContainerEventListener {
 
     @Override // com.baidu.mobads.interfaces.IXAdContainerEventListener
     public void onAdCustomEvent(String str, IXAdContainer iXAdContainer, Boolean bool, HashMap<String, Object> hashMap) {
-        if (str.equals("onrsplashadtypeready") && this.b.getCurrentAdInstance().getVideoDuration() == 0 && hashMap != null) {
+        if (str.equals("onrsplashadtypeready") && this.f3508b.getCurrentAdInstance().getVideoDuration() == 0 && hashMap != null) {
             hashMap.put(com.baidu.mobads.a.a.s, RsplashType.VIDEO);
-            this.b.dispatchEvent(new com.baidu.mobads.f.a("AdTypeReady", hashMap));
+            this.f3508b.dispatchEvent(new com.baidu.mobads.f.a("AdTypeReady", hashMap));
         }
     }
 

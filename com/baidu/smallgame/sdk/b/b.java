@@ -1,23 +1,23 @@
 package com.baidu.smallgame.sdk.b;
 
 import com.baidu.searchbox.v8engine.V8ExceptionInfo;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class b {
-    long cyc;
+    long cCU;
     V8ExceptionInfo mV8ExceptionInfo;
     int type;
 
     public b(int i, V8ExceptionInfo v8ExceptionInfo, long j) {
-        this.cyc = j;
+        this.cCU = j;
         this.mV8ExceptionInfo = new V8ExceptionInfo(v8ExceptionInfo.exceptionTime, v8ExceptionInfo.exceptionMsg, v8ExceptionInfo.exceptionTrace, v8ExceptionInfo.exceptionType, v8ExceptionInfo.filePath);
         this.type = i;
     }
 
-    public V8ExceptionInfo ahP() {
+    public V8ExceptionInfo aiY() {
         return this.mV8ExceptionInfo;
     }
 
     public String toString() {
-        return "StuckScreenExceptionInfo{mLastOnScreenHappenedTime=" + this.cyc + ", mV8ExceptionInfo=" + this.mV8ExceptionInfo + ", type=" + this.type + '}';
+        return "StuckScreenExceptionInfo{mLastOnScreenHappenedTime=" + this.cCU + ", mV8ExceptionInfo=" + this.mV8ExceptionInfo + ", type=" + this.type + '}';
     }
 }

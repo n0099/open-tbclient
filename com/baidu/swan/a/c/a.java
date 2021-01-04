@@ -1,9 +1,9 @@
 package com.baidu.swan.a.c;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.http.HttpManager;
 import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.searchbox.http.request.HttpRequestBuilder;
@@ -20,31 +20,31 @@ import java.util.concurrent.TimeUnit;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Response;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class a extends HttpManager {
     private static final boolean DEBUG = com.baidu.swan.a.b.isDebug();
-    private static volatile a emH;
+    private static volatile a ewq;
 
     private a() {
-        super(com.baidu.swan.a.b.bde().getAppContext());
+        super(com.baidu.swan.a.b.bfA().getAppContext());
     }
 
-    public static a bdi() {
-        if (emH == null) {
+    public static a bfE() {
+        if (ewq == null) {
             synchronized (a.class) {
-                if (emH == null) {
-                    emH = new a();
+                if (ewq == null) {
+                    ewq = new a();
                 }
             }
         }
-        return emH;
+        return ewq;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.searchbox.http.AbstractHttpManager
     public OkHttpClient initClient() {
         OkHttpClient initClient = super.initClient();
-        List<Interceptor> networkInterceptors = com.baidu.swan.a.b.bde().networkInterceptors();
+        List<Interceptor> networkInterceptors = com.baidu.swan.a.b.bfA().networkInterceptors();
         if (networkInterceptors != null && networkInterceptors.size() > 0) {
             OkHttpClient.Builder newBuilder = initClient.newBuilder();
             for (Interceptor interceptor : networkInterceptors) {
@@ -55,8 +55,8 @@ public class a extends HttpManager {
         return initClient;
     }
 
-    public static a er(Context context) {
-        return bdi();
+    public static a eK(Context context) {
+        return bfE();
     }
 
     public void a(com.baidu.swan.a.b.a aVar) {
@@ -70,79 +70,79 @@ public class a extends HttpManager {
     }
 
     public void c(@NonNull com.baidu.swan.a.b.a aVar) {
-        if (aVar.emD == null) {
-            aVar.emD = bdu();
+        if (aVar.ewm == null) {
+            aVar.ewm = bfQ();
         }
-        if (yK(aVar.url)) {
-            aVar.emD.onFail(new Exception("url is invalid"));
+        if (yJ(aVar.url)) {
+            aVar.ewm.onFail(new Exception("url is invalid"));
             return;
         }
         HttpRequestBuilder d = b.d(aVar);
         a(d, aVar);
-        d.build().executeAsync(aVar.emD);
+        d.build().executeAsync(aVar.ewm);
     }
 
-    public OkHttpClient.Builder bdj() {
+    public OkHttpClient.Builder bfF() {
         return getOkHttpClient().newBuilder();
     }
 
-    public e bdk() {
+    public e bfG() {
         return new e(this);
     }
 
-    public j bdl() {
+    public j bfH() {
         return new j(this);
     }
 
-    public com.baidu.swan.a.a.a bdm() {
+    public com.baidu.swan.a.a.a bfI() {
         return new com.baidu.swan.a.a.a(this);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.http.AbstractHttpManager
-    /* renamed from: bdn */
+    /* renamed from: bfJ */
     public c getRequest() {
         return new c(this);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.http.AbstractHttpManager
-    /* renamed from: bdo */
+    /* renamed from: bfK */
     public d headerRequest() {
         return new d(this);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.http.AbstractHttpManager
-    /* renamed from: bdp */
+    /* renamed from: bfL */
     public f postRequest() {
         return new f(this);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.http.AbstractHttpManager
-    /* renamed from: bdq */
+    /* renamed from: bfM */
     public g postFormRequest() {
         return new g(this);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.http.AbstractHttpManager
-    /* renamed from: bdr */
+    /* renamed from: bfN */
     public h postStringRequest() {
         return new h(this);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.http.AbstractHttpManager
-    /* renamed from: bds */
+    /* renamed from: bfO */
     public i putRequest() {
         return new i(this);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.http.AbstractHttpManager
-    /* renamed from: bdt */
+    /* renamed from: bfP */
     public com.baidu.swan.a.a.b deleteRequest() {
         return new com.baidu.swan.a.a.b(this);
     }
@@ -159,13 +159,13 @@ public class a extends HttpManager {
         if (aVar.headers != null && aVar.headers.size() > 0) {
             httpRequestBuilder.headers(aVar.headers);
         }
-        if (aVar.emE) {
-            httpRequestBuilder.userAgent(com.baidu.swan.a.b.bde().getUserAgent());
+        if (aVar.ewn) {
+            httpRequestBuilder.userAgent(com.baidu.swan.a.b.bfA().getUserAgent());
         }
-        if (aVar.emF) {
-            httpRequestBuilder.cookieManager(com.baidu.swan.a.b.bde().aAr());
+        if (aVar.ewo) {
+            httpRequestBuilder.cookieManager(com.baidu.swan.a.b.bfA().aBI());
         }
-        if (aVar.emG) {
+        if (aVar.ewp) {
             a(httpRequestBuilder);
         }
         if (aVar.tag != null) {
@@ -174,36 +174,36 @@ public class a extends HttpManager {
     }
 
     public void a(HttpRequestBuilder httpRequestBuilder) {
-        int aAw = com.baidu.swan.a.b.bde().aAw();
-        if (aAw > 0) {
-            httpRequestBuilder.connectionTimeout(aAw);
+        int aBN = com.baidu.swan.a.b.bfA().aBN();
+        if (aBN > 0) {
+            httpRequestBuilder.connectionTimeout(aBN);
         }
-        int readTimeout = com.baidu.swan.a.b.bde().getReadTimeout();
+        int readTimeout = com.baidu.swan.a.b.bfA().getReadTimeout();
         if (readTimeout > 0) {
             httpRequestBuilder.readTimeout(readTimeout);
         }
-        int aAx = com.baidu.swan.a.b.bde().aAx();
-        if (aAx > 0) {
-            httpRequestBuilder.writeTimeout(aAx);
+        int aBO = com.baidu.swan.a.b.bfA().aBO();
+        if (aBO > 0) {
+            httpRequestBuilder.writeTimeout(aBO);
         }
     }
 
     public void a(OkHttpClient.Builder builder) {
-        int aAw = com.baidu.swan.a.b.bde().aAw();
-        if (aAw > 0) {
-            builder.connectTimeout(aAw, TimeUnit.MILLISECONDS);
+        int aBN = com.baidu.swan.a.b.bfA().aBN();
+        if (aBN > 0) {
+            builder.connectTimeout(aBN, TimeUnit.MILLISECONDS);
         }
-        int readTimeout = com.baidu.swan.a.b.bde().getReadTimeout();
+        int readTimeout = com.baidu.swan.a.b.bfA().getReadTimeout();
         if (readTimeout > 0) {
             builder.readTimeout(readTimeout, TimeUnit.MILLISECONDS);
         }
-        int aAx = com.baidu.swan.a.b.bde().aAx();
-        if (aAx > 0) {
-            builder.writeTimeout(aAx, TimeUnit.MILLISECONDS);
+        int aBO = com.baidu.swan.a.b.bfA().aBO();
+        if (aBO > 0) {
+            builder.writeTimeout(aBO, TimeUnit.MILLISECONDS);
         }
     }
 
-    private boolean yK(String str) {
+    private boolean yJ(String str) {
         if (TextUtils.isEmpty(str)) {
             if (DEBUG) {
                 Log.e("SwanHttpManager", "url is empty");
@@ -213,7 +213,7 @@ public class a extends HttpManager {
         return false;
     }
 
-    private ResponseCallback bdu() {
+    private ResponseCallback bfQ() {
         return new ResponseCallback() { // from class: com.baidu.swan.a.c.a.1
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             public Object parseResponse(Response response, int i) throws Exception {

@@ -1,7 +1,7 @@
 package com.baidu.searchbox.logsystem.util;
 
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.util.io.Closeables;
 import java.io.File;
 import java.io.FileInputStream;
@@ -11,14 +11,14 @@ import java.io.IOException;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class ZipUtils {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [66=4] */
     public static void zip(File file, List<ZipSrc> list) throws IOException {
         ZipOutputStream zipOutputStream;
         byte[] bArr;
+        Throwable th;
         FileInputStream fileInputStream;
-        FileNotFoundException fileNotFoundException;
         FileInputStream fileInputStream2;
         ZipOutputStream zipOutputStream2 = null;
         if (file == null || !file.exists() || list == null || list.size() == 0) {
@@ -29,8 +29,8 @@ public class ZipUtils {
             zipOutputStream = new ZipOutputStream(new FileOutputStream(file));
         } catch (FileNotFoundException e) {
             e = e;
-        } catch (Throwable th) {
-            th = th;
+        } catch (Throwable th2) {
+            th = th2;
             zipOutputStream = null;
         }
         try {
@@ -52,20 +52,20 @@ public class ZipUtils {
                             }
                             fileInputStream2 = fileInputStream;
                         } catch (FileNotFoundException e2) {
+                            e = e2;
                             fileInputStream2 = fileInputStream;
-                            fileNotFoundException = e2;
                             try {
-                                fileNotFoundException.printStackTrace();
+                                e.printStackTrace();
                                 Closeables.closeSafely(fileInputStream2);
                                 fileInputStream3 = fileInputStream2;
-                            } catch (Throwable th2) {
+                            } catch (Throwable th3) {
+                                th = th3;
                                 fileInputStream = fileInputStream2;
-                                th = th2;
                                 Closeables.closeSafely(fileInputStream);
                                 throw th;
                             }
-                        } catch (Throwable th3) {
-                            th = th3;
+                        } catch (Throwable th4) {
+                            th = th4;
                             Closeables.closeSafely(fileInputStream);
                             throw th;
                         }
@@ -74,10 +74,10 @@ public class ZipUtils {
                     }
                     Closeables.closeSafely(fileInputStream2);
                 } catch (FileNotFoundException e3) {
-                    fileNotFoundException = e3;
+                    e = e3;
                     fileInputStream2 = fileInputStream3;
-                } catch (Throwable th4) {
-                    th = th4;
+                } catch (Throwable th5) {
+                    th = th5;
                     fileInputStream = fileInputStream3;
                 }
                 fileInputStream3 = fileInputStream2;
@@ -92,20 +92,20 @@ public class ZipUtils {
                     e.printStackTrace();
                 }
                 Closeables.closeSafely(zipOutputStream2);
-            } catch (Throwable th5) {
-                th = th5;
+            } catch (Throwable th6) {
+                th = th6;
                 zipOutputStream = zipOutputStream2;
                 Closeables.closeSafely(zipOutputStream);
                 throw th;
             }
-        } catch (Throwable th6) {
-            th = th6;
+        } catch (Throwable th7) {
+            th = th7;
             Closeables.closeSafely(zipOutputStream);
             throw th;
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     public static final class ZipSrc {
         @NonNull
         public File mFile;

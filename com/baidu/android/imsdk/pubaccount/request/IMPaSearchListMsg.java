@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class IMPaSearchListMsg extends Message {
     private Context mContext;
     private String mSearchContent;
@@ -51,14 +51,13 @@ public class IMPaSearchListMsg extends Message {
     @Override // com.baidu.android.imsdk.request.Message
     public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
         ArrayList arrayList;
-        Exception e;
         JSONArray optJSONArray;
         if (i == 0) {
             try {
                 optJSONArray = jSONObject.optJSONArray("pa_list");
-            } catch (Exception e2) {
+            } catch (Exception e) {
+                e = e;
                 arrayList = null;
-                e = e2;
             }
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 arrayList = new ArrayList();
@@ -74,8 +73,8 @@ public class IMPaSearchListMsg extends Message {
                         paInfo.setAcceptPush(true);
                         paInfo.setStatus(jSONObject2.optInt("status"));
                         arrayList.add(paInfo);
-                    } catch (Exception e3) {
-                        e = e3;
+                    } catch (Exception e2) {
+                        e = e2;
                         LogUtils.e(LogUtils.TAG, "handleMessageResult:", e);
                         new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
                         super.handleMessageResult(context, jSONObject, i, str);

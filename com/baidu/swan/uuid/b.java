@@ -7,41 +7,41 @@ import com.baidu.swan.uuid.a.d;
 import com.baidu.swan.uuid.a.e;
 import com.baidu.swan.uuid.a.f;
 import com.baidu.swan.uuid.a.g;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class b {
-    private static b esy;
-    private String esA;
-    private final a<String> esz = new a<>();
+    private static b eCi;
+    private final a<String> eCj = new a<>();
+    private String eCk;
 
     private b(Context context) {
-        this.esz.a(new c(context));
-        this.esz.a(new e(context));
-        this.esz.a(new d(context));
-        this.esz.a(new g(context));
-        this.esz.a(new com.baidu.swan.uuid.a.a(context));
-        this.esz.a(new f(context));
+        this.eCj.a(new c(context));
+        this.eCj.a(new e(context));
+        this.eCj.a(new d(context));
+        this.eCj.a(new g(context));
+        this.eCj.a(new com.baidu.swan.uuid.a.a(context));
+        this.eCj.a(new f(context));
     }
 
-    public static b et(Context context) {
-        if (esy == null) {
+    public static b eM(Context context) {
+        if (eCi == null) {
             synchronized (b.class) {
-                if (esy == null) {
-                    esy = new b(context);
+                if (eCi == null) {
+                    eCi = new b(context);
                 }
             }
         }
-        return esy;
+        return eCi;
     }
 
     public String getUUID() {
-        if (TextUtils.isEmpty(this.esA)) {
+        if (TextUtils.isEmpty(this.eCk)) {
             synchronized (this) {
-                if (TextUtils.isEmpty(this.esA)) {
-                    this.esA = this.esz.bgK();
-                    this.esz.ap(this.esA);
+                if (TextUtils.isEmpty(this.eCk)) {
+                    this.eCk = this.eCj.bjh();
+                    this.eCj.ar(this.eCk);
                 }
             }
         }
-        return this.esA;
+        return this.eCk;
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.swan.apps.setting.oauth;
 
 import com.baidu.searchbox.http.cookie.CookieManager;
 import java.util.List;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public abstract class g implements CookieManager {
     @Override // com.baidu.searchbox.http.cookie.CookieManager
     public abstract String getCookie(String str);

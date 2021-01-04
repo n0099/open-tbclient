@@ -7,8 +7,8 @@ import com.baidu.live.pendantview.PendantChildView;
 import com.baidu.live.pendantview.PendantParentView;
 import com.baidu.live.sdk.a;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes4.dex */
-public class AlaActiveRootView extends PendantChildView implements com.baidu.live.i.b {
+/* loaded from: classes11.dex */
+public class AlaActiveRootView extends PendantChildView implements com.baidu.live.j.b {
     private final int pos;
 
     public AlaActiveRootView(int i, Context context) {
@@ -82,11 +82,11 @@ public class AlaActiveRootView extends PendantChildView implements com.baidu.liv
         setMinimumWidth(getResources().getDimensionPixelOffset(a.d.sdk_ds104));
     }
 
-    @Override // com.baidu.live.i.b
+    @Override // com.baidu.live.j.b
     public void setViewTouchable(boolean z) {
     }
 
-    @Override // com.baidu.live.i.b
+    @Override // com.baidu.live.j.b
     public View getOverlayView() {
         return this;
     }
@@ -98,6 +98,11 @@ public class AlaActiveRootView extends PendantChildView implements com.baidu.liv
 
     @Override // com.baidu.live.pendantview.PendantChildView
     public PendantParentView.Position getVerticalPkPosition() {
+        return PendantParentView.Position.RIGHT;
+    }
+
+    @Override // com.baidu.live.pendantview.PendantChildView
+    public PendantParentView.Position getVerticalBBChattingPosition() {
         return PendantParentView.Position.RIGHT;
     }
 

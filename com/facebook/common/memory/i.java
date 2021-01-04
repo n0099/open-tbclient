@@ -3,9 +3,9 @@ package com.facebook.common.memory;
 import com.facebook.common.internal.l;
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 public abstract class i extends OutputStream {
-    public abstract PooledByteBuffer eqa();
+    public abstract PooledByteBuffer euc();
 
     public abstract int size();
 
@@ -14,7 +14,7 @@ public abstract class i extends OutputStream {
         try {
             super.close();
         } catch (IOException e) {
-            l.v(e);
+            l.t(e);
         }
     }
 }

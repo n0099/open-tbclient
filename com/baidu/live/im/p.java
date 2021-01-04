@@ -10,13 +10,13 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class p {
-    public static List<a> a(com.baidu.i.a.b.a.c cVar) {
+    public static List<a> a(com.baidu.j.a.b.a.c cVar) {
         return a(cVar, false);
     }
 
-    public static List<a> a(com.baidu.i.a.b.a.c cVar, boolean z) {
+    public static List<a> a(com.baidu.j.a.b.a.c cVar, boolean z) {
         int i = JavaTypesHelper.toInt(cVar.type, 0);
         if (TbConfig.IM_LOG) {
             Log.i("imlog", "@.@ IM消息 接收: 消息类型：  " + i);
@@ -46,9 +46,9 @@ public class p {
         }
     }
 
-    private static final List<a> b(com.baidu.i.a.b.a.c cVar) {
-        int i = cVar.bYG.bYT;
-        String str = cVar.bYG.bYU;
+    private static final List<a> b(com.baidu.j.a.b.a.c cVar) {
+        int i = cVar.cfq.cfD;
+        String str = cVar.cfq.cfE;
         if (str != null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
@@ -61,12 +61,12 @@ public class p {
                 for (int i2 = 0; i2 < length; i2++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
                     a aVar = new a();
-                    if (aVar.I(optJSONObject)) {
+                    if (aVar.P(optJSONObject)) {
                         if (aVar.getUserId() == 0) {
                             aVar.setUserId(JavaTypesHelper.toLong(cVar.uid, 0L));
                         }
-                        if (TextUtils.isEmpty(aVar.NU().userId) || "0".equals(aVar.NU().userId)) {
-                            aVar.NU().userId = String.valueOf(aVar.getUserId());
+                        if (TextUtils.isEmpty(aVar.Nw().userId) || "0".equals(aVar.Nw().userId)) {
+                            aVar.Nw().userId = String.valueOf(aVar.getUserId());
                         }
                         arrayList.add(aVar);
                     }
@@ -80,8 +80,8 @@ public class p {
         return null;
     }
 
-    private static final List<a> c(com.baidu.i.a.b.a.c cVar) {
-        String str = cVar.bYH;
+    private static final List<a> c(com.baidu.j.a.b.a.c cVar) {
+        String str = cVar.cfr;
         if (str != null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
@@ -94,12 +94,12 @@ public class p {
                 for (int i = 0; i < length; i++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                     a aVar = new a();
-                    if (aVar.I(optJSONObject)) {
+                    if (aVar.P(optJSONObject)) {
                         if (aVar.getUserId() == 0) {
                             aVar.setUserId(JavaTypesHelper.toLong(cVar.uid, 0L));
                         }
-                        if (TextUtils.isEmpty(aVar.NU().userId) || "0".equals(aVar.NU().userId)) {
-                            aVar.NU().userId = String.valueOf(aVar.getUserId());
+                        if (TextUtils.isEmpty(aVar.Nw().userId) || "0".equals(aVar.Nw().userId)) {
+                            aVar.Nw().userId = String.valueOf(aVar.getUserId());
                         }
                         arrayList.add(aVar);
                     }
@@ -127,8 +127,8 @@ public class p {
         }
     }
 
-    private static final List<a> d(com.baidu.i.a.b.a.c cVar) {
-        int i = cVar.bYG.feedback;
+    private static final List<a> d(com.baidu.j.a.b.a.c cVar) {
+        int i = cVar.cfq.feedback;
         ArrayList arrayList = new ArrayList();
         if (i > 0) {
             a aVar = new a();
@@ -147,10 +147,10 @@ public class p {
         return arrayList;
     }
 
-    private static final List<a> e(com.baidu.i.a.b.a.c cVar) {
+    private static final List<a> e(com.baidu.j.a.b.a.c cVar) {
         ArrayList arrayList = new ArrayList();
-        if (cVar != null && cVar.bYG != null) {
-            String str = cVar.bYG.bYV;
+        if (cVar != null && cVar.cfq != null) {
+            String str = cVar.cfq.cfF;
             if (!TextUtils.isEmpty(str)) {
                 a aVar = new a();
                 aVar.setContent(str);

@@ -2,7 +2,7 @@ package com.baidu.pass.biometrics.base.utils;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes9.dex */
+/* loaded from: classes5.dex */
 public class Crypto {
     public static String sha1(byte[] bArr) throws Exception {
         try {
@@ -10,8 +10,8 @@ public class Crypto {
             messageDigest.update(bArr);
             byte[] digest = messageDigest.digest();
             StringBuffer stringBuffer = new StringBuffer();
-            for (byte b : digest) {
-                String hexString = Integer.toHexString(b & 255);
+            for (byte b2 : digest) {
+                String hexString = Integer.toHexString(b2 & 255);
                 if (hexString.length() < 2) {
                     stringBuffer.append(0);
                 }

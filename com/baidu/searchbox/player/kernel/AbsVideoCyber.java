@@ -1,16 +1,16 @@
 package com.baidu.searchbox.player.kernel;
 
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.cyberplayer.sdk.CyberPlayer;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.ICyberVideoView;
 import com.baidu.searchbox.player.BDPlayerConfig;
 import com.baidu.searchbox.player.constants.PlayerStatus;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public abstract class AbsVideoCyber extends AbsVideoKernel {
     protected CyberPlayer mPlayer;
 

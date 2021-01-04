@@ -1,11 +1,14 @@
 package com.baidu.tieba.yuyinala.liveroom.wheat.message;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
-/* loaded from: classes4.dex */
+import com.baidu.live.tbadk.core.atomdata.BuyTBeanActivityConfig;
+/* loaded from: classes11.dex */
 public class c extends HttpMessage {
-    public c(String str, String str2) {
-        super(1031010);
+    public c(String str, String str2, String str3, String str4) {
+        super(1031007);
         addParam("room_id", str);
-        addParam("apply_type", str2);
+        addParam("phone_type", str2);
+        addParam("phone_order", str3);
+        addParam(BuyTBeanActivityConfig.CALLBACK, str4);
     }
 }

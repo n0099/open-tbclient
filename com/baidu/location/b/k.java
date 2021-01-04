@@ -12,7 +12,7 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.concurrent.ExecutorService;
 import org.json.JSONObject;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class k {
     private static Object c = new Object();
     private static k d = null;
@@ -21,15 +21,19 @@ public class k {
     private boolean g = false;
 
     /* renamed from: a  reason: collision with root package name */
-    a f1891a = null;
-    a b = null;
+    a f2626a = null;
+
+    /* renamed from: b  reason: collision with root package name */
+    a f2627b = null;
     private String h = null;
     private int i = -2;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public class a extends com.baidu.location.e.f {
-        private String b = null;
+
+        /* renamed from: b  reason: collision with root package name */
+        private String f2629b = null;
         private String c = null;
         private boolean d = true;
         private boolean e = false;
@@ -52,7 +56,7 @@ public class k {
                 return;
             }
             k.this.g = true;
-            this.b = str;
+            this.f2629b = str;
             this.c = str2;
             ExecutorService c = z.a().c();
             if (c != null) {
@@ -73,7 +77,7 @@ public class k {
                         if (jSONObject2 != null && jSONObject2.has("imo")) {
                             Long valueOf = Long.valueOf(jSONObject2.getJSONObject("imo").getString("mac"));
                             int i = jSONObject2.getJSONObject("imo").getInt("mv");
-                            if (Jni.encode3(this.b).longValue() == valueOf.longValue()) {
+                            if (Jni.encode3(this.f2629b).longValue() == valueOf.longValue()) {
                                 ContentValues contentValues = new ContentValues();
                                 contentValues.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, Integer.valueOf((int) (System.currentTimeMillis() / 1000)));
                                 contentValues.put("hst", Integer.valueOf(i));
@@ -85,7 +89,7 @@ public class k {
                                 } catch (Exception e) {
                                 }
                                 Bundle bundle = new Bundle();
-                                bundle.putByteArray("mac", this.b.getBytes());
+                                bundle.putByteArray("mac", this.f2629b.getBytes());
                                 bundle.putInt("hotspot", i);
                                 k.this.a(bundle);
                             }
@@ -200,6 +204,7 @@ public class k {
         }
     }
 
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION] complete} */
     public synchronized int d() {
         int i;
         WifiInfo k;
@@ -235,24 +240,19 @@ public class k {
                                     }
                                 }
                             } catch (Throwable th) {
-                                int i2 = i;
                                 if (cursor != null) {
                                     try {
                                         cursor.close();
                                     } catch (Exception e5) {
                                     }
                                 }
-                                try {
-                                    throw th;
-                                } catch (Exception e6) {
-                                    i = i2;
-                                }
+                                throw th;
                             }
                         } else {
                             i = this.i;
                         }
                     }
-                } catch (Exception e7) {
+                } catch (Exception e6) {
                 }
                 this.i = i;
             }
@@ -320,11 +320,11 @@ public class k {
                         }
                     }
                     if (z2) {
-                        if (this.f1891a == null) {
-                            this.f1891a = new a();
+                        if (this.f2626a == null) {
+                            this.f2626a = new a();
                         }
-                        if (this.f1891a != null) {
-                            this.f1891a.a(replace, a(true));
+                        if (this.f2626a != null) {
+                            this.f2626a.a(replace, a(true));
                             return;
                         }
                         return;

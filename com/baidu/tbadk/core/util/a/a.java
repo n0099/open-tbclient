@@ -1,26 +1,54 @@
 package com.baidu.tbadk.core.util.a;
 
-import java.util.HashMap;
+import android.app.Activity;
+import android.app.Application;
+import android.os.Bundle;
+import android.util.DisplayMetrics;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 /* loaded from: classes.dex */
-public class a {
-    private b eUE = new b();
-    private c eUF = new c();
-    private d eUG = new d();
-    private HashMap<String, String> eUH = new HashMap<>();
+public class a implements Application.ActivityLifecycleCallbacks {
+    private final DisplayMetrics feb;
 
-    public b bue() {
-        return this.eUE;
+    public a(DisplayMetrics displayMetrics) {
+        this.feb = displayMetrics;
     }
 
-    public c buf() {
-        return this.eUF;
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
+        if ("ImageViewerActivity".equalsIgnoreCase(activity.getClass().getSimpleName()) && this.feb != null) {
+            b.bwy().a(activity, this.feb.density, this.feb.densityDpi);
+        } else {
+            b.bwy().fd(activity);
+        }
     }
 
-    public d bug() {
-        return this.eUG;
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityStarted(@NonNull Activity activity) {
+        if ("ImageViewerActivity".equalsIgnoreCase(activity.getClass().getSimpleName()) && this.feb != null) {
+            b.bwy().a(activity, this.feb.density, this.feb.densityDpi);
+        } else {
+            b.bwy().fd(activity);
+        }
     }
 
-    public HashMap<String, String> buh() {
-        return this.eUH;
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityResumed(@NonNull Activity activity) {
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityPaused(@NonNull Activity activity) {
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityStopped(@NonNull Activity activity) {
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle bundle) {
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityDestroyed(@NonNull Activity activity) {
     }
 }

@@ -1,12 +1,16 @@
 package io.flutter.view;
 
+import androidx.annotation.Keep;
+import androidx.annotation.NonNull;
 import io.flutter.embedding.engine.FlutterJNI;
-/* loaded from: classes9.dex */
+@Keep
+/* loaded from: classes6.dex */
 public final class FlutterCallbackInformation {
     public final String callbackClassName;
     public final String callbackLibraryPath;
     public final String callbackName;
 
+    @NonNull
     public static FlutterCallbackInformation lookupCallbackInformation(long j) {
         return FlutterJNI.nativeLookupCallbackInformation(j);
     }

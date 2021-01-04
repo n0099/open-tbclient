@@ -1,31 +1,31 @@
 package com.baidu.tieba.personCenter.c;
 
 import tbclient.BannerImage;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class a implements com.baidu.tbadk.core.flow.a.a {
-    private String bOR;
-    private String eFb;
+    private String bTV;
+    private String eOR;
     private String mTitle;
 
     public void a(BannerImage bannerImage) {
         if (bannerImage != null) {
-            this.bOR = bannerImage.img_url;
-            this.eFb = bannerImage.ahead_url;
+            this.bTV = bannerImage.img_url;
+            this.eOR = bannerImage.ahead_url;
             this.mTitle = bannerImage.title;
         }
     }
 
-    public String bmM() {
-        return this.eFb;
+    public String bpl() {
+        return this.eOR;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String getPicUrl() {
-        return this.bOR;
+        return this.bTV;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
-    public String bmN() {
-        return this.eFb;
+    public String bpm() {
+        return this.eOR;
     }
 }

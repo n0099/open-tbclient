@@ -1,6 +1,6 @@
 package com.baidu.android.imrtc.request;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.android.imrtc.utils.LogUtils;
 import java.io.IOException;
 import java.net.SocketException;
@@ -13,11 +13,11 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-/* loaded from: classes12.dex */
+/* loaded from: classes6.dex */
 public class HttpExecutor {
     private static final String TAG = "HttpExecutor";
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes6.dex */
     public interface HttpRequest {
         Map<String, String> getHeaders();
 
@@ -32,7 +32,7 @@ public class HttpExecutor {
         boolean shouldAbort();
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes6.dex */
     public interface ResponseHandler {
         void onFailure(int i, String str);
 

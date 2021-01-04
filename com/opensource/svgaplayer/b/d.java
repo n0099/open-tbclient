@@ -3,148 +3,148 @@ package com.opensource.svgaplayer.b;
 import android.widget.ImageView;
 import kotlin.jvm.internal.p;
 @kotlin.e
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public final class d {
-    private float pAc;
-    private float pAd;
-    private boolean pAg;
-    private float pAe = 1.0f;
-    private float pAf = 1.0f;
-    private float idL = 1.0f;
+    private float pSJ;
+    private float pSK;
+    private boolean pSN;
+    private float pSL = 1.0f;
+    private float pSM = 1.0f;
+    private float iqg = 1.0f;
 
-    public final float eAz() {
-        return this.pAc;
+    public final float eEr() {
+        return this.pSJ;
     }
 
-    public final float eAA() {
-        return this.pAd;
+    public final float eEs() {
+        return this.pSK;
     }
 
-    public final float eAB() {
-        return this.pAe;
+    public final float eEt() {
+        return this.pSL;
     }
 
-    public final float eAC() {
-        return this.pAf;
+    public final float eEu() {
+        return this.pSM;
     }
 
-    public final boolean eAD() {
-        return this.pAg;
+    public final boolean eEv() {
+        return this.pSN;
     }
 
-    private final void eAE() {
-        this.pAc = 0.0f;
-        this.pAd = 0.0f;
-        this.pAe = 1.0f;
-        this.pAf = 1.0f;
-        this.idL = 1.0f;
-        this.pAg = false;
+    private final void eEw() {
+        this.pSJ = 0.0f;
+        this.pSK = 0.0f;
+        this.pSL = 1.0f;
+        this.pSM = 1.0f;
+        this.iqg = 1.0f;
+        this.pSN = false;
     }
 
     public final void a(float f, float f2, float f3, float f4, ImageView.ScaleType scaleType) {
         p.o(scaleType, "scaleType");
         if (f != 0.0f && f2 != 0.0f && f3 != 0.0f && f4 != 0.0f) {
-            eAE();
+            eEw();
             float f5 = (f - f3) / 2.0f;
             float f6 = (f2 - f4) / 2.0f;
             float f7 = f3 / f4;
             float f8 = f / f2;
             float f9 = f2 / f4;
             float f10 = f / f3;
-            switch (e.pzX[scaleType.ordinal()]) {
+            switch (e.pSE[scaleType.ordinal()]) {
                 case 1:
-                    this.pAc = f5;
-                    this.pAd = f6;
+                    this.pSJ = f5;
+                    this.pSK = f6;
                     return;
                 case 2:
                     if (f7 > f8) {
-                        this.idL = f9;
-                        this.pAg = false;
-                        this.pAe = f9;
-                        this.pAf = f9;
-                        this.pAc = (f - (f3 * f9)) / 2.0f;
+                        this.iqg = f9;
+                        this.pSN = false;
+                        this.pSL = f9;
+                        this.pSM = f9;
+                        this.pSJ = (f - (f3 * f9)) / 2.0f;
                         return;
                     }
-                    this.idL = f10;
-                    this.pAg = true;
-                    this.pAe = f10;
-                    this.pAf = f10;
-                    this.pAd = (f2 - (f4 * f10)) / 2.0f;
+                    this.iqg = f10;
+                    this.pSN = true;
+                    this.pSL = f10;
+                    this.pSM = f10;
+                    this.pSK = (f2 - (f4 * f10)) / 2.0f;
                     return;
                 case 3:
                     if (f3 < f && f4 < f2) {
-                        this.pAc = f5;
-                        this.pAd = f6;
+                        this.pSJ = f5;
+                        this.pSK = f6;
                         return;
                     } else if (f7 > f8) {
-                        this.idL = f10;
-                        this.pAg = true;
-                        this.pAe = f10;
-                        this.pAf = f10;
-                        this.pAd = (f2 - (f4 * f10)) / 2.0f;
+                        this.iqg = f10;
+                        this.pSN = true;
+                        this.pSL = f10;
+                        this.pSM = f10;
+                        this.pSK = (f2 - (f4 * f10)) / 2.0f;
                         return;
                     } else {
-                        this.idL = f9;
-                        this.pAg = false;
-                        this.pAe = f9;
-                        this.pAf = f9;
-                        this.pAc = (f - (f3 * f9)) / 2.0f;
+                        this.iqg = f9;
+                        this.pSN = false;
+                        this.pSL = f9;
+                        this.pSM = f9;
+                        this.pSJ = (f - (f3 * f9)) / 2.0f;
                         return;
                     }
                 case 4:
                     if (f7 > f8) {
-                        this.idL = f10;
-                        this.pAg = true;
-                        this.pAe = f10;
-                        this.pAf = f10;
-                        this.pAd = (f2 - (f4 * f10)) / 2.0f;
+                        this.iqg = f10;
+                        this.pSN = true;
+                        this.pSL = f10;
+                        this.pSM = f10;
+                        this.pSK = (f2 - (f4 * f10)) / 2.0f;
                         return;
                     }
-                    this.idL = f9;
-                    this.pAg = false;
-                    this.pAe = f9;
-                    this.pAf = f9;
-                    this.pAc = (f - (f3 * f9)) / 2.0f;
+                    this.iqg = f9;
+                    this.pSN = false;
+                    this.pSL = f9;
+                    this.pSM = f9;
+                    this.pSJ = (f - (f3 * f9)) / 2.0f;
                     return;
                 case 5:
                     if (f7 > f8) {
-                        this.idL = f10;
-                        this.pAg = true;
-                        this.pAe = f10;
-                        this.pAf = f10;
+                        this.iqg = f10;
+                        this.pSN = true;
+                        this.pSL = f10;
+                        this.pSM = f10;
                         return;
                     }
-                    this.idL = f9;
-                    this.pAg = false;
-                    this.pAe = f9;
-                    this.pAf = f9;
+                    this.iqg = f9;
+                    this.pSN = false;
+                    this.pSL = f9;
+                    this.pSM = f9;
                     return;
                 case 6:
                     if (f7 > f8) {
-                        this.idL = f10;
-                        this.pAg = true;
-                        this.pAe = f10;
-                        this.pAf = f10;
-                        this.pAd = f2 - (f4 * f10);
+                        this.iqg = f10;
+                        this.pSN = true;
+                        this.pSL = f10;
+                        this.pSM = f10;
+                        this.pSK = f2 - (f4 * f10);
                         return;
                     }
-                    this.idL = f9;
-                    this.pAg = false;
-                    this.pAe = f9;
-                    this.pAf = f9;
-                    this.pAc = f - (f3 * f9);
+                    this.iqg = f9;
+                    this.pSN = false;
+                    this.pSL = f9;
+                    this.pSM = f9;
+                    this.pSJ = f - (f3 * f9);
                     return;
                 case 7:
-                    this.idL = Math.max(f10, f9);
-                    this.pAg = f10 > f9;
-                    this.pAe = f10;
-                    this.pAf = f9;
+                    this.iqg = Math.max(f10, f9);
+                    this.pSN = f10 > f9;
+                    this.pSL = f10;
+                    this.pSM = f9;
                     return;
                 default:
-                    this.idL = f10;
-                    this.pAg = true;
-                    this.pAe = f10;
-                    this.pAf = f10;
+                    this.iqg = f10;
+                    this.pSN = true;
+                    this.pSL = f10;
+                    this.pSM = f10;
                     return;
             }
         }

@@ -4,17 +4,17 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public final class d extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BdNetEngine f3975a;
+    final /* synthetic */ BdNetEngine f6026a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(BdNetEngine bdNetEngine, Looper looper) {
         super(looper);
-        this.f3975a = bdNetEngine;
+        this.f6026a = bdNetEngine;
     }
 
     @Override // android.os.Handler
@@ -24,20 +24,20 @@ public final class d extends Handler {
         BdNetTask bdNetTask2;
         switch (message.what) {
             case 1:
-                this.f3975a.mIsWorking = true;
-                this.f3975a.mNetTask = this.f3975a.performTask((BdNetTask) message.obj);
-                bdNetTask = this.f3975a.mNetTask;
+                this.f6026a.mIsWorking = true;
+                this.f6026a.mNetTask = this.f6026a.performTask((BdNetTask) message.obj);
+                bdNetTask = this.f6026a.mNetTask;
                 if (bdNetTask == null) {
-                    this.f3975a.recycle();
+                    this.f6026a.recycle();
                 } else {
-                    handler = this.f3975a.mPrivateHandler;
-                    bdNetTask2 = this.f3975a.mNetTask;
+                    handler = this.f6026a.mPrivateHandler;
+                    bdNetTask2 = this.f6026a.mNetTask;
                     handler.obtainMessage(1, bdNetTask2).sendToTarget();
                 }
-                this.f3975a.mIsWorking = false;
+                this.f6026a.mIsWorking = false;
                 return;
             case 2:
-                this.f3975a.stopDownloadInner();
+                this.f6026a.stopDownloadInner();
                 return;
             default:
                 return;

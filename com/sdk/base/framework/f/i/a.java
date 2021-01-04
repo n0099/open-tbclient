@@ -8,12 +8,14 @@ import java.io.ByteArrayOutputStream;
 import java.security.KeyFactory;
 import java.security.PublicKey;
 import java.security.spec.X509EncodedKeySpec;
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f4273a = a.class.getSimpleName();
-    private static Boolean b = Boolean.valueOf(f.b);
+    private static final String f13149a = a.class.getSimpleName();
+
+    /* renamed from: b  reason: collision with root package name */
+    private static Boolean f13150b = Boolean.valueOf(f.f13118b);
 
     public static PublicKey a(String str) {
         try {
@@ -25,7 +27,7 @@ public class a {
             aVar.a(byteArrayInputStream, byteArrayOutputStream);
             return KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(byteArrayOutputStream.toByteArray()));
         } catch (Exception e) {
-            c.b(f4273a, e.toString(), b);
+            c.b(f13149a, e.toString(), f13150b);
             return null;
         }
     }

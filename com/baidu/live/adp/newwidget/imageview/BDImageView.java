@@ -7,14 +7,14 @@ import android.graphics.Matrix;
 import android.graphics.RectF;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.support.v7.widget.ActivityChooserView;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
+import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.live.adp.R;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.widget.imageview.BdImage;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public abstract class BDImageView extends ImageView implements IRefresh {
     private static final int DEFAULT_BORDER_COLOR = 872415231;
     private static final int DEFAULT_BORDER_WIDTH = 1;

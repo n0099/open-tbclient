@@ -12,7 +12,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class a {
-    private TbPageContext<?> eNx;
+    private TbPageContext<?> eXu;
     private boolean isAutoSetCancelable;
     private Activity mActivity;
     private DialogInterface.OnCancelListener mOnCancelListner;
@@ -21,19 +21,19 @@ public class a {
     private String tipString;
 
     public a(TbPageContext<?> tbPageContext) {
-        this.eNx = null;
+        this.eXu = null;
         this.mActivity = null;
         this.tipString = null;
         this.mTipView = null;
         this.isAutoSetCancelable = true;
-        this.eNx = tbPageContext;
-        if (this.eNx != null && this.eNx.getPageActivity() != null) {
-            this.mActivity = this.eNx.getPageActivity();
+        this.eXu = tbPageContext;
+        if (this.eXu != null && this.eXu.getPageActivity() != null) {
+            this.mActivity = this.eXu.getPageActivity();
         }
     }
 
     public a(Activity activity) {
-        this.eNx = null;
+        this.eXu = null;
         this.mActivity = null;
         this.tipString = null;
         this.mTipView = null;
@@ -41,7 +41,7 @@ public class a {
         this.mActivity = activity;
     }
 
-    private a d(DialogInterface.OnCancelListener onCancelListener) {
+    private a e(DialogInterface.OnCancelListener onCancelListener) {
         if (this.mActivity != null) {
             this.mWaitingDialog = new AlertDialog.Builder(this.mActivity).create();
             com.baidu.adp.lib.f.g.showDialog(this.mWaitingDialog, this.mActivity);
@@ -65,7 +65,7 @@ public class a {
         return this;
     }
 
-    private a e(DialogInterface.OnCancelListener onCancelListener) {
+    private a f(DialogInterface.OnCancelListener onCancelListener) {
         if (this.mActivity != null) {
             this.mWaitingDialog = new AlertDialog.Builder(this.mActivity).create();
             com.baidu.adp.lib.f.g.showDialog(this.mWaitingDialog, this.mActivity);
@@ -87,10 +87,10 @@ public class a {
     public void setDialogVisiable(boolean z) {
         if (z) {
             if (this.isAutoSetCancelable) {
-                d(this.mOnCancelListner);
+                e(this.mOnCancelListner);
                 return;
             } else {
-                e(this.mOnCancelListner);
+                f(this.mOnCancelListner);
                 return;
             }
         }

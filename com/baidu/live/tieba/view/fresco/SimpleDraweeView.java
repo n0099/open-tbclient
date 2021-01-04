@@ -3,7 +3,7 @@ package com.baidu.live.tieba.view.fresco;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class SimpleDraweeView extends com.facebook.drawee.view.SimpleDraweeView {
     public SimpleDraweeView(Context context) {
         super(context);

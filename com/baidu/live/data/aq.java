@@ -1,117 +1,81 @@
 package com.baidu.live.data;
 
-import android.text.TextUtils;
-import com.baidu.android.util.io.BaseJsonData;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
-import com.baidu.live.tbadk.log.LogConfig;
-import com.baidu.live.tbadk.ubc.UbcStatConstant;
-import com.baidu.tieba.ala.live.walletconfig.CashierData;
+import com.baidu.live.tbadk.core.util.ListUtils;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class aq {
-    public AlaLiveUserInfoData aJV;
-    public String aKD;
-    public boolean aKG;
-    public ae aKx;
-    public a aPk;
-    public int aPl;
-    public int aPm;
-    public AlaLiveInfoData mLiveInfo;
-    public AlaLiveSdkInfo mLiveSdkInfo;
-    public int mErrorCode = 0;
-    public String mErrorMsg = null;
-    public int aPe = 0;
-    public int aPf = 1;
-    public String aPg = null;
-    public int aPh = 1;
-    public String aPi = null;
-    public int aPj = 0;
-    public long logId = 0;
+    public int aPG;
+    public ArrayList<ap> aPH;
+    public int aPN;
+    public int aPP;
+    public boolean aPI = false;
+    public String aPJ = "";
+    public boolean aPK = false;
+    public String aPL = "";
+    public int aPM = 0;
+    public int aPO = 0;
 
-    /* loaded from: classes4.dex */
-    public static class a {
-        public List<String> aPn = new ArrayList();
-        public String notify;
-    }
-
-    public boolean FM() {
-        return this.aPe == 0;
-    }
-
-    public void parseJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.logId = jSONObject.optLong("logid");
-            JSONObject optJSONObject = jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR);
-            if (optJSONObject != null) {
-                this.mErrorCode = optJSONObject.optInt(BaseJsonData.TAG_ERRNO);
-                this.mErrorMsg = optJSONObject.optString("usermsg");
-                if (TextUtils.isEmpty(this.mErrorMsg)) {
-                    this.mErrorMsg = optJSONObject.optString(BaseJsonData.TAG_ERRMSG);
+    public void parserJson(JSONObject jSONObject) {
+        this.aPG = jSONObject.optInt("received");
+        this.aPH = new ArrayList<>();
+        this.aPI = jSONObject.optInt("petal_task_switch", 0) == 1;
+        this.aPK = jSONObject.optInt("redpacket_task_switch", 0) == 1;
+        this.aPJ = jSONObject.optString("task_url");
+        this.aPL = jSONObject.optString("task_pendant_url");
+        JSONArray optJSONArray = jSONObject.optJSONArray("task_list");
+        if (optJSONArray != null) {
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                if (optJSONObject != null) {
+                    ap apVar = new ap();
+                    apVar.parseJson(optJSONObject);
+                    a(apVar);
+                    this.aPH.add(apVar);
                 }
-            }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
-            if (optJSONObject2 != null) {
-                this.aPl = optJSONObject2.optInt("new_anchor_assist_task");
-                this.aPe = optJSONObject2.optInt("user_status");
-                JSONObject optJSONObject3 = optJSONObject2.optJSONObject("user_info");
-                if (optJSONObject3 != null) {
-                    this.aJV = new AlaLiveUserInfoData();
-                    this.aJV.parserJson(optJSONObject3);
-                }
-                JSONObject optJSONObject4 = optJSONObject2.optJSONObject("guard_club");
-                if (optJSONObject4 != null) {
-                    this.aPm = optJSONObject4.optInt("show_rename_help");
-                }
-                JSONObject optJSONObject5 = optJSONObject2.optJSONObject("live_info");
-                if (optJSONObject5 != null) {
-                    this.mLiveInfo = new AlaLiveInfoData();
-                    this.mLiveInfo.parserJson(optJSONObject5);
-                }
-                JSONObject optJSONObject6 = optJSONObject2.optJSONObject("pk_solo_info");
-                if (optJSONObject6 != null) {
-                    this.aKx = new ae();
-                    this.aKx.parserJson(optJSONObject6);
-                }
-                JSONObject optJSONObject7 = optJSONObject2.optJSONObject(CashierData.SDK);
-                if (optJSONObject7 != null) {
-                    this.mLiveSdkInfo = new AlaLiveSdkInfo();
-                    this.mLiveSdkInfo.parseJson(optJSONObject7);
-                }
-                if (this.mLiveInfo != null && this.mLiveSdkInfo != null && this.mLiveInfo.room_id == 0 && this.mLiveSdkInfo.mRoomId != 0) {
-                    this.mLiveInfo.room_id = this.mLiveSdkInfo.mRoomId;
-                }
-                this.aKD = optJSONObject2.optString("user_watermark");
-                JSONObject optJSONObject8 = optJSONObject2.optJSONObject(UbcStatConstant.ContentType.UBC_TYPE_STRATEGY);
-                if (optJSONObject8 != null) {
-                    JSONObject optJSONObject9 = optJSONObject8.optJSONObject(LogConfig.VALUE_LIVE_HK_RECORD_START);
-                    if (optJSONObject9 != null) {
-                        this.aPg = optJSONObject9.optString("text");
-                        this.aPf = optJSONObject9.optInt("switch");
-                    }
-                    JSONObject optJSONObject10 = optJSONObject8.optJSONObject("user_verify");
-                    if (optJSONObject10 != null) {
-                        this.aPh = optJSONObject10.optInt("switch");
-                        this.aPi = optJSONObject10.optString("text");
-                    }
-                    JSONObject optJSONObject11 = optJSONObject8.optJSONObject("certify");
-                    if (optJSONObject11 != null) {
-                        this.aPj = optJSONObject11.optInt("switch");
-                    }
-                }
-                JSONObject optJSONObject12 = optJSONObject2.optJSONObject("live_authen_info");
-                if (optJSONObject12 != null) {
-                    this.aPk = new a();
-                    this.aPk.notify = optJSONObject12.optString("notify");
-                    JSONArray optJSONArray = optJSONObject12.optJSONArray("questions");
-                    for (int i = 0; optJSONArray != null && i < optJSONArray.length(); i++) {
-                        this.aPk.aPn.add(optJSONArray.optString(i));
-                    }
-                }
-                this.aKG = optJSONObject2.optInt("switch_guard_seat") == 1;
             }
         }
+    }
+
+    private void a(ap apVar) {
+        if (apVar.aPz == 8) {
+            if (apVar.aPD != null) {
+                this.aPM = apVar.aPD.aPQ;
+            }
+            this.aPN = apVar.status;
+        }
+        if (apVar.aPz == 1 && apVar.aPD != null) {
+            if (apVar.aPD != null) {
+                this.aPO = apVar.aPD.aPQ;
+            }
+            this.aPP = apVar.status;
+        }
+    }
+
+    public boolean EZ() {
+        if (!ListUtils.isEmpty(this.aPH)) {
+            Iterator<ap> it = this.aPH.iterator();
+            while (it.hasNext()) {
+                if (it.next().EY()) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public ap Fa() {
+        if (!ListUtils.isEmpty(this.aPH)) {
+            Iterator<ap> it = this.aPH.iterator();
+            while (it.hasNext()) {
+                ap next = it.next();
+                if (next.EW()) {
+                    return next;
+                }
+            }
+        }
+        return null;
     }
 }

@@ -15,12 +15,12 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 class l extends AsyncTask<String, Void, List<String>> {
     private a wP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void onPerformanceRequestFinished(List<String> list);
     }
@@ -63,7 +63,7 @@ class l extends AsyncTask<String, Void, List<String>> {
     }
 
     private String gq() {
-        return String.format("%s=%s&%s=%s&%s=%s&%s=%s&%s=%s", HttpConstants.HTTP_OS_TYPE, "android", HttpConstants.HTTP_ENGINE_VERSION, String.valueOf(com.baidu.ar.h.c.getVersionCode()), "manufacture", aM(Build.MANUFACTURER), HttpConstants.HTTP_BOARD, aM(Build.BOARD), HttpConstants.HTTP_HARDWARE, aM(Build.HARDWARE));
+        return String.format("%s=%s&%s=%s&%s=%s&%s=%s&%s=%s", HttpConstants.HTTP_OS_TYPE, HttpConstants.OS_TYPE_VALUE, HttpConstants.HTTP_ENGINE_VERSION, String.valueOf(com.baidu.ar.h.c.getVersionCode()), "manufacture", aM(Build.MANUFACTURER), HttpConstants.HTTP_BOARD, aM(Build.BOARD), HttpConstants.HTTP_HARDWARE, aM(Build.HARDWARE));
     }
 
     /* JADX DEBUG: Method merged with bridge method */

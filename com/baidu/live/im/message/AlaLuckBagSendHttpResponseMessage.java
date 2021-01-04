@@ -5,30 +5,30 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaLuckBagSendHttpResponseMessage extends JsonHttpResponsedMessage {
-    private long bgl;
-    private long bgm;
-    private String bog;
-    private List<com.baidu.live.im.data.a> bpl;
-    private List<com.baidu.live.im.data.a> bpm;
-    private long bpn;
-    private String bpo;
-    private String bpp;
+    private long bhT;
+    private long bhU;
+    private String bpP;
+    private List<com.baidu.live.im.data.a> bqT;
+    private List<com.baidu.live.im.data.a> bqU;
+    private long bqV;
+    private String bqW;
+    private String bqX;
     private long mLogId;
     public String orderId;
 
     public AlaLuckBagSendHttpResponseMessage() {
         super(1021229);
-        this.bgl = 0L;
+        this.bhT = 0L;
     }
 
-    public long KK() {
-        return this.bgl;
+    public long Kl() {
+        return this.bhT;
     }
 
-    public long KL() {
-        return this.bgm;
+    public long Km() {
+        return this.bhU;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -36,28 +36,28 @@ public class AlaLuckBagSendHttpResponseMessage extends JsonHttpResponsedMessage 
         return this.mLogId;
     }
 
-    public List<com.baidu.live.im.data.a> Op() {
-        return this.bpl;
+    public List<com.baidu.live.im.data.a> NV() {
+        return this.bqT;
     }
 
-    public List<com.baidu.live.im.data.a> Oq() {
-        return this.bpm;
+    public List<com.baidu.live.im.data.a> NW() {
+        return this.bqU;
     }
 
-    public long Or() {
-        return this.bpn;
+    public long NX() {
+        return this.bqV;
     }
 
-    public String Os() {
-        return this.bpo;
+    public String NY() {
+        return this.bqW;
     }
 
-    public String Ot() {
-        return this.bog;
+    public String NZ() {
+        return this.bpP;
     }
 
-    public String Ou() {
-        return this.bpp;
+    public String Oa() {
+        return this.bqX;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -66,33 +66,33 @@ public class AlaLuckBagSendHttpResponseMessage extends JsonHttpResponsedMessage 
             super.decodeLogicInBackGround(i, jSONObject);
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null) {
-                this.bgl = optJSONObject.optLong("left_scores");
-                this.bgm = optJSONObject.optLong("tdou_num");
+                this.bhT = optJSONObject.optLong("left_scores");
+                this.bhU = optJSONObject.optLong("tdou_num");
                 this.mLogId = optJSONObject.optLong("logid");
                 this.orderId = optJSONObject.optString("order_id");
-                this.bpp = optJSONObject.optString("lucky_bag_id");
-                this.bpo = optJSONObject.optString("luckybag_image");
-                this.bpn = optJSONObject.optInt("prize_total_value");
-                this.bog = optJSONObject.optString("luckybag_name");
+                this.bqX = optJSONObject.optString("lucky_bag_id");
+                this.bqW = optJSONObject.optString("luckybag_image");
+                this.bqV = optJSONObject.optInt("prize_total_value");
+                this.bpP = optJSONObject.optString("luckybag_name");
                 JSONArray optJSONArray = optJSONObject.optJSONArray("prize_list");
                 if (optJSONArray != null) {
                     int length = optJSONArray.length();
-                    this.bpl = new ArrayList(length);
+                    this.bqT = new ArrayList(length);
                     for (int i2 = 0; i2 < length; i2++) {
-                        com.baidu.live.im.data.a L = com.baidu.live.im.data.a.L(optJSONArray.getJSONObject(i2));
-                        if (L != null) {
-                            this.bpl.add(L);
+                        com.baidu.live.im.data.a T = com.baidu.live.im.data.a.T(optJSONArray.getJSONObject(i2));
+                        if (T != null) {
+                            this.bqT.add(T);
                         }
                     }
                 }
                 JSONArray optJSONArray2 = optJSONObject.optJSONArray("surprise_list");
                 if (optJSONArray2 != null) {
                     int length2 = optJSONArray2.length();
-                    this.bpm = new ArrayList(length2);
+                    this.bqU = new ArrayList(length2);
                     for (int i3 = 0; i3 < length2; i3++) {
-                        com.baidu.live.im.data.a L2 = com.baidu.live.im.data.a.L(optJSONArray2.getJSONObject(i3));
-                        if (L2 != null) {
-                            this.bpm.add(L2);
+                        com.baidu.live.im.data.a T2 = com.baidu.live.im.data.a.T(optJSONArray2.getJSONObject(i3));
+                        if (T2 != null) {
+                            this.bqU.add(T2);
                         }
                     }
                 }

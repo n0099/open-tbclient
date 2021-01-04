@@ -11,24 +11,28 @@ import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
 import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 import java.lang.Thread;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public final class d {
     private static d f;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f3931a = new a();
-    public b b;
+    public a f5952a = new a();
+
+    /* renamed from: b  reason: collision with root package name */
+    public b f5953b;
     public WebViewFactory.WebKitUnzipCallback c;
     public Handler d;
     public static final Object e = new Object();
     private static final Object g = new Object();
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        String f3932a;
-        Context b;
+        String f5954a;
+
+        /* renamed from: b  reason: collision with root package name */
+        Context f5955b;
         String c;
         public String d;
         private boolean e;
@@ -38,8 +42,8 @@ public final class d {
                 this.e = z;
             }
             if (this.e) {
-                this.c = this.b.getFilesDir() == null ? null : this.b.getApplicationInfo().nativeLibraryDir != null ? this.b.getApplicationInfo().nativeLibraryDir + "/libzeuswebviewchromium.so" : this.b.getFilesDir().getParent() + "/lib/libzeuswebviewchromium.so";
-                this.d = this.f3932a + GlobalConstants.ZEUS_LIB_LOCAL_RELATIVE_PATH;
+                this.c = this.f5955b.getFilesDir() == null ? null : this.f5955b.getApplicationInfo().nativeLibraryDir != null ? this.f5955b.getApplicationInfo().nativeLibraryDir + "/libzeuswebviewchromium.so" : this.f5955b.getFilesDir().getParent() + "/lib/libzeuswebviewchromium.so";
+                this.d = this.f5954a + GlobalConstants.ZEUS_LIB_LOCAL_RELATIVE_PATH;
             }
         }
 
@@ -49,11 +53,11 @@ public final class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes4.dex */
     public class b extends Thread {
 
         /* renamed from: a  reason: collision with root package name */
-        boolean f3933a;
+        boolean f5956a;
         private Context c;
 
         public b(Context context) {
@@ -62,7 +66,7 @@ public final class d {
 
         /* JADX INFO: Access modifiers changed from: private */
         public void a() {
-            this.f3933a = true;
+            this.f5956a = true;
             synchronized (d.g) {
                 if (d.this.c != null) {
                     d.this.c.unzipFinished();
@@ -74,7 +78,7 @@ public final class d {
         @Override // java.lang.Thread, java.lang.Runnable
         public final void run() {
             try {
-                if (this.c == null || !SevenZipUtils.getInstance().prepare(this.c, d.this.f3931a.c, d.this.f3931a.d)) {
+                if (this.c == null || !SevenZipUtils.getInstance().prepare(this.c, d.this.f5952a.c, d.this.f5952a.d)) {
                     LoadErrorCode.getInstance().trace("502:" + (this.c == null));
                     ZeusWebViewPreloadClass.getInstance().setIsWebkitNeedUnzipSO(false);
                     a();
@@ -82,9 +86,9 @@ public final class d {
                 }
                 ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.Start, ZeusPerformanceTiming.KEY_UNZIP);
                 SevenZipUtils.getInstance().hook(true);
-                SevenZipUtils.getInstance().unzipWithMeta(d.this.f3931a.c, d.this.f3931a.d);
+                SevenZipUtils.getInstance().unzipWithMeta(d.this.f5952a.c, d.this.f5952a.d);
                 Log.i("BlinkUnzipManager", "[perf][startup][unzip] finish.");
-                this.f3933a = true;
+                this.f5956a = true;
                 int errorCode = SevenZipUtils.getInstance().getErrorCode();
                 if (errorCode != 0) {
                     LoadErrorCode.getInstance().set(100, "res=" + errorCode);
@@ -100,10 +104,10 @@ public final class d {
     }
 
     private d(Context context) {
-        a aVar = this.f3931a;
+        a aVar = this.f5952a;
         try {
-            aVar.b = context.getApplicationContext();
-            aVar.f3932a = aVar.b.getFilesDir().toString();
+            aVar.f5955b = context.getApplicationContext();
+            aVar.f5954a = aVar.f5955b.getFilesDir().toString();
         } catch (Exception e2) {
         }
     }
@@ -120,16 +124,16 @@ public final class d {
     }
 
     private void d() {
-        if (this.b.isAlive() || this.b.getState() == Thread.State.TERMINATED) {
+        if (this.f5953b.isAlive() || this.f5953b.getState() == Thread.State.TERMINATED) {
             return;
         }
         Log.i("BlinkUnzipManager", "[perf][startup][unzip] start task");
-        this.b.start();
+        this.f5953b.start();
     }
 
     public final void a() {
         synchronized (e) {
-            if (this.b == null || this.f3931a == null) {
+            if (this.f5953b == null || this.f5952a == null) {
                 return;
             }
             d();
@@ -139,13 +143,13 @@ public final class d {
     public final void b() throws Exception {
         synchronized (e) {
             try {
-                if (!this.f3931a.a() || this.b == null) {
+                if (!this.f5952a.a() || this.f5953b == null) {
                     return;
                 }
                 d();
-                this.b.join(15000L);
-                if (this.b.f3933a) {
-                    this.b = null;
+                this.f5953b.join(15000L);
+                if (this.f5953b.f5956a) {
+                    this.f5953b = null;
                 } else {
                     LoadErrorCode.getInstance().set(102);
                     throw new TimeoutException("unzip task not finished.");

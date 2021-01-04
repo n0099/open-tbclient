@@ -2,7 +2,7 @@ package io.reactivex.internal.subscriptions;
 
 import io.reactivex.internal.a.d;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public abstract class BasicQueueSubscription<T> extends AtomicLong implements d<T> {
     private static final long serialVersionUID = -6671519529404341862L;
 

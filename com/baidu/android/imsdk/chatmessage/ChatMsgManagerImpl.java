@@ -3,11 +3,11 @@ package com.baidu.android.imsdk.chatmessage;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.LongSparseArray;
 import android.util.SparseArray;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.ChatObject;
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.IMListener;
@@ -74,9 +74,8 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.android.util.media.MimeType;
 import com.baidu.cyberplayer.sdk.dlna.DlnaManager;
-import com.baidu.h.a;
+import com.baidu.i.a;
 import com.baidu.tieba.imMessageCenter.mention.FeedData;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -88,7 +87,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class ChatMsgManagerImpl {
     private static final String TAG = ChatMsgManagerImpl.class.getSimpleName();
     private static final int USER_IDENTITY_UPDATE_TIME = 600000;
@@ -309,7 +308,7 @@ public class ChatMsgManagerImpl {
             creatMethodIntent.putExtra(Constants.EXTRA_CLIENT_MAX_MSGID, deleteAllMsg);
             creatMethodIntent.putExtra(Constants.EXTRA_CONTACTER_IS_ZHIDA, false);
             try {
-                a.aq(mContext).e(mContext, creatMethodIntent);
+                a.ap(mContext).e(mContext, creatMethodIntent);
             } catch (Exception e) {
                 LogUtils.e(TAG, "Exception ", e);
             }
@@ -341,7 +340,7 @@ public class ChatMsgManagerImpl {
             creatMethodIntent.putExtra(Constants.EXTRA_CONTACTER_IS_ZHIDA, z);
             tryPutPaid(creatMethodIntent);
             try {
-                a.aq(mContext).e(mContext, creatMethodIntent);
+                a.ap(mContext).e(mContext, creatMethodIntent);
             } catch (Exception e) {
                 LogUtils.e(TAG, "Exception ", e);
             }
@@ -367,7 +366,7 @@ public class ChatMsgManagerImpl {
                 creatMethodIntent.putExtra(Constants.EXTRA_CONTACTER_IS_ZHIDA, z);
                 tryPutPaid(creatMethodIntent);
                 try {
-                    a.aq(mContext).e(mContext, creatMethodIntent);
+                    a.ap(mContext).e(mContext, creatMethodIntent);
                     return deleteMsgBatch;
                 } catch (Exception e) {
                     LogUtils.e(TAG, "Exception ", e);
@@ -425,7 +424,7 @@ public class ChatMsgManagerImpl {
                     creatMethodIntent.putExtra(Constants.EXTRA_SEND_MSG, chatMsg);
                     creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
                     try {
-                        a.aq(mContext).e(mContext, creatMethodIntent);
+                        a.ap(mContext).e(mContext, creatMethodIntent);
                         return;
                     } catch (Exception e) {
                         onSendMessageResult(6, chatMsg, -1L, addListener);
@@ -457,7 +456,7 @@ public class ChatMsgManagerImpl {
         }
         String addListener = ListenerManager.getInstance().addListener(iSendMessageListener);
         if (AccountManager.isLogin(mContext)) {
-            if (a.ayO && chatMsg.getCategory() == 4) {
+            if (a.aze && chatMsg.getCategory() == 4) {
                 creatMethodIntent = Utility.createMcastMethodIntent(mContext, 55);
             } else {
                 creatMethodIntent = Utility.creatMethodIntent(mContext, 55);
@@ -465,7 +464,7 @@ public class ChatMsgManagerImpl {
             creatMethodIntent.putExtra(Constants.EXTRA_SEND_MSG, chatMsg);
             creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             try {
-                a.aq(mContext).e(mContext, creatMethodIntent);
+                a.ap(mContext).e(mContext, creatMethodIntent);
                 return;
             } catch (Exception e) {
                 onSendMessageResult(6, chatMsg, -1L, addListener);
@@ -643,7 +642,7 @@ public class ChatMsgManagerImpl {
                 creatMethodIntent.putExtra(Constants.EXTRA_CONTACTER_IS_ZHIDA, z);
                 tryPutPaid(creatMethodIntent);
                 try {
-                    a.aq(mContext).e(mContext, creatMethodIntent);
+                    a.ap(mContext).e(mContext, creatMethodIntent);
                 } catch (Exception e) {
                     LogUtils.e(TAG, "Exception ", e);
                 }
@@ -680,7 +679,7 @@ public class ChatMsgManagerImpl {
             creatMethodIntent.putExtra(Constants.EXTRA_CONTACTER_IS_ZHIDA, z);
             tryPutPaid(creatMethodIntent);
             try {
-                a.aq(mContext).e(mContext, creatMethodIntent);
+                a.ap(mContext).e(mContext, creatMethodIntent);
             } catch (Exception e) {
                 LogUtils.e(TAG, "Exception ", e);
             }
@@ -737,7 +736,7 @@ public class ChatMsgManagerImpl {
                 creatMethodIntent.putExtra(Constants.EXTRA_CONTACTER_IS_ZHIDA, false);
                 tryPutPaid(creatMethodIntent);
                 try {
-                    a.aq(mContext).e(mContext, creatMethodIntent);
+                    a.ap(mContext).e(mContext, creatMethodIntent);
                 } catch (Exception e) {
                     LogUtils.e(TAG, "Exception ", e);
                 }
@@ -773,7 +772,7 @@ public class ChatMsgManagerImpl {
                 creatMethodIntent.putExtra(Constants.EXTRA_CONTACTER_IS_ZHIDA, false);
                 tryPutPaid(creatMethodIntent);
                 try {
-                    a.aq(mContext).e(mContext, creatMethodIntent);
+                    a.ap(mContext).e(mContext, creatMethodIntent);
                 } catch (Exception e) {
                     LogUtils.e(TAG, "Exception ", e);
                 }
@@ -1004,7 +1003,7 @@ public class ChatMsgManagerImpl {
         if (j2 < 0 || j3 < 0) {
             onFetchMsgByIdResult(context, 1005, Constants.ERROR_MSG_PARAMETER_ERROR, i, j, j2, j3, i2, -1, 0L, null, null, addListener);
         } else if (AccountManager.isLogin(context)) {
-            if (a.ayO && i == 4) {
+            if (a.aze && i == 4) {
                 creatMethodIntent = Utility.createMcastMethodIntent(context, 93);
             } else {
                 creatMethodIntent = Utility.creatMethodIntent(context, 93);
@@ -1019,7 +1018,7 @@ public class ChatMsgManagerImpl {
             creatMethodIntent.putExtra(Constants.EXTRA_JUMP_MSG, i4);
             creatMethodIntent.putExtra(Constants.EXTRA_RETRY_TIME, i5);
             try {
-                a.aq(mContext).e(mContext, creatMethodIntent);
+                a.ap(mContext).e(mContext, creatMethodIntent);
             } catch (Exception e) {
                 onFetchMsgByIdResult(context, 6, "start service exception", i, j, j2, j3, i2, -1, 0L, null, null, addListener);
                 LogUtils.e(TAG, "Exception ", e);
@@ -1062,7 +1061,7 @@ public class ChatMsgManagerImpl {
         creatMethodIntent.putExtra(Constants.EXTRA_CONFIG_CURSOR, j);
         creatMethodIntent.putExtra(Constants.EXTRA_CONFIG_LIMIT, j2);
         try {
-            a.aq(mContext).e(mContext, creatMethodIntent);
+            a.ap(mContext).e(mContext, creatMethodIntent);
         } catch (Exception e) {
             LogUtils.e(TAG, "Exception ", e);
         }
@@ -1153,7 +1152,7 @@ public class ChatMsgManagerImpl {
 
     public void asyncUploadImgToBos(final String str, String str2, int i, int i2, int i3, final IUploadTransferListener iUploadTransferListener) {
         if (AccountManager.isLogin(mContext)) {
-            genBosObjectUrl(str, MimeType.Image.JPEG, str2, i, i2, i3, new IGenBosObjectUrlListener() { // from class: com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl.10
+            genBosObjectUrl(str, "image/jpeg", str2, i, i2, i3, new IGenBosObjectUrlListener() { // from class: com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl.10
                 @Override // com.baidu.android.imsdk.chatmessage.IGenBosObjectUrlListener
                 public void onGenBosObjectUrlListener(int i4, String str3, String str4, String str5, Map<String, String> map) {
                     if (i4 == 0) {
@@ -1163,7 +1162,7 @@ public class ChatMsgManagerImpl {
                             str7 = map.get(AsyncChatTask.GET_URL);
                             str6 = map.get(AsyncChatTask.PUT_URL);
                         }
-                        ChatMsgManagerImpl.this.startUploadTask(1, str6, str7, str, MimeType.Image.JPEG, str4, str5, iUploadTransferListener);
+                        ChatMsgManagerImpl.this.startUploadTask(1, str6, str7, str, "image/jpeg", str4, str5, iUploadTransferListener);
                         return;
                     }
                     iUploadTransferListener.onFailed(i4, 1, str);
@@ -1306,7 +1305,7 @@ public class ChatMsgManagerImpl {
                 BindStateManager.saveUnBindInfo(mContext, AccountManager.getToken(mContext), Utility.getIMDeviceId(mContext), Long.valueOf(AccountManager.getUK(mContext)));
                 Intent creatMethodIntent = Utility.creatMethodIntent(mContext, 92);
                 creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
-                a.aq(mContext).e(mContext, creatMethodIntent);
+                a.ap(mContext).e(mContext, creatMethodIntent);
                 return;
             } catch (Exception e) {
                 onUnRegisterNotifyResult(addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR);
@@ -1344,6 +1343,7 @@ public class ChatMsgManagerImpl {
     }
 
     private void onDeliverMcastResponse(String str, JSONArray jSONArray, ILiveMsgReceiveListener iLiveMsgReceiveListener, List<Long> list) {
+        JSONException e;
         if (jSONArray == null) {
             LogUtils.e(TAG, "deliverMcastMessage msgObj is null");
             return;
@@ -1360,15 +1360,15 @@ public class ChatMsgManagerImpl {
                     try {
                         arrayList.clear();
                         jSONArray2 = jSONArray3;
-                    } catch (JSONException e) {
+                    } catch (JSONException e2) {
+                        e = e2;
                         jSONArray2 = jSONArray3;
-                        e = e;
                         LogUtils.e(TAG, "Exception ", e);
                         new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e)).build();
                     }
                 }
-            } catch (JSONException e2) {
-                e = e2;
+            } catch (JSONException e3) {
+                e = e3;
             }
         }
         if (jSONArray2.length() > 0) {

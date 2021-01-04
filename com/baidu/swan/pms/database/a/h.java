@@ -8,20 +8,20 @@ import java.util.List;
 public class h extends b<com.baidu.swan.pms.model.h> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b
-    /* renamed from: p */
-    public com.baidu.swan.pms.model.h j(Cursor cursor) {
+    /* renamed from: q */
+    public com.baidu.swan.pms.model.h k(Cursor cursor) {
         if (cursor == null || cursor.getCount() <= 0 || !cursor.moveToFirst()) {
             return null;
         }
-        return q(cursor);
+        return r(cursor);
     }
 
     @Override // com.baidu.swan.pms.database.a.b
-    public List<com.baidu.swan.pms.model.h> h(Cursor cursor) {
+    public List<com.baidu.swan.pms.model.h> i(Cursor cursor) {
         ArrayList arrayList = new ArrayList();
         if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
             do {
-                arrayList.add(q(cursor));
+                arrayList.add(r(cursor));
             } while (cursor.moveToNext());
             return arrayList;
         }
@@ -31,7 +31,7 @@ public class h extends b<com.baidu.swan.pms.model.h> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b
     /* renamed from: h */
-    public ContentValues aj(com.baidu.swan.pms.model.h hVar) {
+    public ContentValues al(com.baidu.swan.pms.model.h hVar) {
         ContentValues e = super.e(hVar);
         e.put("max_age", Long.valueOf(hVar.maxAge));
         e.put("token", hVar.token);
@@ -41,7 +41,7 @@ public class h extends b<com.baidu.swan.pms.model.h> {
         return e;
     }
 
-    private com.baidu.swan.pms.model.h q(Cursor cursor) {
+    private com.baidu.swan.pms.model.h r(Cursor cursor) {
         if (cursor != null) {
             int columnIndex = cursor.getColumnIndex("max_age");
             int columnIndex2 = cursor.getColumnIndex("token");

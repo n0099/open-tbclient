@@ -19,6 +19,10 @@ import android.view.accessibility.AccessibilityNodeProvider;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.VisibleForTesting;
 import io.flutter.Log;
 import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.renderer.FlutterRenderer;
@@ -30,51 +34,61 @@ import io.flutter.view.AccessibilityBridge;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class FlutterView extends FrameLayout {
     private static final String TAG = "FlutterView";
+    @Nullable
     private AccessibilityBridge accessibilityBridge;
+    @Nullable
     private AndroidKeyProcessor androidKeyProcessor;
+    @Nullable
     private AndroidTouchProcessor androidTouchProcessor;
+    @Nullable
     private FlutterEngine flutterEngine;
+    @NonNull
     private final Set<FlutterEngineAttachmentListener> flutterEngineAttachmentListeners;
+    @Nullable
     private FlutterSurfaceView flutterSurfaceView;
+    @Nullable
     private FlutterTextureView flutterTextureView;
     private final FlutterUiDisplayListener flutterUiDisplayListener;
     private final Set<FlutterUiDisplayListener> flutterUiDisplayListeners;
     private boolean isFlutterUiDisplayed;
     private final AccessibilityBridge.OnAccessibilityChangeListener onAccessibilityChangeListener;
+    @Nullable
     private RenderSurface renderSurface;
+    @Nullable
     private TextInputPlugin textInputPlugin;
     private final FlutterRenderer.ViewportMetrics viewportMetrics;
 
-    /* loaded from: classes9.dex */
+    @VisibleForTesting
+    /* loaded from: classes6.dex */
     public interface FlutterEngineAttachmentListener {
-        void onFlutterEngineAttachedToFlutterView(FlutterEngine flutterEngine);
+        void onFlutterEngineAttachedToFlutterView(@NonNull FlutterEngine flutterEngine);
 
         void onFlutterEngineDetachedFromFlutterView();
     }
 
     @Deprecated
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     public enum RenderMode {
         surface,
         texture
     }
 
     @Deprecated
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     public enum TransparencyMode {
         opaque,
         transparent
     }
 
-    public FlutterView(Context context) {
+    public FlutterView(@NonNull Context context) {
         this(context, (AttributeSet) null, new FlutterSurfaceView(context));
     }
 
     @Deprecated
-    public FlutterView(Context context, RenderMode renderMode) {
+    public FlutterView(@NonNull Context context, @NonNull RenderMode renderMode) {
         super(context, null);
         this.flutterUiDisplayListeners = new HashSet();
         this.flutterEngineAttachmentListeners = new HashSet();
@@ -113,24 +127,24 @@ public class FlutterView extends FrameLayout {
     }
 
     @Deprecated
-    public FlutterView(Context context, TransparencyMode transparencyMode) {
+    public FlutterView(@NonNull Context context, @NonNull TransparencyMode transparencyMode) {
         this(context, (AttributeSet) null, new FlutterSurfaceView(context, transparencyMode == TransparencyMode.transparent));
     }
 
-    public FlutterView(Context context, FlutterSurfaceView flutterSurfaceView) {
+    public FlutterView(@NonNull Context context, @NonNull FlutterSurfaceView flutterSurfaceView) {
         this(context, (AttributeSet) null, flutterSurfaceView);
     }
 
-    public FlutterView(Context context, FlutterTextureView flutterTextureView) {
+    public FlutterView(@NonNull Context context, @NonNull FlutterTextureView flutterTextureView) {
         this(context, (AttributeSet) null, flutterTextureView);
     }
 
-    public FlutterView(Context context, AttributeSet attributeSet) {
+    public FlutterView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, new FlutterSurfaceView(context));
     }
 
     @Deprecated
-    public FlutterView(Context context, RenderMode renderMode, TransparencyMode transparencyMode) {
+    public FlutterView(@NonNull Context context, @NonNull RenderMode renderMode, @NonNull TransparencyMode transparencyMode) {
         super(context, null);
         this.flutterUiDisplayListeners = new HashSet();
         this.flutterEngineAttachmentListeners = new HashSet();
@@ -168,7 +182,7 @@ public class FlutterView extends FrameLayout {
         init();
     }
 
-    private FlutterView(Context context, AttributeSet attributeSet, FlutterSurfaceView flutterSurfaceView) {
+    private FlutterView(@NonNull Context context, @Nullable AttributeSet attributeSet, @NonNull FlutterSurfaceView flutterSurfaceView) {
         super(context, attributeSet);
         this.flutterUiDisplayListeners = new HashSet();
         this.flutterEngineAttachmentListeners = new HashSet();
@@ -201,7 +215,7 @@ public class FlutterView extends FrameLayout {
         init();
     }
 
-    private FlutterView(Context context, AttributeSet attributeSet, FlutterTextureView flutterTextureView) {
+    private FlutterView(@NonNull Context context, @Nullable AttributeSet attributeSet, @NonNull FlutterTextureView flutterTextureView) {
         super(context, attributeSet);
         this.flutterUiDisplayListeners = new HashSet();
         this.flutterEngineAttachmentListeners = new HashSet();
@@ -251,16 +265,16 @@ public class FlutterView extends FrameLayout {
         return this.isFlutterUiDisplayed;
     }
 
-    public void addOnFirstFrameRenderedListener(FlutterUiDisplayListener flutterUiDisplayListener) {
+    public void addOnFirstFrameRenderedListener(@NonNull FlutterUiDisplayListener flutterUiDisplayListener) {
         this.flutterUiDisplayListeners.add(flutterUiDisplayListener);
     }
 
-    public void removeOnFirstFrameRenderedListener(FlutterUiDisplayListener flutterUiDisplayListener) {
+    public void removeOnFirstFrameRenderedListener(@NonNull FlutterUiDisplayListener flutterUiDisplayListener) {
         this.flutterUiDisplayListeners.remove(flutterUiDisplayListener);
     }
 
     @Override // android.view.View
-    protected void onConfigurationChanged(Configuration configuration) {
+    protected void onConfigurationChanged(@NonNull Configuration configuration) {
         super.onConfigurationChanged(configuration);
         if (this.flutterEngine != null) {
             Log.v(TAG, "Configuration changed. Sending locales and user settings to Flutter.");
@@ -279,9 +293,11 @@ public class FlutterView extends FrameLayout {
     }
 
     @Override // android.view.View
+    @NonNull
     @SuppressLint({"InlinedApi", "NewApi"})
+    @RequiresApi(20)
     @TargetApi(20)
-    public final WindowInsets onApplyWindowInsets(WindowInsets windowInsets) {
+    public final WindowInsets onApplyWindowInsets(@NonNull WindowInsets windowInsets) {
         WindowInsets onApplyWindowInsets = super.onApplyWindowInsets(windowInsets);
         this.viewportMetrics.paddingTop = windowInsets.getSystemWindowInsetTop();
         this.viewportMetrics.paddingRight = windowInsets.getSystemWindowInsetRight();
@@ -304,7 +320,7 @@ public class FlutterView extends FrameLayout {
     }
 
     @Override // android.view.View
-    protected boolean fitSystemWindows(Rect rect) {
+    protected boolean fitSystemWindows(@NonNull Rect rect) {
         if (Build.VERSION.SDK_INT <= 19) {
             this.viewportMetrics.paddingTop = rect.top;
             this.viewportMetrics.paddingRight = rect.right;
@@ -322,7 +338,8 @@ public class FlutterView extends FrameLayout {
     }
 
     @Override // android.view.View
-    public InputConnection onCreateInputConnection(EditorInfo editorInfo) {
+    @Nullable
+    public InputConnection onCreateInputConnection(@NonNull EditorInfo editorInfo) {
         return !isAttachedToFlutterEngine() ? super.onCreateInputConnection(editorInfo) : this.textInputPlugin.createInputConnection(this, editorInfo);
     }
 
@@ -335,7 +352,7 @@ public class FlutterView extends FrameLayout {
     }
 
     @Override // android.view.View, android.view.KeyEvent.Callback
-    public boolean onKeyUp(int i, KeyEvent keyEvent) {
+    public boolean onKeyUp(int i, @NonNull KeyEvent keyEvent) {
         if (!isAttachedToFlutterEngine()) {
             return super.onKeyUp(i, keyEvent);
         }
@@ -344,7 +361,7 @@ public class FlutterView extends FrameLayout {
     }
 
     @Override // android.view.View, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+    public boolean onKeyDown(int i, @NonNull KeyEvent keyEvent) {
         if (!isAttachedToFlutterEngine()) {
             return super.onKeyDown(i, keyEvent);
         }
@@ -353,7 +370,7 @@ public class FlutterView extends FrameLayout {
     }
 
     @Override // android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
+    public boolean onTouchEvent(@NonNull MotionEvent motionEvent) {
         if (!isAttachedToFlutterEngine()) {
             return super.onTouchEvent(motionEvent);
         }
@@ -364,7 +381,7 @@ public class FlutterView extends FrameLayout {
     }
 
     @Override // android.view.View
-    public boolean onGenericMotionEvent(MotionEvent motionEvent) {
+    public boolean onGenericMotionEvent(@NonNull MotionEvent motionEvent) {
         if (isAttachedToFlutterEngine() && this.androidTouchProcessor.onGenericMotionEvent(motionEvent)) {
             return true;
         }
@@ -372,7 +389,7 @@ public class FlutterView extends FrameLayout {
     }
 
     @Override // android.view.View
-    public boolean onHoverEvent(MotionEvent motionEvent) {
+    public boolean onHoverEvent(@NonNull MotionEvent motionEvent) {
         if (!isAttachedToFlutterEngine()) {
             return super.onHoverEvent(motionEvent);
         }
@@ -383,6 +400,7 @@ public class FlutterView extends FrameLayout {
     }
 
     @Override // android.view.View
+    @Nullable
     public AccessibilityNodeProvider getAccessibilityNodeProvider() {
         if (this.accessibilityBridge == null || !this.accessibilityBridge.isAccessibilityEnabled()) {
             return null;
@@ -403,7 +421,7 @@ public class FlutterView extends FrameLayout {
         setWillNotDraw(false);
     }
 
-    public void attachToFlutterEngine(FlutterEngine flutterEngine) {
+    public void attachToFlutterEngine(@NonNull FlutterEngine flutterEngine) {
         Log.v(TAG, "Attaching to a FlutterEngine: " + flutterEngine);
         if (isAttachedToFlutterEngine()) {
             if (flutterEngine == this.flutterEngine) {
@@ -463,23 +481,28 @@ public class FlutterView extends FrameLayout {
         this.flutterEngine = null;
     }
 
+    @VisibleForTesting
     public boolean isAttachedToFlutterEngine() {
         return this.flutterEngine != null && this.flutterEngine.getRenderer() == this.renderSurface.getAttachedRenderer();
     }
 
+    @Nullable
+    @VisibleForTesting
     public FlutterEngine getAttachedFlutterEngine() {
         return this.flutterEngine;
     }
 
-    public void addFlutterEngineAttachmentListener(FlutterEngineAttachmentListener flutterEngineAttachmentListener) {
+    @VisibleForTesting
+    public void addFlutterEngineAttachmentListener(@NonNull FlutterEngineAttachmentListener flutterEngineAttachmentListener) {
         this.flutterEngineAttachmentListeners.add(flutterEngineAttachmentListener);
     }
 
-    public void removeFlutterEngineAttachmentListener(FlutterEngineAttachmentListener flutterEngineAttachmentListener) {
+    @VisibleForTesting
+    public void removeFlutterEngineAttachmentListener(@NonNull FlutterEngineAttachmentListener flutterEngineAttachmentListener) {
         this.flutterEngineAttachmentListeners.remove(flutterEngineAttachmentListener);
     }
 
-    private void sendLocalesToFlutter(Configuration configuration) {
+    private void sendLocalesToFlutter(@NonNull Configuration configuration) {
         ArrayList arrayList = new ArrayList();
         if (Build.VERSION.SDK_INT >= 24) {
             LocaleList locales = configuration.getLocales();
@@ -493,6 +516,7 @@ public class FlutterView extends FrameLayout {
         this.flutterEngine.getLocalizationChannel().sendLocales(arrayList);
     }
 
+    @VisibleForTesting
     void sendUserSettingsToFlutter() {
         this.flutterEngine.getSettingsChannel().startMessage().setTextScaleFactor(getResources().getConfiguration().fontScale).setUse24HourFormat(DateFormat.is24HourFormat(getContext())).setPlatformBrightness((getResources().getConfiguration().uiMode & 48) == 32 ? SettingsChannel.PlatformBrightness.dark : SettingsChannel.PlatformBrightness.light).send();
     }

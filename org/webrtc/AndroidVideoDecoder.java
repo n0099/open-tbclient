@@ -3,8 +3,8 @@ package org.webrtc;
 import android.media.MediaCodec;
 import android.media.MediaFormat;
 import android.os.SystemClock;
-import android.support.annotation.Nullable;
 import android.view.Surface;
+import androidx.annotation.Nullable;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.concurrent.BlockingDeque;
@@ -15,8 +15,9 @@ import org.webrtc.EncodedImage;
 import org.webrtc.ThreadUtils;
 import org.webrtc.VideoDecoder;
 import org.webrtc.VideoFrame;
-/* loaded from: classes12.dex */
-class AndroidVideoDecoder implements VideoDecoder, VideoSink {
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes10.dex */
+public class AndroidVideoDecoder implements VideoDecoder, VideoSink {
     private static final int DEQUEUE_INPUT_TIMEOUT_US = 500000;
     private static final int DEQUEUE_OUTPUT_BUFFER_TIMEOUT_US = 100000;
     private static final int MEDIA_CODEC_RELEASE_TIMEOUT_MS = 5000;
@@ -61,7 +62,7 @@ class AndroidVideoDecoder implements VideoDecoder, VideoSink {
     private final Object renderedTextureMetadataLock = new Object();
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public static class DecodedTextureMetadata {
         final Integer decodeTimeMs;
         final long presentationTimestampUs;
@@ -73,7 +74,7 @@ class AndroidVideoDecoder implements VideoDecoder, VideoSink {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes12.dex */
+    /* loaded from: classes10.dex */
     public static class FrameInfo {
         final long decodeStartTimeMs;
         final int rotation;
@@ -442,7 +443,6 @@ class AndroidVideoDecoder implements VideoDecoder, VideoSink {
 
     protected void deliverDecodedFrame() {
         int i;
-        Integer num;
         this.outputThreadChecker.checkIsOnValidThread();
         try {
             MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
@@ -453,12 +453,13 @@ class AndroidVideoDecoder implements VideoDecoder, VideoSink {
                 Logging.v(TAG, "dequeueOutputBuffer returned " + dequeueOutputBuffer);
             } else {
                 FrameInfo poll = this.frameInfos.poll();
+                Integer num = null;
                 if (poll != null) {
-                    num = Integer.valueOf((int) (SystemClock.elapsedRealtime() - poll.decodeStartTimeMs));
+                    Integer valueOf = Integer.valueOf((int) (SystemClock.elapsedRealtime() - poll.decodeStartTimeMs));
                     i = poll.rotation;
+                    num = valueOf;
                 } else {
                     i = 0;
-                    num = null;
                 }
                 this.hasDecodedFirstFrame = true;
                 if (this.surfaceTextureHelper != null) {

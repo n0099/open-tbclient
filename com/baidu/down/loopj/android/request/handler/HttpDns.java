@@ -19,7 +19,7 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public final class HttpDns {
     private static final String ACCOUNT_ID = "0024";
     private static final int EMPTY_RESULT_HOST_TTL = 300;
@@ -54,7 +54,7 @@ public final class HttpDns {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     public class HostObject {
         private String hostName;
         private String[] ip;
@@ -105,7 +105,7 @@ public final class HttpDns {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     class QueryHostTask implements Callable<String[]> {
         private String hostName;
         private boolean isRequestRetried = false;
@@ -123,23 +123,25 @@ public final class HttpDns {
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public String[] call() {
+            Throwable th;
             InputStream inputStream;
-            InputStream inputStream2;
             HttpURLConnection httpURLConnection;
+            InputStream inputStream2;
+            HttpURLConnection httpURLConnection2;
             InputStream inputStream3;
-            HttpURLConnection httpURLConnection2 = null;
+            HttpURLConnection httpURLConnection3 = null;
             String str = "http://" + HttpDns.serverIp + "/" + HttpDns.ACCOUNT_ID + "/?dn=" + this.hostName;
             Log.v(HttpDns.TAG, "[QueryHostTask.call] - buildUrl: " + str);
             try {
-                HttpURLConnection httpURLConnection3 = (HttpURLConnection) new URL(str).openConnection();
+                httpURLConnection2 = (HttpURLConnection) new URL(str).openConnection();
                 try {
-                    httpURLConnection3.setConnectTimeout(10000);
-                    httpURLConnection3.setReadTimeout(10000);
-                    if (httpURLConnection3.getResponseCode() != 200) {
-                        Log.w(HttpDns.TAG, "[QueryHostTask.call] - response code: " + httpURLConnection3.getResponseCode());
+                    httpURLConnection2.setConnectTimeout(10000);
+                    httpURLConnection2.setReadTimeout(10000);
+                    if (httpURLConnection2.getResponseCode() != 200) {
+                        Log.w(HttpDns.TAG, "[QueryHostTask.call] - response code: " + httpURLConnection2.getResponseCode());
                         inputStream3 = null;
                     } else {
-                        inputStream = httpURLConnection3.getInputStream();
+                        inputStream = httpURLConnection2.getInputStream();
                         try {
                             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
                             StringBuilder sb = new StringBuilder();
@@ -158,8 +160,8 @@ public final class HttpDns {
                                 HostObject hostObject = new HostObject();
                                 JSONObject optJSONObject2 = optJSONObject.optJSONObject(this.hostName);
                                 if (optJSONObject2 == null) {
-                                    if (httpURLConnection3 != null) {
-                                        httpURLConnection3.disconnect();
+                                    if (httpURLConnection2 != null) {
+                                        httpURLConnection2.disconnect();
                                     }
                                     if (inputStream != null) {
                                         try {
@@ -173,8 +175,8 @@ public final class HttpDns {
                                 }
                                 JSONArray optJSONArray = optJSONObject2.optJSONArray(TableDefine.UserInfoColumns.COLUMN_IP);
                                 if (optJSONArray == null) {
-                                    if (httpURLConnection3 != null) {
-                                        httpURLConnection3.disconnect();
+                                    if (httpURLConnection2 != null) {
+                                        httpURLConnection2.disconnect();
                                     }
                                     if (inputStream != null) {
                                         try {
@@ -198,8 +200,8 @@ public final class HttpDns {
                                 if (HttpDns.this.hostManager.size() < 100) {
                                     HttpDns.this.hostManager.put(this.hostName, hostObject);
                                 }
-                                if (httpURLConnection3 != null) {
-                                    httpURLConnection3.disconnect();
+                                if (httpURLConnection2 != null) {
+                                    httpURLConnection2.disconnect();
                                 }
                                 if (inputStream != null) {
                                     try {
@@ -214,10 +216,9 @@ public final class HttpDns {
                             inputStream.close();
                             inputStream3 = null;
                         } catch (Exception e4) {
-                            httpURLConnection = httpURLConnection3;
                             inputStream2 = inputStream;
-                            if (httpURLConnection != null) {
-                                httpURLConnection.disconnect();
+                            if (httpURLConnection2 != null) {
+                                httpURLConnection2.disconnect();
                             }
                             if (inputStream2 != null) {
                                 try {
@@ -229,11 +230,11 @@ public final class HttpDns {
                             HttpDns.this.mRequstingHost.remove(this.hostName);
                             if (this.isRequestRetried) {
                             }
-                        } catch (Throwable th) {
-                            httpURLConnection2 = httpURLConnection3;
-                            th = th;
-                            if (httpURLConnection2 != null) {
-                                httpURLConnection2.disconnect();
+                        } catch (Throwable th2) {
+                            th = th2;
+                            httpURLConnection = httpURLConnection2;
+                            if (httpURLConnection != null) {
+                                httpURLConnection.disconnect();
                             }
                             if (inputStream != null) {
                                 try {
@@ -246,9 +247,9 @@ public final class HttpDns {
                             throw th;
                         }
                     }
-                    httpURLConnection3.disconnect();
+                    httpURLConnection2.disconnect();
                     if (0 != 0) {
-                        httpURLConnection2.disconnect();
+                        httpURLConnection3.disconnect();
                     }
                     if (0 != 0) {
                         try {
@@ -259,19 +260,19 @@ public final class HttpDns {
                     }
                     HttpDns.this.mRequstingHost.remove(this.hostName);
                 } catch (Exception e8) {
-                    httpURLConnection = httpURLConnection3;
                     inputStream2 = null;
-                } catch (Throwable th2) {
+                } catch (Throwable th3) {
+                    th = th3;
                     inputStream = null;
-                    httpURLConnection2 = httpURLConnection3;
-                    th = th2;
+                    httpURLConnection = httpURLConnection2;
                 }
             } catch (Exception e9) {
                 inputStream2 = null;
-                httpURLConnection = null;
-            } catch (Throwable th3) {
-                th = th3;
+                httpURLConnection2 = null;
+            } catch (Throwable th4) {
+                th = th4;
                 inputStream = null;
+                httpURLConnection = null;
             }
             if (this.isRequestRetried) {
                 this.isRequestRetried = true;

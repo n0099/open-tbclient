@@ -1,19 +1,32 @@
 package com.baidu.live.data;
 
-import android.text.TextUtils;
-/* loaded from: classes4.dex */
+import org.json.JSONObject;
+/* loaded from: classes11.dex */
 public class ah {
-    public String aLy;
-    public String endColor;
-    public String imageUrl;
-    public String startColor;
-    public String url;
+    public long aLX;
+    public String aLY;
+    public int aLZ;
+    public int aMa;
+    public boolean aMb;
 
-    public String getLabelName() {
-        return (TextUtils.isEmpty(this.aLy) || this.aLy.length() <= 4) ? this.aLy : this.aLy.substring(0, 4);
-    }
-
-    public String toString() {
-        return "AlaSceneData{url='" + this.url + "', sceneName='" + this.aLy + "', imageUrl='" + this.imageUrl + "', startColor='" + this.startColor + "', endColor='" + this.endColor + "'}";
+    public void parse(JSONObject jSONObject) {
+        try {
+            if (jSONObject != null) {
+                this.aLX = jSONObject.optLong("stay_interval_ms", 7000L);
+                this.aLY = jSONObject.optString("rec_title");
+                this.aLZ = jSONObject.optInt("rec_daily_num", 1);
+                this.aMa = jSONObject.optInt("rec_hide_limit_num", 3);
+                this.aMb = jSONObject.optInt("switch", 0) == 1;
+            } else {
+                this.aLX = 7000L;
+                this.aLZ = 1;
+                this.aMa = 3;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            this.aLX = 7000L;
+            this.aLZ = 1;
+            this.aMa = 3;
+        }
     }
 }

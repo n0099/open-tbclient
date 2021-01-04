@@ -11,7 +11,7 @@ import com.google.zxing.pdf417.encoder.PDF417;
 import java.lang.reflect.Array;
 import java.nio.charset.Charset;
 import java.util.Map;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class PDF417Writer implements Writer {
     static final int DEFAULT_ERROR_CORRECTION_LEVEL = 2;
     static final int WHITE_SPACE = 30;
@@ -20,14 +20,13 @@ public final class PDF417Writer implements Writer {
     public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2, Map<EncodeHintType, ?> map) throws WriterException {
         int i3;
         int i4;
-        int i5;
         if (barcodeFormat != BarcodeFormat.PDF_417) {
             throw new IllegalArgumentException("Can only encode PDF_417, but got " + barcodeFormat);
         }
         PDF417 pdf417 = new PDF417();
+        int i5 = 2;
         if (map == null) {
             i3 = 30;
-            i4 = 2;
         } else {
             if (map.containsKey(EncodeHintType.PDF417_COMPACT)) {
                 pdf417.setCompact(Boolean.valueOf(map.get(EncodeHintType.PDF417_COMPACT).toString()).booleanValue());
@@ -40,21 +39,19 @@ public final class PDF417Writer implements Writer {
                 pdf417.setDimensions(dimensions.getMaxCols(), dimensions.getMinCols(), dimensions.getMaxRows(), dimensions.getMinRows());
             }
             if (!map.containsKey(EncodeHintType.MARGIN)) {
-                i5 = 30;
+                i4 = 30;
             } else {
-                i5 = Integer.parseInt(map.get(EncodeHintType.MARGIN).toString());
+                i4 = Integer.parseInt(map.get(EncodeHintType.MARGIN).toString());
             }
-            if (!map.containsKey(EncodeHintType.ERROR_CORRECTION)) {
-                i4 = 2;
-            } else {
-                i4 = Integer.parseInt(map.get(EncodeHintType.ERROR_CORRECTION).toString());
+            if (map.containsKey(EncodeHintType.ERROR_CORRECTION)) {
+                i5 = Integer.parseInt(map.get(EncodeHintType.ERROR_CORRECTION).toString());
             }
             if (map.containsKey(EncodeHintType.CHARACTER_SET)) {
                 pdf417.setEncoding(Charset.forName(map.get(EncodeHintType.CHARACTER_SET).toString()));
             }
-            i3 = i5;
+            i3 = i4;
         }
-        return bitMatrixFromEncoder(pdf417, str, i4, i, i2, i3);
+        return bitMatrixFromEncoder(pdf417, str, i5, i, i2, i3);
     }
 
     @Override // com.google.zxing.Writer

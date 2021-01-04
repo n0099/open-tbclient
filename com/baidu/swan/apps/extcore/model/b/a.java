@@ -1,20 +1,20 @@
 package com.baidu.swan.apps.extcore.model.b;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import java.io.File;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public interface a {
     @NonNull
-    String awI();
+    String aya();
 
     @NonNull
-    File awJ();
+    File ayb();
 
     @NonNull
-    String awK();
+    String ayc();
 
     @NonNull
-    String awL();
+    String ayd();
 
-    int awM();
+    int aye();
 }

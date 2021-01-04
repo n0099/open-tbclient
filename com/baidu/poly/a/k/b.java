@@ -12,15 +12,15 @@ import java.util.List;
 import org.apache.http.cookie.SM;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes19.dex */
+/* loaded from: classes3.dex */
 public class b {
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
     static class a extends com.baidu.poly.a.a.a<String> {
-        final /* synthetic */ com.baidu.poly.a.k.a cii;
+        final /* synthetic */ com.baidu.poly.a.k.a cpk;
 
         a(com.baidu.poly.a.k.a aVar) {
-            this.cii = aVar;
+            this.cpk = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -34,26 +34,26 @@ public class b {
                     c0318a.statusCode = 0;
                     c0318a.message = jSONObject.optString("msg");
                     JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                    c0318a.cif = optJSONObject.optLong("totalAmount");
-                    c0318a.cig = optJSONObject.optLong("userPayAmount");
-                    c0318a.cih = optJSONObject.optString("usedhostMarketingDetail");
+                    c0318a.cph = optJSONObject.optLong("totalAmount");
+                    c0318a.cpi = optJSONObject.optLong("userPayAmount");
+                    c0318a.cpj = optJSONObject.optString("usedhostMarketingDetail");
                 } else {
                     c0318a.statusCode = jSONObject.optInt("errorLevel", 2);
                     c0318a.message = jSONObject.optString("msg");
                 }
             } catch (Exception e) {
                 c0318a.statusCode = 2;
-                c0318a.message = g.adQ().getResources().getString(b.g.calculate_price_default_error);
+                c0318a.message = g.afL().getResources().getString(b.g.calculate_price_default_error);
             }
-            this.cii.a(c0318a);
+            this.cpk.a(c0318a);
         }
 
         @Override // com.baidu.poly.a.a.a
         public void a(Throwable th, String str) {
             a.C0318a c0318a = new a.C0318a();
             c0318a.statusCode = 2;
-            c0318a.message = g.adQ().getResources().getString(b.g.calculate_price_default_error);
-            this.cii.a(c0318a);
+            c0318a.message = g.afL().getResources().getString(b.g.calculate_price_default_error);
+            this.cpk.a(c0318a);
         }
     }
 

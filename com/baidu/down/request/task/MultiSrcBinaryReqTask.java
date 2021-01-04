@@ -23,7 +23,6 @@ import com.baidu.down.utils.Constants;
 import com.baidu.down.utils.CryptUtil;
 import com.baidu.down.utils.DownPrefUtils;
 import com.baidu.down.utils.Utils;
-import com.baidu.searchbox.ugc.model.UgcConstant;
 import java.lang.ref.WeakReference;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -36,7 +35,7 @@ import java.util.TimerTask;
 import java.util.TreeSet;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public class MultiSrcBinaryReqTask extends BinaryReqTask {
     private static final boolean DEBUG = false;
     private static final String DOWNFLOW_DOWNLOAD_INNER = "download_inner";
@@ -328,7 +327,7 @@ public class MultiSrcBinaryReqTask extends BinaryReqTask {
                                     JSONArray optJSONArray = jSONObject2.optJSONArray(HTTP_DNS_CDN_VIPS);
                                     String optString = jSONObject2.optString(HTTP_DNS_CDN_XCODE);
                                     httpDNSCacheInfo.mXCode = optString;
-                                    this.mHost = jSONObject2.optString("host");
+                                    this.mHost = jSONObject2.optString(HTTP_DNS_CDN_HOST);
                                     httpDNSCacheInfo.mHost = this.mHost;
                                     httpDNSCacheInfo.mIpLiveTime = jSONObject2.optInt(HTTP_DNS_CDN_LIVE_TIME);
                                     httpDNSCacheInfo.mApn = Utils.getWifiOr2gOr3G(this.mContext);
@@ -526,7 +525,7 @@ public class MultiSrcBinaryReqTask extends BinaryReqTask {
                 } else if (str2.equals("")) {
                     str = next.mCDNSequence + "";
                 } else {
-                    str = str2 + UgcConstant.AT_RULE_TAG + next.mCDNSequence;
+                    str = str2 + "@" + next.mCDNSequence;
                 }
                 str2 = str;
             }

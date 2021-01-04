@@ -15,17 +15,17 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.data.c;
 import com.baidu.tieba.ala.message.AlaGetRedPacketInfoResponseMessage;
 import com.baidu.tieba.ala.message.AlaSnatchRedPacketResponseMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class h extends BdBaseModel {
-    private a gib;
-    private HttpMessageListener hIc;
-    private HttpMessageListener hId;
+    private a gsz;
+    private HttpMessageListener hUc;
+    private HttpMessageListener hUd;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface a {
-        void aO(int i, String str);
+        void aQ(int i, String str);
 
-        void aP(int i, String str);
+        void aR(int i, String str);
 
         void b(com.baidu.tieba.ala.data.c cVar);
 
@@ -34,7 +34,7 @@ public class h extends BdBaseModel {
 
     public h(BdPageContext<?> bdPageContext, a aVar) {
         super(bdPageContext);
-        this.hIc = new HttpMessageListener(1021160) { // from class: com.baidu.tieba.ala.g.h.1
+        this.hUc = new HttpMessageListener(1021160) { // from class: com.baidu.tieba.ala.g.h.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -43,34 +43,34 @@ public class h extends BdBaseModel {
                     long logId = alaGetRedPacketInfoResponseMessage.getLogId();
                     AlaStatsItem alaStatsItem = new AlaStatsItem();
                     alaStatsItem.addValue(BaseJsonData.TAG_ERRNO, Integer.valueOf(alaGetRedPacketInfoResponseMessage.getError()));
-                    if (alaGetRedPacketInfoResponseMessage.clQ() != null) {
-                        com.baidu.tieba.ala.data.i iVar = alaGetRedPacketInfoResponseMessage.clQ().gIo;
+                    if (alaGetRedPacketInfoResponseMessage.coH() != null) {
+                        com.baidu.tieba.ala.data.i iVar = alaGetRedPacketInfoResponseMessage.coH().gUa;
                         if (iVar != null) {
                             alaStatsItem.addValue("redpacketId", iVar.id);
                             alaStatsItem.addValue("status", Integer.valueOf(iVar.status));
                         }
-                        c.a aVar2 = alaGetRedPacketInfoResponseMessage.clQ().gIp;
+                        c.a aVar2 = alaGetRedPacketInfoResponseMessage.coH().gUb;
                         if (aVar2 != null) {
-                            alaStatsItem.addValue("needFollow", aVar2.gIs ? "1" : "0");
+                            alaStatsItem.addValue("needFollow", aVar2.gUe ? "1" : "0");
                             alaStatsItem.addValue("hasFollowed", aVar2.isFollowed ? "1" : "0");
-                            alaStatsItem.addValue("needSendGift", aVar2.gIt ? "1" : "0");
-                            alaStatsItem.addValue("hasSendGift", aVar2.gIu ? "1" : "0");
-                            alaStatsItem.addValue("myLootResult", Integer.valueOf(aVar2.gIq));
-                            alaStatsItem.addValue("myLootAmount", Long.valueOf(aVar2.gIr));
+                            alaStatsItem.addValue("needSendGift", aVar2.gUf ? "1" : "0");
+                            alaStatsItem.addValue("hasSendGift", aVar2.gUg ? "1" : "0");
+                            alaStatsItem.addValue("myLootResult", Integer.valueOf(aVar2.gUc));
+                            alaStatsItem.addValue("myLootAmount", Long.valueOf(aVar2.gUd));
                         }
                     }
                     AlaStatManager.getInstance().debug("redpacket_get_info", logId, "", alaStatsItem);
-                    if (h.this.gib != null) {
+                    if (h.this.gsz != null) {
                         if (alaGetRedPacketInfoResponseMessage.getError() != 0 || !alaGetRedPacketInfoResponseMessage.isSuccess()) {
-                            h.this.gib.aO(alaGetRedPacketInfoResponseMessage.getError(), alaGetRedPacketInfoResponseMessage.getErrorString());
+                            h.this.gsz.aQ(alaGetRedPacketInfoResponseMessage.getError(), alaGetRedPacketInfoResponseMessage.getErrorString());
                         } else {
-                            h.this.gib.b(alaGetRedPacketInfoResponseMessage.clQ());
+                            h.this.gsz.b(alaGetRedPacketInfoResponseMessage.coH());
                         }
                     }
                 }
             }
         };
-        this.hId = new HttpMessageListener(1021161) { // from class: com.baidu.tieba.ala.g.h.2
+        this.hUd = new HttpMessageListener(1021161) { // from class: com.baidu.tieba.ala.g.h.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -79,27 +79,27 @@ public class h extends BdBaseModel {
                     long logId = alaSnatchRedPacketResponseMessage.getLogId();
                     AlaStatsItem alaStatsItem = new AlaStatsItem();
                     alaStatsItem.addValue(BaseJsonData.TAG_ERRNO, Integer.valueOf(alaSnatchRedPacketResponseMessage.getError()));
-                    com.baidu.tieba.ala.data.l clS = alaSnatchRedPacketResponseMessage.clS();
-                    if (clS != null) {
-                        alaStatsItem.addValue("result", clS.bUM() ? "1" : "0");
-                        alaStatsItem.addValue("resultAmount", Long.valueOf(clS.bUN()));
+                    com.baidu.tieba.ala.data.l coJ = alaSnatchRedPacketResponseMessage.coJ();
+                    if (coJ != null) {
+                        alaStatsItem.addValue("result", coJ.bXq() ? "1" : "0");
+                        alaStatsItem.addValue("resultAmount", Long.valueOf(coJ.bXr()));
                     }
                     AlaStatManager.getInstance().debug("redpacket_loot_result", logId, "", alaStatsItem);
-                    if (h.this.gib != null) {
-                        com.baidu.tieba.ala.data.l clS2 = alaSnatchRedPacketResponseMessage.clS();
+                    if (h.this.gsz != null) {
+                        com.baidu.tieba.ala.data.l coJ2 = alaSnatchRedPacketResponseMessage.coJ();
                         if (alaSnatchRedPacketResponseMessage.getError() != 0 || !alaSnatchRedPacketResponseMessage.isSuccess()) {
-                            h.this.gib.aP(alaSnatchRedPacketResponseMessage.getError(), alaSnatchRedPacketResponseMessage.getErrorString());
+                            h.this.gsz.aR(alaSnatchRedPacketResponseMessage.getError(), alaSnatchRedPacketResponseMessage.getErrorString());
                         } else {
-                            h.this.gib.b(clS2);
+                            h.this.gsz.b(coJ2);
                         }
                     }
                 }
             }
         };
-        this.gib = aVar;
+        this.gsz = aVar;
         initTasks();
-        registerListener(this.hIc);
-        registerListener(this.hId);
+        registerListener(this.hUc);
+        registerListener(this.hUd);
     }
 
     private void initTasks() {
@@ -117,7 +117,7 @@ public class h extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask2);
     }
 
-    public void aw(String str, String str2, String str3) {
+    public void az(String str, String str2, String str3) {
         HttpMessage httpMessage = new HttpMessage(1021160);
         httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccountId());
         httpMessage.addParam("redpacket_id", str);
@@ -126,7 +126,7 @@ public class h extends BdBaseModel {
         sendMessage(httpMessage);
     }
 
-    public void ax(String str, String str2, String str3) {
+    public void aA(String str, String str2, String str3) {
         HttpMessage httpMessage = new HttpMessage(1021161);
         httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccountId());
         httpMessage.addParam("redpacket_id", str);
@@ -146,8 +146,8 @@ public class h extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.hId);
-        MessageManager.getInstance().unRegisterListener(this.hIc);
+        MessageManager.getInstance().unRegisterListener(this.hUd);
+        MessageManager.getInstance().unRegisterListener(this.hUc);
         MessageManager.getInstance().unRegisterTask(1021161);
         MessageManager.getInstance().unRegisterTask(1021160);
     }

@@ -4,7 +4,7 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicLong;
 import org.a.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public abstract class SinglePostCompleteSubscriber<T, R> extends AtomicLong implements j<T>, d {
     static final long COMPLETE_MASK = Long.MIN_VALUE;
     static final long REQUEST_MASK = Long.MAX_VALUE;
@@ -70,7 +70,7 @@ public abstract class SinglePostCompleteSubscriber<T, R> extends AtomicLong impl
                     }
                     return;
                 }
-            } while (!compareAndSet(j2, io.reactivex.internal.util.b.N(j2, j)));
+            } while (!compareAndSet(j2, io.reactivex.internal.util.b.S(j2, j)));
             this.s.request(j);
         }
     }

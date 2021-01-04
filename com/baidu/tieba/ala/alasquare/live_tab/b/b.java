@@ -1,5 +1,5 @@
 package com.baidu.tieba.ala.alasquare.live_tab.b;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class b {
     public int errCode;
     public String errMsg;

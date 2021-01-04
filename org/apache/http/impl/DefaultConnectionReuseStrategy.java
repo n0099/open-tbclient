@@ -6,7 +6,7 @@ import org.apache.http.HttpResponse;
 import org.apache.http.TokenIterator;
 import org.apache.http.protocol.HttpContext;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes6.dex */
 public class DefaultConnectionReuseStrategy implements ConnectionReuseStrategy {
     public DefaultConnectionReuseStrategy() {
         throw new RuntimeException("Stub!");

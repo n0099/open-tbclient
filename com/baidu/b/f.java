@@ -4,12 +4,14 @@ import android.text.TextUtils;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1268a;
-    public String b;
+    public String f1612a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f1613b;
     public int c = 2;
     private int d = 0;
 
@@ -18,13 +20,13 @@ public class f {
             return null;
         }
         f fVar = new f();
-        fVar.f1268a = str;
+        fVar.f1612a = str;
         fVar.d = TextUtils.isEmpty(str2) ? 0 : str2.length();
         if (fVar.d < 14) {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "0";
             }
-            fVar.b = str2;
+            fVar.f1613b = str2;
         }
         return fVar;
     }
@@ -37,15 +39,11 @@ public class f {
         return TextUtils.isEmpty(str);
     }
 
-    private static String d(String str) {
-        return new String(com.baidu.b.d.a.a(str.getBytes()));
+    public static f cW(String str) {
+        return cX(e(str));
     }
 
-    public static f dd(String str) {
-        return de(e(str));
-    }
-
-    private static f de(String str) {
+    private static f cX(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -64,14 +62,14 @@ public class f {
             int length = TextUtils.isEmpty(str2) ? 0 : str2.length();
             if (!TextUtils.isEmpty(string)) {
                 f fVar = new f();
-                fVar.f1268a = string;
+                fVar.f1612a = string;
                 fVar.c = i;
                 fVar.d = length;
                 if (fVar.d < 14) {
                     if (TextUtils.isEmpty(str2)) {
                         str2 = "0";
                     }
-                    fVar.b = str2;
+                    fVar.f1613b = str2;
                 }
                 fVar.c();
                 return fVar;
@@ -80,6 +78,10 @@ public class f {
             com.baidu.b.f.c.a(e);
         }
         return null;
+    }
+
+    private static String d(String str) {
+        return new String(com.baidu.b.d.a.a(str.getBytes()));
     }
 
     private static String e(String str) {
@@ -96,7 +98,7 @@ public class f {
     }
 
     boolean a() {
-        return a(this.b);
+        return a(this.f1613b);
     }
 
     boolean b() {
@@ -106,10 +108,10 @@ public class f {
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean c() {
         if (b()) {
-            this.b = "O";
+            this.f1613b = "O";
             return true;
         } else if (a()) {
-            this.b = "0";
+            this.f1613b = "0";
             return true;
         } else {
             return false;

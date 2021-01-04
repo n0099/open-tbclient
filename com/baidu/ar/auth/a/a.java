@@ -6,7 +6,7 @@ import com.baidu.ar.auth.AuthJni;
 import com.baidu.ar.auth.IAuthenticateCallback;
 import com.baidu.ar.auth.IAuthenticator;
 import com.baidu.ar.h.d;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class a implements IAuthenticator {
     private static volatile a ki;
     private String js;

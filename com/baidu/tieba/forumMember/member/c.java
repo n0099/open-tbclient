@@ -1,25 +1,39 @@
 package com.baidu.tieba.forumMember.member;
 
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.af;
-import com.baidu.tieba.R;
-/* loaded from: classes23.dex */
-public class c extends af.a {
-    public RelativeLayout bIq;
-    public ImageView hRa;
-    public View mLineView;
-    public int mSkinType;
-    public TextView mTitleView;
+import com.baidu.adp.lib.cache.l;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+/* loaded from: classes8.dex */
+public class c {
+    private com.baidu.adp.lib.cache.l<byte[]> jaF;
 
-    public c(View view) {
-        super(view);
-        this.mSkinType = 3;
-        this.bIq = (RelativeLayout) view.findViewById(R.id.bar_info_complaint_lay);
-        this.mLineView = view.findViewById(R.id.info_complaint_diver_top);
-        this.mTitleView = (TextView) view.findViewById(R.id.bar_info_complaint_tv);
-        this.hRa = (ImageView) view.findViewById(R.id.bar_info_complaint_img);
+    public c() {
+        bhY();
+    }
+
+    public void bhY() {
+        if (this.jaF == null) {
+            this.jaF = com.baidu.tbadk.core.c.a.btS().Bm("tb.forum_member_info");
+        }
+    }
+
+    public byte[] Kv(String str) {
+        if (StringUtils.isNull(str)) {
+            return null;
+        }
+        l.b<byte[]> by = this.jaF != null ? this.jaF.by(str + "/" + TbadkCoreApplication.getCurrentAccount()) : null;
+        if (by == null || by.value == null) {
+            return null;
+        }
+        return by.value;
+    }
+
+    public void m(String str, byte[] bArr) {
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
+        if (!StringUtils.isNull(str)) {
+            bhY();
+            this.jaF.set(str + "/" + currentAccount, bArr, TbConfig.MILLS_7DAYS);
+        }
     }
 }

@@ -22,7 +22,7 @@ import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.sapi2.SapiContext;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes6.dex */
 public class BIMRtcSendMsg extends Message {
     private static final String TAG = "IMRtcSendMsg";
     private int mAction;

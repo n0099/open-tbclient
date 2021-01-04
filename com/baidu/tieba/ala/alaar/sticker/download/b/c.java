@@ -3,7 +3,7 @@ package com.baidu.tieba.ala.alaar.sticker.download.b;
 import android.os.Handler;
 import com.baidu.tieba.ala.alaar.sticker.download.exception.DownloadException;
 import java.util.concurrent.Executor;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class c implements com.baidu.tieba.ala.alaar.sticker.download.a.d {
     private Executor mDownloadStatusPoster;
 
@@ -21,50 +21,50 @@ public class c implements com.baidu.tieba.ala.alaar.sticker.download.a.d {
         this.mDownloadStatusPoster.execute(new a(cVar));
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     private static class a implements Runnable {
-        private final com.baidu.tieba.ala.alaar.sticker.download.a.c gkq;
-        private final com.baidu.tieba.ala.alaar.sticker.download.a.a gks;
+        private final com.baidu.tieba.ala.alaar.sticker.download.a.c guP;
+        private final com.baidu.tieba.ala.alaar.sticker.download.a.a guR;
 
         public a(com.baidu.tieba.ala.alaar.sticker.download.a.c cVar) {
-            this.gkq = cVar;
-            this.gks = this.gkq.bQz();
+            this.guP = cVar;
+            this.guR = this.guP.bSY();
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            switch (this.gkq.getStatus()) {
+            switch (this.guP.getStatus()) {
                 case 102:
                     com.baidu.tieba.ala.alaar.sticker.b.a.d("DownloadStatusDelivery", "STATUS_CONNECTING");
-                    this.gks.onConnecting();
+                    this.guR.onConnecting();
                     return;
                 case 103:
-                    com.baidu.tieba.ala.alaar.sticker.b.a.d("DownloadStatusDelivery", "STATUS_CONNECTED length: " + this.gkq.getLength() + " acceptRanges: " + this.gkq.isAcceptRanges());
-                    this.gks.onConnected(this.gkq.getLength(), this.gkq.isAcceptRanges());
+                    com.baidu.tieba.ala.alaar.sticker.b.a.d("DownloadStatusDelivery", "STATUS_CONNECTED length: " + this.guP.getLength() + " acceptRanges: " + this.guP.isAcceptRanges());
+                    this.guR.onConnected(this.guP.getLength(), this.guP.isAcceptRanges());
                     return;
                 case 104:
-                    com.baidu.tieba.ala.alaar.sticker.b.a.d("DownloadStatusDelivery", "STATUS_PROGRESS finished: " + this.gkq.getFinished() + " length: " + this.gkq.getLength() + " percent: " + this.gkq.getPercent());
-                    this.gks.onProgress(this.gkq.getFinished(), this.gkq.getLength(), this.gkq.getPercent());
+                    com.baidu.tieba.ala.alaar.sticker.b.a.d("DownloadStatusDelivery", "STATUS_PROGRESS finished: " + this.guP.getFinished() + " length: " + this.guP.getLength() + " percent: " + this.guP.getPercent());
+                    this.guR.onProgress(this.guP.getFinished(), this.guP.getLength(), this.guP.getPercent());
                     return;
                 case 105:
-                    com.baidu.tieba.ala.alaar.sticker.b.a.d("DownloadStatusDelivery", "STATUS_COMPLETED Path:" + this.gkq.getSavedPath());
-                    if (!this.gkq.getCalledCompleted()) {
-                        this.gkq.setCalledCompleted(true);
-                        this.gks.onCompleted(this.gkq.getSavedPath());
+                    com.baidu.tieba.ala.alaar.sticker.b.a.d("DownloadStatusDelivery", "STATUS_COMPLETED Path:" + this.guP.getSavedPath());
+                    if (!this.guP.getCalledCompleted()) {
+                        this.guP.setCalledCompleted(true);
+                        this.guR.onCompleted(this.guP.getSavedPath());
                         return;
                     }
                     return;
                 case 106:
                     com.baidu.tieba.ala.alaar.sticker.b.a.d("DownloadStatusDelivery", "STATUS_PAUSED");
-                    this.gks.onDownloadPaused();
+                    this.guR.onDownloadPaused();
                     return;
                 case 107:
                     com.baidu.tieba.ala.alaar.sticker.b.a.d("DownloadStatusDelivery", "STATUS_CANCELED");
-                    this.gks.onDownloadCanceled();
+                    this.guR.onDownloadCanceled();
                     return;
                 case 108:
-                    com.baidu.tieba.ala.alaar.sticker.b.a.e("DownloadStatusDelivery", "STATUS_FAILED error: " + this.gkq.getException().getCause());
-                    this.gks.a((DownloadException) this.gkq.getException());
+                    com.baidu.tieba.ala.alaar.sticker.b.a.e("DownloadStatusDelivery", "STATUS_FAILED error: " + this.guP.getException().getCause());
+                    this.guR.a((DownloadException) this.guP.getException());
                     return;
                 default:
                     return;

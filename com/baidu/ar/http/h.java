@@ -1,5 +1,5 @@
 package com.baidu.ar.http;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 class h {
     public int rg;
     public int rh;

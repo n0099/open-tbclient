@@ -1,11 +1,11 @@
 package com.baidu.tieba.pb.view;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.l;
@@ -13,16 +13,16 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
-import com.baidu.tbadk.core.data.bo;
+import com.baidu.tbadk.core.data.bp;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.R;
 import java.util.List;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class PbTopicContainer extends LinearLayout implements View.OnClickListener {
-    private int mfi;
+    private int mkv;
     private TbPageContext pageContext;
 
     public PbTopicContainer(Context context) {
@@ -31,7 +31,7 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
 
     public PbTopicContainer(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mfi = 3;
+        this.mkv = 3;
         setOrientation(0);
     }
 
@@ -40,35 +40,39 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
         int i3 = 0;
         int size = (View.MeasureSpec.getSize(i) - getPaddingRight()) - getPaddingLeft();
         int childCount = getChildCount();
-        if (childCount > this.mfi) {
+        if (childCount > this.mkv) {
             while (true) {
                 childCount--;
-                if (childCount <= this.mfi) {
+                if (childCount <= this.mkv) {
                     break;
                 }
                 removeViewAt(childCount);
             }
         }
         int i4 = 0;
-        while (i3 < getChildCount()) {
-            View childAt = getChildAt(i3);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) childAt.getLayoutParams();
-            childAt.measure(getChildMeasureSpec(i, getPaddingLeft() + getPaddingRight(), layoutParams.width), getChildMeasureSpec(i2, getPaddingTop() + getPaddingBottom(), layoutParams.height));
-            i4 += layoutParams.rightMargin + childAt.getMeasuredWidth() + layoutParams.leftMargin;
-            if (i4 > size) {
+        while (true) {
+            int i5 = i3;
+            if (i4 >= getChildCount()) {
                 break;
             }
-            i3++;
+            View childAt = getChildAt(i4);
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) childAt.getLayoutParams();
+            childAt.measure(getChildMeasureSpec(i, getPaddingLeft() + getPaddingRight(), layoutParams.width), getChildMeasureSpec(i2, getPaddingTop() + getPaddingBottom(), layoutParams.height));
+            i3 = i5 + layoutParams.rightMargin + childAt.getMeasuredWidth() + layoutParams.leftMargin;
+            if (i3 > size) {
+                break;
+            }
+            i4++;
         }
-        for (int childCount2 = getChildCount() - 1; childCount2 >= i3; childCount2--) {
+        for (int childCount2 = getChildCount() - 1; childCount2 >= i4; childCount2--) {
             removeViewAt(childCount2);
         }
         super.onMeasure(i, i2);
     }
 
-    public void setData(List<bo.a> list) {
+    public void setData(List<bp.a> list) {
         int i = 0;
-        if (y.isEmpty(list)) {
+        if (x.isEmpty(list)) {
             setVisibility(8);
             return;
         }
@@ -77,7 +81,7 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
         while (true) {
             int i2 = i;
             if (i2 < 3 && i2 < list.size()) {
-                bo.a aVar = list.get(i2);
+                bp.a aVar = list.get(i2);
                 if (aVar != null) {
                     b(aVar);
                 }
@@ -88,7 +92,7 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
         }
     }
 
-    private void b(bo.a aVar) {
+    private void b(bp.a aVar) {
         if (aVar != null) {
             Context context = getContext();
             TextView textView = new TextView(context);
@@ -96,14 +100,14 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
             int dimens = l.getDimens(context, R.dimen.tbds22);
             layoutParams.rightMargin = dimens;
             textView.setTag(aVar);
-            textView.setText(com.baidu.tbadk.plugins.b.Ez(aVar.getTopicName()));
+            textView.setText(com.baidu.tbadk.plugins.b.Ew(aVar.getTopicName()));
             addView(textView, layoutParams);
             textView.setTextSize(0, l.getDimens(context, R.dimen.tbds33));
             textView.setGravity(17);
             textView.setOnClickListener(this);
             textView.setPadding(dimens, 0, dimens, 0);
-            ap.setBackgroundResource(textView, R.drawable.shape_corner_gray_tbds4);
-            ap.setViewTextColor(textView, R.color.CAM_X0105);
+            ao.setBackgroundResource(textView, R.drawable.shape_corner_gray_tbds4);
+            ao.setViewTextColor(textView, R.color.CAM_X0105);
         }
     }
 
@@ -112,14 +116,14 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
     }
 
     public void setMaxChildCount(int i) {
-        this.mfi = i;
+        this.mkv = i;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getTag() instanceof bo.a) {
-            TiebaStatic.log(new ar(TbadkCoreStatisticKey.HOT_TOPIC_CLICK).dY("obj_locate", "pb_bottom"));
-            bo.a aVar = (bo.a) view.getTag();
+        if (view.getTag() instanceof bp.a) {
+            TiebaStatic.log(new aq(TbadkCoreStatisticKey.HOT_TOPIC_CLICK).dX("obj_locate", "pb_bottom"));
+            bp.a aVar = (bp.a) view.getTag();
             if (this.pageContext != null && !com.baidu.tbadk.plugins.b.a(this.pageContext, false, true)) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new HotTopicActivityConfig(getContext()).createNormalConfig(aVar.getTopicId() + "", aVar.getTopicName(), "2")));
                 return;

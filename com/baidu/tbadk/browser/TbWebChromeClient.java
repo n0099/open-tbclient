@@ -15,7 +15,7 @@ import android.widget.FrameLayout;
 import com.baidu.adp.lib.f.g;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.searchbox.v8engine.V8ExceptionInfo;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.coreExtra.data.y;
 /* loaded from: classes.dex */
 public class TbWebChromeClient extends WebChromeClient {
@@ -93,13 +93,13 @@ public class TbWebChromeClient extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        if (!y.CS(str) && str2.startsWith("tiebaapp")) {
+        if (!y.CQ(str) && str2.startsWith("tiebaapp")) {
             com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
-            cVar.TI(com.baidu.tieba.tbadkCore.e.a.g.TP(str2));
+            cVar.Ts(com.baidu.tieba.tbadkCore.e.a.g.Tz(str2));
             cVar.setStatus(301);
-            callJsMethod(webView, cVar.getMethodName(), cVar.dPQ());
+            callJsMethod(webView, cVar.cxa(), cVar.dPM());
         }
-        if (!y.CS(str) || this.callback == null || !this.callback.onJsPrompt(str2, jsPromptResult)) {
+        if (!y.CQ(str) || this.callback == null || !this.callback.onJsPrompt(str2, jsPromptResult)) {
             jsPromptResult.cancel();
         }
         return true;
@@ -119,7 +119,7 @@ public class TbWebChromeClient extends WebChromeClient {
     }
 
     private void callJsMethod(WebView webView, String str, String str2) {
-        if (webView != null && !au.isEmpty(str) && !au.isEmpty(str2)) {
+        if (webView != null && !at.isEmpty(str) && !at.isEmpty(str2)) {
             if (Build.VERSION.SDK_INT >= 19) {
                 webView.evaluateJavascript("javascript:" + str + "('" + str2 + "')", null);
             } else {

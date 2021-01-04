@@ -1,13 +1,13 @@
 package com.baidu.searchbox.player.kernel;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.searchbox.player.BDPlayerConfig;
 import com.baidu.searchbox.player.annotation.PublicMethod;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class DefaultKernelFactory implements IKernelFactory {
     @Override // com.baidu.searchbox.player.kernel.IKernelFactory
-    @PublicMethod
     @NonNull
+    @PublicMethod
     public AbsVideoKernel create(@NonNull String str) {
         char c = 65535;
         switch (str.hashCode()) {

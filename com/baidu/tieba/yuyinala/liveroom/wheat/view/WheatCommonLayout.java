@@ -1,77 +1,65 @@
 package com.baidu.tieba.yuyinala.liveroom.wheat.view;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.RelativeLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.live.data.AlaWheatInfoData;
-import com.baidu.live.data.w;
-import com.baidu.live.sdk.a;
+import com.baidu.live.data.x;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tbadk.core.util.ViewCommonUtil;
-import com.baidu.tieba.yuyinala.liveroom.wheat.e.e;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class WheatCommonLayout extends BaseWheatLayout {
-    int Yp;
-    private View mView;
-    private RelativeLayout oyE;
-
     public WheatCommonLayout(@NonNull Context context) {
-        this(context, null);
+        super(context, null);
     }
 
     public WheatCommonLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
+        super(context, attributeSet, 0);
     }
 
     public WheatCommonLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.Yp = e.c(100.0f, getContext());
-        initView();
     }
 
-    private void initView() {
-        this.mView = LayoutInflater.from(getContext()).inflate(a.g.yuyinala_liveroom_wheat_common_layout, this);
-        this.oyE = (RelativeLayout) this.mView.findViewById(a.f.wheat_view_container);
-        this.dlk = this.mView.findViewById(a.f.mask);
-    }
-
-    public synchronized void a(final List<AlaWheatInfoData> list, final List<AlaWheatInfoData> list2, final w wVar) {
+    @Override // com.baidu.tieba.yuyinala.liveroom.wheat.view.BaseWheatLayout
+    public synchronized void a(final List<AlaWheatInfoData> list, final List<AlaWheatInfoData> list2, final x xVar) {
+        super.a(list, list2, xVar);
         this.mView.post(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.WheatCommonLayout.1
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    WheatCommonLayout.this.oxh = list;
-                    WheatCommonLayout.this.oxi = list2;
-                    if (ListUtils.getCount(WheatCommonLayout.this.oyf) == 0 || ListUtils.getCount(WheatCommonLayout.this.oyf) != ListUtils.getCount(list) || ListUtils.getCount(WheatCommonLayout.this.oyg) == 0 || ListUtils.getCount(WheatCommonLayout.this.oyg) != ListUtils.getCount(list2)) {
-                        WheatCommonLayout.this.ega();
-                        WheatCommonLayout.this.oyE.removeAllViews();
-                        WheatCommonLayout.this.oyf.clear();
-                        WheatCommonLayout.this.oyg.clear();
+                    WheatCommonLayout.this.oEc = list;
+                    WheatCommonLayout.this.oEd = list2;
+                    if (ListUtils.getCount(WheatCommonLayout.this.oFe) == 0 || ListUtils.getCount(WheatCommonLayout.this.oFe) != ListUtils.getCount(list) || ListUtils.getCount(WheatCommonLayout.this.oFf) == 0 || ListUtils.getCount(WheatCommonLayout.this.oFf) != ListUtils.getCount(list2)) {
+                        WheatCommonLayout.this.ego();
+                        WheatCommonLayout.this.oFj.removeAllViews();
+                        WheatCommonLayout.this.oFe.clear();
+                        WheatCommonLayout.this.oFf.clear();
                         if (!ListUtils.isEmpty(list)) {
                             for (int i = 0; i < list.size(); i++) {
-                                WheatCommonLayout.this.a(WheatCommonLayout.this.ap(0, true), true);
+                                WheatCommonLayout.this.a(WheatCommonLayout.this.an(0, true), true);
                             }
                         }
                         if (!ListUtils.isEmpty(list2)) {
                             for (int i2 = 0; i2 < ListUtils.getCount(list2); i2++) {
-                                WheatCommonLayout.this.a(WheatCommonLayout.this.ap(i2, false), false);
+                                WheatCommonLayout.this.a(WheatCommonLayout.this.an(i2, false), false);
                             }
                         }
+                        WheatCommonLayout.this.oFj.invalidate();
+                        WheatCommonLayout.this.oFj.requestLayout();
                     }
-                    if (!ListUtils.isEmpty(WheatCommonLayout.this.oyf)) {
-                        for (int i3 = 0; i3 < WheatCommonLayout.this.oyf.size(); i3++) {
-                            WheatCommonLayout.this.oyf.get(i3).setData(WheatCommonLayout.this.ao(i3, true), i3, true, wVar);
+                    if (!ListUtils.isEmpty(WheatCommonLayout.this.oFe)) {
+                        for (int i3 = 0; i3 < WheatCommonLayout.this.oFe.size(); i3++) {
+                            WheatCommonLayout.this.oFe.get(i3).setData(WheatCommonLayout.this.am(i3, true), i3, true, xVar);
                         }
                     }
-                    if (!ListUtils.isEmpty(WheatCommonLayout.this.oyg)) {
-                        for (int i4 = 0; i4 < WheatCommonLayout.this.oyg.size(); i4++) {
-                            WheatCommonLayout.this.oyg.get(i4).setData(WheatCommonLayout.this.ao(i4, false), i4, false, wVar);
+                    if (!ListUtils.isEmpty(WheatCommonLayout.this.oFf)) {
+                        for (int i4 = 0; i4 < WheatCommonLayout.this.oFf.size(); i4++) {
+                            WheatCommonLayout.this.oFf.get(i4).setData(WheatCommonLayout.this.am(i4, false), i4, false, xVar);
                         }
                     }
                 } catch (Exception e) {
@@ -82,36 +70,36 @@ public class WheatCommonLayout extends BaseWheatLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int[] ap(int i, boolean z) {
+    public int[] an(int i, boolean z) {
         int[] iArr = new int[2];
         int[] screenFullSize = ViewCommonUtil.getScreenFullSize(this.mTbPageContext.getPageActivity());
         if (z) {
-            iArr[0] = (screenFullSize[0] / 2) - (this.oyi / 2);
-            iArr[1] = this.Yp;
+            iArr[0] = (screenFullSize[0] / 2) - (this.oFh / 2);
+            iArr[1] = this.Yn;
         } else if (i == 0) {
-            iArr[0] = ((screenFullSize[0] / 2) - this.oyi) - this.oyi;
-            iArr[1] = this.Yp + this.oyj;
+            iArr[0] = ((screenFullSize[0] / 2) - this.oFh) - this.oFh;
+            iArr[1] = this.Yn + this.oFi;
         } else if (i == 1) {
-            iArr[0] = (screenFullSize[0] / 2) - this.oyi;
-            iArr[1] = this.Yp + this.oyj;
+            iArr[0] = (screenFullSize[0] / 2) - this.oFh;
+            iArr[1] = this.Yn + this.oFi;
         } else if (i == 2) {
             iArr[0] = screenFullSize[0] / 2;
-            iArr[1] = this.Yp + this.oyj;
+            iArr[1] = this.Yn + this.oFi;
         } else if (i == 3) {
-            iArr[0] = (screenFullSize[0] / 2) + this.oyi;
-            iArr[1] = this.Yp + this.oyj;
+            iArr[0] = (screenFullSize[0] / 2) + this.oFh;
+            iArr[1] = this.Yn + this.oFi;
         } else if (i == 4) {
-            iArr[0] = ((screenFullSize[0] / 2) - this.oyi) - this.oyi;
-            iArr[1] = this.Yp + this.oyj + this.oyj;
+            iArr[0] = ((screenFullSize[0] / 2) - this.oFh) - this.oFh;
+            iArr[1] = this.Yn + this.oFi + this.oFi;
         } else if (i == 5) {
-            iArr[0] = (screenFullSize[0] / 2) - this.oyi;
-            iArr[1] = this.Yp + this.oyj + this.oyj;
+            iArr[0] = (screenFullSize[0] / 2) - this.oFh;
+            iArr[1] = this.Yn + this.oFi + this.oFi;
         } else if (i == 6) {
             iArr[0] = screenFullSize[0] / 2;
-            iArr[1] = this.Yp + this.oyj + this.oyj;
+            iArr[1] = this.Yn + this.oFi + this.oFi;
         } else if (i == 7) {
-            iArr[0] = (screenFullSize[0] / 2) + this.oyi;
-            iArr[1] = this.Yp + this.oyj + this.oyj;
+            iArr[0] = (screenFullSize[0] / 2) + this.oFh;
+            iArr[1] = this.Yn + this.oFi + this.oFi;
         } else {
             iArr[1] = 0;
             iArr[0] = 0;
@@ -122,16 +110,16 @@ public class WheatCommonLayout extends BaseWheatLayout {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int[] iArr, boolean z) {
         WheatItemView wheatItemView = new WheatItemView(getContext());
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.oyi, this.oyj);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.oFh, this.oFi);
         layoutParams.leftMargin = iArr[0];
         layoutParams.topMargin = iArr[1];
         wheatItemView.setLayoutParams(layoutParams);
-        this.oyE.addView(wheatItemView);
-        wheatItemView.setOnItemClickListener(this.oye);
+        this.oFj.addView(wheatItemView);
+        wheatItemView.setOnItemClickListener(this.oFd);
         if (z) {
-            this.oyf.add(wheatItemView);
+            this.oFe.add(wheatItemView);
         } else {
-            this.oyg.add(wheatItemView);
+            this.oFf.add(wheatItemView);
         }
     }
 
@@ -146,7 +134,8 @@ public class WheatCommonLayout extends BaseWheatLayout {
         super.onDetachedFromWindow();
     }
 
+    @Override // com.baidu.tieba.yuyinala.liveroom.wheat.view.BaseWheatLayout
     public int getWheatHeight() {
-        return this.Yp + this.oyj + this.oyj + this.oyj;
+        return this.Yn + this.oFi + this.oFi + this.oFi;
     }
 }

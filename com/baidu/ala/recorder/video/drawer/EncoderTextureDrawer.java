@@ -4,13 +4,16 @@ import android.annotation.TargetApi;
 import android.media.Image;
 import android.media.ImageReader;
 import android.media.MediaFormat;
+import android.opengl.EGLContext;
 import android.opengl.GLES20;
 import android.opengl.Matrix;
 import android.os.Build;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.HandlerThread;
+import android.util.Log;
 import android.view.Surface;
+import com.baidu.ala.adp.lib.util.BdLog;
 import com.baidu.ala.helper.AlaLiveUtilHelper;
 import com.baidu.ala.ndk.AlaNdkAdapter;
 import com.baidu.ala.recorder.video.AlaLiveVideoConfig;
@@ -25,37 +28,44 @@ import com.baidu.ala.recorder.video.gles.Texture2dProgram;
 import com.baidu.ala.recorder.video.gles.WindowSurface;
 import com.baidu.ala.recorder.video.hardware.TextureEncoder;
 import com.baidu.ala.recorder.video.hardware.VideoEncoderCore;
-import com.baidu.live.adp.lib.util.BdLog;
+import com.baidu.searchbox.v8engine.util.TimeUtils;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.nio.ByteBuffer;
+import java.util.Timer;
+import java.util.TimerTask;
 @TargetApi(19)
-/* loaded from: classes9.dex */
+/* loaded from: classes15.dex */
 public class EncoderTextureDrawer {
+    private static final int ERR_LOG_LIMIT = 300;
     public static final int IDENTITY_90_MATRIX = 2;
     public static final int IDENTITY_MATRIX = 1;
     public static final int MIRROR_IDENTITY_90_MATRIX = 4;
     public static final int MIRROR_IDENTITY_MATRIX = 3;
     private static final boolean USE_YUV_CONVERT = false;
+    private static final boolean VERBOSE = false;
     public static final int X264_HEIGHT = 640;
     public static final int X264_WIDTH = 360;
+    public Handler dataHandler;
+    public HandlerThread handlerThread;
+    private boolean mCreateSucc;
+    private IVideoRecorder.IVideoDataCallBack mDataCallback;
+    private DummyDrawer mDummyDrawer;
+    private int mInputHeight;
+    private int mInputWidth;
+    private RecorderHandler mListener;
+    private AlaLiveVideoConfig mVideoConfig;
+    private static final String TAG = EncoderTextureDrawer.class.getSimpleName();
     private static float[] mIdentityMatrix = new float[16];
     private static float[] mIdentityMatrix90 = new float[16];
     private static float[] mMirrorIdentityMatrix = new float[16];
     private static float[] mMirrorIdentityMatrix90 = new float[16];
     private static boolean matrixInit = false;
-    public Handler dataHandler;
-    public HandlerThread handlerThread;
-    private boolean mCreateSucc;
-    private IVideoRecorder.IVideoDataCallBack mDataCallback;
-    private AFullFrameRect mFullScreen;
-    private int mInputHeight;
-    private int mInputWidth;
-    private RecorderHandler mListener;
-    private AlaLiveVideoConfig mVideoConfig;
     private boolean mRequestKeyFrame = false;
     private SWEncoder mSWEncoder = new SWEncoder();
     private HWEncoder mHWEncoder = new HWEncoder();
+    GLThread mGLThread = null;
+    private int mErrLogLimit = 0;
     private int mFrames = 0;
     private BitrateHelper mBitrateHelper = new BitrateHelper(new BitrateHelper.Callback() { // from class: com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer.3
         @Override // com.baidu.ala.recorder.video.drawer.BitrateHelper.Callback
@@ -63,17 +73,27 @@ public class EncoderTextureDrawer {
             if (EncoderTextureDrawer.this.mVideoConfig != null && EncoderTextureDrawer.this.mVideoConfig.isSupportResetHWEncoder() && (EncoderTextureDrawer.this.mVideoConfig.getBitStream() * EncoderTextureDrawer.this.mVideoConfig.getResetHwEncoderThreshold()) / 1000.0f > j) {
                 EncoderTextureDrawer.this.mHWEncoder.requestReset = true;
                 if (EncoderTextureDrawer.this.mListener != null) {
-                    EncoderTextureDrawer.this.mListener.sendError(18, "video encode bitrate exception:" + j);
+                    EncoderTextureDrawer.access$808(EncoderTextureDrawer.this);
+                    if (EncoderTextureDrawer.this.mErrLogLimit < 300) {
+                        EncoderTextureDrawer.this.mListener.sendError(18, "video encode bitrate exception:" + j);
+                    }
                 }
             }
         }
     });
     private EglCore mEglCore = null;
 
+    static /* synthetic */ int access$808(EncoderTextureDrawer encoderTextureDrawer) {
+        int i = encoderTextureDrawer.mErrLogLimit;
+        encoderTextureDrawer.mErrLogLimit = i + 1;
+        return i;
+    }
+
     public EncoderTextureDrawer(RecorderHandler recorderHandler, IVideoRecorder.IVideoDataCallBack iVideoDataCallBack) {
         this.mCreateSucc = false;
         this.mInputWidth = 0;
         this.mInputHeight = 0;
+        this.mDummyDrawer = null;
         this.mListener = recorderHandler;
         this.mDataCallback = iVideoDataCallBack;
         this.mSWEncoder.surfaceWidth = 0;
@@ -81,6 +101,7 @@ public class EncoderTextureDrawer {
         this.mInputWidth = 0;
         this.mInputHeight = 0;
         this.mCreateSucc = false;
+        this.mDummyDrawer = new DummyDrawer();
         initMatrix();
     }
 
@@ -92,6 +113,9 @@ public class EncoderTextureDrawer {
         encoderThreadInit();
         if (this.mVideoConfig.getEncoderType() == 2) {
             createImageReader();
+            if (this.mGLThread == null) {
+                this.mGLThread = new GLThread(eglCore.getEGLContext(), this.mSWEncoder.imageReader.getSurface());
+            }
         } else {
             createTextureEncoder();
         }
@@ -130,6 +154,9 @@ public class EncoderTextureDrawer {
     }
 
     public void drawFrame(int i, float[] fArr, long j) {
+        if (this.mDummyDrawer != null) {
+            this.mDummyDrawer.update(i, fArr);
+        }
         if (this.mVideoConfig.getEncoderType() == 1) {
             if (this.mHWEncoder.requestReset) {
                 createTextureEncoder();
@@ -138,27 +165,8 @@ public class EncoderTextureDrawer {
             if (this.mHWEncoder.encoder != null) {
                 this.mHWEncoder.encoder.drawFrame(i, fArr, j);
             }
-        } else if (this.mSWEncoder.surface != null) {
-            try {
-                this.mSWEncoder.surface.makeCurrent();
-                GlUtil.checkGlError("draw start");
-                GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-                GLES20.glClear(16384);
-                GLES20.glViewport(0, 0, this.mInputWidth, this.mInputHeight);
-                this.mFullScreen.drawFrame(i, fArr, null);
-                this.mSWEncoder.surface.setPresentationTime(AlaNdkAdapter.getMediaStreamTS(true));
-                if (!this.mSWEncoder.surface.swapBuffers()) {
-                    BdLog.e("EncoderTextureDrawer.drawFrame swapBuffers failed");
-                }
-                GlUtil.checkGlError("draw end");
-            } catch (Exception e) {
-                try {
-                    this.mSWEncoder.surface.release();
-                    this.mSWEncoder.surface = null;
-                } catch (Exception e2) {
-                    e.printStackTrace();
-                }
-            }
+        } else if (this.mGLThread != null) {
+            this.mGLThread.drawFrame(i, fArr, j);
         }
     }
 
@@ -166,6 +174,14 @@ public class EncoderTextureDrawer {
     }
 
     public void onRelease() {
+        if (this.mDummyDrawer != null) {
+            this.mDummyDrawer.stop();
+            this.mDummyDrawer = null;
+        }
+        if (this.mGLThread != null) {
+            this.mGLThread.onDestroy();
+            this.mGLThread = null;
+        }
         destroyImageReader();
         destroyYuvOutput();
         hwEncoderHandleUnit();
@@ -176,6 +192,14 @@ public class EncoderTextureDrawer {
         if (this.mVideoConfig == null || this.mVideoConfig.getEncoderType() == 2) {
         }
         return VideoFormat.RGBA;
+    }
+
+    public void setRepeatDraw(boolean z) {
+        if (z) {
+            this.mDummyDrawer.start();
+        } else {
+            this.mDummyDrawer.stop();
+        }
     }
 
     private void encoderThreadInit() {
@@ -199,10 +223,8 @@ public class EncoderTextureDrawer {
     }
 
     private void createImageReader() {
-        if (this.mFullScreen == null) {
-            this.mFullScreen = new AFullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
-        }
         if (this.mSWEncoder.imageReader == null && this.mInputWidth != 0 && this.mInputHeight != 0) {
+            logMessage("createImageReader width:" + this.mInputWidth + " height:" + this.mInputHeight);
             this.mSWEncoder.imageReader = ImageReader.newInstance(this.mInputWidth, this.mInputHeight, 1, 1);
             try {
                 this.mSWEncoder.imageReader.setOnImageAvailableListener(new ImageReader.OnImageAvailableListener() { // from class: com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer.1
@@ -229,9 +251,10 @@ public class EncoderTextureDrawer {
                                                 EncoderTextureDrawer.this.mSWEncoder.sendBuffer = new byte[remaining];
                                             }
                                             buffer.get(EncoderTextureDrawer.this.mSWEncoder.sendBuffer);
+                                            long timestamp = acquireNextImage.getTimestamp();
                                             acquireNextImage.close();
                                             if (EncoderTextureDrawer.this.mDataCallback != null) {
-                                                EncoderTextureDrawer.this.mDataCallback.onRawVideoFrameReceived(EncoderTextureDrawer.this.mSWEncoder.sendBuffer, remaining, 0, EncoderTextureDrawer.this.mSWEncoder.lineSize);
+                                                EncoderTextureDrawer.this.mDataCallback.onRawVideoFrameReceived(EncoderTextureDrawer.this.mSWEncoder.sendBuffer, remaining, 0, EncoderTextureDrawer.this.mSWEncoder.lineSize, timestamp / TimeUtils.NANOS_PER_MS);
                                             }
                                         } catch (IllegalStateException e) {
                                             e.printStackTrace();
@@ -262,24 +285,16 @@ public class EncoderTextureDrawer {
             } catch (IllegalArgumentException e) {
                 e.printStackTrace();
             }
-            setEncoderSurface(this.mSWEncoder.imageReader.getSurface());
         }
     }
 
     private void destroyImageReader() {
         try {
-            if (this.mFullScreen != null) {
-                this.mFullScreen.release(true);
-                this.mFullScreen = null;
-            }
+            logMessage("destroyImageReader");
             if (this.mSWEncoder.imageReader != null) {
                 this.mSWEncoder.imageReader.setOnImageAvailableListener(null, null);
                 this.mSWEncoder.imageReader.close();
                 this.mSWEncoder.imageReader = null;
-            }
-            if (this.mSWEncoder.surface != null) {
-                this.mSWEncoder.surface.release();
-                this.mSWEncoder.surface = null;
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -304,7 +319,7 @@ public class EncoderTextureDrawer {
             this.mSWEncoder.yuvOutput.drawToTexture(i);
             int i2 = ((this.mSWEncoder.x264Width * this.mSWEncoder.x264Height) * 3) / 2;
             this.mSWEncoder.yuvOutput.getOutput(this.mSWEncoder.yuvBuffer, 0, i2);
-            this.mDataCallback.onRawVideoFrameReceived(this.mSWEncoder.yuvBuffer, i2, 0, this.mSWEncoder.x264Width);
+            this.mDataCallback.onRawVideoFrameReceived(this.mSWEncoder.yuvBuffer, i2, 0, this.mSWEncoder.x264Width, j / TimeUtils.NANOS_PER_MS);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -334,20 +349,6 @@ public class EncoderTextureDrawer {
         }
     }
 
-    private void setEncoderSurface(Surface surface) {
-        try {
-            if (this.mSWEncoder.surface != null) {
-                this.mSWEncoder.surface.release();
-                this.mSWEncoder.surface = null;
-            }
-            this.mSWEncoder.surface = new WindowSurface(this.mEglCore, surface, true);
-        } catch (Exception e) {
-            if (this.mListener != null) {
-                this.mListener.sendError(3, e.getMessage());
-            }
-        }
-    }
-
     private void createTextureEncoder() {
         if (this.mEglCore != null) {
             this.mHWEncoder.requestReset = false;
@@ -365,6 +366,7 @@ public class EncoderTextureDrawer {
             encodeConfig.isLandscape = this.mVideoConfig.isLandscape();
             encodeConfig.H264GOP = this.mVideoConfig.getVideoGOP();
             encodeConfig.H264FPS = this.mVideoConfig.getVideoFPS();
+            encodeConfig.mVideoCodecId = this.mVideoConfig.getVideoCodecId();
             this.mHWEncoder.encoder.prepare(this.mEglCore.getEGLContext(), encodeConfig, new VideoEncoderCore.OutputCallback() { // from class: com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer.2
                 @Override // com.baidu.ala.recorder.video.hardware.VideoEncoderCore.OutputCallback
                 public void onFormatChanged(MediaFormat mediaFormat) {
@@ -375,13 +377,13 @@ public class EncoderTextureDrawer {
                 }
 
                 @Override // com.baidu.ala.recorder.video.hardware.VideoEncoderCore.OutputCallback
-                public void onCodecData(byte[] bArr, int i, int i2, int i3, long j, long j2) {
+                public void onCodecData(byte[] bArr, int i, int i2, int i3, long j, long j2, int i4) {
                     if (!EncoderTextureDrawer.this.mRequestKeyFrame || i3 == 2) {
                         if (EncoderTextureDrawer.this.mRequestKeyFrame && i3 == 2) {
                             EncoderTextureDrawer.this.mRequestKeyFrame = false;
                         }
                         if (EncoderTextureDrawer.this.mDataCallback != null) {
-                            EncoderTextureDrawer.this.mDataCallback.onEncodeVideoFrameRecived(bArr, i, i2, i3 == 2 ? 1 : 0, j, j2);
+                            EncoderTextureDrawer.this.mDataCallback.onEncodeVideoFrameRecived(bArr, i, i2, i3 == 2 ? 1 : 0, j, j2, i4);
                         }
                         if (EncoderTextureDrawer.this.mBitrateHelper != null && EncoderTextureDrawer.this.mVideoConfig != null && EncoderTextureDrawer.this.mVideoConfig.isSupportResetHWEncoder()) {
                             EncoderTextureDrawer.this.mBitrateHelper.inputData(i3 == 2, i2, j2);
@@ -443,12 +445,14 @@ public class EncoderTextureDrawer {
         return i;
     }
 
+    static void logMessage(String str) {
+    }
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes15.dex */
     public static class SWEncoder {
         public ImageReader imageReader;
         public byte[] sendBuffer;
-        public WindowSurface surface;
         public int surfaceHeight;
         public int surfaceWidth;
         public int x264Height;
@@ -463,13 +467,154 @@ public class EncoderTextureDrawer {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes15.dex */
     public static class HWEncoder {
         public TextureEncoder encoder;
         public boolean requestReset = false;
         public int resetCount = 0;
 
         HWEncoder() {
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes15.dex */
+    public class DummyDrawer {
+        int mInterval = 100;
+        Timer mRepeatTimer = null;
+        float[] mMatrix = null;
+        int mTextId = -1;
+
+        DummyDrawer() {
+        }
+
+        public void update(int i, float[] fArr) {
+            this.mTextId = i;
+            this.mMatrix = fArr;
+        }
+
+        public void start() {
+            this.mInterval = (int) (1000.0f / EncoderTextureDrawer.this.mVideoConfig.getVideoFPS());
+            try {
+                if (this.mRepeatTimer != null) {
+                    Log.i(EncoderTextureDrawer.TAG, "DummyDrawer Timer has not release");
+                    this.mRepeatTimer.cancel();
+                    this.mRepeatTimer = null;
+                }
+                this.mRepeatTimer = new Timer();
+                this.mRepeatTimer.schedule(new TimerTask() { // from class: com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer.DummyDrawer.1
+                    @Override // java.util.TimerTask, java.lang.Runnable
+                    public void run() {
+                        DummyDrawer.this.onTimer();
+                    }
+                }, 200L, this.mInterval);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        public void stop() {
+            try {
+                if (this.mRepeatTimer != null) {
+                    this.mRepeatTimer.cancel();
+                    this.mRepeatTimer = null;
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        /* JADX INFO: Access modifiers changed from: private */
+        public void onTimer() {
+            if (this.mTextId > 0 && this.mMatrix != null) {
+                EncoderTextureDrawer.this.drawFrame(this.mTextId, this.mMatrix, AlaNdkAdapter.getMediaStreamTS(true));
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes15.dex */
+    public class GLThread {
+        AFullFrameRect mFullScreen;
+        Handler mHandler;
+        HandlerThread mThread;
+        EglCore mEglCore = null;
+        WindowSurface mInputWindowSurface = null;
+        private boolean mDestroy = false;
+
+        public GLThread(final EGLContext eGLContext, final Surface surface) {
+            this.mThread = null;
+            this.mHandler = null;
+            this.mThread = new HandlerThread("gl-thread");
+            this.mThread.start();
+            this.mHandler = new Handler(this.mThread.getLooper());
+            this.mHandler.post(new Runnable() { // from class: com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer.GLThread.1
+                @Override // java.lang.Runnable
+                public void run() {
+                    GLThread.this.mEglCore = new EglCore(eGLContext, 1);
+                    GLThread.this.mInputWindowSurface = new WindowSurface(GLThread.this.mEglCore, surface, true);
+                    GLThread.this.mInputWindowSurface.makeCurrent();
+                    GLThread.this.mFullScreen = new AFullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
+                }
+            });
+        }
+
+        public void drawFrame(final int i, final float[] fArr, final long j) {
+            if (!this.mDestroy) {
+                this.mHandler.post(new Runnable() { // from class: com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer.GLThread.2
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        GLThread.this.doDrawFrame(i, fArr, j);
+                    }
+                });
+            }
+        }
+
+        public void onDestroy() {
+            this.mDestroy = true;
+            try {
+                if (this.mInputWindowSurface != null) {
+                    this.mInputWindowSurface.release();
+                    this.mInputWindowSurface = null;
+                }
+                if (this.mFullScreen != null) {
+                    this.mFullScreen.release(false);
+                    this.mFullScreen = null;
+                }
+                if (this.mEglCore != null) {
+                    this.mEglCore.release();
+                    this.mEglCore = null;
+                }
+                this.mThread.stop();
+                this.mHandler.removeCallbacksAndMessages(null);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        public void doDrawFrame(int i, float[] fArr, long j) {
+            if (!this.mDestroy && this.mInputWindowSurface != null) {
+                try {
+                    this.mInputWindowSurface.makeCurrent();
+                    GlUtil.checkGlError("draw start");
+                    GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+                    GLES20.glClear(16384);
+                    GLES20.glViewport(0, 0, EncoderTextureDrawer.this.mInputWidth, EncoderTextureDrawer.this.mInputHeight);
+                    this.mFullScreen.drawFrame(i, fArr, null);
+                    this.mInputWindowSurface.setPresentationTime(j);
+                    if (!this.mInputWindowSurface.swapBuffers()) {
+                        BdLog.e("EncoderTextureDrawer.drawFrame swapBuffers failed");
+                    }
+                    GlUtil.checkGlError("draw end");
+                } catch (Exception e) {
+                    try {
+                        this.mInputWindowSurface.release();
+                        this.mInputWindowSurface = null;
+                    } catch (Exception e2) {
+                        e.printStackTrace();
+                    }
+                }
+            }
         }
     }
 }

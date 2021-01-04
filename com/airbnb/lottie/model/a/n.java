@@ -3,9 +3,9 @@ package com.airbnb.lottie.model.a;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 abstract class n<V, O> implements m<V, O> {
-    final List<com.airbnb.lottie.e.a<V>> EF;
+    final List<com.airbnb.lottie.e.a<V>> Eu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(V v) {
@@ -14,13 +14,13 @@ abstract class n<V, O> implements m<V, O> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(List<com.airbnb.lottie.e.a<V>> list) {
-        this.EF = list;
+        this.Eu = list;
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        if (!this.EF.isEmpty()) {
-            sb.append("values=").append(Arrays.toString(this.EF.toArray()));
+        if (!this.Eu.isEmpty()) {
+            sb.append("values=").append(Arrays.toString(this.Eu.toArray()));
         }
         return sb.toString();
     }

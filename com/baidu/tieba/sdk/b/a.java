@@ -1,7 +1,7 @@
 package com.baidu.tieba.sdk.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public interface a {
-    com.baidu.tieba.sdk.c.a dfx();
+    com.baidu.tieba.sdk.c.a dfj();
 
-    void dfy();
+    void dfk();
 }

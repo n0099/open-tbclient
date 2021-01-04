@@ -3,7 +3,7 @@ package com.baidu.tieba.im.message.chat;
 import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.SocketMessage;
-import com.baidu.adp.widget.ListView.q;
+import com.baidu.adp.widget.ListView.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -18,7 +18,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public abstract class ChatMessage extends TbSocketMessage implements com.baidu.adp.framework.client.socket.a, q {
+public abstract class ChatMessage extends TbSocketMessage implements com.baidu.adp.framework.client.socket.a, n {
     private long bornTime;
     private transient MsgCacheData cacheData;
     private String content;
@@ -389,7 +389,7 @@ public abstract class ChatMessage extends TbSocketMessage implements com.baidu.a
         return false;
     }
 
-    @Override // com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
         if (this.msgType == 11) {
             return TYPE_MSG_MID;

@@ -12,7 +12,7 @@ import com.google.zxing.pdf417.decoder.ec.ErrorCorrection;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Formatter;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class PDF417ScanningDecoder {
     private static final int CODEWORD_SKEW_SIZE = 2;
     private static final int MAX_EC_CODEWORDS = 512;
@@ -22,139 +22,81 @@ public final class PDF417ScanningDecoder {
     private PDF417ScanningDecoder() {
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x0076, code lost:
-        r14 = r0.getBarcodeColumnCount() + 1;
-        r0.setDetectionResultColumn(0, r2);
-        r0.setDetectionResultColumn(r14, r6);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x0083, code lost:
-        if (r2 == null) goto L61;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x0085, code lost:
-        r5 = true;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:25:0x0086, code lost:
-        r11 = 1;
-        r9 = r21;
-        r8 = r20;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x008b, code lost:
-        if (r11 > r14) goto L57;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x008d, code lost:
-        if (r5 == false) goto L56;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:28:0x008f, code lost:
-        r10 = r11;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x0094, code lost:
-        if (r0.getDetectionResultColumn(r10) != null) goto L55;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x0096, code lost:
-        if (r10 == 0) goto L50;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:32:0x0098, code lost:
-        if (r10 != r14) goto L30;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:34:0x009c, code lost:
-        if (r10 != 0) goto L54;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:35:0x009e, code lost:
-        r2 = true;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:36:0x009f, code lost:
-        r12 = new com.google.zxing.pdf417.decoder.DetectionResultRowIndicatorColumn(r1, r2);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:37:0x00a3, code lost:
-        r0.setDetectionResultColumn(r10, r12);
-        r2 = -1;
-        r7 = r1.getMinY();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:38:0x00ac, code lost:
-        r13 = r2;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:39:0x00b0, code lost:
-        if (r7 > r1.getMaxY()) goto L48;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:40:0x00b2, code lost:
-        r6 = getStartColumn(r0, r10, r7, r5);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:41:0x00b6, code lost:
-        if (r6 < 0) goto L45;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:43:0x00bc, code lost:
-        if (r6 <= r1.getMaxX()) goto L38;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:45:0x00bf, code lost:
-        if (r13 == (-1)) goto L43;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:46:0x00c1, code lost:
-        r6 = r13;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:47:0x00c2, code lost:
-        r2 = detectCodeword(r15, r1.getMinX(), r1.getMaxX(), r5, r6, r7, r8, r9);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:48:0x00cf, code lost:
-        if (r2 == null) goto L43;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:49:0x00d1, code lost:
-        r12.setCodeword(r7, r2);
-        r8 = java.lang.Math.min(r8, r2.getWidth());
-        r9 = java.lang.Math.max(r9, r2.getWidth());
-        r2 = r6;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:50:0x00e5, code lost:
-        r7 = r7 + 1;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:51:0x00e9, code lost:
-        r5 = false;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:52:0x00eb, code lost:
-        r10 = r14 - r11;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:53:0x00ef, code lost:
-        r2 = false;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:54:0x00f1, code lost:
-        r12 = new com.google.zxing.pdf417.decoder.DetectionResultColumn(r1);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:55:0x00f8, code lost:
-        r11 = r11 + 1;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:57:0x00ff, code lost:
-        return createDecoderResult(r0);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:58:0x0100, code lost:
-        r2 = r13;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r2v20, types: [com.google.zxing.pdf417.decoder.DetectionResultColumn] */
     public static DecoderResult decode(BitMatrix bitMatrix, ResultPoint resultPoint, ResultPoint resultPoint2, ResultPoint resultPoint3, ResultPoint resultPoint4, int i, int i2) throws NotFoundException, FormatException, ChecksumException {
-        DetectionResultRowIndicatorColumn detectionResultRowIndicatorColumn = null;
-        DetectionResultRowIndicatorColumn detectionResultRowIndicatorColumn2 = null;
+        DetectionResult detectionResult;
+        DetectionResultRowIndicatorColumn detectionResultRowIndicatorColumn;
+        DetectionResultRowIndicatorColumn detectionResultRowIndicatorColumn2;
+        DetectionResultRowIndicatorColumn detectionResultRowIndicatorColumn3 = null;
+        DetectionResultRowIndicatorColumn detectionResultRowIndicatorColumn4 = null;
+        DetectionResult detectionResult2 = null;
         int i3 = 0;
         BoundingBox boundingBox = new BoundingBox(bitMatrix, resultPoint, resultPoint2, resultPoint3, resultPoint4);
-        DetectionResult detectionResult = null;
-        while (true) {
-            DetectionResultRowIndicatorColumn detectionResultRowIndicatorColumn3 = detectionResultRowIndicatorColumn;
-            if (i3 >= 2) {
-                break;
-            }
-            detectionResultRowIndicatorColumn = resultPoint != null ? getRowIndicatorColumn(bitMatrix, boundingBox, resultPoint, true, i, i2) : detectionResultRowIndicatorColumn3;
-            DetectionResultRowIndicatorColumn rowIndicatorColumn = resultPoint3 != null ? getRowIndicatorColumn(bitMatrix, boundingBox, resultPoint3, false, i, i2) : detectionResultRowIndicatorColumn2;
-            DetectionResult merge = merge(detectionResultRowIndicatorColumn, rowIndicatorColumn);
-            if (merge == null) {
+        while (i3 < 2) {
+            DetectionResultRowIndicatorColumn rowIndicatorColumn = resultPoint != null ? getRowIndicatorColumn(bitMatrix, boundingBox, resultPoint, true, i, i2) : detectionResultRowIndicatorColumn3;
+            detectionResultRowIndicatorColumn = resultPoint3 != null ? getRowIndicatorColumn(bitMatrix, boundingBox, resultPoint3, false, i, i2) : detectionResultRowIndicatorColumn4;
+            detectionResult2 = merge(rowIndicatorColumn, detectionResultRowIndicatorColumn);
+            if (detectionResult2 == null) {
                 throw NotFoundException.getNotFoundInstance();
             }
-            if (i3 != 0 || merge.getBoundingBox() == null || (merge.getBoundingBox().getMinY() >= boundingBox.getMinY() && merge.getBoundingBox().getMaxY() <= boundingBox.getMaxY())) {
+            if (i3 == 0 && detectionResult2.getBoundingBox() != null && (detectionResult2.getBoundingBox().getMinY() < boundingBox.getMinY() || detectionResult2.getBoundingBox().getMaxY() > boundingBox.getMaxY())) {
+                boundingBox = detectionResult2.getBoundingBox();
+                i3++;
+                detectionResultRowIndicatorColumn4 = detectionResultRowIndicatorColumn;
+                detectionResultRowIndicatorColumn3 = rowIndicatorColumn;
+            } else {
+                detectionResult2.setBoundingBox(boundingBox);
+                detectionResult = detectionResult2;
+                detectionResultRowIndicatorColumn3 = rowIndicatorColumn;
                 break;
             }
-            i3++;
-            detectionResultRowIndicatorColumn2 = rowIndicatorColumn;
-            detectionResult = merge;
-            boundingBox = merge.getBoundingBox();
         }
+        detectionResult = detectionResult2;
+        detectionResultRowIndicatorColumn = detectionResultRowIndicatorColumn4;
+        int barcodeColumnCount = detectionResult.getBarcodeColumnCount() + 1;
+        detectionResult.setDetectionResultColumn(0, detectionResultRowIndicatorColumn3);
+        detectionResult.setDetectionResultColumn(barcodeColumnCount, detectionResultRowIndicatorColumn);
+        boolean z = detectionResultRowIndicatorColumn3 != null;
+        int i4 = i2;
+        int i5 = i;
+        for (int i6 = 1; i6 <= barcodeColumnCount; i6++) {
+            int i7 = z ? i6 : barcodeColumnCount - i6;
+            if (detectionResult.getDetectionResultColumn(i7) == null) {
+                if (i7 == 0 || i7 == barcodeColumnCount) {
+                    detectionResultRowIndicatorColumn2 = new DetectionResultRowIndicatorColumn(boundingBox, i7 == 0);
+                } else {
+                    detectionResultRowIndicatorColumn2 = new DetectionResultColumn(boundingBox);
+                }
+                detectionResult.setDetectionResultColumn(i7, detectionResultRowIndicatorColumn2);
+                int i8 = -1;
+                int minY = boundingBox.getMinY();
+                while (true) {
+                    int i9 = i8;
+                    if (minY <= boundingBox.getMaxY()) {
+                        int startColumn = getStartColumn(detectionResult, i7, minY, z);
+                        if (startColumn < 0 || startColumn > boundingBox.getMaxX()) {
+                            if (i9 != -1) {
+                                startColumn = i9;
+                            }
+                            i8 = i9;
+                            minY++;
+                        }
+                        Codeword detectCodeword = detectCodeword(bitMatrix, boundingBox.getMinX(), boundingBox.getMaxX(), z, startColumn, minY, i5, i4);
+                        if (detectCodeword != null) {
+                            detectionResultRowIndicatorColumn2.setCodeword(minY, detectCodeword);
+                            i5 = Math.min(i5, detectCodeword.getWidth());
+                            i4 = Math.max(i4, detectCodeword.getWidth());
+                            i8 = startColumn;
+                            minY++;
+                        }
+                        i8 = i9;
+                        minY++;
+                    }
+                }
+            }
+        }
+        return createDecoderResult(detectionResult);
     }
 
     private static DetectionResult merge(DetectionResultRowIndicatorColumn detectionResultRowIndicatorColumn, DetectionResultRowIndicatorColumn detectionResultRowIndicatorColumn2) throws NotFoundException {
@@ -393,6 +335,7 @@ public final class PDF417ScanningDecoder {
 
     private static Codeword detectCodeword(BitMatrix bitMatrix, int i, int i2, boolean z, int i3, int i4, int i5, int i6) {
         int i7;
+        int i8;
         int decodedValue;
         int codeword;
         int adjustCodewordStartColumn = adjustCodewordStartColumn(bitMatrix, i, i2, z, i3, i4);
@@ -402,18 +345,19 @@ public final class PDF417ScanningDecoder {
         }
         int sum = MathUtils.sum(moduleBitCount);
         if (z) {
+            i8 = adjustCodewordStartColumn + sum;
             i7 = adjustCodewordStartColumn;
-            adjustCodewordStartColumn += sum;
         } else {
-            for (int i8 = 0; i8 < moduleBitCount.length / 2; i8++) {
-                int i9 = moduleBitCount[i8];
-                moduleBitCount[i8] = moduleBitCount[(moduleBitCount.length - 1) - i8];
-                moduleBitCount[(moduleBitCount.length - 1) - i8] = i9;
+            for (int i9 = 0; i9 < moduleBitCount.length / 2; i9++) {
+                int i10 = moduleBitCount[i9];
+                moduleBitCount[i9] = moduleBitCount[(moduleBitCount.length - 1) - i9];
+                moduleBitCount[(moduleBitCount.length - 1) - i9] = i10;
             }
             i7 = adjustCodewordStartColumn - sum;
+            i8 = adjustCodewordStartColumn;
         }
         if (checkCodewordSkew(sum, i5, i6) && (codeword = PDF417Common.getCodeword((decodedValue = PDF417CodewordDecoder.getDecodedValue(moduleBitCount)))) != -1) {
-            return new Codeword(i7, adjustCodewordStartColumn, getCodewordBucketNumber(decodedValue), codeword);
+            return new Codeword(i7, i8, getCodewordBucketNumber(decodedValue), codeword);
         }
         return null;
     }
@@ -465,8 +409,8 @@ public final class PDF417ScanningDecoder {
         return 2 << i;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:12:0x0016  */
-    /* JADX WARN: Removed duplicated region for block: B:29:0x0023 A[EDGE_INSN: B:29:0x0023->B:17:0x0023 ?: BREAK  , SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:11:0x0015  */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x0022 A[EDGE_INSN: B:28:0x0022->B:16:0x0022 ?: BREAK  , SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -475,22 +419,21 @@ public final class PDF417ScanningDecoder {
         int i6 = z ? -1 : 1;
         int i7 = i3;
         while (i5 < 2) {
-            int i8 = i7;
             while (true) {
                 if (!z) {
-                    if (i8 >= i2) {
+                    if (i7 >= i2) {
                         break;
                     }
-                    if (z == bitMatrix.get(i8, i4)) {
+                    if (z == bitMatrix.get(i7, i4)) {
                     }
                 } else {
-                    if (i8 < i) {
+                    if (i7 < i) {
                         break;
                     }
-                    if (z == bitMatrix.get(i8, i4)) {
+                    if (z == bitMatrix.get(i7, i4)) {
                         break;
-                    } else if (Math.abs(i3 - i8) <= 2) {
-                        i8 += i6;
+                    } else if (Math.abs(i3 - i7) <= 2) {
+                        i7 += i6;
                     } else {
                         return i3;
                     }
@@ -499,7 +442,6 @@ public final class PDF417ScanningDecoder {
             i6 = -i6;
             i5++;
             z = !z;
-            i7 = i8;
         }
         return i7;
     }

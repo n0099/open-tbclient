@@ -1,21 +1,21 @@
 package com.baidu.swan.apps.database.a;
 
 import android.net.Uri;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class a {
-    public static final String cWE = "content://" + com.baidu.swan.apps.database.favorite.b.cWB + "/history_with_app";
-    public static final String cWF = "content://" + com.baidu.swan.apps.database.favorite.b.cWB + "/history";
-    public static final String cWG = "content://" + com.baidu.swan.apps.database.favorite.b.cWB + "/history_with_aps_pms";
+    public static final String dbz = "content://" + com.baidu.swan.apps.database.favorite.b.dbw + "/history_with_app";
+    public static final String dbA = "content://" + com.baidu.swan.apps.database.favorite.b.dbw + "/history";
+    public static final String dbB = "content://" + com.baidu.swan.apps.database.favorite.b.dbw + "/history_with_aps_pms";
 
-    public static Uri avv() {
-        return Uri.parse(cWE);
+    public static Uri awN() {
+        return Uri.parse(dbz);
     }
 
-    public static Uri avw() {
-        return Uri.parse(cWG);
+    public static Uri awO() {
+        return Uri.parse(dbB);
     }
 
-    public static Uri avx() {
-        return Uri.parse(cWF);
+    public static Uri awP() {
+        return Uri.parse(dbA);
     }
 }

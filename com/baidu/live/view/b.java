@@ -19,33 +19,33 @@ import com.baidu.live.sdk.a;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class b extends ImageSpan {
-    public static Map<String, b> bON = new HashMap();
-    private static final int bOP = Color.parseColor("#FF454545");
-    private int bOO;
-    protected WeakReference<Context> bOQ;
-    private String bOR;
-    private a bOS;
-    private Bitmap bOT;
-    private AlaLiveMarkData bOU;
-    protected boolean bOV;
+    public static Map<String, b> bTR = new HashMap();
+    private static final int bTT = Color.parseColor("#FF454545");
+    private int bTS;
+    protected WeakReference<Context> bTU;
+    private String bTV;
+    private a bTW;
+    private Bitmap bTX;
+    private AlaLiveMarkData bTY;
+    protected boolean bTZ;
     private WeakReference<Drawable> mDrawableRef;
     private int mRetryCount;
     private int mUsedHeight;
     private int mUsedWidth;
     private boolean needCache;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void a(b bVar, Bitmap bitmap);
 
-        void d(Bitmap bitmap);
+        void e(Bitmap bitmap);
     }
 
     public b(Context context, Bitmap bitmap) {
         super(context, bitmap);
-        this.bOO = 3;
+        this.bTS = 3;
     }
 
     public b(Context context, AlaLiveMarkData alaLiveMarkData, boolean z, a aVar) {
@@ -54,34 +54,31 @@ public class b extends ImageSpan {
 
     public b(Context context, int i) {
         super(context, i);
-        this.bOO = 3;
+        this.bTS = 3;
     }
 
     public b(Context context, AlaLiveMarkData alaLiveMarkData, boolean z, float f, a aVar) {
         super(context, 1);
         int dimensionPixelSize;
         float f2;
-        this.bOO = 3;
-        this.bOQ = new WeakReference<>(context);
-        this.bOU = alaLiveMarkData;
-        this.bOR = this.bOU.mark_pic;
-        this.bOS = aVar;
-        if (this.bOU.limitedHeight > 0) {
-            dimensionPixelSize = this.bOU.limitedHeight;
+        this.bTS = 3;
+        this.bTU = new WeakReference<>(context);
+        this.bTY = alaLiveMarkData;
+        this.bTV = this.bTY.mark_pic;
+        this.bTW = aVar;
+        if (this.bTY.limitedHeight > 0) {
+            dimensionPixelSize = this.bTY.limitedHeight;
         } else {
             dimensionPixelSize = context.getResources().getDimensionPixelSize(a.d.sdk_ds32);
         }
-        this.mUsedHeight = this.bOU.height;
+        this.mUsedHeight = this.bTY.height;
         if (this.mUsedHeight <= 0) {
             this.mUsedHeight = dimensionPixelSize;
             f2 = 0.0f;
-        } else if (this.mUsedHeight != dimensionPixelSize) {
-            f2 = dimensionPixelSize / this.mUsedHeight;
-            this.mUsedHeight = dimensionPixelSize;
         } else {
-            f2 = 0.0f;
+            f2 = this.mUsedHeight != dimensionPixelSize ? dimensionPixelSize / this.mUsedHeight : 0.0f;
         }
-        this.mUsedWidth = this.bOU.width;
+        this.mUsedWidth = this.bTY.width;
         if (this.mUsedWidth <= 0) {
             this.mUsedWidth = dimensionPixelSize;
         } else if (f2 > 0.0f) {
@@ -91,38 +88,38 @@ public class b extends ImageSpan {
             this.mUsedWidth = (int) (this.mUsedWidth * f);
             this.mUsedHeight = (int) (this.mUsedHeight * f);
         }
-        Yq();
+        Zz();
     }
 
-    private void Yq() {
-        if (!TextUtils.isEmpty(this.bOR)) {
-            Ys();
+    private void Zz() {
+        if (!TextUtils.isEmpty(this.bTV)) {
+            ZB();
         }
     }
 
-    private void Yr() {
+    private void ZA() {
         try {
-            this.bOT = Bitmap.createBitmap(this.mUsedWidth, this.mUsedHeight, Bitmap.Config.ARGB_8888);
-            this.bOT.eraseColor(bOP);
+            this.bTX = Bitmap.createBitmap(this.mUsedWidth, this.mUsedHeight, Bitmap.Config.ARGB_8888);
+            this.bTX.eraseColor(bTT);
         } catch (OutOfMemoryError e) {
             try {
-                this.bOT = Bitmap.createBitmap(this.mUsedWidth, this.mUsedHeight, Bitmap.Config.RGB_565);
-                this.bOT.eraseColor(bOP);
+                this.bTX = Bitmap.createBitmap(this.mUsedWidth, this.mUsedHeight, Bitmap.Config.RGB_565);
+                this.bTX.eraseColor(bTT);
             } catch (OutOfMemoryError e2) {
             }
         }
     }
 
-    private void Ys() {
-        Yr();
-        if (this.bOS != null && this.bOT != null) {
-            this.bOS.a(this, this.bOT);
+    private void ZB() {
+        ZA();
+        if (this.bTW != null && this.bTX != null) {
+            this.bTW.a(this, this.bTX);
         }
-        Yt();
+        ZC();
     }
 
-    private void Yt() {
-        BdResourceLoader.getInstance().loadResource(this.bOR, 10, new BdResourceCallback<BdImage>() { // from class: com.baidu.live.view.b.1
+    private void ZC() {
+        BdResourceLoader.getInstance().loadResource(this.bTV, 10, new BdResourceCallback<BdImage>() { // from class: com.baidu.live.view.b.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.live.adp.lib.resourceloader.BdResourceCallback
@@ -130,9 +127,9 @@ public class b extends ImageSpan {
                 super.onLoaded((AnonymousClass1) bdImage, str, i);
                 if (bdImage != null && bdImage.getRawBitmap() != null) {
                     b.this.needCache = true;
-                    b.this.f(bdImage.getRawBitmap());
-                    if (b.this.bOS != null && b.this.bOT != null) {
-                        b.this.bOS.d(b.this.bOT);
+                    b.this.g(bdImage.getRawBitmap());
+                    if (b.this.bTW != null && b.this.bTX != null) {
+                        b.this.bTW.e(b.this.bTX);
                     }
                 }
             }
@@ -140,7 +137,7 @@ public class b extends ImageSpan {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void f(Bitmap bitmap) {
+    public void g(Bitmap bitmap) {
         Bitmap copy;
         if (bitmap != null) {
             try {
@@ -162,7 +159,7 @@ public class b extends ImageSpan {
             }
             if (copy != null) {
                 try {
-                    if (this.bOU.isWidthAutoFit && copy.getWidth() > 0 && copy.getHeight() > 0) {
+                    if (this.bTY.isWidthAutoFit && copy.getWidth() > 0 && copy.getHeight() > 0) {
                         this.mUsedWidth = (int) (((copy.getWidth() * 1.0f) * this.mUsedHeight) / copy.getHeight());
                     }
                     if (this.mUsedWidth <= 0) {
@@ -172,14 +169,14 @@ public class b extends ImageSpan {
                         this.mUsedHeight = 1;
                     }
                     if (copy.getWidth() < this.mUsedWidth || copy.getHeight() < this.mUsedHeight) {
-                        this.bOT = BdBitmapHelper.getInstance().enlargeBitmap(copy, this.mUsedWidth, this.mUsedHeight);
+                        this.bTX = BdBitmapHelper.getInstance().enlargeBitmap(copy, this.mUsedWidth, this.mUsedHeight);
                     } else {
-                        this.bOT = BdBitmapHelper.getInstance().resizeBitmap(copy, this.mUsedWidth, this.mUsedHeight);
+                        this.bTX = BdBitmapHelper.getInstance().resizeBitmap(copy, this.mUsedWidth, this.mUsedHeight);
                     }
-                    if (this.bOS != null && this.bOT != null) {
-                        this.bOS.a(this, this.bOT);
+                    if (this.bTW != null && this.bTX != null) {
+                        this.bTW.a(this, this.bTX);
                     }
-                    this.bOV = true;
+                    this.bTZ = true;
                 } catch (OutOfMemoryError e3) {
                     if (copy != null) {
                         copy.recycle();
@@ -212,8 +209,8 @@ public class b extends ImageSpan {
 
     @Override // android.text.style.ImageSpan, android.text.style.DynamicDrawableSpan
     public Drawable getDrawable() {
-        if (this.bOT != null && this.bOQ.get() != null) {
-            BitmapDrawable bitmapDrawable = new BitmapDrawable(this.bOQ.get().getResources(), this.bOT);
+        if (this.bTX != null && this.bTU.get() != null) {
+            BitmapDrawable bitmapDrawable = new BitmapDrawable(this.bTU.get().getResources(), this.bTX);
             bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
             return bitmapDrawable;
         }
@@ -232,8 +229,8 @@ public class b extends ImageSpan {
     }
 
     protected Drawable getCachedDrawable() {
-        if (this.bOT == null && !TextUtils.isEmpty(this.bOR) && this.mRetryCount < this.bOO) {
-            Yt();
+        if (this.bTX == null && !TextUtils.isEmpty(this.bTV) && this.mRetryCount < this.bTS) {
+            ZC();
             this.mRetryCount++;
         }
         WeakReference<Drawable> weakReference = this.mDrawableRef;

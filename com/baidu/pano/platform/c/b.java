@@ -15,12 +15,14 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    static String f2672a;
-    static String b;
+    static String f3942a;
+
+    /* renamed from: b  reason: collision with root package name */
+    static String f3943b;
     static String c;
     static int d;
     static int e;
@@ -54,8 +56,8 @@ public final class b {
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            if (f2672a != null && !f2672a.equals("")) {
-                b = f2672a + File.separator + "BaiduPanoSDK" + File.separator + "cache";
+            if (f3942a != null && !f3942a.equals("")) {
+                f3943b = f3942a + File.separator + "BaiduPanoSDK" + File.separator + "cache";
                 c = context.getCacheDir().getAbsolutePath();
                 d = 20971520;
                 e = 52428800;
@@ -63,9 +65,9 @@ public final class b {
                 return;
             }
             if (context.getCacheDir() != null) {
-                b = context.getCacheDir().getAbsolutePath();
+                f3943b = context.getCacheDir().getAbsolutePath();
             } else {
-                b = "";
+                f3943b = "";
             }
             c = "";
             d = Log.FILE_LIMETE;
@@ -91,7 +93,7 @@ public final class b {
                     if (str != null && str.length() > 0 && "mounted".equals(method2.invoke(storageManager, str)) && b(str)) {
                         arrayList.add(str);
                         if (a(a(str))) {
-                            f2672a = str;
+                            f3942a = str;
                             return;
                         }
                     }
@@ -113,7 +115,7 @@ public final class b {
                             }
                         }
                         if (!z && b(absolutePath) && a(a(absolutePath))) {
-                            f2672a = absolutePath;
+                            f3942a = absolutePath;
                             return;
                         }
                     }
@@ -200,7 +202,7 @@ public final class b {
             }
             String absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
             if (a(a(absolutePath))) {
-                f2672a = absolutePath;
+                f3942a = absolutePath;
                 if (0 != 0) {
                     scanner2.close();
                     return;
@@ -211,7 +213,7 @@ public final class b {
                 if (arrayList2.contains(str2) && !str2.equals(absolutePath)) {
                     File file3 = new File(str2);
                     if (file3.exists() && file3.isDirectory() && file3.canWrite() && a(a(absolutePath))) {
-                        f2672a = absolutePath;
+                        f3942a = absolutePath;
                         if (0 != 0) {
                             scanner2.close();
                             return;
@@ -232,7 +234,7 @@ public final class b {
     }
 
     public static String b() {
-        return b + File.separator + "cacheNet";
+        return f3943b + File.separator + "cacheNet";
     }
 
     @SuppressLint({"NewApi"})
@@ -260,26 +262,18 @@ public final class b {
     }
 
     private boolean b(String str) {
-        boolean z;
-        Exception e2;
+        boolean z = false;
         try {
             File file = new File(str + "/test.0");
             if (file.exists()) {
                 file.delete();
             }
             z = file.createNewFile();
-            try {
-                if (file.exists()) {
-                    file.delete();
-                }
-            } catch (Exception e3) {
-                e2 = e3;
-                e2.printStackTrace();
-                return z;
+            if (file.exists()) {
+                file.delete();
             }
-        } catch (Exception e4) {
-            z = false;
-            e2 = e4;
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
         return z;
     }

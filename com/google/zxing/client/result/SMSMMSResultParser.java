@@ -5,11 +5,12 @@ import com.google.zxing.Result;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class SMSMMSResultParser extends ResultParser {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.zxing.client.result.ResultParser
     public SMSParsedResult parse(Result result) {
+        boolean z;
         String str;
         String str2;
         String substring;
@@ -18,14 +19,14 @@ public final class SMSMMSResultParser extends ResultParser {
             return null;
         }
         Map<String, String> parseNameValuePairs = parseNameValuePairs(massagedText);
-        boolean z = false;
         if (parseNameValuePairs == null || parseNameValuePairs.isEmpty()) {
+            z = false;
             str = null;
             str2 = null;
         } else {
+            z = true;
             str = parseNameValuePairs.get("body");
             str2 = parseNameValuePairs.get("subject");
-            z = true;
         }
         int indexOf = massagedText.indexOf(63, 4);
         if (indexOf < 0 || !z) {

@@ -3,22 +3,22 @@ package com.baidu.tieba.im.chat;
 import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.util.n;
+import com.baidu.tbadk.util.m;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
-public abstract class MsglistActivity<T> extends TalkableActivity<T> implements d {
-    protected abstract boolean a(d dVar);
+public abstract class MsglistActivity<T> extends TalkableActivity<T> implements c {
+    protected abstract boolean a(c cVar);
 
     protected abstract boolean au(Bundle bundle);
 
     protected abstract void initView();
 
-    @Override // com.baidu.tieba.im.chat.d
-    public void cTI() {
-        cTj();
+    @Override // com.baidu.tieba.im.chat.c
+    public void cWu() {
+        cWp();
     }
 
-    public void cTj() {
+    public void cWp() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -31,14 +31,14 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         }
         initView();
         adjustResizeForSoftInput(R.color.common_color_10022, false);
-        if (this.kkX != null) {
-            this.kkX.setImageUploadUIProgressCallback(this.klc);
+        if (this.kxD != null) {
+            this.kxD.setImageUploadUIProgressCallback(this.kxI);
         }
-        bXb();
-        if (a((d) this)) {
+        bZG();
+        if (a((c) this)) {
             loadDraft();
-            cTh();
-            j.kkV = n.bGw();
+            cWn();
+            h.kxB = m.bIP();
         }
     }
 
@@ -46,8 +46,8 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        if (this.kkX != null) {
-            this.kkX.onDestroy();
+        if (this.kxD != null) {
+            this.kxD.onDestroy();
         }
         setIntent(intent);
         if (!au(null)) {
@@ -56,8 +56,8 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         }
         initView();
         adjustResizeForSoftInput(R.color.common_color_10022, false);
-        bXb();
-        if (a((d) this)) {
+        bZG();
+        if (a((c) this)) {
             loadDraft();
         }
     }
@@ -66,8 +66,8 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.kkW != null) {
-            this.kkW.onChangeSkinType(i);
+        if (this.kxC != null) {
+            this.kxC.onChangeSkinType(i);
         }
     }
 
@@ -75,37 +75,37 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.kkW != null) {
-            this.kkW.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            cTe();
+        if (this.kxC != null) {
+            this.kxC.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+            cWk();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cTe() {
+    public void cWk() {
         if (TbadkCoreApplication.getInst().isHeadsetModeOn()) {
-            this.kkW.showReceiver();
+            this.kxC.showReceiver();
         } else {
-            this.kkW.closeReceiver();
+            this.kxC.closeReceiver();
         }
     }
 
     protected boolean loadDraft() {
-        return this.kkX.loadDraft();
+        return this.kxD.loadDraft();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        cTi();
+        cWo();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cTh() {
+    public void cWn() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cTi() {
+    public void cWo() {
     }
 }

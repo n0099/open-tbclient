@@ -1,71 +1,42 @@
 package com.baidu.minivideo.arface.b;
 
-import android.util.Log;
-import java.io.File;
-/* loaded from: classes8.dex */
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
+import java.security.MessageDigest;
+/* loaded from: classes6.dex */
 public class g {
-    private static g ceC;
-    private Boolean ceD;
+    private static final char[] HEX_DIGITS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
-    public static g acA() {
-        if (ceC == null) {
-            createInst();
+    public static String toMd5(String str) {
+        if (str == null) {
+            return null;
         }
-        return ceC;
-    }
-
-    private static synchronized void createInst() {
-        synchronized (g.class) {
-            if (ceC == null) {
-                ceC = new g();
-            }
+        try {
+            return toMd5(str.getBytes("UTF-8"));
+        } catch (Exception e) {
+            return null;
         }
     }
 
-    private g() {
+    public static String toMd5(byte[] bArr) {
+        try {
+            MessageDigest messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
+            messageDigest.update(bArr);
+            return toHexString(messageDigest.digest());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
-    private boolean acB() {
-        String str;
-        boolean z = false;
-        if (this.ceD == null) {
-            this.ceD = false;
-            try {
-                String[] list = com.baidu.minivideo.arface.b.getContext().getAssets().list("arsource");
-                if (list != null && list.length > 0) {
-                    z = true;
-                }
-                this.ceD = Boolean.valueOf(z);
-                if (com.baidu.minivideo.arface.b.isDebug()) {
-                    if (list == null) {
-                        str = "null";
-                    } else {
-                        str = "" + list.length;
-                    }
-                    d("hasAssetsResource: " + str);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+    public static String toHexString(byte[] bArr) {
+        if (bArr == null) {
+            return null;
         }
-        return this.ceD.booleanValue();
-    }
-
-    public File acC() {
-        File acm;
-        boolean z = com.baidu.minivideo.arface.b.abZ() && acB();
-        if (z) {
-            acm = e.acv().acw();
-        } else {
-            acm = b.jP(com.baidu.minivideo.arface.b.aca()).acm();
+        StringBuilder sb = new StringBuilder(bArr.length * 2);
+        for (int i = 0; i < bArr.length; i++) {
+            sb.append(HEX_DIGITS[(bArr[i] & 240) >>> 4]);
+            sb.append(HEX_DIGITS[bArr[i] & 15]);
         }
-        if (com.baidu.minivideo.arface.b.isDebug()) {
-            d("sdkPath useLocal " + z + ", SDKPath " + acm);
-        }
-        return acm;
-    }
-
-    private static void d(String str) {
-        Log.e("DuAr_SDKLoader", "ar->" + str);
+        return sb.toString();
     }
 }

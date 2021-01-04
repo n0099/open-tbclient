@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import java.util.HashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class HttpResponseHandler extends Handler implements com.baidu.pass.a {
     protected static final String DEFAULT_CHARSET = "UTF-8";
     protected static final int FAILURE_MESSAGE = 1;

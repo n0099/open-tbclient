@@ -2,10 +2,10 @@ package com.baidu.tieba.mainentrance;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.u;
+import com.baidu.tbadk.util.t;
 import tbclient.HotForum.DataReq;
 import tbclient.HotForum.HotForumReqIdl;
-/* loaded from: classes24.dex */
+/* loaded from: classes8.dex */
 public class HotForumNetMessage extends NetMessage {
     private int lyo;
 
@@ -19,7 +19,7 @@ public class HotForumNetMessage extends NetMessage {
         DataReq.Builder builder = new DataReq.Builder();
         builder.lyo = Integer.valueOf(this.lyo);
         if (z) {
-            u.a(builder, true);
+            t.b(builder, true);
         }
         HotForumReqIdl.Builder builder2 = new HotForumReqIdl.Builder();
         builder2.data = builder.build(false);

@@ -5,12 +5,14 @@ import android.os.Environment;
 import com.baidu.fsg.base.ApollonConstants;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f1588a = ApollonConstants.VIDEO_DEBUG;
-    public static final String b = "SapiBioFileUtils";
+    public static boolean f2142a = ApollonConstants.VIDEO_DEBUG;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final String f2143b = "SapiBioFileUtils";
     public static final String c = "liveness_video.mp4";
     public static final String d = "liveness_action_video.mp4";
     private static final String e = "BI0_VIDEO";
@@ -24,7 +26,7 @@ public class g {
     }
 
     public static String b(Context context) {
-        return (f1588a ? a() : a(context)) + File.separator + c;
+        return (f2142a ? a() : a(context)) + File.separator + c;
     }
 
     public static String a() {
@@ -32,7 +34,7 @@ public class g {
     }
 
     public static String c(Context context) {
-        return (f1588a ? a() : a(context)) + File.separator + d;
+        return (f2142a ? a() : a(context)) + File.separator + d;
     }
 
     public static String a(String str, String str2) {

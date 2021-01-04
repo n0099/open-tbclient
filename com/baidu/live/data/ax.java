@@ -1,7 +1,5 @@
 package com.baidu.live.data;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class ax {
-    public ba aPG;
-    public be aPH;
-    public be aPI;
+    public String aQt;
 }

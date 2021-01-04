@@ -5,7 +5,7 @@ import com.baidu.swan.pms.d;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public class a {
-    public Integer B(Map<String, Object> map) {
+    public Integer C(Map<String, Object> map) {
         if (map == null || map.isEmpty()) {
             return 100;
         }

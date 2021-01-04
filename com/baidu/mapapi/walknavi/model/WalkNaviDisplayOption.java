@@ -2,12 +2,14 @@ package com.baidu.mapapi.walknavi.model;
 
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class WalkNaviDisplayOption implements com.baidu.mapapi.walknavi.adapter.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Bitmap f2179a = null;
-    private Bitmap b = null;
+    private Bitmap f3096a = null;
+
+    /* renamed from: b  reason: collision with root package name */
+    private Bitmap f3097b = null;
     private Bitmap c = null;
     private Bitmap d = null;
     private boolean e = true;
@@ -22,13 +24,13 @@ public class WalkNaviDisplayOption implements com.baidu.mapapi.walknavi.adapter.
 
     /* JADX DEBUG: Method merged with bridge method */
     public WalkNaviDisplayOption imageToAr(Bitmap bitmap) {
-        this.f2179a = bitmap;
+        this.f3096a = bitmap;
         return this;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     public WalkNaviDisplayOption imageToNormal(Bitmap bitmap) {
-        this.b = bitmap;
+        this.f3097b = bitmap;
         return this;
     }
 
@@ -59,7 +61,7 @@ public class WalkNaviDisplayOption implements com.baidu.mapapi.walknavi.adapter.
     public com.baidu.mapapi.walknavi.adapter.a setArNaviResources(Bitmap bitmap, Bitmap bitmap2, Bitmap bitmap3) {
         this.c = bitmap;
         this.d = bitmap2;
-        this.b = bitmap3;
+        this.f3097b = bitmap3;
         return this;
     }
 
@@ -76,11 +78,11 @@ public class WalkNaviDisplayOption implements com.baidu.mapapi.walknavi.adapter.
     }
 
     public Bitmap getImageToAR() {
-        return this.f2179a;
+        return this.f3096a;
     }
 
     public Bitmap getImageToNormal() {
-        return this.b;
+        return this.f3097b;
     }
 
     public Bitmap getImageNPC() {

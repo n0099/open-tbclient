@@ -1,10 +1,10 @@
 package com.baidu.ar.b.b;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public abstract class b extends com.baidu.ar.c.a<a> {
     private int cI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes6.dex */
     public class a {
         int cJ;
         int type;

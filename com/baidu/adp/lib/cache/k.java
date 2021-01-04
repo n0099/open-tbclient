@@ -7,7 +7,7 @@ public interface k<T> {
 
     T get(String str, String str2);
 
-    e lW();
+    e lu();
 
     void remove(String str, String str2);
 

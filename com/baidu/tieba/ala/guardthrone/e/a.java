@@ -10,7 +10,7 @@ import com.baidu.live.tieba.horizonallist.widget.HListView;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class a {
     public static void c(ListView listView) {
         try {
@@ -18,13 +18,15 @@ public class a {
             if (adapter != null) {
                 int count = adapter.getCount();
                 int i = 0;
-                for (int i2 = 0; i2 < count; i2++) {
-                    View view = adapter.getView(i2, null, listView);
+                int i2 = 0;
+                while (i < count) {
+                    View view = adapter.getView(i, null, listView);
                     view.measure(0, 0);
-                    i += view.getMeasuredHeight();
+                    i++;
+                    i2 = view.getMeasuredHeight() + i2;
                 }
                 ViewGroup.LayoutParams layoutParams = listView.getLayoutParams();
-                layoutParams.height = i + ((adapter.getCount() - 1) * listView.getDividerHeight());
+                layoutParams.height = (listView.getDividerHeight() * (adapter.getCount() - 1)) + i2;
                 listView.setLayoutParams(layoutParams);
             }
         } catch (Exception e) {
@@ -67,7 +69,7 @@ public class a {
         try {
             long parseLong = Long.parseLong(str);
             if (parseLong >= 10000000) {
-                return z((parseLong * 1.0d) / 10000.0d) + "万";
+                return y((parseLong * 1.0d) / 10000.0d) + "万";
             }
             return str;
         } catch (Exception e) {
@@ -75,7 +77,7 @@ public class a {
         }
     }
 
-    private static double z(double d) {
+    private static double y(double d) {
         return new BigDecimal(Double.toString(d)).divide(new BigDecimal("1"), 1, 4).doubleValue();
     }
 }

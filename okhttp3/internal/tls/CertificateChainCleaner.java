@@ -6,7 +6,7 @@ import java.util.List;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.X509TrustManager;
 import okhttp3.internal.platform.Platform;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public abstract class CertificateChainCleaner {
     public abstract List<Certificate> clean(List<Certificate> list, String str) throws SSLPeerUnverifiedException;
 

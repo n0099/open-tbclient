@@ -6,19 +6,19 @@ import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes17.dex */
+/* loaded from: classes6.dex */
 public class Slot implements Parcelable {
     public static final Parcelable.Creator<Slot> CREATOR = new Parcelable.Creator<Slot>() { // from class: com.baidu.swan.ubc.Slot.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: K */
+        /* renamed from: L */
         public Slot createFromParcel(Parcel parcel) {
             return new Slot(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: nI */
+        /* renamed from: nR */
         public Slot[] newArray(int i) {
             return new Slot[i];
         }
@@ -67,15 +67,15 @@ public class Slot implements Parcelable {
         }
     }
 
-    public void dc(JSONObject jSONObject) {
+    public void dk(JSONObject jSONObject) {
         this.mOption = jSONObject;
     }
 
-    public boolean bgv() {
+    public boolean biS() {
         return this.mStart > 0;
     }
 
-    public boolean bgw() {
+    public boolean biT() {
         return this.mEnd > 0;
     }
 
@@ -84,18 +84,17 @@ public class Slot implements Parcelable {
         this.mEnd = 0L;
     }
 
-    public JSONObject bgx() {
+    public JSONObject biU() {
         JSONObject jSONObject;
-        JSONException e;
         if (TextUtils.isEmpty(this.mCategory) || this.mDuration <= 0.0f) {
             return null;
         }
         String format = String.format("%.3f", Float.valueOf(this.mDuration));
         try {
             jSONObject = new JSONObject();
-        } catch (JSONException e2) {
+        } catch (JSONException e) {
+            e = e;
             jSONObject = null;
-            e = e2;
         }
         try {
             jSONObject.put("id", this.mCategory);
@@ -105,8 +104,8 @@ public class Slot implements Parcelable {
                 return jSONObject;
             }
             return jSONObject;
-        } catch (JSONException e3) {
-            e = e3;
+        } catch (JSONException e2) {
+            e = e2;
             e.printStackTrace();
             return jSONObject;
         }

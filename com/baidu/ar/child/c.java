@@ -1,5 +1,5 @@
 package com.baidu.ar.child;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class c {
     private int angle;
     private int height;

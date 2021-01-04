@@ -9,7 +9,7 @@ import java.lang.reflect.TypeVariable;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class TypeReference<T> {
     protected final Type type;
     static ConcurrentMap<Type, Type> classTypeCache = new ConcurrentHashMap(16, 0.75f, 1);
@@ -27,14 +27,17 @@ public class TypeReference<T> {
     }
 
     protected TypeReference(Type... typeArr) {
-        int i;
-        int i2 = 0;
+        int i = 0;
         Class<?> cls = getClass();
         ParameterizedType parameterizedType = (ParameterizedType) ((ParameterizedType) cls.getGenericSuperclass()).getActualTypeArguments()[0];
         Type rawType = parameterizedType.getRawType();
         Type[] actualTypeArguments = parameterizedType.getActualTypeArguments();
-        int i3 = 0;
-        while (i2 < actualTypeArguments.length) {
+        int i2 = 0;
+        while (true) {
+            int i3 = i;
+            if (i2 >= actualTypeArguments.length) {
+                break;
+            }
             if (!(actualTypeArguments[i2] instanceof TypeVariable) || i3 >= typeArr.length) {
                 i = i3;
             } else {
@@ -45,7 +48,6 @@ public class TypeReference<T> {
                 actualTypeArguments[i2] = TypeUtils.checkPrimitiveArray((GenericArrayType) actualTypeArguments[i2]);
             }
             i2++;
-            i3 = i;
         }
         ParameterizedTypeImpl parameterizedTypeImpl = new ParameterizedTypeImpl(actualTypeArguments, cls, rawType);
         Type type = classTypeCache.get(parameterizedTypeImpl);

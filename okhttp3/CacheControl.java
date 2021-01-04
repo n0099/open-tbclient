@@ -1,12 +1,12 @@
 package okhttp3;
 
-import android.support.v7.widget.ActivityChooserView;
+import androidx.appcompat.widget.ActivityChooserView;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
 import okhttp3.internal.http.HttpHeaders;
 import org.apache.http.cookie.ClientCookie;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public final class CacheControl {
     @Nullable
     String headerValue;
@@ -106,30 +106,27 @@ public final class CacheControl {
 
     public static CacheControl parse(Headers headers) {
         boolean z;
+        int i;
         String str;
         boolean z2 = false;
         boolean z3 = false;
-        int i = -1;
         int i2 = -1;
+        int i3 = -1;
         boolean z4 = false;
         boolean z5 = false;
         boolean z6 = false;
-        int i3 = -1;
         int i4 = -1;
+        int i5 = -1;
         boolean z7 = false;
         boolean z8 = false;
         boolean z9 = false;
         boolean z10 = true;
-        int size = headers.size();
-        int i5 = 0;
         String str2 = null;
-        while (true) {
-            z = z2;
-            if (i5 >= size) {
-                break;
-            }
-            String name = headers.name(i5);
-            String value = headers.value(i5);
+        int size = headers.size();
+        int i6 = 0;
+        while (i6 < size) {
+            String name = headers.name(i6);
+            String value = headers.value(i6);
             if (name.equalsIgnoreCase(com.baidubce.http.Headers.CACHE_CONTROL)) {
                 if (str2 != null) {
                     z10 = false;
@@ -137,42 +134,39 @@ public final class CacheControl {
                     str2 = value;
                 }
             } else if (!name.equalsIgnoreCase("Pragma")) {
+                z = z2;
+                i6++;
                 z2 = z;
-                i5++;
             } else {
                 z10 = false;
             }
-            z2 = z;
-            int i6 = 0;
-            while (i6 < value.length()) {
-                int skipUntil = HttpHeaders.skipUntil(value, i6, "=,;");
-                String trim = value.substring(i6, skipUntil).trim();
+            z = z2;
+            for (int i7 = 0; i7 < value.length(); i7 = i) {
+                int skipUntil = HttpHeaders.skipUntil(value, i7, "=,;");
+                String trim = value.substring(i7, skipUntil).trim();
                 if (skipUntil == value.length() || value.charAt(skipUntil) == ',' || value.charAt(skipUntil) == ';') {
-                    i6 = skipUntil + 1;
+                    i = skipUntil + 1;
                     str = null;
                 } else {
                     int skipWhitespace = HttpHeaders.skipWhitespace(value, skipUntil + 1);
                     if (skipWhitespace < value.length() && value.charAt(skipWhitespace) == '\"') {
-                        int i7 = skipWhitespace + 1;
-                        int skipUntil2 = HttpHeaders.skipUntil(value, i7, "\"");
-                        String substring = value.substring(i7, skipUntil2);
-                        i6 = skipUntil2 + 1;
-                        str = substring;
+                        int i8 = skipWhitespace + 1;
+                        int skipUntil2 = HttpHeaders.skipUntil(value, i8, "\"");
+                        str = value.substring(i8, skipUntil2);
+                        i = skipUntil2 + 1;
                     } else {
-                        int skipUntil3 = HttpHeaders.skipUntil(value, skipWhitespace, ",;");
-                        String trim2 = value.substring(skipWhitespace, skipUntil3).trim();
-                        i6 = skipUntil3;
-                        str = trim2;
+                        i = HttpHeaders.skipUntil(value, skipWhitespace, ",;");
+                        str = value.substring(skipWhitespace, i).trim();
                     }
                 }
                 if ("no-cache".equalsIgnoreCase(trim)) {
-                    z2 = true;
+                    z = true;
                 } else if ("no-store".equalsIgnoreCase(trim)) {
                     z3 = true;
                 } else if (ClientCookie.MAX_AGE_ATTR.equalsIgnoreCase(trim)) {
-                    i = HttpHeaders.parseSeconds(str, -1);
-                } else if ("s-maxage".equalsIgnoreCase(trim)) {
                     i2 = HttpHeaders.parseSeconds(str, -1);
+                } else if ("s-maxage".equalsIgnoreCase(trim)) {
+                    i3 = HttpHeaders.parseSeconds(str, -1);
                 } else if (PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_PRIVATE.equalsIgnoreCase(trim)) {
                     z4 = true;
                 } else if ("public".equalsIgnoreCase(trim)) {
@@ -180,9 +174,9 @@ public final class CacheControl {
                 } else if ("must-revalidate".equalsIgnoreCase(trim)) {
                     z6 = true;
                 } else if ("max-stale".equalsIgnoreCase(trim)) {
-                    i3 = HttpHeaders.parseSeconds(str, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+                    i4 = HttpHeaders.parseSeconds(str, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
                 } else if ("min-fresh".equalsIgnoreCase(trim)) {
-                    i4 = HttpHeaders.parseSeconds(str, -1);
+                    i5 = HttpHeaders.parseSeconds(str, -1);
                 } else if ("only-if-cached".equalsIgnoreCase(trim)) {
                     z7 = true;
                 } else if ("no-transform".equalsIgnoreCase(trim)) {
@@ -191,9 +185,10 @@ public final class CacheControl {
                     z9 = true;
                 }
             }
-            i5++;
+            i6++;
+            z2 = z;
         }
-        return new CacheControl(z, z3, i, i2, z4, z5, z6, i3, i4, z7, z8, z9, !z10 ? null : str2);
+        return new CacheControl(z2, z3, i2, i3, z4, z5, z6, i4, i5, z7, z8, z9, !z10 ? null : str2);
     }
 
     public String toString() {
@@ -251,7 +246,7 @@ public final class CacheControl {
         return sb.toString();
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public static final class Builder {
         boolean immutable;
         int maxAgeSeconds = -1;

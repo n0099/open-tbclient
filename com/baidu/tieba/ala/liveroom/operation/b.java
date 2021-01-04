@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.liveroom.operation;
 
 import android.view.View;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public interface b {
-    void s(View view, int i);
+    void v(View view, int i);
 }

@@ -3,34 +3,34 @@ package com.baidu.tieba.personPolymeric.view;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes24.dex */
+/* loaded from: classes8.dex */
 public class d extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.e> {
+    private TbImageView mAf;
+    private com.baidu.tieba.personPolymeric.c.e mAg;
     private View mRootView;
-    private TextView muC;
-    private TextView muE;
-    private TbImageView muS;
-    private com.baidu.tieba.personPolymeric.c.e muT;
+    private TextView mzP;
+    private TextView mzR;
 
     public d(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mRootView = getView();
-        this.muS = (TbImageView) this.mRootView.findViewById(R.id.card_person_auth_icon);
-        this.muE = (TextView) this.mRootView.findViewById(R.id.card_person_auth_bar_name);
-        this.muC = (TextView) this.mRootView.findViewById(R.id.card_person_auth_des);
+        this.mAf = (TbImageView) this.mRootView.findViewById(R.id.card_person_auth_icon);
+        this.mzR = (TextView) this.mRootView.findViewById(R.id.card_person_auth_bar_name);
+        this.mzP = (TextView) this.mRootView.findViewById(R.id.card_person_auth_des);
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            ap.setBackgroundResource(this.mRootView, R.color.CAM_X0201);
-            ap.setViewTextColor(this.muE, R.color.CAM_X0105, 1);
-            ap.setViewTextColor(this.muC, R.color.CAM_X0109, 1);
-            if (this.muT.iconUrl == null) {
-                ap.setImageResource(this.muS, R.drawable.icon_shen_mine);
+            ao.setBackgroundResource(this.mRootView, R.color.CAM_X0201);
+            ao.setViewTextColor(this.mzR, R.color.CAM_X0105, 1);
+            ao.setViewTextColor(this.mzP, R.color.CAM_X0109, 1);
+            if (this.mAg.iconUrl == null) {
+                ao.setImageResource(this.mAf, R.drawable.icon_shen_mine);
             }
         }
     }
@@ -44,12 +44,12 @@ public class d extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.personPolymeric.c.e eVar) {
         if (eVar != null) {
-            this.muT = eVar;
+            this.mAg = eVar;
             if (eVar.iconUrl != null) {
-                this.muS.startLoad(eVar.iconUrl, 10, false);
+                this.mAf.startLoad(eVar.iconUrl, 10, false);
             }
-            this.muE.setText(eVar.jLy);
-            this.muC.setText(eVar.des);
+            this.mzR.setText(eVar.jYM);
+            this.mzP.setText(eVar.des);
         }
     }
 

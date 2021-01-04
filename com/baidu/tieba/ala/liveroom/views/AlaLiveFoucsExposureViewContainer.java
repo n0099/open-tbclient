@@ -14,20 +14,20 @@ import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tbadk.util.ScreenHelper;
 import com.baidu.tieba.ala.liveroom.views.AlaLiveExposureView;
 import okhttp3.internal.http.StatusLine;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaLiveFoucsExposureViewContainer extends RelativeLayout {
-    private float cBL;
-    private long fTP;
-    private long fTQ;
-    private boolean hEA;
-    private boolean hEB;
-    private float hEC;
-    private float hED;
-    private Runnable hEE;
-    private AlaLiveFocusCircleView hEF;
-    private a hEG;
-    private AlaLiveExposureView hEH;
-    private boolean hEz;
+    private float cGB;
+    private long gdt;
+    private long gdu;
+    private boolean hQA;
+    private boolean hQB;
+    private float hQC;
+    private float hQD;
+    private Runnable hQE;
+    private AlaLiveFocusCircleView hQF;
+    private a hQG;
+    private AlaLiveExposureView hQH;
+    private boolean hQz;
     private Context mContext;
     private float mDownX;
     private Handler mHandler;
@@ -35,9 +35,9 @@ public class AlaLiveFoucsExposureViewContainer extends RelativeLayout {
     private int mScreenWidth;
     private int mTouchSlop;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes11.dex */
     public interface a {
-        void chm();
+        void cka();
 
         float getExposure();
 
@@ -56,7 +56,7 @@ public class AlaLiveFoucsExposureViewContainer extends RelativeLayout {
 
     public AlaLiveFoucsExposureViewContainer(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.hEB = true;
+        this.hQB = true;
         init(context);
     }
 
@@ -74,29 +74,29 @@ public class AlaLiveFoucsExposureViewContainer extends RelativeLayout {
         this.mScreenWidth = ScreenHelper.getScreenWidth(context);
         this.mScreenHeight = ScreenHelper.getScreenHeight(context);
         this.mTouchSlop = ViewConfiguration.get(getContext()).getScaledPagingTouchSlop();
-        this.hEH = new AlaLiveExposureView(context);
-        this.hEH.setExposureListener(new AlaLiveExposureView.a() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveFoucsExposureViewContainer.1
+        this.hQH = new AlaLiveExposureView(context);
+        this.hQH.setExposureListener(new AlaLiveExposureView.a() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveFoucsExposureViewContainer.1
             @Override // com.baidu.tieba.ala.liveroom.views.AlaLiveExposureView.a
             public void onExposure(float f) {
-                if (AlaLiveFoucsExposureViewContainer.this.hEG != null) {
-                    AlaLiveFoucsExposureViewContainer.this.hEG.onExposure(f);
+                if (AlaLiveFoucsExposureViewContainer.this.hQG != null) {
+                    AlaLiveFoucsExposureViewContainer.this.hQG.onExposure(f);
                 }
             }
 
             @Override // com.baidu.tieba.ala.liveroom.views.AlaLiveExposureView.a
-            public void chm() {
-                if (AlaLiveFoucsExposureViewContainer.this.hEG != null) {
-                    AlaLiveFoucsExposureViewContainer.this.hEG.chm();
+            public void cka() {
+                if (AlaLiveFoucsExposureViewContainer.this.hQG != null) {
+                    AlaLiveFoucsExposureViewContainer.this.hQG.cka();
                 }
             }
         });
-        addView(this.hEH, getNewLayoutParams());
-        this.hEH.setVisibility(4);
-        cld();
+        addView(this.hQH, getNewLayoutParams());
+        this.hQH.setVisibility(4);
+        cnU();
     }
 
     public void setFoucsListener(a aVar) {
-        this.hEG = aVar;
+        this.hQG = aVar;
     }
 
     public boolean R(MotionEvent motionEvent) {
@@ -104,53 +104,53 @@ public class AlaLiveFoucsExposureViewContainer extends RelativeLayout {
             case 0:
                 float x = motionEvent.getX();
                 this.mDownX = x;
-                this.hED = x;
+                this.hQD = x;
                 float y = motionEvent.getY();
-                this.cBL = y;
-                this.hEC = y;
-                this.fTP = System.currentTimeMillis();
-                this.hEA = true;
-                this.hEz = false;
+                this.cGB = y;
+                this.hQC = y;
+                this.gdt = System.currentTimeMillis();
+                this.hQA = true;
+                this.hQz = false;
                 break;
             case 1:
             case 3:
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - this.fTP < 100 && currentTimeMillis - this.fTQ < 500) {
-                    this.hEz = true;
+                if (currentTimeMillis - this.gdt < 100 && currentTimeMillis - this.gdu < 500) {
+                    this.hQz = true;
                 } else {
-                    this.hEz = false;
+                    this.hQz = false;
                 }
                 if (!S(motionEvent)) {
                     handleClick(motionEvent);
                 }
-                this.fTQ = currentTimeMillis;
+                this.gdu = currentTimeMillis;
                 break;
         }
         return true;
     }
 
     private boolean S(MotionEvent motionEvent) {
-        if (this.hEz) {
-            return Math.abs(this.hED - motionEvent.getX()) < ((float) this.mTouchSlop) && Math.abs(this.hEC - motionEvent.getY()) < ((float) this.mTouchSlop);
+        if (this.hQz) {
+            return Math.abs(this.hQD - motionEvent.getX()) < ((float) this.mTouchSlop) && Math.abs(this.hQC - motionEvent.getY()) < ((float) this.mTouchSlop);
         }
-        if (!this.hEB) {
+        if (!this.hQB) {
         }
         return false;
     }
 
     private void handleClick(MotionEvent motionEvent) {
-        if (!this.hEz && this.hEA && Math.abs(this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(this.cBL - motionEvent.getY()) < 30.0f) {
-            this.mHandler.removeCallbacks(this.hEE);
+        if (!this.hQz && this.hQA && Math.abs(this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(this.cGB - motionEvent.getY()) < 30.0f) {
+            this.mHandler.removeCallbacks(this.hQE);
             final MotionEvent obtain = MotionEvent.obtain(motionEvent);
-            this.hEE = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveFoucsExposureViewContainer.2
+            this.hQE = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.views.AlaLiveFoucsExposureViewContainer.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (!AlaLiveFoucsExposureViewContainer.this.hEz && AlaLiveFoucsExposureViewContainer.this.hEA && Math.abs(AlaLiveFoucsExposureViewContainer.this.mDownX - obtain.getX()) < 30.0f) {
+                    if (!AlaLiveFoucsExposureViewContainer.this.hQz && AlaLiveFoucsExposureViewContainer.this.hQA && Math.abs(AlaLiveFoucsExposureViewContainer.this.mDownX - obtain.getX()) < 30.0f) {
                         AlaLiveFoucsExposureViewContainer.this.T(obtain);
                     }
                 }
             };
-            this.mHandler.postDelayed(this.hEE, 100L);
+            this.mHandler.postDelayed(this.hQE, 100L);
         }
     }
 
@@ -163,37 +163,37 @@ public class AlaLiveFoucsExposureViewContainer extends RelativeLayout {
                 if (y <= this.mScreenHeight && x >= TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_tbds64)) {
                     int clamp = CameraUtils.clamp(x, Opcodes.IFNE, this.mScreenWidth - 154);
                     int clamp2 = CameraUtils.clamp(y, Opcodes.IFNE, this.mScreenHeight - 154);
-                    if (this.hEG != null) {
-                        this.hEG.onFocus(StatusLine.HTTP_PERM_REDIRECT, StatusLine.HTTP_PERM_REDIRECT, clamp, clamp2);
+                    if (this.hQG != null) {
+                        this.hQG.onFocus(StatusLine.HTTP_PERM_REDIRECT, StatusLine.HTTP_PERM_REDIRECT, clamp, clamp2);
                     }
-                    if (this.hEF == null) {
-                        cld();
+                    if (this.hQF == null) {
+                        cnU();
                     } else {
-                        int width = this.hEF.getWidth();
-                        int height = this.hEF.getHeight();
-                        this.hEF.setTranslationX(motionEvent.getX() - (width / 2));
-                        this.hEF.setTranslationY((motionEvent.getY() - (height / 2)) - UtilHelper.getStatusBarHeight());
-                        this.hEF.clc();
+                        int width = this.hQF.getWidth();
+                        int height = this.hQF.getHeight();
+                        this.hQF.setTranslationX(motionEvent.getX() - (width / 2));
+                        this.hQF.setTranslationY((motionEvent.getY() - (height / 2)) - UtilHelper.getStatusBarHeight());
+                        this.hQF.cnT();
                     }
                     if (Math.round(motionEvent.getRawX()) < ScreenHelper.getScreenWidth(getContext()) / 2) {
                         RelativeLayout.LayoutParams newLayoutParams = getNewLayoutParams();
                         newLayoutParams.addRule(9);
-                        this.hEH.setLayoutParams(newLayoutParams);
+                        this.hQH.setLayoutParams(newLayoutParams);
                     } else {
                         RelativeLayout.LayoutParams newLayoutParams2 = getNewLayoutParams();
                         newLayoutParams2.addRule(11);
-                        this.hEH.setLayoutParams(newLayoutParams2);
+                        this.hQH.setLayoutParams(newLayoutParams2);
                     }
-                    if (this.hEG != null) {
-                        float exposure = this.hEG.getExposure();
+                    if (this.hQG != null) {
+                        float exposure = this.hQG.getExposure();
                         if (exposure == -1.0f) {
-                            this.hEH.setExposureValue(0.5f);
+                            this.hQH.setExposureValue(0.5f);
                         } else {
-                            this.hEH.setExposureValue(exposure);
+                            this.hQH.setExposureValue(exposure);
                         }
                     }
-                    this.hEH.setVisibility(0);
-                    this.hEH.cla();
+                    this.hQH.setVisibility(0);
+                    this.hQH.cnR();
                     break;
                 }
                 break;
@@ -201,10 +201,10 @@ public class AlaLiveFoucsExposureViewContainer extends RelativeLayout {
         return true;
     }
 
-    private void cld() {
-        if (this.hEF == null) {
-            this.hEF = new AlaLiveFocusCircleView(getContext());
-            addView(this.hEF, getChildCount() > 0 ? 1 : 0, new RelativeLayout.LayoutParams(-1, -1));
+    private void cnU() {
+        if (this.hQF == null) {
+            this.hQF = new AlaLiveFocusCircleView(getContext());
+            addView(this.hQF, getChildCount() > 0 ? 1 : 0, new RelativeLayout.LayoutParams(-1, -1));
         }
     }
 }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.message;
 
-import android.support.v4.util.LongSparseArray;
+import androidx.collection.LongSparseArray;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
@@ -133,7 +133,7 @@ public class MessageSyncMessage extends TbSocketMessage {
         if (builder.groupMids == null) {
             builder.groupMids = new ArrayList();
         }
-        long gid = c.cZz().getGid();
+        long gid = c.cZl().getGid();
         boolean z = false;
         for (int i = 0; i < this.mMids.size(); i++) {
             long keyAt = this.mMids.keyAt(i);
@@ -144,16 +144,16 @@ public class MessageSyncMessage extends TbSocketMessage {
                 builder2.lastMsgId = valueAt;
                 if (gid == keyAt) {
                     z = true;
-                    builder2.excludeMid = c.cZz().cZB();
+                    builder2.excludeMid = c.cZl().cZn();
                 }
                 builder.groupMids.add(builder2.build(false));
             }
         }
-        if (!z && c.cZz().cZD()) {
+        if (!z && c.cZl().cZp()) {
             GroupLastId.Builder builder3 = new GroupLastId.Builder();
             builder3.groupId = Long.valueOf(gid);
-            builder3.lastMsgId = c.cZz().cZA();
-            builder3.excludeMid = c.cZz().cZB();
+            builder3.lastMsgId = c.cZl().cZm();
+            builder3.excludeMid = c.cZl().cZn();
             builder.groupMids.add(builder3.build(false));
         }
         builder.newpushRepire = getNewpushRepire();

@@ -11,12 +11,11 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
 import android.view.View;
 import android.widget.ImageView;
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
 import com.baidu.adp.lib.util.l;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.CameraActivityConfig;
@@ -24,36 +23,37 @@ import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.idCard.CameraView;
 import com.baidu.webkit.sdk.PermissionRequest;
+import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes21.dex */
+/* loaded from: classes8.dex */
 public class CameraActivity extends BaseActivity {
     private String contentType;
-    private File idM;
-    private OCRCameraLayout idN;
-    private OCRCameraLayout idO;
-    private OCRCameraLayout idP;
-    private ImageView idQ;
-    private CameraView idR;
-    private ImageView idS;
-    private CropView idT;
-    private FrameOverlayView idU;
-    private MaskView idV;
-    private ImageView idW;
+    private File iqh;
+    private OCRCameraLayout iqi;
+    private OCRCameraLayout iqj;
+    private OCRCameraLayout iqk;
+    private ImageView iql;
+    private CameraView iqm;
+    private ImageView iqn;
+    private CropView iqo;
+    private FrameOverlayView iqp;
+    private MaskView iqq;
+    private ImageView iqr;
     private Handler handler = new Handler();
-    private e idp = new e() { // from class: com.baidu.tieba.barselect.idCard.CameraActivity.1
+    private e ipN = new e() { // from class: com.baidu.tieba.barselect.idCard.CameraActivity.1
         @Override // com.baidu.tieba.barselect.idCard.e
-        public boolean crA() {
+        public boolean cut() {
             ActivityCompat.requestPermissions(CameraActivity.this, new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 800);
             return false;
         }
     };
-    private View.OnClickListener idX = new View.OnClickListener() { // from class: com.baidu.tieba.barselect.idCard.CameraActivity.7
+    private View.OnClickListener iqs = new View.OnClickListener() { // from class: com.baidu.tieba.barselect.idCard.CameraActivity.7
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (ActivityCompat.checkSelfPermission(CameraActivity.this.getApplicationContext(), "android.permission.READ_EXTERNAL_STORAGE") != 0 && Build.VERSION.SDK_INT >= 16) {
-                ActivityCompat.requestPermissions(CameraActivity.this, new String[]{"android.permission.READ_EXTERNAL_STORAGE"}, CyberPlayerManager.MEDIA_INFO_NOT_SEEKABLE);
+                ActivityCompat.requestPermissions(CameraActivity.this, new String[]{"android.permission.READ_EXTERNAL_STORAGE"}, 801);
                 return;
             }
             Intent intent = new Intent("android.intent.action.PICK");
@@ -61,31 +61,31 @@ public class CameraActivity extends BaseActivity {
             CameraActivity.this.startActivityForResult(intent, 100);
         }
     };
-    private View.OnClickListener idY = new View.OnClickListener() { // from class: com.baidu.tieba.barselect.idCard.CameraActivity.8
+    private View.OnClickListener iqt = new View.OnClickListener() { // from class: com.baidu.tieba.barselect.idCard.CameraActivity.8
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (CameraActivity.this.idR.getCameraControl().crh() == 0) {
-                CameraActivity.this.idR.getCameraControl().ya(1);
+            if (CameraActivity.this.iqm.getCameraControl().cua() == 0) {
+                CameraActivity.this.iqm.getCameraControl().yn(1);
             } else {
-                CameraActivity.this.idR.getCameraControl().ya(0);
+                CameraActivity.this.iqm.getCameraControl().yn(0);
             }
-            CameraActivity.this.crw();
+            CameraActivity.this.cup();
         }
     };
-    private View.OnClickListener idZ = new View.OnClickListener() { // from class: com.baidu.tieba.barselect.idCard.CameraActivity.9
+    private View.OnClickListener iqu = new View.OnClickListener() { // from class: com.baidu.tieba.barselect.idCard.CameraActivity.9
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            CameraActivity.this.idR.a(CameraActivity.this.idM, CameraActivity.this.ieb);
+            CameraActivity.this.iqm.a(CameraActivity.this.iqh, CameraActivity.this.iqw);
         }
     };
-    private CameraView.b iea = new CameraView.b() { // from class: com.baidu.tieba.barselect.idCard.CameraActivity.10
+    private CameraView.b iqv = new CameraView.b() { // from class: com.baidu.tieba.barselect.idCard.CameraActivity.10
         @Override // com.baidu.tieba.barselect.idCard.CameraView.b
-        public void x(final Bitmap bitmap) {
+        public void y(final Bitmap bitmap) {
             c.execute(new Runnable() { // from class: com.baidu.tieba.barselect.idCard.CameraActivity.10.1
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
-                        FileOutputStream fileOutputStream = new FileOutputStream(CameraActivity.this.idM);
+                        FileOutputStream fileOutputStream = new FileOutputStream(CameraActivity.this.iqh);
                         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream);
                         bitmap.recycle();
                         fileOutputStream.close();
@@ -100,65 +100,65 @@ public class CameraActivity extends BaseActivity {
             });
         }
     };
-    private CameraView.b ieb = new CameraView.b() { // from class: com.baidu.tieba.barselect.idCard.CameraActivity.11
+    private CameraView.b iqw = new CameraView.b() { // from class: com.baidu.tieba.barselect.idCard.CameraActivity.11
         @Override // com.baidu.tieba.barselect.idCard.CameraView.b
-        public void x(final Bitmap bitmap) {
+        public void y(final Bitmap bitmap) {
             CameraActivity.this.handler.post(new Runnable() { // from class: com.baidu.tieba.barselect.idCard.CameraActivity.11.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    CameraActivity.this.idN.setVisibility(4);
-                    if (CameraActivity.this.idV.getMaskType() == 0) {
-                        CameraActivity.this.idT.setFilePath(CameraActivity.this.idM.getAbsolutePath());
-                        CameraActivity.this.cru();
+                    CameraActivity.this.iqi.setVisibility(4);
+                    if (CameraActivity.this.iqq.getMaskType() == 0) {
+                        CameraActivity.this.iqo.setFilePath(CameraActivity.this.iqh.getAbsolutePath());
+                        CameraActivity.this.cun();
                         return;
                     }
-                    CameraActivity.this.idS.setImageBitmap(bitmap);
-                    CameraActivity.this.crv();
+                    CameraActivity.this.iqn.setImageBitmap(bitmap);
+                    CameraActivity.this.cuo();
                 }
             });
         }
     };
-    private View.OnClickListener iec = new View.OnClickListener() { // from class: com.baidu.tieba.barselect.idCard.CameraActivity.12
+    private View.OnClickListener iqx = new View.OnClickListener() { // from class: com.baidu.tieba.barselect.idCard.CameraActivity.12
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            CameraActivity.this.idT.setFilePath(null);
-            CameraActivity.this.crt();
+            CameraActivity.this.iqo.setFilePath(null);
+            CameraActivity.this.cum();
         }
     };
-    private View.OnClickListener ied = new View.OnClickListener() { // from class: com.baidu.tieba.barselect.idCard.CameraActivity.13
+    private View.OnClickListener iqy = new View.OnClickListener() { // from class: com.baidu.tieba.barselect.idCard.CameraActivity.13
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Rect frameRect;
-            switch (CameraActivity.this.idV.getMaskType()) {
+            switch (CameraActivity.this.iqq.getMaskType()) {
                 case 1:
                 case 2:
-                    frameRect = CameraActivity.this.idV.getFrameRect();
+                    frameRect = CameraActivity.this.iqq.getFrameRect();
                     break;
                 default:
-                    frameRect = CameraActivity.this.idU.getFrameRect();
+                    frameRect = CameraActivity.this.iqp.getFrameRect();
                     break;
             }
-            CameraActivity.this.idS.setImageBitmap(CameraActivity.this.idT.e(frameRect));
-            CameraActivity.this.crx();
+            CameraActivity.this.iqn.setImageBitmap(CameraActivity.this.iqo.d(frameRect));
+            CameraActivity.this.cuq();
         }
     };
-    private View.OnClickListener iee = new View.OnClickListener() { // from class: com.baidu.tieba.barselect.idCard.CameraActivity.2
+    private View.OnClickListener iqz = new View.OnClickListener() { // from class: com.baidu.tieba.barselect.idCard.CameraActivity.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            CameraActivity.this.cry();
+            CameraActivity.this.cur();
         }
     };
-    private View.OnClickListener ief = new View.OnClickListener() { // from class: com.baidu.tieba.barselect.idCard.CameraActivity.3
+    private View.OnClickListener iqA = new View.OnClickListener() { // from class: com.baidu.tieba.barselect.idCard.CameraActivity.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            CameraActivity.this.idS.setImageBitmap(null);
-            CameraActivity.this.crt();
+            CameraActivity.this.iqn.setImageBitmap(null);
+            CameraActivity.this.cum();
         }
     };
-    private View.OnClickListener ieg = new View.OnClickListener() { // from class: com.baidu.tieba.barselect.idCard.CameraActivity.4
+    private View.OnClickListener iqB = new View.OnClickListener() { // from class: com.baidu.tieba.barselect.idCard.CameraActivity.4
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            CameraActivity.this.idT.rotate(90);
+            CameraActivity.this.iqo.yq(90);
         }
     };
 
@@ -167,28 +167,28 @@ public class CameraActivity extends BaseActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.bd_ocr_activity_camera);
-        this.idN = (OCRCameraLayout) findViewById(R.id.take_picture_container);
-        this.idP = (OCRCameraLayout) findViewById(R.id.confirm_result_container);
-        this.idR = (CameraView) findViewById(R.id.camera_view);
-        this.idR.getCameraControl().a(this.idp);
-        this.idQ = (ImageView) findViewById(R.id.light_button);
-        this.idQ.setOnClickListener(this.idY);
-        this.idW = (ImageView) findViewById(R.id.take_photo_button);
-        findViewById(R.id.album_button).setOnClickListener(this.idX);
-        this.idW.setOnClickListener(this.idZ);
-        this.idS = (ImageView) findViewById(R.id.display_image_view);
-        this.idP.findViewById(R.id.confirm_button).setOnClickListener(this.iee);
-        this.idP.findViewById(R.id.cancel_button).setOnClickListener(this.ief);
-        findViewById(R.id.rotate_button).setOnClickListener(this.ieg);
-        this.idT = (CropView) findViewById(R.id.crop_view);
-        this.idO = (OCRCameraLayout) findViewById(R.id.crop_container);
-        this.idU = (FrameOverlayView) findViewById(R.id.overlay_view);
-        this.idO.findViewById(R.id.confirm_button).setOnClickListener(this.ied);
-        this.idV = (MaskView) this.idO.findViewById(R.id.crop_mask_view);
-        this.idO.findViewById(R.id.cancel_button).setOnClickListener(this.iec);
+        this.iqi = (OCRCameraLayout) findViewById(R.id.take_picture_container);
+        this.iqk = (OCRCameraLayout) findViewById(R.id.confirm_result_container);
+        this.iqm = (CameraView) findViewById(R.id.camera_view);
+        this.iqm.getCameraControl().a(this.ipN);
+        this.iql = (ImageView) findViewById(R.id.light_button);
+        this.iql.setOnClickListener(this.iqt);
+        this.iqr = (ImageView) findViewById(R.id.take_photo_button);
+        findViewById(R.id.album_button).setOnClickListener(this.iqs);
+        this.iqr.setOnClickListener(this.iqu);
+        this.iqn = (ImageView) findViewById(R.id.display_image_view);
+        this.iqk.findViewById(R.id.confirm_button).setOnClickListener(this.iqz);
+        this.iqk.findViewById(R.id.cancel_button).setOnClickListener(this.iqA);
+        findViewById(R.id.rotate_button).setOnClickListener(this.iqB);
+        this.iqo = (CropView) findViewById(R.id.crop_view);
+        this.iqj = (OCRCameraLayout) findViewById(R.id.crop_container);
+        this.iqp = (FrameOverlayView) findViewById(R.id.overlay_view);
+        this.iqj.findViewById(R.id.confirm_button).setOnClickListener(this.iqy);
+        this.iqq = (MaskView) this.iqj.findViewById(R.id.crop_mask_view);
+        this.iqj.findViewById(R.id.cancel_button).setOnClickListener(this.iqx);
         c(getResources().getConfiguration());
-        crs();
-        this.idR.setAutoPictureCallback(this.iea);
+        cul();
+        this.iqm.setAutoPictureCallback(this.iqv);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -207,24 +207,24 @@ public class CameraActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.idR.stop();
+        this.iqm.stop();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.idR.start();
+        this.iqm.start();
     }
 
-    private void crs() {
+    private void cul() {
         int i = 1;
         String stringExtra = getIntent().getStringExtra(CameraActivityConfig.KEY_OUTPUT_FILE_PATH);
         if (stringExtra != null) {
-            this.idM = new File(stringExtra);
-            if (!this.idM.exists()) {
+            this.iqh = new File(stringExtra);
+            if (!this.iqh.exists()) {
                 try {
-                    this.idM.createNewFile();
+                    this.iqh.createNewFile();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -258,72 +258,72 @@ public class CameraActivity extends BaseActivity {
         }
         switch (c) {
             case 0:
-                this.idU.setVisibility(4);
+                this.iqp.setVisibility(4);
                 break;
             case 1:
-                this.idU.setVisibility(4);
+                this.iqp.setVisibility(4);
                 i = 2;
                 break;
             default:
-                this.idV.setVisibility(4);
+                this.iqq.setVisibility(4);
                 i = 0;
                 break;
         }
-        this.idR.setMaskType(i, this);
-        this.idV.setMaskType(i);
+        this.iqm.setMaskType(i, this);
+        this.iqq.setMaskType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void crt() {
-        this.idR.getCameraControl().resume();
-        crw();
-        this.idN.setVisibility(0);
-        this.idP.setVisibility(4);
-        this.idO.setVisibility(4);
+    public void cum() {
+        this.iqm.getCameraControl().resume();
+        cup();
+        this.iqi.setVisibility(0);
+        this.iqk.setVisibility(4);
+        this.iqj.setVisibility(4);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cru() {
-        this.idR.getCameraControl().pause();
-        crw();
-        this.idN.setVisibility(4);
-        this.idP.setVisibility(4);
-        this.idO.setVisibility(0);
+    public void cun() {
+        this.iqm.getCameraControl().pause();
+        cup();
+        this.iqi.setVisibility(4);
+        this.iqk.setVisibility(4);
+        this.iqj.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void crv() {
-        this.idR.getCameraControl().pause();
-        crw();
-        this.idN.setVisibility(4);
-        this.idP.setVisibility(0);
-        this.idO.setVisibility(4);
+    public void cuo() {
+        this.iqm.getCameraControl().pause();
+        cup();
+        this.iqi.setVisibility(4);
+        this.iqk.setVisibility(0);
+        this.iqj.setVisibility(4);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void crw() {
-        if (this.idR.getCameraControl().crh() == 1) {
-            this.idQ.setImageResource(R.drawable.bd_ocr_light_on);
+    public void cup() {
+        if (this.iqm.getCameraControl().cua() == 1) {
+            this.iql.setImageResource(R.drawable.bd_ocr_light_on);
         } else {
-            this.idQ.setImageResource(R.drawable.bd_ocr_light_off);
+            this.iql.setImageResource(R.drawable.bd_ocr_light_off);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void crx() {
-        this.idR.getCameraControl().pause();
-        crw();
-        cry();
+    public void cuq() {
+        this.iqm.getCameraControl().pause();
+        cup();
+        cur();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cry() {
+    public void cur() {
         c.execute(new Runnable() { // from class: com.baidu.tieba.barselect.idCard.CameraActivity.14
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    FileOutputStream fileOutputStream = new FileOutputStream(CameraActivity.this.idM);
-                    ((BitmapDrawable) CameraActivity.this.idS.getDrawable()).getBitmap().compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream);
+                    FileOutputStream fileOutputStream = new FileOutputStream(CameraActivity.this.iqh);
+                    ((BitmapDrawable) CameraActivity.this.iqn.getDrawable()).getBitmap().compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream);
                     fileOutputStream.close();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -336,7 +336,7 @@ public class CameraActivity extends BaseActivity {
         });
     }
 
-    private String y(Uri uri) {
+    private String A(Uri uri) {
         Cursor cursor;
         try {
             cursor = getContentResolver().query(uri, null, null, null, null);
@@ -368,24 +368,24 @@ public class CameraActivity extends BaseActivity {
                 i = OCRCameraLayout.ORIENTATION_PORTRAIT;
                 break;
             case 2:
-                i = OCRCameraLayout.ifj;
+                i = OCRCameraLayout.irE;
                 if (rotation == 0 || rotation == 1) {
                     i2 = 90;
                     break;
                 } else {
-                    i2 = 270;
+                    i2 = SubsamplingScaleImageView.ORIENTATION_270;
                     break;
                 }
                 break;
             default:
                 i = OCRCameraLayout.ORIENTATION_PORTRAIT;
-                this.idR.setOrientation(0);
+                this.iqm.setOrientation(0);
                 break;
         }
-        this.idN.setOrientation(i);
-        this.idR.setOrientation(i2);
-        this.idO.setOrientation(i);
-        this.idP.setOrientation(i);
+        this.iqi.setOrientation(i);
+        this.iqm.setOrientation(i2);
+        this.iqj.setOrientation(i);
+        this.iqk.setOrientation(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -394,11 +394,11 @@ public class CameraActivity extends BaseActivity {
         super.onActivityResult(i, i2, intent);
         if (i == 100) {
             if (i2 == -1) {
-                this.idT.setFilePath(y(intent.getData()));
-                cru();
+                this.iqo.setFilePath(A(intent.getData()));
+                cun();
                 return;
             }
-            this.idR.getCameraControl().resume();
+            this.iqm.getCameraControl().resume();
         }
     }
 
@@ -408,41 +408,41 @@ public class CameraActivity extends BaseActivity {
         switch (i) {
             case 800:
                 if (iArr.length > 0 && iArr[0] == 0) {
-                    this.idR.getCameraControl().crg();
+                    this.iqm.getCameraControl().ctZ();
                     break;
                 } else {
-                    ao(this);
+                    aq(this);
                     break;
                 }
                 break;
-            case CyberPlayerManager.MEDIA_INFO_NOT_SEEKABLE /* 801 */:
+            case 801:
                 if (iArr.length <= 0 || iArr[0] != 0) {
                     l.showToast(TbadkCoreApplication.getInst(), R.string.storage_permission_required);
                     break;
                 }
                 break;
         }
-        if (this.idR != null && this.idR.getCameraControl() != null) {
-            this.idR.getCameraControl().crr();
+        if (this.iqm != null && this.iqm.getCameraControl() != null) {
+            this.iqm.getCameraControl().cuk();
         }
     }
 
-    private void crz() {
-        c.crB();
+    private void cus() {
+        c.cuu();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        crz();
+        cus();
     }
 
-    public void ao(final Activity activity) {
+    public void aq(final Activity activity) {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(activity);
-        aVar.jm(false);
-        aVar.oP(R.string.request_permission_default_title);
-        aVar.oQ(R.string.request_permission_camera);
+        aVar.jI(false);
+        aVar.oZ(R.string.request_permission_default_title);
+        aVar.pa(R.string.request_permission_camera);
         aVar.a(R.string.isopen, new a.b() { // from class: com.baidu.tieba.barselect.idCard.CameraActivity.6
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -461,6 +461,6 @@ public class CameraActivity extends BaseActivity {
                 activity.finish();
             }
         }).b(getPageContext());
-        aVar.brv();
+        aVar.btX();
     }
 }

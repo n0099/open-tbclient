@@ -1,16 +1,24 @@
 package com.baidu.tieba.recommendlist.data;
 
-import com.baidu.live.adp.BdUniqueId;
-import com.baidu.live.adp.widget.listview.IAdapterData;
-/* loaded from: classes4.dex */
-public class c implements IAdapterData {
-    public static BdUniqueId mQB = BdUniqueId.gen();
-    public AlaRecommendLiveData mQC;
-    public AlaRecommendLiveData mQD;
-    public int type;
+import android.text.TextUtils;
+import com.baidu.live.tbadk.core.data.BaseData;
+import org.json.JSONObject;
+/* loaded from: classes11.dex */
+public class c extends BaseData {
+    public String msg;
+    public String type;
 
-    @Override // com.baidu.live.adp.widget.listview.IAdapterData
-    public BdUniqueId getType() {
-        return mQB;
+    public c(String str) {
+        if (!TextUtils.isEmpty(str)) {
+            parserJson(str);
+        }
+    }
+
+    @Override // com.baidu.live.tbadk.core.data.BaseData
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            this.type = jSONObject.optString("type");
+            this.msg = jSONObject.optString("msg");
+        }
     }
 }

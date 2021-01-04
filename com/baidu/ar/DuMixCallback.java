@@ -1,5 +1,5 @@
 package com.baidu.ar;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public interface DuMixCallback {
     void onCaseCreate(boolean z, String str, String str2);
 

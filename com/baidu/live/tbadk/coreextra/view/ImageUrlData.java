@@ -4,7 +4,7 @@ import android.graphics.Rect;
 import com.baidu.live.adp.lib.util.StringUtils;
 import java.io.Serializable;
 import org.json.JSONArray;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class ImageUrlData implements Serializable, Comparable<ImageUrlData> {
     public static final int IMAGE_TYPE_CHUDIAN = 1;
     private static final long serialVersionUID = 2037469186418617574L;

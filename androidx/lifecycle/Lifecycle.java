@@ -1,13 +1,37 @@
 package androidx.lifecycle;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
+import androidx.annotation.RestrictTo;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes19.dex */
-public interface Lifecycle {
+/* loaded from: classes3.dex */
+public abstract class Lifecycle {
     @NonNull
-    public static final AtomicReference<Object> AX = new AtomicReference<>();
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    AtomicReference<Object> mInternalScopeRef = new AtomicReference<>();
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes3.dex */
+    public enum Event {
+        ON_CREATE,
+        ON_START,
+        ON_RESUME,
+        ON_PAUSE,
+        ON_STOP,
+        ON_DESTROY,
+        ON_ANY
+    }
+
+    @MainThread
+    public abstract void addObserver(@NonNull LifecycleObserver lifecycleObserver);
+
+    @NonNull
+    @MainThread
+    public abstract State getCurrentState();
+
+    @MainThread
+    public abstract void removeObserver(@NonNull LifecycleObserver lifecycleObserver);
+
+    /* loaded from: classes3.dex */
     public enum State {
         DESTROYED,
         INITIALIZED,
@@ -15,7 +39,7 @@ public interface Lifecycle {
         STARTED,
         RESUMED;
 
-        public boolean isAtLeast(State state) {
+        public boolean isAtLeast(@NonNull State state) {
             return compareTo(state) >= 0;
         }
     }

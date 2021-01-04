@@ -5,7 +5,7 @@ import com.alibaba.fastjson.parser.JSONLexer;
 import com.alibaba.fastjson.parser.deserializer.ObjectDeserializer;
 import java.io.IOException;
 import java.lang.reflect.Type;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class StringCodec implements ObjectDeserializer, ObjectSerializer {
     public static StringCodec instance = new StringCodec();
 

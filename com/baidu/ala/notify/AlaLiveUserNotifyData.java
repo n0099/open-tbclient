@@ -2,7 +2,7 @@ package com.baidu.ala.notify;
 
 import com.baidu.live.tbadk.core.atomdata.GuardClubInfoActivityConfig;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes10.dex */
 public class AlaLiveUserNotifyData {
     private static final int GUARDIAN_DUE = 1;
     private static final int GUARDIAN_GRAB = 2;
@@ -38,7 +38,7 @@ public class AlaLiveUserNotifyData {
         return this.notifyContent != null ? this.notifyContent.anchor_portrait : "";
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes10.dex */
     private static class AlaNotifyContent {
         public String anchor_id;
         public String anchor_portrait;

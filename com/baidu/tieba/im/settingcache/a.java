@@ -3,45 +3,44 @@ package com.baidu.tieba.im.settingcache;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.cache.l;
 import com.baidu.adp.lib.util.r;
-import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.util.ab;
 import com.baidu.tbadk.util.ac;
-import com.baidu.tbadk.util.ad;
-import com.baidu.tbadk.util.m;
+import com.baidu.tbadk.util.l;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class a {
-    protected HashMap<String, ChatSetting> kDd = new HashMap<>();
+    protected HashMap<String, ChatSetting> kIy = new HashMap<>();
 
     public abstract void a(ChatSetting chatSetting);
 
-    public abstract void a(ChatSetting chatSetting, m<Void> mVar);
+    public abstract void a(ChatSetting chatSetting, l<Void> lVar);
 
-    protected abstract l<String> cZW();
+    protected abstract com.baidu.adp.lib.cache.l<String> cZJ();
 
-    public abstract ChatSetting fx(String str, String str2);
+    public abstract ChatSetting fy(String str, String str2);
 
-    public void y(Class<? extends ChatSetting> cls) {
+    public void r(Class<? extends ChatSetting> cls) {
         String str;
-        synchronized (this.kDd) {
-            this.kDd.clear();
+        synchronized (this.kIy) {
+            this.kIy.clear();
         }
         String str2 = "";
         if (TbadkCoreApplication.getCurrentAccountObj() != null) {
             str2 = TbadkCoreApplication.getCurrentAccountObj().getID();
         }
         if (str2 != null && str2.length() != 0) {
-            String str3 = str2 + UgcConstant.AT_RULE_TAG;
-            synchronized (this.kDd) {
-                l<String> cZW = cZW();
-                List<l.b<String>> b = r.b(cZW);
-                if (b != null) {
-                    for (l.b<String> bVar : b) {
+            String str3 = str2 + "@";
+            synchronized (this.kIy) {
+                com.baidu.adp.lib.cache.l<String> cZJ = cZJ();
+                List<l.b<String>> b2 = r.b(cZJ);
+                if (b2 != null) {
+                    for (l.b<String> bVar : b2) {
                         String str4 = bVar.key;
-                        if (str4 != null && str4.startsWith(str3) && (str = cZW.get(str4)) != null) {
-                            this.kDd.put(str4, (ChatSetting) OrmObject.objectWithJsonStr(str, cls));
+                        if (str4 != null && str4.startsWith(str3) && (str = cZJ.get(str4)) != null) {
+                            this.kIy.put(str4, (ChatSetting) OrmObject.objectWithJsonStr(str, cls));
                         }
                     }
                 }
@@ -49,42 +48,42 @@ public abstract class a {
         }
     }
 
-    public void B(String str, String str2, boolean z) {
-        ChatSetting fx = fx(str, str2);
-        if (fx != null) {
-            fx.setAcceptNotify(z);
-            a(fx);
+    public void D(String str, String str2, boolean z) {
+        ChatSetting fy = fy(str, str2);
+        if (fy != null) {
+            fy.setAcceptNotify(z);
+            a(fy);
         }
     }
 
-    public void a(String str, String str2, boolean z, m<Void> mVar) {
-        ChatSetting fx = fx(str, str2);
-        if (fx != null) {
-            fx.setAcceptNotify(z);
-            a(fx, mVar);
+    public void a(String str, String str2, boolean z, com.baidu.tbadk.util.l<Void> lVar) {
+        ChatSetting fy = fy(str, str2);
+        if (fy != null) {
+            fy.setAcceptNotify(z);
+            a(fy, lVar);
         }
     }
 
-    public boolean fy(String str, String str2) {
-        ChatSetting fx = fx(str, str2);
-        if (fx == null) {
+    public boolean fz(String str, String str2) {
+        ChatSetting fy = fy(str, str2);
+        if (fy == null) {
             return false;
         }
-        return fx.isAcceptNotify();
+        return fy.isAcceptNotify();
     }
 
-    public void a(final String str, final String str2, m<Boolean> mVar) {
-        ad.b(new ac<Boolean>() { // from class: com.baidu.tieba.im.settingcache.a.1
+    public void a(final String str, final String str2, com.baidu.tbadk.util.l<Boolean> lVar) {
+        ac.b(new ab<Boolean>() { // from class: com.baidu.tieba.im.settingcache.a.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // com.baidu.tbadk.util.ac
+            @Override // com.baidu.tbadk.util.ab
             public Boolean doInBackground() {
-                ChatSetting fx = a.this.fx(str, str2);
-                if (fx == null) {
+                ChatSetting fy = a.this.fy(str, str2);
+                if (fy == null) {
                     return false;
                 }
-                return Boolean.valueOf(fx.isAcceptNotify());
+                return Boolean.valueOf(fy.isAcceptNotify());
             }
-        }, mVar);
+        }, lVar);
     }
 }

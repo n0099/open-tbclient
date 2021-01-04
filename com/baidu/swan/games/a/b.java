@@ -2,7 +2,7 @@ package com.baidu.swan.games.a;
 
 import android.webkit.JavascriptInterface;
 import com.baidu.searchbox.v8engine.JsObject;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public interface b {
     @JavascriptInterface
     void destroy();

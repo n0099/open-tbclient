@@ -2,36 +2,36 @@ package com.baidu.tieba.personCenter.b;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.adp.widget.ListView.q;
+import com.baidu.adp.widget.ListView.n;
 import com.baidu.tbadk.TbPageContext;
 import java.util.List;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class c {
-    private BdTypeListView gpZ;
-    private a mjT;
+    private BdTypeListView gAY;
+    private a mpc;
 
     public c(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.gpZ = bdTypeListView;
-        this.mjT = new a(bdTypeListView, tbPageContext, bdUniqueId);
+        this.gAY = bdTypeListView;
+        this.mpc = new a(bdTypeListView, tbPageContext, bdUniqueId);
     }
 
-    public void setData(List<q> list) {
-        this.gpZ.setData(list);
+    public void setData(List<n> list) {
+        this.gAY.setData(list);
     }
 
     public void notifyDataSetChanged() {
-        this.mjT.onChangeSkinType();
+        this.mpc.onChangeSkinType();
     }
 
     public void onChangeSkinType() {
-        this.mjT.onChangeSkinType();
+        this.mpc.onChangeSkinType();
     }
 
-    public void dyr() {
-        this.mjT.dyr();
+    public void dyg() {
+        this.mpc.dyg();
     }
 
-    public void dys() {
-        this.mjT.dys();
+    public void dyh() {
+        this.mpc.dyh();
     }
 }

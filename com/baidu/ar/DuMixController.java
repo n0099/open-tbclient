@@ -44,12 +44,12 @@ import com.baidu.ar.record.RecordCallback;
 import com.baidu.ar.statistic.StatisticApi;
 import com.baidu.ar.statistic.StatisticConstants;
 import com.baidu.ar.steploading.IStepLoading;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.kwai.sodler.lib.ext.PluginError;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, IRecord {
     private static volatile DuMixController aM = null;
     private static volatile int aW = 0;
@@ -74,7 +74,7 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
     private Context mContext;
     private com.baidu.ar.a.b w;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes6.dex */
     class a extends Handler {
         public a(Looper looper) {
             super(looper);
@@ -92,16 +92,16 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
                 case 3002:
                     DuMixController.this.U();
                     return;
-                case CyberPlayerManager.MEDIA_INFO_RTMP_HANDSHAKE_FAIL /* 3003 */:
+                case 3003:
                     DuMixController.this.V();
                     return;
-                case CyberPlayerManager.MEDIA_INFO_RTMP_IO_FAIL /* 3004 */:
+                case 3004:
                     DuMixController.this.a((CaseModel) message.obj);
                     return;
-                case 3005:
+                case PluginError.ERROR_INS_CAPACITY /* 3005 */:
                     DuMixController.this.W();
                     return;
-                case 3006:
+                case PluginError.ERROR_INS_INSTALL_PATH /* 3006 */:
                     if (DuMixController.this.g != null) {
                         DuMixController.this.g.changeOutputSize(message.arg1, message.arg2);
                         return;
@@ -582,7 +582,7 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
     public void changeOutputSize(int i, int i2) {
         com.baidu.ar.h.b.c("DuMixController", "changeOutputSize width * height = " + i + " * " + i2);
         if (this.aO != null) {
-            this.aO.sendMessage(this.aO.obtainMessage(3006, i, i2));
+            this.aO.sendMessage(this.aO.obtainMessage(PluginError.ERROR_INS_INSTALL_PATH, i, i2));
         }
     }
 
@@ -607,7 +607,7 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
     @Override // com.baidu.ar.IDuMix
     public void clearCase() {
         if (this.aO != null) {
-            this.aO.sendMessage(this.aO.obtainMessage(3005));
+            this.aO.sendMessage(this.aO.obtainMessage(PluginError.ERROR_INS_CAPACITY));
         }
     }
 
@@ -701,7 +701,7 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
     @Override // com.baidu.ar.IDuMix
     public void loadCase(ARType aRType, String str, String str2) {
         if (this.aO != null) {
-            this.aO.sendMessage(this.aO.obtainMessage(CyberPlayerManager.MEDIA_INFO_RTMP_IO_FAIL, new CaseModel(aRType, str, str2)));
+            this.aO.sendMessage(this.aO.obtainMessage(3004, new CaseModel(aRType, str, str2)));
         }
     }
 
@@ -769,7 +769,7 @@ public class DuMixController implements IDuMix, IPixelReader, IFilter, IPhoto, I
             aW = 3;
             if (this.aO != null) {
                 this.aO.removeCallbacksAndMessages(null);
-                this.aO.sendMessage(this.aO.obtainMessage(CyberPlayerManager.MEDIA_INFO_RTMP_HANDSHAKE_FAIL));
+                this.aO.sendMessage(this.aO.obtainMessage(3003));
             }
             aM = null;
         }

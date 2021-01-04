@@ -1,15 +1,15 @@
 package com.baidu.tieba.enterForum.hotuserrank.view;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
+import androidx.annotation.Nullable;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.commonBtn.b;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.DynamicUserLikeButton;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class HotUserRankLikeButton extends DynamicUserLikeButton {
     public HotUserRankLikeButton(Context context) {
         super(context);
@@ -24,10 +24,10 @@ public class HotUserRankLikeButton extends DynamicUserLikeButton {
     }
 
     @Override // com.baidu.tieba.view.DynamicUserLikeButton, com.baidu.tbadk.core.view.userLike.b
-    public void s(boolean z, int i) {
+    public void r(boolean z, int i) {
         if (z) {
             b bVar = new b();
-            bVar.rj(R.color.CAM_X0109);
+            bVar.ru(R.color.CAM_X0109);
             setConfig(bVar);
             setClickable(true);
             if (i == 1) {
@@ -37,7 +37,7 @@ public class HotUserRankLikeButton extends DynamicUserLikeButton {
             }
         } else {
             b bVar2 = new b();
-            bVar2.rh(R.color.CAM_X0302);
+            bVar2.rs(R.color.CAM_X0302);
             setConfig(bVar2);
             setClickable(true);
             setText(TbadkCoreApplication.getInst().getString(R.string.attention));

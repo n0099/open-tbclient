@@ -18,10 +18,10 @@ import java.io.ObjectStreamException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public final class IMPushPb {
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public interface AckOrBuilder extends MessageLiteOrBuilder {
         long getAliasId();
 
@@ -50,7 +50,7 @@ public final class IMPushPb {
         boolean hasValue();
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public interface ActionOrBuilder extends MessageLiteOrBuilder {
         Ack getAck();
 
@@ -85,7 +85,7 @@ public final class IMPushPb {
         boolean hasUi();
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public interface AppInfoOrBuilder extends MessageLiteOrBuilder {
         String getAppChannel();
 
@@ -106,7 +106,7 @@ public final class IMPushPb {
         boolean hasAppVersion();
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public interface CommonOrBuilder extends MessageLiteOrBuilder {
         AppInfo getAppInfo();
 
@@ -145,7 +145,7 @@ public final class IMPushPb {
         boolean hasUserTimestamp();
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public interface ConnectionOrBuilder extends MessageLiteOrBuilder {
         long getAliasId();
 
@@ -180,7 +180,7 @@ public final class IMPushPb {
         boolean hasStopTime();
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public interface CrashOrBuilder extends MessageLiteOrBuilder {
         long getAliasId();
 
@@ -203,7 +203,7 @@ public final class IMPushPb {
         boolean hasTimestamp();
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public interface DbOrBuilder extends MessageLiteOrBuilder {
         String getAction();
 
@@ -252,7 +252,7 @@ public final class IMPushPb {
         boolean hasTable();
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public interface DeviceIDOrBuilder extends MessageLiteOrBuilder {
         String getCuid();
 
@@ -261,7 +261,7 @@ public final class IMPushPb {
         boolean hasCuid();
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public interface MetaDataOrBuilder extends MessageLiteOrBuilder {
         int getLogModuleId();
 
@@ -280,7 +280,7 @@ public final class IMPushPb {
         boolean hasProductName();
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public interface MsgOrBuilder extends MessageLiteOrBuilder {
         long getAliasId();
 
@@ -315,7 +315,7 @@ public final class IMPushPb {
         boolean hasStartMsgid();
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public interface NetInfoOrBuilder extends MessageLiteOrBuilder {
         String getNetApn();
 
@@ -330,7 +330,7 @@ public final class IMPushPb {
         boolean hasNetType();
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public interface PushImClientOrBuilder extends MessageLiteOrBuilder {
         Action getActions(int i);
 
@@ -357,7 +357,7 @@ public final class IMPushPb {
         boolean hasSdkVersion();
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public interface RequestOrBuilder extends MessageLiteOrBuilder {
         long getAliasId();
 
@@ -394,7 +394,7 @@ public final class IMPushPb {
         boolean hasTimestamp();
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public interface TerminalInfoOrBuilder extends MessageLiteOrBuilder {
         String getManufacturer();
 
@@ -431,7 +431,7 @@ public final class IMPushPb {
         boolean hasTerminalType();
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public interface UiOrBuilder extends MessageLiteOrBuilder {
         long getAliasId();
 
@@ -474,7 +474,7 @@ public final class IMPushPb {
     public static void registerAllExtensions(ExtensionRegistryLite extensionRegistryLite) {
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public enum OSType implements Internal.EnumLite {
         OS_TYPE_UNKNWON(0, 0),
         IOS(1, 1),
@@ -524,7 +524,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public enum ActionType implements Internal.EnumLite {
         UI(0, 101),
         CRASH(1, 201),
@@ -586,7 +586,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public static final class DeviceID extends GeneratedMessageLite implements DeviceIDOrBuilder {
         public static final int CUID_FIELD_NUMBER = 4;
         public static final Parser<DeviceID> PARSER = new AbstractParser<DeviceID>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.DeviceID.1
@@ -707,9 +707,9 @@ public final class IMPushPb {
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public final boolean isInitialized() {
-            byte b = this.memoizedIsInitialized;
-            if (b != -1) {
-                return b == 1;
+            byte b2 = this.memoizedIsInitialized;
+            if (b2 != -1) {
+                return b2 == 1;
             } else if (!hasCuid()) {
                 this.memoizedIsInitialized = (byte) 0;
                 return false;
@@ -803,7 +803,7 @@ public final class IMPushPb {
             return newBuilder(this);
         }
 
-        /* loaded from: classes14.dex */
+        /* loaded from: classes3.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<DeviceID, Builder> implements DeviceIDOrBuilder {
             private int bitField0;
             private Object cuid = "";
@@ -877,14 +877,13 @@ public final class IMPushPb {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Removed duplicated region for block: B:14:0x001e  */
+            /* JADX WARN: Removed duplicated region for block: B:14:0x001c  */
             @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
             public Builder mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-                DeviceID deviceID;
-                Throwable th;
+                DeviceID deviceID = null;
                 try {
                     try {
                         DeviceID parsePartialFrom = DeviceID.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
@@ -892,9 +891,8 @@ public final class IMPushPb {
                             mergeFrom(parsePartialFrom);
                         }
                         return this;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        deviceID = null;
+                    } catch (Throwable th) {
+                        th = th;
                         if (deviceID != null) {
                             mergeFrom(deviceID);
                         }
@@ -904,9 +902,9 @@ public final class IMPushPb {
                     DeviceID deviceID2 = (DeviceID) e.getUnfinishedMessage();
                     try {
                         throw e;
-                    } catch (Throwable th3) {
+                    } catch (Throwable th2) {
+                        th = th2;
                         deviceID = deviceID2;
-                        th = th3;
                         if (deviceID != null) {
                         }
                         throw th;
@@ -967,7 +965,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public static final class TerminalInfo extends GeneratedMessageLite implements TerminalInfoOrBuilder {
         public static final int MANUFACTURER_FIELD_NUMBER = 3;
         public static final int OS_FIELD_NUMBER = 1;
@@ -1233,9 +1231,9 @@ public final class IMPushPb {
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public final boolean isInitialized() {
-            byte b = this.memoizedIsInitialized;
-            if (b != -1) {
-                return b == 1;
+            byte b2 = this.memoizedIsInitialized;
+            if (b2 != -1) {
+                return b2 == 1;
             }
             this.memoizedIsInitialized = (byte) 1;
             return true;
@@ -1361,7 +1359,7 @@ public final class IMPushPb {
             return newBuilder(this);
         }
 
-        /* loaded from: classes14.dex */
+        /* loaded from: classes3.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<TerminalInfo, Builder> implements TerminalInfoOrBuilder {
             private int bitField0;
             private int ppi;
@@ -1500,14 +1498,13 @@ public final class IMPushPb {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Removed duplicated region for block: B:14:0x001e  */
+            /* JADX WARN: Removed duplicated region for block: B:14:0x001c  */
             @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
             public Builder mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-                TerminalInfo terminalInfo;
-                Throwable th;
+                TerminalInfo terminalInfo = null;
                 try {
                     try {
                         TerminalInfo parsePartialFrom = TerminalInfo.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
@@ -1515,9 +1512,8 @@ public final class IMPushPb {
                             mergeFrom(parsePartialFrom);
                         }
                         return this;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        terminalInfo = null;
+                    } catch (Throwable th) {
+                        th = th;
                         if (terminalInfo != null) {
                             mergeFrom(terminalInfo);
                         }
@@ -1527,9 +1523,9 @@ public final class IMPushPb {
                     TerminalInfo terminalInfo2 = (TerminalInfo) e.getUnfinishedMessage();
                     try {
                         throw e;
-                    } catch (Throwable th3) {
+                    } catch (Throwable th2) {
+                        th = th2;
                         terminalInfo = terminalInfo2;
-                        th = th3;
                         if (terminalInfo != null) {
                         }
                         throw th;
@@ -1783,7 +1779,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public static final class AppInfo extends GeneratedMessageLite implements AppInfoOrBuilder {
         public static final int APP_CHANNEL_FIELD_NUMBER = 3;
         public static final int APP_NAME_FIELD_NUMBER = 1;
@@ -1978,9 +1974,9 @@ public final class IMPushPb {
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public final boolean isInitialized() {
-            byte b = this.memoizedIsInitialized;
-            if (b != -1) {
-                return b == 1;
+            byte b2 = this.memoizedIsInitialized;
+            if (b2 != -1) {
+                return b2 == 1;
             }
             this.memoizedIsInitialized = (byte) 1;
             return true;
@@ -2082,7 +2078,7 @@ public final class IMPushPb {
             return newBuilder(this);
         }
 
-        /* loaded from: classes14.dex */
+        /* loaded from: classes3.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<AppInfo, Builder> implements AppInfoOrBuilder {
             private int bitField0;
             private Object appName = "";
@@ -2181,14 +2177,13 @@ public final class IMPushPb {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Removed duplicated region for block: B:14:0x001e  */
+            /* JADX WARN: Removed duplicated region for block: B:14:0x001c  */
             @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
             public Builder mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-                AppInfo appInfo;
-                Throwable th;
+                AppInfo appInfo = null;
                 try {
                     try {
                         AppInfo parsePartialFrom = AppInfo.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
@@ -2196,9 +2191,8 @@ public final class IMPushPb {
                             mergeFrom(parsePartialFrom);
                         }
                         return this;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        appInfo = null;
+                    } catch (Throwable th) {
+                        th = th;
                         if (appInfo != null) {
                             mergeFrom(appInfo);
                         }
@@ -2208,9 +2202,9 @@ public final class IMPushPb {
                     AppInfo appInfo2 = (AppInfo) e.getUnfinishedMessage();
                     try {
                         throw e;
-                    } catch (Throwable th3) {
+                    } catch (Throwable th2) {
+                        th = th2;
                         appInfo = appInfo2;
-                        th = th3;
                         if (appInfo != null) {
                         }
                         throw th;
@@ -2373,7 +2367,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public static final class NetInfo extends GeneratedMessageLite implements NetInfoOrBuilder {
         public static final int NET_APN_FIELD_NUMBER = 2;
         public static final int NET_TYPE_FIELD_NUMBER = 1;
@@ -2531,9 +2525,9 @@ public final class IMPushPb {
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public final boolean isInitialized() {
-            byte b = this.memoizedIsInitialized;
-            if (b != -1) {
-                return b == 1;
+            byte b2 = this.memoizedIsInitialized;
+            if (b2 != -1) {
+                return b2 == 1;
             }
             this.memoizedIsInitialized = (byte) 1;
             return true;
@@ -2629,7 +2623,7 @@ public final class IMPushPb {
             return newBuilder(this);
         }
 
-        /* loaded from: classes14.dex */
+        /* loaded from: classes3.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<NetInfo, Builder> implements NetInfoOrBuilder {
             private int bitField0;
             private Object netType = "";
@@ -2717,14 +2711,13 @@ public final class IMPushPb {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Removed duplicated region for block: B:14:0x001e  */
+            /* JADX WARN: Removed duplicated region for block: B:14:0x001c  */
             @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
             public Builder mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-                NetInfo netInfo;
-                Throwable th;
+                NetInfo netInfo = null;
                 try {
                     try {
                         NetInfo parsePartialFrom = NetInfo.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
@@ -2732,9 +2725,8 @@ public final class IMPushPb {
                             mergeFrom(parsePartialFrom);
                         }
                         return this;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        netInfo = null;
+                    } catch (Throwable th) {
+                        th = th;
                         if (netInfo != null) {
                             mergeFrom(netInfo);
                         }
@@ -2744,9 +2736,9 @@ public final class IMPushPb {
                     NetInfo netInfo2 = (NetInfo) e.getUnfinishedMessage();
                     try {
                         throw e;
-                    } catch (Throwable th3) {
+                    } catch (Throwable th2) {
+                        th = th2;
                         netInfo = netInfo2;
-                        th = th3;
                         if (netInfo != null) {
                         }
                         throw th;
@@ -2858,7 +2850,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public static final class Common extends GeneratedMessageLite implements CommonOrBuilder {
         public static final int APP_INFO_FIELD_NUMBER = 21;
         public static final int DEVICE_ID_FIELD_NUMBER = 7;
@@ -3147,9 +3139,9 @@ public final class IMPushPb {
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public final boolean isInitialized() {
-            byte b = this.memoizedIsInitialized;
-            if (b != -1) {
-                return b == 1;
+            byte b2 = this.memoizedIsInitialized;
+            if (b2 != -1) {
+                return b2 == 1;
             } else if (!hasTimestamp()) {
                 this.memoizedIsInitialized = (byte) 0;
                 return false;
@@ -3288,7 +3280,7 @@ public final class IMPushPb {
             return newBuilder(this);
         }
 
-        /* loaded from: classes14.dex */
+        /* loaded from: classes3.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Common, Builder> implements CommonOrBuilder {
             private int bitField0;
             private long timestamp;
@@ -3439,14 +3431,13 @@ public final class IMPushPb {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Removed duplicated region for block: B:14:0x001e  */
+            /* JADX WARN: Removed duplicated region for block: B:14:0x001c  */
             @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
             public Builder mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-                Common common2;
-                Throwable th;
+                Common common2 = null;
                 try {
                     try {
                         Common parsePartialFrom = Common.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
@@ -3454,9 +3445,8 @@ public final class IMPushPb {
                             mergeFrom(parsePartialFrom);
                         }
                         return this;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        common2 = null;
+                    } catch (Throwable th) {
+                        th = th;
                         if (common2 != null) {
                             mergeFrom(common2);
                         }
@@ -3466,9 +3456,9 @@ public final class IMPushPb {
                     Common common3 = (Common) e.getUnfinishedMessage();
                     try {
                         throw e;
-                    } catch (Throwable th3) {
+                    } catch (Throwable th2) {
+                        th = th2;
                         common2 = common3;
-                        th = th3;
                         if (common2 != null) {
                         }
                         throw th;
@@ -3788,7 +3778,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public static final class PushImClient extends GeneratedMessageLite implements PushImClientOrBuilder {
         public static final int ACTIONS_FIELD_NUMBER = 132;
         public static final int COMMON_FIELD_NUMBER = 41;
@@ -3800,7 +3790,7 @@ public final class IMPushPb {
         private int bitField0;
 
         /* renamed from: common  reason: collision with root package name */
-        private Common f996common;
+        private Common f1143common;
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
         private MetaData metadata;
@@ -3836,26 +3826,24 @@ public final class IMPushPb {
             return defaultInstance;
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r3v6, resolved type: java.util.List<com.baidu.android.imsdk.upload.action.pb.IMPushPb$Action> */
+        /* JADX DEBUG: Multi-variable search result rejected for r0v12, resolved type: java.util.List<com.baidu.android.imsdk.upload.action.pb.IMPushPb$Action> */
         /* JADX WARN: Multi-variable type inference failed */
         private PushImClient(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
             boolean z;
-            boolean z2;
-            boolean z3;
-            boolean z4 = false;
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
             initFields();
-            boolean z5 = false;
-            while (!z4) {
+            boolean z2 = false;
+            boolean z3 = false;
+            while (!z2) {
                 try {
                     try {
                         int readTag = codedInputStream.readTag();
                         switch (readTag) {
                             case 0:
-                                z3 = true;
-                                z2 = z5;
-                                break;
+                                z = true;
+                                continue;
+                                z2 = z;
                             case 202:
                                 MetaData.Builder builder = (this.bitField0 & 1) == 1 ? this.metadata.toBuilder() : null;
                                 this.metadata = (MetaData) codedInputStream.readMessage(MetaData.PARSER, extensionRegistryLite);
@@ -3864,86 +3852,61 @@ public final class IMPushPb {
                                     this.metadata = builder.buildPartial();
                                 }
                                 this.bitField0 |= 1;
-                                z3 = z4;
-                                z2 = z5;
-                                break;
+                                z = z2;
+                                continue;
+                                z2 = z;
                             case 330:
-                                Common.Builder builder2 = (this.bitField0 & 2) == 2 ? this.f996common.toBuilder() : null;
-                                this.f996common = (Common) codedInputStream.readMessage(Common.PARSER, extensionRegistryLite);
+                                Common.Builder builder2 = (this.bitField0 & 2) == 2 ? this.f1143common.toBuilder() : null;
+                                this.f1143common = (Common) codedInputStream.readMessage(Common.PARSER, extensionRegistryLite);
                                 if (builder2 != null) {
-                                    builder2.mergeFrom(this.f996common);
-                                    this.f996common = builder2.buildPartial();
+                                    builder2.mergeFrom(this.f1143common);
+                                    this.f1143common = builder2.buildPartial();
                                 }
                                 this.bitField0 |= 2;
-                                z3 = z4;
-                                z2 = z5;
-                                break;
+                                z = z2;
+                                continue;
+                                z2 = z;
                             case 1042:
                                 this.bitField0 |= 4;
                                 this.sdkName = codedInputStream.readBytes();
-                                z3 = z4;
-                                z2 = z5;
-                                break;
+                                z = z2;
+                                continue;
+                                z2 = z;
                             case 1048:
                                 this.bitField0 |= 8;
                                 this.sdkVersion = codedInputStream.readInt64();
-                                z3 = z4;
-                                z2 = z5;
-                                break;
+                                z = z2;
+                                continue;
+                                z2 = z;
                             case 1058:
-                                if (!(z5 & true)) {
+                                if (!(z3 & true)) {
                                     this.actions = new ArrayList();
-                                    z = z5 | true;
-                                } else {
-                                    z = z5;
+                                    z3 |= true;
                                 }
-                                try {
-                                    this.actions.add(codedInputStream.readMessage(Action.PARSER, extensionRegistryLite));
-                                    boolean z6 = z4;
-                                    z2 = z;
-                                    z3 = z6;
-                                    break;
-                                } catch (InvalidProtocolBufferException e) {
-                                    e = e;
-                                    throw e.setUnfinishedMessage(this);
-                                } catch (IOException e2) {
-                                    e = e2;
-                                    throw new InvalidProtocolBufferException(e.getMessage()).setUnfinishedMessage(this);
-                                } catch (Throwable th) {
-                                    z5 = z;
-                                    th = th;
-                                    if (z5 & true) {
-                                        this.actions = Collections.unmodifiableList(this.actions);
-                                    }
-                                    makeExtensionsImmutable();
-                                    throw th;
-                                }
+                                this.actions.add(codedInputStream.readMessage(Action.PARSER, extensionRegistryLite));
+                                break;
                             default:
                                 if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
-                                    z3 = true;
-                                    z2 = z5;
-                                    break;
-                                } else {
-                                    z3 = z4;
-                                    z2 = z5;
-                                    break;
+                                    z = true;
+                                    continue;
+                                    z2 = z;
                                 }
+                                break;
                         }
-                        z5 = z2;
-                        z4 = z3;
-                    } catch (Throwable th2) {
-                        th = th2;
+                        z = z2;
+                        z2 = z;
+                    } catch (InvalidProtocolBufferException e) {
+                        throw e.setUnfinishedMessage(this);
+                    } catch (IOException e2) {
+                        throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                     }
-                } catch (InvalidProtocolBufferException e3) {
-                    e = e3;
-                } catch (IOException e4) {
-                    e = e4;
+                } finally {
+                    if (z3 & true) {
+                        this.actions = Collections.unmodifiableList(this.actions);
+                    }
+                    makeExtensionsImmutable();
                 }
             }
-            if (z5 & true) {
-                this.actions = Collections.unmodifiableList(this.actions);
-            }
-            makeExtensionsImmutable();
         }
 
         static {
@@ -3972,7 +3935,7 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
         public Common getCommon() {
-            return this.f996common;
+            return this.f1143common;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
@@ -4040,7 +4003,7 @@ public final class IMPushPb {
 
         private void initFields() {
             this.metadata = MetaData.getDefaultInstance();
-            this.f996common = Common.getDefaultInstance();
+            this.f1143common = Common.getDefaultInstance();
             this.sdkName = "";
             this.sdkVersion = 0L;
             this.actions = Collections.emptyList();
@@ -4048,9 +4011,9 @@ public final class IMPushPb {
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public final boolean isInitialized() {
-            byte b = this.memoizedIsInitialized;
-            if (b != -1) {
-                return b == 1;
+            byte b2 = this.memoizedIsInitialized;
+            if (b2 != -1) {
+                return b2 == 1;
             } else if (!hasCommon()) {
                 this.memoizedIsInitialized = (byte) 0;
                 return false;
@@ -4070,7 +4033,7 @@ public final class IMPushPb {
                 codedOutputStream.writeMessage(25, this.metadata);
             }
             if ((this.bitField0 & 2) == 2) {
-                codedOutputStream.writeMessage(41, this.f996common);
+                codedOutputStream.writeMessage(41, this.f1143common);
             }
             if ((this.bitField0 & 4) == 4) {
                 codedOutputStream.writeBytes(SDK_NAME_FIELD_NUMBER, getSdkNameBytes());
@@ -4097,7 +4060,7 @@ public final class IMPushPb {
             if (i2 == -1) {
                 int computeMessageSize = (this.bitField0 & 1) == 1 ? CodedOutputStream.computeMessageSize(25, this.metadata) + 0 : 0;
                 if ((this.bitField0 & 2) == 2) {
-                    computeMessageSize += CodedOutputStream.computeMessageSize(41, this.f996common);
+                    computeMessageSize += CodedOutputStream.computeMessageSize(41, this.f1143common);
                 }
                 if ((this.bitField0 & 4) == 4) {
                     computeMessageSize += CodedOutputStream.computeBytesSize(SDK_NAME_FIELD_NUMBER, getSdkNameBytes());
@@ -4184,14 +4147,14 @@ public final class IMPushPb {
             return newBuilder(this);
         }
 
-        /* loaded from: classes14.dex */
+        /* loaded from: classes3.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<PushImClient, Builder> implements PushImClientOrBuilder {
             private int bitField0;
             private long sdkVersion;
             private MetaData metadata = MetaData.getDefaultInstance();
 
             /* renamed from: common  reason: collision with root package name */
-            private Common f997common = Common.getDefaultInstance();
+            private Common f1144common = Common.getDefaultInstance();
             private Object sdkName = "";
             private List<Action> actions = Collections.emptyList();
 
@@ -4213,7 +4176,7 @@ public final class IMPushPb {
                 super.clear();
                 this.metadata = MetaData.getDefaultInstance();
                 this.bitField0 &= -2;
-                this.f997common = Common.getDefaultInstance();
+                this.f1144common = Common.getDefaultInstance();
                 this.bitField0 &= -3;
                 this.sdkName = "";
                 this.bitField0 &= -5;
@@ -4256,7 +4219,7 @@ public final class IMPushPb {
                 if ((i & 2) == 2) {
                     i2 |= 2;
                 }
-                pushImClient.f996common = this.f997common;
+                pushImClient.f1143common = this.f1144common;
                 if ((i & 4) == 4) {
                     i2 |= 4;
                 }
@@ -4310,14 +4273,13 @@ public final class IMPushPb {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Removed duplicated region for block: B:14:0x001e  */
+            /* JADX WARN: Removed duplicated region for block: B:14:0x001c  */
             @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
             public Builder mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-                PushImClient pushImClient;
-                Throwable th;
+                PushImClient pushImClient = null;
                 try {
                     try {
                         PushImClient parsePartialFrom = PushImClient.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
@@ -4325,9 +4287,8 @@ public final class IMPushPb {
                             mergeFrom(parsePartialFrom);
                         }
                         return this;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        pushImClient = null;
+                    } catch (Throwable th) {
+                        th = th;
                         if (pushImClient != null) {
                             mergeFrom(pushImClient);
                         }
@@ -4337,9 +4298,9 @@ public final class IMPushPb {
                     PushImClient pushImClient2 = (PushImClient) e.getUnfinishedMessage();
                     try {
                         throw e;
-                    } catch (Throwable th3) {
+                    } catch (Throwable th2) {
+                        th = th2;
                         pushImClient = pushImClient2;
-                        th = th3;
                         if (pushImClient != null) {
                         }
                         throw th;
@@ -4395,36 +4356,36 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
             public Common getCommon() {
-                return this.f997common;
+                return this.f1144common;
             }
 
             public Builder setCommon(Common common2) {
                 if (common2 == null) {
                     throw new NullPointerException();
                 }
-                this.f997common = common2;
+                this.f1144common = common2;
                 this.bitField0 |= 2;
                 return this;
             }
 
             public Builder setCommon(Common.Builder builder) {
-                this.f997common = builder.build();
+                this.f1144common = builder.build();
                 this.bitField0 |= 2;
                 return this;
             }
 
             public Builder mergeCommon(Common common2) {
-                if ((this.bitField0 & 2) == 2 && this.f997common != Common.getDefaultInstance()) {
-                    this.f997common = Common.newBuilder(this.f997common).mergeFrom(common2).buildPartial();
+                if ((this.bitField0 & 2) == 2 && this.f1144common != Common.getDefaultInstance()) {
+                    this.f1144common = Common.newBuilder(this.f1144common).mergeFrom(common2).buildPartial();
                 } else {
-                    this.f997common = common2;
+                    this.f1144common = common2;
                 }
                 this.bitField0 |= 2;
                 return this;
             }
 
             public Builder clearCommon() {
-                this.f997common = Common.getDefaultInstance();
+                this.f1144common = Common.getDefaultInstance();
                 this.bitField0 &= -3;
                 return this;
             }
@@ -4589,7 +4550,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public static final class Action extends GeneratedMessageLite implements ActionOrBuilder {
         public static final int ACK_FIELD_NUMBER = 7;
         public static final int ACTION_TYPE_FIELD_NUMBER = 1;
@@ -4866,9 +4827,9 @@ public final class IMPushPb {
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public final boolean isInitialized() {
-            byte b = this.memoizedIsInitialized;
-            if (b != -1) {
-                return b == 1;
+            byte b2 = this.memoizedIsInitialized;
+            if (b2 != -1) {
+                return b2 == 1;
             }
             this.memoizedIsInitialized = (byte) 1;
             return true;
@@ -5000,7 +4961,7 @@ public final class IMPushPb {
             return newBuilder(this);
         }
 
-        /* loaded from: classes14.dex */
+        /* loaded from: classes3.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Action, Builder> implements ActionOrBuilder {
             private int bitField0;
             private ActionType actionType = ActionType.UI;
@@ -5146,14 +5107,13 @@ public final class IMPushPb {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Removed duplicated region for block: B:14:0x001e  */
+            /* JADX WARN: Removed duplicated region for block: B:14:0x001c  */
             @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
             public Builder mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-                Action action;
-                Throwable th;
+                Action action = null;
                 try {
                     try {
                         Action parsePartialFrom = Action.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
@@ -5161,9 +5121,8 @@ public final class IMPushPb {
                             mergeFrom(parsePartialFrom);
                         }
                         return this;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        action = null;
+                    } catch (Throwable th) {
+                        th = th;
                         if (action != null) {
                             mergeFrom(action);
                         }
@@ -5173,9 +5132,9 @@ public final class IMPushPb {
                     Action action2 = (Action) e.getUnfinishedMessage();
                     try {
                         throw e;
-                    } catch (Throwable th3) {
+                    } catch (Throwable th2) {
+                        th = th2;
                         action = action2;
-                        th = th3;
                         if (action != null) {
                         }
                         throw th;
@@ -5497,7 +5456,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public static final class Ui extends GeneratedMessageLite implements UiOrBuilder {
         public static final int ALIAS_ID_FIELD_NUMBER = 7;
         public static final int CATEGORY_FIELD_NUMBER = 1;
@@ -5760,9 +5719,9 @@ public final class IMPushPb {
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public final boolean isInitialized() {
-            byte b = this.memoizedIsInitialized;
-            if (b != -1) {
-                return b == 1;
+            byte b2 = this.memoizedIsInitialized;
+            if (b2 != -1) {
+                return b2 == 1;
             }
             this.memoizedIsInitialized = (byte) 1;
             return true;
@@ -5888,7 +5847,7 @@ public final class IMPushPb {
             return newBuilder(this);
         }
 
-        /* loaded from: classes14.dex */
+        /* loaded from: classes3.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Ui, Builder> implements UiOrBuilder {
             private long aliasId;
             private int bitField0;
@@ -6027,14 +5986,13 @@ public final class IMPushPb {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Removed duplicated region for block: B:14:0x001e  */
+            /* JADX WARN: Removed duplicated region for block: B:14:0x001c  */
             @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
             public Builder mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-                Ui ui;
-                Throwable th;
+                Ui ui = null;
                 try {
                     try {
                         Ui parsePartialFrom = Ui.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
@@ -6042,9 +6000,8 @@ public final class IMPushPb {
                             mergeFrom(parsePartialFrom);
                         }
                         return this;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        ui = null;
+                    } catch (Throwable th) {
+                        th = th;
                         if (ui != null) {
                             mergeFrom(ui);
                         }
@@ -6054,9 +6011,9 @@ public final class IMPushPb {
                     Ui ui2 = (Ui) e.getUnfinishedMessage();
                     try {
                         throw e;
-                    } catch (Throwable th3) {
+                    } catch (Throwable th2) {
+                        th = th2;
                         ui = ui2;
-                        th = th3;
                         if (ui != null) {
                         }
                         throw th;
@@ -6307,7 +6264,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public static final class Crash extends GeneratedMessageLite implements CrashOrBuilder {
         public static final int ALIAS_ID_FIELD_NUMBER = 4;
         public static final int EXCEPTION_FIELD_NUMBER = 1;
@@ -6499,9 +6456,9 @@ public final class IMPushPb {
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public final boolean isInitialized() {
-            byte b = this.memoizedIsInitialized;
-            if (b != -1) {
-                return b == 1;
+            byte b2 = this.memoizedIsInitialized;
+            if (b2 != -1) {
+                return b2 == 1;
             }
             this.memoizedIsInitialized = (byte) 1;
             return true;
@@ -6609,7 +6566,7 @@ public final class IMPushPb {
             return newBuilder(this);
         }
 
-        /* loaded from: classes14.dex */
+        /* loaded from: classes3.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Crash, Builder> implements CrashOrBuilder {
             private long aliasId;
             private int bitField0;
@@ -6717,14 +6674,13 @@ public final class IMPushPb {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Removed duplicated region for block: B:14:0x001e  */
+            /* JADX WARN: Removed duplicated region for block: B:14:0x001c  */
             @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
             public Builder mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-                Crash crash;
-                Throwable th;
+                Crash crash = null;
                 try {
                     try {
                         Crash parsePartialFrom = Crash.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
@@ -6732,9 +6688,8 @@ public final class IMPushPb {
                             mergeFrom(parsePartialFrom);
                         }
                         return this;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        crash = null;
+                    } catch (Throwable th) {
+                        th = th;
                         if (crash != null) {
                             mergeFrom(crash);
                         }
@@ -6744,9 +6699,9 @@ public final class IMPushPb {
                     Crash crash2 = (Crash) e.getUnfinishedMessage();
                     try {
                         throw e;
-                    } catch (Throwable th3) {
+                    } catch (Throwable th2) {
+                        th = th2;
                         crash = crash2;
-                        th = th3;
                         if (crash != null) {
                         }
                         throw th;
@@ -6902,7 +6857,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public static final class Db extends GeneratedMessageLite implements DbOrBuilder {
         public static final int ACTION_FIELD_NUMBER = 4;
         public static final int ALIAS_ID_FIELD_NUMBER = 9;
@@ -7239,9 +7194,9 @@ public final class IMPushPb {
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public final boolean isInitialized() {
-            byte b = this.memoizedIsInitialized;
-            if (b != -1) {
-                return b == 1;
+            byte b2 = this.memoizedIsInitialized;
+            if (b2 != -1) {
+                return b2 == 1;
             }
             this.memoizedIsInitialized = (byte) 1;
             return true;
@@ -7379,7 +7334,7 @@ public final class IMPushPb {
             return newBuilder(this);
         }
 
-        /* loaded from: classes14.dex */
+        /* loaded from: classes3.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Db, Builder> implements DbOrBuilder {
             private long aliasId;
             private int bitField0;
@@ -7540,14 +7495,13 @@ public final class IMPushPb {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Removed duplicated region for block: B:14:0x001e  */
+            /* JADX WARN: Removed duplicated region for block: B:14:0x001c  */
             @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
             public Builder mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-                Db db;
-                Throwable th;
+                Db db = null;
                 try {
                     try {
                         Db parsePartialFrom = Db.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
@@ -7555,9 +7509,8 @@ public final class IMPushPb {
                             mergeFrom(parsePartialFrom);
                         }
                         return this;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        db = null;
+                    } catch (Throwable th) {
+                        th = th;
                         if (db != null) {
                             mergeFrom(db);
                         }
@@ -7567,9 +7520,9 @@ public final class IMPushPb {
                     Db db2 = (Db) e.getUnfinishedMessage();
                     try {
                         throw e;
-                    } catch (Throwable th3) {
+                    } catch (Throwable th2) {
+                        th = th2;
                         db = db2;
-                        th = th3;
                         if (db != null) {
                         }
                         throw th;
@@ -7922,7 +7875,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public static final class Connection extends GeneratedMessageLite implements ConnectionOrBuilder {
         public static final int ALIAS_ID_FIELD_NUMBER = 7;
         public static final int EXT_FIELD_NUMBER = 6;
@@ -8165,9 +8118,9 @@ public final class IMPushPb {
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public final boolean isInitialized() {
-            byte b = this.memoizedIsInitialized;
-            if (b != -1) {
-                return b == 1;
+            byte b2 = this.memoizedIsInitialized;
+            if (b2 != -1) {
+                return b2 == 1;
             }
             this.memoizedIsInitialized = (byte) 1;
             return true;
@@ -8293,7 +8246,7 @@ public final class IMPushPb {
             return newBuilder(this);
         }
 
-        /* loaded from: classes14.dex */
+        /* loaded from: classes3.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Connection, Builder> implements ConnectionOrBuilder {
             private long aliasId;
             private int bitField0;
@@ -8431,14 +8384,13 @@ public final class IMPushPb {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Removed duplicated region for block: B:14:0x001e  */
+            /* JADX WARN: Removed duplicated region for block: B:14:0x001c  */
             @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
             public Builder mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-                Connection connection;
-                Throwable th;
+                Connection connection = null;
                 try {
                     try {
                         Connection parsePartialFrom = Connection.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
@@ -8446,9 +8398,8 @@ public final class IMPushPb {
                             mergeFrom(parsePartialFrom);
                         }
                         return this;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        connection = null;
+                    } catch (Throwable th) {
+                        th = th;
                         if (connection != null) {
                             mergeFrom(connection);
                         }
@@ -8458,9 +8409,9 @@ public final class IMPushPb {
                     Connection connection2 = (Connection) e.getUnfinishedMessage();
                     try {
                         throw e;
-                    } catch (Throwable th3) {
+                    } catch (Throwable th2) {
+                        th = th2;
                         connection = connection2;
-                        th = th3;
                         if (connection != null) {
                         }
                         throw th;
@@ -8682,7 +8633,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public static final class Request extends GeneratedMessageLite implements RequestOrBuilder {
         public static final int ALIAS_ID_FIELD_NUMBER = 7;
         public static final int ERROR_CODE_FIELD_NUMBER = 5;
@@ -8945,9 +8896,9 @@ public final class IMPushPb {
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public final boolean isInitialized() {
-            byte b = this.memoizedIsInitialized;
-            if (b != -1) {
-                return b == 1;
+            byte b2 = this.memoizedIsInitialized;
+            if (b2 != -1) {
+                return b2 == 1;
             }
             this.memoizedIsInitialized = (byte) 1;
             return true;
@@ -9073,7 +9024,7 @@ public final class IMPushPb {
             return newBuilder(this);
         }
 
-        /* loaded from: classes14.dex */
+        /* loaded from: classes3.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Request, Builder> implements RequestOrBuilder {
             private long aliasId;
             private int bitField0;
@@ -9212,14 +9163,13 @@ public final class IMPushPb {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Removed duplicated region for block: B:14:0x001e  */
+            /* JADX WARN: Removed duplicated region for block: B:14:0x001c  */
             @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
             public Builder mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-                Request request;
-                Throwable th;
+                Request request = null;
                 try {
                     try {
                         Request parsePartialFrom = Request.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
@@ -9227,9 +9177,8 @@ public final class IMPushPb {
                             mergeFrom(parsePartialFrom);
                         }
                         return this;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        request = null;
+                    } catch (Throwable th) {
+                        th = th;
                         if (request != null) {
                             mergeFrom(request);
                         }
@@ -9239,9 +9188,9 @@ public final class IMPushPb {
                     Request request2 = (Request) e.getUnfinishedMessage();
                     try {
                         throw e;
-                    } catch (Throwable th3) {
+                    } catch (Throwable th2) {
+                        th = th2;
                         request = request2;
-                        th = th3;
                         if (request != null) {
                         }
                         throw th;
@@ -9492,7 +9441,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public static final class Ack extends GeneratedMessageLite implements AckOrBuilder {
         public static final int ALIAS_ID_FIELD_NUMBER = 5;
         public static final int EXT_FIELD_NUMBER = 4;
@@ -9721,9 +9670,9 @@ public final class IMPushPb {
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public final boolean isInitialized() {
-            byte b = this.memoizedIsInitialized;
-            if (b != -1) {
-                return b == 1;
+            byte b2 = this.memoizedIsInitialized;
+            if (b2 != -1) {
+                return b2 == 1;
             }
             this.memoizedIsInitialized = (byte) 1;
             return true;
@@ -9837,7 +9786,7 @@ public final class IMPushPb {
             return newBuilder(this);
         }
 
-        /* loaded from: classes14.dex */
+        /* loaded from: classes3.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Ack, Builder> implements AckOrBuilder {
             private long aliasId;
             private int bitField0;
@@ -9956,14 +9905,13 @@ public final class IMPushPb {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Removed duplicated region for block: B:14:0x001e  */
+            /* JADX WARN: Removed duplicated region for block: B:14:0x001c  */
             @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
             public Builder mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-                Ack ack;
-                Throwable th;
+                Ack ack = null;
                 try {
                     try {
                         Ack parsePartialFrom = Ack.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
@@ -9971,9 +9919,8 @@ public final class IMPushPb {
                             mergeFrom(parsePartialFrom);
                         }
                         return this;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        ack = null;
+                    } catch (Throwable th) {
+                        th = th;
                         if (ack != null) {
                             mergeFrom(ack);
                         }
@@ -9983,9 +9930,9 @@ public final class IMPushPb {
                     Ack ack2 = (Ack) e.getUnfinishedMessage();
                     try {
                         throw e;
-                    } catch (Throwable th3) {
+                    } catch (Throwable th2) {
+                        th = th2;
                         ack = ack2;
-                        th = th3;
                         if (ack != null) {
                         }
                         throw th;
@@ -10192,7 +10139,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public static final class Msg extends GeneratedMessageLite implements MsgOrBuilder {
         public static final int ALIAS_ID_FIELD_NUMBER = 6;
         public static final int DURATION_FIELD_NUMBER = 3;
@@ -10435,9 +10382,9 @@ public final class IMPushPb {
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public final boolean isInitialized() {
-            byte b = this.memoizedIsInitialized;
-            if (b != -1) {
-                return b == 1;
+            byte b2 = this.memoizedIsInitialized;
+            if (b2 != -1) {
+                return b2 == 1;
             }
             this.memoizedIsInitialized = (byte) 1;
             return true;
@@ -10563,7 +10510,7 @@ public final class IMPushPb {
             return newBuilder(this);
         }
 
-        /* loaded from: classes14.dex */
+        /* loaded from: classes3.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Msg, Builder> implements MsgOrBuilder {
             private long aliasId;
             private int bitField0;
@@ -10701,14 +10648,13 @@ public final class IMPushPb {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Removed duplicated region for block: B:14:0x001e  */
+            /* JADX WARN: Removed duplicated region for block: B:14:0x001c  */
             @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
             public Builder mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-                Msg msg;
-                Throwable th;
+                Msg msg = null;
                 try {
                     try {
                         Msg parsePartialFrom = Msg.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
@@ -10716,9 +10662,8 @@ public final class IMPushPb {
                             mergeFrom(parsePartialFrom);
                         }
                         return this;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        msg = null;
+                    } catch (Throwable th) {
+                        th = th;
                         if (msg != null) {
                             mergeFrom(msg);
                         }
@@ -10728,9 +10673,9 @@ public final class IMPushPb {
                     Msg msg2 = (Msg) e.getUnfinishedMessage();
                     try {
                         throw e;
-                    } catch (Throwable th3) {
+                    } catch (Throwable th2) {
+                        th = th2;
                         msg = msg2;
-                        th = th3;
                         if (msg != null) {
                         }
                         throw th;
@@ -10952,7 +10897,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
     public static final class MetaData extends GeneratedMessageLite implements MetaDataOrBuilder {
         public static final int LOG_MODULE_ID_FIELD_NUMBER = 1;
         public static final int LOG_NAME_FIELD_NUMBER = 2;
@@ -11127,9 +11072,9 @@ public final class IMPushPb {
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public final boolean isInitialized() {
-            byte b = this.memoizedIsInitialized;
-            if (b != -1) {
-                return b == 1;
+            byte b2 = this.memoizedIsInitialized;
+            if (b2 != -1) {
+                return b2 == 1;
             }
             this.memoizedIsInitialized = (byte) 1;
             return true;
@@ -11231,7 +11176,7 @@ public final class IMPushPb {
             return newBuilder(this);
         }
 
-        /* loaded from: classes14.dex */
+        /* loaded from: classes3.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<MetaData, Builder> implements MetaDataOrBuilder {
             private int bitField0;
             private int logModuleId = 7399;
@@ -11329,14 +11274,13 @@ public final class IMPushPb {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Removed duplicated region for block: B:14:0x001e  */
+            /* JADX WARN: Removed duplicated region for block: B:14:0x001c  */
             @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
             public Builder mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-                MetaData metaData;
-                Throwable th;
+                MetaData metaData = null;
                 try {
                     try {
                         MetaData parsePartialFrom = MetaData.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
@@ -11344,9 +11288,8 @@ public final class IMPushPb {
                             mergeFrom(parsePartialFrom);
                         }
                         return this;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        metaData = null;
+                    } catch (Throwable th) {
+                        th = th;
                         if (metaData != null) {
                             mergeFrom(metaData);
                         }
@@ -11356,9 +11299,9 @@ public final class IMPushPb {
                     MetaData metaData2 = (MetaData) e.getUnfinishedMessage();
                     try {
                         throw e;
-                    } catch (Throwable th3) {
+                    } catch (Throwable th2) {
+                        th = th2;
                         metaData = metaData2;
-                        th = th3;
                         if (metaData != null) {
                         }
                         throw th;

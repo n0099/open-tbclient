@@ -2,35 +2,35 @@ package com.cmic.sso.sdk.c.c;
 
 import com.cmic.sso.sdk.c.b.e;
 import com.cmic.sso.sdk.e.r;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class b extends c {
     private boolean c;
-    private e oZS;
+    private e prh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(String str, e eVar, String str2, String str3) {
         super(str, eVar, str2, str3);
         this.c = false;
-        this.oZS = eVar;
+        this.prh = eVar;
     }
 
     public void b(com.cmic.sso.sdk.a aVar) {
         if (!this.c) {
             String a2 = r.a(true);
-            String aG = r.aG(true, "1".equals(aVar.b("operatortype", "")));
+            String aJ = r.aJ(true, "1".equals(aVar.b("operatortype", "")));
             aVar.a("ipv4List", a2);
-            aVar.a("ipv6List", aG);
-            e.a eoC = this.oZS.eoC();
+            aVar.a("ipv6List", aJ);
+            e.a esO = this.prh.esO();
             if (!aVar.b("isCloseIpv4", false)) {
-                eoC.a(a2);
+                esO.a(a2);
             }
             if (!aVar.b("isCloseIpv6", false)) {
-                eoC.b(aG);
+                esO.b(aJ);
             }
-            eoC.v(eoC.YS(aVar.b("appkey")));
-            this.oZS.a(eoC);
-            this.oZS.a(true);
-            this.f4018a = this.oZS.b().toString();
+            esO.v(esO.Zd(aVar.b("appkey")));
+            this.prh.a(esO);
+            this.prh.a(true);
+            this.f8012a = this.prh.b().toString();
             this.c = true;
         }
     }

@@ -4,122 +4,122 @@ import com.facebook.common.internal.g;
 import com.facebook.common.internal.l;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes15.dex */
+/* loaded from: classes5.dex */
 public class e {
-    private final com.facebook.common.memory.a pcj;
-    private boolean pnh;
-    private int pnd = 0;
-    private int pnc = 0;
-    private int pne = 0;
-    private int png = 0;
-    private int pnf = 0;
-    private int pnb = 0;
+    private boolean pCK;
+    private final com.facebook.common.memory.a pto;
+    private int pCG = 0;
+    private int pCF = 0;
+    private int pCH = 0;
+    private int pCJ = 0;
+    private int pCI = 0;
+    private int pCE = 0;
 
     public e(com.facebook.common.memory.a aVar) {
-        this.pcj = (com.facebook.common.memory.a) g.checkNotNull(aVar);
+        this.pto = (com.facebook.common.memory.a) g.checkNotNull(aVar);
     }
 
     public boolean a(com.facebook.imagepipeline.f.e eVar) {
-        if (this.pnb != 6 && eVar.getSize() > this.pnd) {
-            com.facebook.common.memory.f fVar = new com.facebook.common.memory.f(eVar.getInputStream(), this.pcj.get(16384), this.pcj);
+        if (this.pCE != 6 && eVar.getSize() > this.pCG) {
+            com.facebook.common.memory.f fVar = new com.facebook.common.memory.f(eVar.getInputStream(), this.pto.get(16384), this.pto);
             try {
-                com.facebook.common.util.c.a(fVar, this.pnd);
-                return w(fVar);
+                com.facebook.common.util.c.b(fVar, this.pCG);
+                return z(fVar);
             } catch (IOException e) {
-                l.v(e);
+                l.t(e);
                 return false;
             } finally {
-                com.facebook.common.internal.b.r(fVar);
+                com.facebook.common.internal.b.u(fVar);
             }
         }
         return false;
     }
 
-    private boolean w(InputStream inputStream) {
+    private boolean z(InputStream inputStream) {
         int read;
         boolean z = true;
-        int i = this.pnf;
-        while (this.pnb != 6 && (read = inputStream.read()) != -1) {
+        int i = this.pCI;
+        while (this.pCE != 6 && (read = inputStream.read()) != -1) {
             try {
-                this.pnd++;
-                if (this.pnh) {
-                    this.pnb = 6;
-                    this.pnh = false;
+                this.pCG++;
+                if (this.pCK) {
+                    this.pCE = 6;
+                    this.pCK = false;
                     return false;
                 }
-                switch (this.pnb) {
+                switch (this.pCE) {
                     case 0:
                         if (read == 255) {
-                            this.pnb = 1;
+                            this.pCE = 1;
                             break;
                         } else {
-                            this.pnb = 6;
+                            this.pCE = 6;
                             break;
                         }
                     case 1:
                         if (read == 216) {
-                            this.pnb = 2;
+                            this.pCE = 2;
                             break;
                         } else {
-                            this.pnb = 6;
+                            this.pCE = 6;
                             break;
                         }
                     case 2:
                         if (read != 255) {
                             break;
                         } else {
-                            this.pnb = 3;
+                            this.pCE = 3;
                             break;
                         }
                     case 3:
                         if (read == 255) {
-                            this.pnb = 3;
+                            this.pCE = 3;
                             break;
                         } else if (read == 0) {
-                            this.pnb = 2;
+                            this.pCE = 2;
                             break;
                         } else if (read == 217) {
-                            this.pnh = true;
-                            QI(this.pnd - 2);
-                            this.pnb = 2;
+                            this.pCK = true;
+                            QF(this.pCG - 2);
+                            this.pCE = 2;
                             break;
                         } else {
                             if (read == 218) {
-                                QI(this.pnd - 2);
+                                QF(this.pCG - 2);
                             }
-                            if (QH(read)) {
-                                this.pnb = 4;
+                            if (QE(read)) {
+                                this.pCE = 4;
                                 break;
                             } else {
-                                this.pnb = 2;
+                                this.pCE = 2;
                                 break;
                             }
                         }
                     case 4:
-                        this.pnb = 5;
+                        this.pCE = 5;
                         break;
                     case 5:
-                        int i2 = ((this.pnc << 8) + read) - 2;
-                        com.facebook.common.util.c.a(inputStream, i2);
-                        this.pnd = i2 + this.pnd;
-                        this.pnb = 2;
+                        int i2 = ((this.pCF << 8) + read) - 2;
+                        com.facebook.common.util.c.b(inputStream, i2);
+                        this.pCG = i2 + this.pCG;
+                        this.pCE = 2;
                         break;
                     default:
                         g.checkState(false);
                         break;
                 }
-                this.pnc = read;
+                this.pCF = read;
             } catch (IOException e) {
-                l.v(e);
+                l.t(e);
             }
         }
-        if (this.pnb == 6 || this.pnf == i) {
+        if (this.pCE == 6 || this.pCI == i) {
             z = false;
         }
         return z;
     }
 
-    private static boolean QH(int i) {
+    private static boolean QE(int i) {
         boolean z = true;
         if (i == 1) {
             return false;
@@ -133,24 +133,24 @@ public class e {
         return false;
     }
 
-    private void QI(int i) {
-        if (this.pne > 0) {
-            this.png = i;
+    private void QF(int i) {
+        if (this.pCH > 0) {
+            this.pCJ = i;
         }
-        int i2 = this.pne;
-        this.pne = i2 + 1;
-        this.pnf = i2;
+        int i2 = this.pCH;
+        this.pCH = i2 + 1;
+        this.pCI = i2;
     }
 
-    public int evo() {
-        return this.png;
+    public int eyX() {
+        return this.pCJ;
     }
 
-    public int evp() {
-        return this.pnf;
+    public int eyY() {
+        return this.pCI;
     }
 
-    public boolean evq() {
-        return this.pnh;
+    public boolean eyZ() {
+        return this.pCK;
     }
 }

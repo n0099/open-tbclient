@@ -2,16 +2,16 @@ package com.baidu.crabsdk.a;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public final class p extends n {
-    private static final LinkedHashMap<Long, String> ape = new LinkedHashMap<>();
+    private static final LinkedHashMap<Long, String> apE = new LinkedHashMap<>();
     private int X;
-    private Thread apf;
+    private Thread apF;
 
     private p(Thread thread, int i, long j) {
         super(j);
         this.X = a.X;
-        this.apf = thread;
+        this.apF = thread;
         this.X = i;
     }
 
@@ -19,16 +19,16 @@ public final class p extends n {
         this(thread, a.X, j);
     }
 
-    public static ArrayList<String> c(long j, long j2) {
+    public static ArrayList<String> f(long j, long j2) {
         ArrayList<String> arrayList = new ArrayList<>();
-        synchronized (ape) {
-            for (Long l : ape.keySet()) {
+        synchronized (apE) {
+            for (Long l : apE.keySet()) {
                 if (j < l.longValue() && l.longValue() < j2) {
-                    arrayList.add(ape.get(l));
+                    arrayList.add(apE.get(l));
                 }
             }
         }
-        com.baidu.crabsdk.c.a.dE("result : " + arrayList.toString());
+        com.baidu.crabsdk.c.a.dx("result : " + arrayList.toString());
         return arrayList;
     }
 
@@ -36,14 +36,14 @@ public final class p extends n {
     @Override // com.baidu.crabsdk.a.n
     public final void o() {
         StringBuilder sb = new StringBuilder();
-        for (StackTraceElement stackTraceElement : this.apf.getStackTrace()) {
+        for (StackTraceElement stackTraceElement : this.apF.getStackTrace()) {
             sb.append(stackTraceElement.toString()).append("\r\n");
         }
-        synchronized (ape) {
-            if (ape.size() == this.X && this.X > 0) {
-                ape.remove(ape.keySet().iterator().next());
+        synchronized (apE) {
+            if (apE.size() == this.X && this.X > 0) {
+                apE.remove(apE.keySet().iterator().next());
             }
-            ape.put(Long.valueOf(System.currentTimeMillis()), sb.toString());
+            apE.put(Long.valueOf(System.currentTimeMillis()), sb.toString());
         }
     }
 }

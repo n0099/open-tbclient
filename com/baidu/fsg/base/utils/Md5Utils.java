@@ -1,8 +1,9 @@
 package com.baidu.fsg.base.utils;
 
 import android.annotation.SuppressLint;
-import android.support.v4.view.InputDeviceCompat;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -15,11 +16,11 @@ import java.util.Collections;
 import java.util.Iterator;
 import org.apache.commons.base.CharEncoding;
 import org.json.JSONObject;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public final class Md5Utils {
 
     /* renamed from: a  reason: collision with root package name */
-    private static char[] f1519a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    private static char[] f2033a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     private Md5Utils() {
     }
@@ -93,12 +94,12 @@ public final class Md5Utils {
         String str;
         synchronized (Md5Utils.class) {
             try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                MessageDigest messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
                 messageDigest.update(bArr);
                 byte[] digest = messageDigest.digest();
                 StringBuilder sb = new StringBuilder();
-                for (byte b : digest) {
-                    sb.append(Integer.toHexString((b & 255) | InputDeviceCompat.SOURCE_ANY).substring(6));
+                for (byte b2 : digest) {
+                    sb.append(Integer.toHexString((b2 & 255) | InputDeviceCompat.SOURCE_ANY).substring(6));
                 }
                 str = sb.toString();
             } catch (NoSuchAlgorithmException e) {
@@ -111,7 +112,7 @@ public final class Md5Utils {
 
     private static MessageDigest a() {
         try {
-            return MessageDigest.getInstance("MD5");
+            return MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
         }
@@ -141,14 +142,15 @@ public final class Md5Utils {
             if (i > 0 && ch != null) {
                 stringBuffer.append(ch.charValue());
             }
-            stringBuffer.append(f1519a[i2]);
-            stringBuffer.append(f1519a[i3]);
+            stringBuffer.append(f2033a[i2]);
+            stringBuffer.append(f2033a[i3]);
         }
         return stringBuffer.toString();
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [296=4] */
     public static String getMd5FromFile(String str) {
+        Throwable th;
         FileInputStream fileInputStream;
         String str2 = null;
         try {
@@ -181,9 +183,9 @@ public final class Md5Utils {
             } catch (FileNotFoundException e4) {
                 e = e4;
                 fileInputStream = null;
-            } catch (Throwable th) {
+            } catch (Throwable th2) {
+                th = th2;
                 fileInputStream = null;
-                th = th;
                 if (fileInputStream != null) {
                     try {
                         fileInputStream.close();
@@ -194,8 +196,8 @@ public final class Md5Utils {
                 throw th;
             }
             return str2;
-        } catch (Throwable th2) {
-            th = th2;
+        } catch (Throwable th3) {
+            th = th3;
         }
     }
 
@@ -211,8 +213,8 @@ public final class Md5Utils {
                 }
                 a2.update(bArr, 0, read);
             }
-            for (byte b : a2.digest()) {
-                sb.append(Integer.toHexString((b & 255) | InputDeviceCompat.SOURCE_ANY).substring(6));
+            for (byte b2 : a2.digest()) {
+                sb.append(Integer.toHexString((b2 & 255) | InputDeviceCompat.SOURCE_ANY).substring(6));
             }
         } catch (IOException e) {
             e.printStackTrace();

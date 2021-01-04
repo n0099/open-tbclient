@@ -3,13 +3,13 @@ package com.baidu.tieba.personCenter.c;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.card.data.BaseCardInfo;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class i extends BaseCardInfo {
-    public static BdUniqueId mky = BdUniqueId.gen();
+    public static BdUniqueId mpH = BdUniqueId.gen();
     public UserData userData;
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return mky;
+        return mpH;
     }
 }

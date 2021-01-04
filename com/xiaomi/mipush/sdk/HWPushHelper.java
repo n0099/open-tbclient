@@ -5,18 +5,18 @@ import android.content.Intent;
 import android.text.TextUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class HWPushHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f4505a = false;
+    private static boolean f14087a = false;
 
     public static void convertMessage(Intent intent) {
         h.a(intent);
     }
 
     public static boolean hasNetwork(Context context) {
-        return h.m107a(context);
+        return h.m133a(context);
     }
 
     public static boolean isHmsTokenSynced(Context context) {
@@ -34,7 +34,7 @@ public class HWPushHelper {
     }
 
     public static boolean needConnect() {
-        return f4505a;
+        return f14087a;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:13:0x002a, code lost:
@@ -117,7 +117,7 @@ public class HWPushHelper {
     }
 
     public static void setNeedConnect(boolean z) {
-        f4505a = z;
+        f14087a = z;
     }
 
     public static synchronized boolean shouldGetToken(Context context) {

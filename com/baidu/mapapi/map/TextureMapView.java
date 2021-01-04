@@ -10,7 +10,6 @@ import android.graphics.Point;
 import android.graphics.Rect;
 import android.graphics.drawable.NinePatchDrawable;
 import android.os.Bundle;
-import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -20,6 +19,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.appcompat.widget.ActivityChooserView;
 import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.live.adp.framework.MessageConfig;
@@ -30,12 +30,14 @@ import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.platform.comapi.map.MapTextureView;
 import com.baidu.webkit.net.BdNetTask;
 import java.io.File;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public final class TextureMapView extends ViewGroup {
     private static String i;
     private int A;
     private boolean B;
-    private MapTextureView b;
+
+    /* renamed from: b  reason: collision with root package name */
+    private MapTextureView f2885b;
     private BaiduMap c;
     private ImageView d;
     private Bitmap e;
@@ -58,7 +60,7 @@ public final class TextureMapView extends ViewGroup {
     private int z;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2051a = TextureMapView.class.getSimpleName();
+    private static final String f2884a = TextureMapView.class.getSimpleName();
     private static int j = 0;
     private static int k = 0;
     private static final SparseArray<Integer> q = new SparseArray<>();
@@ -171,14 +173,14 @@ public final class TextureMapView extends ViewGroup {
     }
 
     private void a(Context context, BaiduMapOptions baiduMapOptions, String str, int i2) {
-        this.b = new MapTextureView(context);
-        addView(this.b);
+        this.f2885b = new MapTextureView(context);
+        addView(this.f2885b);
         if (baiduMapOptions != null) {
-            this.c = new BaiduMap(context, this.b, baiduMapOptions.a());
+            this.c = new BaiduMap(context, this.f2885b, baiduMapOptions.a());
         } else {
-            this.c = new BaiduMap(context, this.b, (com.baidu.mapsdkplatform.comapi.map.u) null);
+            this.c = new BaiduMap(context, this.f2885b, (com.baidu.mapsdkplatform.comapi.map.u) null);
         }
-        this.b.getBaseMap().a(new z(this));
+        this.f2885b.getBaseMap().a(new z(this));
     }
 
     private void a(View view) {
@@ -194,17 +196,17 @@ public final class TextureMapView extends ViewGroup {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, int i2) {
-        if (this.b == null || this.b.getBaseMap() == null) {
+        if (this.f2885b == null || this.f2885b.getBaseMap() == null) {
             return;
         }
         if (TextUtils.isEmpty(str)) {
-            Log.e(f2051a, "customStyleFilePath is empty or null, please check!");
+            Log.e(f2884a, "customStyleFilePath is empty or null, please check!");
         } else if (!str.endsWith(".sty")) {
-            Log.e(f2051a, "customStyleFile format is incorrect , please check!");
+            Log.e(f2884a, "customStyleFile format is incorrect , please check!");
         } else if (new File(str).exists()) {
-            this.b.getBaseMap().a(str, i2);
+            this.f2885b.getBaseMap().a(str, i2);
         } else {
-            Log.e(f2051a, "customStyleFile does not exist , please check!");
+            Log.e(f2884a, "customStyleFile does not exist , please check!");
         }
     }
 
@@ -226,9 +228,9 @@ public final class TextureMapView extends ViewGroup {
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         if (this.f.a()) {
-            float f = this.b.getBaseMap().B().f2244a;
-            this.f.b(f > this.b.getBaseMap().b);
-            this.f.a(f < this.b.getBaseMap().f2226a);
+            float f = this.f2885b.getBaseMap().B().f3202a;
+            this.f.b(f > this.f2885b.getBaseMap().f3172b);
+            this.f.a(f < this.f2885b.getBaseMap().f3171a);
         }
     }
 
@@ -328,12 +330,12 @@ public final class TextureMapView extends ViewGroup {
     }
 
     public final BaiduMap getMap() {
-        this.c.b = this;
+        this.c.f2794b = this;
         return this.c;
     }
 
     public final int getMapLevel() {
-        return q.get((int) this.b.getBaseMap().B().f2244a).intValue();
+        return q.get((int) this.f2885b.getBaseMap().B().f3202a).intValue();
     }
 
     public int getScaleControlViewHeight() {
@@ -364,7 +366,7 @@ public final class TextureMapView extends ViewGroup {
 
     public final void onDestroy() {
         if (this.p != null) {
-            this.b.onDestroy();
+            this.f2885b.onDestroy();
         }
         if (this.e != null && !this.e.isRecycled()) {
             this.e.recycle();
@@ -379,10 +381,10 @@ public final class TextureMapView extends ViewGroup {
     @SuppressLint({"NewApi"})
     protected final void onLayout(boolean z, int i2, int i3, int i4, int i5) {
         float f;
-        float f2;
         int measuredHeight;
         int width;
         int childCount = getChildCount();
+        float f2 = 1.0f;
         a(this.d);
         if (((getWidth() - this.v) - this.w) - this.d.getMeasuredWidth() <= 0 || ((getHeight() - this.x) - this.y) - this.d.getMeasuredHeight() <= 0) {
             this.v = 0;
@@ -390,21 +392,20 @@ public final class TextureMapView extends ViewGroup {
             this.y = 0;
             this.x = 0;
             f = 1.0f;
-            f2 = 1.0f;
         } else {
-            f = ((getWidth() - this.v) - this.w) / getWidth();
-            f2 = ((getHeight() - this.x) - this.y) / getHeight();
+            f2 = ((getWidth() - this.v) - this.w) / getWidth();
+            f = ((getHeight() - this.x) - this.y) / getHeight();
         }
         for (int i6 = 0; i6 < childCount; i6++) {
             View childAt = getChildAt(i6);
             if (childAt != null) {
-                if (childAt == this.b) {
-                    this.b.layout(0, 0, getWidth(), getHeight());
+                if (childAt == this.f2885b) {
+                    this.f2885b.layout(0, 0, getWidth(), getHeight());
                 } else if (childAt == this.d) {
-                    int i7 = (int) (this.v + (5.0f * f));
-                    int i8 = (int) (this.w + (5.0f * f));
-                    int i9 = (int) (this.x + (5.0f * f2));
-                    int i10 = (int) (this.y + (5.0f * f2));
+                    int i7 = (int) (this.v + (5.0f * f2));
+                    int i8 = (int) (this.w + (5.0f * f2));
+                    int i9 = (int) (this.x + (5.0f * f));
+                    int i10 = (int) (this.y + (5.0f * f));
                     switch (this.s) {
                         case 1:
                             measuredHeight = i9 + this.d.getMeasuredHeight();
@@ -443,8 +444,8 @@ public final class TextureMapView extends ViewGroup {
                     if (this.f.a()) {
                         a(this.f);
                         if (this.h == null) {
-                            int height = (int) (((getHeight() - 15) * f2) + this.x);
-                            int width2 = (int) (((getWidth() - 15) * f) + this.v);
+                            int height = (int) (((getHeight() - 15) * f) + this.x);
+                            int width2 = (int) (((getWidth() - 15) * f2) + this.v);
                             int measuredWidth = width2 - this.f.getMeasuredWidth();
                             int measuredHeight2 = height - this.f.getMeasuredHeight();
                             if (this.s == 4) {
@@ -461,8 +462,8 @@ public final class TextureMapView extends ViewGroup {
                     if (this.g == null) {
                         this.A = this.l.getMeasuredWidth();
                         this.z = this.l.getMeasuredHeight();
-                        int i11 = (int) (this.v + (5.0f * f));
-                        int height2 = (getHeight() - ((int) ((this.y + (5.0f * f2)) + 56.0f))) - this.d.getMeasuredHeight();
+                        int i11 = (int) (this.v + (5.0f * f2));
+                        int height2 = (getHeight() - ((int) ((this.y + (5.0f * f)) + 56.0f))) - this.d.getMeasuredHeight();
                         this.l.layout(i11, height2, this.A + i11, this.z + height2);
                     } else {
                         this.l.layout(this.g.x, this.g.y, this.g.x + this.l.getMeasuredWidth(), this.g.y + this.l.getMeasuredHeight());
@@ -471,7 +472,7 @@ public final class TextureMapView extends ViewGroup {
                     ViewGroup.LayoutParams layoutParams = childAt.getLayoutParams();
                     if (layoutParams instanceof MapViewLayoutParams) {
                         MapViewLayoutParams mapViewLayoutParams = (MapViewLayoutParams) layoutParams;
-                        Point a2 = mapViewLayoutParams.c == MapViewLayoutParams.ELayoutMode.absoluteMode ? mapViewLayoutParams.b : this.b.getBaseMap().a(CoordUtil.ll2mc(mapViewLayoutParams.f2028a));
+                        Point a2 = mapViewLayoutParams.c == MapViewLayoutParams.ELayoutMode.absoluteMode ? mapViewLayoutParams.f2847b : this.f2885b.getBaseMap().a(CoordUtil.ll2mc(mapViewLayoutParams.f2846a));
                         a(childAt);
                         int measuredWidth2 = childAt.getMeasuredWidth();
                         int measuredHeight3 = childAt.getMeasuredHeight();
@@ -485,11 +486,11 @@ public final class TextureMapView extends ViewGroup {
     }
 
     public final void onPause() {
-        this.b.onPause();
+        this.f2885b.onPause();
     }
 
     public final void onResume() {
-        this.b.onResume();
+        this.f2885b.onResume();
     }
 
     public void onSaveInstanceState(Bundle bundle) {
@@ -550,10 +551,10 @@ public final class TextureMapView extends ViewGroup {
     }
 
     public void setMapCustomStyleEnable(boolean z) {
-        if (this.b == null) {
+        if (this.f2885b == null) {
             return;
         }
-        this.b.getBaseMap().n(z);
+        this.f2885b.getBaseMap().n(z);
     }
 
     public void setMapCustomStylePath(String str) {

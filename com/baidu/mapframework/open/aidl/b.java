@@ -5,21 +5,21 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public interface b extends IInterface {
 
-    /* loaded from: classes26.dex */
+    /* loaded from: classes15.dex */
     public static abstract class a extends Binder implements b {
 
         /* renamed from: com.baidu.mapframework.open.aidl.b$a$a  reason: collision with other inner class name */
-        /* loaded from: classes26.dex */
+        /* loaded from: classes15.dex */
         private static class C0263a implements b {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f2188a;
+            private IBinder f3112a;
 
             C0263a(IBinder iBinder) {
-                this.f2188a = iBinder;
+                this.f3112a = iBinder;
             }
 
             @Override // com.baidu.mapframework.open.aidl.b
@@ -29,7 +29,7 @@ public interface b extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.baidu.mapframework.open.aidl.IOpenClientCallback");
                     obtain.writeStrongBinder(iBinder);
-                    this.f2188a.transact(1, obtain, obtain2, 0);
+                    this.f3112a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -39,7 +39,7 @@ public interface b extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f2188a;
+                return this.f3112a;
             }
         }
 

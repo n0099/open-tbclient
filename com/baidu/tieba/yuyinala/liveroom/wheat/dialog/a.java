@@ -3,32 +3,32 @@ package com.baidu.tieba.yuyinala.liveroom.wheat.dialog;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.support.annotation.IdRes;
-import android.support.annotation.Nullable;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import androidx.annotation.IdRes;
+import androidx.annotation.Nullable;
 import com.baidu.live.adp.lib.safe.ShowUtil;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.util.UtilHelper;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public abstract class a {
-    private DialogInterface.OnDismissListener bFI;
-    protected Activity beD;
+    private DialogInterface.OnDismissListener bKw;
     private DialogInterface.OnCancelListener mCancelListenr;
+    protected Activity mContext;
     private AlertDialog mDialog;
     private View mView;
-    protected TbPageContext otA;
-    private boolean bFK = false;
-    private boolean bFL = false;
+    protected TbPageContext oAf;
+    private boolean bKy = false;
+    private boolean bKz = false;
     private int mDialogGravity = -1;
 
-    protected abstract boolean Ty();
+    protected abstract boolean UD();
 
-    protected abstract boolean Tz();
+    protected abstract boolean UE();
 
     protected abstract int getDialogMargin();
 
@@ -37,37 +37,37 @@ public abstract class a {
     protected abstract void initData();
 
     public a(TbPageContext tbPageContext) {
-        this.otA = tbPageContext;
-        this.beD = tbPageContext.getPageActivity();
+        this.oAf = tbPageContext;
+        this.mContext = tbPageContext.getPageActivity();
     }
 
     public a(Activity activity) {
-        this.beD = activity;
+        this.mContext = activity;
     }
 
     public void show() {
         if (this.mDialog != null) {
-            ShowUtil.showDialog(this.mDialog, this.beD);
+            ShowUtil.showDialog(this.mDialog, this.mContext);
             return;
         }
-        if (this.bFK) {
-            if (this.bFL) {
-                this.mDialog = new AlertDialog.Builder(this.beD, a.i.sdk_search_dialog_from_bottom_in).create();
+        if (this.bKy) {
+            if (this.bKz) {
+                this.mDialog = new AlertDialog.Builder(this.mContext, a.i.sdk_search_dialog_from_bottom_in).create();
             } else {
-                this.mDialog = new AlertDialog.Builder(this.beD, a.i.sdk_search_dialog).create();
+                this.mDialog = new AlertDialog.Builder(this.mContext, a.i.sdk_search_dialog).create();
             }
         } else {
-            this.mDialog = new AlertDialog.Builder(this.beD).create();
+            this.mDialog = new AlertDialog.Builder(this.mContext).create();
         }
-        this.mDialog.setCanceledOnTouchOutside(Ty());
-        this.mDialog.setCancelable(Tz());
+        this.mDialog.setCanceledOnTouchOutside(UD());
+        this.mDialog.setCancelable(UE());
         if (this.mCancelListenr != null) {
             this.mDialog.setOnCancelListener(this.mCancelListenr);
         }
-        if (this.bFI != null) {
-            this.mDialog.setOnDismissListener(this.bFI);
+        if (this.bKw != null) {
+            this.mDialog.setOnDismissListener(this.bKw);
         }
-        ShowUtil.showDialog(this.mDialog, this.beD);
+        ShowUtil.showDialog(this.mDialog, this.mContext);
         if (this.mDialog.getWindow().getDecorView().getParent() != null) {
             Window window = this.mDialog.getWindow();
             if (this.mDialogGravity == -1) {
@@ -78,10 +78,10 @@ public abstract class a {
             WindowManager.LayoutParams attributes = window.getAttributes();
             attributes.dimAmount = 0.7f;
             attributes.width = -1;
-            DisplayMetrics screenSize = BdUtilHelper.getScreenSize(this.beD);
+            DisplayMetrics screenSize = BdUtilHelper.getScreenSize(this.mContext);
             if (screenSize != null) {
                 int dialogMargin = getDialogMargin();
-                if (UtilHelper.getRealScreenOrientation(this.beD) == 2) {
+                if (UtilHelper.getRealScreenOrientation(this.mContext) == 2) {
                     attributes.width = screenSize.heightPixels - (dialogMargin * 2);
                 } else {
                     attributes.width = screenSize.widthPixels - (dialogMargin * 2);
@@ -112,27 +112,27 @@ public abstract class a {
 
     public void dismiss() {
         if (this.mDialog != null) {
-            ShowUtil.dismissDialog(this.mDialog, this.beD);
+            ShowUtil.dismissDialog(this.mDialog, this.mContext);
         }
     }
 
     public a g(DialogInterface.OnDismissListener onDismissListener) {
-        this.bFI = onDismissListener;
+        this.bKw = onDismissListener;
         return this;
     }
 
-    public a NR(int i) {
+    public a NH(int i) {
         this.mDialogGravity = i;
         return this;
     }
 
-    public a zS(boolean z) {
-        this.bFK = z;
+    public a zT(boolean z) {
+        this.bKy = z;
         return this;
     }
 
-    public a zT(boolean z) {
-        this.bFL = z;
+    public a zU(boolean z) {
+        this.bKz = z;
         return this;
     }
 }

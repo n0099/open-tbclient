@@ -1,7 +1,7 @@
 package com.baidu.m;
-/* loaded from: classes20.dex */
+/* loaded from: classes7.dex */
 public final class b {
-    public static com.baidu.m.c.a adl() {
-        return com.baidu.m.b.b.ado();
+    public static com.baidu.m.c.a afh() {
+        return com.baidu.m.b.b.afk();
     }
 }

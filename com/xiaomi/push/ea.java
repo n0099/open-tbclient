@@ -5,22 +5,22 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-/* loaded from: classes18.dex */
+/* loaded from: classes6.dex */
 public class ea extends ed {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4640a;
+    private String f14258a;
 
     public ea(Context context, int i, String str) {
         super(context, i);
-        this.f4640a = str;
+        this.f14258a = str;
     }
 
     private String[] a() {
-        if (!TextUtils.isEmpty(this.f4640a)) {
-            String b = bc.b(this.f4640a);
-            if (!TextUtils.isEmpty(b)) {
-                return b.contains(",") ? b.split(",") : new String[]{b};
+        if (!TextUtils.isEmpty(this.f14258a)) {
+            String b2 = bc.b(this.f14258a);
+            if (!TextUtils.isEmpty(b2)) {
+                return b2.contains(",") ? b2.split(",") : new String[]{b2};
             }
         }
         return null;
@@ -28,24 +28,24 @@ public class ea extends ed {
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo159a() {
+    public int mo185a() {
         return 24;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public ho mo159a() {
+    public ho mo185a() {
         return ho.AppIsInstalled;
     }
 
     @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo159a() {
+    public String mo185a() {
         String[] a2 = a();
         if (a2 == null || a2.length <= 0) {
             return null;
         }
-        PackageManager packageManager = this.f232a.getPackageManager();
+        PackageManager packageManager = this.f310a.getPackageManager();
         StringBuilder sb = new StringBuilder();
         for (String str : a2) {
             try {

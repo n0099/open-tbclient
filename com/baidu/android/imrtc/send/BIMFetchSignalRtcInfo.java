@@ -1,12 +1,12 @@
 package com.baidu.android.imrtc.send;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import com.baidu.android.imrtc.BIMRtcInfo;
 import com.baidu.android.imrtc.utils.LogUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationConstants;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes6.dex */
 public class BIMFetchSignalRtcInfo extends BIMRtcInfo {
     private static final String TAG = "BIMFetchSignalRtcInfo";
     private long mFetchTime;

@@ -16,7 +16,7 @@ import java.security.SecureRandom;
 import java.util.Calendar;
 import javax.crypto.Cipher;
 import javax.security.auth.x500.X500Principal;
-/* loaded from: classes10.dex */
+/* loaded from: classes7.dex */
 public class b {
     public static boolean a(Context context, boolean z) {
         try {
@@ -74,9 +74,9 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String a(Context context, String str) {
-        byte[] b = b(context);
-        if (b != null) {
-            return a.a(b, str);
+        byte[] b2 = b(context);
+        if (b2 != null) {
+            return a.a(b2, str);
         }
         return null;
     }
@@ -101,11 +101,11 @@ public class b {
                     a(Base64.encodeToString(cipher.doFinal(bArr), 0));
                 }
             } else {
-                String b = b();
-                if (TextUtils.isEmpty(b)) {
+                String b2 = b();
+                if (TextUtils.isEmpty(b2)) {
                     bArr = null;
                 } else {
-                    byte[] decode = Base64.decode(b, 0);
+                    byte[] decode = Base64.decode(b2, 0);
                     PrivateKey privateKey = (PrivateKey) keyStore.getKey("CMCC_SDK", null);
                     if (privateKey != null) {
                         Cipher cipher2 = Cipher.getInstance("RSA/ECB/PKCS1Padding");
@@ -121,11 +121,11 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String b(Context context, String str) {
-        byte[] b;
-        if (TextUtils.isEmpty(str) || (b = b(context)) == null) {
+        byte[] b2;
+        if (TextUtils.isEmpty(str) || (b2 = b(context)) == null) {
             return null;
         }
-        return a.f(b, str);
+        return a.b(b2, str);
     }
 
     private static void a(String str) {

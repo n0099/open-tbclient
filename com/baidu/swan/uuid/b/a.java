@@ -11,7 +11,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static boolean saveFile(String str, File file) {
         File parentFile;
@@ -93,36 +93,38 @@ public class a {
         }
     }
 
-    public static String s(File file) {
-        FileReader fileReader;
+    public static String w(File file) {
         Throwable th;
+        FileReader fileReader;
+        FileReader fileReader2;
         String str = null;
         if (file != null && file.exists()) {
             try {
-                fileReader = new FileReader(file);
+                fileReader2 = new FileReader(file);
             } catch (Exception e) {
-                fileReader = null;
+                fileReader2 = null;
             } catch (Throwable th2) {
-                fileReader = null;
                 th = th2;
+                fileReader = null;
             }
             try {
                 char[] cArr = new char[256];
                 CharArrayWriter charArrayWriter = new CharArrayWriter();
                 while (true) {
-                    int read = fileReader.read(cArr);
+                    int read = fileReader2.read(cArr);
                     if (read <= 0) {
                         break;
                     }
                     charArrayWriter.write(cArr, 0, read);
                 }
                 str = charArrayWriter.toString();
-                closeSafely(fileReader);
+                closeSafely(fileReader2);
             } catch (Exception e2) {
-                closeSafely(fileReader);
+                closeSafely(fileReader2);
                 return str;
             } catch (Throwable th3) {
                 th = th3;
+                fileReader = fileReader2;
                 closeSafely(fileReader);
                 throw th;
             }

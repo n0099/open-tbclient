@@ -1,97 +1,92 @@
 package com.baidu.tieba.frs.view;
 
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.ListAdapter;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
-import tbclient.FrsTabInfo;
-/* loaded from: classes22.dex */
-public class d {
-    private TextView cRf;
-    private com.baidu.tbadk.core.dialog.a iWL;
-    private TextView iWM;
-    private ImageView igT;
-    private boolean mIsChecked;
-    private TextView mTitleView;
+import com.baidu.tieba.frs.FrsSchoolRecommendItemView;
+import com.baidu.tieba.frs.ay;
+import com.baidu.tieba.frs.x;
+import com.baidu.tieba.horizonalList.widget.HListView;
+import java.util.List;
+/* loaded from: classes2.dex */
+public class d extends com.baidu.tieba.card.c<x> {
+    private View.OnClickListener akV;
+    private com.baidu.tieba.horizonalList.widget.b ivk;
+    private HListView jOO;
+    public FrsSchoolRecommendItemView jOP;
+    private List<com.baidu.tieba.horizonalList.widget.c> jOQ;
 
-    public void a(TbPageContext tbPageContext, final FrsTabInfo frsTabInfo, final FrsTabInfo frsTabInfo2) {
-        if (frsTabInfo != null && frsTabInfo2 != null) {
-            if (this.iWL == null || !this.iWL.isShowing()) {
-                this.iWL = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-                this.iWL.oT(1);
-                this.iWL.oS(R.color.CAM_X0105);
-                View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.call_fans_dialog_content, (ViewGroup) null);
-                this.mTitleView = (TextView) inflate.findViewById(R.id.title);
-                this.mTitleView.setText(R.string.frs_move_area_popup_title);
-                this.cRf = (TextView) inflate.findViewById(R.id.call_fans_intro);
-                if (frsTabInfo.is_general_tab.intValue() == 0) {
-                    this.cRf.setText(String.format(tbPageContext.getString(R.string.frs_move_area_popup_content_other), frsTabInfo.tab_name, frsTabInfo2.tab_name, frsTabInfo.tab_name, frsTabInfo2.tab_name));
-                } else {
-                    this.cRf.setText(String.format(tbPageContext.getString(R.string.frs_move_area_popup_content), frsTabInfo.tab_name, frsTabInfo2.tab_name, frsTabInfo.tab_name));
+    public d(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext);
+        this.akV = new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.d.1
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                if (d.this.cuC() != null) {
+                    d.this.cuC().a(view, null);
                 }
-                this.igT = (ImageView) inflate.findViewById(R.id.checkbox);
-                this.iWM = (TextView) inflate.findViewById(R.id.no_tip_again_text);
-                inflate.findViewById(R.id.no_tip_again_group).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.d.1
-                    @Override // android.view.View.OnClickListener
-                    public void onClick(View view) {
-                        d.this.mIsChecked = !d.this.mIsChecked;
-                        d.this.brs();
-                    }
-                });
-                onChangeSkinType();
-                this.iWL.bi(inflate);
-                this.iWL.a(tbPageContext.getString(R.string.frs_move_area_popup_confirm), new a.b() { // from class: com.baidu.tieba.frs.view.d.2
-                    @Override // com.baidu.tbadk.core.dialog.a.b
-                    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-                        com.baidu.tbadk.core.sharedPref.b.bsO().putBoolean("key_frs_move_area_tip", !d.this.mIsChecked);
-                        com.baidu.tieba.frs.a.cAX().co(frsTabInfo.tab_id.intValue(), frsTabInfo2.tab_id.intValue());
-                        d.this.iWL.dismiss();
-                        d.this.iWL = null;
-                    }
-                });
-                this.iWL.b(tbPageContext.getString(R.string.next_time), new a.b() { // from class: com.baidu.tieba.frs.view.d.3
-                    @Override // com.baidu.tbadk.core.dialog.a.b
-                    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-                        d.this.iWL.dismiss();
-                        d.this.iWL = null;
-                    }
-                });
-                this.iWL.b(tbPageContext).brv();
             }
+        };
+        this.jOO = new HListView(getContext());
+        this.jOO.setHeaderDividersEnabled(false);
+        this.jOO.setFooterDividersEnabled(false);
+        this.jOO.setSelector(R.drawable.list_selector_transparent);
+        this.jOP = new FrsSchoolRecommendItemView(LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.frs_school_recommend_user, (ViewGroup) null), tbPageContext, bdUniqueId);
+        this.ivk = new com.baidu.tieba.horizonalList.widget.b(getContext(), R.layout.frs_school_recommend_user, this.jOP);
+        this.ivk.setOnClickListener(this.akV);
+        this.jOO.setAdapter((ListAdapter) this.ivk);
+        this.itF.addView(this.jOO);
+        this.itE.setVisibility(8);
+        this.ity.setTextSize(0, l.getDimens(tbPageContext.getPageActivity(), R.dimen.ds28));
+    }
+
+    @Override // com.baidu.tieba.card.c, com.baidu.tieba.card.b
+    public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
+        super.onChangeSkinType(tbPageContext, i);
+        if (this.jOO != null && this.ivk != null) {
+            ao.setViewTextColor(this.ity, R.color.CAM_X0109);
+            this.ivk.onSkinTypeChanged(i);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void brs() {
-        Drawable a2;
-        if (this.igT != null) {
-            ImageView imageView = this.igT;
-            if (this.mIsChecked) {
-                a2 = SvgManager.btW().a(R.drawable.ic_icon_mask_use_complete16_svg, null);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.card.c
+    public void a(x xVar) {
+        super.a((d) xVar);
+        if (xVar != null && !com.baidu.tbadk.core.util.x.isEmpty(xVar.getDataList())) {
+            if (StringUtils.isNull(xVar.mGroupTitle)) {
+                this.ity.setText(getContext().getResources().getString(R.string.school_recommend));
             } else {
-                a2 = SvgManager.btW().a(R.drawable.ic_icon_mask_use_check16_svg, null);
+                this.ity.setText(xVar.mGroupTitle);
             }
-            imageView.setImageDrawable(a2);
+            if (dK(xVar.getDataList())) {
+                this.jOQ = xVar.getDataList();
+                this.ivk.setData(this.jOQ);
+                this.ivk.notifyDataSetChanged();
+            }
         }
     }
 
-    private void onChangeSkinType() {
-        if (this.mTitleView != null) {
-            ap.setViewTextColor(this.mTitleView, R.color.CAM_X0105);
+    private boolean dK(List<com.baidu.tieba.horizonalList.widget.c> list) {
+        if (com.baidu.tbadk.core.util.x.isEmpty(list)) {
+            return false;
         }
-        if (this.cRf != null) {
-            ap.setViewTextColor(this.cRf, R.color.CAM_X0107);
+        if (!com.baidu.tbadk.core.util.x.isEmpty(this.jOQ) && com.baidu.tbadk.core.util.x.getCount(this.jOQ) == com.baidu.tbadk.core.util.x.getCount(list)) {
+            for (int i = 0; i < com.baidu.tbadk.core.util.x.getCount(this.jOQ); i++) {
+                com.baidu.tieba.horizonalList.widget.c cVar = (com.baidu.tieba.horizonalList.widget.c) com.baidu.tbadk.core.util.x.getItem(this.jOQ, i);
+                com.baidu.tieba.horizonalList.widget.c cVar2 = (com.baidu.tieba.horizonalList.widget.c) com.baidu.tbadk.core.util.x.getItem(list, i);
+                if ((cVar instanceof ay) && (cVar2 instanceof ay) && !((ay) cVar).metaData.getUserId().equals(((ay) cVar2).metaData.getUserId())) {
+                    return true;
+                }
+            }
+            return false;
         }
-        brs();
-        if (this.iWM != null) {
-            ap.setViewTextColor(this.iWM, R.color.CAM_X0107);
-        }
+        return true;
     }
 }

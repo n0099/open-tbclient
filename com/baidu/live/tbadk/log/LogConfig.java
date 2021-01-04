@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.log;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class LogConfig {
     public static final String CONNECT_FAIL = "connectFail";
     public static final String CONNECT_SUCC = "connectSucc";
@@ -51,6 +51,7 @@ public class LogConfig {
     public static final String LOG_CONTENT = "content";
     public static final String LOG_ENTER = "enter";
     public static final String LOG_ENTRY = "entry";
+    public static final String LOG_ERROR_MSG = "error_msg";
     public static final String LOG_EXT = "ext";
     public static final String LOG_EXT_LOG = "ext_log";
     public static final String LOG_FROM = "from";
@@ -88,10 +89,12 @@ public class LogConfig {
     public static final String LOG_TYPE = "type";
     public static final String LOG_URL = "url";
     public static final String LOG_V = "v";
+    public static final String LOG_VALUE = "value";
     public static final String LOG_VID = "vid";
     public static final String LOG_VIDEOTYPE = "videotype";
     public static final String LOG_VIDEO_TYPE = "video_type";
     public static final String LOG_VTIME = "vtime";
+    public static final int PARAM_LOG_TYPE_EXCEPTION = 3;
     public static final int PARAM_LOG_TYPE_PACKAGE = 1;
     public static final int PARAM_LOG_TYPE_REALTIME = 0;
     public static final int PARAM_LOG_TYPE_SHOWFEED = 2;
@@ -105,6 +108,7 @@ public class LogConfig {
     public static final String TAB_LIVE_LIST_DETAIL = "live_list_detail";
     public static final String TAB_LIVE_RECORD = "live_record";
     public static final String TAB_LIVE_ROOM = "liveroom";
+    public static final String TYPE_CLOSED = "closed";
     public static final String TYPE_LIVE = "live";
     public static final String TYPE_PLAYBACK = "playback";
     public static final String VALUE_AUDIENCE_HEAD = "audience_head";

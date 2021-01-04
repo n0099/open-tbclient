@@ -18,7 +18,7 @@ import com.google.zxing.qrcode.decoder.QRCodeDecoderMetaData;
 import com.google.zxing.qrcode.detector.Detector;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class QRCodeReader implements Reader {
     private static final ResultPoint[] NO_POINTS = new ResultPoint[0];
     private final Decoder decoder = new Decoder();
@@ -127,32 +127,30 @@ public class QRCodeReader implements Reader {
     }
 
     private static float moduleSize(int[] iArr, BitMatrix bitMatrix) throws NotFoundException {
-        boolean z;
+        int i;
         int height = bitMatrix.getHeight();
         int width = bitMatrix.getWidth();
-        int i = iArr[0];
-        boolean z2 = true;
-        int i2 = iArr[1];
-        int i3 = i;
-        int i4 = 0;
-        while (i3 < width && i2 < height) {
-            if (z2 != bitMatrix.get(i3, i2)) {
-                int i5 = i4 + 1;
-                if (i5 == 5) {
+        int i2 = iArr[0];
+        int i3 = 0;
+        boolean z = true;
+        int i4 = iArr[1];
+        while (i2 < width && i4 < height) {
+            if (z != bitMatrix.get(i2, i4)) {
+                i = i3 + 1;
+                if (i == 5) {
                     break;
                 }
-                z = !z2;
-                i4 = i5;
+                z = !z;
             } else {
-                z = z2;
+                i = i3;
             }
-            i3++;
             i2++;
-            z2 = z;
+            i4++;
+            i3 = i;
         }
-        if (i3 == width || i2 == height) {
+        if (i2 == width || i4 == height) {
             throw NotFoundException.getNotFoundInstance();
         }
-        return (i3 - iArr[0]) / 7.0f;
+        return (i2 - iArr[0]) / 7.0f;
     }
 }

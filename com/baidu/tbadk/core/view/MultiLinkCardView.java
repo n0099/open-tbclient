@@ -12,32 +12,32 @@ import com.baidu.tbadk.core.data.PbGoodsData;
 import com.baidu.tbadk.core.data.PbLinkData;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.y;
-import com.baidu.tbadk.util.af;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.util.ae;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class MultiLinkCardView extends RelativeLayout {
-    private TextView eZY;
-    private TextView eZZ;
-    private TextView faa;
-    private RelativeLayout fab;
-    private RelativeLayout fac;
-    private RelativeLayout fad;
-    private TbImageView fae;
-    private TbImageView faf;
-    private TbImageView fag;
-    private TextView fah;
-    private TextView fai;
-    private ImageView faj;
-    private List<RelativeLayout> fak;
-    private List<TbImageView> fal;
-    private List<TextView> fam;
-    private static final int eZX = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds136);
-    private static final int bka = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10);
+    private TextView fjC;
+    private TextView fjD;
+    private TextView fjE;
+    private RelativeLayout fjF;
+    private RelativeLayout fjG;
+    private RelativeLayout fjH;
+    private TbImageView fjI;
+    private TbImageView fjJ;
+    private TbImageView fjK;
+    private TextView fjL;
+    private TextView fjM;
+    private ImageView fjN;
+    private List<RelativeLayout> fjO;
+    private List<TbImageView> fjP;
+    private List<TextView> fjQ;
+    private static final int fjB = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds136);
+    private static final int blE = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10);
 
     public MultiLinkCardView(Context context) {
         this(context, null);
@@ -50,101 +50,101 @@ public class MultiLinkCardView extends RelativeLayout {
     public MultiLinkCardView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         LayoutInflater.from(context).inflate(R.layout.multi_link_card_layout, this);
-        this.fab = (RelativeLayout) findViewById(R.id.rl_multi_link_first);
-        this.fac = (RelativeLayout) findViewById(R.id.rl_multi_link_second);
-        this.fad = (RelativeLayout) findViewById(R.id.rl_multi_link_third);
-        this.eZY = (TextView) findViewById(R.id.goods_from_tag_first);
-        this.eZZ = (TextView) findViewById(R.id.goods_from_tag_second);
-        this.faa = (TextView) findViewById(R.id.goods_from_tag_third);
-        this.fae = (TbImageView) findViewById(R.id.iv_multi_link_first_icon);
-        this.fae.setDrawCorner(true);
-        this.fae.setGifIconSupport(false);
-        this.fae.setLongIconSupport(false);
-        this.fae.setConrers(15);
-        this.fae.setPlaceHolder(1);
-        this.fae.setRadius(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds10));
-        this.faf = (TbImageView) findViewById(R.id.iv_multi_link_second_icon);
-        this.faf.setDrawCorner(true);
-        this.faf.setGifIconSupport(false);
-        this.faf.setLongIconSupport(false);
-        this.faf.setConrers(15);
-        this.faf.setPlaceHolder(1);
-        this.faf.setRadius(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds10));
-        this.fag = (TbImageView) findViewById(R.id.iv_multi_link_third_icon);
-        this.fag.setDrawCorner(true);
-        this.fag.setGifIconSupport(false);
-        this.fag.setLongIconSupport(false);
-        this.fag.setPlaceHolder(1);
-        this.fag.setConrers(15);
-        this.fag.setRadius(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds10));
-        this.fah = (TextView) findViewById(R.id.tv_multi_link_more_link_count);
-        float[] ph = com.baidu.tbadk.core.elementsMaven.a.ph(R.array.S_O_X001);
-        this.fah.setShadowLayer(ph[1], ph[2], ph[3], (int) ph[0]);
-        this.fai = (TextView) findViewById(R.id.tv_multi_link_count);
-        this.faj = (ImageView) findViewById(R.id.iv_multi_link_right_arrow);
-        this.fam = new ArrayList();
-        this.fal = new ArrayList();
-        this.fak = new ArrayList();
-        this.fak.add(this.fab);
-        this.fak.add(this.fac);
-        this.fak.add(this.fad);
-        this.fal.add(this.fae);
-        this.fal.add(this.faf);
-        this.fal.add(this.fag);
-        this.fam.add(this.eZY);
-        this.fam.add(this.eZZ);
-        this.fam.add(this.faa);
+        this.fjF = (RelativeLayout) findViewById(R.id.rl_multi_link_first);
+        this.fjG = (RelativeLayout) findViewById(R.id.rl_multi_link_second);
+        this.fjH = (RelativeLayout) findViewById(R.id.rl_multi_link_third);
+        this.fjC = (TextView) findViewById(R.id.goods_from_tag_first);
+        this.fjD = (TextView) findViewById(R.id.goods_from_tag_second);
+        this.fjE = (TextView) findViewById(R.id.goods_from_tag_third);
+        this.fjI = (TbImageView) findViewById(R.id.iv_multi_link_first_icon);
+        this.fjI.setDrawCorner(true);
+        this.fjI.setGifIconSupport(false);
+        this.fjI.setLongIconSupport(false);
+        this.fjI.setConrers(15);
+        this.fjI.setPlaceHolder(1);
+        this.fjI.setRadius(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds10));
+        this.fjJ = (TbImageView) findViewById(R.id.iv_multi_link_second_icon);
+        this.fjJ.setDrawCorner(true);
+        this.fjJ.setGifIconSupport(false);
+        this.fjJ.setLongIconSupport(false);
+        this.fjJ.setConrers(15);
+        this.fjJ.setPlaceHolder(1);
+        this.fjJ.setRadius(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds10));
+        this.fjK = (TbImageView) findViewById(R.id.iv_multi_link_third_icon);
+        this.fjK.setDrawCorner(true);
+        this.fjK.setGifIconSupport(false);
+        this.fjK.setLongIconSupport(false);
+        this.fjK.setPlaceHolder(1);
+        this.fjK.setConrers(15);
+        this.fjK.setRadius(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds10));
+        this.fjL = (TextView) findViewById(R.id.tv_multi_link_more_link_count);
+        float[] ps = com.baidu.tbadk.core.elementsMaven.a.ps(R.array.S_O_X001);
+        this.fjL.setShadowLayer(ps[1], ps[2], ps[3], (int) ps[0]);
+        this.fjM = (TextView) findViewById(R.id.tv_multi_link_count);
+        this.fjN = (ImageView) findViewById(R.id.iv_multi_link_right_arrow);
+        this.fjQ = new ArrayList();
+        this.fjP = new ArrayList();
+        this.fjO = new ArrayList();
+        this.fjO.add(this.fjF);
+        this.fjO.add(this.fjG);
+        this.fjO.add(this.fjH);
+        this.fjP.add(this.fjI);
+        this.fjP.add(this.fjJ);
+        this.fjP.add(this.fjK);
+        this.fjQ.add(this.fjC);
+        this.fjQ.add(this.fjD);
+        this.fjQ.add(this.fjE);
         onChangeSkinType();
     }
 
-    public void l(List<PbLinkData> list, List<PbGoodsData> list2) {
+    public void n(List<PbLinkData> list, List<PbGoodsData> list2) {
         new ArrayList();
-        af afVar = new af();
-        List<com.baidu.tieba.card.data.c> n = afVar.n(list, list2);
-        boolean bGQ = afVar.bGQ();
-        if (!y.isEmpty(n)) {
-            if (com.baidu.tbadk.a.d.bkq()) {
-                com.baidu.tbadk.core.util.e.a.buz().l(R.color.CAM_X0601, R.color.CAM_X0606).ac(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds10)).bq(this.fah);
+        ae aeVar = new ae();
+        List<com.baidu.tieba.card.data.c> p = aeVar.p(list, list2);
+        boolean bJj = aeVar.bJj();
+        if (!x.isEmpty(p)) {
+            if (com.baidu.tbadk.a.d.bmE()) {
+                com.baidu.tbadk.core.util.f.a.bwU().m(R.color.CAM_X0601, R.color.CAM_X0606).ae(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds10)).bz(this.fjL);
             }
-            this.fab.setVisibility(8);
-            this.fac.setVisibility(8);
-            this.fad.setVisibility(8);
-            this.fah.setVisibility(8);
-            int size = n.size() > 3 ? 3 : n.size();
+            this.fjF.setVisibility(8);
+            this.fjG.setVisibility(8);
+            this.fjH.setVisibility(8);
+            this.fjL.setVisibility(8);
+            int size = p.size() > 3 ? 3 : p.size();
             for (int i = 0; i < size; i++) {
-                if (n.get(i) instanceof PbLinkData) {
-                    PbLinkData pbLinkData = (PbLinkData) n.get(i);
-                    if (i < n.size() && pbLinkData != null) {
-                        this.fak.get(i).setVisibility(0);
-                        this.fal.get(i).startLoad(pbLinkData.picUrl, 10, false);
+                if (p.get(i) instanceof PbLinkData) {
+                    PbLinkData pbLinkData = (PbLinkData) p.get(i);
+                    if (i < p.size() && pbLinkData != null) {
+                        this.fjO.get(i).setVisibility(0);
+                        this.fjP.get(i).startLoad(pbLinkData.picUrl, 10, false);
                         if (pbLinkData.urlType == 2 && !TextUtils.isEmpty(pbLinkData.linkFrom)) {
-                            this.fam.get(i).setText(pbLinkData.linkFrom);
-                            this.fam.get(i).setVisibility(0);
+                            this.fjQ.get(i).setText(pbLinkData.linkFrom);
+                            this.fjQ.get(i).setVisibility(0);
                         }
                     }
-                } else if (n.get(i) instanceof PbGoodsData) {
-                    PbGoodsData pbGoodsData = (PbGoodsData) n.get(i);
-                    if (i < n.size() && pbGoodsData != null) {
-                        this.fak.get(i).setVisibility(0);
-                        this.fal.get(i).startLoad(pbGoodsData.picUrl, 10, false);
+                } else if (p.get(i) instanceof PbGoodsData) {
+                    PbGoodsData pbGoodsData = (PbGoodsData) p.get(i);
+                    if (i < p.size() && pbGoodsData != null) {
+                        this.fjO.get(i).setVisibility(0);
+                        this.fjP.get(i).startLoad(pbGoodsData.picUrl, 10, false);
                     }
                 }
-                if (n.size() > 3 && i == 2) {
-                    this.fah.setText(getContext().getString(R.string.constrain_image_extra_text, Integer.valueOf(n.size() - 3)));
-                    this.fah.setVisibility(0);
+                if (p.size() > 3 && i == 2) {
+                    this.fjL.setText(getContext().getString(R.string.constrain_image_extra_text, Integer.valueOf(p.size() - 3)));
+                    this.fjL.setVisibility(0);
                 }
             }
-            this.fai.setText(getContext().getString(bGQ ? R.string.multi_goods_count : R.string.multi_link_count, Integer.valueOf(n.size())));
+            this.fjM.setText(getContext().getString(bJj ? R.string.multi_goods_count : R.string.multi_link_count, Integer.valueOf(p.size())));
         }
     }
 
     public void onChangeSkinType() {
-        ap.setBackgroundResource(this, R.drawable.bg_link_card);
-        ap.setViewTextColor(this.fai, R.color.CAM_X0107);
-        SvgManager.btW().a(this.faj, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
-        for (int i = 0; i < this.fam.size(); i++) {
-            ap.setViewTextColor(this.fam.get(i), R.color.CAM_X0101);
-            com.baidu.tbadk.core.util.e.a.buz().qf(0).qg(R.color.cp_link_tip_d_alpha66).ag(UtilHelper.getDimenPixelSize(R.dimen.tbds5)).af(UtilHelper.getDimenPixelSize(R.dimen.tbds10)).ae(UtilHelper.getDimenPixelSize(R.dimen.tbds5)).ad(UtilHelper.getDimenPixelSize(R.dimen.tbds5)).bq(this.fam.get(i));
+        ao.setBackgroundResource(this, R.drawable.bg_link_card);
+        ao.setViewTextColor(this.fjM, R.color.CAM_X0107);
+        SvgManager.bwq().a(this.fjN, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
+        for (int i = 0; i < this.fjQ.size(); i++) {
+            ao.setViewTextColor(this.fjQ.get(i), R.color.CAM_X0101);
+            com.baidu.tbadk.core.util.f.a.bwU().qq(0).qr(R.color.cp_link_tip_d_alpha66).ai(UtilHelper.getDimenPixelSize(R.dimen.tbds5)).ah(UtilHelper.getDimenPixelSize(R.dimen.tbds10)).ag(UtilHelper.getDimenPixelSize(R.dimen.tbds5)).af(UtilHelper.getDimenPixelSize(R.dimen.tbds5)).bz(this.fjQ.get(i));
         }
     }
 }

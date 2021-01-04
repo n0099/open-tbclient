@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes6.dex */
 public class StandardMessageCodec implements MessageCodec<Object> {
     private static final byte BIGINT = 5;
     private static final byte BYTE_ARRAY = 8;
@@ -254,9 +254,9 @@ public class StandardMessageCodec implements MessageCodec<Object> {
         return readValueOfType(byteBuffer.get(), byteBuffer);
     }
 
-    protected Object readValueOfType(byte b, ByteBuffer byteBuffer) {
+    protected Object readValueOfType(byte b2, ByteBuffer byteBuffer) {
         int i = 0;
-        switch (b) {
+        switch (b2) {
             case 0:
                 return null;
             case 1:
@@ -318,7 +318,7 @@ public class StandardMessageCodec implements MessageCodec<Object> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes6.dex */
     static final class ExposedByteArrayOutputStream extends ByteArrayOutputStream {
         /* JADX INFO: Access modifiers changed from: package-private */
         public byte[] buffer() {

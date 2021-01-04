@@ -2,7 +2,7 @@ package com.baidu.searchbox.account.params;
 
 import com.baidu.searchbox.account.contants.AccountConstants;
 import com.baidu.searchbox.account.data.UserAccountActionItem;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public final class LogoutParams {
     public final UserAccountActionItem mLogoutSrc;
 
@@ -14,7 +14,7 @@ public final class LogoutParams {
         return this.mLogoutSrc != null ? this.mLogoutSrc.toString() : super.toString();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public static class Builder {
         private UserAccountActionItem mLogoutSrc;
 

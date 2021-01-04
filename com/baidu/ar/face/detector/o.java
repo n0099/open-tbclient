@@ -2,7 +2,7 @@ package com.baidu.ar.face.detector;
 
 import com.baidu.ar.face.algo.FaceAlgoData;
 import com.baidu.ar.face.detector.FaceDetector;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class o extends com.baidu.ar.c.a<n> {
     private String oj = "face_track";
     private a oo;

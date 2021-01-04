@@ -1,71 +1,90 @@
 package com.baidu.live.r;
 
-import com.baidu.live.adp.lib.asynctask.BdAsyncTask;
-import com.baidu.live.adp.lib.util.BdLog;
-import com.baidu.live.data.PersonUserData;
-import com.baidu.live.tbadk.TbConfig;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import android.text.TextUtils;
+import android.util.Base64;
+import android.util.Log;
+import com.baidu.live.adp.framework.MessageManager;
+import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import com.baidu.live.tbadk.core.data.ErrorData;
-import com.baidu.live.tbadk.core.util.NetWork;
-import com.baidu.live.tbadk.core.util.httpnet.HttpRequest;
+import com.baidu.live.tbadk.log.LogConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class a extends BdAsyncTask<String, Void, b> {
-    private c bty;
-
-    public a(c cVar) {
-        this.bty = cVar;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
-    /* renamed from: m */
-    public b doInBackground(String... strArr) {
-        b bVar = new b();
-        NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "ala/user/getUserInfoSDK");
-        netWork.addPostData("user_id", strArr[0]);
-        netWork.addPostData("anchor_id", strArr[1]);
-        netWork.addPostData("group_id", strArr[2]);
-        netWork.addPostData("meta_key", strArr[3]);
-        netWork.addPostData("show_name", strArr[4]);
-        netWork.addPostData(HttpRequest.SDK_VERSION, TbConfig.SDK_VERSION);
-        netWork.addPostData("tbs", TbadkCoreApplication.getInst().getTbs());
-        netWork.addPostData(HttpRequest.LIVE_SCENE, TbConfig.liveScene + "");
-        String postNetData = netWork.postNetData();
-        if (netWork.isRequestSuccess()) {
-            ErrorData errorData = new ErrorData();
-            if (postNetData != null) {
-                try {
-                    JSONObject jSONObject = new JSONObject(postNetData);
-                    JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                    errorData.parserJson(jSONObject);
-                    bVar.errCode = errorData.error_code;
-                    bVar.errMsg = errorData.error_msg;
-                    if (optJSONObject != null) {
-                        bVar.btz = new PersonUserData();
-                        bVar.btz.parserJson(optJSONObject);
+/* loaded from: classes11.dex */
+public class a {
+    private static Handler handler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.live.r.a.1
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            String str;
+            String str2;
+            switch (message.what) {
+                case 1:
+                    String[] strArr = (String[]) message.obj;
+                    String str3 = strArr[0];
+                    String str4 = strArr[1];
+                    if (strArr.length <= 2) {
+                        str2 = "";
+                    } else {
+                        str2 = strArr[2];
                     }
-                } catch (JSONException e) {
-                    BdLog.detailException(e);
-                }
+                    a.m(str3, str4, str2, null);
+                    return;
+                case 2:
+                    String[] strArr2 = (String[]) message.obj;
+                    String str5 = strArr2[0];
+                    String str6 = strArr2[1];
+                    if (strArr2.length <= 2) {
+                        str = "";
+                    } else {
+                        str = strArr2[2];
+                    }
+                    a.m(str5, str6, null, str);
+                    return;
+                default:
+                    return;
             }
         }
-        return bVar;
+    };
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public static void m(String str, String str2, String str3, String str4) {
+        HttpMessage httpMessage = new HttpMessage(1021128);
+        httpMessage.addParam("live_id", str);
+        httpMessage.addParam("content_type", str2);
+        if (!TextUtils.isEmpty(str4)) {
+            httpMessage.addParam("ext_data", str4);
+        } else if (!TextUtils.isEmpty(str3)) {
+            httpMessage.addParam("ext", str3);
+        }
+        MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(b bVar) {
-        if (this.bty != null && bVar != null) {
-            if (bVar.errCode == 0) {
-                this.bty.a(bVar.btz);
-            } else {
-                this.bty.s(bVar.errCode, bVar.errMsg);
-            }
+    public static void aE(String str, String str2) {
+        Message message = new Message();
+        message.what = 1;
+        message.obj = new String[]{str, str2};
+        handler.sendMessage(message);
+    }
+
+    public static void a(String str, long j, long j2, String str2) {
+        Message message = new Message();
+        message.what = 1;
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("live_id", str);
+            jSONObject.put("red_packet_id", j + "");
+            jSONObject.put("anchor_id", TbadkCoreApplication.getCurrentAccount());
+            jSONObject.put(LogConfig.LOG_AMOUNT, j2 + "");
+        } catch (JSONException e) {
         }
+        TbadkCoreApplication.getCurrentAccount();
+        message.obj = new String[]{str, str2, Base64.encodeToString(jSONObject.toString().getBytes(), 0)};
+        handler.sendMessage(message);
+    }
+
+    public static void init() {
+        Log.d("NoticeHelper", "@@ init");
     }
 }

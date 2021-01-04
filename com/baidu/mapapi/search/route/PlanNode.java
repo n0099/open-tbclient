@@ -3,31 +3,33 @@ package com.baidu.mapapi.search.route;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes26.dex */
+/* loaded from: classes15.dex */
 public class PlanNode implements Parcelable {
     public static final Parcelable.Creator<PlanNode> CREATOR = new m();
 
     /* renamed from: a  reason: collision with root package name */
-    private LatLng f2147a;
-    private String b;
+    private LatLng f3039a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private String f3040b;
     private String c;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public PlanNode(Parcel parcel) {
-        this.f2147a = null;
-        this.b = null;
+        this.f3039a = null;
+        this.f3040b = null;
         this.c = null;
-        this.f2147a = (LatLng) parcel.readValue(LatLng.class.getClassLoader());
-        this.b = parcel.readString();
+        this.f3039a = (LatLng) parcel.readValue(LatLng.class.getClassLoader());
+        this.f3040b = parcel.readString();
         this.c = parcel.readString();
     }
 
     PlanNode(LatLng latLng, String str, String str2) {
-        this.f2147a = null;
-        this.b = null;
+        this.f3039a = null;
+        this.f3040b = null;
         this.c = null;
-        this.f2147a = latLng;
-        this.b = str;
+        this.f3039a = latLng;
+        this.f3040b = str;
         this.c = str2;
     }
 
@@ -49,11 +51,11 @@ public class PlanNode implements Parcelable {
     }
 
     public String getCity() {
-        return this.b;
+        return this.f3040b;
     }
 
     public LatLng getLocation() {
-        return this.f2147a;
+        return this.f3039a;
     }
 
     public String getName() {
@@ -62,8 +64,8 @@ public class PlanNode implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeValue(this.f2147a);
-        parcel.writeString(this.b);
+        parcel.writeValue(this.f3039a);
+        parcel.writeString(this.f3040b);
         parcel.writeString(this.c);
     }
 }

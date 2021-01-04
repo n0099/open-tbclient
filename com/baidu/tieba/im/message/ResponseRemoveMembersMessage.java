@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import protobuf.DelGroupUsers.DelGroupUsersResIdl;
-/* loaded from: classes21.dex */
+/* loaded from: classes.dex */
 public class ResponseRemoveMembersMessage extends SocketResponsedMessage {
     private String groupId;
 

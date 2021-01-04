@@ -1,6 +1,7 @@
 package com.baidu.tieba.ad;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.adp.lib.f.e;
 import com.baidu.adp.lib.util.StringUtils;
@@ -14,26 +15,26 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Pattern;
-/* loaded from: classes21.dex */
+/* loaded from: classes.dex */
 public final class a implements i {
     private static final Pattern pattern = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
-    private static a fZu = new a();
+    private static a gjb = new a();
     private final List<i.a> mListeners = new LinkedList();
     private final ConcurrentHashMap<String, i.b> mHandlers = new ConcurrentHashMap<>();
-    private i.c fZv = null;
+    private i.c gjc = null;
 
     private a() {
     }
 
-    public static a bMn() {
-        return fZu;
+    public static a bOF() {
+        return gjb;
     }
 
     public void a(final i.a aVar) {
         if (l.isMainThread()) {
             b(aVar);
         } else {
-            e.mY().post(new Runnable() { // from class: com.baidu.tieba.ad.a.1
+            e.mB().post(new Runnable() { // from class: com.baidu.tieba.ad.a.1
                 @Override // java.lang.Runnable
                 public void run() {
                     a.this.b(aVar);
@@ -50,14 +51,14 @@ public final class a implements i {
     }
 
     public void a(i.c cVar) {
-        this.fZv = cVar;
+        this.gjc = cVar;
     }
 
-    public boolean a(Context context, String[] strArr, boolean z, i.d dVar, boolean z2) {
-        return a(context, "", strArr, z, dVar, z2);
+    public boolean a(Context context, String[] strArr, boolean z, i.d dVar, boolean z2, Bundle bundle) {
+        return a(context, "", strArr, z, dVar, z2, bundle);
     }
 
-    public int b(Context context, String[] strArr) {
+    public int c(Context context, String[] strArr) {
         int d;
         if (strArr == null || strArr.length == 0) {
             return 3;
@@ -70,22 +71,20 @@ public final class a implements i {
         return 3;
     }
 
-    public boolean a(Context context, String str, String[] strArr, boolean z, i.d dVar, boolean z2) {
-        boolean z3;
-        boolean z4;
+    public boolean a(Context context, String str, String[] strArr, boolean z, i.d dVar, boolean z2, Bundle bundle) {
         if (strArr == null || strArr.length == 0 || TextUtils.isEmpty(strArr[0])) {
             return false;
         }
+        boolean z3 = false;
         String str2 = strArr[0];
         i.b bVar = this.mHandlers.get(getSchemaKey(str2));
         if (bVar != null) {
-            bVar.l(context, getInnerParamPair(Fr(str2)));
+            bVar.l(context, getInnerParamPair(Fp(str2)));
             return true;
         }
         Iterator<i.a> it = this.mListeners.iterator();
         while (true) {
             if (!it.hasNext()) {
-                z3 = false;
                 break;
             }
             i.a next = it.next();
@@ -94,18 +93,16 @@ public final class a implements i {
                 break;
             }
         }
-        if (!z3 && this.fZv != null) {
+        if (!z3 && this.gjc != null) {
             if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
-                z4 = true;
-                return z4;
+                return true;
             }
-            a(context, str, strArr[0], z, dVar, z2);
+            a(context, str, strArr[0], z, dVar, z2, bundle);
         }
-        z4 = z3;
-        return z4;
+        return z3;
     }
 
-    private String Fr(String str) {
+    private String Fp(String str) {
         int lastIndexOf;
         if (!StringUtils.isNull(str) && (lastIndexOf = str.lastIndexOf(":")) >= 0) {
             return str.substring(lastIndexOf + 1);
@@ -143,23 +140,23 @@ public final class a implements i {
     }
 
     @Override // com.baidu.tieba.recapp.i
-    public boolean c(Context context, String[] strArr) {
-        return a(context, strArr, false, null, false);
+    public boolean a(Context context, String[] strArr, Bundle bundle) {
+        return a(context, strArr, false, null, false, bundle);
     }
 
     @Override // com.baidu.tieba.recapp.i
-    public void a(Context context, String[] strArr, boolean z) {
-        a(context, strArr, false, null, z);
+    public void a(Context context, String[] strArr, boolean z, Bundle bundle) {
+        a(context, strArr, false, null, z, bundle);
     }
 
-    private void a(Context context, String str, String str2, boolean z, i.d dVar, boolean z2) {
+    private void a(Context context, String str, String str2, boolean z, i.d dVar, boolean z2, Bundle bundle) {
         if (pattern.matcher(str2).find()) {
-            this.fZv.b(context, str, str2, z, dVar, z2);
+            this.gjc.b(context, str, str2, z, dVar, z2, bundle);
         }
     }
 
     @Override // com.baidu.tieba.recapp.i
-    public boolean Fs(String str) {
+    public boolean Fq(String str) {
         return pattern.matcher(str).find();
     }
 }

@@ -12,7 +12,7 @@ import com.baidu.ar.d.b;
 import com.baidu.ar.d.e;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes6.dex */
 public class PoseAR extends c {
     public static final String MDL_MAGIC_FILTER_CUTOFFSLOPE = "cutoffSlope";
     public static final String MDL_MAGIC_FILTER_MIN_CUTOFFFREQ = "min_cutofffreq";
@@ -45,17 +45,18 @@ public class PoseAR extends c {
     }
 
     private void dn() {
-        int i = 180;
+        int i;
         int i2 = 320;
         int i3 = this.mInputWidth;
         int i4 = this.mInputHeight;
-        if (Float.compare((i3 * 1.0f) / i4, 1.7777778f) != 0) {
-            if (i3 > i4) {
-                i2 = (int) ((180.0f / i4) * i3);
-            } else {
-                i2 = 180;
-                i = (int) ((180.0f / i3) * i4);
-            }
+        if (Float.compare((i3 * 1.0f) / i4, 1.7777778f) == 0) {
+            i = 180;
+        } else if (i3 > i4) {
+            i2 = (int) (i3 * (180.0f / i4));
+            i = 180;
+        } else {
+            i = (int) ((180.0f / i3) * i4);
+            i2 = 180;
         }
         this.nO = i2;
         this.nP = i;

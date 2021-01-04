@@ -4,13 +4,13 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.at;
-import com.baidu.tbadk.core.data.by;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.data.bz;
+import com.baidu.tbadk.core.util.x;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.ActivityPage.SpecialColumn;
 import tbclient.ActivityPage.SpecialColumnList;
-/* loaded from: classes22.dex */
+/* loaded from: classes2.dex */
 public class SpecialColumnListData extends com.baidu.tbadk.core.data.a implements Parcelable {
     public static final int MAX_SIZE = 3;
     private List<SpecialColumnItemData> mListData;
@@ -20,14 +20,14 @@ public class SpecialColumnListData extends com.baidu.tbadk.core.data.a implement
     public static final Parcelable.Creator<SpecialColumnListData> CREATOR = new Parcelable.Creator<SpecialColumnListData>() { // from class: com.baidu.tieba.homepage.tabfeed.data.SpecialColumnListData.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Z */
+        /* renamed from: aa */
         public SpecialColumnListData createFromParcel(Parcel parcel) {
             return new SpecialColumnListData(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Dc */
+        /* renamed from: Dq */
         public SpecialColumnListData[] newArray(int i) {
             return new SpecialColumnListData[i];
         }
@@ -59,7 +59,7 @@ public class SpecialColumnListData extends com.baidu.tbadk.core.data.a implement
                     i = i2 + 1;
                 } else {
                     this.mResultListData.addAll(arrayList);
-                    this.mListData.addAll(y.trimToSize(arrayList, 3));
+                    this.mListData.addAll(x.trimToSize(arrayList, 3));
                     return;
                 }
             }
@@ -72,22 +72,22 @@ public class SpecialColumnListData extends com.baidu.tbadk.core.data.a implement
         this.mResultListData = parcel.createTypedArrayList(SpecialColumnItemData.CREATOR);
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
         return TYPE;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public by bmn() {
+    public bz boO() {
         return null;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public at bmp() {
+    public at boQ() {
         return null;
     }
 
-    public List<SpecialColumnItemData> cQN() {
+    public List<SpecialColumnItemData> cTT() {
         return this.mListData;
     }
 
@@ -95,7 +95,7 @@ public class SpecialColumnListData extends com.baidu.tbadk.core.data.a implement
         return this.title;
     }
 
-    public List<SpecialColumnItemData> bSs() {
+    public List<SpecialColumnItemData> bUU() {
         return this.mResultListData;
     }
 

@@ -1,7 +1,6 @@
 package com.baidu.mobads.vo;
 
 import android.text.TextUtils;
-import com.baidu.ala.recorder.video.AlaRecorderLog;
 import com.baidu.mobads.interfaces.IXAdInstanceInfo;
 import com.baidu.mobads.interfaces.IXAdResponseInfo;
 import com.baidu.platform.comapi.map.MapBundleKey;
@@ -9,12 +8,14 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class c implements IXAdResponseInfo {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2457a;
-    private Boolean b;
+    private int f3559a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private Boolean f3560b;
     private String c;
     private int d;
     private int e;
@@ -32,8 +33,8 @@ public class c implements IXAdResponseInfo {
     private long q = System.currentTimeMillis();
 
     public c(String str) {
-        this.f2457a = 0;
-        this.b = false;
+        this.f3559a = 0;
+        this.f3560b = false;
         this.i = -1;
         this.j = -1;
         this.p = new ArrayList<>();
@@ -53,10 +54,10 @@ public class c implements IXAdResponseInfo {
         } catch (Exception e2) {
             this.p = new ArrayList<>();
         }
-        this.f2457a = jSONObject.optInt("n", 0);
+        this.f3559a = jSONObject.optInt("n", 0);
         this.d = jSONObject.optInt("x", 0);
         this.e = jSONObject.optInt("y", 0);
-        this.b = Boolean.valueOf(jSONObject.optInt("m", 0) == 1);
+        this.f3560b = Boolean.valueOf(jSONObject.optInt("m", 0) == 1);
         this.c = jSONObject.optString("u", "");
         this.f = jSONObject.optString("exp2", "{}");
         this.g = jSONObject.optString("ext_act", "{}");
@@ -65,7 +66,7 @@ public class c implements IXAdResponseInfo {
         this.k = jSONObject.optString("ck", "");
         this.l = jSONObject.optString("req_id");
         this.m = jSONObject.optString("error_code", "");
-        this.n = jSONObject.optString(AlaRecorderLog.KEY_ERROR_MSG, "");
+        this.n = jSONObject.optString("error_msg", "");
         try {
             this.h = jSONObject.getString("theme");
         } catch (JSONException e3) {
@@ -82,22 +83,22 @@ public class c implements IXAdResponseInfo {
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo
     public int getAdsNum() {
-        return this.f2457a;
+        return this.f3559a;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo
     public void setAdsNum(int i) {
-        this.f2457a = i;
+        this.f3559a = i;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo
     public Boolean getOpenPointModeForWall() {
-        return this.b;
+        return this.f3560b;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo
     public void setOpenPointModeForWall(Boolean bool) {
-        this.b = bool;
+        this.f3560b = bool;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdResponseInfo

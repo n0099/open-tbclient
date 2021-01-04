@@ -7,12 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class b extends BaseData {
-    public boolean aKj = true;
-    public String bBd = "";
-    public List<d> bBe;
-    public List<d> bBf;
+    public boolean aKI = true;
+    public String bFQ = "";
+    public List<d> bFR;
+    public List<d> bFS;
     public int pn;
 
     @Override // com.baidu.live.tbadk.core.data.BaseData
@@ -20,8 +20,8 @@ public class b extends BaseData {
         JSONObject optJSONObject;
         if (jSONObject != null) {
             this.pn = jSONObject.optInt(Config.PACKAGE_NAME);
-            this.aKj = jSONObject.optInt("has_more") == 1;
-            this.bBe = new ArrayList();
+            this.aKI = jSONObject.optInt("has_more") == 1;
+            this.bFR = new ArrayList();
             JSONArray optJSONArray = jSONObject.optJSONArray("list");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
@@ -29,19 +29,19 @@ public class b extends BaseData {
                     if (optJSONObject2 != null) {
                         d dVar = new d();
                         dVar.parserJson(optJSONObject2);
-                        this.bBe.add(dVar);
+                        this.bFR.add(dVar);
                     } else {
                         return;
                     }
                 }
             }
-            this.bBf = new ArrayList();
+            this.bFS = new ArrayList();
             JSONArray optJSONArray2 = jSONObject.optJSONArray(VerticalTranslateLayout.TOP);
             if (optJSONArray2 != null) {
                 for (int i2 = 0; i2 < optJSONArray2.length() && (optJSONObject = optJSONArray2.optJSONObject(i2)) != null; i2++) {
                     d dVar2 = new d();
                     dVar2.parserJson(optJSONObject);
-                    this.bBf.add(dVar2);
+                    this.bFS.add(dVar2);
                 }
             }
         }

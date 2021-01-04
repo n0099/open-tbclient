@@ -1,12 +1,12 @@
 package com.baidu.tieba.ala.person.view;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import com.baidu.live.sdk.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public class AlaPersonTagView extends TextView {
     public AlaPersonTagView(Context context) {
         this(context, null);
@@ -18,10 +18,10 @@ public class AlaPersonTagView extends TextView {
 
     public AlaPersonTagView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        ev(context);
+        eO(context);
     }
 
-    private void ev(Context context) {
+    private void eO(Context context) {
         setCompoundDrawablePadding(context.getResources().getDimensionPixelSize(a.d.sdk_ds4));
         setEllipsize(TextUtils.TruncateAt.END);
         setGravity(17);

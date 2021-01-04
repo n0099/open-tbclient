@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.net.Socket;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes11.dex */
+/* loaded from: classes6.dex */
 public class SocketOutputBuffer extends AbstractSessionOutputBuffer {
     public SocketOutputBuffer(Socket socket, int i, HttpParams httpParams) throws IOException {
         throw new RuntimeException("Stub!");

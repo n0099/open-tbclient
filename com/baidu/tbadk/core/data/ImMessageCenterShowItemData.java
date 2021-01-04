@@ -1,7 +1,6 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.baidu.tbadk.core.util.AbstractImageProvider;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
 import java.io.Serializable;
@@ -30,7 +29,7 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
     private int userType;
 
     public String getPK() {
-        return this.ownerId + UgcConstant.AT_RULE_TAG + this.friendId;
+        return this.ownerId + "@" + this.friendId;
     }
 
     public String getOwnerId() {

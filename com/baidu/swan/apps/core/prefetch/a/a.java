@@ -8,49 +8,49 @@ import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
 import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
 import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.ap.ag;
+import com.baidu.swan.apps.ao.ag;
 import com.baidu.swan.apps.b;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public final class a {
     private static final boolean DEBUG = b.DEBUG;
-    private static final boolean cTH;
+    private static final boolean mIsOn;
 
     static {
-        cTH = ProcessUtils.isMainProcess() ? oa("swan_prefetch_app_data") : ats();
+        mIsOn = ProcessUtils.isMainProcess() ? nT("swan_prefetch_app_data") : auJ();
         if (DEBUG) {
-            Log.i("PrefetchABSwitcher", "prefetch switch - " + cTH);
+            Log.i("PrefetchABSwitcher", "prefetch switch - " + mIsOn);
         }
     }
 
     public static boolean isOn() {
-        return cTH;
+        return mIsOn;
     }
 
-    private static boolean oa(String str) {
-        int atr;
+    private static boolean nT(String str) {
+        int auI;
         if (DEBUG) {
-            if (com.baidu.swan.apps.ad.a.a.aHa() || (atr = atr()) == 1) {
+            if (com.baidu.swan.apps.ad.a.a.aIt() || (auI = auI()) == 1) {
                 return true;
             }
-            if (atr == 0) {
+            if (auI == 0) {
                 return false;
             }
         }
-        int i = com.baidu.swan.apps.t.a.azd().getSwitch(str, 0);
+        int i = com.baidu.swan.apps.t.a.aAu().getSwitch(str, 0);
         if (DEBUG) {
             Log.d("PrefetchABSwitcher", str + " value from AB : " + i);
         }
         return i == 1;
     }
 
-    private static int atr() {
+    private static int auI() {
         return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getInt("swan_prefetch_app_data", -1);
     }
 
-    private static boolean ats() {
+    private static boolean auJ() {
         boolean z = false;
         long currentTimeMillis = DEBUG ? System.currentTimeMillis() : 0L;
-        DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), C0441a.class, null);
+        DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), C0433a.class, null);
         if (callOnMainWithContentProvider.isOk() && callOnMainWithContentProvider.mResult.getBoolean("result", false)) {
             z = true;
         }
@@ -60,13 +60,13 @@ public final class a {
         return z;
     }
 
-    public static boolean att() {
-        return !ag.uU("3.210.0");
+    public static boolean auK() {
+        return !ag.uT("3.210.0");
     }
 
     /* renamed from: com.baidu.swan.apps.core.prefetch.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes25.dex */
-    public static class C0441a extends ProviderDelegation {
+    /* loaded from: classes9.dex */
+    public static class C0433a extends ProviderDelegation {
         @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
         public Bundle execCall(Bundle bundle) {
             Bundle bundle2 = new Bundle();

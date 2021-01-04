@@ -17,7 +17,7 @@ import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes18.dex */
+/* loaded from: classes3.dex */
 public class UbcPerfFrameRegister implements IPerfFrameRegister {
     private static final String TAG = "UbcPerfFrameRegister";
     private static final int UI_TRACE_MAX_SIZE = 20;
@@ -44,23 +44,23 @@ public class UbcPerfFrameRegister implements IPerfFrameRegister {
                 int size = trackUIs.size() - 1;
                 int i = 1;
                 while (true) {
-                    int i2 = size;
-                    int i3 = i;
-                    TrackUI trackUI = trackUIs.get(i2);
+                    TrackUI trackUI = trackUIs.get(size);
                     JSONObject jSONObject3 = new JSONObject();
                     jSONObject3.put("type", trackUI.getType());
                     jSONObject3.put("time", trackUI.getTimeStamp());
                     jSONObject3.put("page", PerfFrameTrackUIUtil.trackUI2StringPage(trackUI));
                     jSONObject3.put("event", trackUI.getEvent());
                     jSONArray.put(jSONObject3);
-                    i = i3 + 1;
-                    if (i3 >= 20) {
+                    int i2 = i + 1;
+                    if (i >= 20) {
                         break;
                     }
-                    size = i2 - 1;
-                    if (i2 <= 0) {
+                    int i3 = size - 1;
+                    if (size <= 0) {
                         break;
                     }
+                    i = i2;
+                    size = i3;
                 }
                 jSONObject2.put("pageTrace", jSONArray);
             }
@@ -110,7 +110,7 @@ public class UbcPerfFrameRegister implements IPerfFrameRegister {
             }
             ab abVar = (ab) c.a(ab.SERVICE_REFERENCE);
             if (abVar != null) {
-                Log.d(TAG, "ubc isDebug: " + abVar.ejd());
+                Log.d(TAG, "ubc isDebug: " + abVar.ejn());
                 Log.d(TAG, "content: " + jSONObject.toString());
                 abVar.onEvent(perfExpInfo.getUbcId(), jSONObject);
             }

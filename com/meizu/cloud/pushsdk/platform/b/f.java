@@ -10,12 +10,14 @@ import com.meizu.cloud.pushsdk.platform.message.PushSwitchStatus;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ScheduledExecutorService;
-/* loaded from: classes16.dex */
+/* loaded from: classes6.dex */
 public class f extends c<PushSwitchStatus> {
 
     /* renamed from: a  reason: collision with root package name */
-    boolean f4217a;
-    private String b;
+    boolean f11664a;
+
+    /* renamed from: b  reason: collision with root package name */
+    private String f11665b;
     private int c;
     private Map<String, Boolean> m;
 
@@ -36,7 +38,7 @@ public class f extends c<PushSwitchStatus> {
 
     public f(Context context, String str, String str2, String str3, com.meizu.cloud.pushsdk.platform.a.a aVar, ScheduledExecutorService scheduledExecutorService) {
         this(context, str, str2, aVar, scheduledExecutorService);
-        this.b = str3;
+        this.f11665b = str3;
     }
 
     private void c(boolean z) {
@@ -91,16 +93,16 @@ public class f extends c<PushSwitchStatus> {
     }
 
     public void a(String str) {
-        this.b = str;
+        this.f11665b = str;
     }
 
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     protected boolean a() {
-        return (TextUtils.isEmpty(this.f) || TextUtils.isEmpty(this.g) || TextUtils.isEmpty(this.b)) ? false : true;
+        return (TextUtils.isEmpty(this.f) || TextUtils.isEmpty(this.g) || TextUtils.isEmpty(this.f11665b)) ? false : true;
     }
 
     public void b(boolean z) {
-        this.f4217a = z;
+        this.f11664a = z;
     }
 
     @Override // com.meizu.cloud.pushsdk.platform.b.c
@@ -109,10 +111,10 @@ public class f extends c<PushSwitchStatus> {
         intent.putExtra("app_id", this.f);
         intent.putExtra("app_key", this.g);
         intent.putExtra("strategy_package_name", this.e.getPackageName());
-        intent.putExtra("push_id", this.b);
+        intent.putExtra("push_id", this.f11665b);
         intent.putExtra("strategy_type", g());
         intent.putExtra("strategy_child_type", this.c);
-        intent.putExtra("strategy_params", this.f4217a ? "1" : "0");
+        intent.putExtra("strategy_params", this.f11664a ? "1" : "0");
         return intent;
     }
 
@@ -132,7 +134,7 @@ public class f extends c<PushSwitchStatus> {
             pushSwitchStatus.setMessage("appId not empty");
         } else if (TextUtils.isEmpty(this.g)) {
             pushSwitchStatus.setMessage("appKey not empty");
-        } else if (TextUtils.isEmpty(this.b)) {
+        } else if (TextUtils.isEmpty(this.f11665b)) {
             pushSwitchStatus.setMessage("pushId not empty");
         }
         return pushSwitchStatus;
@@ -144,33 +146,33 @@ public class f extends c<PushSwitchStatus> {
     /* renamed from: i */
     public PushSwitchStatus e() {
         PushSwitchStatus pushSwitchStatus = new PushSwitchStatus();
-        pushSwitchStatus.setPushId(this.b);
+        pushSwitchStatus.setPushId(this.f11665b);
         pushSwitchStatus.setCode(BasicPushStatus.SUCCESS_CODE);
         com.meizu.cloud.pushsdk.b.a.c cVar = null;
         switch (this.c) {
             case 0:
                 pushSwitchStatus.setMessage("SWITCH_NOTIFICATION");
-                if (p() == this.f4217a && !t()) {
-                    pushSwitchStatus.setSwitchNotificationMessage(this.f4217a);
+                if (p() == this.f11664a && !t()) {
+                    pushSwitchStatus.setSwitchNotificationMessage(this.f11664a);
                     pushSwitchStatus.setSwitchThroughMessage(r());
                     break;
                 } else {
                     f(true);
-                    c(this.f4217a);
-                    cVar = this.j.a(this.f, this.g, this.b, this.c, this.f4217a);
+                    c(this.f11664a);
+                    cVar = this.j.a(this.f, this.g, this.f11665b, this.c, this.f11664a);
                     break;
                 }
                 break;
             case 1:
                 pushSwitchStatus.setMessage("SWITCH_THROUGH_MESSAGE");
-                if (r() == this.f4217a && !t()) {
+                if (r() == this.f11664a && !t()) {
                     pushSwitchStatus.setSwitchNotificationMessage(p());
-                    pushSwitchStatus.setSwitchThroughMessage(this.f4217a);
+                    pushSwitchStatus.setSwitchThroughMessage(this.f11664a);
                     break;
                 } else {
                     f(true);
-                    d(this.f4217a);
-                    cVar = this.j.a(this.f, this.g, this.b, this.c, this.f4217a);
+                    d(this.f11664a);
+                    cVar = this.j.a(this.f, this.g, this.f11665b, this.c, this.f11664a);
                     break;
                 }
                 break;
@@ -178,7 +180,7 @@ public class f extends c<PushSwitchStatus> {
                 pushSwitchStatus.setMessage("CHECK_PUSH");
                 if (!q() || !s() || t()) {
                     f(true);
-                    cVar = this.j.c(this.f, this.g, this.b);
+                    cVar = this.j.c(this.f, this.g, this.f11665b);
                     break;
                 } else {
                     pushSwitchStatus.setSwitchNotificationMessage(p());
@@ -187,14 +189,14 @@ public class f extends c<PushSwitchStatus> {
                 }
             case 3:
                 pushSwitchStatus.setMessage("SWITCH_ALL");
-                if (p() != this.f4217a || r() != this.f4217a || t()) {
+                if (p() != this.f11664a || r() != this.f11664a || t()) {
                     f(true);
-                    e(this.f4217a);
-                    cVar = this.j.a(this.f, this.g, this.b, this.f4217a);
+                    e(this.f11664a);
+                    cVar = this.j.a(this.f, this.g, this.f11665b, this.f11664a);
                     break;
                 } else {
-                    pushSwitchStatus.setSwitchNotificationMessage(this.f4217a);
-                    pushSwitchStatus.setSwitchThroughMessage(this.f4217a);
+                    pushSwitchStatus.setSwitchNotificationMessage(this.f11664a);
+                    pushSwitchStatus.setSwitchThroughMessage(this.f11664a);
                     break;
                 }
                 break;
@@ -226,11 +228,11 @@ public class f extends c<PushSwitchStatus> {
             switch (this.c) {
                 case 0:
                 case 1:
-                    PlatformMessageSender.a(this.e, this.c, this.f4217a, this.h);
+                    PlatformMessageSender.a(this.e, this.c, this.f11664a, this.h);
                     break;
                 case 3:
-                    PlatformMessageSender.a(this.e, 0, this.f4217a, this.h);
-                    PlatformMessageSender.a(this.e, 1, this.f4217a, this.h);
+                    PlatformMessageSender.a(this.e, 0, this.f11664a, this.h);
+                    PlatformMessageSender.a(this.e, 1, this.f11664a, this.h);
                     break;
             }
         }
@@ -244,13 +246,13 @@ public class f extends c<PushSwitchStatus> {
     public PushSwitchStatus f() {
         switch (this.c) {
             case 0:
-                c(this.f4217a);
+                c(this.f11664a);
                 break;
             case 1:
-                d(this.f4217a);
+                d(this.f11664a);
                 break;
             case 3:
-                e(this.f4217a);
+                e(this.f11664a);
                 break;
         }
         return null;

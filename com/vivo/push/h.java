@@ -2,25 +2,27 @@ package com.vivo.push;
 
 import com.vivo.push.cache.ISubscribeAppAliasManager;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes11.dex */
+/* loaded from: classes3.dex */
 public final class h implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f4448a;
-    final /* synthetic */ LocalAliasTagsManager b;
+    final /* synthetic */ String f13943a;
+
+    /* renamed from: b  reason: collision with root package name */
+    final /* synthetic */ LocalAliasTagsManager f13944b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(LocalAliasTagsManager localAliasTagsManager, String str) {
-        this.b = localAliasTagsManager;
-        this.f4448a = str;
+        this.f13944b = localAliasTagsManager;
+        this.f13943a = str;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         ISubscribeAppAliasManager iSubscribeAppAliasManager;
-        iSubscribeAppAliasManager = this.b.mSubscribeAppAliasManager;
-        if (iSubscribeAppAliasManager.delAlias(this.f4448a)) {
-            p.a().b(LocalAliasTagsManager.DEFAULT_LOCAL_REQUEST_ID, this.f4448a);
+        iSubscribeAppAliasManager = this.f13944b.mSubscribeAppAliasManager;
+        if (iSubscribeAppAliasManager.delAlias(this.f13943a)) {
+            p.a().b(LocalAliasTagsManager.DEFAULT_LOCAL_REQUEST_ID, this.f13943a);
         }
     }
 }

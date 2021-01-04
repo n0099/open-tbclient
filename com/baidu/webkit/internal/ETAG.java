@@ -1,5 +1,5 @@
 package com.baidu.webkit.internal;
-/* loaded from: classes12.dex */
+/* loaded from: classes4.dex */
 public class ETAG implements INoProGuard {
     public static final String EQUAL = "=";
     public static final String ITEM_SEPARATOR = "&";

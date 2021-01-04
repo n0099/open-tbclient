@@ -1,81 +1,120 @@
 package com.baidu.tieba.frs.forumRule.d;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.LayerDrawable;
-import android.text.SpannableStringBuilder;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.RelativeLayout;
-import com.baidu.adp.lib.util.l;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.elementsMaven.c;
-import com.baidu.tbadk.core.elementsMaven.span.EMRichTextAnyIconSpan;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
+import android.graphics.drawable.ShapeDrawable;
+import android.widget.EditText;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
-/* loaded from: classes22.dex */
+import java.lang.reflect.Array;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+/* loaded from: classes2.dex */
 public class a {
-    private RelativeLayout jhS;
-    private EMTextView jhT;
-    private EMTextView jhU;
-    private final int jhV = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds21);
-    private Context mContext;
-    private View mRootView;
-
-    public a(Context context) {
-        this.mContext = context;
-        ev(context);
-    }
-
-    private void ev(Context context) {
-        if (this.mRootView == null) {
-            this.mRootView = LayoutInflater.from(context).inflate(R.layout.forum_rules_unaudited, (ViewGroup) null);
-            this.jhS = (RelativeLayout) this.mRootView.findViewById(R.id.unaudited);
-            this.jhT = (EMTextView) this.mRootView.findViewById(R.id.unaudited_title);
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(context.getResources().getString(R.string.forum_rules_unaudited_alert));
-            EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.icon_pure_barrules_careful12, R.color.CAM_X0109, EMRichTextAnyIconSpan.IconType.WEBP);
-            eMRichTextAnyIconSpan.setLeftPadding(l.getDimens(context, R.dimen.tbds0));
-            eMRichTextAnyIconSpan.setRightPadding(l.getDimens(context, R.dimen.M_W_X002));
-            spannableStringBuilder.setSpan(eMRichTextAnyIconSpan, 0, 1, 33);
-            this.jhT.setText(spannableStringBuilder);
-            this.jhU = (EMTextView) this.mRootView.findViewById(R.id.unaudited_content);
-            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+    public static long Ld(String str) {
+        if (StringUtils.isNull(str)) {
+            return 0L;
+        }
+        try {
+            Date parse = new SimpleDateFormat("yyyy.MM.dd").parse(str);
+            return (parse != null ? parse.getTime() : 0L) / 1000;
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return 0L;
         }
     }
 
-    public void onChangeSkinType(int i) {
-        LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{com.baidu.tbadk.core.util.e.a.b.buA().qf(0).ac(this.jhV).b("TL_BR", R.color.CAM_X0212, R.color.CAM_X0212).buC(), com.baidu.tbadk.core.util.e.a.b.buA().qf(0).ac(this.jhV).Ct("#4D000000").buC()});
-        if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-            if (layerDrawable.getDrawable(1) != null) {
-                layerDrawable.getDrawable(1).setAlpha(255);
-            }
-        } else if (layerDrawable.getDrawable(1) != null) {
-            layerDrawable.getDrawable(1).setAlpha(0);
+    public static int gp(long j) {
+        if (j < 0) {
+            return -1;
         }
-        this.jhS.setBackgroundDrawable(layerDrawable);
-        c.bm(this.jhT).ps(R.color.CAM_X0109);
-        c.bm(this.jhU).ps(R.color.CAM_X0109);
+        return (int) (j / 86400);
     }
 
-    public void La(String str) {
-        if (this.jhU != null) {
-            this.jhU.setText(str);
-        }
-    }
-
-    public void b(BdTypeRecyclerView bdTypeRecyclerView) {
-        if (bdTypeRecyclerView != null && this.jhS != null) {
-            this.jhS.setVisibility(0);
-            bdTypeRecyclerView.addHeaderView(this.jhS);
+    public static void a(int i, int i2, EditText editText) {
+        try {
+            Method declaredMethod = TextView.class.getDeclaredMethod("createEditorIfNeeded", new Class[0]);
+            declaredMethod.setAccessible(true);
+            declaredMethod.invoke(editText, new Object[0]);
+            Field declaredField = TextView.class.getDeclaredField("mEditor");
+            Field declaredField2 = Class.forName("android.widget.Editor").getDeclaredField("mCursorDrawable");
+            declaredField.setAccessible(true);
+            declaredField2.setAccessible(true);
+            Object obj = declaredField2.get(declaredField.get(editText));
+            Array.set(obj, 0, new C0736a(ao.getColor(R.color.CAM_X0302), UtilHelper.getDimenPixelSize(R.dimen.tbds5), i, i2));
+            Array.set(obj, 1, new C0736a(ao.getColor(R.color.CAM_X0302), UtilHelper.getDimenPixelSize(R.dimen.tbds5), i, i2));
+        } catch (Exception e) {
         }
     }
 
-    public void c(BdTypeRecyclerView bdTypeRecyclerView) {
-        if (bdTypeRecyclerView != null && this.jhS != null) {
-            this.jhS.setVisibility(8);
-            bdTypeRecyclerView.removeHeaderView(this.jhS);
+    /* renamed from: com.baidu.tieba.frs.forumRule.d.a$a  reason: collision with other inner class name */
+    /* loaded from: classes2.dex */
+    private static class C0736a extends ShapeDrawable {
+        private int mBottomOffset;
+        private int mTopOffset;
+
+        public C0736a(int i, int i2, int i3, int i4) {
+            this.mTopOffset = i3;
+            this.mBottomOffset = i4;
+            setDither(false);
+            getPaint().setColor(i);
+            setIntrinsicWidth(i2);
+        }
+
+        @Override // android.graphics.drawable.Drawable
+        public void setBounds(int i, int i2, int i3, int i4) {
+            super.setBounds(i, this.mTopOffset + i2, i3, this.mBottomOffset + i4);
+        }
+    }
+
+    public static String AU(int i) {
+        switch (i) {
+            case 1:
+                return "一";
+            case 2:
+                return "二";
+            case 3:
+                return "三";
+            case 4:
+                return "四";
+            case 5:
+                return "五";
+            case 6:
+                return "六";
+            case 7:
+                return "七";
+            case 8:
+                return "八";
+            case 9:
+                return "九";
+            case 10:
+                return "十";
+            case 11:
+                return "十一";
+            case 12:
+                return "十二";
+            case 13:
+                return "十三";
+            case 14:
+                return "十四";
+            case 15:
+                return "十五";
+            case 16:
+                return "十六";
+            case 17:
+                return "十七";
+            case 18:
+                return "十八";
+            case 19:
+                return "十九";
+            case 20:
+                return "二十";
+            default:
+                return "";
         }
     }
 }

@@ -1,9 +1,53 @@
 package com.baidu.tieba.im.c.a;
 
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes26.dex */
-public class j extends b {
-    public j() {
-        super(com.baidu.tieba.im.settingcache.d.cZZ(), CmdConfigCustom.CMD_SAVE_DRAFT_OFFICIAL);
+import com.baidu.tieba.im.message.LoadHistoryResponsedMessage;
+import com.baidu.tieba.im.message.OfficialFeedHeadResponsedMessage;
+import com.baidu.tieba.im.message.chat.ChatMessage;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+/* loaded from: classes8.dex */
+public class j implements CustomMessageTask.CustomRunnable<OfficialFeedHeadResponsedMessage.a> {
+    private int mCmd = 2001154;
+    private com.baidu.tieba.im.db.l kIS = com.baidu.tieba.im.db.l.cXC();
+
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<OfficialFeedHeadResponsedMessage.a> customMessage) {
+        if (this.kIS == null) {
+            return EC(this.mCmd);
+        }
+        List<com.baidu.tieba.im.db.pojo.a> cXE = com.baidu.tieba.im.db.l.cXE();
+        if (cXE == null || cXE.size() <= 0) {
+            return EC(this.mCmd);
+        }
+        HashMap hashMap = new HashMap(cXE.size());
+        for (com.baidu.tieba.im.db.pojo.a aVar : cXE) {
+            hashMap.put(aVar.getGid(), aVar);
+        }
+        LinkedList<ChatMessage> c = this.kIS.c(hashMap, 80);
+        if (c == null) {
+            return EC(this.mCmd);
+        }
+        OfficialFeedHeadResponsedMessage.a aVar2 = new OfficialFeedHeadResponsedMessage.a();
+        OfficialFeedHeadResponsedMessage officialFeedHeadResponsedMessage = new OfficialFeedHeadResponsedMessage(this.mCmd);
+        aVar2.kFH = c;
+        aVar2.msgList = cXE;
+        try {
+            officialFeedHeadResponsedMessage.decodeInBackGround(CmdConfigCustom.CMD_LOAD_HISTORY, aVar2);
+            return officialFeedHeadResponsedMessage;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return officialFeedHeadResponsedMessage;
+        }
+    }
+
+    private LoadHistoryResponsedMessage EC(int i) {
+        LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(i);
+        loadHistoryResponsedMessage.setError(-18);
+        return loadHistoryResponsedMessage;
     }
 }

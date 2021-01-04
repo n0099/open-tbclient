@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.webkit.WebView;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.l.a.a;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiWebView;
@@ -26,11 +27,11 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes21.dex */
+/* loaded from: classes8.dex */
 public class AuthActivity extends BaseActivity {
     private String authToken;
     private String bduss;
-    private SapiResult lxf = new SapiResult();
+    private SapiResult lCn = new SapiResult();
     private String tpl;
     private int type;
 
@@ -40,13 +41,13 @@ public class AuthActivity extends BaseActivity {
         super.onCreate(bundle);
         try {
             setContentView(a.f.layout_sapi_sdk_webview_with_title_bar);
-            PassManagerStatic.dlU();
+            PassManagerStatic.dlE();
             init();
             setupViews();
         } catch (Throwable th) {
             reportWebviewError(th);
-            this.lxf.setResultCode(-202);
-            this.lxf.setResultMsg("网络连接失败，请检查网络设置");
+            this.lCn.setResultCode(-202);
+            this.lCn.setResultMsg("网络连接失败，请检查网络设置");
             x(false, null);
         }
     }
@@ -60,21 +61,21 @@ public class AuthActivity extends BaseActivity {
             this.authToken = getIntent().getStringExtra("EXTRA_AUTH_TOKEN");
             this.tpl = SapiAccountManager.getInstance().getSapiConfiguration().getTpl();
             if (TextUtils.isEmpty(this.authToken) || TextUtils.isEmpty(this.tpl)) {
-                this.lxf.setResultCode(-204);
-                this.lxf.setResultMsg(PASSMethodCallTransfer.DynamicCallbak.ERROR_MSG_PARAMS_ERROR);
+                this.lCn.setResultCode(-204);
+                this.lCn.setResultMsg(PASSMethodCallTransfer.DynamicCallbak.ERROR_MSG_PARAMS_ERROR);
                 x(false, null);
             }
         } else if (this.type == 1 || this.type == 2) {
             this.bduss = getIntent().getStringExtra("EXTRA_BDUSS");
             this.tpl = SapiAccountManager.getInstance().getSapiConfiguration().getTpl();
             if (TextUtils.isEmpty(this.bduss)) {
-                this.lxf.setResultCode(-204);
-                this.lxf.setResultMsg(PASSMethodCallTransfer.DynamicCallbak.ERROR_MSG_PARAMS_ERROR);
+                this.lCn.setResultCode(-204);
+                this.lCn.setResultMsg(PASSMethodCallTransfer.DynamicCallbak.ERROR_MSG_PARAMS_ERROR);
                 x(false, null);
             }
         } else {
-            this.lxf.setResultCode(-204);
-            this.lxf.setResultMsg(PASSMethodCallTransfer.DynamicCallbak.ERROR_MSG_PARAMS_ERROR);
+            this.lCn.setResultCode(-204);
+            this.lCn.setResultMsg(PASSMethodCallTransfer.DynamicCallbak.ERROR_MSG_PARAMS_ERROR);
             x(false, null);
         }
     }
@@ -83,7 +84,7 @@ public class AuthActivity extends BaseActivity {
         return new String(Base64.decode(str.getBytes(), 0));
     }
 
-    private String dlF() {
+    private String dlp() {
         ArrayList arrayList = new ArrayList();
         try {
             arrayList.add(new PassNameValuePair("adapter", URLEncoder.encode("3", "UTF-8")));
@@ -98,7 +99,7 @@ public class AuthActivity extends BaseActivity {
         return (SapiAccountManager.getInstance().getConfignation().getEnvironment().getWap() + "/passport/authwidget") + "?" + SapiUtils.createRequestParams(arrayList);
     }
 
-    private String dlG() {
+    private String dlq() {
         ArrayList arrayList = new ArrayList();
         try {
             arrayList.add(new PassNameValuePair("u", URLEncoder.encode(getHost(f.l) + "?__wp-action=modify-pwd", "UTF-8")));
@@ -106,7 +107,7 @@ public class AuthActivity extends BaseActivity {
             arrayList.add(new PassNameValuePair("banner", "1"));
             arrayList.add(new PassNameValuePair("t", String.valueOf(System.currentTimeMillis())));
             arrayList.add(new PassNameValuePair("tpl", URLEncoder.encode(this.tpl, "UTF-8")));
-            arrayList.add(new PassNameValuePair("client", "android"));
+            arrayList.add(new PassNameValuePair("client", HttpConstants.OS_TYPE_VALUE));
             arrayList.add(new PassNameValuePair("clientfrom", "native"));
         } catch (UnsupportedEncodingException e) {
             Log.e(e);
@@ -118,7 +119,7 @@ public class AuthActivity extends BaseActivity {
         return str;
     }
 
-    private List<PassNameValuePair> dlH() {
+    private List<PassNameValuePair> dlr() {
         Domain environment = SapiAccountManager.getInstance().getConfignation().getEnvironment();
         String buildBDUSSCookie = SapiUtils.buildBDUSSCookie(environment.getWap().replace("http://", "").replace(SapiUtils.COOKIE_HTTPS_URL_PREFIX, "").replaceAll("(:[0-9]{1,4})?", ""), "BIND_BDUSS", "");
         ArrayList arrayList = new ArrayList();
@@ -164,11 +165,11 @@ public class AuthActivity extends BaseActivity {
                 public void onPageFinished(WebView webView, String str) {
                 }
             });
-            this.sapiWebView.loadUrl(dlF());
+            this.sapiWebView.loadUrl(dlp());
         } else if (this.type == 1) {
             setTitleText(a.g.sapi_sdk_title_modify_pwd);
             SapiAccountManager.getInstance().getAccountService().webLogin(this, this.bduss);
-            this.sapiWebView.loadUrl(dlG(), dlH());
+            this.sapiWebView.loadUrl(dlq(), dlr());
             this.sapiWebView.setChangePwdCallback(new SapiWebView.ChangePwdCallback() { // from class: com.baidu.tieba.passaccount.app.AuthActivity.4
                 @Override // com.baidu.sapi2.SapiWebView.ChangePwdCallback
                 public void onSuccess() {
@@ -196,8 +197,8 @@ public class AuthActivity extends BaseActivity {
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void onClose() {
         super.onClose();
-        this.lxf.setResultCode(-301);
-        this.lxf.setResultMsg("流程已结束");
+        this.lCn.setResultCode(-301);
+        this.lCn.setResultMsg("流程已结束");
         x(false, null);
     }
 
@@ -213,13 +214,13 @@ public class AuthActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void x(boolean z, String str) {
         if (this.type == 0) {
-            b.dlZ().z(z, str);
+            b.dlJ().z(z, str);
         } else if (this.type == 1) {
-            b.dlZ().um(z);
+            b.dlJ().un(z);
         } else if (this.type == 2) {
-            b.dlZ().un(z);
+            b.dlJ().uo(z);
         } else {
-            b.dlZ().a((j.c) null);
+            b.dlJ().a((j.c) null);
         }
         finish();
     }

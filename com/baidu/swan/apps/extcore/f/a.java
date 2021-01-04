@@ -1,10 +1,10 @@
 package com.baidu.swan.apps.extcore.f;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.extcore.cores.SwanAppCores;
@@ -17,30 +17,30 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes25.dex */
+/* loaded from: classes9.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
 
-    public static boolean iX(int i) {
-        return h.aNr().getBoolean(iY(i), false);
+    public static boolean iS(int i) {
+        return h.aPH().getBoolean(iT(i), false);
     }
 
     public static void z(int i, boolean z) {
-        h.aNr().putBoolean(iY(i), z);
+        h.aPH().putBoolean(iT(i), z);
     }
 
     @NonNull
-    private static String iY(int i) {
+    private static String iT(int i) {
         return i == 1 ? "key_is_need_update_game_ext_preset" : "key_is_need_update_preset";
     }
 
-    private static ArrayList<Long> awQ() {
-        ExtensionCore auE;
+    private static ArrayList<Long> ayi() {
+        ExtensionCore avW;
         ArrayList<Long> arrayList = new ArrayList<>();
-        for (c cVar : e.aIs().aIu()) {
-            SwanAppCores aIe = cVar.aIe();
-            if (aIe != null && cVar.aIf() && (auE = aIe.auE()) != null && !arrayList.contains(Long.valueOf(auE.extensionCoreVersionCode))) {
-                arrayList.add(Long.valueOf(auE.extensionCoreVersionCode));
+        for (c cVar : e.aJL().aJN()) {
+            SwanAppCores aJx = cVar.aJx();
+            if (aJx != null && cVar.aJy() && (avW = aJx.avW()) != null && !arrayList.contains(Long.valueOf(avW.extensionCoreVersionCode))) {
+                arrayList.add(Long.valueOf(avW.extensionCoreVersionCode));
             }
         }
         if (DEBUG) {
@@ -52,7 +52,7 @@ public class a {
     public static void x(Bundle bundle) {
         if (bundle != null) {
             if (!ProcessUtils.isMainProcess()) {
-                com.baidu.swan.apps.process.messaging.a.aHE().a(new com.baidu.swan.apps.process.messaging.c(18, bundle).gy(true));
+                com.baidu.swan.apps.process.messaging.a.aIX().a(new com.baidu.swan.apps.process.messaging.c(18, bundle).gH(true));
                 return;
             }
             String string = bundle.getString("arg_dst_folder");
@@ -80,7 +80,7 @@ public class a {
                     }
                 }
             }
-            arrayList.addAll(awQ());
+            arrayList.addAll(ayi());
             if (DEBUG) {
                 Log.d("ExtCore-Utils", "deleteOldExtensionCores dstFolder: " + file.getPath() + " ignoreVersions: " + Arrays.toString(arrayList.toArray()));
             }
@@ -108,16 +108,16 @@ public class a {
         return false;
     }
 
-    public static long oT(@Nullable String str) {
-        String[] oU = oU(str);
-        if (oU == null) {
+    public static long oM(@Nullable String str) {
+        String[] oN = oN(str);
+        if (oN == null) {
             return 0L;
         }
         int i = 0;
         long j = 0;
         while (i < 3) {
             try {
-                j = (j << 16) | (i < oU.length ? Integer.valueOf(oU[i]).intValue() : 0L);
+                j = (j << 16) | (i < oN.length ? Integer.valueOf(oN[i]).intValue() : 0L);
                 i++;
             } catch (NumberFormatException e) {
                 if (DEBUG) {
@@ -132,15 +132,15 @@ public class a {
         return j;
     }
 
-    public static String ce(long j) {
-        return com.baidu.swan.apps.swancore.b.cR(j);
+    public static String cf(long j) {
+        return com.baidu.swan.apps.swancore.b.cS(j);
     }
 
-    public static boolean iZ(int i) {
-        return i == 1 ? com.baidu.swan.apps.ad.a.a.aHi() : com.baidu.swan.apps.ad.a.a.aHh();
+    public static boolean iU(int i) {
+        return i == 1 ? com.baidu.swan.apps.ad.a.a.aIB() : com.baidu.swan.apps.ad.a.a.aIA();
     }
 
-    private static String[] oU(@Nullable String str) {
+    private static String[] oN(@Nullable String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

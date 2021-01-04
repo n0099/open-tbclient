@@ -7,7 +7,7 @@ import com.idlefish.flutterboost.interfaces.IFlutterViewContainer;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes19.dex */
+/* loaded from: classes7.dex */
 public class ContainerRecord implements IContainerRecord {
     private final IFlutterViewContainer mContainer;
     private final long mCreatTime;
@@ -18,7 +18,7 @@ public class ContainerRecord implements IContainerRecord {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ContainerRecord(FlutterViewContainerManager flutterViewContainerManager, IFlutterViewContainer iFlutterViewContainer) {
-        Map containerUrlParams = iFlutterViewContainer.getContainerUrlParams();
+        Map<String, Object> containerUrlParams = iFlutterViewContainer.getContainerUrlParams();
         if (containerUrlParams != null && containerUrlParams.containsKey("__container_uniqueId_key__")) {
             this.mUniqueId = String.valueOf(containerUrlParams.get("__container_uniqueId_key__"));
         } else {
@@ -166,7 +166,7 @@ public class ContainerRecord implements IContainerRecord {
     public void onLowMemory() {
     }
 
-    /* loaded from: classes19.dex */
+    /* loaded from: classes7.dex */
     private class MethodChannelProxy {
         private int mState;
 

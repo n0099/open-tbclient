@@ -5,13 +5,13 @@ import android.util.JsonToken;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 class r {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static <T> List<com.airbnb.lottie.e.a<T>> a(JsonReader jsonReader, com.airbnb.lottie.e eVar, float f, aj<T> ajVar) throws IOException {
+    public static <T> List<com.airbnb.lottie.e.a<T>> a(JsonReader jsonReader, com.airbnb.lottie.d dVar, float f, aj<T> ajVar) throws IOException {
         ArrayList arrayList = new ArrayList();
         if (jsonReader.peek() == JsonToken.STRING) {
-            eVar.bf("Lottie doesn't support expressions.");
+            dVar.bc("Lottie doesn't support expressions.");
         } else {
             jsonReader.beginObject();
             while (jsonReader.hasNext()) {
@@ -30,16 +30,16 @@ class r {
                         if (jsonReader.peek() == JsonToken.BEGIN_ARRAY) {
                             jsonReader.beginArray();
                             if (jsonReader.peek() == JsonToken.NUMBER) {
-                                arrayList.add(q.a(jsonReader, eVar, f, ajVar, false));
+                                arrayList.add(q.a(jsonReader, dVar, f, ajVar, false));
                             } else {
                                 while (jsonReader.hasNext()) {
-                                    arrayList.add(q.a(jsonReader, eVar, f, ajVar, true));
+                                    arrayList.add(q.a(jsonReader, dVar, f, ajVar, true));
                                 }
                             }
                             jsonReader.endArray();
                             break;
                         } else {
-                            arrayList.add(q.a(jsonReader, eVar, f, ajVar, false));
+                            arrayList.add(q.a(jsonReader, dVar, f, ajVar, false));
                             break;
                         }
                     default:
@@ -61,11 +61,11 @@ class r {
             if (i2 >= size - 1) {
                 break;
             }
-            list.get(i2).Ii = Float.valueOf(list.get(i2 + 1).Ce);
+            list.get(i2).HQ = Float.valueOf(list.get(i2 + 1).BU);
             i = i2 + 1;
         }
         com.airbnb.lottie.e.a<?> aVar = list.get(size - 1);
-        if (aVar.If == 0) {
+        if (aVar.HN == 0) {
             list.remove(aVar);
         }
     }

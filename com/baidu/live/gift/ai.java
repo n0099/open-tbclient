@@ -2,15 +2,15 @@ package com.baidu.live.gift;
 
 import android.content.Context;
 import android.content.Intent;
-/* loaded from: classes4.dex */
+/* loaded from: classes11.dex */
 public interface ai {
-    void HO();
+    void Hp();
 
-    void ID();
+    void If();
 
-    void a(int i, int i2, Intent intent, com.baidu.live.data.w wVar, String str);
+    void a(int i, int i2, Intent intent, com.baidu.live.data.x xVar, String str);
 
     void a(Context context, long j, String str, long j2, String str2, String str3);
 
-    void bF(boolean z);
+    void bD(boolean z);
 }

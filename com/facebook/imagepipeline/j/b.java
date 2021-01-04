@@ -1,14 +1,14 @@
 package com.facebook.imagepipeline.j;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class b {
-    public static final a pqO = new C0998b();
-    private static volatile c pqP = null;
+    public static final a pGo = new C1024b();
+    private static volatile c pGp = null;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface a {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface c {
         void beginSection(String str);
 
@@ -19,28 +19,28 @@ public class b {
     }
 
     public static void beginSection(String str) {
-        exy().beginSection(str);
+        eBf().beginSection(str);
     }
 
     public static void endSection() {
-        exy().endSection();
+        eBf().endSection();
     }
 
-    private static c exy() {
-        if (pqP == null) {
+    private static c eBf() {
+        if (pGp == null) {
             synchronized (b.class) {
-                if (pqP == null) {
-                    pqP = new com.facebook.imagepipeline.j.a();
+                if (pGp == null) {
+                    pGp = new com.facebook.imagepipeline.j.a();
                 }
             }
         }
-        return pqP;
+        return pGp;
     }
 
     /* renamed from: com.facebook.imagepipeline.j.b$b  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    private static final class C0998b implements a {
-        private C0998b() {
+    /* loaded from: classes6.dex */
+    private static final class C1024b implements a {
+        private C1024b() {
         }
     }
 }
